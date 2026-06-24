@@ -15,10 +15,25 @@ concept extraction pipeline for GPIC.
 GPIC is gated on Hugging Face. Accept the dataset terms first, then set
 `HF_TOKEN`.
 
+## Environment
+
+Use a project-local micromamba environment. This does not require installing
+Python globally.
+
+```powershell
+micromamba create -y -p ".mamba\env" -f environment.yml
+```
+
+Run Python through the helper:
+
+```powershell
+.\scripts\run_python.ps1 --version
+```
+
 ```powershell
 $env:HF_TOKEN="hf_xxx"
 
-& 'C:\Users\rlath\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' `
+.\scripts\run_python.ps1 `
   scripts\extract_gpic_captions.py `
   --split val `
   --start 0 `
@@ -31,7 +46,7 @@ $env:HF_TOKEN="hf_xxx"
 For a dry run that only prints shard URLs:
 
 ```powershell
-& 'C:\Users\rlath\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' `
+.\scripts\run_python.ps1 `
   scripts\extract_gpic_captions.py `
   --split val `
   --start 0 `
@@ -42,4 +57,3 @@ For a dry run that only prints shard URLs:
 ## Notes
 
 Do not commit `data/`, `tmp/`, Hugging Face tokens, or generated large files.
-

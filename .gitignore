@@ -8,6 +8,8 @@ __pycache__/
 .venv/
 venv/
 env/
+.mamba/
+.micromamba/
 
 # Secrets
 .env
@@ -25,4 +27,3 @@ env/
 Thumbs.db
 .vscode/
 .idea/
-
