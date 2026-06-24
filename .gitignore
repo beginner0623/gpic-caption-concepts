@@ -1,0 +1,28 @@
+# Local/runtime artifacts
+data/
+tmp/
+__pycache__/
+*.py[cod]
+
+# Python environments
+.venv/
+venv/
+env/
+
+# Secrets
+.env
+*.token
+
+# Large generated outputs
+*.jsonl
+*.jsonl.gz
+*.parquet
+*.arrow
+*.tar
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
