@@ -8,6 +8,8 @@ from typing import Iterable
 
 import spacy
 
+from hyphen_span_retokenizer import ensure_hyphen_span_merger
+from object_mwe_retokenizer import DEFAULT_OBJECT_MWE_LEXICON, ensure_object_mwe_merger
 from quote_masking import DEFAULT_PLACEHOLDER, collect_quoted_text
 from quote_retokenizer import ensure_raw_quote_merger
 from raw_concept_extractor import extract_raw_concepts
@@ -370,11 +372,31 @@ def main() -> int:
         action="store_true",
         help="Render minimal stage-8 raw concept mentions and edges for sentence captions.",
     )
+    parser.add_argument(
+        "--merge-object-mwes",
+        action="store_true",
+        help="Merge high-confidence object noun MWEs before spaCy parsing.",
+    )
+    parser.add_argument(
+        "--merge-hyphen-spans",
+        action="store_true",
+        help="Merge remaining plain hyphen spans before spaCy parsing without forcing POS.",
+    )
+    parser.add_argument(
+        "--object-mwe-lexicon",
+        type=Path,
+        default=DEFAULT_OBJECT_MWE_LEXICON,
+        help="TSV lexicon used by --merge-object-mwes.",
+    )
     args = parser.parse_args()
 
     nlp = spacy.load(args.model)
     if args.mask_quotes:
         ensure_raw_quote_merger(nlp)
+    if args.merge_object_mwes:
+        ensure_object_mwe_merger(nlp, args.object_mwe_lexicon)
+    if args.merge_hyphen_spans:
+        ensure_hyphen_span_merger(nlp)
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     docs = [
@@ -386,6 +408,9 @@ def main() -> int:
         f"- mask_quotes: `{args.mask_quotes}`",
         f"- quote_handling: `{'raw_quote_retokenize' if args.mask_quotes else 'none'}`",
         f"- quote_placeholder: `deprecated_unused`",
+        f"- merge_object_mwes: `{args.merge_object_mwes}`",
+        f"- merge_hyphen_spans: `{args.merge_hyphen_spans}`",
+        f"- object_mwe_lexicon: `{args.object_mwe_lexicon}`",
         f"- parse_tag_lists: `{args.parse_tag_lists}`",
         "",
     ]

@@ -10,6 +10,10 @@ from typing import Iterable
 
 import spacy
 
+from hyphen_span_retokenizer import ensure_hyphen_span_merger
+from object_mwe_retokenizer import DEFAULT_OBJECT_MWE_LEXICON, ensure_object_mwe_merger
+from quote_retokenizer import ensure_raw_quote_merger
+
 
 def open_text(path: Path):
     if path.suffix == ".gz":
@@ -153,6 +157,27 @@ def main() -> int:
         action="store_true",
         help="Disable CuPy reduction accelerators such as CUB to avoid local NVRTC/MSVC header issues.",
     )
+    parser.add_argument(
+        "--mask-quotes",
+        action="store_true",
+        help="Merge raw double-quoted spans before spaCy parsing.",
+    )
+    parser.add_argument(
+        "--merge-object-mwes",
+        action="store_true",
+        help="Merge high-confidence object noun MWEs before spaCy parsing.",
+    )
+    parser.add_argument(
+        "--merge-hyphen-spans",
+        action="store_true",
+        help="Merge remaining plain hyphen spans before spaCy parsing without forcing POS.",
+    )
+    parser.add_argument(
+        "--object-mwe-lexicon",
+        type=Path,
+        default=DEFAULT_OBJECT_MWE_LEXICON,
+        help="TSV lexicon used by --merge-object-mwes.",
+    )
     parser.add_argument("--output", type=Path, default=None, help="Optional JSON result path")
     args = parser.parse_args()
 
@@ -177,6 +202,12 @@ def main() -> int:
 
     load_start = time.perf_counter()
     nlp = spacy.load(args.model)
+    if args.mask_quotes:
+        ensure_raw_quote_merger(nlp)
+    if args.merge_object_mwes:
+        ensure_object_mwe_merger(nlp, args.object_mwe_lexicon)
+    if args.merge_hyphen_spans:
+        ensure_hyphen_span_merger(nlp)
     load_seconds = time.perf_counter() - load_start
 
     warmup_count = min(args.warmup_records, len(captions))
@@ -204,6 +235,11 @@ def main() -> int:
         "gpu_enabled": gpu_enabled,
         "cupy_include_dir": str(args.cupy_include_dir) if args.cupy_include_dir is not None else None,
         "disable_cupy_reduction_accelerators": args.disable_cupy_reduction_accelerators,
+        "mask_quotes": args.mask_quotes,
+        "merge_object_mwes": args.merge_object_mwes,
+        "merge_hyphen_spans": args.merge_hyphen_spans,
+        "object_mwe_lexicon": str(args.object_mwe_lexicon),
+        "pipe_names": nlp.pipe_names,
         "read_seconds": round_float(read_seconds),
         "model_load_seconds": round_float(load_seconds),
         "parse_seconds": round_float(parse_seconds),
