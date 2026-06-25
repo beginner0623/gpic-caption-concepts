@@ -112,6 +112,43 @@ STATE_ATTRIBUTE_WORDS = {
     "hold",
     "holding",
 }
+PERSON_OBJECT_WORDS = {
+    "adult",
+    "adults",
+    "baby",
+    "babies",
+    "boy",
+    "boys",
+    "child",
+    "children",
+    "girl",
+    "girls",
+    "kid",
+    "kids",
+    "man",
+    "men",
+    "people",
+    "person",
+    "player",
+    "players",
+    "rider",
+    "riders",
+    "woman",
+    "women",
+}
+PLURAL_PERSON_OBJECT_WORDS = {
+    "adults",
+    "babies",
+    "boys",
+    "children",
+    "girls",
+    "kids",
+    "men",
+    "people",
+    "players",
+    "riders",
+    "women",
+}
 
 
 @dataclass(frozen=True)
@@ -262,7 +299,20 @@ def _root_token(doc):
     return doc[-1] if len(doc) else None
 
 
-def _object_head(doc):
+def _is_single_person_object_segment(doc, segment: TagSegment) -> bool:
+    if len(doc) != 1:
+        return False
+    token = doc[0]
+    return normalize_tag_text(token.text) in PERSON_OBJECT_WORDS or segment.norm in PERSON_OBJECT_WORDS
+
+
+def _is_person_object_override(token, segment: TagSegment) -> bool:
+    return normalize_tag_text(token.text) in PERSON_OBJECT_WORDS or segment.norm in PERSON_OBJECT_WORDS
+
+
+def _object_head(doc, segment: TagSegment | None = None):
+    if segment is not None and _is_single_person_object_segment(doc, segment):
+        return doc[0]
     nouns = [token for token in doc if token.pos_ in OBJECT_POS]
     if nouns:
         return nouns[-1]
@@ -274,8 +324,11 @@ def _object_head(doc):
     return None
 
 
-def _norm_tag_list_pos(token, *, is_head: bool = False) -> tuple[str, str]:
+def _norm_tag_list_pos(token, *, is_head: bool = False, person_object_override: bool = False) -> tuple[str, str]:
     lemma = token.lemma_.lower()
+    if is_head and person_object_override:
+        tag = "NNS" if normalize_tag_text(token.text) in PLURAL_PERSON_OBJECT_WORDS else "NN"
+        return "NOUN", tag
     if lemma in COLOR_WORDS or lemma in SIZE_WORDS:
         return "ADJ", "JJ"
     if token.pos_ == "PROPN" and token.text.islower():
@@ -379,8 +432,13 @@ def parse_tag_list(nlp, caption: str) -> TagListParseResult:
                 )
             )
         for token in doc:
-            head = _object_head(doc)
-            pos_norm, tag_norm = _norm_tag_list_pos(token, is_head=head is not None and token.i == head.i)
+            head = _object_head(doc, segment)
+            is_head = head is not None and token.i == head.i
+            pos_norm, tag_norm = _norm_tag_list_pos(
+                token,
+                is_head=is_head,
+                person_object_override=is_head and _is_person_object_override(token, segment),
+            )
             segment_tokens.append(
                 SegmentToken(
                     tag_id=segment.tag_id,
@@ -437,17 +495,25 @@ def parse_tag_list(nlp, caption: str) -> TagListParseResult:
                 )
             continue
 
-        head = _object_head(doc)
+        head = _object_head(doc, segment)
         if head is not None:
             head_is_object_pos = head.pos_ in OBJECT_POS
+            head_is_person_override = _is_person_object_override(head, segment)
+            role = "segment_head"
+            confidence = "high"
+            if head_is_person_override and not head_is_object_pos:
+                role = "tag_list_person_object_override"
+            elif not head_is_object_pos:
+                role = "ambiguous_segment_head"
+                confidence = "medium"
             object_id = add_mention(
                 "object",
                 head.text,
                 head.lemma_,
                 segment.tag_id,
                 head.i,
-                "segment_head" if head_is_object_pos else "ambiguous_segment_head",
-                "high" if head_is_object_pos else "medium",
+                role,
+                confidence,
             )
             previous_object_ids.append(object_id)
             for modifier in _modifier_tokens(doc, head):

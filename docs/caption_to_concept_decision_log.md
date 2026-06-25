@@ -1222,3 +1222,68 @@ parent를 caption 안에 직접 끼워 넣으면 원문 정보가 훼손된다.
 
 현재 우선순위는 1 -> 2 -> 3 순서가 가장 안전하다.
 
+---
+
+## 2026-06-26 - tag-list 단일 person segment POS 보정
+
+### 배경
+
+tag-list caption에서 단일 segment `man`이 spaCy에서 `INTJ/UH`로 잡히는 문제가 있었다.
+
+문장에서는 `Man, that is huge.`처럼 `man`이 실제 감탄사로 쓰일 수 있다.
+하지만 tag-list caption의 단일 segment `man`은 거의 항상 image object tag로 봐야 한다.
+
+### 결정
+
+`man` 하나만 hard coding하지 않고, tag-list branch 전용 lexical override rule로 처리한다.
+
+핵심 원칙:
+
+```text
+sentence caption에서는 적용하지 않는다.
+tag-list caption에서만 적용한다.
+pos_raw / tag_raw는 spaCy 결과를 보존한다.
+pos_norm / tag_norm만 downstream schema 판단용으로 보정한다.
+```
+
+### 구현
+
+`scripts/tag_list_parser.py`에 person object lexicon을 추가했다.
+
+예:
+
+```text
+man, men, woman, women, person, people, boy, girl, child, children,
+baby, kids, player, rider
+```
+
+tag-list segment가 단일 token이고 해당 token 또는 segment norm이 person object lexicon에 있으면:
+
+```text
+pos_raw: spaCy 원본
+tag_raw: spaCy 원본
+pos_norm: NOUN
+tag_norm: NN 또는 NNS
+concept_type: object
+confidence: high
+```
+
+raw POS가 이미 object로 잡힌 경우 role은 기존처럼 `segment_head`로 둔다.
+spaCy가 `INTJ/UH`처럼 object로 보지 못한 경우에만 role을 `tag_list_person_object_override`로 남긴다.
+
+### 이유
+
+이 처리는 parser의 일반 POS 결과를 덮어쓰는 것이 아니라, tag-list라는 입력 형식에서는 segment classifier를 우선한다는 결정이다.
+
+즉:
+
+```text
+hard-coded exception X
+tag-list-only lexical normalization O
+```
+
+### 후속 작업
+
+- person lexicon을 너무 넓히지 않는다.
+- 나중에 object single-word lexicon을 따로 만들 경우, person override와 일반 object override를 분리한다.
+- sentence caption에는 같은 override를 적용하지 않는다.
