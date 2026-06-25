@@ -9,6 +9,7 @@
 ## 01
 
 **caption_shape:** `sentence-like`
+**caption_id:** `005a13525e45210df2a71777a9060032b3221dbee0e39d5344213385b23c8814`
 
 > A person with dreadlocks and a red bow sits at a table with art posters and stickers.
 
@@ -52,6 +53,7 @@
 ## 02
 
 **caption_shape:** `multi-sentence`
+**caption_id:** `010bb91bf88524cee960135440eff96892d317358f1ef9e027accc6882429c14`
 
 > A brown insect with wings is crawling on a cracked, weathered wooden surface. The wood shows signs of age with visible splits and small bits of debris scattered around. The scene appears outdoors on a forest floor or fallen tree trunk.
 
@@ -130,6 +132,7 @@
 ## 03
 
 **caption_shape:** `multi-sentence`
+**caption_id:** `0326facce37e93230108fb311cc653eecb8ee62a67a1f0d9f95525ddd9fe3014`
 
 > A woman stands at a podium speaking in front of an audience. An American flag is behind her, and a screen shows the text "Closing the Access Divide."
 
@@ -138,9 +141,9 @@
 > A woman stands at a podium speaking in front of an audience. An American flag is behind her, and a screen shows the quoted text.
 
 ### Quote Mentions
-| id | text_raw | text_norm | placeholder | consumed_prefix | char_span |
-| --- | --- | --- | --- | --- | --- |
-| q0 | Closing the Access Divide. | closing the access divide. | the quoted text | the text | 121:149 |
+| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | masked_char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| q0 | 0326facce37e93230108fb311cc653eecb8ee62a67a1f0d9f95525ddd9fe3014:q0 | Closing the Access Divide. | closing the access divide. | the quoted text | the text | 121:149 | 112:127 |
 
 ### Sentences
 | sentence | token_span |
@@ -195,6 +198,7 @@
 ## 04
 
 **caption_shape:** `multi-sentence`
+**caption_id:** `03dfd14a3d7fc8b961a00424e43bfbdfcb9eded2464416b15cc6e9441a503814`
 
 > Three people stand with a shopping cart filled with groceries and bags. One person holds a red snack bag.
 
@@ -242,6 +246,7 @@
 ## 05
 
 **caption_shape:** `multi-sentence`
+**caption_id:** `049ccab2d0384df0e916b4cb21c0840387d630be1c36548aa7f05dad5f5d4014`
 
 > Bright orange glass flowers stand in a garden bed with green grass and purple blooms. In the background, people walk near a wooden fence under a large umbrella. Trees and a blue structure are visible beyond the garden area.
 
@@ -317,6 +322,7 @@
 ## 06
 
 **caption_shape:** `tag-list-like`
+**caption_id:** `050521436694404336ade2d13e39d7635191e3ea8eccf2a0c80cf128880d7414`
 
 > smiling couple, formal party, british flags, chandelier, wine glasses
 
@@ -354,6 +360,7 @@
 ## 07
 
 **caption_shape:** `sentence-like`
+**caption_id:** `054a504fff891dae0e43522f858a2e7df4e2a5c21d99937f70462b69a4386414`
 
 > A white church with a cross on top has stone steps leading to a wooden door.
 
@@ -395,6 +402,7 @@
 ## 08
 
 **caption_shape:** `multi-sentence`
+**caption_id:** `05784a8cb72a17349e2cd4389708153527b40af80a043636d0ff17fdcf16c014`
 
 > A poster on a black trash can reads "BANG GOES THE KNIGHTHOOD" with a silhouette of a man in a hat. The scene is on a city sidewalk.
 
@@ -403,9 +411,9 @@
 > A poster on a black trash can reads the quoted text with a silhouette of a man in a hat. The scene is on a city sidewalk.
 
 ### Quote Mentions
-| id | text_raw | text_norm | placeholder | consumed_prefix | char_span |
-| --- | --- | --- | --- | --- | --- |
-| q0 | BANG GOES THE KNIGHTHOOD | bang goes the knighthood | the quoted text |  | 36:62 |
+| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | masked_char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| q0 | 05784a8cb72a17349e2cd4389708153527b40af80a043636d0ff17fdcf16c014:q0 | BANG GOES THE KNIGHTHOOD | bang goes the knighthood | the quoted text |  | 36:62 | 36:51 |
 
 ### Sentences
 | sentence | token_span |
@@ -461,6 +469,7 @@
 ## 09
 
 **caption_shape:** `multi-sentence`
+**caption_id:** `0670190ac8436d736a62a8bf08625ad242a7891121da4f518b00c9642570bc14`
 
 > A young child with blonde hair smiles widely while wearing a blue and white striped hat. The child is bare-shouldered and appears indoors, with a window visible in the background.
 
@@ -522,6 +531,7 @@
 ## 10
 
 **caption_shape:** `tag-list-like`
+**caption_id:** `068c9ac59345edb43cd2e03ceec8f57ee0c0fbf399ff97f5f348ac0e716b0014`
 
 > roller skaters, helmet, referee, court, blue jersey
 
@@ -557,6 +567,7 @@
 ## 11
 
 **caption_shape:** `multi-sentence`
+**caption_id:** `08612f90283dcb7b3b1fa62f0512b84c577e5a2635a5e1e5346c33e0505ad414`
 
 > A large stone building with a gray roof and arched windows stands on a cobblestone street. A dark sedan is parked in front, and a bus is visible further down the road under a partly cloudy sky.
 
@@ -626,6 +637,7 @@
 ## 12
 
 **caption_shape:** `multi-sentence`
+**caption_id:** `0882bfa152ac30901673edf8d30aba5ce433439a9a71153fea1e970f9f0f4c14`
 
 > A man in a white shirt holds a basketball above his head on a gym court. Several people in pink and gray shirts play nearby.
 
@@ -680,6 +692,7 @@
 ## 13
 
 **caption_shape:** `multi-sentence`
+**caption_id:** `097c49356f8c365fc2a90e92a076d206bee7aa6abeea8fadad4ca092b9c5c414`
 
 > A desert landscape with mountains under a cloudy sky. A black object sits on the dry, rocky ground.
 
@@ -726,6 +739,7 @@
 ## 14
 
 **caption_shape:** `tag-list-like`
+**caption_id:** `0a404060dc0c39ea0ea98fdd78558ac2b78bfd5c7e8cce93647fda2de2964014`
 
 > brown boot, indoor, brick wall, display, large
 
@@ -759,6 +773,7 @@
 ## 15
 
 **caption_shape:** `multi-sentence`
+**caption_id:** `0a74bd648e7249dd4137548b30a087f07b1abb266189a2dd623d122f285af814`
 
 > Two men smile for the camera in a bathroom. One wears a vest and red scarf, the other a yellow shirt.
 
@@ -808,6 +823,7 @@
 ## 16
 
 **caption_shape:** `multi-sentence`
+**caption_id:** `0b51847b650bf2311e48557b7b3619abd6c1246de89f64a33bb833c172fe4014`
 
 > Children in white dresses and shirts sit on chairs during a performance. One child holds a violin, while others are seated with music stands nearby. The setting is indoors, with red curtains and blue chairs visible in the background.
 
@@ -886,6 +902,7 @@
 ## 17
 
 **caption_shape:** `tag-list-like`
+**caption_id:** `0bb595b117e1184dd61d50f4c00209733e3beeb7d2cce3851c9878f87971fc14`
 
 > glass wall, worker, sidewalk, building, reflection, grass
 
@@ -923,6 +940,7 @@
 ## 18
 
 **caption_shape:** `multi-sentence`
+**caption_id:** `0c7588f2c805503462f15a197d85e1aa77344f20e2a1a6231d2f8726d4f1e414`
 
 > A cityscape viewed from between two tall buildings at dusk. Below, streets and vehicles stretch toward a waterfront with lit-up skyscrapers in the distance. The sky shows soft orange and gray hues near the horizon.
 
@@ -996,6 +1014,7 @@
 ## 19
 
 **caption_shape:** `multi-sentence`
+**caption_id:** `0e1b08528f25adc13662435f45a0bd1f5e90270018e6ae5fb0a30d822a589c14`
 
 > A paved road with a yellow line runs along the bottom of the frame. Beyond it, a vast green field stretches to the horizon under a clear blue sky. A few distant trees and power lines are visible in the background.
 
@@ -1073,6 +1092,7 @@
 ## 20
 
 **caption_shape:** `sentence-like`
+**caption_id:** `0e1b59c09008af99453425a727c0feab2c5e69433138763b5813eb069b64a814`
 
 > A teacher and six students in white shirts stand together on a colorful classroom rug.
 

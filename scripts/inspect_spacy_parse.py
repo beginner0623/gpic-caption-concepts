@@ -38,6 +38,11 @@ def caption_shape(caption: str) -> str:
     return "sentence-like"
 
 
+def row_caption_id(row: dict) -> str | None:
+    value = row.get("key") or row.get("caption_id") or row.get("_gpic_shard_member")
+    return str(value) if value is not None else None
+
+
 def markdown_table(headers: list[str], rows: list[list[str]]) -> str:
     escaped = []
     for row in rows:
@@ -58,7 +63,12 @@ def render_doc(
     quote_placeholder: str = DEFAULT_PLACEHOLDER,
 ) -> str:
     caption = row.get("caption", "")
-    quote_result = mask_quoted_text(caption, placeholder=quote_placeholder) if mask_quotes else None
+    caption_id = row_caption_id(row)
+    quote_result = (
+        mask_quoted_text(caption, placeholder=quote_placeholder, caption_id=caption_id)
+        if mask_quotes
+        else None
+    )
     parse_caption = quote_result.masked_caption if quote_result else caption
     doc = nlp(parse_caption)
 
@@ -98,11 +108,13 @@ def render_doc(
             quote_rows.append(
                 [
                     mention.quote_id,
+                    mention.global_quote_id or "",
                     mention.text_raw,
                     mention.text_norm,
                     mention.placeholder,
                     mention.consumed_prefix,
                     f"{mention.char_start}:{mention.char_end}",
+                    f"{mention.masked_char_start}:{mention.masked_char_end}",
                 ]
             )
 
@@ -110,6 +122,7 @@ def render_doc(
         f"## {index:02d}",
         "",
         f"**caption_shape:** `{caption_shape(caption)}`",
+        f"**caption_id:** `{caption_id}`" if caption_id else "**caption_id:** `_none_`",
         "",
         f"> {caption}",
         "",
@@ -123,7 +136,16 @@ def render_doc(
                 "",
                 "### Quote Mentions",
                 markdown_table(
-                    ["id", "text_raw", "text_norm", "placeholder", "consumed_prefix", "char_span"],
+                    [
+                        "id",
+                        "global_id",
+                        "text_raw",
+                        "text_norm",
+                        "placeholder",
+                        "consumed_prefix",
+                        "raw_char_span",
+                        "masked_char_span",
+                    ],
                     quote_rows,
                 )
                 if quote_rows

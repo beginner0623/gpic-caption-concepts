@@ -67,6 +67,11 @@ parsed caption:
 A poster reads the quoted text on the wall.
 ```
 
+각 quote는 caption 내부 local id인 `quote_id`와 dataset 전체에서 연결하기 위한
+`global_quote_id = caption_id + ":" + quote_id`를 함께 가진다. 원문 복구에는
+`text_raw`, 원문 위치 확인에는 `char_start`/`char_end`, parser output과의 연결에는
+`masked_char_start`/`masked_char_end`를 사용한다.
+
 샘플 parse 리포트:
 
 ```powershell
