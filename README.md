@@ -54,23 +54,28 @@ For a dry run that only prints shard URLs:
   --dry-run
 ```
 
-## Quote Text Masking
+## Quote Text Retokenization
 
-따옴표 안의 문구는 일반 object/action/relation으로 parse하지 않고
-`the quoted text`로 masking한 뒤 별도 metadata로 보존한다.
+따옴표 안의 문구는 placeholder로 바꾸지 않는다. 원문 caption을 유지한 채
+spaCy tokenizer 직후 Retokenizer로 `"..."` span 자체를 하나의 token으로
+merge하고, quote 원문은 별도 metadata로 보존한다.
 
 ```text
 raw:
 A poster reads "BANG GOES THE KNIGHTHOOD" on the wall.
 
 parsed caption:
-A poster reads the quoted text on the wall.
+A poster reads "BANG GOES THE KNIGHTHOOD" on the wall.
+
+merged quote token:
+"BANG GOES THE KNIGHTHOOD"
 ```
 
 각 quote는 caption 내부 local id인 `quote_id`와 dataset 전체에서 연결하기 위한
 `global_quote_id = caption_id + ":" + quote_id`를 함께 가진다. 원문 복구에는
-`text_raw`, 원문 위치 확인에는 `char_start`/`char_end`, parser output과의 연결에는
-`masked_char_start`/`masked_char_end`를 사용한다.
+`text_raw`, 원문 위치 확인과 parser output 연결에는 `char_start`/`char_end`를
+사용한다. 기존 CLI 호환 때문에 옵션 이름은 `--mask-quotes`이지만, 현재 동작은
+raw quote span retokenization이다.
 
 샘플 parse 리포트:
 
@@ -83,8 +88,6 @@ A poster reads the quoted text on the wall.
   --model en_core_web_trf `
   --mask-quotes
 ```
-
-placeholder를 바꿔 비교하고 싶으면 `--quote-placeholder "visible text"`처럼 지정한다.
 
 ## Notes
 

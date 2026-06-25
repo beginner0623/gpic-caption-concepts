@@ -6,6 +6,7 @@
 - max_records: `100`
 - records_written: `100`
 - mask_quotes: `True`
+- quote_handling: `raw_quote_retokenize`
 - parse_tag_lists: `True`
 
 ## Caption Shapes
@@ -24,8 +25,8 @@
 ## Concept Types
 | item | count |
 | --- | ---: |
-| `object` | 731 |
-| `attribute` | 471 |
+| `object` | 729 |
+| `attribute` | 455 |
 | `action` | 209 |
 | `context` | 49 |
 | `quantity` | 16 |
@@ -33,19 +34,19 @@
 ## Mention Roles
 | item | count |
 | --- | ---: |
-| `noun_chunk_root` | 636 |
+| `noun_chunk_root` | 634 |
 | `verb_predicate` | 209 |
 | `color_attribute` | 121 |
 | `modifier_attribute` | 117 |
 | `segment_head` | 91 |
-| `compound_modifier` | 65 |
+| `compound_modifier` | 61 |
 | `attribute` | 41 |
 | `visual_attribute` | 38 |
 | `context_word` | 34 |
 | `material_attribute` | 31 |
-| `state_attribute` | 27 |
 | `size_attribute` | 26 |
 | `quantity` | 16 |
+| `state_attribute` | 15 |
 | `spatial_region` | 11 |
 | `floating_attribute` | 5 |
 | `scene_context` | 4 |
@@ -55,10 +56,10 @@
 ## Edge Types
 | item | count |
 | --- | ---: |
-| `has_attribute` | 466 |
-| `relation` | 333 |
+| `has_attribute` | 450 |
+| `relation` | 332 |
 | `agent` | 158 |
-| `patient` | 83 |
+| `patient` | 79 |
 | `has_context` | 38 |
 | `has_quantity` | 16 |
 | `candidate_has_attribute` | 5 |
@@ -80,11 +81,11 @@
 | `across` | 5 |
 | `into` | 5 |
 | `in_front_of` | 4 |
-| `include` | 4 |
 | `during` | 3 |
 | `around` | 3 |
 | `from` | 3 |
 | `against` | 3 |
+| `include` | 3 |
 | `beyond` | 2 |
 | `down` | 2 |
 | `for` | 2 |
@@ -105,8 +106,8 @@
 ## Confidence
 | item | count |
 | --- | ---: |
-| `mention:high` | 1177 |
-| `edge:medium` | 587 |
+| `mention:high` | 1175 |
+| `edge:medium` | 566 |
 | `edge:high` | 507 |
-| `mention:medium` | 299 |
+| `mention:medium` | 283 |
 | `edge:low` | 5 |

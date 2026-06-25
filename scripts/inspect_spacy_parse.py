@@ -8,7 +8,8 @@ from typing import Iterable
 
 import spacy
 
-from quote_masking import DEFAULT_PLACEHOLDER, mask_quoted_text
+from quote_masking import DEFAULT_PLACEHOLDER, collect_quoted_text
+from quote_retokenizer import ensure_raw_quote_merger
 from raw_concept_extractor import extract_raw_concepts
 from tag_list_parser import is_tag_list_row, parse_tag_list
 
@@ -69,11 +70,11 @@ def render_doc(
     caption = row.get("caption", "")
     caption_id = row_caption_id(row)
     quote_result = (
-        mask_quoted_text(caption, placeholder=quote_placeholder, caption_id=caption_id)
+        collect_quoted_text(caption, caption_id=caption_id)
         if mask_quotes
         else None
     )
-    parse_caption = quote_result.masked_caption if quote_result else caption
+    parse_caption = caption
     quote_rows = []
     if quote_result:
         for mention in quote_result.mentions:
@@ -116,7 +117,7 @@ def render_doc(
                         "placeholder",
                         "consumed_prefix",
                         "raw_char_span",
-                        "masked_char_span",
+                        "parse_char_span",
                     ],
                     quote_rows,
                 )
@@ -352,12 +353,12 @@ def main() -> int:
     parser.add_argument(
         "--mask-quotes",
         action="store_true",
-        help=f'Replace double-quoted text spans with "{DEFAULT_PLACEHOLDER}" before spaCy parsing.',
+        help="Preserve double-quoted text and merge raw quote spans before spaCy parsing.",
     )
     parser.add_argument(
         "--quote-placeholder",
         default=DEFAULT_PLACEHOLDER,
-        help="Natural-language placeholder used when --mask-quotes is enabled.",
+        help="Deprecated. Raw quote retokenization no longer replaces quoted text with a placeholder.",
     )
     parser.add_argument(
         "--parse-tag-lists",
@@ -372,6 +373,8 @@ def main() -> int:
     args = parser.parse_args()
 
     nlp = spacy.load(args.model)
+    if args.mask_quotes:
+        ensure_raw_quote_merger(nlp)
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     docs = [
@@ -381,7 +384,8 @@ def main() -> int:
         f"- model: `{args.model}`",
         f"- max_records: `{args.max_records}`",
         f"- mask_quotes: `{args.mask_quotes}`",
-        f"- quote_placeholder: `{args.quote_placeholder}`",
+        f"- quote_handling: `{'raw_quote_retokenize' if args.mask_quotes else 'none'}`",
+        f"- quote_placeholder: `deprecated_unused`",
         f"- parse_tag_lists: `{args.parse_tag_lists}`",
         "",
     ]

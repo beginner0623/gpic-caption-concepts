@@ -4,7 +4,8 @@
 - model: `en_core_web_trf`
 - max_records: `100`
 - mask_quotes: `True`
-- quote_placeholder: `the quoted text`
+- quote_handling: `raw_quote_retokenize`
+- quote_placeholder: `deprecated_unused`
 - parse_tag_lists: `True`
 
 ## 01
@@ -220,18 +221,18 @@
 
 **parsed_caption:**
 
-> A woman stands at a podium speaking in front of an audience. An American flag is behind her, and a screen shows the quoted text.
+> A woman stands at a podium speaking in front of an audience. An American flag is behind her, and a screen shows the text "Closing the Access Divide."
 
 ### Quote Mentions
-| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | masked_char_span |
+| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | parse_char_span |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| q0 | 0326facce37e93230108fb311cc653eecb8ee62a67a1f0d9f95525ddd9fe3014:q0 | Closing the Access Divide. | closing the access divide. | the quoted text | the text | 121:149 | 112:127 |
+| q0 | 0326facce37e93230108fb311cc653eecb8ee62a67a1f0d9f95525ddd9fe3014:q0 | Closing the Access Divide. | closing the access divide. | raw_quote_span | the text | 121:149 | 121:149 |
 
 ### Sentences
 | sentence | token_span |
 | --- | --- |
 | A woman stands at a podium speaking in front of an audience. | 0:13 |
-| An American flag is behind her, and a screen shows the quoted text. | 13:28 |
+| An American flag is behind her, and a screen shows the text "Closing the Access Divide." | 13:27 |
 
 ### Noun Chunks
 | chunk | root | root_lemma | root_dep | root_head | token_span |
@@ -243,7 +244,8 @@
 | An American flag | flag | flag | nsubj | is | 13:16 |
 | her | her | she | pobj | behind | 18:19 |
 | a screen | screen | screen | nsubj | shows | 21:23 |
-| the quoted text | text | text | dobj | shows | 24:27 |
+| the text | text | text | dobj | shows | 24:26 |
+| "Closing the Access Divide." | "Closing the Access Divide." | closing_the_access_divide. | appos | text | 26:27 |
 
 ### Tokens / POS / Lemma / Dependency
 | i | text | lemma | pos | tag | dep | head | head_i |
@@ -272,10 +274,9 @@
 | 21 | a | a | DET | DT | det | screen | 22 |
 | 22 | screen | screen | NOUN | NN | nsubj | shows | 23 |
 | 23 | shows | show | VERB | VBZ | conj | is | 16 |
-| 24 | the | the | DET | DT | det | text | 26 |
-| 25 | quoted | quote | VERB | VBN | amod | text | 26 |
-| 26 | text | text | NOUN | NN | dobj | shows | 23 |
-| 27 | . | . | PUNCT | . | punct | shows | 23 |
+| 24 | the | the | DET | DT | det | text | 25 |
+| 25 | text | text | NOUN | NN | dobj | shows | 23 |
+| 26 | "Closing the Access Divide." | closing_the_access_divide. | NOUN | NN | appos | text | 25 |
 
 ### Raw Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -287,8 +288,8 @@
 | m4 | attribute | American | american | chunk4 | 14 | modifier_attribute | medium |
 | m5 | object | her | she | chunk5 | 18 | noun_chunk_root | high |
 | m6 | object | screen | screen | chunk6 | 22 | noun_chunk_root | high |
-| m7 | object | text | text | chunk7 | 26 | noun_chunk_root | high |
-| m8 | attribute | quoted | quote | chunk7 | 25 | state_attribute | medium |
+| m7 | object | text | text | chunk7 | 25 | noun_chunk_root | high |
+| m8 | object | "Closing the Access Divide." | closing_the_access_divide. | chunk8 | 26 | noun_chunk_root | high |
 | m9 | action | stands | stand | doc | 2 | verb_predicate | high |
 | m10 | action | speaking | speak | doc | 6 | verb_predicate | high |
 | m11 | action | shows | show | doc | 23 | verb_predicate | high |
@@ -297,13 +298,12 @@
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m3 | m4 | medium | chunk4 amod -> flag |
-| e1 | has_attribute | m7 | m8 | medium | chunk7 amod -> text |
-| e2 | agent | m9 | m0 | medium | nsubj -> stands |
-| e3 | agent | m11 | m6 | medium | nsubj -> shows |
-| e4 | patient | m11 | m7 | medium | dobj -> shows |
-| e5 | relation | m0 | m1 | medium | at |
-| e6 | relation | m0 | m2 | high | in_front_of |
-| e7 | relation | m3 | m5 | high | behind |
+| e1 | agent | m9 | m0 | medium | nsubj -> stands |
+| e2 | agent | m11 | m6 | medium | nsubj -> shows |
+| e3 | patient | m11 | m7 | medium | dobj -> shows |
+| e4 | relation | m0 | m1 | medium | at |
+| e5 | relation | m0 | m2 | high | in_front_of |
+| e6 | relation | m3 | m5 | high | behind |
 
 ## 04
 
@@ -650,30 +650,30 @@
 
 **parsed_caption:**
 
-> A poster on a black trash can reads the quoted text with a silhouette of a man in a hat. The scene is on a city sidewalk.
+> A poster on a black trash can reads "BANG GOES THE KNIGHTHOOD" with a silhouette of a man in a hat. The scene is on a city sidewalk.
 
 ### Quote Mentions
-| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | masked_char_span |
+| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | parse_char_span |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| q0 | 05784a8cb72a17349e2cd4389708153527b40af80a043636d0ff17fdcf16c014:q0 | BANG GOES THE KNIGHTHOOD | bang goes the knighthood | the quoted text |  | 36:62 | 36:51 |
+| q0 | 05784a8cb72a17349e2cd4389708153527b40af80a043636d0ff17fdcf16c014:q0 | BANG GOES THE KNIGHTHOOD | bang goes the knighthood | raw_quote_span |  | 36:62 | 36:62 |
 
 ### Sentences
 | sentence | token_span |
 | --- | --- |
-| A poster on a black trash can reads the quoted text with a silhouette of a man in a hat. | 0:21 |
-| The scene is on a city sidewalk. | 21:29 |
+| A poster on a black trash can reads "BANG GOES THE KNIGHTHOOD" with a silhouette of a man in a hat. | 0:19 |
+| The scene is on a city sidewalk. | 19:27 |
 
 ### Noun Chunks
 | chunk | root | root_lemma | root_dep | root_head | token_span |
 | --- | --- | --- | --- | --- | --- |
 | A poster | poster | poster | nsubj | reads | 0:2 |
 | a black trash can | can | can | pobj | on | 3:7 |
-| the quoted text | text | text | dobj | reads | 8:11 |
-| a silhouette | silhouette | silhouette | pobj | with | 12:14 |
-| a man | man | man | pobj | of | 15:17 |
-| a hat | hat | hat | pobj | in | 18:20 |
-| The scene | scene | scene | nsubj | is | 21:23 |
-| a city sidewalk | sidewalk | sidewalk | pobj | on | 25:28 |
+| "BANG GOES THE KNIGHTHOOD" | "BANG GOES THE KNIGHTHOOD" | bang_goes_the_knighthood | dobj | reads | 8:9 |
+| a silhouette | silhouette | silhouette | pobj | with | 10:12 |
+| a man | man | man | pobj | of | 13:15 |
+| a hat | hat | hat | pobj | in | 16:18 |
+| The scene | scene | scene | nsubj | is | 19:21 |
+| a city sidewalk | sidewalk | sidewalk | pobj | on | 23:26 |
 
 ### Tokens / POS / Lemma / Dependency
 | i | text | lemma | pos | tag | dep | head | head_i |
@@ -686,27 +686,25 @@
 | 5 | trash | trash | NOUN | NN | compound | can | 6 |
 | 6 | can | can | NOUN | NN | pobj | on | 2 |
 | 7 | reads | read | VERB | VBZ | ROOT | reads | 7 |
-| 8 | the | the | DET | DT | det | text | 10 |
-| 9 | quoted | quote | VERB | VBN | amod | text | 10 |
-| 10 | text | text | NOUN | NN | dobj | reads | 7 |
-| 11 | with | with | ADP | IN | prep | reads | 7 |
-| 12 | a | a | DET | DT | det | silhouette | 13 |
-| 13 | silhouette | silhouette | NOUN | NN | pobj | with | 11 |
-| 14 | of | of | ADP | IN | prep | silhouette | 13 |
-| 15 | a | a | DET | DT | det | man | 16 |
-| 16 | man | man | NOUN | NN | pobj | of | 14 |
-| 17 | in | in | ADP | IN | prep | man | 16 |
-| 18 | a | a | DET | DT | det | hat | 19 |
-| 19 | hat | hat | NOUN | NN | pobj | in | 17 |
-| 20 | . | . | PUNCT | . | punct | reads | 7 |
-| 21 | The | the | DET | DT | det | scene | 22 |
-| 22 | scene | scene | NOUN | NN | nsubj | is | 23 |
-| 23 | is | be | AUX | VBZ | ROOT | is | 23 |
-| 24 | on | on | ADP | IN | prep | is | 23 |
-| 25 | a | a | DET | DT | det | sidewalk | 27 |
-| 26 | city | city | NOUN | NN | compound | sidewalk | 27 |
-| 27 | sidewalk | sidewalk | NOUN | NN | pobj | on | 24 |
-| 28 | . | . | PUNCT | . | punct | is | 23 |
+| 8 | "BANG GOES THE KNIGHTHOOD" | bang_goes_the_knighthood | PROPN | NNP | dobj | reads | 7 |
+| 9 | with | with | ADP | IN | prep | reads | 7 |
+| 10 | a | a | DET | DT | det | silhouette | 11 |
+| 11 | silhouette | silhouette | NOUN | NN | pobj | with | 9 |
+| 12 | of | of | ADP | IN | prep | silhouette | 11 |
+| 13 | a | a | DET | DT | det | man | 14 |
+| 14 | man | man | NOUN | NN | pobj | of | 12 |
+| 15 | in | in | ADP | IN | prep | man | 14 |
+| 16 | a | a | DET | DT | det | hat | 17 |
+| 17 | hat | hat | NOUN | NN | pobj | in | 15 |
+| 18 | . | . | PUNCT | . | punct | reads | 7 |
+| 19 | The | the | DET | DT | det | scene | 20 |
+| 20 | scene | scene | NOUN | NN | nsubj | is | 21 |
+| 21 | is | be | AUX | VBZ | ROOT | is | 21 |
+| 22 | on | on | ADP | IN | prep | is | 21 |
+| 23 | a | a | DET | DT | det | sidewalk | 25 |
+| 24 | city | city | NOUN | NN | compound | sidewalk | 25 |
+| 25 | sidewalk | sidewalk | NOUN | NN | pobj | on | 22 |
+| 26 | . | . | PUNCT | . | punct | is | 21 |
 
 ### Raw Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -715,30 +713,28 @@
 | m1 | object | can | can | chunk1 | 6 | noun_chunk_root | high |
 | m2 | attribute | black | black | chunk1 | 4 | color_attribute | high |
 | m3 | attribute | trash | trash | chunk1 | 5 | compound_modifier | medium |
-| m4 | object | text | text | chunk2 | 10 | noun_chunk_root | high |
-| m5 | attribute | quoted | quote | chunk2 | 9 | state_attribute | medium |
-| m6 | object | silhouette | silhouette | chunk3 | 13 | noun_chunk_root | high |
-| m7 | object | man | man | chunk4 | 16 | noun_chunk_root | high |
-| m8 | object | hat | hat | chunk5 | 19 | noun_chunk_root | high |
-| m9 | object | scene | scene | chunk6 | 22 | noun_chunk_root | high |
-| m10 | object | sidewalk | sidewalk | chunk7 | 27 | noun_chunk_root | high |
-| m11 | attribute | city | city | chunk7 | 26 | compound_modifier | medium |
-| m12 | action | reads | read | doc | 7 | verb_predicate | high |
+| m4 | object | "BANG GOES THE KNIGHTHOOD" | bang_goes_the_knighthood | chunk2 | 8 | noun_chunk_root | high |
+| m5 | object | silhouette | silhouette | chunk3 | 11 | noun_chunk_root | high |
+| m6 | object | man | man | chunk4 | 14 | noun_chunk_root | high |
+| m7 | object | hat | hat | chunk5 | 17 | noun_chunk_root | high |
+| m8 | object | scene | scene | chunk6 | 20 | noun_chunk_root | high |
+| m9 | object | sidewalk | sidewalk | chunk7 | 25 | noun_chunk_root | high |
+| m10 | attribute | city | city | chunk7 | 24 | compound_modifier | medium |
+| m11 | action | reads | read | doc | 7 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m1 | m2 | high | chunk1 amod -> can |
 | e1 | has_attribute | m1 | m3 | medium | chunk1 compound -> can |
-| e2 | has_attribute | m4 | m5 | medium | chunk2 amod -> text |
-| e3 | has_attribute | m10 | m11 | medium | chunk7 compound -> sidewalk |
-| e4 | agent | m12 | m0 | medium | nsubj -> reads |
-| e5 | patient | m12 | m4 | medium | dobj -> reads |
-| e6 | relation | m0 | m1 | high | on |
-| e7 | relation | m0 | m6 | high | with |
-| e8 | relation | m6 | m7 | medium | of |
-| e9 | relation | m7 | m8 | high | in |
-| e10 | relation | m9 | m10 | high | on |
+| e2 | has_attribute | m9 | m10 | medium | chunk7 compound -> sidewalk |
+| e3 | agent | m11 | m0 | medium | nsubj -> reads |
+| e4 | patient | m11 | m4 | medium | dobj -> reads |
+| e5 | relation | m0 | m1 | high | on |
+| e6 | relation | m0 | m5 | high | with |
+| e7 | relation | m5 | m6 | medium | of |
+| e8 | relation | m6 | m7 | high | in |
+| e9 | relation | m8 | m9 | high | on |
 
 ## 09
 
@@ -2196,19 +2192,19 @@
 
 **parsed_caption:**
 
-> A brown dog leaps over a blue, white, and red basket on grass. A man in a black outfit with red and blue trim stands nearby, watching the dog. In the background, spectators stand behind a fence near a the quoted text banner.
+> A brown dog leaps over a blue, white, and red basket on grass. A man in a black outfit with red and blue trim stands nearby, watching the dog. In the background, spectators stand behind a fence near a "ROYAL CANIN" banner.
 
 ### Quote Mentions
-| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | masked_char_span |
+| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | parse_char_span |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| q0 | 10360632429015a31bb702f2f1582216021cbd4735544d73052a16099d4d6014:q0 | ROYAL CANIN | royal canin | the quoted text |  | 201:214 | 201:216 |
+| q0 | 10360632429015a31bb702f2f1582216021cbd4735544d73052a16099d4d6014:q0 | ROYAL CANIN | royal canin | raw_quote_span |  | 201:214 | 201:214 |
 
 ### Sentences
 | sentence | token_span |
 | --- | --- |
 | A brown dog leaps over a blue, white, and red basket on grass. | 0:16 |
 | A man in a black outfit with red and blue trim stands nearby, watching the dog. | 16:34 |
-| In the background, spectators stand behind a fence near a the quoted text banner. | 34:50 |
+| In the background, spectators stand behind a fence near a "ROYAL CANIN" banner. | 34:48 |
 
 ### Noun Chunks
 | chunk | root | root_lemma | root_dep | root_head | token_span |
@@ -2223,7 +2219,7 @@
 | the background | background | background | pobj | In | 35:37 |
 | spectators | spectators | spectator | nsubj | stand | 38:39 |
 | a fence | fence | fence | pobj | behind | 41:43 |
-| a the quoted text banner | banner | banner | pobj | near | 44:49 |
+| a "ROYAL CANIN" banner | banner | banner | pobj | near | 44:47 |
 
 ### Tokens / POS / Lemma / Dependency
 | i | text | lemma | pos | tag | dep | head | head_i |
@@ -2272,12 +2268,10 @@
 | 41 | a | a | DET | DT | det | fence | 42 |
 | 42 | fence | fence | NOUN | NN | pobj | behind | 40 |
 | 43 | near | near | ADP | IN | prep | stand | 39 |
-| 44 | a | a | DET | DT | det | banner | 48 |
-| 45 | the | the | DET | DT | det | banner | 48 |
-| 46 | quoted | quote | VERB | VBN | amod | text | 47 |
-| 47 | text | text | NOUN | NN | compound | banner | 48 |
-| 48 | banner | banner | NOUN | NN | pobj | near | 43 |
-| 49 | . | . | PUNCT | . | punct | stand | 39 |
+| 44 | a | a | DET | DT | det | banner | 46 |
+| 45 | "ROYAL CANIN" | royal_canin | PROPN | NNP | nmod | banner | 46 |
+| 46 | banner | banner | NOUN | NN | pobj | near | 43 |
+| 47 | . | . | PUNCT | . | punct | stand | 39 |
 
 ### Raw Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -2299,14 +2293,12 @@
 | m14 | object | background | background | chunk7 | 36 | noun_chunk_root | high |
 | m15 | object | spectators | spectator | chunk8 | 38 | noun_chunk_root | high |
 | m16 | object | fence | fence | chunk9 | 42 | noun_chunk_root | high |
-| m17 | object | banner | banner | chunk10 | 48 | noun_chunk_root | high |
-| m18 | attribute | quoted | quote | chunk10 | 46 | state_attribute | medium |
-| m19 | attribute | text | text | chunk10 | 47 | compound_modifier | medium |
-| m20 | context | background | background | doc | 36 | context_word | medium |
-| m21 | action | leaps | leap | doc | 3 | verb_predicate | high |
-| m22 | action | stands | stand | doc | 27 | verb_predicate | high |
-| m23 | action | watching | watch | doc | 30 | verb_predicate | high |
-| m24 | action | stand | stand | doc | 39 | verb_predicate | high |
+| m17 | object | banner | banner | chunk10 | 46 | noun_chunk_root | high |
+| m18 | context | background | background | doc | 36 | context_word | medium |
+| m19 | action | leaps | leap | doc | 3 | verb_predicate | high |
+| m20 | action | stands | stand | doc | 27 | verb_predicate | high |
+| m21 | action | watching | watch | doc | 30 | verb_predicate | high |
+| m22 | action | stand | stand | doc | 39 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -2318,20 +2310,18 @@
 | e4 | has_attribute | m8 | m9 | high | chunk4 amod -> outfit |
 | e5 | has_attribute | m10 | m11 | high | chunk5 amod -> trim |
 | e6 | has_attribute | m10 | m12 | high | chunk5 conj -> trim |
-| e7 | has_attribute | m17 | m18 | medium | chunk10 amod -> banner |
-| e8 | has_attribute | m17 | m19 | medium | chunk10 compound -> banner |
-| e9 | has_context | scene | m20 | medium | context token background |
-| e10 | agent | m21 | m0 | medium | nsubj -> leaps |
-| e11 | agent | m22 | m7 | medium | nsubj -> stands |
-| e12 | patient | m23 | m13 | medium | dobj -> watching |
-| e13 | agent | m24 | m15 | medium | nsubj -> stand |
-| e14 | relation | m0 | m2 | high | over |
-| e15 | relation | m2 | m6 | high | on |
-| e16 | relation | m7 | m8 | high | in |
-| e17 | relation | m8 | m10 | high | with |
-| e18 | relation | m15 | m20 | high | in |
-| e19 | relation | m15 | m16 | high | behind |
-| e20 | relation | m15 | m17 | high | near |
+| e7 | has_context | scene | m18 | medium | context token background |
+| e8 | agent | m19 | m0 | medium | nsubj -> leaps |
+| e9 | agent | m20 | m7 | medium | nsubj -> stands |
+| e10 | patient | m21 | m13 | medium | dobj -> watching |
+| e11 | agent | m22 | m15 | medium | nsubj -> stand |
+| e12 | relation | m0 | m2 | high | over |
+| e13 | relation | m2 | m6 | high | on |
+| e14 | relation | m7 | m8 | high | in |
+| e15 | relation | m8 | m10 | high | with |
+| e16 | relation | m15 | m18 | high | in |
+| e17 | relation | m15 | m16 | high | behind |
+| e18 | relation | m15 | m17 | high | near |
 
 ## 26
 
@@ -2711,19 +2701,19 @@ _none_
 
 **parsed_caption:**
 
-> A close-up of a human eye with green irises and dark pupils. The eye is framed by blurred eyelashes and skin, with warm, glowing light surrounding it. Text at the bottom reads the quoted text.
+> A close-up of a human eye with green irises and dark pupils. The eye is framed by blurred eyelashes and skin, with warm, glowing light surrounding it. Text at the bottom reads "BORDERLINE BIENNALE 2011 | Week-end 02 | Hacking, T.A.Z. & Utopies Pirates."
 
 ### Quote Mentions
-| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | masked_char_span |
+| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | parse_char_span |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| q0 | 13f6ef667e3a8e279fbed679e2ff0eabef743354d2696c3b4164764c8b362414:q0 | BORDERLINE BIENNALE 2011 \| Week-end 02 \| Hacking, T.A.Z. & Utopies Pirates. | borderline biennale 2011 \| week-end 02 \| hacking, t.a.z. & utopies pirates. | the quoted text |  | 176:253 | 176:191 |
+| q0 | 13f6ef667e3a8e279fbed679e2ff0eabef743354d2696c3b4164764c8b362414:q0 | BORDERLINE BIENNALE 2011 \| Week-end 02 \| Hacking, T.A.Z. & Utopies Pirates. | borderline biennale 2011 \| week-end 02 \| hacking, t.a.z. & utopies pirates. | raw_quote_span |  | 176:253 | 176:253 |
 
 ### Sentences
 | sentence | token_span |
 | --- | --- |
 | A close-up of a human eye with green irises and dark pupils. | 0:15 |
 | The eye is framed by blurred eyelashes and skin, with warm, glowing light surrounding it. | 15:33 |
-| Text at the bottom reads the quoted text. | 33:42 |
+| Text at the bottom reads "BORDERLINE BIENNALE 2011 \| Week-end 02 \| Hacking, T.A.Z. & Utopies Pirates." | 33:39 |
 
 ### Noun Chunks
 | chunk | root | root_lemma | root_dep | root_head | token_span |
@@ -2739,7 +2729,7 @@ _none_
 | it | it | it | dobj | surrounding | 31:32 |
 | Text | Text | text | nsubj | reads | 33:34 |
 | the bottom | bottom | bottom | pobj | at | 35:37 |
-| the quoted text | text | text | dobj | reads | 38:41 |
+| "BORDERLINE BIENNALE 2011 \| Week-end 02 \| Hacking, T.A.Z. & Utopies Pirates." | "BORDERLINE BIENNALE 2011 \| Week-end 02 \| Hacking, T.A.Z. & Utopies Pirates." | borderline_biennale_2011_\|_week-end_02_\|_hacking,_t.a.z._&_utopies_pirates. | dobj | reads | 38:39 |
 
 ### Tokens / POS / Lemma / Dependency
 | i | text | lemma | pos | tag | dep | head | head_i |
@@ -2782,10 +2772,7 @@ _none_
 | 35 | the | the | DET | DT | det | bottom | 36 |
 | 36 | bottom | bottom | NOUN | NN | pobj | at | 34 |
 | 37 | reads | read | VERB | VBZ | ROOT | reads | 37 |
-| 38 | the | the | DET | DT | det | text | 40 |
-| 39 | quoted | quote | VERB | VBN | amod | text | 40 |
-| 40 | text | text | NOUN | NN | dobj | reads | 37 |
-| 41 | . | . | PUNCT | . | punct | reads | 37 |
+| 38 | "BORDERLINE BIENNALE 2011 \| Week-end 02 \| Hacking, T.A.Z. & Utopies Pirates." | borderline_biennale_2011_\|_week-end_02_\|_hacking,_t.a.z._&_utopies_pirates. | PROPN | NNP | dobj | reads | 37 |
 
 ### Raw Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -2808,11 +2795,10 @@ _none_
 | m15 | object | it | it | chunk8 | 31 | noun_chunk_root | high |
 | m16 | object | Text | text | chunk9 | 33 | noun_chunk_root | high |
 | m17 | object | bottom | bottom | chunk10 | 36 | noun_chunk_root | high |
-| m18 | object | text | text | chunk11 | 40 | noun_chunk_root | high |
-| m19 | attribute | quoted | quote | chunk11 | 39 | state_attribute | medium |
-| m20 | action | framed | frame | doc | 18 | verb_predicate | high |
-| m21 | action | surrounding | surround | doc | 30 | verb_predicate | high |
-| m22 | action | reads | read | doc | 37 | verb_predicate | high |
+| m18 | object | "BORDERLINE BIENNALE 2011 \| Week-end 02 \| Hacking, T.A.Z. & Utopies Pirates." | borderline_biennale_2011_\|_week-end_02_\|_hacking,_t.a.z._&_utopies_pirates. | chunk11 | 38 | noun_chunk_root | high |
+| m19 | action | framed | frame | doc | 18 | verb_predicate | high |
+| m20 | action | surrounding | surround | doc | 30 | verb_predicate | high |
+| m21 | action | reads | read | doc | 37 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -2824,18 +2810,17 @@ _none_
 | e4 | has_attribute | m9 | m10 | medium | chunk5 amod -> eyelashes |
 | e5 | has_attribute | m12 | m13 | medium | chunk7 amod -> light |
 | e6 | has_attribute | m12 | m14 | medium | chunk7 amod -> light |
-| e7 | has_attribute | m18 | m19 | medium | chunk11 amod -> text |
-| e8 | agent | m20 | m8 | medium | nsubjpass -> framed |
-| e9 | agent | m21 | m12 | medium | nsubj -> surrounding |
-| e10 | patient | m21 | m15 | medium | dobj -> surrounding |
-| e11 | agent | m22 | m16 | medium | nsubj -> reads |
-| e12 | patient | m22 | m18 | medium | dobj -> reads |
-| e13 | relation | m0 | m2 | medium | of |
-| e14 | relation | m2 | m4 | high | with |
-| e15 | relation | m2 | m6 | high | with |
-| e16 | relation | m8 | m9 | medium | by |
-| e17 | relation | m8 | m11 | medium | by |
-| e18 | relation | m16 | m17 | medium | at |
+| e7 | agent | m19 | m8 | medium | nsubjpass -> framed |
+| e8 | agent | m20 | m12 | medium | nsubj -> surrounding |
+| e9 | patient | m20 | m15 | medium | dobj -> surrounding |
+| e10 | agent | m21 | m16 | medium | nsubj -> reads |
+| e11 | patient | m21 | m18 | medium | dobj -> reads |
+| e12 | relation | m0 | m2 | medium | of |
+| e13 | relation | m2 | m4 | high | with |
+| e14 | relation | m2 | m6 | high | with |
+| e15 | relation | m8 | m9 | medium | by |
+| e16 | relation | m8 | m11 | medium | by |
+| e17 | relation | m16 | m17 | medium | at |
 
 ## 33
 
@@ -2913,35 +2898,33 @@ _none_
 
 **parsed_caption:**
 
-> A black-and-white graffiti stencil on a concrete pillar reads the quoted text. The artwork depicts a man in a hat and ruff collar, surrounded by a circle. The pillar stands beside a narrow alley with a stone wall and a wooden beam above.
+> A black-and-white graffiti stencil on a concrete pillar reads “THE ONLY MAN TO ENTER PARLIAMENT WITH HONEST INTENTIONS.” The artwork depicts a man in a hat and ruff collar, surrounded by a circle. The pillar stands beside a narrow alley with a stone wall and a wooden beam above.
 
 ### Quote Mentions
-| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | masked_char_span |
+| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | parse_char_span |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| q0 | 1703f280c90701c4aef227f67111f898a019781df197ca00271778204d4e0014:q0 | THE ONLY MAN TO ENTER PARLIAMENT WITH HONEST INTENTIONS. | the only man to enter parliament with honest intentions. | the quoted text |  | 62:120 | 62:77 |
+| q0 | 1703f280c90701c4aef227f67111f898a019781df197ca00271778204d4e0014:q0 | THE ONLY MAN TO ENTER PARLIAMENT WITH HONEST INTENTIONS. | the only man to enter parliament with honest intentions. | raw_quote_span |  | 62:120 | 62:120 |
 
 ### Sentences
 | sentence | token_span |
 | --- | --- |
-| A black-and-white graffiti stencil on a concrete pillar reads the quoted text. | 0:17 |
-| The artwork depicts a man in a hat and ruff collar, surrounded by a circle. | 17:34 |
-| The pillar stands beside a narrow alley with a stone wall and a wooden beam above. | 34:51 |
+| A black-and-white graffiti stencil on a concrete pillar reads “THE ONLY MAN TO ENTER PARLIAMENT WITH HONEST INTENTIONS.” The artwork depicts a man in a hat and ruff collar, surrounded by a circle. | 0:31 |
+| The pillar stands beside a narrow alley with a stone wall and a wooden beam above. | 31:48 |
 
 ### Noun Chunks
 | chunk | root | root_lemma | root_dep | root_head | token_span |
 | --- | --- | --- | --- | --- | --- |
 | A black-and-white graffiti stencil | stencil | stencil | nsubj | reads | 0:8 |
 | a concrete pillar | pillar | pillar | pobj | on | 9:12 |
-| the quoted text | text | text | dobj | reads | 13:16 |
-| The artwork | artwork | artwork | nsubj | depicts | 17:19 |
-| a man | man | man | dobj | depicts | 20:22 |
-| a hat | hat | hat | pobj | in | 23:25 |
-| ruff collar | collar | collar | conj | hat | 26:28 |
-| a circle | circle | circle | pobj | by | 31:33 |
-| The pillar | pillar | pillar | nsubj | stands | 34:36 |
-| a narrow alley | alley | alley | pobj | beside | 38:41 |
-| a stone wall | wall | wall | pobj | with | 42:45 |
-| a wooden beam | beam | beam | conj | wall | 46:49 |
+| The artwork | artwork | artwork | nsubj | depicts | 14:16 |
+| a man | man | man | dobj | depicts | 17:19 |
+| a hat | hat | hat | pobj | in | 20:22 |
+| ruff collar | collar | collar | conj | hat | 23:25 |
+| a circle | circle | circle | pobj | by | 28:30 |
+| The pillar | pillar | pillar | nsubj | stands | 31:33 |
+| a narrow alley | alley | alley | pobj | beside | 35:38 |
+| a stone wall | wall | wall | pobj | with | 39:42 |
+| a wooden beam | beam | beam | conj | wall | 43:46 |
 
 ### Tokens / POS / Lemma / Dependency
 | i | text | lemma | pos | tag | dep | head | head_i |
@@ -2959,44 +2942,41 @@ _none_
 | 10 | concrete | concrete | ADJ | JJ | amod | pillar | 11 |
 | 11 | pillar | pillar | NOUN | NN | pobj | on | 8 |
 | 12 | reads | read | VERB | VBZ | ROOT | reads | 12 |
-| 13 | the | the | DET | DT | det | text | 15 |
-| 14 | quoted | quote | VERB | VBN | amod | text | 15 |
-| 15 | text | text | NOUN | NN | dobj | reads | 12 |
-| 16 | . | . | PUNCT | . | punct | reads | 12 |
-| 17 | The | the | DET | DT | det | artwork | 18 |
-| 18 | artwork | artwork | NOUN | NN | nsubj | depicts | 19 |
-| 19 | depicts | depict | VERB | VBZ | ROOT | depicts | 19 |
-| 20 | a | a | DET | DT | det | man | 21 |
-| 21 | man | man | NOUN | NN | dobj | depicts | 19 |
-| 22 | in | in | ADP | IN | prep | man | 21 |
-| 23 | a | a | DET | DT | det | hat | 24 |
-| 24 | hat | hat | NOUN | NN | pobj | in | 22 |
-| 25 | and | and | CCONJ | CC | cc | hat | 24 |
-| 26 | ruff | ruff | NOUN | NN | compound | collar | 27 |
-| 27 | collar | collar | NOUN | NN | conj | hat | 24 |
-| 28 | , | , | PUNCT | , | punct | man | 21 |
-| 29 | surrounded | surround | VERB | VBN | acl | man | 21 |
-| 30 | by | by | ADP | IN | agent | surrounded | 29 |
-| 31 | a | a | DET | DT | det | circle | 32 |
-| 32 | circle | circle | NOUN | NN | pobj | by | 30 |
-| 33 | . | . | PUNCT | . | punct | depicts | 19 |
-| 34 | The | the | DET | DT | det | pillar | 35 |
-| 35 | pillar | pillar | NOUN | NN | nsubj | stands | 36 |
-| 36 | stands | stand | VERB | VBZ | ROOT | stands | 36 |
-| 37 | beside | beside | ADP | IN | prep | stands | 36 |
-| 38 | a | a | DET | DT | det | alley | 40 |
-| 39 | narrow | narrow | ADJ | JJ | amod | alley | 40 |
-| 40 | alley | alley | NOUN | NN | pobj | beside | 37 |
-| 41 | with | with | ADP | IN | prep | alley | 40 |
-| 42 | a | a | DET | DT | det | wall | 44 |
-| 43 | stone | stone | NOUN | NN | compound | wall | 44 |
-| 44 | wall | wall | NOUN | NN | pobj | with | 41 |
-| 45 | and | and | CCONJ | CC | cc | wall | 44 |
-| 46 | a | a | DET | DT | det | beam | 48 |
-| 47 | wooden | wooden | ADJ | JJ | amod | beam | 48 |
-| 48 | beam | beam | NOUN | NN | conj | wall | 44 |
-| 49 | above | above | ADV | RB | advmod | wall | 44 |
-| 50 | . | . | PUNCT | . | punct | stands | 36 |
+| 13 | “THE ONLY MAN TO ENTER PARLIAMENT WITH HONEST INTENTIONS.” | the_only_man_to_enter_parliament_with_honest_intentions. | NOUN | NN | punct | reads | 12 |
+| 14 | The | the | DET | DT | det | artwork | 15 |
+| 15 | artwork | artwork | NOUN | NN | nsubj | depicts | 16 |
+| 16 | depicts | depict | VERB | VBZ | ccomp | reads | 12 |
+| 17 | a | a | DET | DT | det | man | 18 |
+| 18 | man | man | NOUN | NN | dobj | depicts | 16 |
+| 19 | in | in | ADP | IN | prep | man | 18 |
+| 20 | a | a | DET | DT | det | hat | 21 |
+| 21 | hat | hat | NOUN | NN | pobj | in | 19 |
+| 22 | and | and | CCONJ | CC | cc | hat | 21 |
+| 23 | ruff | ruff | NOUN | NN | compound | collar | 24 |
+| 24 | collar | collar | NOUN | NN | conj | hat | 21 |
+| 25 | , | , | PUNCT | , | punct | man | 18 |
+| 26 | surrounded | surround | VERB | VBN | acl | man | 18 |
+| 27 | by | by | ADP | IN | agent | surrounded | 26 |
+| 28 | a | a | DET | DT | det | circle | 29 |
+| 29 | circle | circle | NOUN | NN | pobj | by | 27 |
+| 30 | . | . | PUNCT | . | punct | depicts | 16 |
+| 31 | The | the | DET | DT | det | pillar | 32 |
+| 32 | pillar | pillar | NOUN | NN | nsubj | stands | 33 |
+| 33 | stands | stand | VERB | VBZ | ROOT | stands | 33 |
+| 34 | beside | beside | ADP | IN | prep | stands | 33 |
+| 35 | a | a | DET | DT | det | alley | 37 |
+| 36 | narrow | narrow | ADJ | JJ | amod | alley | 37 |
+| 37 | alley | alley | NOUN | NN | pobj | beside | 34 |
+| 38 | with | with | ADP | IN | prep | alley | 37 |
+| 39 | a | a | DET | DT | det | wall | 41 |
+| 40 | stone | stone | NOUN | NN | compound | wall | 41 |
+| 41 | wall | wall | NOUN | NN | pobj | with | 38 |
+| 42 | and | and | CCONJ | CC | cc | wall | 41 |
+| 43 | a | a | DET | DT | det | beam | 45 |
+| 44 | wooden | wooden | ADJ | JJ | amod | beam | 45 |
+| 45 | beam | beam | NOUN | NN | conj | wall | 41 |
+| 46 | above | above | ADV | RB | advmod | wall | 41 |
+| 47 | . | . | PUNCT | . | punct | stands | 33 |
 
 ### Raw Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -3007,25 +2987,23 @@ _none_
 | m3 | attribute | graffiti | graffiti | chunk0 | 6 | compound_modifier | medium |
 | m4 | object | pillar | pillar | chunk1 | 11 | noun_chunk_root | high |
 | m5 | attribute | concrete | concrete | chunk1 | 10 | material_attribute | high |
-| m6 | object | text | text | chunk2 | 15 | noun_chunk_root | high |
-| m7 | attribute | quoted | quote | chunk2 | 14 | state_attribute | medium |
-| m8 | object | artwork | artwork | chunk3 | 18 | noun_chunk_root | high |
-| m9 | object | man | man | chunk4 | 21 | noun_chunk_root | high |
-| m10 | object | hat | hat | chunk5 | 24 | noun_chunk_root | high |
-| m11 | object | collar | collar | chunk6 | 27 | noun_chunk_root | high |
-| m12 | attribute | ruff | ruff | chunk6 | 26 | compound_modifier | medium |
-| m13 | object | circle | circle | chunk7 | 32 | noun_chunk_root | high |
-| m14 | object | pillar | pillar | chunk8 | 35 | noun_chunk_root | high |
-| m15 | object | alley | alley | chunk9 | 40 | noun_chunk_root | high |
-| m16 | attribute | narrow | narrow | chunk9 | 39 | size_attribute | high |
-| m17 | object | wall | wall | chunk10 | 44 | noun_chunk_root | high |
-| m18 | attribute | stone | stone | chunk10 | 43 | material_attribute | high |
-| m19 | object | beam | beam | chunk11 | 48 | noun_chunk_root | high |
-| m20 | attribute | wooden | wooden | chunk11 | 47 | material_attribute | high |
-| m21 | action | reads | read | doc | 12 | verb_predicate | high |
-| m22 | action | depicts | depict | doc | 19 | verb_predicate | high |
-| m23 | action | surrounded | surround | doc | 29 | verb_predicate | high |
-| m24 | action | stands | stand | doc | 36 | verb_predicate | high |
+| m6 | object | artwork | artwork | chunk2 | 15 | noun_chunk_root | high |
+| m7 | object | man | man | chunk3 | 18 | noun_chunk_root | high |
+| m8 | object | hat | hat | chunk4 | 21 | noun_chunk_root | high |
+| m9 | object | collar | collar | chunk5 | 24 | noun_chunk_root | high |
+| m10 | attribute | ruff | ruff | chunk5 | 23 | compound_modifier | medium |
+| m11 | object | circle | circle | chunk6 | 29 | noun_chunk_root | high |
+| m12 | object | pillar | pillar | chunk7 | 32 | noun_chunk_root | high |
+| m13 | object | alley | alley | chunk8 | 37 | noun_chunk_root | high |
+| m14 | attribute | narrow | narrow | chunk8 | 36 | size_attribute | high |
+| m15 | object | wall | wall | chunk9 | 41 | noun_chunk_root | high |
+| m16 | attribute | stone | stone | chunk9 | 40 | material_attribute | high |
+| m17 | object | beam | beam | chunk10 | 45 | noun_chunk_root | high |
+| m18 | attribute | wooden | wooden | chunk10 | 44 | material_attribute | high |
+| m19 | action | reads | read | doc | 12 | verb_predicate | high |
+| m20 | action | depicts | depict | doc | 16 | verb_predicate | high |
+| m21 | action | surrounded | surround | doc | 26 | verb_predicate | high |
+| m22 | action | stands | stand | doc | 33 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -3034,23 +3012,21 @@ _none_
 | e1 | has_attribute | m0 | m2 | high | chunk0 conj -> stencil |
 | e2 | has_attribute | m0 | m3 | medium | chunk0 compound -> stencil |
 | e3 | has_attribute | m4 | m5 | high | chunk1 amod -> pillar |
-| e4 | has_attribute | m6 | m7 | medium | chunk2 amod -> text |
-| e5 | has_attribute | m11 | m12 | medium | chunk6 compound -> collar |
-| e6 | has_attribute | m15 | m16 | high | chunk9 amod -> alley |
-| e7 | has_attribute | m17 | m18 | high | chunk10 compound -> wall |
-| e8 | has_attribute | m19 | m20 | high | chunk11 amod -> beam |
-| e9 | agent | m21 | m0 | medium | nsubj -> reads |
-| e10 | patient | m21 | m6 | medium | dobj -> reads |
-| e11 | agent | m22 | m8 | medium | nsubj -> depicts |
-| e12 | patient | m22 | m9 | medium | dobj -> depicts |
-| e13 | agent | m24 | m14 | medium | nsubj -> stands |
-| e14 | relation | m0 | m4 | high | on |
-| e15 | relation | m9 | m10 | high | in |
-| e16 | relation | m9 | m11 | high | in |
-| e17 | relation | m9 | m13 | medium | by |
-| e18 | relation | m14 | m15 | high | beside |
-| e19 | relation | m15 | m17 | high | with |
-| e20 | relation | m15 | m19 | high | with |
+| e4 | has_attribute | m9 | m10 | medium | chunk5 compound -> collar |
+| e5 | has_attribute | m13 | m14 | high | chunk8 amod -> alley |
+| e6 | has_attribute | m15 | m16 | high | chunk9 compound -> wall |
+| e7 | has_attribute | m17 | m18 | high | chunk10 amod -> beam |
+| e8 | agent | m19 | m0 | medium | nsubj -> reads |
+| e9 | agent | m20 | m6 | medium | nsubj -> depicts |
+| e10 | patient | m20 | m7 | medium | dobj -> depicts |
+| e11 | agent | m22 | m12 | medium | nsubj -> stands |
+| e12 | relation | m0 | m4 | high | on |
+| e13 | relation | m7 | m8 | high | in |
+| e14 | relation | m7 | m9 | high | in |
+| e15 | relation | m7 | m11 | medium | by |
+| e16 | relation | m12 | m13 | high | beside |
+| e17 | relation | m13 | m15 | high | with |
+| e18 | relation | m13 | m17 | high | with |
 
 ## 35
 
@@ -3197,79 +3173,73 @@ _none_
 
 **parsed_caption:**
 
-> A large building with the quoted text sign stands beside a road, near tall smokestacks and power lines.
+> A large building with "P.J. HURPHY MOVING & STORAGE" sign stands beside a road, near tall smokestacks and power lines.
 
 ### Quote Mentions
-| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | masked_char_span |
+| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | parse_char_span |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| q0 | 1bd607b3ebbc9d4a0a56e7195d5cb8de4411b1fa93b2690f1555eb336d366814:q0 | P.J. HURPHY MOVING & STORAGE | p.j. hurphy moving & storage | the quoted text |  | 22:52 | 22:37 |
+| q0 | 1bd607b3ebbc9d4a0a56e7195d5cb8de4411b1fa93b2690f1555eb336d366814:q0 | P.J. HURPHY MOVING & STORAGE | p.j. hurphy moving & storage | raw_quote_span |  | 22:52 | 22:52 |
 
 ### Sentences
 | sentence | token_span |
 | --- | --- |
-| A large building with the quoted text sign stands beside a road, near tall smokestacks and power lines. | 0:20 |
+| A large building with "P.J. HURPHY MOVING & STORAGE" sign stands beside a road, near tall smokestacks and power lines. | 0:18 |
 
 ### Noun Chunks
 | chunk | root | root_lemma | root_dep | root_head | token_span |
 | --- | --- | --- | --- | --- | --- |
 | A large building | building | building | nsubj | stands | 0:3 |
-| the quoted text sign | sign | sign | pobj | with | 4:8 |
-| a road | road | road | pobj | beside | 10:12 |
-| tall smokestacks | smokestacks | smokestack | pobj | near | 14:16 |
-| power lines | lines | line | conj | smokestacks | 17:19 |
+| "P.J. HURPHY MOVING & STORAGE" sign | sign | sign | pobj | with | 4:6 |
+| a road | road | road | pobj | beside | 8:10 |
+| tall smokestacks | smokestacks | smokestack | pobj | near | 12:14 |
+| power lines | lines | line | conj | smokestacks | 15:17 |
 
 ### Tokens / POS / Lemma / Dependency
 | i | text | lemma | pos | tag | dep | head | head_i |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 0 | A | a | DET | DT | det | building | 2 |
 | 1 | large | large | ADJ | JJ | amod | building | 2 |
-| 2 | building | building | NOUN | NN | nsubj | stands | 8 |
+| 2 | building | building | NOUN | NN | nsubj | stands | 6 |
 | 3 | with | with | ADP | IN | prep | building | 2 |
-| 4 | the | the | DET | DT | det | sign | 7 |
-| 5 | quoted | quote | VERB | VBN | amod | sign | 7 |
-| 6 | text | text | NOUN | NN | compound | sign | 7 |
-| 7 | sign | sign | NOUN | NN | pobj | with | 3 |
-| 8 | stands | stand | VERB | VBZ | ROOT | stands | 8 |
-| 9 | beside | beside | ADP | IN | prep | stands | 8 |
-| 10 | a | a | DET | DT | det | road | 11 |
-| 11 | road | road | NOUN | NN | pobj | beside | 9 |
-| 12 | , | , | PUNCT | , | punct | stands | 8 |
-| 13 | near | near | ADP | IN | prep | stands | 8 |
-| 14 | tall | tall | ADJ | JJ | amod | smokestacks | 15 |
-| 15 | smokestacks | smokestack | NOUN | NNS | pobj | near | 13 |
-| 16 | and | and | CCONJ | CC | cc | smokestacks | 15 |
-| 17 | power | power | NOUN | NN | compound | lines | 18 |
-| 18 | lines | line | NOUN | NNS | conj | smokestacks | 15 |
-| 19 | . | . | PUNCT | . | punct | stands | 8 |
+| 4 | "P.J. HURPHY MOVING & STORAGE" | p.j._hurphy_moving_&_storage | PROPN | NNP | nmod | sign | 5 |
+| 5 | sign | sign | NOUN | NN | pobj | with | 3 |
+| 6 | stands | stand | VERB | VBZ | ROOT | stands | 6 |
+| 7 | beside | beside | ADP | IN | prep | stands | 6 |
+| 8 | a | a | DET | DT | det | road | 9 |
+| 9 | road | road | NOUN | NN | pobj | beside | 7 |
+| 10 | , | , | PUNCT | , | punct | stands | 6 |
+| 11 | near | near | ADP | IN | prep | stands | 6 |
+| 12 | tall | tall | ADJ | JJ | amod | smokestacks | 13 |
+| 13 | smokestacks | smokestack | NOUN | NNS | pobj | near | 11 |
+| 14 | and | and | CCONJ | CC | cc | smokestacks | 13 |
+| 15 | power | power | NOUN | NN | compound | lines | 16 |
+| 16 | lines | line | NOUN | NNS | conj | smokestacks | 13 |
+| 17 | . | . | PUNCT | . | punct | stands | 6 |
 
 ### Raw Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | m0 | object | building | building | chunk0 | 2 | noun_chunk_root | high |
 | m1 | attribute | large | large | chunk0 | 1 | size_attribute | high |
-| m2 | object | sign | sign | chunk1 | 7 | noun_chunk_root | high |
-| m3 | attribute | quoted | quote | chunk1 | 5 | state_attribute | medium |
-| m4 | attribute | text | text | chunk1 | 6 | compound_modifier | medium |
-| m5 | object | road | road | chunk2 | 11 | noun_chunk_root | high |
-| m6 | object | smokestacks | smokestack | chunk3 | 15 | noun_chunk_root | high |
-| m7 | attribute | tall | tall | chunk3 | 14 | size_attribute | high |
-| m8 | object | lines | line | chunk4 | 18 | noun_chunk_root | high |
-| m9 | attribute | power | power | chunk4 | 17 | compound_modifier | medium |
-| m10 | action | stands | stand | doc | 8 | verb_predicate | high |
+| m2 | object | sign | sign | chunk1 | 5 | noun_chunk_root | high |
+| m3 | object | road | road | chunk2 | 9 | noun_chunk_root | high |
+| m4 | object | smokestacks | smokestack | chunk3 | 13 | noun_chunk_root | high |
+| m5 | attribute | tall | tall | chunk3 | 12 | size_attribute | high |
+| m6 | object | lines | line | chunk4 | 16 | noun_chunk_root | high |
+| m7 | attribute | power | power | chunk4 | 15 | compound_modifier | medium |
+| m8 | action | stands | stand | doc | 6 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m0 | m1 | high | chunk0 amod -> building |
-| e1 | has_attribute | m2 | m3 | medium | chunk1 amod -> sign |
-| e2 | has_attribute | m2 | m4 | medium | chunk1 compound -> sign |
-| e3 | has_attribute | m6 | m7 | high | chunk3 amod -> smokestacks |
-| e4 | has_attribute | m8 | m9 | medium | chunk4 compound -> lines |
-| e5 | agent | m10 | m0 | medium | nsubj -> stands |
-| e6 | relation | m0 | m2 | high | with |
-| e7 | relation | m0 | m5 | high | beside |
-| e8 | relation | m0 | m6 | high | near |
-| e9 | relation | m0 | m8 | high | near |
+| e1 | has_attribute | m4 | m5 | high | chunk3 amod -> smokestacks |
+| e2 | has_attribute | m6 | m7 | medium | chunk4 compound -> lines |
+| e3 | agent | m8 | m0 | medium | nsubj -> stands |
+| e4 | relation | m0 | m2 | high | with |
+| e5 | relation | m0 | m3 | high | beside |
+| e6 | relation | m0 | m4 | high | near |
+| e7 | relation | m0 | m6 | high | near |
 
 ## 37
 
@@ -4428,19 +4398,18 @@ _none_
 
 **parsed_caption:**
 
-> Four people sit at a table during a panel discussion. Behind them, a large screen displays the quoted text. Each person has a microphone and nameplate in front of them.
+> Four people sit at a table during a panel discussion. Behind them, a large screen displays the text “edición, diversidad cultural y desarrollo.” Each person has a microphone and nameplate in front of them.
 
 ### Quote Mentions
-| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | masked_char_span |
+| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | parse_char_span |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| q0 | 27b9261b58a992423ef196b870b3213354abab3bfcabd4ea4016363cf8e8b814:q0 | edición, diversidad cultural y desarrollo. | edición, diversidad cultural y desarrollo. | the quoted text | the text | 100:144 | 91:106 |
+| q0 | 27b9261b58a992423ef196b870b3213354abab3bfcabd4ea4016363cf8e8b814:q0 | edición, diversidad cultural y desarrollo. | edición, diversidad cultural y desarrollo. | raw_quote_span | the text | 100:144 | 100:144 |
 
 ### Sentences
 | sentence | token_span |
 | --- | --- |
 | Four people sit at a table during a panel discussion. | 0:11 |
-| Behind them, a large screen displays the quoted text. | 11:22 |
-| Each person has a microphone and nameplate in front of them. | 22:34 |
+| Behind them, a large screen displays the text “edición, diversidad cultural y desarrollo.” Each person has a microphone and nameplate in front of them. | 11:33 |
 
 ### Noun Chunks
 | chunk | root | root_lemma | root_dep | root_head | token_span |
@@ -4450,12 +4419,13 @@ _none_
 | a panel discussion | discussion | discussion | pobj | during | 7:10 |
 | them | them | they | pobj | Behind | 12:13 |
 | a large screen | screen | screen | nsubj | displays | 14:17 |
-| the quoted text | text | text | dobj | displays | 18:21 |
-| Each person | person | person | nsubj | has | 22:24 |
-| a microphone | microphone | microphone | dobj | has | 25:27 |
-| nameplate | nameplate | nameplate | conj | microphone | 28:29 |
-| front | front | front | pobj | in | 30:31 |
-| them | them | they | pobj | of | 32:33 |
+| the text | text | text | dobj | displays | 18:20 |
+| “edición, diversidad cultural y desarrollo.” | “edición, diversidad cultural y desarrollo.” | edición,_diversidad_cultural_y_desarrollo. | appos | text | 20:21 |
+| Each person | person | person | nsubj | has | 21:23 |
+| a microphone | microphone | microphone | dobj | has | 24:26 |
+| nameplate | nameplate | nameplate | conj | microphone | 27:28 |
+| front | front | front | pobj | in | 29:30 |
+| them | them | they | pobj | of | 31:32 |
 
 ### Tokens / POS / Lemma / Dependency
 | i | text | lemma | pos | tag | dep | head | head_i |
@@ -4478,22 +4448,21 @@ _none_
 | 15 | large | large | ADJ | JJ | amod | screen | 16 |
 | 16 | screen | screen | NOUN | NN | nsubj | displays | 17 |
 | 17 | displays | display | VERB | VBZ | ROOT | displays | 17 |
-| 18 | the | the | DET | DT | det | text | 20 |
-| 19 | quoted | quote | VERB | VBN | amod | text | 20 |
-| 20 | text | text | NOUN | NN | dobj | displays | 17 |
-| 21 | . | . | PUNCT | . | punct | displays | 17 |
-| 22 | Each | each | DET | DT | det | person | 23 |
-| 23 | person | person | NOUN | NN | nsubj | has | 24 |
-| 24 | has | have | VERB | VBZ | ROOT | has | 24 |
-| 25 | a | a | DET | DT | det | microphone | 26 |
-| 26 | microphone | microphone | NOUN | NN | dobj | has | 24 |
-| 27 | and | and | CCONJ | CC | cc | microphone | 26 |
-| 28 | nameplate | nameplate | NOUN | NN | conj | microphone | 26 |
-| 29 | in | in | ADP | IN | prep | has | 24 |
-| 30 | front | front | NOUN | NN | pobj | in | 29 |
-| 31 | of | of | ADP | IN | prep | front | 30 |
-| 32 | them | they | PRON | PRP | pobj | of | 31 |
-| 33 | . | . | PUNCT | . | punct | has | 24 |
+| 18 | the | the | DET | DT | det | text | 19 |
+| 19 | text | text | NOUN | NN | dobj | displays | 17 |
+| 20 | “edición, diversidad cultural y desarrollo.” | edición,_diversidad_cultural_y_desarrollo. | NOUN | NN | appos | text | 19 |
+| 21 | Each | each | DET | DT | det | person | 22 |
+| 22 | person | person | NOUN | NN | nsubj | has | 23 |
+| 23 | has | have | VERB | VBZ | ccomp | displays | 17 |
+| 24 | a | a | DET | DT | det | microphone | 25 |
+| 25 | microphone | microphone | NOUN | NN | dobj | has | 23 |
+| 26 | and | and | CCONJ | CC | cc | microphone | 25 |
+| 27 | nameplate | nameplate | NOUN | NN | conj | microphone | 25 |
+| 28 | in | in | ADP | IN | prep | has | 23 |
+| 29 | front | front | NOUN | NN | pobj | in | 28 |
+| 30 | of | of | ADP | IN | prep | front | 29 |
+| 31 | them | they | PRON | PRP | pobj | of | 30 |
+| 32 | . | . | PUNCT | . | punct | has | 23 |
 
 ### Raw Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -4506,15 +4475,15 @@ _none_
 | m5 | object | them | they | chunk3 | 12 | noun_chunk_root | high |
 | m6 | object | screen | screen | chunk4 | 16 | noun_chunk_root | high |
 | m7 | attribute | large | large | chunk4 | 15 | size_attribute | high |
-| m8 | object | text | text | chunk5 | 20 | noun_chunk_root | high |
-| m9 | attribute | quoted | quote | chunk5 | 19 | state_attribute | medium |
-| m10 | object | person | person | chunk6 | 23 | noun_chunk_root | high |
-| m11 | object | microphone | microphone | chunk7 | 26 | noun_chunk_root | high |
-| m12 | object | nameplate | nameplate | chunk8 | 28 | noun_chunk_root | high |
-| m13 | object | them | they | chunk10 | 32 | noun_chunk_root | high |
+| m8 | object | text | text | chunk5 | 19 | noun_chunk_root | high |
+| m9 | object | “edición, diversidad cultural y desarrollo.” | edición,_diversidad_cultural_y_desarrollo. | chunk6 | 20 | noun_chunk_root | high |
+| m10 | object | person | person | chunk7 | 22 | noun_chunk_root | high |
+| m11 | object | microphone | microphone | chunk8 | 25 | noun_chunk_root | high |
+| m12 | object | nameplate | nameplate | chunk9 | 27 | noun_chunk_root | high |
+| m13 | object | them | they | chunk11 | 31 | noun_chunk_root | high |
 | m14 | action | sit | sit | doc | 2 | verb_predicate | high |
 | m15 | action | displays | display | doc | 17 | verb_predicate | high |
-| m16 | action | has | have | doc | 24 | verb_predicate | high |
+| m16 | action | has | have | doc | 23 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -4522,17 +4491,16 @@ _none_
 | e0 | has_quantity | m0 | m1 | high | chunk0 nummod -> people |
 | e1 | has_attribute | m3 | m4 | medium | chunk2 compound -> discussion |
 | e2 | has_attribute | m6 | m7 | high | chunk4 amod -> screen |
-| e3 | has_attribute | m8 | m9 | medium | chunk5 amod -> text |
-| e4 | agent | m14 | m0 | medium | nsubj -> sit |
-| e5 | agent | m15 | m6 | medium | nsubj -> displays |
-| e6 | patient | m15 | m8 | medium | dobj -> displays |
-| e7 | agent | m16 | m10 | medium | nsubj -> has |
-| e8 | patient | m16 | m11 | medium | dobj -> has |
-| e9 | patient | m16 | m12 | medium | dobj -> has |
-| e10 | relation | m0 | m2 | medium | at |
-| e11 | relation | m0 | m3 | medium | during |
-| e12 | relation | m6 | m5 | high | behind |
-| e13 | relation | m10 | m13 | high | in_front_of |
+| e3 | agent | m14 | m0 | medium | nsubj -> sit |
+| e4 | agent | m15 | m6 | medium | nsubj -> displays |
+| e5 | patient | m15 | m8 | medium | dobj -> displays |
+| e6 | agent | m16 | m10 | medium | nsubj -> has |
+| e7 | patient | m16 | m11 | medium | dobj -> has |
+| e8 | patient | m16 | m12 | medium | dobj -> has |
+| e9 | relation | m0 | m2 | medium | at |
+| e10 | relation | m0 | m3 | medium | during |
+| e11 | relation | m6 | m5 | high | behind |
+| e12 | relation | m10 | m13 | high | in_front_of |
 
 ## 48
 
@@ -4624,19 +4592,19 @@ _none_
 
 **parsed_caption:**
 
-> A person wears a black and yellow bicycle helmet with blue sunglasses. The individual is outdoors, with grass and sunlight visible in the background. A date stamp reads the quoted text in the corner.
+> A person wears a black and yellow bicycle helmet with blue sunglasses. The individual is outdoors, with grass and sunlight visible in the background. A date stamp reads “2007/06/09 01:14” in the corner.
 
 ### Quote Mentions
-| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | masked_char_span |
+| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | parse_char_span |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| q0 | 297167f329b8ff2480dda2037bd067eb4f305c39aff064b27927358c36f74814:q0 | 2007/06/09 01:14 | 2007/06/09 01:14 | the quoted text |  | 169:187 | 169:184 |
+| q0 | 297167f329b8ff2480dda2037bd067eb4f305c39aff064b27927358c36f74814:q0 | 2007/06/09 01:14 | 2007/06/09 01:14 | raw_quote_span |  | 169:187 | 169:187 |
 
 ### Sentences
 | sentence | token_span |
 | --- | --- |
 | A person wears a black and yellow bicycle helmet with blue sunglasses. | 0:13 |
 | The individual is outdoors, with grass and sunlight visible in the background. | 13:27 |
-| A date stamp reads the quoted text in the corner. | 27:38 |
+| A date stamp reads “2007/06/09 01:14” in the corner. | 27:36 |
 
 ### Noun Chunks
 | chunk | root | root_lemma | root_dep | root_head | token_span |
@@ -4649,8 +4617,7 @@ _none_
 | sunlight | sunlight | sunlight | conj | grass | 21:22 |
 | the background | background | background | pobj | in | 24:26 |
 | A date stamp | stamp | stamp | nsubj | reads | 27:30 |
-| the quoted text | text | text | dobj | reads | 31:34 |
-| the corner | corner | corner | pobj | in | 35:37 |
+| the corner | corner | corner | pobj | in | 33:35 |
 
 ### Tokens / POS / Lemma / Dependency
 | i | text | lemma | pos | tag | dep | head | head_i |
@@ -4686,13 +4653,11 @@ _none_
 | 28 | date | date | NOUN | NN | compound | stamp | 29 |
 | 29 | stamp | stamp | NOUN | NN | nsubj | reads | 30 |
 | 30 | reads | read | VERB | VBZ | ROOT | reads | 30 |
-| 31 | the | the | DET | DT | det | text | 33 |
-| 32 | quoted | quote | VERB | VBN | amod | text | 33 |
-| 33 | text | text | NOUN | NN | dobj | reads | 30 |
-| 34 | in | in | ADP | IN | prep | reads | 30 |
-| 35 | the | the | DET | DT | det | corner | 36 |
-| 36 | corner | corner | NOUN | NN | pobj | in | 34 |
-| 37 | . | . | PUNCT | . | punct | reads | 30 |
+| 31 | “2007/06/09 01:14” | 2007/06/09_01:14 | NUM | CD | dobj | reads | 30 |
+| 32 | in | in | ADP | IN | prep | reads | 30 |
+| 33 | the | the | DET | DT | det | corner | 34 |
+| 34 | corner | corner | NOUN | NN | pobj | in | 32 |
+| 35 | . | . | PUNCT | . | punct | reads | 30 |
 
 ### Raw Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -4710,13 +4675,11 @@ _none_
 | m10 | object | background | background | chunk6 | 25 | noun_chunk_root | high |
 | m11 | object | stamp | stamp | chunk7 | 29 | noun_chunk_root | high |
 | m12 | attribute | date | date | chunk7 | 28 | compound_modifier | medium |
-| m13 | object | text | text | chunk8 | 33 | noun_chunk_root | high |
-| m14 | attribute | quoted | quote | chunk8 | 32 | state_attribute | medium |
-| m15 | object | corner | corner | chunk9 | 36 | noun_chunk_root | high |
-| m16 | context | outdoors | outdoors | doc | 16 | context_word | medium |
-| m17 | context | background | background | doc | 25 | context_word | medium |
-| m18 | action | wears | wear | doc | 2 | verb_predicate | high |
-| m19 | action | reads | read | doc | 30 | verb_predicate | high |
+| m13 | object | corner | corner | chunk8 | 34 | noun_chunk_root | high |
+| m14 | context | outdoors | outdoors | doc | 16 | context_word | medium |
+| m15 | context | background | background | doc | 25 | context_word | medium |
+| m16 | action | wears | wear | doc | 2 | verb_predicate | high |
+| m17 | action | reads | read | doc | 30 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -4726,15 +4689,13 @@ _none_
 | e2 | has_attribute | m1 | m4 | medium | chunk1 compound -> helmet |
 | e3 | has_attribute | m5 | m6 | high | chunk2 amod -> sunglasses |
 | e4 | has_attribute | m11 | m12 | medium | chunk7 compound -> stamp |
-| e5 | has_attribute | m13 | m14 | medium | chunk8 amod -> text |
-| e6 | has_context | scene | m16 | medium | context token outdoors |
-| e7 | has_context | scene | m17 | medium | context token background |
-| e8 | agent | m18 | m0 | medium | nsubj -> wears |
-| e9 | patient | m18 | m1 | medium | dobj -> wears |
-| e10 | agent | m19 | m11 | medium | nsubj -> reads |
-| e11 | patient | m19 | m13 | medium | dobj -> reads |
-| e12 | relation | m1 | m5 | high | with |
-| e13 | relation | m11 | m15 | high | in |
+| e5 | has_context | scene | m14 | medium | context token outdoors |
+| e6 | has_context | scene | m15 | medium | context token background |
+| e7 | agent | m16 | m0 | medium | nsubj -> wears |
+| e8 | patient | m16 | m1 | medium | dobj -> wears |
+| e9 | agent | m17 | m11 | medium | nsubj -> reads |
+| e10 | relation | m1 | m5 | high | with |
+| e11 | relation | m11 | m13 | high | in |
 
 ## 50
 
@@ -4793,17 +4754,17 @@ _none_
 
 **parsed_caption:**
 
-> A man holds a black umbrella and stands beside a stone sign that reads the quoted text in a grassy park.
+> A man holds a black umbrella and stands beside a stone sign that reads "MILE 0 VICTORIA BC" in a grassy park.
 
 ### Quote Mentions
-| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | masked_char_span |
+| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | parse_char_span |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| q0 | 2a852a207447331ae329e1f42115b77bd23852e22e630f967738b27a9a8ca014:q0 | MILE 0 VICTORIA BC | mile 0 victoria bc | the quoted text |  | 71:91 | 71:86 |
+| q0 | 2a852a207447331ae329e1f42115b77bd23852e22e630f967738b27a9a8ca014:q0 | MILE 0 VICTORIA BC | mile 0 victoria bc | raw_quote_span |  | 71:91 | 71:91 |
 
 ### Sentences
 | sentence | token_span |
 | --- | --- |
-| A man holds a black umbrella and stands beside a stone sign that reads the quoted text in a grassy park. | 0:22 |
+| A man holds a black umbrella and stands beside a stone sign that reads "MILE 0 VICTORIA BC" in a grassy park. | 0:20 |
 
 ### Noun Chunks
 | chunk | root | root_lemma | root_dep | root_head | token_span |
@@ -4812,8 +4773,8 @@ _none_
 | a black umbrella | umbrella | umbrella | dobj | holds | 3:6 |
 | a stone sign | sign | sign | pobj | beside | 9:12 |
 | that | that | that | nsubj | reads | 12:13 |
-| the quoted text | text | text | dobj | reads | 14:17 |
-| a grassy park | park | park | pobj | in | 18:21 |
+| "MILE 0 VICTORIA BC" | "MILE 0 VICTORIA BC" | mile_0_victoria_bc | dobj | reads | 14:15 |
+| a grassy park | park | park | pobj | in | 16:19 |
 
 ### Tokens / POS / Lemma / Dependency
 | i | text | lemma | pos | tag | dep | head | head_i |
@@ -4832,14 +4793,12 @@ _none_
 | 11 | sign | sign | NOUN | NN | pobj | beside | 8 |
 | 12 | that | that | PRON | WDT | nsubj | reads | 13 |
 | 13 | reads | read | VERB | VBZ | relcl | sign | 11 |
-| 14 | the | the | DET | DT | det | text | 16 |
-| 15 | quoted | quote | VERB | VBN | amod | text | 16 |
-| 16 | text | text | NOUN | NN | dobj | reads | 13 |
-| 17 | in | in | ADP | IN | prep | stands | 7 |
-| 18 | a | a | DET | DT | det | park | 20 |
-| 19 | grassy | grassy | ADJ | JJ | amod | park | 20 |
-| 20 | park | park | NOUN | NN | pobj | in | 17 |
-| 21 | . | . | PUNCT | . | punct | holds | 2 |
+| 14 | "MILE 0 VICTORIA BC" | mile_0_victoria_bc | PROPN | NNP | dobj | reads | 13 |
+| 15 | in | in | ADP | IN | prep | stands | 7 |
+| 16 | a | a | DET | DT | det | park | 18 |
+| 17 | grassy | grassy | ADJ | JJ | amod | park | 18 |
+| 18 | park | park | NOUN | NN | pobj | in | 15 |
+| 19 | . | . | PUNCT | . | punct | holds | 2 |
 
 ### Raw Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -4850,27 +4809,25 @@ _none_
 | m3 | object | sign | sign | chunk2 | 11 | noun_chunk_root | high |
 | m4 | attribute | stone | stone | chunk2 | 10 | material_attribute | high |
 | m5 | object | that | that | chunk3 | 12 | noun_chunk_root | high |
-| m6 | object | text | text | chunk4 | 16 | noun_chunk_root | high |
-| m7 | attribute | quoted | quote | chunk4 | 15 | state_attribute | medium |
-| m8 | object | park | park | chunk5 | 20 | noun_chunk_root | high |
-| m9 | attribute | grassy | grassy | chunk5 | 19 | modifier_attribute | medium |
-| m10 | action | holds | hold | doc | 2 | verb_predicate | high |
-| m11 | action | stands | stand | doc | 7 | verb_predicate | high |
-| m12 | action | reads | read | doc | 13 | verb_predicate | high |
+| m6 | object | "MILE 0 VICTORIA BC" | mile_0_victoria_bc | chunk4 | 14 | noun_chunk_root | high |
+| m7 | object | park | park | chunk5 | 18 | noun_chunk_root | high |
+| m8 | attribute | grassy | grassy | chunk5 | 17 | modifier_attribute | medium |
+| m9 | action | holds | hold | doc | 2 | verb_predicate | high |
+| m10 | action | stands | stand | doc | 7 | verb_predicate | high |
+| m11 | action | reads | read | doc | 13 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m1 | m2 | high | chunk1 amod -> umbrella |
 | e1 | has_attribute | m3 | m4 | high | chunk2 compound -> sign |
-| e2 | has_attribute | m6 | m7 | medium | chunk4 amod -> text |
-| e3 | has_attribute | m8 | m9 | medium | chunk5 amod -> park |
-| e4 | agent | m10 | m0 | medium | nsubj -> holds |
-| e5 | patient | m10 | m1 | medium | dobj -> holds |
-| e6 | agent | m12 | m5 | medium | nsubj -> reads |
-| e7 | patient | m12 | m6 | medium | dobj -> reads |
-| e8 | relation | m0 | m3 | high | beside |
-| e9 | relation | m0 | m8 | high | in |
+| e2 | has_attribute | m7 | m8 | medium | chunk5 amod -> park |
+| e3 | agent | m9 | m0 | medium | nsubj -> holds |
+| e4 | patient | m9 | m1 | medium | dobj -> holds |
+| e5 | agent | m11 | m5 | medium | nsubj -> reads |
+| e6 | patient | m11 | m6 | medium | dobj -> reads |
+| e7 | relation | m0 | m3 | high | beside |
+| e8 | relation | m0 | m7 | high | in |
 
 ## 52
 
@@ -5258,19 +5215,19 @@ _none_
 
 **parsed_caption:**
 
-> A small, weathered orange-brown artifact with a rounded top and flat base rests on a white surface. Below it, a scale marker reads the quoted text indicating its size. The object appears to be an ancient or archaeological fragment.
+> A small, weathered orange-brown artifact with a rounded top and flat base rests on a white surface. Below it, a scale marker reads "50 mm," indicating its size. The object appears to be an ancient or archaeological fragment.
 
 ### Quote Mentions
-| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | masked_char_span |
+| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | parse_char_span |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| q0 | 2f1810981f1e7a25986b6d3d1b18205489e3d0812d69ac51e9f4121a83be3814:q0 | 50 mm, | 50 mm, | the quoted text |  | 131:139 | 131:146 |
+| q0 | 2f1810981f1e7a25986b6d3d1b18205489e3d0812d69ac51e9f4121a83be3814:q0 | 50 mm, | 50 mm, | raw_quote_span |  | 131:139 | 131:139 |
 
 ### Sentences
 | sentence | token_span |
 | --- | --- |
 | A small, weathered orange-brown artifact with a rounded top and flat base rests on a white surface. | 0:21 |
-| Below it, a scale marker reads the quoted text indicating its size. | 21:35 |
-| The object appears to be an ancient or archaeological fragment. | 35:46 |
+| Below it, a scale marker reads "50 mm," indicating its size. | 21:33 |
+| The object appears to be an ancient or archaeological fragment. | 33:44 |
 
 ### Noun Chunks
 | chunk | root | root_lemma | root_dep | root_head | token_span |
@@ -5281,10 +5238,9 @@ _none_
 | a white surface | surface | surface | pobj | on | 17:20 |
 | it | it | it | pobj | Below | 22:23 |
 | a scale marker | marker | marker | nsubj | reads | 24:27 |
-| the quoted text | text | text | dobj | reads | 28:31 |
-| its size | size | size | dobj | indicating | 32:34 |
-| The object | object | object | nsubj | appears | 35:37 |
-| an ancient or archaeological fragment | fragment | fragment | attr | be | 40:45 |
+| its size | size | size | dobj | indicating | 30:32 |
+| The object | object | object | nsubj | appears | 33:35 |
+| an ancient or archaeological fragment | fragment | fragment | attr | be | 38:43 |
 
 ### Tokens / POS / Lemma / Dependency
 | i | text | lemma | pos | tag | dep | head | head_i |
@@ -5317,24 +5273,22 @@ _none_
 | 25 | scale | scale | NOUN | NN | compound | marker | 26 |
 | 26 | marker | marker | NOUN | NN | nsubj | reads | 27 |
 | 27 | reads | read | VERB | VBZ | ROOT | reads | 27 |
-| 28 | the | the | DET | DT | det | text | 30 |
-| 29 | quoted | quote | VERB | VBN | amod | text | 30 |
-| 30 | text | text | NOUN | NN | dobj | reads | 27 |
-| 31 | indicating | indicate | VERB | VBG | acl | text | 30 |
-| 32 | its | its | PRON | PRP$ | poss | size | 33 |
-| 33 | size | size | NOUN | NN | dobj | indicating | 31 |
-| 34 | . | . | PUNCT | . | punct | reads | 27 |
-| 35 | The | the | DET | DT | det | object | 36 |
-| 36 | object | object | NOUN | NN | nsubj | appears | 37 |
-| 37 | appears | appear | VERB | VBZ | ROOT | appears | 37 |
-| 38 | to | to | PART | TO | aux | be | 39 |
-| 39 | be | be | AUX | VB | xcomp | appears | 37 |
-| 40 | an | an | DET | DT | det | fragment | 44 |
-| 41 | ancient | ancient | ADJ | JJ | amod | fragment | 44 |
-| 42 | or | or | CCONJ | CC | cc | ancient | 41 |
-| 43 | archaeological | archaeological | ADJ | JJ | conj | ancient | 41 |
-| 44 | fragment | fragment | NOUN | NN | attr | be | 39 |
-| 45 | . | . | PUNCT | . | punct | appears | 37 |
+| 28 | "50 mm," | 50_mm, | NUM | CD | punct | reads | 27 |
+| 29 | indicating | indicate | VERB | VBG | advcl | reads | 27 |
+| 30 | its | its | PRON | PRP$ | poss | size | 31 |
+| 31 | size | size | NOUN | NN | dobj | indicating | 29 |
+| 32 | . | . | PUNCT | . | punct | reads | 27 |
+| 33 | The | the | DET | DT | det | object | 34 |
+| 34 | object | object | NOUN | NN | nsubj | appears | 35 |
+| 35 | appears | appear | VERB | VBZ | ROOT | appears | 35 |
+| 36 | to | to | PART | TO | aux | be | 37 |
+| 37 | be | be | AUX | VB | xcomp | appears | 35 |
+| 38 | an | an | DET | DT | det | fragment | 42 |
+| 39 | ancient | ancient | ADJ | JJ | amod | fragment | 42 |
+| 40 | or | or | CCONJ | CC | cc | ancient | 39 |
+| 41 | archaeological | archaeological | ADJ | JJ | conj | ancient | 39 |
+| 42 | fragment | fragment | NOUN | NN | attr | be | 37 |
+| 43 | . | . | PUNCT | . | punct | appears | 35 |
 
 ### Raw Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -5352,18 +5306,16 @@ _none_
 | m10 | object | it | it | chunk4 | 22 | noun_chunk_root | high |
 | m11 | object | marker | marker | chunk5 | 26 | noun_chunk_root | high |
 | m12 | attribute | scale | scale | chunk5 | 25 | compound_modifier | medium |
-| m13 | object | text | text | chunk6 | 30 | noun_chunk_root | high |
-| m14 | attribute | quoted | quote | chunk6 | 29 | state_attribute | medium |
-| m15 | object | size | size | chunk7 | 33 | noun_chunk_root | high |
-| m16 | attribute | its | its | chunk7 | 32 | modifier_attribute | medium |
-| m17 | object | object | object | chunk8 | 36 | noun_chunk_root | high |
-| m18 | object | fragment | fragment | chunk9 | 44 | noun_chunk_root | high |
-| m19 | attribute | ancient | ancient | chunk9 | 41 | modifier_attribute | medium |
-| m20 | attribute | archaeological | archaeological | chunk9 | 43 | modifier_attribute | medium |
-| m21 | action | rests | rest | doc | 15 | verb_predicate | high |
-| m22 | action | reads | read | doc | 27 | verb_predicate | high |
-| m23 | action | indicating | indicate | doc | 31 | verb_predicate | high |
-| m24 | action | appears | appear | doc | 37 | verb_predicate | high |
+| m13 | object | size | size | chunk6 | 31 | noun_chunk_root | high |
+| m14 | attribute | its | its | chunk6 | 30 | modifier_attribute | medium |
+| m15 | object | object | object | chunk7 | 34 | noun_chunk_root | high |
+| m16 | object | fragment | fragment | chunk8 | 42 | noun_chunk_root | high |
+| m17 | attribute | ancient | ancient | chunk8 | 39 | modifier_attribute | medium |
+| m18 | attribute | archaeological | archaeological | chunk8 | 41 | modifier_attribute | medium |
+| m19 | action | rests | rest | doc | 15 | verb_predicate | high |
+| m20 | action | reads | read | doc | 27 | verb_predicate | high |
+| m21 | action | indicating | indicate | doc | 29 | verb_predicate | high |
+| m22 | action | appears | appear | doc | 35 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -5375,19 +5327,17 @@ _none_
 | e4 | has_attribute | m6 | m7 | medium | chunk2 amod -> base |
 | e5 | has_attribute | m8 | m9 | high | chunk3 amod -> surface |
 | e6 | has_attribute | m11 | m12 | medium | chunk5 compound -> marker |
-| e7 | has_attribute | m13 | m14 | medium | chunk6 amod -> text |
-| e8 | has_attribute | m15 | m16 | medium | chunk7 poss -> size |
-| e9 | has_attribute | m18 | m19 | medium | chunk9 amod -> fragment |
-| e10 | has_attribute | m18 | m20 | medium | chunk9 conj -> fragment |
-| e11 | agent | m21 | m0 | medium | nsubj -> rests |
-| e12 | agent | m22 | m11 | medium | nsubj -> reads |
-| e13 | patient | m22 | m13 | medium | dobj -> reads |
-| e14 | patient | m23 | m15 | medium | dobj -> indicating |
-| e15 | agent | m24 | m17 | medium | nsubj -> appears |
-| e16 | relation | m0 | m5 | high | with |
-| e17 | relation | m0 | m6 | high | with |
-| e18 | relation | m0 | m8 | high | on |
-| e19 | relation | m11 | m10 | high | below |
+| e7 | has_attribute | m13 | m14 | medium | chunk6 poss -> size |
+| e8 | has_attribute | m16 | m17 | medium | chunk8 amod -> fragment |
+| e9 | has_attribute | m16 | m18 | medium | chunk8 conj -> fragment |
+| e10 | agent | m19 | m0 | medium | nsubj -> rests |
+| e11 | agent | m20 | m11 | medium | nsubj -> reads |
+| e12 | patient | m21 | m13 | medium | dobj -> indicating |
+| e13 | agent | m22 | m15 | medium | nsubj -> appears |
+| e14 | relation | m0 | m5 | high | with |
+| e15 | relation | m0 | m6 | high | with |
+| e16 | relation | m0 | m8 | high | on |
+| e17 | relation | m11 | m10 | high | below |
 
 ## 58
 
@@ -6884,19 +6834,19 @@ _none_
 
 **parsed_caption:**
 
-> A man in a blue suit stands at a wooden podium speaking into microphones. To his left, a man in a gray suit sits with a mask on, and to his right, a woman in a yellow jacket sits with a mask on. They are in front of a backdrop with the quoted text logos and text.
+> A man in a blue suit stands at a wooden podium speaking into microphones. To his left, a man in a gray suit sits with a mask on, and to his right, a woman in a yellow jacket sits with a mask on. They are in front of a backdrop with "Philadelphia Flyers" logos and text.
 
 ### Quote Mentions
-| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | masked_char_span |
+| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | parse_char_span |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| q0 | 3a94bef6569e8de11d6f22d1351ebabb5559cbd80977398b0ed11b3f5a3be414:q0 | Philadelphia Flyers | philadelphia flyers | the quoted text |  | 232:253 | 232:247 |
+| q0 | 3a94bef6569e8de11d6f22d1351ebabb5559cbd80977398b0ed11b3f5a3be414:q0 | Philadelphia Flyers | philadelphia flyers | raw_quote_span |  | 232:253 | 232:253 |
 
 ### Sentences
 | sentence | token_span |
 | --- | --- |
 | A man in a blue suit stands at a wooden podium speaking into microphones. | 0:15 |
 | To his left, a man in a gray suit sits with a mask on, and to his right, a woman in a yellow jacket sits with a mask on. | 15:48 |
-| They are in front of a backdrop with the quoted text logos and text. | 48:63 |
+| They are in front of a backdrop with "Philadelphia Flyers" logos and text. | 48:61 |
 
 ### Noun Chunks
 | chunk | root | root_lemma | root_dep | root_head | token_span |
@@ -6916,8 +6866,8 @@ _none_
 | They | They | they | nsubj | are | 48:49 |
 | front | front | front | pobj | in | 51:52 |
 | a backdrop | backdrop | backdrop | pobj | of | 53:55 |
-| the quoted text logos | logos | logo | pobj | with | 56:60 |
-| text | text | text | conj | logos | 61:62 |
+| "Philadelphia Flyers" logos | logos | logo | pobj | with | 56:58 |
+| text | text | text | conj | logos | 59:60 |
 
 ### Tokens / POS / Lemma / Dependency
 | i | text | lemma | pos | tag | dep | head | head_i |
@@ -6978,13 +6928,11 @@ _none_
 | 53 | a | a | DET | DT | det | backdrop | 54 |
 | 54 | backdrop | backdrop | NOUN | NN | pobj | of | 52 |
 | 55 | with | with | ADP | IN | prep | backdrop | 54 |
-| 56 | the | the | DET | DT | det | logos | 59 |
-| 57 | quoted | quote | VERB | VBN | amod | logos | 59 |
-| 58 | text | text | NOUN | NN | compound | logos | 59 |
-| 59 | logos | logo | NOUN | NNS | pobj | with | 55 |
-| 60 | and | and | CCONJ | CC | cc | logos | 59 |
-| 61 | text | text | NOUN | NN | conj | logos | 59 |
-| 62 | . | . | PUNCT | . | punct | are | 49 |
+| 56 | "Philadelphia Flyers" | philadelphia_flyers | PROPN | NNP | punct | logos | 57 |
+| 57 | logos | logo | NOUN | NNS | pobj | with | 55 |
+| 58 | and | and | CCONJ | CC | cc | logos | 57 |
+| 59 | text | text | NOUN | NN | conj | logos | 57 |
+| 60 | . | . | PUNCT | . | punct | are | 49 |
 
 ### Raw Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -7009,14 +6957,12 @@ _none_
 | m17 | object | mask | mask | chunk11 | 45 | noun_chunk_root | high |
 | m18 | object | They | they | chunk12 | 48 | noun_chunk_root | high |
 | m19 | object | backdrop | backdrop | chunk14 | 54 | noun_chunk_root | high |
-| m20 | object | logos | logo | chunk15 | 59 | noun_chunk_root | high |
-| m21 | attribute | quoted | quote | chunk15 | 57 | state_attribute | medium |
-| m22 | attribute | text | text | chunk15 | 58 | compound_modifier | medium |
-| m23 | object | text | text | chunk16 | 61 | noun_chunk_root | high |
-| m24 | action | stands | stand | doc | 6 | verb_predicate | high |
-| m25 | action | speaking | speak | doc | 11 | verb_predicate | high |
-| m26 | action | sits | sit | doc | 25 | verb_predicate | high |
-| m27 | action | sits | sit | doc | 42 | verb_predicate | high |
+| m20 | object | logos | logo | chunk15 | 57 | noun_chunk_root | high |
+| m21 | object | text | text | chunk16 | 59 | noun_chunk_root | high |
+| m22 | action | stands | stand | doc | 6 | verb_predicate | high |
+| m23 | action | speaking | speak | doc | 11 | verb_predicate | high |
+| m24 | action | sits | sit | doc | 25 | verb_predicate | high |
+| m25 | action | sits | sit | doc | 42 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -7027,21 +6973,19 @@ _none_
 | e3 | has_attribute | m9 | m10 | high | chunk6 amod -> suit |
 | e4 | has_attribute | m12 | m13 | medium | chunk8 poss -> right |
 | e5 | has_attribute | m15 | m16 | high | chunk10 amod -> jacket |
-| e6 | has_attribute | m20 | m21 | medium | chunk15 amod -> logos |
-| e7 | has_attribute | m20 | m22 | medium | chunk15 compound -> logos |
-| e8 | agent | m24 | m0 | medium | nsubj -> stands |
-| e9 | agent | m26 | m8 | medium | nsubj -> sits |
-| e10 | agent | m27 | m14 | medium | nsubj -> sits |
-| e11 | relation | m0 | m1 | high | in |
-| e12 | relation | m0 | m3 | medium | at |
-| e13 | relation | m0 | m5 | medium | into |
-| e14 | relation | m8 | m6 | medium | to |
-| e15 | relation | m8 | m9 | high | in |
-| e16 | relation | m14 | m12 | medium | to |
-| e17 | relation | m14 | m15 | high | in |
-| e18 | relation | m18 | m19 | high | in_front_of |
-| e19 | relation | m19 | m20 | high | with |
-| e20 | relation | m19 | m23 | high | with |
+| e6 | agent | m22 | m0 | medium | nsubj -> stands |
+| e7 | agent | m24 | m8 | medium | nsubj -> sits |
+| e8 | agent | m25 | m14 | medium | nsubj -> sits |
+| e9 | relation | m0 | m1 | high | in |
+| e10 | relation | m0 | m3 | medium | at |
+| e11 | relation | m0 | m5 | medium | into |
+| e12 | relation | m8 | m6 | medium | to |
+| e13 | relation | m8 | m9 | high | in |
+| e14 | relation | m14 | m12 | medium | to |
+| e15 | relation | m14 | m15 | high | in |
+| e16 | relation | m18 | m19 | high | in_front_of |
+| e17 | relation | m19 | m20 | high | with |
+| e18 | relation | m19 | m21 | high | with |
 
 ## 75
 
@@ -7332,19 +7276,19 @@ _none_
 
 **parsed_caption:**
 
-> People in suits sit at wooden desks in a large legislative chamber. A large screen above displays text in Portuguese, including the quoted text and meeting details. Several individuals are seated or standing near the front, facing the screen.
+> People in suits sit at wooden desks in a large legislative chamber. A large screen above displays text in Portuguese, including “Assembleia Legislativa do Estado do Espírito Santo” and meeting details. Several individuals are seated or standing near the front, facing the screen.
 
 ### Quote Mentions
-| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | masked_char_span |
+| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | parse_char_span |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| q0 | 3d615bf81b2edbc0ddf312c8e46aeff2ced9ab2d0015e50b4be5dc566214c414:q0 | Assembleia Legislativa do Estado do Espírito Santo | assembleia legislativa do estado do espírito santo | the quoted text |  | 128:180 | 128:143 |
+| q0 | 3d615bf81b2edbc0ddf312c8e46aeff2ced9ab2d0015e50b4be5dc566214c414:q0 | Assembleia Legislativa do Estado do Espírito Santo | assembleia legislativa do estado do espírito santo | raw_quote_span |  | 128:180 | 128:180 |
 
 ### Sentences
 | sentence | token_span |
 | --- | --- |
 | People in suits sit at wooden desks in a large legislative chamber. | 0:13 |
-| A large screen above displays text in Portuguese, including the quoted text and meeting details. | 13:30 |
-| Several individuals are seated or standing near the front, facing the screen. | 30:44 |
+| A large screen above displays text in Portuguese, including “Assembleia Legislativa do Estado do Espírito Santo” and meeting details. | 13:28 |
+| Several individuals are seated or standing near the front, facing the screen. | 28:42 |
 
 ### Noun Chunks
 | chunk | root | root_lemma | root_dep | root_head | token_span |
@@ -7356,11 +7300,10 @@ _none_
 | A large screen | screen | screen | nsubj | displays | 13:16 |
 | text | text | text | dobj | displays | 18:19 |
 | Portuguese | Portuguese | Portuguese | pobj | in | 20:21 |
-| the quoted text | text | text | pobj | including | 23:26 |
-| meeting details | details | detail | conj | text | 27:29 |
-| Several individuals | individuals | individual | nsubjpass | seated | 30:32 |
-| the front | front | front | pobj | near | 37:39 |
-| the screen | screen | screen | dobj | facing | 41:43 |
+| “Assembleia Legislativa do Estado do Espírito Santo” | “Assembleia Legislativa do Estado do Espírito Santo” | assembleia_legislativa_do_estado_do_espírito_santo | pobj | including | 23:24 |
+| Several individuals | individuals | individual | nsubjpass | seated | 28:30 |
+| the front | front | front | pobj | near | 35:37 |
+| the screen | screen | screen | dobj | facing | 39:41 |
 
 ### Tokens / POS / Lemma / Dependency
 | i | text | lemma | pos | tag | dep | head | head_i |
@@ -7388,27 +7331,25 @@ _none_
 | 20 | Portuguese | Portuguese | PROPN | NNP | pobj | in | 19 |
 | 21 | , | , | PUNCT | , | punct | text | 18 |
 | 22 | including | include | VERB | VBG | prep | text | 18 |
-| 23 | the | the | DET | DT | det | text | 25 |
-| 24 | quoted | quote | VERB | VBN | amod | text | 25 |
-| 25 | text | text | NOUN | NN | pobj | including | 22 |
-| 26 | and | and | CCONJ | CC | cc | text | 25 |
-| 27 | meeting | meeting | NOUN | NN | compound | details | 28 |
-| 28 | details | detail | NOUN | NNS | conj | text | 25 |
-| 29 | . | . | PUNCT | . | punct | displays | 17 |
-| 30 | Several | several | ADJ | JJ | amod | individuals | 31 |
-| 31 | individuals | individual | NOUN | NNS | nsubjpass | seated | 33 |
-| 32 | are | be | AUX | VBP | aux | seated | 33 |
-| 33 | seated | seat | VERB | VBN | ROOT | seated | 33 |
-| 34 | or | or | CCONJ | CC | cc | seated | 33 |
-| 35 | standing | stand | VERB | VBG | conj | seated | 33 |
-| 36 | near | near | ADP | IN | prep | standing | 35 |
-| 37 | the | the | DET | DT | det | front | 38 |
-| 38 | front | front | NOUN | NN | pobj | near | 36 |
-| 39 | , | , | PUNCT | , | punct | standing | 35 |
-| 40 | facing | face | VERB | VBG | conj | standing | 35 |
-| 41 | the | the | DET | DT | det | screen | 42 |
-| 42 | screen | screen | NOUN | NN | dobj | facing | 40 |
-| 43 | . | . | PUNCT | . | punct | seated | 33 |
+| 23 | “Assembleia Legislativa do Estado do Espírito Santo” | assembleia_legislativa_do_estado_do_espírito_santo | PROPN | NNP | pobj | including | 22 |
+| 24 | and | and | CCONJ | CC | cc | including | 22 |
+| 25 | meeting | meeting | NOUN | NN | compound | details | 26 |
+| 26 | details | detail | NOUN | NNS | conj | including | 22 |
+| 27 | . | . | PUNCT | . | punct | displays | 17 |
+| 28 | Several | several | ADJ | JJ | amod | individuals | 29 |
+| 29 | individuals | individual | NOUN | NNS | nsubjpass | seated | 31 |
+| 30 | are | be | AUX | VBP | aux | seated | 31 |
+| 31 | seated | seat | VERB | VBN | ROOT | seated | 31 |
+| 32 | or | or | CCONJ | CC | cc | seated | 31 |
+| 33 | standing | stand | VERB | VBG | conj | seated | 31 |
+| 34 | near | near | ADP | IN | prep | standing | 33 |
+| 35 | the | the | DET | DT | det | front | 36 |
+| 36 | front | front | NOUN | NN | pobj | near | 34 |
+| 37 | , | , | PUNCT | , | punct | standing | 33 |
+| 38 | facing | face | VERB | VBG | conj | standing | 33 |
+| 39 | the | the | DET | DT | det | screen | 40 |
+| 40 | screen | screen | NOUN | NN | dobj | facing | 38 |
+| 41 | . | . | PUNCT | . | punct | seated | 31 |
 
 ### Raw Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -7424,20 +7365,17 @@ _none_
 | m8 | attribute | large | large | chunk4 | 14 | size_attribute | high |
 | m9 | object | text | text | chunk5 | 18 | noun_chunk_root | high |
 | m10 | object | Portuguese | portuguese | chunk6 | 20 | noun_chunk_root | high |
-| m11 | object | text | text | chunk7 | 25 | noun_chunk_root | high |
-| m12 | attribute | quoted | quote | chunk7 | 24 | state_attribute | medium |
-| m13 | object | details | detail | chunk8 | 28 | noun_chunk_root | high |
-| m14 | attribute | meeting | meeting | chunk8 | 27 | compound_modifier | medium |
-| m15 | object | individuals | individual | chunk9 | 31 | noun_chunk_root | high |
-| m16 | attribute | Several | several | chunk9 | 30 | modifier_attribute | medium |
-| m17 | context | front | front | chunk10 | 38 | spatial_region | medium |
-| m18 | object | screen | screen | chunk11 | 42 | noun_chunk_root | high |
-| m19 | action | sit | sit | doc | 3 | verb_predicate | high |
-| m20 | action | displays | display | doc | 17 | verb_predicate | high |
-| m21 | action | including | include | doc | 22 | verb_predicate | high |
-| m22 | action | seated | seat | doc | 33 | verb_predicate | high |
-| m23 | action | standing | stand | doc | 35 | verb_predicate | high |
-| m24 | action | facing | face | doc | 40 | verb_predicate | high |
+| m11 | object | “Assembleia Legislativa do Estado do Espírito Santo” | assembleia_legislativa_do_estado_do_espírito_santo | chunk7 | 23 | noun_chunk_root | high |
+| m12 | object | individuals | individual | chunk8 | 29 | noun_chunk_root | high |
+| m13 | attribute | Several | several | chunk8 | 28 | modifier_attribute | medium |
+| m14 | context | front | front | chunk9 | 36 | spatial_region | medium |
+| m15 | object | screen | screen | chunk10 | 40 | noun_chunk_root | high |
+| m16 | action | sit | sit | doc | 3 | verb_predicate | high |
+| m17 | action | displays | display | doc | 17 | verb_predicate | high |
+| m18 | action | including | include | doc | 22 | verb_predicate | high |
+| m19 | action | seated | seat | doc | 31 | verb_predicate | high |
+| m20 | action | standing | stand | doc | 33 | verb_predicate | high |
+| m21 | action | facing | face | doc | 38 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -7446,23 +7384,19 @@ _none_
 | e1 | has_attribute | m4 | m5 | high | chunk3 amod -> chamber |
 | e2 | has_attribute | m4 | m6 | medium | chunk3 amod -> chamber |
 | e3 | has_attribute | m7 | m8 | high | chunk4 amod -> screen |
-| e4 | has_attribute | m11 | m12 | medium | chunk7 amod -> text |
-| e5 | has_attribute | m13 | m14 | medium | chunk8 compound -> details |
-| e6 | has_attribute | m15 | m16 | medium | chunk9 amod -> individuals |
-| e7 | agent | m19 | m0 | medium | nsubj -> sit |
-| e8 | agent | m20 | m7 | medium | nsubj -> displays |
-| e9 | patient | m20 | m9 | medium | dobj -> displays |
-| e10 | patient | m21 | m11 | medium | pobj -> including |
-| e11 | patient | m21 | m13 | medium | pobj -> including |
-| e12 | agent | m22 | m15 | medium | nsubjpass -> seated |
-| e13 | patient | m24 | m18 | medium | dobj -> facing |
-| e14 | relation | m0 | m1 | high | in |
-| e15 | relation | m0 | m2 | medium | at |
-| e16 | relation | m0 | m4 | high | in |
-| e17 | relation | m9 | m10 | high | in |
-| e18 | relation | m9 | m11 | medium | include |
-| e19 | relation | m9 | m13 | medium | include |
-| e20 | relation | m15 | m17 | high | near |
+| e4 | has_attribute | m12 | m13 | medium | chunk8 amod -> individuals |
+| e5 | agent | m16 | m0 | medium | nsubj -> sit |
+| e6 | agent | m17 | m7 | medium | nsubj -> displays |
+| e7 | patient | m17 | m9 | medium | dobj -> displays |
+| e8 | patient | m18 | m11 | medium | pobj -> including |
+| e9 | agent | m19 | m12 | medium | nsubjpass -> seated |
+| e10 | patient | m21 | m15 | medium | dobj -> facing |
+| e11 | relation | m0 | m1 | high | in |
+| e12 | relation | m0 | m2 | medium | at |
+| e13 | relation | m0 | m4 | high | in |
+| e14 | relation | m9 | m10 | high | in |
+| e15 | relation | m9 | m11 | medium | include |
+| e16 | relation | m12 | m14 | high | near |
 
 ## 79
 
@@ -8260,29 +8194,29 @@ _none_
 
 **parsed_caption:**
 
-> A white fabric tag with the number the quoted text is stitched onto a bright yellow garment. The tag is slightly frayed at the edges and sits against the textured, wrinkled fabric of the clothing.
+> A white fabric tag with the number "1709-1" is stitched onto a bright yellow garment. The tag is slightly frayed at the edges and sits against the textured, wrinkled fabric of the clothing.
 
 ### Quote Mentions
-| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | masked_char_span |
+| id | global_id | text_raw | text_norm | placeholder | consumed_prefix | raw_char_span | parse_char_span |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| q0 | 4bdbef927b2be02d84676c5d4761e2273071526b2c5224f2a1e2195169fc6814:q0 | 1709-1 | 1709-1 | the quoted text |  | 35:43 | 35:50 |
+| q0 | 4bdbef927b2be02d84676c5d4761e2273071526b2c5224f2a1e2195169fc6814:q0 | 1709-1 | 1709-1 | raw_quote_span |  | 35:43 | 35:43 |
 
 ### Sentences
 | sentence | token_span |
 | --- | --- |
-| A white fabric tag with the number the quoted text is stitched onto a bright yellow garment. | 0:18 |
-| The tag is slightly frayed at the edges and sits against the textured, wrinkled fabric of the clothing. | 18:38 |
+| A white fabric tag with the number "1709-1" is stitched onto a bright yellow garment. | 0:16 |
+| The tag is slightly frayed at the edges and sits against the textured, wrinkled fabric of the clothing. | 16:36 |
 
 ### Noun Chunks
 | chunk | root | root_lemma | root_dep | root_head | token_span |
 | --- | --- | --- | --- | --- | --- |
 | A white fabric tag | tag | tag | nsubjpass | stitched | 0:4 |
 | the number | number | number | pobj | with | 5:7 |
-| a bright yellow garment | garment | garment | pobj | onto | 13:17 |
-| The tag | tag | tag | nsubjpass | frayed | 18:20 |
-| the edges | edges | edge | pobj | at | 24:26 |
-| the textured, wrinkled fabric | fabric | fabric | pobj | against | 29:34 |
-| the clothing | clothing | clothing | pobj | of | 35:37 |
+| a bright yellow garment | garment | garment | pobj | onto | 11:15 |
+| The tag | tag | tag | nsubjpass | frayed | 16:18 |
+| the edges | edges | edge | pobj | at | 22:24 |
+| the textured, wrinkled fabric | fabric | fabric | pobj | against | 27:32 |
+| the clothing | clothing | clothing | pobj | of | 33:35 |
 
 ### Tokens / POS / Lemma / Dependency
 | i | text | lemma | pos | tag | dep | head | head_i |
@@ -8290,41 +8224,39 @@ _none_
 | 0 | A | a | DET | DT | det | tag | 3 |
 | 1 | white | white | ADJ | JJ | amod | tag | 3 |
 | 2 | fabric | fabric | NOUN | NN | compound | tag | 3 |
-| 3 | tag | tag | NOUN | NN | nsubjpass | stitched | 11 |
+| 3 | tag | tag | NOUN | NN | nsubjpass | stitched | 9 |
 | 4 | with | with | ADP | IN | prep | tag | 3 |
 | 5 | the | the | DET | DT | det | number | 6 |
 | 6 | number | number | NOUN | NN | pobj | with | 4 |
-| 7 | the | the | DET | DT | det | text | 9 |
-| 8 | quoted | quote | VERB | VBN | amod | text | 9 |
-| 9 | text | text | NOUN | NN | relcl | number | 6 |
-| 10 | is | be | AUX | VBZ | auxpass | stitched | 11 |
-| 11 | stitched | stitch | VERB | VBN | ROOT | stitched | 11 |
-| 12 | onto | onto | ADP | IN | prep | stitched | 11 |
-| 13 | a | a | DET | DT | det | garment | 16 |
-| 14 | bright | bright | ADJ | JJ | amod | yellow | 15 |
-| 15 | yellow | yellow | ADJ | JJ | amod | garment | 16 |
-| 16 | garment | garment | NOUN | NN | pobj | onto | 12 |
-| 17 | . | . | PUNCT | . | punct | stitched | 11 |
-| 18 | The | the | DET | DT | det | tag | 19 |
-| 19 | tag | tag | NOUN | NN | nsubjpass | frayed | 22 |
-| 20 | is | be | AUX | VBZ | auxpass | frayed | 22 |
-| 21 | slightly | slightly | ADV | RB | advmod | frayed | 22 |
-| 22 | frayed | fray | VERB | VBN | ROOT | frayed | 22 |
-| 23 | at | at | ADP | IN | prep | frayed | 22 |
-| 24 | the | the | DET | DT | det | edges | 25 |
-| 25 | edges | edge | NOUN | NNS | pobj | at | 23 |
-| 26 | and | and | CCONJ | CC | cc | frayed | 22 |
-| 27 | sits | sit | VERB | VBZ | conj | frayed | 22 |
-| 28 | against | against | ADP | IN | prep | sits | 27 |
-| 29 | the | the | DET | DT | det | fabric | 33 |
-| 30 | textured | textured | ADJ | JJ | amod | fabric | 33 |
-| 31 | , | , | PUNCT | , | punct | fabric | 33 |
-| 32 | wrinkled | wrinkled | ADJ | JJ | amod | fabric | 33 |
-| 33 | fabric | fabric | NOUN | NN | pobj | against | 28 |
-| 34 | of | of | ADP | IN | prep | fabric | 33 |
-| 35 | the | the | DET | DT | det | clothing | 36 |
-| 36 | clothing | clothing | NOUN | NN | pobj | of | 34 |
-| 37 | . | . | PUNCT | . | punct | frayed | 22 |
+| 7 | "1709-1" | 1709-1 | NUM | CD | appos | number | 6 |
+| 8 | is | be | AUX | VBZ | auxpass | stitched | 9 |
+| 9 | stitched | stitch | VERB | VBN | ROOT | stitched | 9 |
+| 10 | onto | onto | ADP | IN | prep | stitched | 9 |
+| 11 | a | a | DET | DT | det | garment | 14 |
+| 12 | bright | bright | ADJ | JJ | amod | yellow | 13 |
+| 13 | yellow | yellow | ADJ | JJ | amod | garment | 14 |
+| 14 | garment | garment | NOUN | NN | pobj | onto | 10 |
+| 15 | . | . | PUNCT | . | punct | stitched | 9 |
+| 16 | The | the | DET | DT | det | tag | 17 |
+| 17 | tag | tag | NOUN | NN | nsubjpass | frayed | 20 |
+| 18 | is | be | AUX | VBZ | auxpass | frayed | 20 |
+| 19 | slightly | slightly | ADV | RB | advmod | frayed | 20 |
+| 20 | frayed | fray | VERB | VBN | ROOT | frayed | 20 |
+| 21 | at | at | ADP | IN | prep | frayed | 20 |
+| 22 | the | the | DET | DT | det | edges | 23 |
+| 23 | edges | edge | NOUN | NNS | pobj | at | 21 |
+| 24 | and | and | CCONJ | CC | cc | frayed | 20 |
+| 25 | sits | sit | VERB | VBZ | conj | frayed | 20 |
+| 26 | against | against | ADP | IN | prep | sits | 25 |
+| 27 | the | the | DET | DT | det | fabric | 31 |
+| 28 | textured | textured | ADJ | JJ | amod | fabric | 31 |
+| 29 | , | , | PUNCT | , | punct | fabric | 31 |
+| 30 | wrinkled | wrinkled | ADJ | JJ | amod | fabric | 31 |
+| 31 | fabric | fabric | NOUN | NN | pobj | against | 26 |
+| 32 | of | of | ADP | IN | prep | fabric | 31 |
+| 33 | the | the | DET | DT | det | clothing | 34 |
+| 34 | clothing | clothing | NOUN | NN | pobj | of | 32 |
+| 35 | . | . | PUNCT | . | punct | frayed | 20 |
 
 ### Raw Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -8333,18 +8265,18 @@ _none_
 | m1 | attribute | white | white | chunk0 | 1 | color_attribute | high |
 | m2 | attribute | fabric | fabric | chunk0 | 2 | material_attribute | high |
 | m3 | object | number | number | chunk1 | 6 | noun_chunk_root | high |
-| m4 | object | garment | garment | chunk2 | 16 | noun_chunk_root | high |
-| m5 | attribute | bright | bright | chunk2 | 14 | visual_attribute | medium |
-| m6 | attribute | yellow | yellow | chunk2 | 15 | color_attribute | high |
-| m7 | object | tag | tag | chunk3 | 19 | noun_chunk_root | high |
-| m8 | context | edges | edge | chunk4 | 25 | spatial_region | medium |
-| m9 | object | fabric | fabric | chunk5 | 33 | noun_chunk_root | high |
-| m10 | attribute | textured | textured | chunk5 | 30 | modifier_attribute | medium |
-| m11 | attribute | wrinkled | wrinkled | chunk5 | 32 | modifier_attribute | medium |
-| m12 | object | clothing | clothing | chunk6 | 36 | noun_chunk_root | high |
-| m13 | action | stitched | stitch | doc | 11 | verb_predicate | high |
-| m14 | action | frayed | fray | doc | 22 | verb_predicate | high |
-| m15 | action | sits | sit | doc | 27 | verb_predicate | high |
+| m4 | object | garment | garment | chunk2 | 14 | noun_chunk_root | high |
+| m5 | attribute | bright | bright | chunk2 | 12 | visual_attribute | medium |
+| m6 | attribute | yellow | yellow | chunk2 | 13 | color_attribute | high |
+| m7 | object | tag | tag | chunk3 | 17 | noun_chunk_root | high |
+| m8 | context | edges | edge | chunk4 | 23 | spatial_region | medium |
+| m9 | object | fabric | fabric | chunk5 | 31 | noun_chunk_root | high |
+| m10 | attribute | textured | textured | chunk5 | 28 | modifier_attribute | medium |
+| m11 | attribute | wrinkled | wrinkled | chunk5 | 30 | modifier_attribute | medium |
+| m12 | object | clothing | clothing | chunk6 | 34 | noun_chunk_root | high |
+| m13 | action | stitched | stitch | doc | 9 | verb_predicate | high |
+| m14 | action | frayed | fray | doc | 20 | verb_predicate | high |
+| m15 | action | sits | sit | doc | 25 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |

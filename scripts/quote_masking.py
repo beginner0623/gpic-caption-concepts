@@ -5,6 +5,7 @@ import re
 
 
 DEFAULT_PLACEHOLDER = "the quoted text"
+RAW_QUOTE_PLACEHOLDER = "raw_quote_span"
 
 
 @dataclass(frozen=True)
@@ -233,5 +234,62 @@ def mask_quoted_text(
     )
 
 
+def collect_quoted_text(
+    caption: str,
+    caption_id: str | None = None,
+) -> QuoteMaskResult:
+    """Collect double-quoted spans without replacing the original caption text."""
+
+    mentions: list[QuoteMention] = []
+    i = 0
+    quote_index = 0
+
+    while i < len(caption):
+        close_char = _quote_close_for(caption[i])
+        if close_char is None:
+            i += 1
+            continue
+
+        close_i = caption.find(close_char, i + 1)
+        if close_i == -1:
+            i += 1
+            continue
+
+        text_start = i + 1
+        text_end = close_i
+        text_raw = caption[text_start:text_end]
+        prefix_text = caption[:i]
+        consumed_prefix = ""
+        prefix_match = _TEXT_LABEL_SUFFIX_RE.search(prefix_text)
+        if prefix_match:
+            consumed_prefix = prefix_match.group(0).strip()
+
+        quote_id = f"q{quote_index}"
+        mentions.append(
+            QuoteMention(
+                caption_id=caption_id,
+                quote_id=quote_id,
+                global_quote_id=f"{caption_id}:{quote_id}" if caption_id else None,
+                text_raw=text_raw,
+                text_norm=normalize_text(text_raw),
+                placeholder=RAW_QUOTE_PLACEHOLDER,
+                char_start=i,
+                char_end=close_i + 1,
+                text_start=text_start,
+                text_end=text_end,
+                masked_char_start=i,
+                masked_char_end=close_i + 1,
+                quote_open=caption[i],
+                quote_close=caption[close_i],
+                consumed_prefix=consumed_prefix,
+            )
+        )
+
+        quote_index += 1
+        i = close_i + 1
+
+    return QuoteMaskResult(raw_caption=caption, masked_caption=caption, mentions=mentions)
+
+
 def has_quoted_text(caption: str) -> bool:
-    return bool(mask_quoted_text(caption).mentions)
+    return bool(collect_quoted_text(caption).mentions)

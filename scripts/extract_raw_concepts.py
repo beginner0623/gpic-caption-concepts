@@ -8,7 +8,8 @@ from pathlib import Path
 import spacy
 
 from inspect_spacy_parse import caption_shape, iter_rows, row_caption_id
-from quote_masking import DEFAULT_PLACEHOLDER, mask_quoted_text
+from quote_masking import DEFAULT_PLACEHOLDER, collect_quoted_text
+from quote_retokenizer import ensure_raw_quote_merger
 from raw_concept_extractor import extract_raw_concepts
 from tag_list_parser import is_tag_list_row, parse_tag_list
 
@@ -32,12 +33,12 @@ def main() -> int:
     parser.add_argument(
         "--mask-quotes",
         action="store_true",
-        help=f'Replace double-quoted text spans with "{DEFAULT_PLACEHOLDER}" before spaCy parsing.',
+        help="Preserve double-quoted text and merge raw quote spans before spaCy parsing.",
     )
     parser.add_argument(
         "--quote-placeholder",
         default=DEFAULT_PLACEHOLDER,
-        help="Natural-language placeholder used when --mask-quotes is enabled.",
+        help="Deprecated. Raw quote retokenization no longer replaces quoted text with a placeholder.",
     )
     parser.add_argument(
         "--parse-tag-lists",
@@ -47,6 +48,8 @@ def main() -> int:
     args = parser.parse_args()
 
     nlp = spacy.load(args.model)
+    if args.mask_quotes:
+        ensure_raw_quote_merger(nlp)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     if args.summary_output:
         args.summary_output.parent.mkdir(parents=True, exist_ok=True)
@@ -66,12 +69,8 @@ def main() -> int:
                 break
             caption = row.get("caption", "")
             caption_id = row_caption_id(row)
-            quote_result = (
-                mask_quoted_text(caption, placeholder=args.quote_placeholder, caption_id=caption_id)
-                if args.mask_quotes
-                else None
-            )
-            parse_caption = quote_result.masked_caption if quote_result else caption
+            quote_result = collect_quoted_text(caption, caption_id=caption_id) if args.mask_quotes else None
+            parse_caption = caption
             shape = caption_shape(caption)
 
             if args.parse_tag_lists and is_tag_list_row(row, parse_caption):
@@ -124,6 +123,7 @@ def main() -> int:
             f"- max_records: `{args.max_records}`",
             f"- records_written: `{written}`",
             f"- mask_quotes: `{args.mask_quotes}`",
+            f"- quote_handling: `{'raw_quote_retokenize' if args.mask_quotes else 'none'}`",
             f"- parse_tag_lists: `{args.parse_tag_lists}`",
             "",
             "## Caption Shapes",
