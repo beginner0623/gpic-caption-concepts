@@ -21,6 +21,7 @@ env/
 *.parquet
 *.arrow
 *.tar
+resources/external/cache/
 
 # OS/editor noise
 .DS_Store

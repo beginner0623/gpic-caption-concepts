@@ -6,6 +6,7 @@ dependencies:
   - pip
   - tqdm
   - huggingface_hub
+  - joblib
   - spacy
   - spacy-model-en_core_web_sm
   - spacy-model-en_core_web_md

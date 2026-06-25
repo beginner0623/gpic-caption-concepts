@@ -1,0 +1,878 @@
+term	canonical	roles	sources	source_types	parent_types	confidence	source_count	entry_count
+a line	a line	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+above the hip (length)	above the hip (length)	size_attribute	fashionpedia	length	length	medium	1	1
+above the knee (length)	above the knee (length)	size_attribute	fashionpedia	length	length	medium	1	1
+abstract	abstract	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1
+accordion (skirt)	accordion (skirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+adult	adult	age_attribute	ovad|vaw	maturity	maturity	high	2	2
+aged	aged	age_attribute|condition_attribute	ovad|vaw	maturity|newness	maturity|newness	high	2	3
+airborne	airborne	context_attribute	vaw	place	place	high	1	1
+aliceblue	aliceblue	color_attribute	css_color_4	color	color	high	1	1
+aluminum	aluminum	material_attribute	ovad|vaw	material	material	high	2	2
+amber	amber	color_attribute	vaw	color	color	high	1	1
+angry	angry	expression_attribute	ovad|vaw	face expression	face expression	high	2	2
+anorak	anorak	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+antiquewhite	antiquewhite	color_attribute	css_color_4	color	color	high	1	1
+applique(a)	applique(a)	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+aqua	aqua	color_attribute	css_color_4|vaw	color	color	high	2	2
+aquamarine	aquamarine	color_attribute	css_color_4	color	color	high	1	1
+arch shaped	arch shaped	shape_attribute	vaw	shape	shape	high	1	1
+argyle	argyle	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1
+arranged	arranged	order_attribute	ovad	order	order	high	1	1
+arrow shaped	arrow shaped	shape_attribute	vaw	shape	shape	high	1	1
+asian	asian	race_attribute	vaw	race	race	high	1	1
+asphalt	asphalt	material_attribute	ovad|vaw	material	material	high	2	2
+asymmetric (collar)	asymmetric (collar)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+asymmetric (neckline)	asymmetric (neckline)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+asymmetrical	asymmetrical	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+azure	azure	color_attribute	css_color_4	color	color	high	1	1
+baby	baby	age_attribute|attribute	ovad|vaw	maturity|other	maturity|other	high	2	2
+baggy	baggy	attribute|silhouette_attribute	fashionpedia|vaw	other|silhouette	other|silhouette	medium	2	2
+baked	baked	attribute|food_state_attribute	ovad|vaw	cooked|other	cooked|other	high	2	2
+bald	bald	attribute|size_attribute	ovad|vaw	hair length|other	length|other	high	2	2
+ball gown (skirt)	ball gown (skirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+balloon	balloon	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+bamboo	bamboo	material_attribute	ovad|vaw	material	material	high	2	2
+banded	banded	texture_attribute	dtd	texture	texture	high	1	1
+banded (collar)	banded (collar)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+basque (wasitline)	basque (wasitline)	clothing_cut_attribute	fashionpedia	waistline	waistline	medium	1	1
+bead(a)	bead(a)	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+beige	beige	color_attribute	css_color_4|vaw	color	color	high	2	2
+bell	bell	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+bell (sleeve)	bell (sleeve)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+bell bottom	bell bottom	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+below the knee (length)	below the knee (length)	size_attribute	fashionpedia	length	length	medium	1	1
+bend	bend	state_attribute	ovad	state	state	high	1	1
+bending	bending	pose_attribute	vaw	pose	pose	high	1	1
+bermuda (shorts)	bermuda (shorts)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+big	big	size_attribute	ovad|vaw	size	size	high	2	2
+biker (jacket)	biker (jacket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+bishop (sleeve)	bishop (sleeve)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+bisque	bisque	color_attribute	css_color_4	color	color	high	1	1
+black	black	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6
+black haired	black haired	color_attribute	vaw	hair color	hair color	high	1	1
+black lettered	black lettered	color_attribute	vaw	letter color	letter color	high	1	1
+blanchedalmond	blanchedalmond	color_attribute	css_color_4	color	color	high	1	1
+blanket (coat)	blanket (coat)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+blazer	blazer	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+blond	blond	color_attribute	vaw	color|hair color	color|hair color	high	1	2
+bloomers	bloomers	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+blotchy	blotchy	texture_attribute	dtd	texture	texture	high	1	1
+blouson (dress)	blouson (dress)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+blue	blue	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6
+blue plaid	blue plaid	pattern_attribute	vaw	pattern	pattern	high	1	1
+blue striped	blue striped	pattern_attribute	vaw	pattern	pattern	high	1	1
+blueviolet	blueviolet	color_attribute	css_color_4	color	color	high	1	1
+bluish	bluish	color_attribute	vaw	color	color	high	1	1
+boardshorts	boardshorts	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+boat (neck)	boat (neck)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+bodycon (dress)	bodycon (dress)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+bolero	bolero	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+bomber (jacket)	bomber (jacket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+bone	bone	material_attribute	fashionpedia	non textile material type	non textile material type	medium	1	1
+bootcut	bootcut	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+booty (shorts)	booty (shorts)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+bow (collar)	bow (collar)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+boy	boy	gender_attribute	ovad	gender	gender	high	1	1
+braided	braided	attribute|texture_attribute	dtd|vaw	other|texture	other|texture	high	2	2
+brass	brass	material_attribute	ovad|vaw	material	material	high	2	2
+brick	brick	material_attribute	ovad|vaw	material	material	high	2	2
+bright	bright	brightness_attribute|tone_attribute	ovad|vaw	brightness|hair tone|tone	brightness|tone	high	2	3
+bright blue	bright blue	color_attribute	vaw	color	color	high	1	1
+bright green	bright green	color_attribute	vaw	color	color	high	1	1
+bright red	bright red	color_attribute	vaw	color	color	high	1	1
+bright yellow	bright yellow	color_attribute	vaw	color	color	high	1	1
+broad	broad	size_attribute	vaw	width	width	high	1	1
+broken	broken	attribute|state_attribute	ovad|vaw	other|state	other|state	high	2	2
+bronze	bronze	color_attribute	vaw	color	color	high	1	1
+brown	brown	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6
+brown haired	brown haired	color_attribute	vaw	hair color	hair color	high	1	1
+bubbly	bubbly	texture_attribute	dtd	texture	texture	high	1	1
+buckled (opening)	buckled (opening)	clothing_opening_attribute	fashionpedia	opening type	opening type	medium	1	1
+bumpy	bumpy	texture_attribute	dtd	texture	texture	high	1	1
+bunch	bunch	group_attribute	ovad	group	group	high	1	1
+burgundy	burgundy	color_attribute	vaw	color	color	high	1	1
+burlywood	burlywood	color_attribute	css_color_4	color	color	high	1	1
+burnout	burnout	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+cadetblue	cadetblue	color_attribute	css_color_4	color	color	high	1	1
+calm	calm	expression_attribute	ovad|vaw	face expression	face expression	high	2	2
+camisole	camisole	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+camo (pants)	camo (pants)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+camouflage	camouflage	attribute|pattern_attribute	fashionpedia|vaw	other|textile pattern	other|textile pattern	medium	2	2
+cap (sleeve)	cap (sleeve)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+capri (pants)	capri (pants)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+cardboard	cardboard	material_attribute	ovad|vaw	material	material	high	2	2
+cargo (pants)	cargo (pants)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+cargo (pocket)	cargo (pocket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+cargo (shorts)	cargo (shorts)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+cargo (skirt)	cargo (skirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+cartoon	cartoon	attribute|pattern_attribute	fashionpedia|vaw	other|textile pattern	other|textile pattern	medium	2	2
+caucasian	caucasian	race_attribute	vaw	race	race	high	1	1
+cement	cement	material_attribute	ovad|vaw	material	material	high	2	2
+ceramic	ceramic	material_attribute	ovad|paco|vaw	material	material	high	3	3
+chained (opening)	chained (opening)	clothing_opening_attribute	fashionpedia	opening type	opening type	medium	1	1
+chanel (jacket)	chanel (jacket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+chartreuse	chartreuse	color_attribute	css_color_4	color	color	high	1	1
+check	check	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1
+checkered	checkered	pattern_attribute	ovad|paco|vaw	clothes pattern|pattern|pattern marking	pattern|pattern marking	high	3	4
+cheetah	cheetah	motif_attribute	fashionpedia	animal	animal	medium	1	1
+chelsea (collar)	chelsea (collar)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+chemise (dress)	chemise (dress)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+cheongsams	cheongsams	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+chequered	chequered	texture_attribute	dtd	texture	texture	high	1	1
+chevron	chevron	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1
+chocolate	chocolate	color_attribute|material_attribute	css_color_4|vaw	color|material	color|material	high	2	2
+choker (neck)	choker (neck)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+choppy	choppy	texture_attribute	vaw	texture	texture	high	1	1
+chrome	chrome	material_attribute	vaw	material	material	high	1	1
+circle	circle	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+circular	circular	shape_attribute	vaw	shape	shape	high	1	1
+circular flounce (sleeve)	circular flounce (sleeve)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+clapping	clapping	activity_attribute	vaw	hand movement	hand movement	high	1	1
+classic (t shirt)	classic (t shirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+classic military (jacket)	classic military (jacket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+clay	clay	material_attribute	ovad|vaw	material	material	high	2	2
+clean	clean	condition_attribute	ovad|vaw	cleanliness	cleanliness	high	2	2
+clear	clear	opacity_attribute|weather_attribute	vaw	opaqeness|weather	opaqeness|weather	high	1	2
+climbing	climbing	activity_attribute	vaw	activity	activity	high	1	1
+close	close	spatial_attribute	vaw	closeness	closeness	high	1	1
+closed	closed	state_attribute	ovad|vaw	state	state	high	2	2
+cloth	cloth	material_attribute	ovad|vaw	material	material	high	2	2
+cloudless	cloudless	weather_attribute	vaw	weather	weather	high	1	1
+cloudy	cloudy	weather_attribute	vaw	weather	weather	high	1	1
+cluttered	cluttered	attribute|order_attribute	ovad|vaw	order|other	order|other	high	2	2
+cobblestone	cobblestone	material_attribute	ovad|vaw	material	material	high	2	2
+cobwebbed	cobwebbed	texture_attribute	dtd	texture	texture	high	1	1
+collarless	collarless	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+collection	collection	group_attribute	ovad	group	group	high	1	1
+colorful	colorful	color_attribute	ovad|vaw	color quantity	color quantity	high	2	2
+colorless	colorless	color_attribute	vaw	color quantity	color quantity	high	1	1
+concrete	concrete	material_attribute	ovad|vaw	material	material	high	2	2
+conical	conical	shape_attribute	vaw	shape	shape	high	1	1
+cooked	cooked	attribute|food_state_attribute	ovad|vaw	cooked|other	cooked|other	high	2	2
+cooking	cooking	activity_attribute	vaw	activity	activity	high	1	1
+copper zinc	copper zinc	material_attribute	ovad	material	material	high	1	1
+coral	coral	color_attribute	css_color_4	color	color	high	1	1
+cornflowerblue	cornflowerblue	color_attribute	css_color_4	color	color	high	1	1
+cornsilk	cornsilk	color_attribute	css_color_4	color	color	high	1	1
+cotton	cotton	material_attribute	ovad	material	material	high	1	1
+covered	covered	state_attribute	ovad	state	state	high	1	1
+cowl (neck)	cowl (neck)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+cracked	cracked	state_attribute|texture_attribute	dtd|ovad|vaw	state|texture	state|texture	high	3	3
+cream colored	cream colored	color_attribute	vaw	color	color	high	1	1
+crew (neck)	crew (neck)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+crimson	crimson	color_attribute	css_color_4	color	color	high	1	1
+crochet	crochet	material_attribute	paco	material	material	high	1	1
+crocodile	crocodile	material_attribute	fashionpedia	leather	leather	medium	1	1
+crop (jacket)	crop (jacket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+crop (pants)	crop (pants)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+crop (top)	crop (top)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+crosshatched	crosshatched	texture_attribute	dtd	texture	texture	high	1	1
+crossover (neck)	crossover (neck)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+crouching	crouching	pose_attribute	vaw	pose	pose	high	1	1
+crystalline	crystalline	texture_attribute	dtd	texture	texture	high	1	1
+cubed	cubed	shape_attribute	vaw	shape	shape	high	1	1
+culotte (shorts)	culotte (shorts)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+culottes	culottes	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+curled	curled	hair_attribute|shape_attribute	ovad|vaw	hair type|shape	shape|type	high	2	2
+curly	curly	hair_attribute|shape_attribute	ovad|vaw	hair type|shape	shape|type	high	2	2
+curved	curved	shape_attribute	vaw	shape	shape	high	1	1
+curved (fit)	curved (fit)	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+curved (pocket)	curved (pocket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+cut	cut	attribute|state_attribute	ovad|vaw	other|state	other|state	high	2	2
+cutout	cutout	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+cutting	cutting	activity_attribute	vaw	activity	activity	high	1	1
+cyan	cyan	color_attribute	css_color_4	color	color	high	1	1
+cylindrical	cylindrical	shape_attribute	vaw	shape	shape	high	1	1
+dark	dark	brightness_attribute|tone_attribute	ovad|vaw	brightness|hair tone|tone	brightness|tone	high	2	4
+dark blue	dark blue	color_attribute	paco|vaw	color	color	high	2	2
+dark brown	dark brown	color_attribute	paco|vaw	color	color	high	2	2
+dark colored	dark colored	tone_attribute	vaw	tone	tone	high	1	1
+dark gray	dark gray	color_attribute	vaw	color	color	high	1	1
+dark green	dark green	color_attribute	paco|vaw	color	color	high	2	2
+dark grey	dark grey	color_attribute	paco	color	color	high	1	1
+dark haired	dark haired	color_attribute	vaw	hair color	hair color	high	1	1
+dark orange	dark orange	color_attribute	paco	color	color	high	1	1
+dark pink	dark pink	color_attribute	paco|vaw	color	color	high	2	2
+dark purple	dark purple	color_attribute	paco|vaw	color	color	high	2	2
+dark red	dark red	color_attribute	paco|vaw	color	color	high	2	2
+dark skinned	dark skinned	color_attribute	vaw	skin color	skin color	high	1	1
+dark yellow	dark yellow	color_attribute	paco	color	color	high	1	1
+darkblue	darkblue	color_attribute	css_color_4	color	color	high	1	1
+darkcyan	darkcyan	color_attribute	css_color_4	color	color	high	1	1
+darkgoldenrod	darkgoldenrod	color_attribute	css_color_4	color	color	high	1	1
+darkgray	darkgray	color_attribute	css_color_4	color	color	high	1	1
+darkgreen	darkgreen	color_attribute	css_color_4	color	color	high	1	1
+darkgrey	darkgrey	color_attribute	css_color_4	color	color	high	1	1
+darkkhaki	darkkhaki	color_attribute	css_color_4	color	color	high	1	1
+darkmagenta	darkmagenta	color_attribute	css_color_4	color	color	high	1	1
+darkolivegreen	darkolivegreen	color_attribute	css_color_4	color	color	high	1	1
+darkorange	darkorange	color_attribute	css_color_4	color	color	high	1	1
+darkorchid	darkorchid	color_attribute	css_color_4	color	color	high	1	1
+darkred	darkred	color_attribute	css_color_4	color	color	high	1	1
+darksalmon	darksalmon	color_attribute	css_color_4	color	color	high	1	1
+darkseagreen	darkseagreen	color_attribute	css_color_4	color	color	high	1	1
+darkslateblue	darkslateblue	color_attribute	css_color_4	color	color	high	1	1
+darkslategray	darkslategray	color_attribute	css_color_4	color	color	high	1	1
+darkslategrey	darkslategrey	color_attribute	css_color_4	color	color	high	1	1
+darkturquoise	darkturquoise	color_attribute	css_color_4	color	color	high	1	1
+darkviolet	darkviolet	color_attribute	css_color_4	color	color	high	1	1
+deep	deep	size_attribute	vaw	depth	depth	high	1	1
+deeppink	deeppink	color_attribute	css_color_4	color	color	high	1	1
+deepskyblue	deepskyblue	color_attribute	css_color_4	color	color	high	1	1
+denim	denim	material_attribute	ovad|vaw	material	material	high	2	2
+diamond shaped	diamond shaped	shape_attribute	vaw	shape	shape	high	1	1
+dilapidated	dilapidated	state_attribute	ovad|vaw	state	state	high	2	2
+dimgray	dimgray	color_attribute	css_color_4	color	color	high	1	1
+dimgrey	dimgrey	color_attribute	css_color_4	color	color	high	1	1
+dirndl (skirt)	dirndl (skirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+dirt	dirt	condition_attribute|material_attribute	ovad|vaw	cleanliness|material	cleanliness|material	high	2	2
+dirty	dirty	condition_attribute	ovad|vaw	cleanliness	cleanliness	high	2	2
+disgust	disgust	expression_attribute	ovad	face expression	face expression	high	1	1
+disordered	disordered	order_attribute	ovad	order	order	high	1	1
+disorganized	disorganized	order_attribute	ovad	order	order	high	1	1
+distressed	distressed	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+dodgerblue	dodgerblue	color_attribute	css_color_4	color	color	high	1	1
+dolman (sleeve), batwing (sleeve)	dolman (sleeve), batwing (sleeve)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+domed	domed	shape_attribute	vaw	shape	shape	high	1	1
+dot	dot	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1
+dotted	dotted	pattern_attribute|texture_attribute	dtd|ovad|paco|vaw	clothes pattern|pattern|pattern marking|texture	pattern|pattern marking|texture	high	4	5
+double breasted	double breasted	clothing_opening_attribute	fashionpedia	opening type	opening type	medium	1	1
+dress (coat )	dress (coat )	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+drinking	drinking	activity_attribute	vaw	activity	activity	high	1	1
+driving	driving	activity_attribute	vaw	activity	activity	high	1	1
+dropped shoulder sleeve	dropped shoulder sleeve	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+dropped waistline	dropped waistline	clothing_cut_attribute	fashionpedia	waistline	waistline	medium	1	1
+dry	dry	state_attribute	ovad|vaw	state	state	high	2	2
+duffle (coat)	duffle (coat)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+duster (coat)	duster (coat)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+dusty	dusty	condition_attribute	vaw	cleanliness	cleanliness	high	1	1
+eating	eating	activity_attribute	vaw	activity	activity	high	1	1
+elbow length	elbow length	size_attribute	fashionpedia	length	length	medium	1	1
+elderly	elderly	age_attribute	vaw	maturity	maturity	high	1	1
+embossed	embossed	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+empire waistline	empire waistline	clothing_cut_attribute	fashionpedia	waistline	waistline	medium	1	1
+empty	empty	state_attribute	ovad|vaw	state	state	high	2	2
+fabric	fabric	material_attribute	ovad|paco|vaw	material	material	high	3	3
+fair isle	fair isle	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1
+far away	far away	spatial_attribute	vaw	closeness	closeness	high	1	1
+fat	fat	size_attribute	vaw	fatness|size	fatness|size	high	1	2
+fear	fear	expression_attribute	ovad	face expression	face expression	high	1	1
+feather	feather	material_attribute	fashionpedia	non textile material type	non textile material type	medium	1	1
+female	female	gender_attribute	ovad|vaw	gender	gender	high	2	2
+fibrous	fibrous	texture_attribute	dtd	texture	texture	high	1	1
+firebrick	firebrick	color_attribute	css_color_4	color	color	high	1	1
+fit and flare	fit and flare	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+flamenco (skirt)	flamenco (skirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+flap (pocket)	flap (pocket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+flare	flare	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+flecked	flecked	texture_attribute	dtd	texture	texture	high	1	1
+floor (length)	floor (length)	size_attribute	fashionpedia	length	length	medium	1	1
+floral	floral	pattern_attribute	fashionpedia|ovad|paco|vaw	clothes pattern|pattern|pattern marking|textile pattern	pattern|pattern marking|textile pattern	high	4	5
+floralwhite	floralwhite	color_attribute	css_color_4	color	color	high	1	1
+fluffy	fluffy	material_attribute|texture_attribute	ovad|vaw	material|texture	material|texture	high	2	2
+fly (opening)	fly (opening)	clothing_opening_attribute	fashionpedia	opening type	opening type	medium	1	1
+foamy	foamy	material_attribute	vaw	material	material	high	1	1
+foggy	foggy	weather_attribute	vaw	weather	weather	high	1	1
+folded	folded	state_attribute	ovad|vaw	state	state	high	2	2
+forestgreen	forestgreen	color_attribute	css_color_4	color	color	high	1	1
+frayed	frayed	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+freckled	freckled	texture_attribute	dtd	texture	texture	high	1	1
+fresh	fresh	attribute|food_state_attribute	ovad|vaw	cooked|other	cooked|other	high	2	2
+frilly	frilly	texture_attribute	dtd	texture	texture	high	1	1
+frowning	frowning	expression_attribute	ovad|vaw	face expression	face expression	high	2	2
+fuchsia	fuchsia	color_attribute	css_color_4|vaw	color	color	high	2	2
+full	full	state_attribute	ovad|vaw	state	state	high	2	2
+fur	fur	material_attribute	fashionpedia	non textile material type	non textile material type	medium	1	1
+furry	furry	material_attribute|texture_attribute	ovad|vaw	material|texture	material|texture	high	2	2
+gainsboro	gainsboro	color_attribute	css_color_4	color	color	high	1	1
+gathering	gathering	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+gauzy	gauzy	texture_attribute	dtd	texture	texture	high	1	1
+gem	gem	material_attribute	fashionpedia	non textile material type	non textile material type	medium	1	1
+geometric	geometric	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1
+ghostwhite	ghostwhite	color_attribute	css_color_4	color	color	high	1	1
+giant	giant	size_attribute	ovad|vaw	size	size	high	2	2
+giraffe	giraffe	motif_attribute	fashionpedia	animal	animal	medium	1	1
+girl	girl	gender_attribute	ovad	gender	gender	high	1	1
+glass	glass	material_attribute	ovad|paco|vaw	material	material	high	3	3
+godet (skirt)	godet (skirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+gold	gold	color_attribute	css_color_4	color	color	high	1	1
+golden	golden	color_attribute	vaw	color	color	high	1	1
+golden brown	golden brown	color_attribute	vaw	color	color	high	1	1
+goldenrod	goldenrod	color_attribute	css_color_4	color	color	high	1	1
+gown	gown	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+granite	granite	material_attribute	ovad|vaw	material	material	high	2	2
+gravel	gravel	material_attribute	ovad|vaw	material	material	high	2	2
+gray	gray	color_attribute	css_color_4|ovad|vaw	clothes color|color|hair color	color	high	3	5
+grazing	grazing	activity_attribute	vaw	activity	activity	high	1	1
+green	green	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6
+green tinted	green tinted	color_attribute	vaw	color	color	high	1	1
+greenyellow	greenyellow	color_attribute	css_color_4	color	color	high	1	1
+grey	grey	color_attribute	css_color_4|paco	color	color	high	2	2
+grid	grid	texture_attribute	dtd	texture	texture	high	1	1
+grinning	grinning	expression_attribute	ovad|vaw	face expression	face expression	high	2	2
+grooved	grooved	texture_attribute	dtd	texture	texture	high	1	1
+group	group	group_attribute	ovad	group	group	high	1	1
+guy	guy	gender_attribute	ovad	gender	gender	high	1	1
+gypsy (skirt)	gypsy (skirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+hairy	hairy	attribute|texture_attribute	ovad|vaw	other|texture	other|texture	high	2	2
+halter (dress)	halter (dress)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+halter (neck)	halter (neck)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+halter (top)	halter (top)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+happy	happy	expression_attribute	ovad|vaw	face expression	face expression	high	2	2
+hard	hard	texture_attribute	vaw	hardness	hardness	high	1	1
+hardwood	hardwood	material_attribute	ovad|vaw	material	material	high	2	2
+harem (pants)	harem (pants)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+hazy	hazy	weather_attribute	vaw	weather	weather	high	1	1
+heart shaped	heart shaped	shape_attribute	vaw	shape	shape	high	1	1
+heavy	heavy	weight_attribute	vaw	weight	weight	high	1	1
+henley (shirt)	henley (shirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+herringbone (pattern)	herringbone (pattern)	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1
+hiding	hiding	activity_attribute	vaw	activity	activity	high	1	1
+high	high	size_attribute	vaw	height	height	high	1	1
+high (neck)	high (neck)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+high low	high low	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+high waist	high waist	clothing_cut_attribute	fashionpedia	waistline	waistline	medium	1	1
+hiking	hiking	activity_attribute	vaw	activity	activity	high	1	1
+hip (length)	hip (length)	size_attribute	fashionpedia	length	length	medium	1	1
+hip huggers (pants)	hip huggers (pants)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+hobble (skirt)	hobble (skirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+honeycombed	honeycombed	texture_attribute	dtd	texture	texture	high	1	1
+honeydew	honeydew	color_attribute	css_color_4	color	color	high	1	1
+hoodie	hoodie	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+horizontal	horizontal	orientation_attribute|spatial_attribute	ovad|vaw	orientation|position	orientation|position	high	2	2
+hotpink	hotpink	color_attribute	css_color_4	color	color	high	1	1
+houndstooth (pattern)	houndstooth (pattern)	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1
+huge	huge	size_attribute	ovad|vaw	size	size	high	2	2
+hugging	hugging	activity_attribute	vaw	activity	activity	high	1	1
+illusion (neck)	illusion (neck)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+in the air	in the air	context_attribute	vaw	place	place	high	1	1
+in the background	in the background	context_attribute	vaw	place	place	high	1	1
+in water	in water	context_attribute	vaw	place	place	high	1	1
+indianred	indianred	color_attribute	css_color_4	color	color	high	1	1
+indigo	indigo	color_attribute	css_color_4	color	color	high	1	1
+individual	individual	group_attribute	ovad	group	group	high	1	1
+indoors	indoors	context_attribute	vaw	location	location	high	1	1
+interlaced	interlaced	texture_attribute	dtd	texture	texture	high	1	1
+iron	iron	material_attribute	ovad|vaw	material	material	high	2	2
+ivory	ivory	color_attribute|material_attribute	css_color_4|fashionpedia|vaw	color|non textile material type	color|non textile material type	high	3	3
+jabot (collar)	jabot (collar)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+jagged	jagged	texture_attribute	vaw	texture	texture	high	1	1
+jean	jean	material_attribute	ovad|vaw	material	material	high	2	2
+jeans	jeans	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+jodhpur	jodhpur	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+joyful	joyful	expression_attribute	ovad	face expression	face expression	high	1	1
+jumper (dress)	jumper (dress)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+jumping	jumping	pose_attribute	vaw	pose	pose	high	1	1
+kaftan	kaftan	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+kangaroo (pocket)	kangaroo (pocket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+keyhole (neck)	keyhole (neck)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+khaki	khaki	color_attribute|material_attribute	css_color_4|vaw	color|material	color|material	high	2	2
+kilt	kilt	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+kimono	kimono	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+kimono (sleeve)	kimono (sleeve)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+kissing	kissing	activity_attribute	vaw	activity	activity	high	1	1
+knee (length)	knee (length)	size_attribute	fashionpedia	length	length	medium	1	1
+kneeling	kneeling	pose_attribute	vaw	pose	pose	high	1	1
+knitted	knitted	attribute|texture_attribute	dtd|vaw	other|texture	other|texture	high	2	2
+lace up	lace up	clothing_opening_attribute	fashionpedia	opening type	opening type	medium	1	1
+lacelike	lacelike	texture_attribute	dtd	texture	texture	high	1	1
+large	large	size_attribute	ovad|vaw	size	size	high	2	2
+larger	larger	size_attribute	vaw	size comparison	size comparison	high	1	1
+laughing	laughing	expression_attribute	ovad|vaw	face expression	face expression	high	2	2
+lavender	lavender	color_attribute	css_color_4	color	color	high	1	1
+lavenderblush	lavenderblush	color_attribute	css_color_4	color	color	high	1	1
+lawngreen	lawngreen	color_attribute	css_color_4	color	color	high	1	1
+leaning	leaning	pose_attribute	vaw	pose	pose	high	1	1
+leaning back	leaning back	pose_attribute	vaw	pose	pose	high	1	1
+leaping	leaping	pose_attribute	vaw	pose	pose	high	1	1
+leather	leather	material_attribute	ovad|paco|vaw	material	material	high	3	3
+leg of mutton (sleeve)	leg of mutton (sleeve)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+leggings	leggings	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+lemonchiffon	lemonchiffon	color_attribute	css_color_4	color	color	high	1	1
+leopard	leopard	motif_attribute	fashionpedia	animal	animal	medium	1	1
+lettered	lettered	pattern_attribute	ovad	clothes pattern|pattern	pattern	high	1	2
+letters, numbers	letters, numbers	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1
+light	light	tone_attribute|weight_attribute	ovad|vaw	hair tone|tone|weight	tone|weight	high	2	4
+light blue	light blue	color_attribute	paco|vaw	color	color	high	2	2
+light brown	light brown	color_attribute	paco|vaw	color	color	high	2	2
+light colored	light colored	tone_attribute	vaw	tone	tone	high	1	1
+light gray	light gray	color_attribute	vaw	color	color	high	1	1
+light green	light green	color_attribute	paco|vaw	color	color	high	2	2
+light grey	light grey	color_attribute	paco	color	color	high	1	1
+light orange	light orange	color_attribute	paco	color	color	high	1	1
+light pink	light pink	color_attribute	paco	color	color	high	1	1
+light purple	light purple	color_attribute	paco	color	color	high	1	1
+light red	light red	color_attribute	paco|vaw	color	color	high	2	2
+light skinned	light skinned	color_attribute	vaw	skin color	skin color	high	1	1
+light yellow	light yellow	color_attribute	paco|vaw	color	color	high	2	2
+lightblue	lightblue	color_attribute	css_color_4	color	color	high	1	1
+lightcoral	lightcoral	color_attribute	css_color_4	color	color	high	1	1
+lightcyan	lightcyan	color_attribute	css_color_4	color	color	high	1	1
+lightgoldenrodyellow	lightgoldenrodyellow	color_attribute	css_color_4	color	color	high	1	1
+lightgray	lightgray	color_attribute	css_color_4	color	color	high	1	1
+lightgreen	lightgreen	color_attribute	css_color_4	color	color	high	1	1
+lightgrey	lightgrey	color_attribute	css_color_4	color	color	high	1	1
+lightpink	lightpink	color_attribute	css_color_4	color	color	high	1	1
+lightsalmon	lightsalmon	color_attribute	css_color_4	color	color	high	1	1
+lightseagreen	lightseagreen	color_attribute	css_color_4	color	color	high	1	1
+lightskyblue	lightskyblue	color_attribute	css_color_4	color	color	high	1	1
+lightslategray	lightslategray	color_attribute	css_color_4	color	color	high	1	1
+lightslategrey	lightslategrey	color_attribute	css_color_4	color	color	high	1	1
+lightsteelblue	lightsteelblue	color_attribute	css_color_4	color	color	high	1	1
+lightyellow	lightyellow	color_attribute	css_color_4	color	color	high	1	1
+lime	lime	color_attribute	css_color_4	color	color	high	1	1
+lime green	lime green	color_attribute	vaw	color	color	high	1	1
+limegreen	limegreen	color_attribute	css_color_4	color	color	high	1	1
+lined	lined	pattern_attribute|texture_attribute	dtd|ovad|vaw	clothes pattern|pattern|texture	pattern|texture	high	3	4
+linen	linen	color_attribute	css_color_4	color	color	high	1	1
+lining	lining	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+little	little	size_attribute	ovad|vaw	size	size	high	2	2
+logo	logo	pattern_attribute	paco	pattern marking	pattern marking	high	1	1
+long	long	size_attribute	ovad|vaw	hair length|length	length	high	2	3
+looking at camera	looking at camera	pose_attribute	vaw	face pose	face pose	high	1	1
+looking down	looking down	pose_attribute	vaw	face pose	face pose	high	1	1
+looking up	looking up	pose_attribute	vaw	face pose	face pose	high	1	1
+loose (fit)	loose (fit)	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+lounge (shorts)	lounge (shorts)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+low	low	size_attribute	vaw	height	height	high	1	1
+low waist	low waist	clothing_cut_attribute	fashionpedia	waistline	waistline	medium	1	1
+lying	lying	pose_attribute|spatial_attribute	ovad|vaw	pose|position	pose|position	high	2	2
+mad	mad	expression_attribute	ovad	face expression	face expression	high	1	1
+magenta	magenta	color_attribute	css_color_4	color	color	high	1	1
+male	male	gender_attribute	ovad|vaw	gender	gender	high	2	2
+man	man	gender_attribute	ovad	gender	gender	high	1	1
+mandarin (collar)	mandarin (collar)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+mao (jacket)	mao (jacket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+marble	marble	material_attribute	ovad|vaw	material	material	high	2	2
+marbled	marbled	texture_attribute	dtd	texture	texture	high	1	1
+maroon	maroon	color_attribute	css_color_4|vaw	color	color	high	2	2
+matted	matted	texture_attribute	dtd	texture	texture	high	1	1
+maxi (length)	maxi (length)	size_attribute	fashionpedia	length	length	medium	1	1
+mediumaquamarine	mediumaquamarine	color_attribute	css_color_4	color	color	high	1	1
+mediumblue	mediumblue	color_attribute	css_color_4	color	color	high	1	1
+mediumorchid	mediumorchid	color_attribute	css_color_4	color	color	high	1	1
+mediumpurple	mediumpurple	color_attribute	css_color_4	color	color	high	1	1
+mediumseagreen	mediumseagreen	color_attribute	css_color_4	color	color	high	1	1
+mediumslateblue	mediumslateblue	color_attribute	css_color_4	color	color	high	1	1
+mediumspringgreen	mediumspringgreen	color_attribute	css_color_4	color	color	high	1	1
+mediumturquoise	mediumturquoise	color_attribute	css_color_4	color	color	high	1	1
+mediumvioletred	mediumvioletred	color_attribute	css_color_4	color	color	high	1	1
+mermaid	mermaid	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+mesh	mesh	shape_attribute	vaw	shape	shape	high	1	1
+meshed	meshed	texture_attribute	dtd	texture	texture	high	1	1
+messy	messy	attribute|order_attribute	ovad|vaw	order|other	order|other	high	2	2
+metal	metal	material_attribute	fashionpedia|ovad|paco|vaw	material|non textile material type	material|non textile material type	high	4	4
+metallic	metallic	material_attribute	ovad	material	material	high	1	1
+micro (length)	micro (length)	size_attribute	fashionpedia	length	length	medium	1	1
+midi	midi	size_attribute	fashionpedia	length	length	medium	1	1
+midnightblue	midnightblue	color_attribute	css_color_4	color	color	high	1	1
+military (coat)	military (coat)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+mini (length)	mini (length)	size_attribute	fashionpedia	length	length	medium	1	1
+mintcream	mintcream	color_attribute	css_color_4	color	color	high	1	1
+mistyrose	mistyrose	color_attribute	css_color_4	color	color	high	1	1
+moccasin	moccasin	color_attribute	css_color_4	color	color	high	1	1
+monochromatic	monochromatic	color_attribute	vaw	color quantity	color quantity	high	1	1
+moss covered	moss covered	texture_attribute	vaw	texture	texture	high	1	1
+muddy	muddy	condition_attribute|material_attribute	ovad|vaw	cleanliness|material	cleanliness|material	high	2	2
+multicolored	multicolored	color_attribute	ovad|vaw	color quantity	color quantity	high	2	2
+murky	murky	color_attribute	vaw	color	color	high	1	1
+napoleon (lapel)	napoleon (lapel)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+narrow	narrow	size_attribute	vaw	width	width	high	1	1
+navajowhite	navajowhite	color_attribute	css_color_4	color	color	high	1	1
+navy	navy	color_attribute	css_color_4	color	color	high	1	1
+navy blue	navy blue	color_attribute	vaw	color	color	high	1	1
+neat	neat	condition_attribute	ovad	cleanliness	cleanliness	high	1	1
+nehru (jacket)	nehru (jacket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+neon green	neon green	color_attribute	vaw	color	color	high	1	1
+neutral	neutral	expression_attribute	ovad	face expression	face expression	high	1	1
+new	new	condition_attribute	vaw	newness	newness	high	1	1
+nightgown	nightgown	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+no non textile material	no non textile material	material_attribute	fashionpedia	non textile material type	non textile material type	medium	1	1
+no opening	no opening	clothing_opening_attribute	fashionpedia	opening type	opening type	medium	1	1
+no special manufacturing technique	no special manufacturing technique	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+no waistline	no waistline	clothing_cut_attribute	fashionpedia	waistline	waistline	medium	1	1
+norfolk (jacket)	norfolk (jacket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+normal waist	normal waist	clothing_cut_attribute	fashionpedia	waistline	waistline	medium	1	1
+notched (lapel)	notched (lapel)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+octagonal	octagonal	shape_attribute	vaw	shape	shape	high	1	1
+off	off	attribute|state_attribute	ovad|vaw	other|state	other|state	high	2	2
+off the shoulder	off the shoulder	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+off white	off white	color_attribute	vaw	color	color	high	1	1
+old	old	age_attribute|condition_attribute	ovad|vaw	maturity|newness	maturity|newness	high	2	3
+oldlace	oldlace	color_attribute	css_color_4	color	color	high	1	1
+olive	olive	color_attribute	css_color_4	color	color	high	1	1
+olive green	olive green	color_attribute	vaw	color	color	high	1	1
+olivedrab	olivedrab	color_attribute	css_color_4	color	color	high	1	1
+on	on	state_attribute	ovad	state	state	high	1	1
+on ground	on ground	context_attribute	vaw	place	place	high	1	1
+on the wall	on the wall	context_attribute	vaw	place	place	high	1	1
+one	one	group_attribute	ovad	group	group	high	1	1
+one shoulder	one shoulder	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+opaque	opaque	opacity_attribute	ovad|paco|vaw	opaqeness|optical property|transparency	opaqeness|optical property|transparency	high	3	3
+open	open	state_attribute	ovad|vaw	state	state	high	2	2
+orange	orange	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6
+orangered	orangered	color_attribute	css_color_4	color	color	high	1	1
+orchid	orchid	color_attribute	css_color_4	color	color	high	1	1
+ordered	ordered	order_attribute	ovad	order	order	high	1	1
+organized	organized	order_attribute	ovad	order	order	high	1	1
+outdoors	outdoors	context_attribute	vaw	location	location	high	1	1
+oval (neck)	oval (neck)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+oval shaped	oval shaped	shape_attribute	vaw	shape	shape	high	1	1
+overcast	overcast	weather_attribute	vaw	weather	weather	high	1	1
+oversized	oversized	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+oversized (collar)	oversized (collar)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+oversized (lapel)	oversized (lapel)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+paddling	paddling	activity_attribute	vaw	activity	activity	high	1	1
+paisley	paisley	pattern_attribute|texture_attribute	dtd|fashionpedia	textile pattern|texture	textile pattern|texture	high	2	2
+pale blue	pale blue	color_attribute	vaw	color	color	high	1	1
+pale green	pale green	color_attribute	vaw	color	color	high	1	1
+palegoldenrod	palegoldenrod	color_attribute	css_color_4	color	color	high	1	1
+palegreen	palegreen	color_attribute	css_color_4	color	color	high	1	1
+paleturquoise	paleturquoise	color_attribute	css_color_4	color	color	high	1	1
+palevioletred	palevioletred	color_attribute	css_color_4	color	color	high	1	1
+papayawhip	papayawhip	color_attribute	css_color_4	color	color	high	1	1
+paper	paper	material_attribute	ovad|paco|vaw	material	material	high	3	3
+parka	parka	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+partly cloudy	partly cloudy	weather_attribute	vaw	weather	weather	high	1	1
+patch (pocket)	patch (pocket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+patterned	patterned	pattern_attribute	vaw	pattern	pattern	high	1	1
+pea (coat)	pea (coat)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+pea (jacket)	pea (jacket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+peachpuff	peachpuff	color_attribute	css_color_4	color	color	high	1	1
+peacock	peacock	motif_attribute	fashionpedia	animal	animal	medium	1	1
+peak (lapel)	peak (lapel)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+peasant (top)	peasant (top)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+pebbled	pebbled	material_attribute	ovad|vaw	material	material	high	2	2
+peg	peg	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+peg (pants)	peg (pants)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+pencil	pencil	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+peplum	peplum	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+perforated	perforated	pattern_attribute|textile_finish_attribute|texture_attribute	dtd|fashionpedia|paco	pattern marking|textile finishing, manufacturing techniques|texture	pattern marking|textile finishing, manufacturing techniques|texture	high	3	3
+peru	peru	color_attribute	css_color_4	color	color	high	1	1
+peter pan (collar)	peter pan (collar)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+piece	piece	attribute|state_attribute	ovad|vaw	other|state	other|state	high	2	2
+pink	pink	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6
+pinstriped	pinstriped	pattern_attribute	ovad|vaw	clothes pattern|pattern	pattern	high	2	3
+pitted	pitted	texture_attribute	dtd	texture	texture	high	1	1
+plaid	plaid	pattern_attribute	ovad|vaw	clothes pattern|pattern	pattern	high	2	3
+plain	plain	attribute|pattern_attribute	ovad|paco|vaw	clothes pattern|other|pattern|pattern marking	other|pattern|pattern marking	high	3	4
+plain (pattern)	plain (pattern)	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1
+plant	plant	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1
+plastic	plastic	material_attribute	fashionpedia|ovad|paco|vaw	material|non textile material type	material|non textile material type	high	4	4
+playing	playing	activity_attribute	vaw	activity	activity	high	1	1
+playing baseball	playing baseball	activity_attribute	vaw	sport activity	sport activity	high	1	1
+playing football	playing football	activity_attribute	vaw	sport activity	sport activity	high	1	1
+playing frisbee	playing frisbee	activity_attribute	vaw	sport activity	sport activity	high	1	1
+playing tennis	playing tennis	activity_attribute	vaw	sport activity	sport activity	high	1	1
+pleat	pleat	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+pleated	pleated	texture_attribute	dtd	texture	texture	high	1	1
+plum	plum	color_attribute	css_color_4	color	color	high	1	1
+plunging (neckline)	plunging (neckline)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+plush	plush	material_attribute	ovad|vaw	material	material	high	2	2
+poet (sleeve)	poet (sleeve)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+pointing	pointing	activity_attribute	vaw	hand movement	hand movement	high	1	1
+pointy	pointy	shape_attribute	vaw	shape	shape	high	1	1
+polka dotted	polka dotted	pattern_attribute|texture_attribute	dtd|vaw	pattern|texture	pattern|texture	high	2	2
+polo (collar)	polo (collar)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+polo (shirt)	polo (shirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+polymer	polymer	material_attribute	ovad	material	material	high	1	1
+polymers	polymers	material_attribute	ovad	material	material	high	1	1
+porcelain	porcelain	material_attribute	ovad|vaw	material	material	high	2	2
+porous	porous	texture_attribute	dtd	texture	texture	high	1	1
+posing	posing	activity_attribute	vaw	activity	activity	high	1	1
+potholed	potholed	texture_attribute	dtd	texture	texture	high	1	1
+powderblue	powderblue	color_attribute	css_color_4	color	color	high	1	1
+prairie (skirt)	prairie (skirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+printed	printed	attribute|textile_finish_attribute	fashionpedia|vaw	other|textile finishing, manufacturing techniques	other|textile finishing, manufacturing techniques	medium	2	2
+puff (sleeve)	puff (sleeve)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+puffer (coat)	puffer (coat)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+puffer (jacket)	puffer (jacket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+purple	purple	color_attribute	css_color_4|paco|vaw	color	color	high	3	3
+purplish	purplish	color_attribute	vaw	color	color	high	1	1
+queen anne (neck)	queen anne (neck)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+quilted	quilted	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+raglan (sleeve)	raglan (sleeve)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+raglan (t shirt)	raglan (t shirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+rah rah (skirt)	rah rah (skirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+rainbow colored	rainbow colored	color_attribute	vaw	color quantity	color quantity	high	1	1
+raincoat	raincoat	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+rainy	rainy	weather_attribute	vaw	weather	weather	high	1	1
+rattan	rattan	material_attribute	paco	material	material	high	1	1
+raw	raw	attribute|food_state_attribute	ovad|vaw	cooked|other	cooked|other	high	2	2
+reading	reading	activity_attribute	vaw	activity	activity	high	1	1
+rebeccapurple	rebeccapurple	color_attribute	css_color_4	color	color	high	1	1
+rectangular	rectangular	shape_attribute	vaw	shape	shape	high	1	1
+red	red	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6
+red brick	red brick	material_attribute	vaw	material	material	high	1	1
+red haired	red haired	color_attribute	vaw	hair color	hair color	high	1	1
+red lettered	red lettered	color_attribute	vaw	letter color	letter color	high	1	1
+red striped	red striped	pattern_attribute	vaw	pattern	pattern	high	1	1
+reddish	reddish	color_attribute	vaw	color	color	high	1	1
+reflective	reflective	attribute|opacity_attribute	ovad|vaw	optical property|other	optical property|other	high	2	2
+regular (collar)	regular (collar)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+regular (fit)	regular (fit)	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+resting	resting	activity_attribute	vaw	activity	activity	high	1	1
+riding	riding	activity_attribute	vaw	activity	activity	high	1	1
+riding bike	riding bike	activity_attribute	vaw	activity	activity	high	1	1
+riding horse	riding horse	activity_attribute	vaw	activity	activity	high	1	1
+ringer (t shirt)	ringer (t shirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+rivet(a)	rivet(a)	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+robe	robe	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+rocky	rocky	material_attribute	ovad|vaw	material	material	high	2	2
+roll up (shorts)	roll up (shorts)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+rosybrown	rosybrown	color_attribute	css_color_4	color	color	high	1	1
+rough	rough	texture_attribute	ovad|vaw	texture	texture	high	2	2
+round	round	shape_attribute	vaw	shape	shape	high	1	1
+round (neck)	round (neck)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+rounded	rounded	shape_attribute	vaw	shape	shape	high	1	1
+royalblue	royalblue	color_attribute	css_color_4	color	color	high	1	1
+rubber	rubber	material_attribute	fashionpedia|ovad|vaw	material|non textile material type	material|non textile material type	high	3	3
+ruched	ruched	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+rugby (shirt)	rugby (shirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+ruined	ruined	state_attribute	ovad	state	state	high	1	1
+running	running	activity_attribute|pose_attribute	vaw	activity|pose|sport activity	activity|pose|sport activity	high	1	3
+rust colored	rust colored	color_attribute	vaw	color	color	high	1	1
+sad	sad	expression_attribute	ovad|vaw	face expression	face expression	high	2	2
+saddlebrown	saddlebrown	color_attribute	css_color_4	color	color	high	1	1
+safari (jacket)	safari (jacket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+sailor (collar)	sailor (collar)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+sailor (pants)	sailor (pants)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+sailor (shirt)	sailor (shirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+salmon	salmon	color_attribute	css_color_4	color	color	high	1	1
+sand colored	sand colored	color_attribute	vaw	color	color	high	1	1
+sandy	sandy	material_attribute	ovad|vaw	material	material	high	2	2
+sandybrown	sandybrown	color_attribute	css_color_4	color	color	high	1	1
+sarong (skirt)	sarong (skirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+scaly	scaly	texture_attribute	dtd	texture	texture	high	1	1
+scoop (neck)	scoop (neck)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+seagreen	seagreen	color_attribute	css_color_4	color	color	high	1	1
+seam (pocket)	seam (pocket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+seashell	seashell	color_attribute	css_color_4	color	color	high	1	1
+sequin(a)	sequin(a)	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+serious	serious	expression_attribute	ovad|vaw	face expression	face expression	high	2	2
+set in sleeve	set in sleeve	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+shallow	shallow	size_attribute	vaw	depth	depth	high	1	1
+shawl (lapel)	shawl (lapel)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+shearling	shearling	material_attribute	fashionpedia	leather	leather	medium	1	1
+shearling (coat)	shearling (coat)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+sheath (dress)	sheath (dress)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+sheath (skirt)	sheath (skirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+shift (dress)	shift (dress)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+shirt (collar)	shirt (collar)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+shirt (dress)	shirt (dress)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+short	short	size_attribute	ovad|vaw	hair length|height|length	height|length	high	2	4
+short (length)	short (length)	size_attribute	fashionpedia	length	length	medium	1	1
+short (shorts)	short (shorts)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+sienna	sienna	color_attribute	css_color_4	color	color	high	1	1
+silk	silk	material_attribute	ovad|vaw	material	material	high	2	2
+silver	silver	color_attribute|material_attribute	css_color_4|ovad|vaw	color|material	color|material	high	3	3
+single	single	group_attribute	ovad	group	group	high	1	1
+single breasted	single breasted	clothing_opening_attribute	fashionpedia	opening type	opening type	medium	1	1
+single colored	single colored	color_attribute	ovad	color quantity	color quantity	high	1	1
+sit	sit	spatial_attribute	ovad	position	position	high	1	1
+sitting	sitting	pose_attribute|spatial_attribute	ovad|vaw	pose|position	pose|position	high	2	2
+skateboarding	skateboarding	activity_attribute	vaw	sport activity	sport activity	high	1	1
+skater (dress)	skater (dress)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+skater (skirt)	skater (skirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+skating	skating	activity_attribute	vaw	sport activity	sport activity	high	1	1
+skiing	skiing	activity_attribute	vaw	sport activity	sport activity	high	1	1
+skinny	skinny	size_attribute	vaw	fatness|size	fatness|size	high	1	2
+skort	skort	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+skyblue	skyblue	color_attribute	css_color_4	color	color	high	1	1
+slanted	slanted	orientation_attribute	vaw	orientation	orientation	high	1	1
+slash (pocket)	slash (pocket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+slateblue	slateblue	color_attribute	css_color_4	color	color	high	1	1
+slategray	slategray	color_attribute	css_color_4	color	color	high	1	1
+slategrey	slategrey	color_attribute	css_color_4	color	color	high	1	1
+sleek	sleek	texture_attribute	ovad	texture	texture	high	1	1
+sleeping	sleeping	activity_attribute|expression_attribute	ovad|vaw	activity|face expression	activity|face expression	high	2	2
+sleepy	sleepy	expression_attribute	ovad|vaw	face expression	face expression	high	2	2
+sleeveless	sleeveless	attribute|size_attribute	fashionpedia|vaw	length|other	length|other	medium	2	2
+slender	slender	size_attribute	vaw	fatness	fatness	high	1	1
+slim	slim	size_attribute	vaw	fatness|size|width	fatness|size|width	high	1	3
+slip (dress)	slip (dress)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+slit	slit	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+small	small	size_attribute	ovad|vaw	size	size	high	2	2
+smaller	smaller	size_attribute	vaw	size comparison	size comparison	high	1	1
+smeared	smeared	texture_attribute	dtd	texture	texture	high	1	1
+smiling	smiling	expression_attribute	ovad|vaw	face expression	face expression	high	2	2
+smirking	smirking	expression_attribute	vaw	face expression	face expression	high	1	1
+smock (top)	smock (top)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+smocking	smocking	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+smooth	smooth	texture_attribute	ovad|vaw	texture	texture	high	2	2
+snakeskin	snakeskin	material_attribute	fashionpedia	leather	leather	medium	1	1
+snakeskin (pattern)	snakeskin (pattern)	motif_attribute	fashionpedia	animal	animal	medium	1	1
+snow	snow	color_attribute	css_color_4	color	color	high	1	1
+snowboarding	snowboarding	activity_attribute	vaw	sport activity	sport activity	high	1	1
+snowy	snowy	material_attribute	vaw	material	material	high	1	1
+soft	soft	texture_attribute	ovad|vaw	hardness|texture	hardness|texture	high	2	2
+sole	sole	group_attribute	ovad	group	group	high	1	1
+speckled	speckled	pattern_attribute	ovad|vaw	clothes pattern|pattern	pattern	high	2	3
+spherical	spherical	shape_attribute	vaw	shape	shape	high	1	1
+spiky	spiky	shape_attribute	vaw	shape	shape	high	1	1
+spiral	spiral	shape_attribute	vaw	shape	shape	high	1	1
+spiralled	spiralled	texture_attribute	dtd	texture	texture	high	1	1
+spotted	spotted	pattern_attribute	ovad|vaw	clothes pattern|pattern	pattern	high	2	3
+springgreen	springgreen	color_attribute	css_color_4	color	color	high	1	1
+sprinkled	sprinkled	attribute|texture_attribute	dtd|vaw	other|texture	other|texture	high	2	2
+square	square	shape_attribute	vaw	shape	shape	high	1	1
+square (neckline)	square (neckline)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+squatting	squatting	pose_attribute	vaw	pose	pose	high	1	1
+stained	stained	condition_attribute|texture_attribute	dtd|vaw	cleanliness|texture	cleanliness|texture	high	2	2
+stainless steel	stainless steel	material_attribute	ovad|vaw	material	material	high	2	2
+stand away (collar)	stand away (collar)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+standing	standing	pose_attribute|spatial_attribute	ovad|vaw	pose|position	pose|position	high	2	2
+steel	steel	material_attribute	ovad|vaw	material	material	high	2	2
+steelblue	steelblue	color_attribute	css_color_4	color	color	high	1	1
+stone	stone	material_attribute	ovad|paco|vaw	material	material	high	3	3
+stormy	stormy	weather_attribute	vaw	weather	weather	high	1	1
+straight	straight	hair_attribute|shape_attribute|silhouette_attribute	fashionpedia|ovad|vaw	hair type|shape|silhouette	shape|silhouette|type	high	3	3
+straight across (neck)	straight across (neck)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+stratified	stratified	texture_attribute	dtd	texture	texture	high	1	1
+straw	straw	material_attribute	vaw	material	material	high	1	1
+stripe	stripe	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1
+striped	striped	pattern_attribute|texture_attribute	dtd|ovad|paco|vaw	clothes pattern|pattern|pattern marking|texture	pattern|pattern marking|texture	high	4	5
+stucco	stucco	material_attribute	ovad|vaw	material	material	high	2	2
+studded	studded	pattern_attribute|texture_attribute	dtd|paco	pattern marking|texture	pattern marking|texture	high	2	2
+studying	studying	activity_attribute	vaw	activity	activity	high	1	1
+styrofoam	styrofoam	material_attribute	ovad|vaw	material	material	high	2	2
+suede	suede	material_attribute	fashionpedia	leather	leather	medium	1	1
+sundress	sundress	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+sunny	sunny	weather_attribute	vaw	weather	weather	high	1	1
+surfing	surfing	activity_attribute	vaw	sport activity	sport activity	high	1	1
+surplice (neck)	surplice (neck)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+surprise	surprise	expression_attribute	ovad	face expression	face expression	high	1	1
+surprised	surprised	expression_attribute	vaw	face expression	face expression	high	1	1
+sweater (dress)	sweater (dress)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+sweatpants	sweatpants	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+sweetheart (neckline)	sweetheart (neckline)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+swimming	swimming	activity_attribute	vaw	activity|sport activity	activity|sport activity	high	1	2
+swing (coat)	swing (coat)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+swinging	swinging	activity_attribute	vaw	activity	activity	high	1	1
+swirly	swirly	texture_attribute	dtd	texture	texture	high	1	1
+symmetrical	symmetrical	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+taking photo	taking photo	activity_attribute	vaw	activity	activity	high	1	1
+talking	talking	activity_attribute	vaw	activity	activity	high	1	1
+tall	tall	size_attribute	vaw	height	height	high	1	1
+tan	tan	color_attribute	css_color_4|ovad|vaw	clothes color|color|hair color	color	high	3	5
+tank (top)	tank (top)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+tartan	tartan	pattern_attribute	ovad	clothes pattern|pattern	pattern	high	1	2
+taupe	taupe	color_attribute	vaw	color	color	high	1	1
+tea (dress)	tea (dress)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+teal	teal	color_attribute	css_color_4|vaw	color	color	high	2	2
+teddy bear (coat)	teddy bear (coat)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+tent	tent	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+terracotta	terracotta	color_attribute	vaw	color	color	high	1	1
+text	text	pattern_attribute	paco	pattern marking	pattern marking	high	1	1
+textile	textile	material_attribute	ovad	material	material	high	1	1
+texting	texting	activity_attribute	vaw	activity	activity	high	1	1
+textured	textured	texture_attribute	vaw	texture	texture	high	1	1
+thick	thick	size_attribute	vaw	thickness	thickness	high	1	1
+thin	thin	size_attribute	vaw	fatness|size|thickness|width	fatness|size|thickness|width	high	1	4
+thistle	thistle	color_attribute	css_color_4	color	color	high	1	1
+three quarter (length)	three quarter (length)	size_attribute	fashionpedia	length	length	medium	1	1
+throwing	throwing	activity_attribute	vaw	hand movement	hand movement	high	1	1
+tidy	tidy	order_attribute	ovad	order	order	high	1	1
+tie up (shorts)	tie up (shorts)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+tiered	tiered	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+tight (fit)	tight (fit)	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+tiled	tiled	material_attribute|pattern_attribute	ovad|vaw	clothes pattern|material|pattern	material|pattern	high	2	3
+tilted	tilted	orientation_attribute	vaw	orientation	orientation	high	1	1
+tiny	tiny	size_attribute	ovad|vaw	size	size	high	2	2
+toggled (opening)	toggled (opening)	clothing_opening_attribute	fashionpedia	opening type	opening type	medium	1	1
+toile de jouy	toile de jouy	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1
+tomato	tomato	color_attribute	css_color_4	color	color	high	1	1
+track (jacket)	track (jacket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+track (pants)	track (pants)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+translucent	translucent	opacity_attribute	ovad|paco	optical property|transparency	optical property|transparency	high	2	2
+transparent	transparent	opacity_attribute	ovad|paco|vaw	opaqeness|optical property|transparency	opaqeness|optical property|transparency	high	3	3
+trench (coat)	trench (coat)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+triangular	triangular	shape_attribute	vaw	shape	shape	high	1	1
+tricolored	tricolored	color_attribute	vaw	color quantity	color quantity	high	1	1
+trucker (jacket)	trucker (jacket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+trumpet	trumpet	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+trunks	trunks	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+tube (top)	tube (top)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+tulip (skirt)	tulip (skirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+tulip (sleeve)	tulip (sleeve)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+tunic (dress)	tunic (dress)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+tunic (top)	tunic (top)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+turned away	turned away	pose_attribute	vaw	face pose	face pose	high	1	1
+turning	turning	pose_attribute	vaw	pose	pose	high	1	1
+turquoise	turquoise	color_attribute	css_color_4|vaw	color	color	high	2	2
+turtle (neck)	turtle (neck)	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+tutu (skirt)	tutu (skirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+tuxedo (jacket)	tuxedo (jacket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+two colored	two colored	color_attribute	ovad	color quantity	color quantity	high	1	1
+typing	typing	activity_attribute	vaw	activity	activity	high	1	1
+u neck	u neck	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+unclean	unclean	condition_attribute	ovad	cleanliness	cleanliness	high	1	1
+undershirt	undershirt	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+unhappy	unhappy	expression_attribute	ovad|vaw	face expression	face expression	high	2	2
+unicolored	unicolored	color_attribute	ovad	color quantity	color quantity	high	1	1
+unordered	unordered	order_attribute	ovad	order	order	high	1	1
+unorganized	unorganized	attribute|order_attribute	ovad|vaw	order|other	order|other	high	2	2
+untidy	untidy	order_attribute	ovad	order	order	high	1	1
+upright	upright	orientation_attribute|spatial_attribute	ovad|vaw	orientation|position	orientation|position	high	2	2
+upside down	upside down	orientation_attribute	vaw	orientation	orientation	high	1	1
+v neck	v neck	clothing_cut_attribute	fashionpedia	neckline type	neckline type	medium	1	1
+varsity (jacket)	varsity (jacket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+veined	veined	texture_attribute	dtd	texture	texture	high	1	1
+velvet	velvet	material_attribute	paco	material	material	high	1	1
+vertical	vertical	orientation_attribute|spatial_attribute	ovad|vaw	orientation|position	orientation|position	high	2	2
+violet	violet	color_attribute	css_color_4|ovad|vaw	clothes color|color|hair color	color	high	3	5
+waffled	waffled	texture_attribute	dtd	texture	texture	high	1	1
+waiting	waiting	activity_attribute	vaw	activity	activity	high	1	1
+walking	walking	activity_attribute|pose_attribute	vaw	activity|pose	activity|pose	high	1	2
+warmed	warmed	food_state_attribute	ovad	cooked	cooked	high	1	1
+washed	washed	textile_finish_attribute	fashionpedia	textile finishing, manufacturing techniques	textile finishing, manufacturing techniques	medium	1	1
+watching	watching	activity_attribute	vaw	activity	activity	high	1	1
+watching tv	watching tv	activity_attribute	vaw	activity	activity	high	1	1
+water	water	material_attribute	vaw	material	material	high	1	1
+watery	watery	state_attribute	vaw	state	state	high	1	1
+waving	waving	activity_attribute	vaw	hand movement	hand movement	high	1	1
+wearing black	wearing black	color_attribute	vaw	wearing color	wearing color	high	1	1
+wearing blue	wearing blue	color_attribute	vaw	wearing color	wearing color	high	1	1
+wearing glasses	wearing glasses	accessory_attribute	vaw	wearing accessories	wearing accessories	high	1	1
+wearing gray	wearing gray	color_attribute	vaw	wearing color	wearing color	high	1	1
+wearing green	wearing green	color_attribute	vaw	wearing color	wearing color	high	1	1
+wearing hat	wearing hat	accessory_attribute	vaw	wearing accessories	wearing accessories	high	1	1
+wearing pink	wearing pink	color_attribute	vaw	wearing color	wearing color	high	1	1
+wearing red	wearing red	color_attribute	vaw	wearing color	wearing color	high	1	1
+wearing scarf	wearing scarf	accessory_attribute	vaw	wearing accessories	wearing accessories	high	1	1
+wearing tie	wearing tie	accessory_attribute	vaw	wearing accessories	wearing accessories	high	1	1
+wearing watch	wearing watch	accessory_attribute	vaw	wearing accessories	wearing accessories	high	1	1
+wearing white	wearing white	color_attribute	vaw	wearing color	wearing color	high	1	1
+weathered	weathered	state_attribute	vaw	state	state	high	1	1
+welt (pocket)	welt (pocket)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+wet	wet	state_attribute	ovad|vaw	state	state	high	2	2
+wheat	wheat	color_attribute	css_color_4	color	color	high	1	1
+white	white	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6
+white haired	white haired	color_attribute	vaw	hair color	hair color	high	1	1
+white lettered	white lettered	color_attribute	vaw	letter color	letter color	high	1	1
+whitesmoke	whitesmoke	color_attribute	css_color_4	color	color	high	1	1
+whole	whole	attribute|state_attribute	ovad|vaw	other|state	other|state	high	2	2
+wicker	wicker	material_attribute	vaw	material	material	high	1	1
+wide	wide	size_attribute	vaw	width	width	high	1	1
+wide leg	wide leg	silhouette_attribute	fashionpedia	silhouette	silhouette	medium	1	1
+windbreaker	windbreaker	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+with umbrella	with umbrella	accessory_attribute	vaw	wearing accessories	wearing accessories	high	1	1
+woman	woman	gender_attribute	ovad	gender	gender	high	1	1
+wood	wood	material_attribute	fashionpedia|ovad|paco	material|non textile material type	material|non textile material type	high	3	3
+wooden	wooden	material_attribute	ovad|vaw	material	material	high	2	2
+wool	wool	material_attribute	paco	material	material	high	1	1
+working	working	activity_attribute	vaw	activity	activity	high	1	1
+woven	woven	attribute|pattern_attribute|texture_attribute	dtd|paco|vaw	other|pattern marking|texture	other|pattern marking|texture	high	3	3
+wrap (coat)	wrap (coat)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+wrap (dress)	wrap (dress)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+wrap (skirt)	wrap (skirt)	fashion_style_attribute	fashionpedia	nickname	nickname	medium	1	1
+wrapping	wrapping	clothing_opening_attribute	fashionpedia	opening type	opening type	medium	1	1
+wrinkled	wrinkled	texture_attribute	dtd|vaw	texture	texture	high	2	2
+wrist length	wrist length	size_attribute	fashionpedia	length	length	medium	1	1
+yellow	yellow	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6
+yellowgreen	yellowgreen	color_attribute	css_color_4	color	color	high	1	1
+young	young	age_attribute	ovad|vaw	maturity	maturity	high	2	2
+zebra	zebra	motif_attribute	fashionpedia	animal	animal	medium	1	1
+zigzagged	zigzagged	texture_attribute	dtd	texture	texture	high	1	1
+zip up	zip up	clothing_opening_attribute	fashionpedia	opening type	opening type	medium	1	1

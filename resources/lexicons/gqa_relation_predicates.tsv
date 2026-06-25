@@ -1,0 +1,311 @@
+predicate	count	is_multiword
+about to hit	40	yes
+above	10541	no
+adjusting	21	no
+approaching	37	no
+around	1691	no
+at	2098	no
+attached to	279	yes
+balancing on	45	yes
+behind	21672	no
+below	8215	no
+beneath	277	no
+beside	3217	no
+between	138	no
+bigger than	4	yes
+biting	56	no
+blowing out	20	yes
+boarding	57	no
+brushing	10	no
+buying	8	no
+by	6445	no
+carrying	2325	no
+catching	223	no
+chained to	27	yes
+chasing	61	no
+chewing	30	no
+cleaning	24	no
+climbing	32	no
+close to	160	yes
+coming down	28	yes
+coming from	84	yes
+coming out of	59	yes
+connected to	110	yes
+contain	441	no
+cooked in	12	yes
+cooking	21	no
+covered by	1682	yes
+covered in	746	yes
+covered with	456	yes
+covering	1404	no
+crossing	544	no
+cutting	255	no
+decorated by	27	yes
+decorated with	25	yes
+decorating	27	no
+displayed in	11	yes
+displayed on	34	yes
+dragging	23	no
+draped over	47	yes
+drawn on	44	yes
+drinking	188	no
+drinking from	85	yes
+driving	228	no
+driving down	170	yes
+driving on	362	yes
+eating	1557	no
+eating at	36	yes
+eating from	127	yes
+eating in	28	yes
+enclosing	22	no
+entering	48	no
+exiting	45	no
+facing	269	no
+falling off	21	yes
+feeding	151	no
+filled with	555	yes
+floating in	228	yes
+floating on	103	yes
+flying	416	no
+flying above	59	yes
+flying in	676	yes
+flying over	89	yes
+flying through	60	yes
+followed by	64	yes
+following	64	no
+full of	561	yes
+getting on	39	yes
+going down	65	yes
+going into	30	yes
+going through	23	yes
+grabbing	34	no
+grazing in	118	yes
+grazing on	211	yes
+growing along	31	yes
+growing behind	46	yes
+growing by	31	yes
+growing from	28	yes
+growing in	311	yes
+growing near	50	yes
+growing next to	42	yes
+growing on	308	yes
+guiding	27	no
+hang from	20	yes
+hanging above	111	yes
+hanging from	1051	yes
+hanging in	98	yes
+hanging off	62	yes
+hanging on	1622	yes
+hanging out of	49	yes
+hanging over	169	yes
+helping	50	no
+herding	27	no
+hidden by	16	yes
+higher than	4	yes
+hitting	393	no
+holding	11801	no
+holding onto	132	yes
+hugging	47	no
+hung on	72	yes
+in	35687	no
+in between	10	yes
+in front of	21626	yes
+inside	2530	no
+jumping in	4	yes
+jumping off	20	yes
+jumping on	34	yes
+jumping over	44	yes
+kept in	16	yes
+kicking	79	no
+kissing	19	no
+larger than	11	yes
+leading	62	no
+leaning against	256	yes
+leaning on	393	yes
+leaning over	48	yes
+leaving	59	no
+licking	59	no
+longer than	5	yes
+looking at	1455	yes
+looking down at	40	yes
+looking in	53	yes
+looking into	43	yes
+looking out	86	yes
+looking over	28	yes
+looking through	28	yes
+looking toward	14	yes
+lying in	371	yes
+lying inside	73	yes
+lying next to	32	yes
+lying on	1608	yes
+lying on top of	239	yes
+making	69	no
+mixed with	34	yes
+mounted on	274	yes
+mounted to	63	yes
+moving	17	no
+near	37512	no
+next to	10810	yes
+observing	38	no
+of	39442	no
+on	103515	no
+on the back of	547	yes
+on the bottom of	187	yes
+on the edge of	130	yes
+on the front of	1162	yes
+on the other side of	64	yes
+on the side of	3691	yes
+on top of	11336	yes
+opening	33	no
+painted on	127	yes
+parked along	88	yes
+parked alongside	56	yes
+parked at	98	yes
+parked behind	53	yes
+parked beside	51	yes
+parked by	116	yes
+parked in	331	yes
+parked in front of	86	yes
+parked near	101	yes
+parked next to	100	yes
+parked on	968	yes
+perched on	121	yes
+petting	76	no
+photographing	21	no
+picking up	28	yes
+piled on	28	yes
+playing	292	no
+playing at	5	yes
+playing in	192	yes
+playing on	152	yes
+playing with	568	yes
+plugged into	94	yes
+pointing at	34	yes
+posing with	38	yes
+pouring	8	no
+preparing	37	no
+printed on	286	yes
+pulled by	418	yes
+pulling	419	no
+pushed by	159	yes
+pushing	159	no
+reaching for	121	yes
+reading	135	no
+reflected in	482	yes
+reflected on	41	yes
+reflecting in	43	yes
+resting on	239	yes
+riding	1860	no
+riding in	62	yes
+riding on	916	yes
+running across	18	yes
+running in	66	yes
+running on	133	yes
+running through	25	yes
+scattered on	31	yes
+seen through	93	yes
+selling	87	no
+served on	45	yes
+serving	80	no
+sewn on	44	yes
+shining through	22	yes
+shorter than	4	yes
+sitting around	14	yes
+sitting at	609	yes
+sitting atop	10	yes
+sitting behind	68	yes
+sitting beside	50	yes
+sitting by	84	yes
+sitting in	1194	yes
+sitting in front of	82	yes
+sitting inside	71	yes
+sitting near	56	yes
+sitting next to	157	yes
+sitting on	5590	yes
+sitting on top of	344	yes
+sitting under	52	yes
+sitting with	71	yes
+skating on	21	yes
+skiing down	27	yes
+skiing in	51	yes
+skiing on	112	yes
+sleeping in	27	yes
+sleeping on	115	yes
+slicing	24	no
+smaller than	7	yes
+smelling	23	no
+smiling at	24	yes
+smoking	26	no
+sniffing	59	no
+splashing	15	no
+sprinkled on	19	yes
+stacked on	107	yes
+standing against	31	yes
+standing around	8	yes
+standing at	103	yes
+standing behind	304	yes
+standing beside	103	yes
+standing by	371	yes
+standing in	1845	yes
+standing in front of	193	yes
+standing near	299	yes
+standing next to	501	yes
+standing on	2956	yes
+standing on top of	75	yes
+standing under	68	yes
+staring at	50	yes
+stuck in	104	yes
+stuck on	87	yes
+surrounded by	506	yes
+surrounding	332	no
+swimming in	173	yes
+swinging	516	no
+talking on	265	yes
+talking to	127	yes
+taller than	29	yes
+throwing	340	no
+tied around	47	yes
+tied to	128	yes
+to the left of	1929591	yes
+to the right of	1929591	yes
+topped with	189	yes
+tossing	30	no
+touching	427	no
+towing	19	no
+traveling down	21	yes
+traveling on	38	yes
+trying to catch	27	yes
+tying	26	no
+typing on	28	yes
+under	4136	no
+underneath	327	no
+using	826	no
+wading in	36	yes
+waiting for	165	yes
+walking across	96	yes
+walking along	69	yes
+walking behind	55	yes
+walking by	73	yes
+walking down	336	yes
+walking in	575	yes
+walking into	20	yes
+walking near	67	yes
+walking next to	49	yes
+walking on	1862	yes
+walking past	22	yes
+walking through	67	yes
+walking to	29	yes
+walking toward	47	yes
+walking towards	39	yes
+walking up	39	yes
+walking with	184	yes
+washing	28	no
+watching	1477	no
+wearing	61335	no
+with	8639	no
+working in	31	yes
+working on	99	yes
+worn around	21	yes
+worn on	227	yes
+wrapped around	103	yes
+wrapped in	84	yes

@@ -1,0 +1,120 @@
+source	term	raw_term	source_id	source_type	count	synset	overlap_clean	overlap_merged	existing_clean_roles	existing_clean_sources	existing_merged_roles	existing_merged_sources	source_url
+coco_attributes	laying	laying	410	object attributes	6883		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	watching / looking	watching / looking	412	object attributes	40315		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	moving	moving	415	object attributes	18837		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	flying	flying	427	object attributes	47		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	traveling	traveling	428	object attributes	2262		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	enjoying	enjoying	429	object attributes	14452		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	thinking	thinking	430	object attributes	2190		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	loving	loving	431	object attributes	115		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	holding	holding	432	object attributes	15727		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	feeding	feeding	433	object attributes	50		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	floating	floating	435	object attributes	38		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	hunting	hunting	437	object attributes	4		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	listening	listening	438	object attributes	695		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	hanging	hanging	439	object attributes	10		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	smelling / sniffing	smelling / sniffing	443	object attributes	49		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	socializing	socializing	444	object attributes	11399		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	stretching	stretching	445	object attributes	1038		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	learning	learning	448	object attributes	32		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	following	following	449	object attributes	226		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	fishing	fishing	454	object attributes	3		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	cuddling	cuddling	455	object attributes	95		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	smelling	smelling	456	object attributes	47		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	panting	panting	457	object attributes	34		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	participating	participating	458	object attributes	16222		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	racing	racing	459	object attributes	89		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	serving	serving	460	object attributes	39		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	reaching	reaching	462	object attributes	231		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	landing	landing	463	object attributes	27		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	spectating	spectating	466	object attributes	5098		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	exercising	exercising 	467	object attributes	1210		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	carrying	carrying	468	object attributes	3931		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	vacationing	vacationing 	470	object attributes	698		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	shopping	shopping	471	object attributes	35		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	catching	catching	472	object attributes	114		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	celebrating	celebrating	474	object attributes	361		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	hungry	hungry	478	object attributes	431		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	friendly	friendly	479	object attributes	8120		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	lazy	lazy	481	object attributes	733		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	alone / lonely	alone / lonely	483	object attributes	819		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	urban	urban	485	object attributes	4250		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	busy	busy	486	object attributes	10324		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	healthy	healthy	487	object attributes	20404		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	shiny	shiny	489	object attributes	455		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	thirsty	thirsty	490	object attributes	47		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	comfortable / cozy	comfortable / cozy	491	object attributes	2835		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	sporty	sporty	492	object attributes	11959		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	fancy	fancy	493	object attributes	271		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	toy	toy	496	object attributes	35		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	messy / cluttered	messy / cluttered	497	object attributes	26		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	sneaky	sneaky	498	object attributes	10		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	tasty / delicious	tasty / delicious	500	object attributes	28462		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	bulky	bulky	501	object attributes	371		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	frisky	frisky	502	object attributes	533		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	fuzzy	fuzzy	504	object attributes	2064		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	appetizing	appetizing	516	object attributes	21262		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	filling	filling 	517	object attributes	2559		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	curious	curious	518	object attributes	1029		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	cold	cold	523	object attributes	253		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	cool	cool	524	object attributes	201		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	warm	warm	525	object attributes	1536		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	hot	hot	526	object attributes	567		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	tired	tired	529	object attributes	251		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	playful	playful	530	object attributes	6352		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	peaceful	peaceful	531	object attributes	6590		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	useful	useful	532	object attributes	13812		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	scared	scared	535	object attributes	8		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	bored	bored	536	object attributes	38		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	excited	excited	537	object attributes	2009		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	anxious	anxious	538	object attributes	47		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	annoyed	annoyed	539	object attributes	28		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	confused	confused	540	object attributes	23		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	modern	modern	541	object attributes	496		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	cute / adorable	cute / adorable	542	object attributes	1217		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	fake	fake	544	object attributes	44		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	wild	wild	545	object attributes	4884		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	natural	natural	546	object attributes	409		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	athletic	athletic	550	object attributes	12514		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	perched	perched	551	object attributes	288		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	professional	professional	552	object attributes	428		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	flat	flat	557	object attributes	492		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	metal / metallic	metal / metallic	560	object attributes	31852		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	fast	fast	562	object attributes	350		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	simple	simple 	564	object attributes	735		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	unused / inactive	unused / inactive	565	object attributes	77		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	safe	safe	566	object attributes	986		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	leashed	leashed	568	object attributes	54		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	compact	compact	569	object attributes	54		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	adventurous	adventurous	570	object attributes	1177		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	rural	rural	572	object attributes	176		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	domestic	domestic	573	object attributes	794		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	dull	dull	574	object attributes	20		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	decorative	decorative	575	object attributes	138		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	antique / vintage	antique / vintage	576	object attributes	34		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	captive	captive	577	object attributes	443		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	strong	strong	578	object attributes	1137		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	solid	solid	581	object attributes	4763		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	cheap	cheap	582	object attributes	305		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	casual	casual	583	object attributes	18582		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	expensive	expensive	584	object attributes	112		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	functional	functional	585	object attributes	19375		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	wood / wooden	wood / wooden	586	object attributes	2		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	stuffed	stuffed	590	object attributes	95		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	elegant	elegant	591	object attributes	111		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	tame	tame	593	object attributes	10046		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	parked	parked	594	object attributes	13709		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	public	public	597	object attributes	28079		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	commercial	commercial	599	object attributes	891		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	worn	worn	600	object attributes	2		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	portable	portable	601	object attributes	60		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	competitive	competitive	602	object attributes	5442		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	dangerous	dangerous	604	object attributes	77		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	digital	digital	605	object attributes	9		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	electric / electrical	electric / electrical	606	object attributes	107		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	trendy	trendy	608	object attributes	278		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	saucy	saucy	609	object attributes	687		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	glazed	glazed	610	object attributes	231		no	yes			attribute	vaw	https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	crumpled / wrinkled	crumpled / wrinkled	612	object attributes	154		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	exotic	exotic	614	object attributes	1519		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl
+coco_attributes	family friendly	family-friendly	615	object attributes	23283		no	no					https://cs.brown.edu/people/gmpatter/cocottributes/cocottributes_eccv_version.jbl

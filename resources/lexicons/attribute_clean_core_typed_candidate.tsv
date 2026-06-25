@@ -1,0 +1,523 @@
+term	canonical	roles	primary_role	sources	source_types	parent_types	confidence	source_count	entry_count	provenance
+above the hip (length)	above the hip (length)	size_attribute	size_attribute	fashionpedia	length	length	medium	1	1	modifier_attributes_clean
+above the knee (length)	above the knee (length)	size_attribute	size_attribute	fashionpedia	length	length	medium	1	1	modifier_attributes_clean
+abstract	abstract	pattern_attribute	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1	modifier_attributes_clean
+aged	aged	condition_attribute	condition_attribute	ovad|vaw	maturity|newness	maturity|newness	high	2	3	modifier_attributes_clean
+aliceblue	aliceblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+aluminum	aluminum	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+amber	amber	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+antiquewhite	antiquewhite	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+aqua	aqua	color_attribute	color_attribute	css_color_4|vaw	color	color	high	2	2	modifier_attributes_clean
+aquamarine	aquamarine	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+arch shaped	arch shaped	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+argyle	argyle	pattern_attribute	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1	modifier_attributes_clean
+arrow shaped	arrow shaped	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+asphalt	asphalt	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+azure	azure	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+bald	bald	size_attribute	size_attribute	ovad|vaw	hair length|other	length|other	high	2	2	modifier_attributes_clean
+bamboo	bamboo	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+banded	banded	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+beige	beige	color_attribute	color_attribute	css_color_4|vaw	color	color	high	2	2	modifier_attributes_clean
+below the knee (length)	below the knee (length)	size_attribute	size_attribute	fashionpedia	length	length	medium	1	1	modifier_attributes_clean
+bend	bend	state_attribute	state_attribute	ovad	state	state	high	1	1	modifier_attributes_clean
+bending	bending	pose_attribute	pose_attribute	coco_attributes|vaw	object_attribute|pose	clean_exact_overlap|pose	high	2	2	coco_high_typed|modifier_attributes_clean
+big	big	size_attribute	size_attribute	ovad|vaw	size	size	high	2	2	modifier_attributes_clean
+bisque	bisque	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+black	black	color_attribute	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6	modifier_attributes_clean
+black haired	black haired	color_attribute	color_attribute	vaw	hair color	hair color	high	1	1	modifier_attributes_clean
+black lettered	black lettered	color_attribute	color_attribute	vaw	letter color	letter color	high	1	1	modifier_attributes_clean
+blanchedalmond	blanchedalmond	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+blond	blond	color_attribute	color_attribute	vaw	color|hair color	color|hair color	high	1	2	modifier_attributes_clean
+blotchy	blotchy	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+blue	blue	color_attribute	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6	modifier_attributes_clean
+blue plaid	blue plaid	pattern_attribute	pattern_attribute	vaw	pattern	pattern	high	1	1	modifier_attributes_clean
+blue striped	blue striped	pattern_attribute	pattern_attribute	vaw	pattern	pattern	high	1	1	modifier_attributes_clean
+blueviolet	blueviolet	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+bluish	bluish	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+bone	bone	material_attribute	material_attribute	fashionpedia	non textile material type	non textile material type	medium	1	1	modifier_attributes_clean
+braided	braided	texture_attribute	texture_attribute	dtd|vaw	other|texture	other|texture	high	2	2	modifier_attributes_clean
+brass	brass	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+brick	brick	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+bright	bright	brightness_attribute	brightness_attribute	ovad|vaw	brightness|hair tone|tone	brightness|tone	high	2	3	modifier_attributes_clean
+bright blue	bright blue	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+bright green	bright green	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+bright red	bright red	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+bright yellow	bright yellow	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+broad	broad	size_attribute	size_attribute	vaw	width	width	high	1	1	modifier_attributes_clean
+broken	broken	state_attribute	state_attribute	ovad|vaw	other|state	other|state	high	2	2	modifier_attributes_clean
+bronze	bronze	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+brown	brown	color_attribute	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6	modifier_attributes_clean
+brown haired	brown haired	color_attribute	color_attribute	vaw	hair color	hair color	high	1	1	modifier_attributes_clean
+bubbly	bubbly	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+bulky	bulky	size_attribute	size_attribute	coco_attributes	object_attribute	coco_subtype_rule	high	1	1	coco_high_typed
+bumpy	bumpy	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+burgundy	burgundy	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+burlywood	burlywood	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+cadetblue	cadetblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+camouflage	camouflage	pattern_attribute	pattern_attribute	fashionpedia|vaw	other|textile pattern	other|textile pattern	medium	2	2	modifier_attributes_clean
+captive	captive	state_attribute	state_attribute	coco_attributes	object_attribute	coco_subtype_rule	high	1	1	coco_high_typed
+cardboard	cardboard	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+cartoon	cartoon	pattern_attribute	pattern_attribute	fashionpedia|vaw	other|textile pattern	other|textile pattern	medium	2	2	modifier_attributes_clean
+cement	cement	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+ceramic	ceramic	material_attribute	material_attribute	coco_attributes|ovad|paco|vaw	material|object_attribute	clean_exact_overlap|material	high	4	4	coco_high_typed|modifier_attributes_clean
+chartreuse	chartreuse	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+check	check	pattern_attribute	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1	modifier_attributes_clean
+checkered	checkered	pattern_attribute	pattern_attribute	ovad|paco|vaw	clothes pattern|pattern|pattern marking	pattern|pattern marking	high	3	4	modifier_attributes_clean
+chequered	chequered	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+chevron	chevron	pattern_attribute	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1	modifier_attributes_clean
+chocolate	chocolate	color_attribute|material_attribute	color_attribute	css_color_4|vaw	color|material	color|material	high	2	2	modifier_attributes_clean
+choppy	choppy	texture_attribute	texture_attribute	vaw	texture	texture	high	1	1	modifier_attributes_clean
+chrome	chrome	material_attribute	material_attribute	vaw	material	material	high	1	1	modifier_attributes_clean
+circular	circular	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+clay	clay	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+clean	clean	condition_attribute	condition_attribute	coco_attributes|ovad|vaw	cleanliness|object_attribute	clean_exact_overlap|cleanliness	high	3	3	coco_high_typed|modifier_attributes_clean
+clear	clear	weather_attribute	weather_attribute	vaw	opaqeness|weather	opaqeness|weather	high	1	2	modifier_attributes_clean
+closed	closed	state_attribute	state_attribute	coco_attributes|ovad|vaw	object_attribute|state	clean_exact_overlap|state	high	3	3	coco_high_typed|modifier_attributes_clean
+cloth	cloth	material_attribute	material_attribute	coco_attributes|ovad|vaw	material|object_attribute	clean_exact_overlap|material	high	3	3	coco_high_typed|modifier_attributes_clean
+cloudless	cloudless	weather_attribute	weather_attribute	vaw	weather	weather	high	1	1	modifier_attributes_clean
+cloudy	cloudy	weather_attribute	weather_attribute	vaw	weather	weather	high	1	1	modifier_attributes_clean
+cobblestone	cobblestone	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+cobwebbed	cobwebbed	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+colorful	colorful	color_attribute	color_attribute	ovad|vaw	color quantity	color quantity	high	2	2	modifier_attributes_clean
+colorless	colorless	color_attribute	color_attribute	vaw	color quantity	color quantity	high	1	1	modifier_attributes_clean
+compact	compact	size_attribute	size_attribute	coco_attributes	object_attribute	coco_subtype_rule	high	1	1	coco_high_typed
+concrete	concrete	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+conical	conical	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+copper zinc	copper zinc	material_attribute	material_attribute	ovad	material	material	high	1	1	modifier_attributes_clean
+coral	coral	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+cornflowerblue	cornflowerblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+cornsilk	cornsilk	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+cotton	cotton	material_attribute	material_attribute	ovad	material	material	high	1	1	modifier_attributes_clean
+covered	covered	state_attribute	state_attribute	coco_attributes|ovad	object_attribute|state	clean_exact_overlap|state	high	2	2	coco_high_typed|modifier_attributes_clean
+cracked	cracked	state_attribute|texture_attribute	texture_attribute	dtd|ovad|vaw	state|texture	state|texture	high	3	3	modifier_attributes_clean
+cream colored	cream colored	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+crimson	crimson	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+crochet	crochet	material_attribute	material_attribute	paco	material	material	high	1	1	modifier_attributes_clean
+crocodile	crocodile	material_attribute	material_attribute	fashionpedia	leather	leather	medium	1	1	modifier_attributes_clean
+crosshatched	crosshatched	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+crouching	crouching	pose_attribute	pose_attribute	coco_attributes|vaw	object_attribute|pose	clean_exact_overlap|pose	high	2	2	coco_high_typed|modifier_attributes_clean
+crumpled / wrinkled	crumpled / wrinkled	texture_attribute	texture_attribute	coco_attributes	object_attribute	clean_alias_exact_match	high	1	1	coco_high_typed
+crystalline	crystalline	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+cubed	cubed	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+curled	curled	shape_attribute	shape_attribute	coco_attributes|ovad|vaw	hair type|object_attribute|shape	clean_exact_overlap|shape|type	high	3	3	coco_high_typed|modifier_attributes_clean
+curly	curly	shape_attribute	shape_attribute	ovad|vaw	hair type|shape	shape|type	high	2	2	modifier_attributes_clean
+curved	curved	shape_attribute	shape_attribute	coco_attributes|vaw	object_attribute|shape	clean_exact_overlap|shape	high	2	2	coco_high_typed|modifier_attributes_clean
+cut	cut	state_attribute	state_attribute	ovad|vaw	other|state	other|state	high	2	2	modifier_attributes_clean
+cyan	cyan	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+cylindrical	cylindrical	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+dark	dark	brightness_attribute	brightness_attribute	ovad|vaw	brightness|hair tone|tone	brightness|tone	high	2	4	modifier_attributes_clean
+dark blue	dark blue	color_attribute	color_attribute	paco|vaw	color	color	high	2	2	modifier_attributes_clean
+dark brown	dark brown	color_attribute	color_attribute	paco|vaw	color	color	high	2	2	modifier_attributes_clean
+dark gray	dark gray	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+dark green	dark green	color_attribute	color_attribute	paco|vaw	color	color	high	2	2	modifier_attributes_clean
+dark grey	dark grey	color_attribute	color_attribute	paco	color	color	high	1	1	modifier_attributes_clean
+dark haired	dark haired	color_attribute	color_attribute	vaw	hair color	hair color	high	1	1	modifier_attributes_clean
+dark orange	dark orange	color_attribute	color_attribute	paco	color	color	high	1	1	modifier_attributes_clean
+dark pink	dark pink	color_attribute	color_attribute	paco|vaw	color	color	high	2	2	modifier_attributes_clean
+dark purple	dark purple	color_attribute	color_attribute	paco|vaw	color	color	high	2	2	modifier_attributes_clean
+dark red	dark red	color_attribute	color_attribute	paco|vaw	color	color	high	2	2	modifier_attributes_clean
+dark skinned	dark skinned	color_attribute	color_attribute	vaw	skin color	skin color	high	1	1	modifier_attributes_clean
+dark yellow	dark yellow	color_attribute	color_attribute	paco	color	color	high	1	1	modifier_attributes_clean
+darkblue	darkblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darkcyan	darkcyan	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darkgoldenrod	darkgoldenrod	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darkgray	darkgray	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darkgreen	darkgreen	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darkgrey	darkgrey	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darkkhaki	darkkhaki	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darkmagenta	darkmagenta	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darkolivegreen	darkolivegreen	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darkorange	darkorange	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darkorchid	darkorchid	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darkred	darkred	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darksalmon	darksalmon	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darkseagreen	darkseagreen	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darkslateblue	darkslateblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darkslategray	darkslategray	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darkslategrey	darkslategrey	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darkturquoise	darkturquoise	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+darkviolet	darkviolet	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+deep	deep	size_attribute	size_attribute	vaw	depth	depth	high	1	1	modifier_attributes_clean
+deeppink	deeppink	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+deepskyblue	deepskyblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+denim	denim	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+diamond shaped	diamond shaped	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+dilapidated	dilapidated	state_attribute	state_attribute	ovad|vaw	state	state	high	2	2	modifier_attributes_clean
+dimgray	dimgray	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+dimgrey	dimgrey	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+dirt	dirt	condition_attribute|material_attribute	material_attribute	ovad|vaw	cleanliness|material	cleanliness|material	high	2	2	modifier_attributes_clean
+dirty	dirty	condition_attribute	condition_attribute	coco_attributes|ovad|vaw	cleanliness|object_attribute	clean_exact_overlap|cleanliness	high	3	3	coco_high_typed|modifier_attributes_clean
+dodgerblue	dodgerblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+domed	domed	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+dot	dot	pattern_attribute	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1	modifier_attributes_clean
+dotted	dotted	pattern_attribute|texture_attribute	pattern_attribute	dtd|ovad|paco|vaw	clothes pattern|pattern|pattern marking|texture	pattern|pattern marking|texture	high	4	5	modifier_attributes_clean
+dry	dry	state_attribute	state_attribute	coco_attributes|ovad|vaw	object_attribute|state	clean_exact_overlap|state	high	3	3	coco_high_typed|modifier_attributes_clean
+dusty	dusty	condition_attribute	condition_attribute	vaw	cleanliness	cleanliness	high	1	1	modifier_attributes_clean
+elbow length	elbow length	size_attribute	size_attribute	fashionpedia	length	length	medium	1	1	modifier_attributes_clean
+empty	empty	state_attribute	state_attribute	coco_attributes|ovad|vaw	object_attribute|state	clean_exact_overlap|state	high	3	3	coco_high_typed|modifier_attributes_clean
+fabric	fabric	material_attribute	material_attribute	ovad|paco|vaw	material	material	high	3	3	modifier_attributes_clean
+fair isle	fair isle	pattern_attribute	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1	modifier_attributes_clean
+fat	fat	size_attribute	size_attribute	vaw	fatness|size	fatness|size	high	1	2	modifier_attributes_clean
+feather	feather	material_attribute	material_attribute	fashionpedia	non textile material type	non textile material type	medium	1	1	modifier_attributes_clean
+fibrous	fibrous	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+firebrick	firebrick	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+flat	flat	shape_attribute	shape_attribute	coco_attributes	object_attribute	coco_subtype_rule	high	1	1	coco_high_typed
+flecked	flecked	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+floating	floating	state_attribute	state_attribute	coco_attributes	object_attribute	coco_subtype_rule	high	1	1	coco_high_typed
+floor (length)	floor (length)	size_attribute	size_attribute	fashionpedia	length	length	medium	1	1	modifier_attributes_clean
+floral	floral	pattern_attribute	pattern_attribute	fashionpedia|ovad|paco|vaw	clothes pattern|pattern|pattern marking|textile pattern	pattern|pattern marking|textile pattern	high	4	5	modifier_attributes_clean
+floralwhite	floralwhite	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+fluffy	fluffy	material_attribute|texture_attribute	material_attribute	coco_attributes|ovad|vaw	material|object_attribute|texture	clean_exact_overlap|material|texture	high	3	3	coco_high_typed|modifier_attributes_clean
+foamy	foamy	material_attribute	material_attribute	vaw	material	material	high	1	1	modifier_attributes_clean
+foggy	foggy	weather_attribute	weather_attribute	vaw	weather	weather	high	1	1	modifier_attributes_clean
+folded	folded	state_attribute	state_attribute	ovad|vaw	state	state	high	2	2	modifier_attributes_clean
+forestgreen	forestgreen	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+freckled	freckled	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+frilly	frilly	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+fuchsia	fuchsia	color_attribute	color_attribute	css_color_4|vaw	color	color	high	2	2	modifier_attributes_clean
+full	full	state_attribute	state_attribute	coco_attributes|ovad|vaw	object_attribute|state	clean_exact_overlap|state	high	3	3	coco_high_typed|modifier_attributes_clean
+fur	fur	material_attribute	material_attribute	fashionpedia	non textile material type	non textile material type	medium	1	1	modifier_attributes_clean
+furry	furry	material_attribute|texture_attribute	material_attribute	coco_attributes|ovad|vaw	material|object_attribute|texture	clean_exact_overlap|material|texture	high	3	3	coco_high_typed|modifier_attributes_clean
+fuzzy	fuzzy	texture_attribute	texture_attribute	coco_attributes	object_attribute	coco_subtype_rule	high	1	1	coco_high_typed
+gainsboro	gainsboro	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+gauzy	gauzy	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+gem	gem	material_attribute	material_attribute	fashionpedia	non textile material type	non textile material type	medium	1	1	modifier_attributes_clean
+geometric	geometric	pattern_attribute	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1	modifier_attributes_clean
+ghostwhite	ghostwhite	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+giant	giant	size_attribute	size_attribute	ovad|vaw	size	size	high	2	2	modifier_attributes_clean
+glass	glass	material_attribute	material_attribute	ovad|paco|vaw	material	material	high	3	3	modifier_attributes_clean
+gold	gold	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+golden	golden	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+golden brown	golden brown	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+goldenrod	goldenrod	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+granite	granite	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+gravel	gravel	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+gray	gray	color_attribute	color_attribute	css_color_4|ovad|vaw	clothes color|color|hair color	color	high	3	5	modifier_attributes_clean
+green	green	color_attribute	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6	modifier_attributes_clean
+green tinted	green tinted	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+greenyellow	greenyellow	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+grey	grey	color_attribute	color_attribute	css_color_4|paco	color	color	high	2	2	modifier_attributes_clean
+grid	grid	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+grooved	grooved	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+hairy	hairy	texture_attribute	texture_attribute	coco_attributes|ovad|vaw	object_attribute|other|texture	clean_exact_overlap|other|texture	high	3	3	coco_high_typed|modifier_attributes_clean
+hanging	hanging	pose_attribute|state_attribute	state_attribute	coco_attributes	object_attribute	coco_subtype_rule	high	1	1	coco_high_typed
+hard	hard	texture_attribute	texture_attribute	coco_attributes|vaw	hardness|object_attribute	clean_exact_overlap|hardness	high	2	2	coco_high_typed|modifier_attributes_clean
+hardwood	hardwood	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+hazy	hazy	weather_attribute	weather_attribute	vaw	weather	weather	high	1	1	modifier_attributes_clean
+heart shaped	heart shaped	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+herringbone (pattern)	herringbone (pattern)	pattern_attribute	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1	modifier_attributes_clean
+high	high	size_attribute	size_attribute	vaw	height	height	high	1	1	modifier_attributes_clean
+hip (length)	hip (length)	size_attribute	size_attribute	fashionpedia	length	length	medium	1	1	modifier_attributes_clean
+honeycombed	honeycombed	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+honeydew	honeydew	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+hotpink	hotpink	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+houndstooth (pattern)	houndstooth (pattern)	pattern_attribute	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1	modifier_attributes_clean
+huge	huge	size_attribute	size_attribute	ovad|vaw	size	size	high	2	2	modifier_attributes_clean
+indianred	indianred	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+indigo	indigo	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+interlaced	interlaced	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+iron	iron	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+ivory	ivory	color_attribute|material_attribute	color_attribute	css_color_4|fashionpedia|vaw	color|non textile material type	color|non textile material type	high	3	3	modifier_attributes_clean
+jagged	jagged	texture_attribute	texture_attribute	vaw	texture	texture	high	1	1	modifier_attributes_clean
+jean	jean	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+jumping	jumping	pose_attribute	pose_attribute	coco_attributes|vaw	object_attribute|pose	clean_exact_overlap|pose	high	2	2	coco_high_typed|modifier_attributes_clean
+khaki	khaki	color_attribute|material_attribute	color_attribute	css_color_4|vaw	color|material	color|material	high	2	2	modifier_attributes_clean
+knee (length)	knee (length)	size_attribute	size_attribute	fashionpedia	length	length	medium	1	1	modifier_attributes_clean
+kneeling	kneeling	pose_attribute	pose_attribute	vaw	pose	pose	high	1	1	modifier_attributes_clean
+knitted	knitted	texture_attribute	texture_attribute	dtd|vaw	other|texture	other|texture	high	2	2	modifier_attributes_clean
+lacelike	lacelike	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+landing	landing	state_attribute	state_attribute	coco_attributes	object_attribute	coco_subtype_rule	high	1	1	coco_high_typed
+large	large	size_attribute	size_attribute	coco_attributes|ovad|vaw	object_attribute|size	clean_exact_overlap|size	high	3	3	coco_high_typed|modifier_attributes_clean
+larger	larger	size_attribute	size_attribute	vaw	size comparison	size comparison	high	1	1	modifier_attributes_clean
+lavender	lavender	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lavenderblush	lavenderblush	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lawngreen	lawngreen	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+laying	laying	pose_attribute	pose_attribute	coco_attributes	object_attribute	coco_subtype_rule	high	1	1	coco_high_typed
+leaning	leaning	pose_attribute	pose_attribute	coco_attributes|vaw	object_attribute|pose	clean_exact_overlap|pose	high	2	2	coco_high_typed|modifier_attributes_clean
+leaning back	leaning back	pose_attribute	pose_attribute	vaw	pose	pose	high	1	1	modifier_attributes_clean
+leaping	leaping	pose_attribute	pose_attribute	vaw	pose	pose	high	1	1	modifier_attributes_clean
+leashed	leashed	state_attribute	state_attribute	coco_attributes	object_attribute	coco_subtype_rule	high	1	1	coco_high_typed
+leather	leather	material_attribute	material_attribute	coco_attributes|ovad|paco|vaw	material|object_attribute	clean_exact_overlap|material	high	4	4	coco_high_typed|modifier_attributes_clean
+lemonchiffon	lemonchiffon	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lettered	lettered	pattern_attribute	pattern_attribute	ovad	clothes pattern|pattern	pattern	high	1	2	modifier_attributes_clean
+letters, numbers	letters, numbers	pattern_attribute	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1	modifier_attributes_clean
+light blue	light blue	color_attribute	color_attribute	paco|vaw	color	color	high	2	2	modifier_attributes_clean
+light brown	light brown	color_attribute	color_attribute	paco|vaw	color	color	high	2	2	modifier_attributes_clean
+light gray	light gray	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+light green	light green	color_attribute	color_attribute	paco|vaw	color	color	high	2	2	modifier_attributes_clean
+light grey	light grey	color_attribute	color_attribute	paco	color	color	high	1	1	modifier_attributes_clean
+light orange	light orange	color_attribute	color_attribute	paco	color	color	high	1	1	modifier_attributes_clean
+light pink	light pink	color_attribute	color_attribute	paco	color	color	high	1	1	modifier_attributes_clean
+light purple	light purple	color_attribute	color_attribute	paco	color	color	high	1	1	modifier_attributes_clean
+light red	light red	color_attribute	color_attribute	paco|vaw	color	color	high	2	2	modifier_attributes_clean
+light skinned	light skinned	color_attribute	color_attribute	vaw	skin color	skin color	high	1	1	modifier_attributes_clean
+light yellow	light yellow	color_attribute	color_attribute	paco|vaw	color	color	high	2	2	modifier_attributes_clean
+lightblue	lightblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lightcoral	lightcoral	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lightcyan	lightcyan	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lightgoldenrodyellow	lightgoldenrodyellow	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lightgray	lightgray	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lightgreen	lightgreen	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lightgrey	lightgrey	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lightpink	lightpink	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lightsalmon	lightsalmon	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lightseagreen	lightseagreen	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lightskyblue	lightskyblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lightslategray	lightslategray	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lightslategrey	lightslategrey	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lightsteelblue	lightsteelblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lightyellow	lightyellow	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lime	lime	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lime green	lime green	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+limegreen	limegreen	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+lined	lined	pattern_attribute|texture_attribute	pattern_attribute	dtd|ovad|vaw	clothes pattern|pattern|texture	pattern|texture	high	3	4	modifier_attributes_clean
+linen	linen	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+little	little	size_attribute	size_attribute	ovad|vaw	size	size	high	2	2	modifier_attributes_clean
+logo	logo	pattern_attribute	pattern_attribute	paco	pattern marking	pattern marking	high	1	1	modifier_attributes_clean
+long	long	size_attribute	size_attribute	coco_attributes|ovad|vaw	hair length|length|object_attribute	clean_exact_overlap|length	high	3	4	coco_high_typed|modifier_attributes_clean
+looking at camera	looking at camera	pose_attribute	pose_attribute	vaw	face pose	face pose	high	1	1	modifier_attributes_clean
+looking down	looking down	pose_attribute	pose_attribute	vaw	face pose	face pose	high	1	1	modifier_attributes_clean
+looking up	looking up	pose_attribute	pose_attribute	vaw	face pose	face pose	high	1	1	modifier_attributes_clean
+low	low	size_attribute	size_attribute	vaw	height	height	high	1	1	modifier_attributes_clean
+lying	lying	pose_attribute	pose_attribute	ovad|vaw	pose|position	pose|position	high	2	2	modifier_attributes_clean
+magenta	magenta	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+marble	marble	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+marbled	marbled	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+maroon	maroon	color_attribute	color_attribute	css_color_4|vaw	color	color	high	2	2	modifier_attributes_clean
+matted	matted	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+maxi (length)	maxi (length)	size_attribute	size_attribute	fashionpedia	length	length	medium	1	1	modifier_attributes_clean
+mediumaquamarine	mediumaquamarine	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+mediumblue	mediumblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+mediumorchid	mediumorchid	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+mediumpurple	mediumpurple	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+mediumseagreen	mediumseagreen	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+mediumslateblue	mediumslateblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+mediumspringgreen	mediumspringgreen	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+mediumturquoise	mediumturquoise	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+mediumvioletred	mediumvioletred	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+mesh	mesh	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+meshed	meshed	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+messy / cluttered	messy / cluttered	condition_attribute	condition_attribute	coco_attributes	object_attribute	clean_alias_exact_match_plus_coco_rule	high	1	1	coco_high_typed
+metal	metal	material_attribute	material_attribute	fashionpedia|ovad|paco|vaw	material|non textile material type	material|non textile material type	high	4	4	modifier_attributes_clean
+metal / metallic	metal / metallic	material_attribute	material_attribute	coco_attributes	object_attribute	clean_alias_exact_match	high	1	1	coco_high_typed
+metallic	metallic	material_attribute	material_attribute	ovad	material	material	high	1	1	modifier_attributes_clean
+micro (length)	micro (length)	size_attribute	size_attribute	fashionpedia	length	length	medium	1	1	modifier_attributes_clean
+midi	midi	size_attribute	size_attribute	fashionpedia	length	length	medium	1	1	modifier_attributes_clean
+midnightblue	midnightblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+mini (length)	mini (length)	size_attribute	size_attribute	fashionpedia	length	length	medium	1	1	modifier_attributes_clean
+mintcream	mintcream	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+mistyrose	mistyrose	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+moccasin	moccasin	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+monochromatic	monochromatic	color_attribute	color_attribute	vaw	color quantity	color quantity	high	1	1	modifier_attributes_clean
+moss covered	moss covered	texture_attribute	texture_attribute	vaw	texture	texture	high	1	1	modifier_attributes_clean
+muddy	muddy	condition_attribute|material_attribute	material_attribute	ovad|vaw	cleanliness|material	cleanliness|material	high	2	2	modifier_attributes_clean
+multicolored	multicolored	color_attribute	color_attribute	ovad|vaw	color quantity	color quantity	high	2	2	modifier_attributes_clean
+murky	murky	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+narrow	narrow	size_attribute	size_attribute	vaw	width	width	high	1	1	modifier_attributes_clean
+navajowhite	navajowhite	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+navy	navy	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+navy blue	navy blue	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+neat	neat	condition_attribute	condition_attribute	ovad	cleanliness	cleanliness	high	1	1	modifier_attributes_clean
+neon green	neon green	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+new	new	condition_attribute	condition_attribute	coco_attributes|vaw	newness|object_attribute	clean_exact_overlap|newness	high	2	2	coco_high_typed|modifier_attributes_clean
+no non textile material	no non textile material	material_attribute	material_attribute	fashionpedia	non textile material type	non textile material type	medium	1	1	modifier_attributes_clean
+octagonal	octagonal	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+off	off	state_attribute	state_attribute	coco_attributes|ovad|vaw	object_attribute|other|state	clean_exact_overlap|other|state	high	3	3	coco_high_typed|modifier_attributes_clean
+off white	off white	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+old	old	condition_attribute	condition_attribute	coco_attributes|ovad|vaw	maturity|newness|object_attribute	clean_exact_overlap|maturity|newness	high	3	4	coco_high_typed|modifier_attributes_clean
+oldlace	oldlace	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+olive	olive	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+olive green	olive green	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+olivedrab	olivedrab	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+on	on	state_attribute	state_attribute	coco_attributes|ovad	object_attribute|state	clean_exact_overlap|state	high	2	2	coco_high_typed|modifier_attributes_clean
+open	open	state_attribute	state_attribute	coco_attributes|ovad|vaw	object_attribute|state	clean_exact_overlap|state	high	3	3	coco_high_typed|modifier_attributes_clean
+orange	orange	color_attribute	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6	modifier_attributes_clean
+orangered	orangered	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+orchid	orchid	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+oval shaped	oval shaped	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+overcast	overcast	weather_attribute	weather_attribute	vaw	weather	weather	high	1	1	modifier_attributes_clean
+paisley	paisley	pattern_attribute|texture_attribute	pattern_attribute	dtd|fashionpedia	textile pattern|texture	textile pattern|texture	high	2	2	modifier_attributes_clean
+pale blue	pale blue	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+pale green	pale green	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+palegoldenrod	palegoldenrod	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+palegreen	palegreen	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+paleturquoise	paleturquoise	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+palevioletred	palevioletred	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+papayawhip	papayawhip	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+paper	paper	material_attribute	material_attribute	ovad|paco|vaw	material	material	high	3	3	modifier_attributes_clean
+parked	parked	state_attribute	state_attribute	coco_attributes	object_attribute	coco_subtype_rule	high	1	1	coco_high_typed
+partly cloudy	partly cloudy	weather_attribute	weather_attribute	vaw	weather	weather	high	1	1	modifier_attributes_clean
+patterned	patterned	pattern_attribute	pattern_attribute	vaw	pattern	pattern	high	1	1	modifier_attributes_clean
+peachpuff	peachpuff	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+pebbled	pebbled	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+perched	perched	pose_attribute	pose_attribute	coco_attributes	object_attribute	coco_subtype_rule	high	1	1	coco_high_typed
+perforated	perforated	pattern_attribute|texture_attribute	pattern_attribute	dtd|fashionpedia|paco	pattern marking|textile finishing, manufacturing techniques|texture	pattern marking|textile finishing, manufacturing techniques|texture	high	3	3	modifier_attributes_clean
+peru	peru	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+piece	piece	state_attribute	state_attribute	ovad|vaw	other|state	other|state	high	2	2	modifier_attributes_clean
+pink	pink	color_attribute	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6	modifier_attributes_clean
+pinstriped	pinstriped	pattern_attribute	pattern_attribute	ovad|vaw	clothes pattern|pattern	pattern	high	2	3	modifier_attributes_clean
+pitted	pitted	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+plaid	plaid	pattern_attribute	pattern_attribute	ovad|vaw	clothes pattern|pattern	pattern	high	2	3	modifier_attributes_clean
+plain	plain	pattern_attribute	pattern_attribute	coco_attributes|ovad|paco|vaw	clothes pattern|object_attribute|other|pattern|pattern marking	clean_exact_overlap|other|pattern|pattern marking	high	4	5	coco_high_typed|modifier_attributes_clean
+plain (pattern)	plain (pattern)	pattern_attribute	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1	modifier_attributes_clean
+plant	plant	pattern_attribute	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1	modifier_attributes_clean
+plastic	plastic	material_attribute	material_attribute	coco_attributes|fashionpedia|ovad|paco|vaw	material|non textile material type|object_attribute	clean_exact_overlap|material|non textile material type	high	5	5	coco_high_typed|modifier_attributes_clean
+pleated	pleated	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+plum	plum	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+plush	plush	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+pointy	pointy	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+polka dotted	polka dotted	pattern_attribute|texture_attribute	pattern_attribute	dtd|vaw	pattern|texture	pattern|texture	high	2	2	modifier_attributes_clean
+polymer	polymer	material_attribute	material_attribute	ovad	material	material	high	1	1	modifier_attributes_clean
+polymers	polymers	material_attribute	material_attribute	ovad	material	material	high	1	1	modifier_attributes_clean
+porcelain	porcelain	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+porous	porous	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+potholed	potholed	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+powderblue	powderblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+purple	purple	color_attribute	color_attribute	css_color_4|paco|vaw	color	color	high	3	3	modifier_attributes_clean
+purplish	purplish	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+rainbow colored	rainbow colored	color_attribute	color_attribute	vaw	color quantity	color quantity	high	1	1	modifier_attributes_clean
+rainy	rainy	weather_attribute	weather_attribute	vaw	weather	weather	high	1	1	modifier_attributes_clean
+rattan	rattan	material_attribute	material_attribute	paco	material	material	high	1	1	modifier_attributes_clean
+reaching	reaching	pose_attribute	pose_attribute	coco_attributes	object_attribute	coco_subtype_rule	high	1	1	coco_high_typed
+rebeccapurple	rebeccapurple	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+rectangular	rectangular	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+red	red	color_attribute	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6	modifier_attributes_clean
+red brick	red brick	material_attribute	material_attribute	vaw	material	material	high	1	1	modifier_attributes_clean
+red haired	red haired	color_attribute	color_attribute	vaw	hair color	hair color	high	1	1	modifier_attributes_clean
+red lettered	red lettered	color_attribute	color_attribute	vaw	letter color	letter color	high	1	1	modifier_attributes_clean
+red striped	red striped	pattern_attribute	pattern_attribute	vaw	pattern	pattern	high	1	1	modifier_attributes_clean
+reddish	reddish	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+rocky	rocky	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+rosybrown	rosybrown	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+rough	rough	texture_attribute	texture_attribute	ovad|vaw	texture	texture	high	2	2	modifier_attributes_clean
+round	round	shape_attribute	shape_attribute	coco_attributes|vaw	object_attribute|shape	clean_exact_overlap|shape	high	2	2	coco_high_typed|modifier_attributes_clean
+rounded	rounded	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+royalblue	royalblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+rubber	rubber	material_attribute	material_attribute	fashionpedia|ovad|vaw	material|non textile material type	material|non textile material type	high	3	3	modifier_attributes_clean
+ruined	ruined	state_attribute	state_attribute	ovad	state	state	high	1	1	modifier_attributes_clean
+running	running	pose_attribute	pose_attribute	coco_attributes|vaw	activity|object_attribute|pose|sport activity	activity|clean_exact_overlap|pose|sport activity	high	2	4	coco_high_typed|modifier_attributes_clean
+rust colored	rust colored	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+saddlebrown	saddlebrown	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+salmon	salmon	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+sand colored	sand colored	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+sandy	sandy	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+sandybrown	sandybrown	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+scaly	scaly	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+seagreen	seagreen	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+seashell	seashell	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+shallow	shallow	size_attribute	size_attribute	vaw	depth	depth	high	1	1	modifier_attributes_clean
+shearling	shearling	material_attribute	material_attribute	fashionpedia	leather	leather	medium	1	1	modifier_attributes_clean
+short	short	size_attribute	size_attribute	coco_attributes|ovad|vaw	hair length|height|length|object_attribute	clean_exact_overlap|height|length	high	3	5	coco_high_typed|modifier_attributes_clean
+short (length)	short (length)	size_attribute	size_attribute	fashionpedia	length	length	medium	1	1	modifier_attributes_clean
+sienna	sienna	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+silk	silk	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+silver	silver	color_attribute|material_attribute	color_attribute	css_color_4|ovad|vaw	color|material	color|material	high	3	3	modifier_attributes_clean
+single colored	single colored	color_attribute	color_attribute	ovad	color quantity	color quantity	high	1	1	modifier_attributes_clean
+sitting	sitting	pose_attribute	pose_attribute	coco_attributes|ovad|vaw	object_attribute|pose|position	clean_exact_overlap|pose|position	high	3	3	coco_high_typed|modifier_attributes_clean
+skinny	skinny	size_attribute	size_attribute	vaw	fatness|size	fatness|size	high	1	2	modifier_attributes_clean
+skyblue	skyblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+slateblue	slateblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+slategray	slategray	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+slategrey	slategrey	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+sleek	sleek	texture_attribute	texture_attribute	coco_attributes|ovad	object_attribute|texture	clean_exact_overlap|texture	high	2	2	coco_high_typed|modifier_attributes_clean
+sleeveless	sleeveless	size_attribute	size_attribute	fashionpedia|vaw	length|other	length|other	medium	2	2	modifier_attributes_clean
+slender	slender	size_attribute	size_attribute	vaw	fatness	fatness	high	1	1	modifier_attributes_clean
+slim	slim	size_attribute	size_attribute	vaw	fatness|size|width	fatness|size|width	high	1	3	modifier_attributes_clean
+small	small	size_attribute	size_attribute	coco_attributes|ovad|vaw	object_attribute|size	clean_exact_overlap|size	high	3	3	coco_high_typed|modifier_attributes_clean
+smaller	smaller	size_attribute	size_attribute	vaw	size comparison	size comparison	high	1	1	modifier_attributes_clean
+smeared	smeared	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+smooth	smooth	texture_attribute	texture_attribute	coco_attributes|ovad|vaw	object_attribute|texture	clean_exact_overlap|texture	high	3	3	coco_high_typed|modifier_attributes_clean
+snakeskin	snakeskin	material_attribute	material_attribute	fashionpedia	leather	leather	medium	1	1	modifier_attributes_clean
+snow	snow	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+snowy	snowy	material_attribute	material_attribute	vaw	material	material	high	1	1	modifier_attributes_clean
+soft	soft	texture_attribute	texture_attribute	coco_attributes|ovad|vaw	hardness|object_attribute|texture	clean_exact_overlap|hardness|texture	high	3	3	coco_high_typed|modifier_attributes_clean
+speckled	speckled	pattern_attribute	pattern_attribute	ovad|vaw	clothes pattern|pattern	pattern	high	2	3	modifier_attributes_clean
+spherical	spherical	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+spiky	spiky	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+spiral	spiral	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+spiralled	spiralled	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+spotted	spotted	pattern_attribute	pattern_attribute	coco_attributes|ovad|vaw	clothes pattern|object_attribute|pattern	clean_exact_overlap|pattern	high	3	4	coco_high_typed|modifier_attributes_clean
+springgreen	springgreen	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+sprinkled	sprinkled	texture_attribute	texture_attribute	dtd|vaw	other|texture	other|texture	high	2	2	modifier_attributes_clean
+square	square	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+squatting	squatting	pose_attribute	pose_attribute	vaw	pose	pose	high	1	1	modifier_attributes_clean
+stained	stained	condition_attribute|texture_attribute	texture_attribute	dtd|vaw	cleanliness|texture	cleanliness|texture	high	2	2	modifier_attributes_clean
+stainless steel	stainless steel	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+standing	standing	pose_attribute	pose_attribute	coco_attributes|ovad|vaw	object_attribute|pose|position	clean_exact_overlap|pose|position	high	3	3	coco_high_typed|modifier_attributes_clean
+steel	steel	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+steelblue	steelblue	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+stone	stone	material_attribute	material_attribute	ovad|paco|vaw	material	material	high	3	3	modifier_attributes_clean
+stormy	stormy	weather_attribute	weather_attribute	vaw	weather	weather	high	1	1	modifier_attributes_clean
+straight	straight	shape_attribute	shape_attribute	fashionpedia|ovad|vaw	hair type|shape|silhouette	shape|silhouette|type	high	3	3	modifier_attributes_clean
+stratified	stratified	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+straw	straw	material_attribute	material_attribute	vaw	material	material	high	1	1	modifier_attributes_clean
+stretching	stretching	pose_attribute	pose_attribute	coco_attributes	object_attribute	coco_subtype_rule	high	1	1	coco_high_typed
+stripe	stripe	pattern_attribute	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1	modifier_attributes_clean
+striped	striped	pattern_attribute|texture_attribute	pattern_attribute	coco_attributes|dtd|ovad|paco|vaw	clothes pattern|object_attribute|pattern|pattern marking|texture	clean_exact_overlap|pattern|pattern marking|texture	high	5	6	coco_high_typed|modifier_attributes_clean
+stucco	stucco	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+studded	studded	pattern_attribute|texture_attribute	pattern_attribute	dtd|paco	pattern marking|texture	pattern marking|texture	high	2	2	modifier_attributes_clean
+stuffed	stuffed	state_attribute	state_attribute	coco_attributes	object_attribute	coco_subtype_rule	high	1	1	coco_high_typed
+styrofoam	styrofoam	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+suede	suede	material_attribute	material_attribute	fashionpedia	leather	leather	medium	1	1	modifier_attributes_clean
+sunny	sunny	weather_attribute	weather_attribute	vaw	weather	weather	high	1	1	modifier_attributes_clean
+swirly	swirly	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+tall	tall	size_attribute	size_attribute	vaw	height	height	high	1	1	modifier_attributes_clean
+tan	tan	color_attribute	color_attribute	css_color_4|ovad|vaw	clothes color|color|hair color	color	high	3	5	modifier_attributes_clean
+tartan	tartan	pattern_attribute	pattern_attribute	ovad	clothes pattern|pattern	pattern	high	1	2	modifier_attributes_clean
+taupe	taupe	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+teal	teal	color_attribute	color_attribute	css_color_4|vaw	color	color	high	2	2	modifier_attributes_clean
+terracotta	terracotta	color_attribute	color_attribute	vaw	color	color	high	1	1	modifier_attributes_clean
+text	text	pattern_attribute	pattern_attribute	paco	pattern marking	pattern marking	high	1	1	modifier_attributes_clean
+textile	textile	material_attribute	material_attribute	ovad	material	material	high	1	1	modifier_attributes_clean
+textured	textured	texture_attribute	texture_attribute	vaw	texture	texture	high	1	1	modifier_attributes_clean
+thick	thick	size_attribute	size_attribute	vaw	thickness	thickness	high	1	1	modifier_attributes_clean
+thin	thin	size_attribute	size_attribute	coco_attributes|vaw	fatness|object_attribute|size|thickness|width	clean_exact_overlap|fatness|size|thickness|width	high	2	5	coco_high_typed|modifier_attributes_clean
+thistle	thistle	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+three quarter (length)	three quarter (length)	size_attribute	size_attribute	fashionpedia	length	length	medium	1	1	modifier_attributes_clean
+tiled	tiled	material_attribute|pattern_attribute	material_attribute	ovad|vaw	clothes pattern|material|pattern	material|pattern	high	2	3	modifier_attributes_clean
+tiny	tiny	size_attribute	size_attribute	ovad|vaw	size	size	high	2	2	modifier_attributes_clean
+toile de jouy	toile de jouy	pattern_attribute	pattern_attribute	fashionpedia	textile pattern	textile pattern	medium	1	1	modifier_attributes_clean
+tomato	tomato	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+triangular	triangular	shape_attribute	shape_attribute	vaw	shape	shape	high	1	1	modifier_attributes_clean
+tricolored	tricolored	color_attribute	color_attribute	vaw	color quantity	color quantity	high	1	1	modifier_attributes_clean
+turned away	turned away	pose_attribute	pose_attribute	vaw	face pose	face pose	high	1	1	modifier_attributes_clean
+turning	turning	pose_attribute	pose_attribute	vaw	pose	pose	high	1	1	modifier_attributes_clean
+turquoise	turquoise	color_attribute	color_attribute	css_color_4|vaw	color	color	high	2	2	modifier_attributes_clean
+two colored	two colored	color_attribute	color_attribute	ovad	color quantity	color quantity	high	1	1	modifier_attributes_clean
+unclean	unclean	condition_attribute	condition_attribute	ovad	cleanliness	cleanliness	high	1	1	modifier_attributes_clean
+unicolored	unicolored	color_attribute	color_attribute	ovad	color quantity	color quantity	high	1	1	modifier_attributes_clean
+unused / inactive	unused / inactive	state_attribute	state_attribute	coco_attributes	object_attribute	coco_subtype_rule	high	1	1	coco_high_typed
+veined	veined	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+velvet	velvet	material_attribute	material_attribute	paco	material	material	high	1	1	modifier_attributes_clean
+violet	violet	color_attribute	color_attribute	css_color_4|ovad|vaw	clothes color|color|hair color	color	high	3	5	modifier_attributes_clean
+waffled	waffled	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
+walking	walking	pose_attribute	pose_attribute	coco_attributes|vaw	activity|object_attribute|pose	activity|clean_exact_overlap|pose	high	2	3	coco_high_typed|modifier_attributes_clean
+water	water	material_attribute	material_attribute	vaw	material	material	high	1	1	modifier_attributes_clean
+watery	watery	state_attribute	state_attribute	vaw	state	state	high	1	1	modifier_attributes_clean
+wearing black	wearing black	color_attribute	color_attribute	vaw	wearing color	wearing color	high	1	1	modifier_attributes_clean
+wearing blue	wearing blue	color_attribute	color_attribute	vaw	wearing color	wearing color	high	1	1	modifier_attributes_clean
+wearing gray	wearing gray	color_attribute	color_attribute	vaw	wearing color	wearing color	high	1	1	modifier_attributes_clean
+wearing green	wearing green	color_attribute	color_attribute	vaw	wearing color	wearing color	high	1	1	modifier_attributes_clean
+wearing pink	wearing pink	color_attribute	color_attribute	vaw	wearing color	wearing color	high	1	1	modifier_attributes_clean
+wearing red	wearing red	color_attribute	color_attribute	vaw	wearing color	wearing color	high	1	1	modifier_attributes_clean
+wearing white	wearing white	color_attribute	color_attribute	vaw	wearing color	wearing color	high	1	1	modifier_attributes_clean
+weathered	weathered	state_attribute	state_attribute	vaw	state	state	high	1	1	modifier_attributes_clean
+wet	wet	state_attribute	state_attribute	coco_attributes|ovad|vaw	object_attribute|state	clean_exact_overlap|state	high	3	3	coco_high_typed|modifier_attributes_clean
+wheat	wheat	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+white	white	color_attribute	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6	modifier_attributes_clean
+white haired	white haired	color_attribute	color_attribute	vaw	hair color	hair color	high	1	1	modifier_attributes_clean
+white lettered	white lettered	color_attribute	color_attribute	vaw	letter color	letter color	high	1	1	modifier_attributes_clean
+whitesmoke	whitesmoke	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+whole	whole	state_attribute	state_attribute	coco_attributes|ovad|vaw	object_attribute|other|state	clean_exact_overlap|other|state	high	3	3	coco_high_typed|modifier_attributes_clean
+wicker	wicker	material_attribute	material_attribute	vaw	material	material	high	1	1	modifier_attributes_clean
+wide	wide	size_attribute	size_attribute	vaw	width	width	high	1	1	modifier_attributes_clean
+wood	wood	material_attribute	material_attribute	fashionpedia|ovad|paco	material|non textile material type	material|non textile material type	high	3	3	modifier_attributes_clean
+wood / wooden	wood / wooden	material_attribute	material_attribute	coco_attributes	object_attribute	clean_alias_exact_match	high	1	1	coco_high_typed
+wooden	wooden	material_attribute	material_attribute	ovad|vaw	material	material	high	2	2	modifier_attributes_clean
+wool	wool	material_attribute	material_attribute	paco	material	material	high	1	1	modifier_attributes_clean
+woven	woven	pattern_attribute|texture_attribute	pattern_attribute	dtd|paco|vaw	other|pattern marking|texture	other|pattern marking|texture	high	3	3	modifier_attributes_clean
+wrinkled	wrinkled	texture_attribute	texture_attribute	dtd|vaw	texture	texture	high	2	2	modifier_attributes_clean
+wrist length	wrist length	size_attribute	size_attribute	fashionpedia	length	length	medium	1	1	modifier_attributes_clean
+yellow	yellow	color_attribute	color_attribute	css_color_4|ovad|paco|vaw	clothes color|color|hair color	color	high	4	6	modifier_attributes_clean
+yellowgreen	yellowgreen	color_attribute	color_attribute	css_color_4	color	color	high	1	1	modifier_attributes_clean
+zigzagged	zigzagged	texture_attribute	texture_attribute	dtd	texture	texture	high	1	1	modifier_attributes_clean
