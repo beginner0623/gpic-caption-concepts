@@ -9,6 +9,7 @@ from typing import Iterable
 import spacy
 
 from quote_masking import DEFAULT_PLACEHOLDER, mask_quoted_text
+from raw_concept_extractor import extract_raw_concepts
 from tag_list_parser import is_tag_list_row, parse_tag_list
 
 
@@ -63,6 +64,7 @@ def render_doc(
     mask_quotes: bool = False,
     quote_placeholder: str = DEFAULT_PLACEHOLDER,
     parse_tag_lists: bool = False,
+    extract_raw_concepts_flag: bool = False,
 ) -> str:
     caption = row.get("caption", "")
     caption_id = row_caption_id(row)
@@ -278,6 +280,49 @@ def render_doc(
             "",
         ]
     )
+    if extract_raw_concepts_flag:
+        raw_result = extract_raw_concepts(doc)
+        mention_rows = [
+            [
+                mention.mention_id,
+                mention.concept_type,
+                mention.text,
+                mention.lemma,
+                mention.source_tag,
+                "" if mention.source_token_i is None else mention.source_token_i,
+                mention.role,
+                mention.confidence,
+            ]
+            for mention in raw_result.concept_mentions
+        ]
+        edge_rows = [
+            [
+                edge.edge_id,
+                edge.edge_type,
+                edge.source,
+                edge.target,
+                edge.confidence,
+                edge.evidence,
+            ]
+            for edge in raw_result.edges
+        ]
+        blocks.extend(
+            [
+                "### Raw Concept Mentions",
+                markdown_table(
+                    ["id", "type", "text", "lemma", "source_tag", "source_token", "role", "confidence"],
+                    mention_rows,
+                )
+                if mention_rows
+                else "_none_",
+                "",
+                "### Raw Concept Edges",
+                markdown_table(["id", "type", "source", "target", "confidence", "evidence"], edge_rows)
+                if edge_rows
+                else "_none_",
+                "",
+            ]
+        )
     return "\n".join(blocks)
 
 
@@ -303,6 +348,11 @@ def main() -> int:
         "--parse-tag-lists",
         action="store_true",
         help="Render GPIC caption_type=tag rows with segment-level tag-list parsing.",
+    )
+    parser.add_argument(
+        "--extract-raw-concepts",
+        action="store_true",
+        help="Render minimal stage-8 raw concept mentions and edges for sentence captions.",
     )
     args = parser.parse_args()
 
@@ -332,6 +382,7 @@ def main() -> int:
                 mask_quotes=args.mask_quotes,
                 quote_placeholder=args.quote_placeholder,
                 parse_tag_lists=args.parse_tag_lists,
+                extract_raw_concepts_flag=args.extract_raw_concepts,
             )
         )
 
