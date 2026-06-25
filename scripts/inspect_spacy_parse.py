@@ -160,7 +160,7 @@ def main() -> int:
     parser.add_argument(
         "--mask-quotes",
         action="store_true",
-        help='Replace double-quoted text spans with "quoted text" before spaCy parsing.',
+        help=f'Replace double-quoted text spans with "{DEFAULT_PLACEHOLDER}" before spaCy parsing.',
     )
     parser.add_argument(
         "--quote-placeholder",

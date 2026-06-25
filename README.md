@@ -57,14 +57,14 @@ For a dry run that only prints shard URLs:
 ## Quote Text Masking
 
 따옴표 안의 문구는 일반 object/action/relation으로 parse하지 않고
-`quoted text`로 masking한 뒤 별도 metadata로 보존한다.
+`the quoted text`로 masking한 뒤 별도 metadata로 보존한다.
 
 ```text
 raw:
 A poster reads "BANG GOES THE KNIGHTHOOD" on the wall.
 
 parsed caption:
-A poster reads quoted text on the wall.
+A poster reads the quoted text on the wall.
 ```
 
 샘플 parse 리포트:

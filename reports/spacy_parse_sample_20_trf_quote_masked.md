@@ -4,7 +4,7 @@
 - model: `en_core_web_trf`
 - max_records: `20`
 - mask_quotes: `True`
-- quote_placeholder: `quoted text`
+- quote_placeholder: `the quoted text`
 
 ## 01
 
@@ -135,18 +135,18 @@
 
 **parsed_caption:**
 
-> A woman stands at a podium speaking in front of an audience. An American flag is behind her, and a screen shows quoted text.
+> A woman stands at a podium speaking in front of an audience. An American flag is behind her, and a screen shows the quoted text.
 
 ### Quote Mentions
 | id | text_raw | text_norm | placeholder | consumed_prefix | char_span |
 | --- | --- | --- | --- | --- | --- |
-| q0 | Closing the Access Divide. | closing the access divide. | quoted text | the text | 121:149 |
+| q0 | Closing the Access Divide. | closing the access divide. | the quoted text | the text | 121:149 |
 
 ### Sentences
 | sentence | token_span |
 | --- | --- |
 | A woman stands at a podium speaking in front of an audience. | 0:13 |
-| An American flag is behind her, and a screen shows quoted text. | 13:27 |
+| An American flag is behind her, and a screen shows the quoted text. | 13:28 |
 
 ### Noun Chunks
 | chunk | root | root_lemma | root_dep | root_head | token_span |
@@ -158,7 +158,7 @@
 | An American flag | flag | flag | nsubj | is | 13:16 |
 | her | her | she | pobj | behind | 18:19 |
 | a screen | screen | screen | nsubj | shows | 21:23 |
-| quoted text | text | text | dobj | shows | 24:26 |
+| the quoted text | text | text | dobj | shows | 24:27 |
 
 ### Tokens / POS / Lemma / Dependency
 | i | text | lemma | pos | tag | dep | head | head_i |
@@ -187,9 +187,10 @@
 | 21 | a | a | DET | DT | det | screen | 22 |
 | 22 | screen | screen | NOUN | NN | nsubj | shows | 23 |
 | 23 | shows | show | VERB | VBZ | conj | is | 16 |
-| 24 | quoted | quote | VERB | VBN | amod | text | 25 |
-| 25 | text | text | NOUN | NN | dobj | shows | 23 |
-| 26 | . | . | PUNCT | . | punct | shows | 23 |
+| 24 | the | the | DET | DT | det | text | 26 |
+| 25 | quoted | quote | VERB | VBN | amod | text | 26 |
+| 26 | text | text | NOUN | NN | dobj | shows | 23 |
+| 27 | . | . | PUNCT | . | punct | shows | 23 |
 
 ## 04
 
@@ -399,30 +400,30 @@
 
 **parsed_caption:**
 
-> A poster on a black trash can reads quoted text with a silhouette of a man in a hat. The scene is on a city sidewalk.
+> A poster on a black trash can reads the quoted text with a silhouette of a man in a hat. The scene is on a city sidewalk.
 
 ### Quote Mentions
 | id | text_raw | text_norm | placeholder | consumed_prefix | char_span |
 | --- | --- | --- | --- | --- | --- |
-| q0 | BANG GOES THE KNIGHTHOOD | bang goes the knighthood | quoted text |  | 36:62 |
+| q0 | BANG GOES THE KNIGHTHOOD | bang goes the knighthood | the quoted text |  | 36:62 |
 
 ### Sentences
 | sentence | token_span |
 | --- | --- |
-| A poster on a black trash can reads quoted text with a silhouette of a man in a hat. | 0:20 |
-| The scene is on a city sidewalk. | 20:28 |
+| A poster on a black trash can reads the quoted text with a silhouette of a man in a hat. | 0:21 |
+| The scene is on a city sidewalk. | 21:29 |
 
 ### Noun Chunks
 | chunk | root | root_lemma | root_dep | root_head | token_span |
 | --- | --- | --- | --- | --- | --- |
 | A poster | poster | poster | nsubj | reads | 0:2 |
 | a black trash can | can | can | pobj | on | 3:7 |
-| quoted text | text | text | dobj | reads | 8:10 |
-| a silhouette | silhouette | silhouette | pobj | with | 11:13 |
-| a man | man | man | pobj | of | 14:16 |
-| a hat | hat | hat | pobj | in | 17:19 |
-| The scene | scene | scene | nsubj | is | 20:22 |
-| a city sidewalk | sidewalk | sidewalk | pobj | on | 24:27 |
+| the quoted text | text | text | dobj | reads | 8:11 |
+| a silhouette | silhouette | silhouette | pobj | with | 12:14 |
+| a man | man | man | pobj | of | 15:17 |
+| a hat | hat | hat | pobj | in | 18:20 |
+| The scene | scene | scene | nsubj | is | 21:23 |
+| a city sidewalk | sidewalk | sidewalk | pobj | on | 25:28 |
 
 ### Tokens / POS / Lemma / Dependency
 | i | text | lemma | pos | tag | dep | head | head_i |
@@ -435,26 +436,27 @@
 | 5 | trash | trash | NOUN | NN | compound | can | 6 |
 | 6 | can | can | NOUN | NN | pobj | on | 2 |
 | 7 | reads | read | VERB | VBZ | ROOT | reads | 7 |
-| 8 | quoted | quote | VERB | VBN | amod | text | 9 |
-| 9 | text | text | NOUN | NN | dobj | reads | 7 |
-| 10 | with | with | ADP | IN | prep | text | 9 |
-| 11 | a | a | DET | DT | det | silhouette | 12 |
-| 12 | silhouette | silhouette | NOUN | NN | pobj | with | 10 |
-| 13 | of | of | ADP | IN | prep | silhouette | 12 |
-| 14 | a | a | DET | DT | det | man | 15 |
-| 15 | man | man | NOUN | NN | pobj | of | 13 |
-| 16 | in | in | ADP | IN | prep | man | 15 |
-| 17 | a | a | DET | DT | det | hat | 18 |
-| 18 | hat | hat | NOUN | NN | pobj | in | 16 |
-| 19 | . | . | PUNCT | . | punct | reads | 7 |
-| 20 | The | the | DET | DT | det | scene | 21 |
-| 21 | scene | scene | NOUN | NN | nsubj | is | 22 |
-| 22 | is | be | AUX | VBZ | ROOT | is | 22 |
-| 23 | on | on | ADP | IN | prep | is | 22 |
-| 24 | a | a | DET | DT | det | sidewalk | 26 |
-| 25 | city | city | NOUN | NN | compound | sidewalk | 26 |
-| 26 | sidewalk | sidewalk | NOUN | NN | pobj | on | 23 |
-| 27 | . | . | PUNCT | . | punct | is | 22 |
+| 8 | the | the | DET | DT | det | text | 10 |
+| 9 | quoted | quote | VERB | VBN | amod | text | 10 |
+| 10 | text | text | NOUN | NN | dobj | reads | 7 |
+| 11 | with | with | ADP | IN | prep | reads | 7 |
+| 12 | a | a | DET | DT | det | silhouette | 13 |
+| 13 | silhouette | silhouette | NOUN | NN | pobj | with | 11 |
+| 14 | of | of | ADP | IN | prep | silhouette | 13 |
+| 15 | a | a | DET | DT | det | man | 16 |
+| 16 | man | man | NOUN | NN | pobj | of | 14 |
+| 17 | in | in | ADP | IN | prep | man | 16 |
+| 18 | a | a | DET | DT | det | hat | 19 |
+| 19 | hat | hat | NOUN | NN | pobj | in | 17 |
+| 20 | . | . | PUNCT | . | punct | reads | 7 |
+| 21 | The | the | DET | DT | det | scene | 22 |
+| 22 | scene | scene | NOUN | NN | nsubj | is | 23 |
+| 23 | is | be | AUX | VBZ | ROOT | is | 23 |
+| 24 | on | on | ADP | IN | prep | is | 23 |
+| 25 | a | a | DET | DT | det | sidewalk | 27 |
+| 26 | city | city | NOUN | NN | compound | sidewalk | 27 |
+| 27 | sidewalk | sidewalk | NOUN | NN | pobj | on | 24 |
+| 28 | . | . | PUNCT | . | punct | is | 23 |
 
 ## 09
 

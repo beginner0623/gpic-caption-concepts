@@ -4,7 +4,7 @@ from dataclasses import asdict, dataclass
 import re
 
 
-DEFAULT_PLACEHOLDER = "quoted text"
+DEFAULT_PLACEHOLDER = "the quoted text"
 
 
 @dataclass(frozen=True)
