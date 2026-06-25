@@ -6,3 +6,10 @@ dependencies:
   - pip
   - tqdm
   - huggingface_hub
+  - spacy
+  - spacy-model-en_core_web_sm
+  - spacy-model-en_core_web_md
+  - spacy-model-en_core_web_lg
+  - spacy-model-en_core_web_trf
+  - pip:
+      - cupy-cuda13x

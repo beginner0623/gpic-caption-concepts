@@ -1,0 +1,20 @@
+{
+  "input": "data\\gpic_captions_test\\val\\gpic_val_00000.jsonl.gz",
+  "model": "en_core_web_trf",
+  "source_input_records": 20,
+  "target_records": 10000,
+  "batch_size": 32,
+  "n_process": 1,
+  "read_seconds": 0.0005,
+  "model_load_seconds": 1.4813,
+  "parse_seconds": 138.7661,
+  "total_seconds_including_read_and_model_load": 140.2479,
+  "docs_per_second_parse_only": 72.0637,
+  "tokens_per_second_parse_only": 1978.1492,
+  "estimated_100m_hours_parse_only": 385.4613,
+  "estimated_100m_days_parse_only": 16.0609,
+  "docs": 10000,
+  "tokens": 274500,
+  "sentences": 19000,
+  "noun_chunks": 74000
+}
