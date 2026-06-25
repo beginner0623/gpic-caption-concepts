@@ -27,6 +27,69 @@ CONTEXT_TAGS = {
 ATTRIBUTE_POS = {"ADJ", "ADV"}
 OBJECT_POS = {"NOUN", "PROPN", "PRON"}
 MODIFIER_DEPS = {"amod", "compound", "nummod", "poss", "acl"}
+COLOR_WORDS = {
+    "black",
+    "white",
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "orange",
+    "purple",
+    "pink",
+    "brown",
+    "gray",
+    "grey",
+    "silver",
+    "gold",
+    "golden",
+    "tan",
+    "beige",
+    "navy",
+    "teal",
+    "turquoise",
+    "violet",
+    "maroon",
+    "cyan",
+    "magenta",
+}
+MATERIAL_WORDS = {
+    "wood",
+    "wooden",
+    "glass",
+    "metal",
+    "metallic",
+    "stone",
+    "brick",
+    "paper",
+    "plastic",
+    "ceramic",
+    "concrete",
+    "leather",
+    "fabric",
+    "cloth",
+    "cotton",
+    "denim",
+    "wool",
+    "fur",
+    "steel",
+    "iron",
+}
+SIZE_WORDS = {
+    "large",
+    "small",
+    "big",
+    "little",
+    "tiny",
+    "huge",
+    "tall",
+    "short",
+    "long",
+    "wide",
+    "narrow",
+    "giant",
+    "miniature",
+}
 STATE_ATTRIBUTE_WORDS = {
     "smile",
     "smiling",
@@ -69,8 +132,10 @@ class SegmentToken:
     i: int
     text: str
     lemma: str
-    pos: str
-    tag: str
+    pos_raw: str
+    pos_norm: str
+    tag_raw: str
+    tag_norm: str
     dep: str
     head: str
     head_i: int
@@ -209,6 +274,17 @@ def _object_head(doc):
     return None
 
 
+def _norm_tag_list_pos(token, *, is_head: bool = False) -> tuple[str, str]:
+    lemma = token.lemma_.lower()
+    if lemma in COLOR_WORDS or lemma in SIZE_WORDS:
+        return "ADJ", "JJ"
+    if token.pos_ == "PROPN" and token.text.islower():
+        return ("NOUN", "NN") if is_head else ("ADJ", "JJ")
+    if token.pos_ in {"VERB", "AUX"} and token.tag_ in {"VBN", "VBG"} and not is_head:
+        return "ADJ", token.tag_
+    return token.pos_, token.tag_
+
+
 def _is_context_segment(doc, segment: TagSegment) -> bool:
     if segment.norm in CONTEXT_TAGS:
         return True
@@ -303,14 +379,18 @@ def parse_tag_list(nlp, caption: str) -> TagListParseResult:
                 )
             )
         for token in doc:
+            head = _object_head(doc)
+            pos_norm, tag_norm = _norm_tag_list_pos(token, is_head=head is not None and token.i == head.i)
             segment_tokens.append(
                 SegmentToken(
                     tag_id=segment.tag_id,
                     i=token.i,
                     text=token.text,
                     lemma=token.lemma_,
-                    pos=token.pos_,
-                    tag=token.tag_,
+                    pos_raw=token.pos_,
+                    pos_norm=pos_norm,
+                    tag_raw=token.tag_,
+                    tag_norm=tag_norm,
                     dep=token.dep_,
                     head=token.head.text,
                     head_i=token.head.i,

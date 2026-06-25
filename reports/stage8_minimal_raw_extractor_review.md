@@ -51,8 +51,10 @@ attribute.material: glass
 | color/material/size lexicon | POS가 틀려도 `blue`, `orange`, `glass`, `wooden`, `large`를 속성으로 보존 |
 | lowercase PROPN object downgrade | `blue jersey`처럼 lowercase인데 PROPN으로 나온 object를 medium-confidence object로 보존 |
 | compound modifier 보존 | `shopping cart`, `soccer ball`처럼 compound 정보를 버리지 않음 |
+| conjunct target expansion | `groceries and bags`처럼 target이 병렬이면 relation/action edge를 양쪽으로 확장 |
 | multi-word relation detection | `in front of`, `at top of`, `from side of` 같은 relation span 보존 |
 | spatial region context | `in front`, `on top`처럼 대상이 생략된 spatial anchor를 object가 아니라 context로 보존 |
+| tag-list `pos_raw` / `pos_norm` 분리 | tag-list에서 spaCy 원본 POS와 rule-normalized POS를 함께 보존 |
 | quote masking 연동 | quote 내부 제목/문구가 dependency parse를 망가뜨리지 않게 함 |
 | tag-list branch 연동 | comma-separated tag caption은 전체 문장 dependency를 믿지 않고 segment 단위로 처리 |
 
@@ -88,9 +90,9 @@ Edge count:
 | edge | count |
 |---|---:|
 | `has_attribute` | 466 |
-| `relation` | 296 |
-| `agent` | 150 |
-| `patient` | 70 |
+| `relation` | 333 |
+| `agent` | 158 |
+| `patient` | 83 |
 | `has_context` | 38 |
 | `has_quantity` | 16 |
 | `candidate_has_attribute` | 5 |
@@ -99,12 +101,12 @@ Edge count:
 
 | relation | count |
 |---|---:|
-| `with` | 64 |
-| `in` | 64 |
-| `on` | 41 |
-| `of` | 14 |
+| `with` | 86 |
+| `in` | 69 |
+| `on` | 42 |
+| `near` | 16 |
+| `of` | 15 |
 | `under` | 14 |
-| `near` | 13 |
 | `at` | 10 |
 | `behind` | 8 |
 | `in_front_of` | 4 |
@@ -115,6 +117,8 @@ Edge count:
 
 특히 `orange`, `blue`, `glass`, `wooden`처럼 POS가 흔들리던 modifier를 countable attribute로 다시 살리는 방향은 잘 작동한다. `in front of`도 단일 relation evidence로 묶인다.
 
+conjunct target 확장 후에는 `filled with groceries and bags` 같은 구조가 `groceries`와 `bags` 양쪽 relation edge로 보존된다. 이 변경으로 100개 샘플의 relation edge는 296개에서 333개로 늘었다.
+
 다만 아직 “정답 scene graph”는 아니다. 현재 출력은 9단계 canonicalization 전 raw 후보 layer다.
 
 ## 남은 문제
@@ -122,7 +126,7 @@ Edge count:
 | 문제 | 예시 | 필요한 다음 규칙 |
 |---|---|---|
 | compound modifier가 너무 넓음 | `shopping cart`, `soccer ball`, `power line` | object MWE / compound role classifier |
-| tag-list attribute role이 아직 덜 세분화됨 | tag-list의 `blue jersey`가 generic `attribute` | tag-list branch에도 color/material/size role 공유 |
+| tag-list attribute role이 아직 덜 세분화됨 | tag-list의 `blue jersey`가 generic `attribute` | `pos_raw`/`pos_norm`은 분리됐고, 다음에는 concept role도 color/material/size로 공유 |
 | pronoun이 object로 남음 | `her`, `it` | pronoun/coreference policy |
 | inclusion 표현이 action/relation에 중복될 수 있음 | `including` | inclusion relation으로 둘지 action으로 둘지 결정 |
 | dependency 오류는 여전히 전파됨 | ellipsis, wrong attachment | confidence 낮추기 + repair rule |

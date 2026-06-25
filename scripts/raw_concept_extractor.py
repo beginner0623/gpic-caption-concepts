@@ -247,13 +247,27 @@ class RawConceptExtractor:
 
             for child in token.children:
                 if child.dep_ in SUBJECT_DEPS:
-                    object_id = self._object_for_token(child, "verb_subject", "medium")
-                    if object_id:
-                        self.add_edge("agent", action_id, object_id, "medium", f"{child.dep_} -> {token.text}")
+                    for subject in self._expand_conjunct_targets(child):
+                        object_id = self._object_for_token(subject, "verb_subject", "medium")
+                        if object_id:
+                            self.add_edge(
+                                "agent",
+                                action_id,
+                                object_id,
+                                "medium",
+                                f"{child.dep_} -> {token.text}",
+                            )
                 elif child.dep_ in OBJECT_DEPS:
-                    object_id = self._object_for_token(child, "verb_object", "medium")
-                    if object_id:
-                        self.add_edge("patient", action_id, object_id, "medium", f"{child.dep_} -> {token.text}")
+                    for object_token in self._expand_conjunct_targets(child):
+                        object_id = self._object_for_token(object_token, "verb_object", "medium")
+                        if object_id:
+                            self.add_edge(
+                                "patient",
+                                action_id,
+                                object_id,
+                                "medium",
+                                f"{child.dep_} -> {token.text}",
+                            )
 
     def _extract_preposition_relations(self) -> None:
         for prep in self.doc:
@@ -271,17 +285,18 @@ class RawConceptExtractor:
             target_token = self._preposition_object(prep)
             if source is None or target_token is None:
                 continue
-            target = self._object_for_token(target_token, "prep_object", "medium")
-            if target is None:
-                continue
             confidence = "high" if relation in SPATIAL_RELATIONS or "_" in relation else "medium"
-            self.add_edge(
-                "relation",
-                source,
-                target,
-                confidence,
-                relation,
-            )
+            for expanded_target in self._expand_conjunct_targets(target_token):
+                target = self._object_for_token(expanded_target, "prep_object", "medium")
+                if target is None:
+                    continue
+                self.add_edge(
+                    "relation",
+                    source,
+                    target,
+                    confidence,
+                    relation,
+                )
 
     def _extract_negations(self) -> None:
         for token in self.doc:
@@ -359,6 +374,13 @@ class RawConceptExtractor:
             if child.dep_ in {"pobj", "pcomp"}:
                 return child
         return None
+
+    def _expand_conjunct_targets(self, token) -> list:
+        targets = [token]
+        for child in token.children:
+            if child.dep_ == "conj":
+                targets.extend(self._expand_conjunct_targets(child))
+        return sorted({target.i: target for target in targets}.values(), key=lambda item: item.i)
 
     def _has_multiword_relation_child(self, prep) -> bool:
         for child in prep.children:

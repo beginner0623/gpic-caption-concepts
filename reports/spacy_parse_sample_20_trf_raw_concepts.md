@@ -68,11 +68,13 @@
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m2 | m3 | high | chunk2 amod -> bow |
-| e1 | has_attribute | m5 | m6 | high | chunk4 compound -> posters |
+| e1 | has_attribute | m5 | m6 | medium | chunk4 compound -> posters |
 | e2 | agent | m8 | m0 | medium | nsubj -> sits |
 | e3 | relation | m0 | m1 | high | with |
-| e4 | relation | m0 | m4 | medium | at |
-| e5 | relation | m0 | m5 | high | with |
+| e4 | relation | m0 | m2 | high | with |
+| e5 | relation | m0 | m4 | medium | at |
+| e6 | relation | m0 | m5 | high | with |
+| e7 | relation | m0 | m7 | high | with |
 
 ## 02
 
@@ -187,14 +189,14 @@
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m0 | m1 | high | chunk0 amod -> insect |
-| e1 | has_attribute | m3 | m4 | high | chunk2 amod -> surface |
-| e2 | has_attribute | m3 | m5 | high | chunk2 amod -> surface |
+| e1 | has_attribute | m3 | m4 | medium | chunk2 amod -> surface |
+| e2 | has_attribute | m3 | m5 | medium | chunk2 amod -> surface |
 | e3 | has_attribute | m3 | m6 | high | chunk2 amod -> surface |
-| e4 | has_attribute | m10 | m11 | high | chunk6 amod -> splits |
+| e4 | has_attribute | m10 | m11 | medium | chunk6 amod -> splits |
 | e5 | has_attribute | m12 | m13 | high | chunk7 amod -> bits |
-| e6 | has_attribute | m16 | m17 | high | chunk10 compound -> floor |
-| e7 | has_attribute | m18 | m19 | high | chunk11 amod -> trunk |
-| e8 | has_attribute | m18 | m20 | high | chunk11 compound -> trunk |
+| e6 | has_attribute | m16 | m17 | medium | chunk10 compound -> floor |
+| e7 | has_attribute | m18 | m19 | medium | chunk11 amod -> trunk |
+| e8 | has_attribute | m18 | m20 | medium | chunk11 compound -> trunk |
 | e9 | has_context | scene | m21 | medium | context token outdoors |
 | e10 | agent | m22 | m0 | medium | nsubj -> crawling |
 | e11 | agent | m23 | m7 | medium | nsubj -> shows |
@@ -204,8 +206,10 @@
 | e15 | relation | m0 | m3 | high | on |
 | e16 | relation | m8 | m9 | medium | of |
 | e17 | relation | m7 | m10 | high | with |
-| e18 | relation | m12 | m14 | medium | of |
-| e19 | relation | m15 | m16 | high | on |
+| e18 | relation | m7 | m12 | high | with |
+| e19 | relation | m12 | m14 | medium | of |
+| e20 | relation | m15 | m16 | high | on |
+| e21 | relation | m15 | m18 | high | on |
 
 ## 03
 
@@ -292,8 +296,8 @@
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
-| e0 | has_attribute | m3 | m4 | high | chunk4 amod -> flag |
-| e1 | has_attribute | m7 | m8 | high | chunk7 amod -> text |
+| e0 | has_attribute | m3 | m4 | medium | chunk4 amod -> flag |
+| e1 | has_attribute | m7 | m8 | medium | chunk7 amod -> text |
 | e2 | agent | m9 | m0 | medium | nsubj -> stands |
 | e3 | agent | m11 | m6 | medium | nsubj -> shows |
 | e4 | patient | m11 | m7 | medium | dobj -> shows |
@@ -371,15 +375,16 @@
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_quantity | m0 | m1 | high | chunk0 nummod -> people |
-| e1 | has_attribute | m2 | m3 | high | chunk1 compound -> cart |
+| e1 | has_attribute | m2 | m3 | medium | chunk1 compound -> cart |
 | e2 | has_quantity | m6 | m7 | high | chunk4 nummod -> person |
 | e3 | has_attribute | m8 | m9 | high | chunk5 amod -> bag |
-| e4 | has_attribute | m8 | m10 | high | chunk5 compound -> bag |
+| e4 | has_attribute | m8 | m10 | medium | chunk5 compound -> bag |
 | e5 | agent | m11 | m0 | medium | nsubj -> stand |
 | e6 | agent | m13 | m6 | medium | nsubj -> holds |
 | e7 | patient | m13 | m8 | medium | dobj -> holds |
 | e8 | relation | m0 | m2 | high | with |
 | e9 | relation | m2 | m4 | high | with |
+| e10 | relation | m2 | m5 | high | with |
 
 ## 05
 
@@ -488,25 +493,26 @@
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
-| e0 | has_attribute | m0 | m1 | high | chunk0 amod -> flowers |
+| e0 | has_attribute | m0 | m1 | medium | chunk0 amod -> flowers |
 | e1 | has_attribute | m0 | m2 | high | chunk0 compound -> flowers |
 | e2 | has_attribute | m0 | m3 | high | chunk0 compound -> flowers |
-| e3 | has_attribute | m4 | m5 | high | chunk1 compound -> bed |
+| e3 | has_attribute | m4 | m5 | medium | chunk1 compound -> bed |
 | e4 | has_attribute | m6 | m7 | high | chunk2 amod -> grass |
 | e5 | has_attribute | m8 | m9 | high | chunk3 amod -> blooms |
 | e6 | has_attribute | m12 | m13 | high | chunk6 amod -> fence |
 | e7 | has_attribute | m14 | m15 | high | chunk7 amod -> umbrella |
 | e8 | has_attribute | m17 | m18 | high | chunk9 amod -> structure |
-| e9 | has_attribute | m19 | m20 | high | chunk10 compound -> area |
+| e9 | has_attribute | m19 | m20 | medium | chunk10 compound -> area |
 | e10 | has_context | scene | m21 | medium | context token background |
 | e11 | agent | m22 | m0 | medium | nsubj -> stand |
 | e12 | agent | m23 | m11 | medium | nsubj -> walk |
 | e13 | relation | m0 | m4 | high | in |
 | e14 | relation | m4 | m6 | high | with |
-| e15 | relation | m11 | m21 | high | in |
-| e16 | relation | m11 | m12 | high | near |
-| e17 | relation | m11 | m14 | high | under |
-| e18 | relation | m16 | m19 | high | beyond |
+| e15 | relation | m4 | m8 | high | with |
+| e16 | relation | m11 | m21 | high | in |
+| e17 | relation | m11 | m12 | high | near |
+| e18 | relation | m11 | m14 | high | under |
+| e19 | relation | m16 | m19 | high | beyond |
 
 ## 06
 
@@ -534,17 +540,17 @@
 | t4 | wine glasses | glasses | glass | ROOT | glasses | 0:2 | 57:69 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | smiling | smile | VERB | VBG | amod | couple | 1 | 0:7 |
-| t0 | 1 | couple | couple | NOUN | NN | ROOT | couple | 1 | 8:14 |
-| t1 | 0 | formal | formal | ADJ | JJ | amod | party | 1 | 16:22 |
-| t1 | 1 | party | party | NOUN | NN | ROOT | party | 1 | 23:28 |
-| t2 | 0 | british | british | ADJ | JJ | amod | flags | 1 | 30:37 |
-| t2 | 1 | flags | flag | NOUN | NNS | ROOT | flags | 1 | 38:43 |
-| t3 | 0 | chandelier | chandelier | NOUN | NN | ROOT | chandelier | 0 | 45:55 |
-| t4 | 0 | wine | wine | NOUN | NN | compound | glasses | 1 | 57:61 |
-| t4 | 1 | glasses | glass | NOUN | NNS | ROOT | glasses | 1 | 62:69 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | smiling | smile | VERB | ADJ | VBG | VBG | amod | couple | 1 | 0:7 |
+| t0 | 1 | couple | couple | NOUN | NOUN | NN | NN | ROOT | couple | 1 | 8:14 |
+| t1 | 0 | formal | formal | ADJ | ADJ | JJ | JJ | amod | party | 1 | 16:22 |
+| t1 | 1 | party | party | NOUN | NOUN | NN | NN | ROOT | party | 1 | 23:28 |
+| t2 | 0 | british | british | ADJ | ADJ | JJ | JJ | amod | flags | 1 | 30:37 |
+| t2 | 1 | flags | flag | NOUN | NOUN | NNS | NNS | ROOT | flags | 1 | 38:43 |
+| t3 | 0 | chandelier | chandelier | NOUN | NOUN | NN | NN | ROOT | chandelier | 0 | 45:55 |
+| t4 | 0 | wine | wine | NOUN | NOUN | NN | NN | compound | glasses | 1 | 57:61 |
+| t4 | 1 | glasses | glass | NOUN | NOUN | NNS | NNS | ROOT | glasses | 1 | 62:69 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -723,9 +729,9 @@
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m1 | m2 | high | chunk1 amod -> can |
-| e1 | has_attribute | m1 | m3 | high | chunk1 compound -> can |
-| e2 | has_attribute | m4 | m5 | high | chunk2 amod -> text |
-| e3 | has_attribute | m10 | m11 | high | chunk7 compound -> sidewalk |
+| e1 | has_attribute | m1 | m3 | medium | chunk1 compound -> can |
+| e2 | has_attribute | m4 | m5 | medium | chunk2 amod -> text |
+| e3 | has_attribute | m10 | m11 | medium | chunk7 compound -> sidewalk |
 | e4 | agent | m12 | m0 | medium | nsubj -> reads |
 | e5 | patient | m12 | m4 | medium | dobj -> reads |
 | e6 | relation | m0 | m1 | high | on |
@@ -819,11 +825,11 @@
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
-| e0 | has_attribute | m0 | m1 | high | chunk0 amod -> child |
-| e1 | has_attribute | m2 | m3 | high | chunk1 amod -> hair |
+| e0 | has_attribute | m0 | m1 | medium | chunk0 amod -> child |
+| e1 | has_attribute | m2 | m3 | medium | chunk1 amod -> hair |
 | e2 | has_attribute | m4 | m5 | high | chunk2 amod -> hat |
 | e3 | has_attribute | m4 | m6 | high | chunk2 conj -> hat |
-| e4 | has_attribute | m4 | m7 | high | chunk2 amod -> hat |
+| e4 | has_attribute | m4 | m7 | medium | chunk2 amod -> hat |
 | e5 | has_context | scene | m11 | medium | context token indoors |
 | e6 | has_context | scene | m12 | medium | context token background |
 | e7 | agent | m13 | m0 | medium | nsubj -> smiles |
@@ -857,15 +863,15 @@
 | t4 | blue jersey | jersey | jersey | ROOT | jersey | 0:2 | 40:51 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | roller | roller | NOUN | NN | compound | skaters | 1 | 0:6 |
-| t0 | 1 | skaters | skater | NOUN | NNS | ROOT | skaters | 1 | 7:14 |
-| t1 | 0 | helmet | helmet | PROPN | NNP | ROOT | helmet | 0 | 16:22 |
-| t2 | 0 | referee | referee | NOUN | NN | ROOT | referee | 0 | 24:31 |
-| t3 | 0 | court | court | NOUN | NN | ROOT | court | 0 | 33:38 |
-| t4 | 0 | blue | blue | PROPN | NNP | compound | jersey | 1 | 40:44 |
-| t4 | 1 | jersey | jersey | PROPN | NNP | ROOT | jersey | 1 | 45:51 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | roller | roller | NOUN | NOUN | NN | NN | compound | skaters | 1 | 0:6 |
+| t0 | 1 | skaters | skater | NOUN | NOUN | NNS | NNS | ROOT | skaters | 1 | 7:14 |
+| t1 | 0 | helmet | helmet | PROPN | NOUN | NNP | NN | ROOT | helmet | 0 | 16:22 |
+| t2 | 0 | referee | referee | NOUN | NOUN | NN | NN | ROOT | referee | 0 | 24:31 |
+| t3 | 0 | court | court | NOUN | NOUN | NN | NN | ROOT | court | 0 | 33:38 |
+| t4 | 0 | blue | blue | PROPN | ADJ | NNP | JJ | compound | jersey | 1 | 40:44 |
+| t4 | 1 | jersey | jersey | PROPN | NOUN | NNP | NN | ROOT | jersey | 1 | 45:51 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -983,18 +989,19 @@
 | e0 | has_attribute | m0 | m1 | high | chunk0 amod -> building |
 | e1 | has_attribute | m0 | m2 | high | chunk0 compound -> building |
 | e2 | has_attribute | m3 | m4 | high | chunk1 amod -> roof |
-| e3 | has_attribute | m5 | m6 | high | chunk2 amod -> windows |
-| e4 | has_attribute | m7 | m8 | high | chunk3 amod -> street |
-| e5 | has_attribute | m9 | m10 | high | chunk4 amod -> sedan |
-| e6 | has_attribute | m14 | m15 | high | chunk8 advmod -> sky |
-| e7 | has_attribute | m14 | m16 | high | chunk8 amod -> sky |
+| e3 | has_attribute | m5 | m6 | medium | chunk2 amod -> windows |
+| e4 | has_attribute | m7 | m8 | medium | chunk3 amod -> street |
+| e5 | has_attribute | m9 | m10 | medium | chunk4 amod -> sedan |
+| e6 | has_attribute | m14 | m15 | medium | chunk8 advmod -> sky |
+| e7 | has_attribute | m14 | m16 | medium | chunk8 amod -> sky |
 | e8 | agent | m17 | m0 | medium | nsubj -> stands |
 | e9 | agent | m18 | m9 | medium | nsubjpass -> parked |
 | e10 | relation | m0 | m3 | high | with |
-| e11 | relation | m0 | m7 | high | on |
-| e12 | relation | m9 | m11 | high | in |
-| e13 | relation | m12 | m13 | medium | down |
-| e14 | relation | m12 | m14 | high | under |
+| e11 | relation | m0 | m5 | high | with |
+| e12 | relation | m0 | m7 | high | on |
+| e13 | relation | m9 | m11 | high | in |
+| e14 | relation | m12 | m13 | medium | down |
+| e15 | relation | m12 | m14 | high | under |
 
 ## 12
 
@@ -1074,9 +1081,9 @@
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m1 | m2 | high | chunk1 amod -> shirt |
-| e1 | has_attribute | m4 | m5 | high | chunk3 poss -> head |
-| e2 | has_attribute | m6 | m7 | high | chunk4 compound -> court |
-| e3 | has_attribute | m8 | m9 | high | chunk5 amod -> people |
+| e1 | has_attribute | m4 | m5 | medium | chunk3 poss -> head |
+| e2 | has_attribute | m6 | m7 | medium | chunk4 compound -> court |
+| e3 | has_attribute | m8 | m9 | medium | chunk5 amod -> people |
 | e4 | has_attribute | m10 | m11 | high | chunk6 amod -> shirts |
 | e5 | has_attribute | m10 | m12 | high | chunk6 conj -> shirts |
 | e6 | agent | m13 | m0 | medium | nsubj -> holds |
@@ -1152,11 +1159,11 @@
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
-| e0 | has_attribute | m0 | m1 | high | chunk0 compound -> landscape |
-| e1 | has_attribute | m3 | m4 | high | chunk2 amod -> sky |
+| e0 | has_attribute | m0 | m1 | medium | chunk0 compound -> landscape |
+| e1 | has_attribute | m3 | m4 | medium | chunk2 amod -> sky |
 | e2 | has_attribute | m5 | m6 | high | chunk3 amod -> object |
-| e3 | has_attribute | m7 | m8 | high | chunk4 amod -> ground |
-| e4 | has_attribute | m7 | m9 | high | chunk4 amod -> ground |
+| e3 | has_attribute | m7 | m8 | medium | chunk4 amod -> ground |
+| e4 | has_attribute | m7 | m9 | medium | chunk4 amod -> ground |
 | e5 | agent | m10 | m5 | medium | nsubj -> sits |
 | e6 | relation | m0 | m2 | high | with |
 | e7 | relation | m2 | m3 | high | under |
@@ -1187,15 +1194,15 @@
 | t3 | display | display | display | ROOT | display | 0:1 | 32:39 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | brown | brown | ADJ | JJ | amod | boot | 1 | 0:5 |
-| t0 | 1 | boot | boot | NOUN | NN | ROOT | boot | 1 | 6:10 |
-| t1 | 0 | indoor | indoor | NOUN | NN | ROOT | indoor | 0 | 12:18 |
-| t2 | 0 | brick | brick | NOUN | NN | compound | wall | 1 | 20:25 |
-| t2 | 1 | wall | wall | NOUN | NN | ROOT | wall | 1 | 26:30 |
-| t3 | 0 | display | display | NOUN | NN | ROOT | display | 0 | 32:39 |
-| t4 | 0 | large | large | ADJ | JJ | ROOT | large | 0 | 41:46 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | brown | brown | ADJ | ADJ | JJ | JJ | amod | boot | 1 | 0:5 |
+| t0 | 1 | boot | boot | NOUN | NOUN | NN | NN | ROOT | boot | 1 | 6:10 |
+| t1 | 0 | indoor | indoor | NOUN | NOUN | NN | NN | ROOT | indoor | 0 | 12:18 |
+| t2 | 0 | brick | brick | NOUN | NOUN | NN | NN | compound | wall | 1 | 20:25 |
+| t2 | 1 | wall | wall | NOUN | NOUN | NN | NN | ROOT | wall | 1 | 26:30 |
+| t3 | 0 | display | display | NOUN | NOUN | NN | NN | ROOT | display | 0 | 32:39 |
+| t4 | 0 | large | large | ADJ | ADJ | JJ | JJ | ROOT | large | 0 | 41:46 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -1286,8 +1293,9 @@
 | e1 | has_attribute | m5 | m6 | high | chunk4 amod -> scarf |
 | e2 | agent | m7 | m0 | medium | nsubj -> smile |
 | e3 | patient | m8 | m4 | medium | dobj -> wears |
-| e4 | relation | m0 | m2 | medium | for |
-| e5 | relation | m0 | m3 | high | in |
+| e4 | patient | m8 | m5 | medium | dobj -> wears |
+| e5 | relation | m0 | m2 | medium | for |
+| e6 | relation | m0 | m3 | high | in |
 
 ## 16
 
@@ -1410,8 +1418,9 @@
 | e9 | agent | m21 | m9 | medium | nsubjpass -> seated |
 | e10 | agent | m22 | m10 | medium | nsubj -> stands |
 | e11 | relation | m0 | m1 | high | in |
-| e12 | relation | m0 | m4 | high | on |
-| e13 | relation | m0 | m5 | medium | during |
+| e12 | relation | m0 | m3 | high | in |
+| e13 | relation | m0 | m4 | high | on |
+| e14 | relation | m0 | m5 | medium | during |
 
 ## 17
 
@@ -1441,15 +1450,15 @@
 | t5 | grass | grass | grass | ROOT | grass | 0:1 | 52:57 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | glass | glass | NOUN | NN | compound | wall | 1 | 0:5 |
-| t0 | 1 | wall | wall | NOUN | NN | ROOT | wall | 1 | 6:10 |
-| t1 | 0 | worker | worker | NOUN | NN | ROOT | worker | 0 | 12:18 |
-| t2 | 0 | sidewalk | sidewalk | NOUN | NN | ROOT | sidewalk | 0 | 20:28 |
-| t3 | 0 | building | building | NOUN | NN | ROOT | building | 0 | 30:38 |
-| t4 | 0 | reflection | reflection | NOUN | NN | ROOT | reflection | 0 | 40:50 |
-| t5 | 0 | grass | grass | NOUN | NN | ROOT | grass | 0 | 52:57 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | glass | glass | NOUN | NOUN | NN | NN | compound | wall | 1 | 0:5 |
+| t0 | 1 | wall | wall | NOUN | NOUN | NN | NN | ROOT | wall | 1 | 6:10 |
+| t1 | 0 | worker | worker | NOUN | NOUN | NN | NN | ROOT | worker | 0 | 12:18 |
+| t2 | 0 | sidewalk | sidewalk | NOUN | NOUN | NN | NN | ROOT | sidewalk | 0 | 20:28 |
+| t3 | 0 | building | building | NOUN | NOUN | NN | NN | ROOT | building | 0 | 30:38 |
+| t4 | 0 | reflection | reflection | NOUN | NOUN | NN | NN | ROOT | reflection | 0 | 40:50 |
+| t5 | 0 | grass | grass | NOUN | NOUN | NN | NN | ROOT | grass | 0 | 52:57 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -1571,19 +1580,20 @@
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_quantity | m1 | m2 | high | chunk1 nummod -> buildings |
 | e1 | has_attribute | m1 | m3 | high | chunk1 amod -> buildings |
-| e2 | has_attribute | m8 | m9 | high | chunk6 amod -> skyscrapers |
-| e3 | has_attribute | m12 | m13 | high | chunk9 amod -> hues |
+| e2 | has_attribute | m8 | m9 | medium | chunk6 amod -> skyscrapers |
+| e3 | has_attribute | m12 | m13 | medium | chunk9 amod -> hues |
 | e4 | has_attribute | m12 | m14 | high | chunk9 nmod -> hues |
 | e5 | has_attribute | m12 | m15 | high | chunk9 conj -> hues |
 | e6 | has_context | scene | m17 | medium | context token dusk |
 | e7 | agent | m19 | m5 | medium | nsubj -> stretch |
-| e8 | agent | m20 | m11 | medium | nsubj -> shows |
-| e9 | patient | m20 | m12 | medium | dobj -> shows |
-| e10 | relation | m0 | m17 | medium | at |
-| e11 | relation | m5 | m7 | medium | toward |
-| e12 | relation | m7 | m8 | high | with |
-| e13 | relation | m8 | m10 | high | in |
-| e14 | relation | m11 | m16 | high | near |
+| e8 | agent | m19 | m6 | medium | nsubj -> stretch |
+| e9 | agent | m20 | m11 | medium | nsubj -> shows |
+| e10 | patient | m20 | m12 | medium | dobj -> shows |
+| e11 | relation | m0 | m17 | medium | at |
+| e12 | relation | m5 | m7 | medium | toward |
+| e13 | relation | m7 | m8 | high | with |
+| e14 | relation | m8 | m10 | high | in |
+| e15 | relation | m11 | m16 | high | near |
 
 ## 19
 
@@ -1693,15 +1703,15 @@
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
-| e0 | has_attribute | m0 | m1 | high | chunk0 amod -> road |
+| e0 | has_attribute | m0 | m1 | medium | chunk0 amod -> road |
 | e1 | has_attribute | m2 | m3 | high | chunk1 amod -> line |
-| e2 | has_attribute | m7 | m8 | high | chunk5 amod -> field |
+| e2 | has_attribute | m7 | m8 | medium | chunk5 amod -> field |
 | e3 | has_attribute | m7 | m9 | high | chunk5 amod -> field |
-| e4 | has_attribute | m11 | m12 | high | chunk7 amod -> sky |
+| e4 | has_attribute | m11 | m12 | medium | chunk7 amod -> sky |
 | e5 | has_attribute | m11 | m13 | high | chunk7 amod -> sky |
 | e6 | has_quantity | m14 | m15 | high | chunk8 nummod -> trees |
-| e7 | has_attribute | m14 | m16 | high | chunk8 amod -> trees |
-| e8 | has_attribute | m17 | m18 | high | chunk9 compound -> lines |
+| e7 | has_attribute | m14 | m16 | medium | chunk8 amod -> trees |
+| e8 | has_attribute | m17 | m18 | medium | chunk9 compound -> lines |
 | e9 | has_context | scene | m20 | medium | context token background |
 | e10 | agent | m21 | m0 | medium | nsubj -> runs |
 | e11 | agent | m22 | m7 | medium | nsubj -> stretches |
@@ -1771,8 +1781,9 @@
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_quantity | m1 | m2 | high | chunk1 nummod -> students |
 | e1 | has_attribute | m3 | m4 | high | chunk2 amod -> shirts |
-| e2 | has_attribute | m5 | m6 | high | chunk3 amod -> rug |
-| e3 | has_attribute | m5 | m7 | high | chunk3 compound -> rug |
+| e2 | has_attribute | m5 | m6 | medium | chunk3 amod -> rug |
+| e3 | has_attribute | m5 | m7 | medium | chunk3 compound -> rug |
 | e4 | agent | m8 | m0 | medium | nsubj -> stand |
-| e5 | relation | m1 | m3 | high | in |
-| e6 | relation | m0 | m5 | high | on |
+| e5 | agent | m8 | m1 | medium | nsubj -> stand |
+| e6 | relation | m1 | m3 | high | in |
+| e7 | relation | m0 | m5 | high | on |

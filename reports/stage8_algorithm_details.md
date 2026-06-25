@@ -385,6 +385,38 @@ hold --agent--> person
 hold --patient--> bag
 ```
 
+### 8.1 Conjunct target expansion
+
+dependency parse에서 subject/object/relation target이 coordination을 가질 수 있다.
+
+예시:
+
+```text
+filled with groceries and bags
+```
+
+spaCy 구조:
+
+```text
+groceries --pobj--> with
+bags --conj--> groceries
+```
+
+기존 규칙은 `groceries`에만 relation edge를 만들 수 있었다. 현재 구현은 target token에서 `conj` child를 재귀적으로 확장한다.
+
+```text
+targets = [groceries, bags]
+```
+
+출력:
+
+```text
+cart --with--> groceries
+cart --with--> bags
+```
+
+같은 확장은 action의 subject/object target에도 적용된다.
+
 ## 9. Preposition / Spatial Relation Extraction
 
 `_extract_preposition_relations()`는 전치사 기반 relation edge를 만든다.
@@ -611,6 +643,39 @@ attribute: large / floating_attribute / medium
 edge: previous_object --candidate_has_attribute--> large / low
 ```
 
+### 13.4 tag-list POS raw/norm 분리
+
+tag-list caption은 문장이 아니라 label 나열이므로 spaCy POS가 특히 흔들린다.
+
+예시:
+
+```text
+blue jersey
+```
+
+spaCy trf raw:
+
+```text
+blue   -> PROPN / NNP
+jersey -> PROPN / NNP
+```
+
+현재 tag-list token output은 원본과 보정값을 함께 저장한다.
+
+```text
+blue   -> pos_raw=PROPN, pos_norm=ADJ,  tag_raw=NNP, tag_norm=JJ
+jersey -> pos_raw=PROPN, pos_norm=NOUN, tag_raw=NNP, tag_norm=NN
+```
+
+이렇게 하는 이유:
+
+```text
+pos_raw는 모델 오류 분석용으로 보존
+pos_norm은 downstream rule/schema 판단용으로 사용 가능
+```
+
+아직 concept role 자체는 tag-list branch에서 일부 generic `attribute`로 남아 있다. 다음 개선에서 sentence branch의 color/material/size role 분류와 공유해야 한다.
+
 ## 14. Quote Masking과의 연결
 
 quote masking은 8단계 자체는 아니지만, 8단계 전에 parse를 안정화하는 전처리다.
@@ -676,9 +741,9 @@ Edge count:
 | edge | count |
 |---|---:|
 | `has_attribute` | 466 |
-| `relation` | 296 |
-| `agent` | 150 |
-| `patient` | 70 |
+| `relation` | 333 |
+| `agent` | 158 |
+| `patient` | 83 |
 | `has_context` | 38 |
 | `has_quantity` | 16 |
 | `candidate_has_attribute` | 5 |
@@ -687,12 +752,12 @@ Edge count:
 
 | relation | count |
 |---|---:|
-| `with` | 64 |
-| `in` | 64 |
-| `on` | 41 |
-| `of` | 14 |
+| `with` | 86 |
+| `in` | 69 |
+| `on` | 42 |
+| `near` | 16 |
+| `of` | 15 |
 | `under` | 14 |
-| `near` | 13 |
 | `at` | 10 |
 | `behind` | 8 |
 | `in_front_of` | 4 |
@@ -742,11 +807,11 @@ glass -> material_attribute
 tag-list branch:
 
 ```text
-blue -> attribute
-glass -> attribute
+blue -> pos_raw=PROPN, pos_norm=ADJ, concept role=attribute
+glass -> pos_raw=NOUN, pos_norm=NOUN, concept role=attribute
 ```
 
-다음 개선에서 lexicon role 함수를 공유해야 한다.
+POS raw/norm은 분리했지만, concept role은 아직 sentence branch의 `color_attribute`, `material_attribute`와 완전히 공유하지 않는다. 다음 개선에서 lexicon role 함수를 공유해야 한다.
 
 ### 17.3 pronoun 처리
 

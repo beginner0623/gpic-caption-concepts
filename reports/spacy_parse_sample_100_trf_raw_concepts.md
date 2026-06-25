@@ -71,8 +71,10 @@
 | e1 | has_attribute | m5 | m6 | medium | chunk4 compound -> posters |
 | e2 | agent | m8 | m0 | medium | nsubj -> sits |
 | e3 | relation | m0 | m1 | high | with |
-| e4 | relation | m0 | m4 | medium | at |
-| e5 | relation | m0 | m5 | high | with |
+| e4 | relation | m0 | m2 | high | with |
+| e5 | relation | m0 | m4 | medium | at |
+| e6 | relation | m0 | m5 | high | with |
+| e7 | relation | m0 | m7 | high | with |
 
 ## 02
 
@@ -204,8 +206,10 @@
 | e15 | relation | m0 | m3 | high | on |
 | e16 | relation | m8 | m9 | medium | of |
 | e17 | relation | m7 | m10 | high | with |
-| e18 | relation | m12 | m14 | medium | of |
-| e19 | relation | m15 | m16 | high | on |
+| e18 | relation | m7 | m12 | high | with |
+| e19 | relation | m12 | m14 | medium | of |
+| e20 | relation | m15 | m16 | high | on |
+| e21 | relation | m15 | m18 | high | on |
 
 ## 03
 
@@ -380,6 +384,7 @@
 | e7 | patient | m13 | m8 | medium | dobj -> holds |
 | e8 | relation | m0 | m2 | high | with |
 | e9 | relation | m2 | m4 | high | with |
+| e10 | relation | m2 | m5 | high | with |
 
 ## 05
 
@@ -503,10 +508,11 @@
 | e12 | agent | m23 | m11 | medium | nsubj -> walk |
 | e13 | relation | m0 | m4 | high | in |
 | e14 | relation | m4 | m6 | high | with |
-| e15 | relation | m11 | m21 | high | in |
-| e16 | relation | m11 | m12 | high | near |
-| e17 | relation | m11 | m14 | high | under |
-| e18 | relation | m16 | m19 | high | beyond |
+| e15 | relation | m4 | m8 | high | with |
+| e16 | relation | m11 | m21 | high | in |
+| e17 | relation | m11 | m12 | high | near |
+| e18 | relation | m11 | m14 | high | under |
+| e19 | relation | m16 | m19 | high | beyond |
 
 ## 06
 
@@ -534,17 +540,17 @@
 | t4 | wine glasses | glasses | glass | ROOT | glasses | 0:2 | 57:69 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | smiling | smile | VERB | VBG | amod | couple | 1 | 0:7 |
-| t0 | 1 | couple | couple | NOUN | NN | ROOT | couple | 1 | 8:14 |
-| t1 | 0 | formal | formal | ADJ | JJ | amod | party | 1 | 16:22 |
-| t1 | 1 | party | party | NOUN | NN | ROOT | party | 1 | 23:28 |
-| t2 | 0 | british | british | ADJ | JJ | amod | flags | 1 | 30:37 |
-| t2 | 1 | flags | flag | NOUN | NNS | ROOT | flags | 1 | 38:43 |
-| t3 | 0 | chandelier | chandelier | NOUN | NN | ROOT | chandelier | 0 | 45:55 |
-| t4 | 0 | wine | wine | NOUN | NN | compound | glasses | 1 | 57:61 |
-| t4 | 1 | glasses | glass | NOUN | NNS | ROOT | glasses | 1 | 62:69 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | smiling | smile | VERB | ADJ | VBG | VBG | amod | couple | 1 | 0:7 |
+| t0 | 1 | couple | couple | NOUN | NOUN | NN | NN | ROOT | couple | 1 | 8:14 |
+| t1 | 0 | formal | formal | ADJ | ADJ | JJ | JJ | amod | party | 1 | 16:22 |
+| t1 | 1 | party | party | NOUN | NOUN | NN | NN | ROOT | party | 1 | 23:28 |
+| t2 | 0 | british | british | ADJ | ADJ | JJ | JJ | amod | flags | 1 | 30:37 |
+| t2 | 1 | flags | flag | NOUN | NOUN | NNS | NNS | ROOT | flags | 1 | 38:43 |
+| t3 | 0 | chandelier | chandelier | NOUN | NOUN | NN | NN | ROOT | chandelier | 0 | 45:55 |
+| t4 | 0 | wine | wine | NOUN | NOUN | NN | NN | compound | glasses | 1 | 57:61 |
+| t4 | 1 | glasses | glass | NOUN | NOUN | NNS | NNS | ROOT | glasses | 1 | 62:69 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -857,15 +863,15 @@
 | t4 | blue jersey | jersey | jersey | ROOT | jersey | 0:2 | 40:51 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | roller | roller | NOUN | NN | compound | skaters | 1 | 0:6 |
-| t0 | 1 | skaters | skater | NOUN | NNS | ROOT | skaters | 1 | 7:14 |
-| t1 | 0 | helmet | helmet | PROPN | NNP | ROOT | helmet | 0 | 16:22 |
-| t2 | 0 | referee | referee | NOUN | NN | ROOT | referee | 0 | 24:31 |
-| t3 | 0 | court | court | NOUN | NN | ROOT | court | 0 | 33:38 |
-| t4 | 0 | blue | blue | PROPN | NNP | compound | jersey | 1 | 40:44 |
-| t4 | 1 | jersey | jersey | PROPN | NNP | ROOT | jersey | 1 | 45:51 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | roller | roller | NOUN | NOUN | NN | NN | compound | skaters | 1 | 0:6 |
+| t0 | 1 | skaters | skater | NOUN | NOUN | NNS | NNS | ROOT | skaters | 1 | 7:14 |
+| t1 | 0 | helmet | helmet | PROPN | NOUN | NNP | NN | ROOT | helmet | 0 | 16:22 |
+| t2 | 0 | referee | referee | NOUN | NOUN | NN | NN | ROOT | referee | 0 | 24:31 |
+| t3 | 0 | court | court | NOUN | NOUN | NN | NN | ROOT | court | 0 | 33:38 |
+| t4 | 0 | blue | blue | PROPN | ADJ | NNP | JJ | compound | jersey | 1 | 40:44 |
+| t4 | 1 | jersey | jersey | PROPN | NOUN | NNP | NN | ROOT | jersey | 1 | 45:51 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -991,10 +997,11 @@
 | e8 | agent | m17 | m0 | medium | nsubj -> stands |
 | e9 | agent | m18 | m9 | medium | nsubjpass -> parked |
 | e10 | relation | m0 | m3 | high | with |
-| e11 | relation | m0 | m7 | high | on |
-| e12 | relation | m9 | m11 | high | in |
-| e13 | relation | m12 | m13 | medium | down |
-| e14 | relation | m12 | m14 | high | under |
+| e11 | relation | m0 | m5 | high | with |
+| e12 | relation | m0 | m7 | high | on |
+| e13 | relation | m9 | m11 | high | in |
+| e14 | relation | m12 | m13 | medium | down |
+| e15 | relation | m12 | m14 | high | under |
 
 ## 12
 
@@ -1187,15 +1194,15 @@
 | t3 | display | display | display | ROOT | display | 0:1 | 32:39 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | brown | brown | ADJ | JJ | amod | boot | 1 | 0:5 |
-| t0 | 1 | boot | boot | NOUN | NN | ROOT | boot | 1 | 6:10 |
-| t1 | 0 | indoor | indoor | NOUN | NN | ROOT | indoor | 0 | 12:18 |
-| t2 | 0 | brick | brick | NOUN | NN | compound | wall | 1 | 20:25 |
-| t2 | 1 | wall | wall | NOUN | NN | ROOT | wall | 1 | 26:30 |
-| t3 | 0 | display | display | NOUN | NN | ROOT | display | 0 | 32:39 |
-| t4 | 0 | large | large | ADJ | JJ | ROOT | large | 0 | 41:46 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | brown | brown | ADJ | ADJ | JJ | JJ | amod | boot | 1 | 0:5 |
+| t0 | 1 | boot | boot | NOUN | NOUN | NN | NN | ROOT | boot | 1 | 6:10 |
+| t1 | 0 | indoor | indoor | NOUN | NOUN | NN | NN | ROOT | indoor | 0 | 12:18 |
+| t2 | 0 | brick | brick | NOUN | NOUN | NN | NN | compound | wall | 1 | 20:25 |
+| t2 | 1 | wall | wall | NOUN | NOUN | NN | NN | ROOT | wall | 1 | 26:30 |
+| t3 | 0 | display | display | NOUN | NOUN | NN | NN | ROOT | display | 0 | 32:39 |
+| t4 | 0 | large | large | ADJ | ADJ | JJ | JJ | ROOT | large | 0 | 41:46 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -1286,8 +1293,9 @@
 | e1 | has_attribute | m5 | m6 | high | chunk4 amod -> scarf |
 | e2 | agent | m7 | m0 | medium | nsubj -> smile |
 | e3 | patient | m8 | m4 | medium | dobj -> wears |
-| e4 | relation | m0 | m2 | medium | for |
-| e5 | relation | m0 | m3 | high | in |
+| e4 | patient | m8 | m5 | medium | dobj -> wears |
+| e5 | relation | m0 | m2 | medium | for |
+| e6 | relation | m0 | m3 | high | in |
 
 ## 16
 
@@ -1410,8 +1418,9 @@
 | e9 | agent | m21 | m9 | medium | nsubjpass -> seated |
 | e10 | agent | m22 | m10 | medium | nsubj -> stands |
 | e11 | relation | m0 | m1 | high | in |
-| e12 | relation | m0 | m4 | high | on |
-| e13 | relation | m0 | m5 | medium | during |
+| e12 | relation | m0 | m3 | high | in |
+| e13 | relation | m0 | m4 | high | on |
+| e14 | relation | m0 | m5 | medium | during |
 
 ## 17
 
@@ -1441,15 +1450,15 @@
 | t5 | grass | grass | grass | ROOT | grass | 0:1 | 52:57 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | glass | glass | NOUN | NN | compound | wall | 1 | 0:5 |
-| t0 | 1 | wall | wall | NOUN | NN | ROOT | wall | 1 | 6:10 |
-| t1 | 0 | worker | worker | NOUN | NN | ROOT | worker | 0 | 12:18 |
-| t2 | 0 | sidewalk | sidewalk | NOUN | NN | ROOT | sidewalk | 0 | 20:28 |
-| t3 | 0 | building | building | NOUN | NN | ROOT | building | 0 | 30:38 |
-| t4 | 0 | reflection | reflection | NOUN | NN | ROOT | reflection | 0 | 40:50 |
-| t5 | 0 | grass | grass | NOUN | NN | ROOT | grass | 0 | 52:57 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | glass | glass | NOUN | NOUN | NN | NN | compound | wall | 1 | 0:5 |
+| t0 | 1 | wall | wall | NOUN | NOUN | NN | NN | ROOT | wall | 1 | 6:10 |
+| t1 | 0 | worker | worker | NOUN | NOUN | NN | NN | ROOT | worker | 0 | 12:18 |
+| t2 | 0 | sidewalk | sidewalk | NOUN | NOUN | NN | NN | ROOT | sidewalk | 0 | 20:28 |
+| t3 | 0 | building | building | NOUN | NOUN | NN | NN | ROOT | building | 0 | 30:38 |
+| t4 | 0 | reflection | reflection | NOUN | NOUN | NN | NN | ROOT | reflection | 0 | 40:50 |
+| t5 | 0 | grass | grass | NOUN | NOUN | NN | NN | ROOT | grass | 0 | 52:57 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -1577,13 +1586,14 @@
 | e5 | has_attribute | m12 | m15 | high | chunk9 conj -> hues |
 | e6 | has_context | scene | m17 | medium | context token dusk |
 | e7 | agent | m19 | m5 | medium | nsubj -> stretch |
-| e8 | agent | m20 | m11 | medium | nsubj -> shows |
-| e9 | patient | m20 | m12 | medium | dobj -> shows |
-| e10 | relation | m0 | m17 | medium | at |
-| e11 | relation | m5 | m7 | medium | toward |
-| e12 | relation | m7 | m8 | high | with |
-| e13 | relation | m8 | m10 | high | in |
-| e14 | relation | m11 | m16 | high | near |
+| e8 | agent | m19 | m6 | medium | nsubj -> stretch |
+| e9 | agent | m20 | m11 | medium | nsubj -> shows |
+| e10 | patient | m20 | m12 | medium | dobj -> shows |
+| e11 | relation | m0 | m17 | medium | at |
+| e12 | relation | m5 | m7 | medium | toward |
+| e13 | relation | m7 | m8 | high | with |
+| e14 | relation | m8 | m10 | high | in |
+| e15 | relation | m11 | m16 | high | near |
 
 ## 19
 
@@ -1774,8 +1784,9 @@
 | e2 | has_attribute | m5 | m6 | medium | chunk3 amod -> rug |
 | e3 | has_attribute | m5 | m7 | medium | chunk3 compound -> rug |
 | e4 | agent | m8 | m0 | medium | nsubj -> stand |
-| e5 | relation | m1 | m3 | high | in |
-| e6 | relation | m0 | m5 | high | on |
+| e5 | agent | m8 | m1 | medium | nsubj -> stand |
+| e6 | relation | m1 | m3 | high | in |
+| e7 | relation | m0 | m5 | high | on |
 
 ## 21
 
@@ -1932,13 +1943,15 @@
 | e12 | agent | m28 | m18 | medium | nsubj -> smiles |
 | e13 | relation | m0 | m2 | high | in |
 | e14 | relation | m0 | m4 | high | with |
-| e15 | relation | m4 | m5 | high | on |
-| e16 | relation | m6 | m7 | high | in |
-| e17 | relation | m8 | m9 | high | on |
-| e18 | relation | m10 | m11 | high | in |
-| e19 | relation | m10 | m16 | high | with |
-| e20 | relation | m18 | m19 | high | on |
-| e21 | relation | m20 | m25 | high | in |
+| e15 | relation | m0 | m6 | high | with |
+| e16 | relation | m0 | m8 | high | with |
+| e17 | relation | m4 | m5 | high | on |
+| e18 | relation | m6 | m7 | high | in |
+| e19 | relation | m8 | m9 | high | on |
+| e20 | relation | m10 | m11 | high | in |
+| e21 | relation | m10 | m16 | high | with |
+| e22 | relation | m18 | m19 | high | on |
+| e23 | relation | m20 | m25 | high | in |
 
 ## 22
 
@@ -2094,17 +2107,17 @@
 | t4 | ice surface | surface | surface | ROOT | surface | 0:2 | 54:65 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | green | green | PROPN | NNP | compound | scoreboard | 1 | 0:5 |
-| t0 | 1 | scoreboard | scoreboard | NOUN | NN | ROOT | scoreboard | 1 | 6:16 |
-| t1 | 0 | hockey | hockey | NOUN | NN | compound | rink | 1 | 18:24 |
-| t1 | 1 | rink | rink | NOUN | NN | ROOT | rink | 1 | 25:29 |
-| t2 | 0 | banners | banner | NOUN | NNS | ROOT | banners | 0 | 31:38 |
-| t3 | 0 | rough | rough | ADJ | JJ | compound | riders | 1 | 40:45 |
-| t3 | 1 | riders | rider | NOUN | NNS | ROOT | riders | 1 | 46:52 |
-| t4 | 0 | ice | ice | NOUN | NN | compound | surface | 1 | 54:57 |
-| t4 | 1 | surface | surface | NOUN | NN | ROOT | surface | 1 | 58:65 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | green | green | PROPN | ADJ | NNP | JJ | compound | scoreboard | 1 | 0:5 |
+| t0 | 1 | scoreboard | scoreboard | NOUN | NOUN | NN | NN | ROOT | scoreboard | 1 | 6:16 |
+| t1 | 0 | hockey | hockey | NOUN | NOUN | NN | NN | compound | rink | 1 | 18:24 |
+| t1 | 1 | rink | rink | NOUN | NOUN | NN | NN | ROOT | rink | 1 | 25:29 |
+| t2 | 0 | banners | banner | NOUN | NOUN | NNS | NNS | ROOT | banners | 0 | 31:38 |
+| t3 | 0 | rough | rough | ADJ | ADJ | JJ | JJ | compound | riders | 1 | 40:45 |
+| t3 | 1 | riders | rider | NOUN | NOUN | NNS | NNS | ROOT | riders | 1 | 46:52 |
+| t4 | 0 | ice | ice | NOUN | NOUN | NN | NN | compound | surface | 1 | 54:57 |
+| t4 | 1 | surface | surface | NOUN | NOUN | NN | NN | ROOT | surface | 1 | 58:65 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -2151,13 +2164,13 @@
 | t3 | book | book | book | ROOT | book | 0:1 | 21:25 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | text | text | NOUN | NN | ROOT | text | 0 | 0:4 |
-| t1 | 0 | page | page | NOUN | NN | ROOT | page | 0 | 6:10 |
-| t2 | 0 | russian | russian | ADJ | JJ | ROOT | russian | 0 | 12:19 |
-| t3 | 0 | book | book | NOUN | NN | ROOT | book | 0 | 21:25 |
-| t4 | 0 | printed | print | VERB | VBN | ROOT | printed | 0 | 27:34 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | text | text | NOUN | NOUN | NN | NN | ROOT | text | 0 | 0:4 |
+| t1 | 0 | page | page | NOUN | NOUN | NN | NN | ROOT | page | 0 | 6:10 |
+| t2 | 0 | russian | russian | ADJ | ADJ | JJ | JJ | ROOT | russian | 0 | 12:19 |
+| t3 | 0 | book | book | NOUN | NOUN | NN | NN | ROOT | book | 0 | 21:25 |
+| t4 | 0 | printed | print | VERB | ADJ | VBN | VBN | ROOT | printed | 0 | 27:34 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -2348,14 +2361,14 @@
 | t5 | stump | stump | stump | ROOT | stump | 0:1 | 34:39 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | axe | axe | PROPN | NNP | ROOT | axe | 0 | 0:3 |
-| t1 | 0 | mask | mask | NOUN | NN | ROOT | mask | 0 | 5:9 |
-| t2 | 0 | costume | costume | NOUN | NN | ROOT | costume | 0 | 11:18 |
-| t3 | 0 | grass | grass | NOUN | NN | ROOT | grass | 0 | 20:25 |
-| t4 | 0 | fence | fence | NOUN | NN | ROOT | fence | 0 | 27:32 |
-| t5 | 0 | stump | stump | NOUN | NN | ROOT | stump | 0 | 34:39 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | axe | axe | PROPN | NOUN | NNP | NN | ROOT | axe | 0 | 0:3 |
+| t1 | 0 | mask | mask | NOUN | NOUN | NN | NN | ROOT | mask | 0 | 5:9 |
+| t2 | 0 | costume | costume | NOUN | NOUN | NN | NN | ROOT | costume | 0 | 11:18 |
+| t3 | 0 | grass | grass | NOUN | NOUN | NN | NN | ROOT | grass | 0 | 20:25 |
+| t4 | 0 | fence | fence | NOUN | NOUN | NN | NN | ROOT | fence | 0 | 27:32 |
+| t5 | 0 | stump | stump | NOUN | NOUN | NN | NN | ROOT | stump | 0 | 34:39 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -2626,8 +2639,9 @@ _none_
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m2 | m3 | medium | chunk2 amod -> beach |
 | e1 | agent | m5 | m0 | medium | nsubj -> stand |
-| e2 | patient | m6 | m4 | medium | dobj -> sharing |
-| e3 | relation | m0 | m2 | high | on |
+| e2 | agent | m5 | m1 | medium | nsubj -> stand |
+| e3 | patient | m6 | m4 | medium | dobj -> sharing |
+| e4 | relation | m0 | m2 | high | on |
 
 ## 31
 
@@ -2818,8 +2832,10 @@ _none_
 | e12 | patient | m22 | m18 | medium | dobj -> reads |
 | e13 | relation | m0 | m2 | medium | of |
 | e14 | relation | m2 | m4 | high | with |
-| e15 | relation | m8 | m9 | medium | by |
-| e16 | relation | m16 | m17 | medium | at |
+| e15 | relation | m2 | m6 | high | with |
+| e16 | relation | m8 | m9 | medium | by |
+| e17 | relation | m8 | m11 | medium | by |
+| e18 | relation | m16 | m17 | medium | at |
 
 ## 33
 
@@ -3030,9 +3046,11 @@ _none_
 | e13 | agent | m24 | m14 | medium | nsubj -> stands |
 | e14 | relation | m0 | m4 | high | on |
 | e15 | relation | m9 | m10 | high | in |
-| e16 | relation | m9 | m13 | medium | by |
-| e17 | relation | m14 | m15 | high | beside |
-| e18 | relation | m15 | m17 | high | with |
+| e16 | relation | m9 | m11 | high | in |
+| e17 | relation | m9 | m13 | medium | by |
+| e18 | relation | m14 | m15 | high | beside |
+| e19 | relation | m15 | m17 | high | with |
+| e20 | relation | m15 | m19 | high | with |
 
 ## 35
 
@@ -3162,9 +3180,13 @@ _none_
 | e12 | patient | m23 | m6 | medium | dobj -> makes |
 | e13 | agent | m24 | m9 | medium | nsubj -> has |
 | e14 | patient | m24 | m10 | medium | dobj -> has |
-| e15 | relation | m0 | m1 | high | with |
-| e16 | relation | m0 | m8 | high | with |
-| e17 | relation | m9 | m17 | high | near |
+| e15 | patient | m24 | m13 | medium | dobj -> has |
+| e16 | patient | m24 | m16 | medium | dobj -> has |
+| e17 | relation | m0 | m1 | high | with |
+| e18 | relation | m0 | m3 | high | with |
+| e19 | relation | m0 | m8 | high | with |
+| e20 | relation | m9 | m17 | high | near |
+| e21 | relation | m9 | m19 | high | near |
 
 ## 36
 
@@ -3247,6 +3269,7 @@ _none_
 | e6 | relation | m0 | m2 | high | with |
 | e7 | relation | m0 | m5 | high | beside |
 | e8 | relation | m0 | m6 | high | near |
+| e9 | relation | m0 | m8 | high | near |
 
 ## 37
 
@@ -3476,12 +3499,13 @@ _none_
 | e7 | agent | m17 | m0 | medium | nsubjpass -> surrounded |
 | e8 | agent | m18 | m8 | medium | nsubj -> sits |
 | e9 | relation | m0 | m2 | high | with |
-| e10 | relation | m0 | m5 | medium | by |
-| e11 | relation | m8 | m9 | high | on |
-| e12 | relation | m8 | m11 | high | under |
-| e13 | relation | m8 | m14 | high | with |
-| e14 | relation | m14 | m15 | high | across |
-| e15 | relation | m14 | m16 | medium | from |
+| e10 | relation | m0 | m3 | high | with |
+| e11 | relation | m0 | m5 | medium | by |
+| e12 | relation | m8 | m9 | high | on |
+| e13 | relation | m8 | m11 | high | under |
+| e14 | relation | m8 | m14 | high | with |
+| e15 | relation | m14 | m15 | high | across |
+| e16 | relation | m14 | m16 | medium | from |
 
 ## 39
 
@@ -3604,11 +3628,12 @@ _none_
 | e9 | agent | m21 | m0 | medium | nsubj -> sits |
 | e10 | agent | m24 | m20 | medium | nsubj -> showing |
 | e11 | patient | m24 | m17 | medium | dobj -> showing |
-| e12 | relation | m0 | m2 | medium | of |
-| e13 | relation | m0 | m4 | high | on |
-| e14 | relation | m0 | m6 | high | with |
-| e15 | relation | m7 | m9 | high | with |
-| e16 | relation | m10 | m13 | high | beside |
+| e12 | patient | m24 | m18 | medium | dobj -> showing |
+| e13 | relation | m0 | m2 | medium | of |
+| e14 | relation | m0 | m4 | high | on |
+| e15 | relation | m0 | m6 | high | with |
+| e16 | relation | m7 | m9 | high | with |
+| e17 | relation | m10 | m13 | high | beside |
 
 ## 40
 
@@ -3818,7 +3843,8 @@ _none_
 | e8 | relation | m0 | m5 | medium | into |
 | e9 | relation | m6 | m7 | high | on |
 | e10 | relation | m6 | m8 | high | with |
-| e11 | relation | m8 | m10 | high | behind |
+| e11 | relation | m6 | m11 | high | with |
+| e12 | relation | m8 | m10 | high | behind |
 
 ## 42
 
@@ -3950,6 +3976,7 @@ _none_
 | e15 | relation | m0 | m5 | high | under |
 | e16 | relation | m24 | m12 | high | in |
 | e17 | relation | m14 | m17 | high | with |
+| e18 | relation | m14 | m20 | high | with |
 
 ## 43
 
@@ -4196,13 +4223,15 @@ _none_
 | e9 | has_context | scene | m21 | medium | context token background |
 | e10 | agent | m22 | m0 | medium | nsubj -> stands |
 | e11 | patient | m23 | m5 | medium | dobj -> wearing |
-| e12 | agent | m24 | m12 | medium | nsubj -> hold |
-| e13 | patient | m24 | m13 | medium | dobj -> hold |
-| e14 | relation | m0 | m3 | high | on |
-| e15 | relation | m12 | m15 | high | with |
-| e16 | relation | m12 | m16 | high | in_front_of |
-| e17 | relation | m17 | m19 | medium | of |
-| e18 | relation | m17 | m21 | high | in |
+| e12 | patient | m23 | m8 | medium | dobj -> wearing |
+| e13 | patient | m23 | m10 | medium | dobj -> wearing |
+| e14 | agent | m24 | m12 | medium | nsubj -> hold |
+| e15 | patient | m24 | m13 | medium | dobj -> hold |
+| e16 | relation | m0 | m3 | high | on |
+| e17 | relation | m12 | m15 | high | with |
+| e18 | relation | m12 | m16 | high | in_front_of |
+| e19 | relation | m17 | m19 | medium | of |
+| e20 | relation | m17 | m21 | high | in |
 
 ## 45
 
@@ -4326,9 +4355,10 @@ _none_
 | e11 | agent | m21 | m14 | medium | nsubj -> line |
 | e12 | patient | m21 | m16 | medium | dobj -> line |
 | e13 | relation | m0 | m2 | high | with |
-| e14 | relation | m0 | m6 | high | under |
-| e15 | relation | m9 | m11 | high | from_side_of |
-| e16 | relation | m16 | m17 | high | on |
+| e14 | relation | m0 | m4 | high | with |
+| e15 | relation | m0 | m6 | high | under |
+| e16 | relation | m9 | m11 | high | from_side_of |
+| e17 | relation | m16 | m17 | high | on |
 
 ## 46
 
@@ -4356,17 +4386,17 @@ _none_
 | t4 | red beam | beam | beam | ROOT | beam | 0:2 | 50:58 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | rusty | rusty | ADJ | JJ | amod | metal | 1 | 0:5 |
-| t0 | 1 | metal | metal | NOUN | NN | ROOT | metal | 1 | 6:11 |
-| t1 | 0 | scrap | scrap | NOUN | NN | compound | pile | 1 | 13:18 |
-| t1 | 1 | pile | pile | NOUN | NN | ROOT | pile | 1 | 19:23 |
-| t2 | 0 | cornfield | cornfield | PROPN | NNP | ROOT | cornfield | 0 | 25:34 |
-| t3 | 0 | broken | broken | ADJ | JJ | amod | pipes | 1 | 36:42 |
-| t3 | 1 | pipes | pipe | NOUN | NNS | ROOT | pipes | 1 | 43:48 |
-| t4 | 0 | red | red | ADJ | JJ | amod | beam | 1 | 50:53 |
-| t4 | 1 | beam | beam | NOUN | NN | ROOT | beam | 1 | 54:58 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | rusty | rusty | ADJ | ADJ | JJ | JJ | amod | metal | 1 | 0:5 |
+| t0 | 1 | metal | metal | NOUN | NOUN | NN | NN | ROOT | metal | 1 | 6:11 |
+| t1 | 0 | scrap | scrap | NOUN | NOUN | NN | NN | compound | pile | 1 | 13:18 |
+| t1 | 1 | pile | pile | NOUN | NOUN | NN | NN | ROOT | pile | 1 | 19:23 |
+| t2 | 0 | cornfield | cornfield | PROPN | NOUN | NNP | NN | ROOT | cornfield | 0 | 25:34 |
+| t3 | 0 | broken | broken | ADJ | ADJ | JJ | JJ | amod | pipes | 1 | 36:42 |
+| t3 | 1 | pipes | pipe | NOUN | NOUN | NNS | NNS | ROOT | pipes | 1 | 43:48 |
+| t4 | 0 | red | red | ADJ | ADJ | JJ | JJ | amod | beam | 1 | 50:53 |
+| t4 | 1 | beam | beam | NOUN | NOUN | NN | NN | ROOT | beam | 1 | 54:58 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -4498,10 +4528,11 @@ _none_
 | e6 | patient | m15 | m8 | medium | dobj -> displays |
 | e7 | agent | m16 | m10 | medium | nsubj -> has |
 | e8 | patient | m16 | m11 | medium | dobj -> has |
-| e9 | relation | m0 | m2 | medium | at |
-| e10 | relation | m0 | m3 | medium | during |
-| e11 | relation | m6 | m5 | high | behind |
-| e12 | relation | m10 | m13 | high | in_front_of |
+| e9 | patient | m16 | m12 | medium | dobj -> has |
+| e10 | relation | m0 | m2 | medium | at |
+| e11 | relation | m0 | m3 | medium | during |
+| e12 | relation | m6 | m5 | high | behind |
+| e13 | relation | m10 | m13 | high | in_front_of |
 
 ## 48
 
@@ -4727,14 +4758,14 @@ _none_
 | t2 | blurred background | background | background | ROOT | background | 0:2 | 29:47 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | orange | orange | ADJ | JJ | amod | flower | 1 | 0:6 |
-| t0 | 1 | flower | flower | NOUN | NN | ROOT | flower | 1 | 7:13 |
-| t1 | 0 | green | green | ADJ | JJ | amod | leaves | 1 | 15:20 |
-| t1 | 1 | leaves | leaf | NOUN | NNS | ROOT | leaves | 1 | 21:27 |
-| t2 | 0 | blurred | blurred | ADJ | JJ | amod | background | 1 | 29:36 |
-| t2 | 1 | background | background | NOUN | NN | ROOT | background | 1 | 37:47 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | orange | orange | ADJ | ADJ | JJ | JJ | amod | flower | 1 | 0:6 |
+| t0 | 1 | flower | flower | NOUN | NOUN | NN | NN | ROOT | flower | 1 | 7:13 |
+| t1 | 0 | green | green | ADJ | ADJ | JJ | JJ | amod | leaves | 1 | 15:20 |
+| t1 | 1 | leaves | leaf | NOUN | NOUN | NNS | NNS | ROOT | leaves | 1 | 21:27 |
+| t2 | 0 | blurred | blurred | ADJ | ADJ | JJ | JJ | amod | background | 1 | 29:36 |
+| t2 | 1 | background | background | NOUN | NOUN | NN | NN | ROOT | background | 1 | 37:47 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -4960,6 +4991,7 @@ _none_
 | e12 | relation | m8 | m10 | high | with |
 | e13 | relation | m11 | m17 | high | in |
 | e14 | relation | m11 | m15 | high | near |
+| e15 | relation | m11 | m16 | high | near |
 
 ## 53
 
@@ -4983,14 +5015,14 @@ _none_
 | t2 | party decor | decor | decor | ROOT | decor | 0:2 | 33:44 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | green | green | ADJ | JJ | amod | balloons | 1 | 0:5 |
-| t0 | 1 | balloons | balloon | NOUN | NNS | ROOT | balloons | 1 | 6:14 |
-| t1 | 0 | yellow | yellow | ADJ | JJ | amod | balloons | 1 | 16:22 |
-| t1 | 1 | balloons | balloon | NOUN | NNS | ROOT | balloons | 1 | 23:31 |
-| t2 | 0 | party | party | NOUN | NN | compound | decor | 1 | 33:38 |
-| t2 | 1 | decor | decor | NOUN | NN | ROOT | decor | 1 | 39:44 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | green | green | ADJ | ADJ | JJ | JJ | amod | balloons | 1 | 0:5 |
+| t0 | 1 | balloons | balloon | NOUN | NOUN | NNS | NNS | ROOT | balloons | 1 | 6:14 |
+| t1 | 0 | yellow | yellow | ADJ | ADJ | JJ | JJ | amod | balloons | 1 | 16:22 |
+| t1 | 1 | balloons | balloon | NOUN | NOUN | NNS | NNS | ROOT | balloons | 1 | 23:31 |
+| t2 | 0 | party | party | NOUN | NOUN | NN | NN | compound | decor | 1 | 33:38 |
+| t2 | 1 | decor | decor | NOUN | NOUN | NN | NN | ROOT | decor | 1 | 39:44 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -5035,18 +5067,18 @@ _none_
 | t4 | bulb | bulb | bulb | ROOT | bulb | 0:1 | 64:68 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | glass | glass | NOUN | NN | compound | lamp | 1 | 0:5 |
-| t0 | 1 | lamp | lamp | NOUN | NN | ROOT | lamp | 1 | 6:10 |
-| t1 | 0 | black | black | ADJ | JJ | ROOT | black | 0 | 12:17 |
-| t1 | 1 | and | and | CCONJ | CC | cc | black | 0 | 18:21 |
-| t1 | 2 | white | white | NOUN | NN | conj | black | 0 | 22:27 |
-| t2 | 0 | reflective | reflective | ADJ | JJ | amod | surface | 1 | 29:39 |
-| t2 | 1 | surface | surface | NOUN | NN | ROOT | surface | 1 | 40:47 |
-| t3 | 0 | cracked | crack | VERB | VBN | amod | glass | 1 | 49:56 |
-| t3 | 1 | glass | glass | NOUN | NN | ROOT | glass | 1 | 57:62 |
-| t4 | 0 | bulb | bulb | NOUN | NN | ROOT | bulb | 0 | 64:68 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | glass | glass | NOUN | NOUN | NN | NN | compound | lamp | 1 | 0:5 |
+| t0 | 1 | lamp | lamp | NOUN | NOUN | NN | NN | ROOT | lamp | 1 | 6:10 |
+| t1 | 0 | black | black | ADJ | ADJ | JJ | JJ | ROOT | black | 0 | 12:17 |
+| t1 | 1 | and | and | CCONJ | CCONJ | CC | CC | cc | black | 0 | 18:21 |
+| t1 | 2 | white | white | NOUN | ADJ | NN | JJ | conj | black | 0 | 22:27 |
+| t2 | 0 | reflective | reflective | ADJ | ADJ | JJ | JJ | amod | surface | 1 | 29:39 |
+| t2 | 1 | surface | surface | NOUN | NOUN | NN | NN | ROOT | surface | 1 | 40:47 |
+| t3 | 0 | cracked | crack | VERB | ADJ | VBN | VBN | amod | glass | 1 | 49:56 |
+| t3 | 1 | glass | glass | NOUN | NOUN | NN | NN | ROOT | glass | 1 | 57:62 |
+| t4 | 0 | bulb | bulb | NOUN | NOUN | NN | NN | ROOT | bulb | 0 | 64:68 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -5211,10 +5243,11 @@ _none_
 | e2 | has_attribute | m6 | m7 | medium | chunk4 compound -> trees |
 | e3 | has_context | scene | m9 | medium | context token foreground |
 | e4 | agent | m10 | m0 | medium | nsubj -> stretch |
-| e5 | agent | m11 | m6 | medium | nsubj -> frame |
-| e6 | patient | m11 | m9 | medium | dobj -> frame |
-| e7 | relation | m0 | m3 | high | across |
-| e8 | relation | m0 | m4 | high | under |
+| e5 | agent | m10 | m2 | medium | nsubj -> stretch |
+| e6 | agent | m11 | m6 | medium | nsubj -> frame |
+| e7 | patient | m11 | m9 | medium | dobj -> frame |
+| e8 | relation | m0 | m3 | high | across |
+| e9 | relation | m0 | m4 | high | under |
 
 ## 57
 
@@ -5352,8 +5385,9 @@ _none_
 | e14 | patient | m23 | m15 | medium | dobj -> indicating |
 | e15 | agent | m24 | m17 | medium | nsubj -> appears |
 | e16 | relation | m0 | m5 | high | with |
-| e17 | relation | m0 | m8 | high | on |
-| e18 | relation | m11 | m10 | high | below |
+| e17 | relation | m0 | m6 | high | with |
+| e18 | relation | m0 | m8 | high | on |
+| e19 | relation | m11 | m10 | high | below |
 
 ## 58
 
@@ -5492,14 +5526,15 @@ _none_
 | e11 | agent | m25 | m6 | medium | nsubj -> filtering |
 | e12 | patient | m25 | m8 | medium | dobj -> filtering |
 | e13 | agent | m26 | m10 | medium | nsubj -> cover |
-| e14 | patient | m26 | m14 | medium | dobj -> cover |
-| e15 | agent | m27 | m16 | medium | nsubj -> creating |
-| e16 | patient | m27 | m18 | medium | dobj -> creating |
-| e17 | relation | m0 | m2 | high | with |
-| e18 | relation | m0 | m4 | high | in |
-| e19 | relation | m6 | m9 | medium | onto |
-| e20 | relation | m16 | m20 | medium | among |
-| e21 | relation | m21 | m22 | medium | by |
+| e14 | agent | m26 | m12 | medium | nsubj -> cover |
+| e15 | patient | m26 | m14 | medium | dobj -> cover |
+| e16 | agent | m27 | m16 | medium | nsubj -> creating |
+| e17 | patient | m27 | m18 | medium | dobj -> creating |
+| e18 | relation | m0 | m2 | high | with |
+| e19 | relation | m0 | m4 | high | in |
+| e20 | relation | m6 | m9 | medium | onto |
+| e21 | relation | m16 | m20 | medium | among |
+| e22 | relation | m21 | m22 | medium | by |
 
 ## 59
 
@@ -5842,14 +5877,16 @@ _none_
 | e6 | has_attribute | m13 | m14 | medium | chunk7 amod -> earrings |
 | e7 | has_attribute | m17 | m18 | medium | chunk10 amod -> smiles |
 | e8 | agent | m19 | m0 | medium | nsubj -> sit |
-| e9 | agent | m20 | m5 | medium | nsubj -> holds |
-| e10 | patient | m20 | m6 | medium | dobj -> holds |
-| e11 | patient | m21 | m10 | medium | dobj -> wearing |
-| e12 | agent | m22 | m15 | medium | nsubj -> look |
-| e13 | relation | m0 | m2 | high | in |
-| e14 | relation | m6 | m9 | high | with |
-| e15 | relation | m15 | m16 | medium | toward |
-| e16 | relation | m15 | m17 | high | with |
+| e9 | agent | m19 | m1 | medium | nsubj -> sit |
+| e10 | agent | m20 | m5 | medium | nsubj -> holds |
+| e11 | patient | m20 | m6 | medium | dobj -> holds |
+| e12 | patient | m21 | m10 | medium | dobj -> wearing |
+| e13 | patient | m21 | m13 | medium | dobj -> wearing |
+| e14 | agent | m22 | m15 | medium | nsubj -> look |
+| e15 | relation | m0 | m2 | high | in |
+| e16 | relation | m6 | m9 | high | with |
+| e17 | relation | m15 | m16 | medium | toward |
+| e18 | relation | m15 | m17 | high | with |
 
 ## 63
 
@@ -6074,13 +6111,13 @@ _none_
 | t4 | chair | chair | chair | ROOT | chair | 0:1 | 25:30 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | man | man | INTJ | UH | ROOT | man | 0 | 0:3 |
-| t1 | 0 | drink | drink | NOUN | NN | ROOT | drink | 0 | 5:10 |
-| t2 | 0 | pool | pool | NOUN | NN | ROOT | pool | 0 | 12:16 |
-| t3 | 0 | night | night | NOUN | NN | ROOT | night | 0 | 18:23 |
-| t4 | 0 | chair | chair | NOUN | NN | ROOT | chair | 0 | 25:30 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | man | man | INTJ | INTJ | UH | UH | ROOT | man | 0 | 0:3 |
+| t1 | 0 | drink | drink | NOUN | NOUN | NN | NN | ROOT | drink | 0 | 5:10 |
+| t2 | 0 | pool | pool | NOUN | NOUN | NN | NN | ROOT | pool | 0 | 12:16 |
+| t3 | 0 | night | night | NOUN | NOUN | NN | NN | ROOT | night | 0 | 18:23 |
+| t4 | 0 | chair | chair | NOUN | NOUN | NN | NN | ROOT | chair | 0 | 25:30 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -6122,16 +6159,16 @@ _none_
 | t4 | red shirt | shirt | shirt | ROOT | shirt | 0:2 | 44:53 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | grandparent | grandparent | NOUN | NN | ROOT | grandparent | 0 | 0:11 |
-| t1 | 0 | child | child | NOUN | NN | ROOT | child | 0 | 13:18 |
-| t2 | 0 | toy | toy | PROPN | NNP | compound | car | 1 | 20:23 |
-| t2 | 1 | car | car | PROPN | NNP | ROOT | car | 1 | 24:27 |
-| t3 | 0 | striped | striped | ADJ | JJ | amod | shirt | 1 | 29:36 |
-| t3 | 1 | shirt | shirt | NOUN | NN | ROOT | shirt | 1 | 37:42 |
-| t4 | 0 | red | red | ADJ | JJ | compound | shirt | 1 | 44:47 |
-| t4 | 1 | shirt | shirt | NOUN | NN | ROOT | shirt | 1 | 48:53 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | grandparent | grandparent | NOUN | NOUN | NN | NN | ROOT | grandparent | 0 | 0:11 |
+| t1 | 0 | child | child | NOUN | NOUN | NN | NN | ROOT | child | 0 | 13:18 |
+| t2 | 0 | toy | toy | PROPN | ADJ | NNP | JJ | compound | car | 1 | 20:23 |
+| t2 | 1 | car | car | PROPN | NOUN | NNP | NN | ROOT | car | 1 | 24:27 |
+| t3 | 0 | striped | striped | ADJ | ADJ | JJ | JJ | amod | shirt | 1 | 29:36 |
+| t3 | 1 | shirt | shirt | NOUN | NOUN | NN | NN | ROOT | shirt | 1 | 37:42 |
+| t4 | 0 | red | red | ADJ | ADJ | JJ | JJ | compound | shirt | 1 | 44:47 |
+| t4 | 1 | shirt | shirt | NOUN | NOUN | NN | NN | ROOT | shirt | 1 | 48:53 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -6350,7 +6387,8 @@ _none_
 | e10 | relation | m0 | m4 | high | across |
 | e11 | relation | m7 | m8 | medium | by |
 | e12 | relation | m7 | m10 | medium | by |
-| e13 | relation | m7 | m13 | high | under |
+| e13 | relation | m7 | m12 | medium | by |
+| e14 | relation | m7 | m13 | high | under |
 
 ## 69
 
@@ -6501,7 +6539,8 @@ _none_
 | e6 | relation | m0 | m3 | high | with |
 | e7 | relation | m3 | m4 | medium | from |
 | e8 | relation | m5 | m6 | high | in |
-| e9 | relation | m9 | m10 | medium | of |
+| e9 | relation | m5 | m9 | high | in |
+| e10 | relation | m9 | m10 | medium | of |
 
 ## 71
 
@@ -6568,9 +6607,11 @@ _none_
 | e2 | agent | m8 | m0 | medium | nsubj -> shows |
 | e3 | patient | m8 | m1 | medium | dobj -> shows |
 | e4 | patient | m9 | m6 | medium | pobj -> including |
-| e5 | relation | m1 | m2 | medium | for |
-| e6 | relation | m2 | m4 | medium | of |
-| e7 | relation | m1 | m6 | medium | include |
+| e5 | patient | m9 | m7 | medium | pobj -> including |
+| e6 | relation | m1 | m2 | medium | for |
+| e7 | relation | m2 | m4 | medium | of |
+| e8 | relation | m1 | m6 | medium | include |
+| e9 | relation | m1 | m7 | medium | include |
 
 ## 72
 
@@ -6691,9 +6732,10 @@ _none_
 | e9 | agent | m18 | m0 | medium | nsubj -> stands |
 | e10 | agent | m20 | m15 | medium | nsubj -> appears |
 | e11 | relation | m0 | m2 | high | with |
-| e12 | relation | m0 | m6 | high | in |
-| e13 | relation | m8 | m17 | high | with |
-| e14 | relation | m15 | m16 | medium | at |
+| e12 | relation | m0 | m4 | high | with |
+| e13 | relation | m0 | m6 | high | in |
+| e14 | relation | m8 | m17 | high | with |
+| e15 | relation | m15 | m16 | medium | at |
 
 ## 73
 
@@ -6825,12 +6867,13 @@ _none_
 | e9 | agent | m22 | m13 | medium | nsubj -> lead |
 | e10 | agent | m23 | m17 | medium | nsubj -> grows |
 | e11 | relation | m0 | m2 | high | with |
-| e12 | relation | m0 | m7 | high | behind |
-| e13 | relation | m9 | m11 | high | with |
-| e14 | relation | m9 | m20 | high | in |
-| e15 | relation | m13 | m14 | medium | to |
-| e16 | relation | m17 | m18 | high | around |
-| e17 | relation | m18 | m19 | medium | of |
+| e12 | relation | m0 | m5 | high | with |
+| e13 | relation | m0 | m7 | high | behind |
+| e14 | relation | m9 | m11 | high | with |
+| e15 | relation | m9 | m20 | high | in |
+| e16 | relation | m13 | m14 | medium | to |
+| e17 | relation | m17 | m18 | high | around |
+| e18 | relation | m18 | m19 | medium | of |
 
 ## 74
 
@@ -6998,6 +7041,7 @@ _none_
 | e17 | relation | m14 | m15 | high | in |
 | e18 | relation | m18 | m19 | high | in_front_of |
 | e19 | relation | m19 | m20 | high | with |
+| e20 | relation | m19 | m23 | high | with |
 
 ## 75
 
@@ -7024,13 +7068,13 @@ _none_
 | t4 | gloves | gloves | glove | ROOT | gloves | 0:1 | 27:33 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | man | man | INTJ | UH | ROOT | man | 0 | 0:3 |
-| t1 | 0 | pipe | pipe | NOUN | NN | ROOT | pipe | 0 | 5:9 |
-| t2 | 0 | concrete | concrete | NOUN | NN | ROOT | concrete | 0 | 11:19 |
-| t3 | 0 | dirt | dirt | NOUN | NN | ROOT | dirt | 0 | 21:25 |
-| t4 | 0 | gloves | glove | NOUN | NNS | ROOT | gloves | 0 | 27:33 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | man | man | INTJ | INTJ | UH | UH | ROOT | man | 0 | 0:3 |
+| t1 | 0 | pipe | pipe | NOUN | NOUN | NN | NN | ROOT | pipe | 0 | 5:9 |
+| t2 | 0 | concrete | concrete | NOUN | NOUN | NN | NN | ROOT | concrete | 0 | 11:19 |
+| t3 | 0 | dirt | dirt | NOUN | NOUN | NN | NN | ROOT | dirt | 0 | 21:25 |
+| t4 | 0 | gloves | glove | NOUN | NOUN | NNS | NNS | ROOT | gloves | 0 | 27:33 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -7173,11 +7217,12 @@ _none_
 | e13 | agent | m24 | m7 | medium | nsubj -> features |
 | e14 | patient | m24 | m8 | medium | dobj -> features |
 | e15 | agent | m26 | m17 | medium | nsubj -> complete |
-| e16 | patient | m26 | m21 | medium | dobj -> complete |
-| e17 | relation | m0 | m3 | high | on |
-| e18 | relation | m8 | m11 | high | with |
-| e19 | relation | m8 | m13 | medium | among |
-| e20 | relation | m13 | m15 | high | under |
+| e16 | agent | m26 | m19 | medium | nsubj -> complete |
+| e17 | patient | m26 | m21 | medium | dobj -> complete |
+| e18 | relation | m0 | m3 | high | on |
+| e19 | relation | m8 | m11 | high | with |
+| e20 | relation | m8 | m13 | medium | among |
+| e21 | relation | m13 | m15 | high | under |
 
 ## 77
 
@@ -7408,14 +7453,16 @@ _none_
 | e8 | agent | m20 | m7 | medium | nsubj -> displays |
 | e9 | patient | m20 | m9 | medium | dobj -> displays |
 | e10 | patient | m21 | m11 | medium | pobj -> including |
-| e11 | agent | m22 | m15 | medium | nsubjpass -> seated |
-| e12 | patient | m24 | m18 | medium | dobj -> facing |
-| e13 | relation | m0 | m1 | high | in |
-| e14 | relation | m0 | m2 | medium | at |
-| e15 | relation | m0 | m4 | high | in |
-| e16 | relation | m9 | m10 | high | in |
-| e17 | relation | m9 | m11 | medium | include |
-| e18 | relation | m15 | m17 | high | near |
+| e11 | patient | m21 | m13 | medium | pobj -> including |
+| e12 | agent | m22 | m15 | medium | nsubjpass -> seated |
+| e13 | patient | m24 | m18 | medium | dobj -> facing |
+| e14 | relation | m0 | m1 | high | in |
+| e15 | relation | m0 | m2 | medium | at |
+| e16 | relation | m0 | m4 | high | in |
+| e17 | relation | m9 | m10 | high | in |
+| e18 | relation | m9 | m11 | medium | include |
+| e19 | relation | m9 | m13 | medium | include |
+| e20 | relation | m15 | m17 | high | near |
 
 ## 79
 
@@ -7441,13 +7488,13 @@ _none_
 | t3 | cross | cross | cross | ROOT | cross | 0:1 | 25:30 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | gold | gold | NOUN | NN | compound | medal | 1 | 0:4 |
-| t0 | 1 | medal | medal | NOUN | NN | ROOT | medal | 1 | 5:10 |
-| t1 | 0 | ribbon | ribbon | NOUN | NN | ROOT | ribbon | 0 | 12:18 |
-| t2 | 0 | pin | pin | NOUN | NN | ROOT | pin | 0 | 20:23 |
-| t3 | 0 | cross | cross | NOUN | NN | ROOT | cross | 0 | 25:30 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | gold | gold | NOUN | ADJ | NN | JJ | compound | medal | 1 | 0:4 |
+| t0 | 1 | medal | medal | NOUN | NOUN | NN | NN | ROOT | medal | 1 | 5:10 |
+| t1 | 0 | ribbon | ribbon | NOUN | NOUN | NN | NN | ROOT | ribbon | 0 | 12:18 |
+| t2 | 0 | pin | pin | NOUN | NOUN | NN | NN | ROOT | pin | 0 | 20:23 |
+| t3 | 0 | cross | cross | NOUN | NOUN | NN | NN | ROOT | cross | 0 | 25:30 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -7597,11 +7644,13 @@ _none_
 | e12 | agent | m23 | m0 | medium | nsubj -> rests |
 | e13 | agent | m24 | m11 | medium | nsubj -> has |
 | e14 | patient | m24 | m12 | medium | dobj -> has |
-| e15 | agent | m26 | m16 | medium | nsubjpass -> made |
-| e16 | agent | m27 | m21 | medium | nsubj -> appears |
-| e17 | relation | m0 | m4 | high | with |
-| e18 | relation | m0 | m22 | high | on |
-| e19 | relation | m16 | m17 | medium | of |
+| e15 | patient | m24 | m14 | medium | dobj -> has |
+| e16 | agent | m26 | m16 | medium | nsubjpass -> made |
+| e17 | agent | m27 | m21 | medium | nsubj -> appears |
+| e18 | relation | m0 | m4 | high | with |
+| e19 | relation | m0 | m22 | high | on |
+| e20 | relation | m16 | m17 | medium | of |
+| e21 | relation | m16 | m18 | medium | of |
 
 ## 81
 
@@ -7740,7 +7789,8 @@ _none_
 | e7 | has_attribute | m9 | m11 | medium | chunk3 compound -> earrings |
 | e8 | agent | m12 | m0 | medium | nsubj -> smiles |
 | e9 | patient | m13 | m5 | medium | dobj -> wearing |
-| e10 | relation | m0 | m2 | high | with |
+| e10 | patient | m13 | m9 | medium | dobj -> wearing |
+| e11 | relation | m0 | m2 | high | with |
 
 ## 83
 
@@ -7822,6 +7872,7 @@ _none_
 | e6 | relation | m0 | m5 | high | on |
 | e7 | relation | m0 | m6 | medium | during |
 | e8 | relation | m7 | m8 | high | in |
+| e9 | relation | m7 | m9 | high | in |
 
 ## 84
 
@@ -7847,13 +7898,13 @@ _none_
 | t2 | book | book | book | ROOT | book | 0:1 | 12:16 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | text | text | NOUN | NN | ROOT | text | 0 | 0:4 |
-| t1 | 0 | page | page | NOUN | NN | ROOT | page | 0 | 6:10 |
-| t2 | 0 | book | book | NOUN | NN | ROOT | book | 0 | 12:16 |
-| t3 | 0 | russian | russian | ADJ | JJ | ROOT | russian | 0 | 18:25 |
-| t4 | 0 | printed | print | VERB | VBN | ROOT | printed | 0 | 27:34 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | text | text | NOUN | NOUN | NN | NN | ROOT | text | 0 | 0:4 |
+| t1 | 0 | page | page | NOUN | NOUN | NN | NN | ROOT | page | 0 | 6:10 |
+| t2 | 0 | book | book | NOUN | NOUN | NN | NN | ROOT | book | 0 | 12:16 |
+| t3 | 0 | russian | russian | ADJ | ADJ | JJ | JJ | ROOT | russian | 0 | 18:25 |
+| t4 | 0 | printed | print | VERB | ADJ | VBN | VBN | ROOT | printed | 0 | 27:34 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -7896,14 +7947,14 @@ _none_
 | t4 | waves | waves | wave | ROOT | waves | 0:1 | 37:42 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | ocean | ocean | NOUN | NN | ROOT | ocean | 0 | 0:5 |
-| t1 | 0 | trees | tree | NOUN | NNS | ROOT | trees | 0 | 7:12 |
-| t2 | 0 | cloudy | cloudy | ADJ | JJ | amod | sky | 1 | 14:20 |
-| t2 | 1 | sky | sky | NOUN | NN | ROOT | sky | 1 | 21:24 |
-| t3 | 0 | coastline | coastline | PROPN | NNP | ROOT | coastline | 0 | 26:35 |
-| t4 | 0 | waves | wave | NOUN | NNS | ROOT | waves | 0 | 37:42 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | ocean | ocean | NOUN | NOUN | NN | NN | ROOT | ocean | 0 | 0:5 |
+| t1 | 0 | trees | tree | NOUN | NOUN | NNS | NNS | ROOT | trees | 0 | 7:12 |
+| t2 | 0 | cloudy | cloudy | ADJ | ADJ | JJ | JJ | amod | sky | 1 | 14:20 |
+| t2 | 1 | sky | sky | NOUN | NOUN | NN | NN | ROOT | sky | 1 | 21:24 |
+| t3 | 0 | coastline | coastline | PROPN | NOUN | NNP | NN | ROOT | coastline | 0 | 26:35 |
+| t4 | 0 | waves | wave | NOUN | NOUN | NNS | NNS | ROOT | waves | 0 | 37:42 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -8008,17 +8059,17 @@ _none_
 | t4 | wet ground | ground | ground | ROOT | ground | 0:2 | 49:59 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | dump | dump | NOUN | NN | compound | truck | 1 | 0:4 |
-| t0 | 1 | truck | truck | NOUN | NN | ROOT | truck | 1 | 5:10 |
-| t1 | 0 | orange | orange | ADJ | JJ | amod | bed | 1 | 12:18 |
-| t1 | 1 | bed | bed | NOUN | NN | ROOT | bed | 1 | 19:22 |
-| t2 | 0 | nighttime | nighttime | NOUN | NN | ROOT | nighttime | 0 | 24:33 |
-| t3 | 0 | street | street | NOUN | NN | compound | light | 1 | 35:41 |
-| t3 | 1 | light | light | NOUN | NN | ROOT | light | 1 | 42:47 |
-| t4 | 0 | wet | wet | ADJ | JJ | amod | ground | 1 | 49:52 |
-| t4 | 1 | ground | ground | NOUN | NN | ROOT | ground | 1 | 53:59 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | dump | dump | NOUN | NOUN | NN | NN | compound | truck | 1 | 0:4 |
+| t0 | 1 | truck | truck | NOUN | NOUN | NN | NN | ROOT | truck | 1 | 5:10 |
+| t1 | 0 | orange | orange | ADJ | ADJ | JJ | JJ | amod | bed | 1 | 12:18 |
+| t1 | 1 | bed | bed | NOUN | NOUN | NN | NN | ROOT | bed | 1 | 19:22 |
+| t2 | 0 | nighttime | nighttime | NOUN | NOUN | NN | NN | ROOT | nighttime | 0 | 24:33 |
+| t3 | 0 | street | street | NOUN | NOUN | NN | NN | compound | light | 1 | 35:41 |
+| t3 | 1 | light | light | NOUN | NOUN | NN | NN | ROOT | light | 1 | 42:47 |
+| t4 | 0 | wet | wet | ADJ | ADJ | JJ | JJ | amod | ground | 1 | 49:52 |
+| t4 | 1 | ground | ground | NOUN | NOUN | NN | NN | ROOT | ground | 1 | 53:59 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -8338,14 +8389,14 @@ _none_
 | t4 | slope | slope | slope | ROOT | slope | 0:1 | 36:41 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | green | green | PROPN | NNP | compound | hill | 1 | 0:5 |
-| t0 | 1 | hill | hill | PROPN | NNP | ROOT | hill | 1 | 6:10 |
-| t1 | 0 | forest | forest | NOUN | NN | ROOT | forest | 0 | 12:18 |
-| t2 | 0 | trees | tree | NOUN | NNS | ROOT | trees | 0 | 20:25 |
-| t3 | 0 | foliage | foliage | NOUN | NN | ROOT | foliage | 0 | 27:34 |
-| t4 | 0 | slope | slope | NOUN | NN | ROOT | slope | 0 | 36:41 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | green | green | PROPN | ADJ | NNP | JJ | compound | hill | 1 | 0:5 |
+| t0 | 1 | hill | hill | PROPN | NOUN | NNP | NN | ROOT | hill | 1 | 6:10 |
+| t1 | 0 | forest | forest | NOUN | NOUN | NN | NN | ROOT | forest | 0 | 12:18 |
+| t2 | 0 | trees | tree | NOUN | NOUN | NNS | NNS | ROOT | trees | 0 | 20:25 |
+| t3 | 0 | foliage | foliage | NOUN | NOUN | NN | NN | ROOT | foliage | 0 | 27:34 |
+| t4 | 0 | slope | slope | NOUN | NOUN | NN | NN | ROOT | slope | 0 | 36:41 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -8388,16 +8439,16 @@ _none_
 | t4 | banner | banner | banner | ROOT | banner | 0:1 | 59:65 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | conference | conference | NOUN | NN | compound | hall | 1 | 0:10 |
-| t0 | 1 | hall | hall | NOUN | NN | ROOT | hall | 1 | 11:15 |
-| t1 | 0 | speaker | speaker | NOUN | NN | ROOT | speaker | 0 | 17:24 |
-| t2 | 0 | red | red | ADJ | JJ | amod | chairs | 1 | 26:29 |
-| t2 | 1 | chairs | chair | NOUN | NNS | ROOT | chairs | 1 | 30:36 |
-| t3 | 0 | presentation | presentation | NOUN | NN | compound | screen | 1 | 38:50 |
-| t3 | 1 | screen | screen | NOUN | NN | ROOT | screen | 1 | 51:57 |
-| t4 | 0 | banner | banner | PROPN | NNP | ROOT | banner | 0 | 59:65 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | conference | conference | NOUN | NOUN | NN | NN | compound | hall | 1 | 0:10 |
+| t0 | 1 | hall | hall | NOUN | NOUN | NN | NN | ROOT | hall | 1 | 11:15 |
+| t1 | 0 | speaker | speaker | NOUN | NOUN | NN | NN | ROOT | speaker | 0 | 17:24 |
+| t2 | 0 | red | red | ADJ | ADJ | JJ | JJ | amod | chairs | 1 | 26:29 |
+| t2 | 1 | chairs | chair | NOUN | NOUN | NNS | NNS | ROOT | chairs | 1 | 30:36 |
+| t3 | 0 | presentation | presentation | NOUN | NOUN | NN | NN | compound | screen | 1 | 38:50 |
+| t3 | 1 | screen | screen | NOUN | NOUN | NN | NN | ROOT | screen | 1 | 51:57 |
+| t4 | 0 | banner | banner | PROPN | NOUN | NNP | NN | ROOT | banner | 0 | 59:65 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -8490,7 +8541,8 @@ _none_
 | e5 | relation | m0 | m1 | high | in |
 | e6 | relation | m0 | m2 | high | with |
 | e7 | relation | m2 | m4 | high | in |
-| e8 | relation | m0 | m7 | high | near |
+| e8 | relation | m2 | m6 | high | in |
+| e9 | relation | m0 | m7 | high | near |
 
 ## 94
 
@@ -8562,8 +8614,9 @@ _none_
 | e4 | has_context | scene | m9 | medium | context token background |
 | e5 | agent | m10 | m0 | medium | nsubj -> overlooks |
 | e6 | patient | m10 | m2 | medium | dobj -> overlooks |
-| e7 | relation | m0 | m7 | high | with |
-| e8 | relation | m7 | m9 | high | in |
+| e7 | patient | m10 | m5 | medium | dobj -> overlooks |
+| e8 | relation | m0 | m7 | high | with |
+| e9 | relation | m7 | m9 | high | in |
 
 ## 95
 
@@ -8591,16 +8644,16 @@ _none_
 | t4 | indoor | indoor | indoor | ROOT | indoor | 0:1 | 53:59 |
 
 ### Segment Tokens / POS / Lemma / Dependency
-| tag_id | i | text | lemma | pos | tag | dep | head | head_i | char_span |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| t0 | 0 | green | green | ADJ | JJ | amod | backpack | 1 | 0:5 |
-| t0 | 1 | backpack | backpack | NOUN | NN | ROOT | backpack | 1 | 6:14 |
-| t1 | 0 | blue | blue | ADJ | JJ | amod | sign | 1 | 16:20 |
-| t1 | 1 | sign | sign | NOUN | NN | ROOT | sign | 1 | 21:25 |
-| t2 | 0 | exhibition | exhibition | NOUN | NN | compound | booth | 1 | 27:37 |
-| t2 | 1 | booth | booth | NOUN | NN | ROOT | booth | 1 | 38:43 |
-| t3 | 0 | person | person | NOUN | NN | ROOT | person | 0 | 45:51 |
-| t4 | 0 | indoor | indoor | NOUN | NN | ROOT | indoor | 0 | 53:59 |
+| tag_id | i | text | lemma | pos_raw | pos_norm | tag_raw | tag_norm | dep | head | head_i | char_span |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| t0 | 0 | green | green | ADJ | ADJ | JJ | JJ | amod | backpack | 1 | 0:5 |
+| t0 | 1 | backpack | backpack | NOUN | NOUN | NN | NN | ROOT | backpack | 1 | 6:14 |
+| t1 | 0 | blue | blue | ADJ | ADJ | JJ | JJ | amod | sign | 1 | 16:20 |
+| t1 | 1 | sign | sign | NOUN | NOUN | NN | NN | ROOT | sign | 1 | 21:25 |
+| t2 | 0 | exhibition | exhibition | NOUN | NOUN | NN | NN | compound | booth | 1 | 27:37 |
+| t2 | 1 | booth | booth | NOUN | NOUN | NN | NN | ROOT | booth | 1 | 38:43 |
+| t3 | 0 | person | person | NOUN | NOUN | NN | NN | ROOT | person | 0 | 45:51 |
+| t4 | 0 | indoor | indoor | NOUN | NOUN | NN | NN | ROOT | indoor | 0 | 53:59 |
 
 ### Concept Mentions
 | id | type | text | lemma | source_tag | source_token | role | confidence |
@@ -8693,7 +8746,8 @@ _none_
 | e5 | agent | m10 | m0 | medium | nsubj -> stands |
 | e6 | relation | m0 | m2 | medium | of |
 | e7 | relation | m2 | m4 | high | with |
-| e8 | relation | m0 | m8 | high | on |
+| e8 | relation | m2 | m6 | high | with |
+| e9 | relation | m0 | m8 | high | on |
 
 ## 97
 
@@ -9004,8 +9058,9 @@ _none_
 | e3 | has_attribute | m5 | m6 | medium | chunk2 amod -> skylight |
 | e4 | has_attribute | m7 | m8 | medium | chunk3 amod -> light |
 | e5 | agent | m9 | m0 | medium | nsubj -> lets |
-| e6 | patient | m9 | m7 | medium | dobj -> lets |
-| e7 | relation | m0 | m2 | high | with |
+| e6 | agent | m9 | m5 | medium | nsubj -> lets |
+| e7 | patient | m9 | m7 | medium | dobj -> lets |
+| e8 | relation | m0 | m2 | high | with |
 
 ## 100
 
@@ -9078,4 +9133,7 @@ _none_
 | e2 | agent | m9 | m0 | medium | nsubj -> shows |
 | e3 | patient | m9 | m2 | medium | dobj -> shows |
 | e4 | relation | m2 | m3 | high | with |
-| e5 | relation | m5 | m6 | medium | through |
+| e5 | relation | m2 | m4 | high | with |
+| e6 | relation | m2 | m5 | high | with |
+| e7 | relation | m5 | m6 | medium | through |
+| e8 | relation | m5 | m8 | medium | through |
