@@ -8,6 +8,8 @@ from typing import Iterable
 
 import spacy
 
+from quote_masking import DEFAULT_PLACEHOLDER, mask_quoted_text
+
 
 def open_text(path: Path):
     if path.suffix == ".gz":
@@ -48,9 +50,17 @@ def markdown_table(headers: list[str], rows: list[list[str]]) -> str:
     return "\n".join(lines)
 
 
-def render_doc(nlp, row: dict, index: int) -> str:
+def render_doc(
+    nlp,
+    row: dict,
+    index: int,
+    mask_quotes: bool = False,
+    quote_placeholder: str = DEFAULT_PLACEHOLDER,
+) -> str:
     caption = row.get("caption", "")
-    doc = nlp(caption)
+    quote_result = mask_quoted_text(caption, placeholder=quote_placeholder) if mask_quotes else None
+    parse_caption = quote_result.masked_caption if quote_result else caption
+    doc = nlp(parse_caption)
 
     token_rows = []
     for token in doc:
@@ -82,6 +92,20 @@ def render_doc(nlp, row: dict, index: int) -> str:
         )
 
     sent_rows = [[sent.text, f"{sent.start}:{sent.end}"] for sent in doc.sents]
+    quote_rows = []
+    if quote_result:
+        for mention in quote_result.mentions:
+            quote_rows.append(
+                [
+                    mention.quote_id,
+                    mention.text_raw,
+                    mention.text_norm,
+                    mention.placeholder,
+                    mention.consumed_prefix,
+                    f"{mention.char_start}:{mention.char_end}",
+                ]
+            )
+
     blocks = [
         f"## {index:02d}",
         "",
@@ -89,6 +113,26 @@ def render_doc(nlp, row: dict, index: int) -> str:
         "",
         f"> {caption}",
         "",
+    ]
+    if quote_result and quote_result.mentions:
+        blocks.extend(
+            [
+                "**parsed_caption:**",
+                "",
+                f"> {parse_caption}",
+                "",
+                "### Quote Mentions",
+                markdown_table(
+                    ["id", "text_raw", "text_norm", "placeholder", "consumed_prefix", "char_span"],
+                    quote_rows,
+                )
+                if quote_rows
+                else "_none_",
+                "",
+            ]
+        )
+    blocks.extend(
+        [
         "### Sentences",
         markdown_table(["sentence", "token_span"], sent_rows) if sent_rows else "_none_",
         "",
@@ -100,7 +144,8 @@ def render_doc(nlp, row: dict, index: int) -> str:
         "### Tokens / POS / Lemma / Dependency",
         markdown_table(["i", "text", "lemma", "pos", "tag", "dep", "head", "head_i"], token_rows),
         "",
-    ]
+        ]
+    )
     return "\n".join(blocks)
 
 
@@ -112,6 +157,16 @@ def main() -> int:
     parser.add_argument("--output", required=True, type=Path, help="Output markdown report path")
     parser.add_argument("--max-records", type=int, default=20)
     parser.add_argument("--model", default="en_core_web_sm")
+    parser.add_argument(
+        "--mask-quotes",
+        action="store_true",
+        help='Replace double-quoted text spans with "quoted text" before spaCy parsing.',
+    )
+    parser.add_argument(
+        "--quote-placeholder",
+        default=DEFAULT_PLACEHOLDER,
+        help="Natural-language placeholder used when --mask-quotes is enabled.",
+    )
     args = parser.parse_args()
 
     nlp = spacy.load(args.model)
@@ -123,13 +178,23 @@ def main() -> int:
         f"- input: `{args.input}`",
         f"- model: `{args.model}`",
         f"- max_records: `{args.max_records}`",
+        f"- mask_quotes: `{args.mask_quotes}`",
+        f"- quote_placeholder: `{args.quote_placeholder}`",
         "",
     ]
 
     for index, row in enumerate(iter_rows(args.input), 1):
         if index > args.max_records:
             break
-        docs.append(render_doc(nlp, row, index))
+        docs.append(
+            render_doc(
+                nlp,
+                row,
+                index,
+                mask_quotes=args.mask_quotes,
+                quote_placeholder=args.quote_placeholder,
+            )
+        )
 
     args.output.write_text("\n".join(docs), encoding="utf-8")
     print(args.output)
