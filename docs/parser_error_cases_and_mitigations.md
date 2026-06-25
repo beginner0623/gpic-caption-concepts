@@ -49,6 +49,129 @@ attribute + object phrase
 | `ROOT_FAILURE` | 문장 root/head 구조 자체가 잘못 잡힘 | 6, 8 | fallback SVO/root repair |
 | `ADV_CONTEXT` | 장소/상태 부사를 object처럼 처리 | 4, 6, 8 | context/location predicate로 분리 |
 | `HYPHEN_ADJ` | hyphenated adjective가 이상하게 분리됨 | 1, 4, 8 | hyphenated adjective normalization |
+| `PP_ATTACH` | prepositional phrase attachment가 의미상 어색함 | 6, 8 | relation extractor에서 semantic head 재선택 |
+| `POS_VERB_NOUN` | 동사/명사 POS가 바뀌어 핵심 predicate가 흐려짐 | 3, 6, 8 | POS fallback + dependency repair |
+| `ATTR_POS_MINOR` | 색상/상태/분사형 attribute의 POS가 애매하지만 구조는 유지됨 | 3, 8 | attribute 후보로 보존하고 canonicalization에서 처리 |
+
+## 모델별/유형별 Count 요약
+
+기준:
+
+```text
+대상 모델:
+  en_core_web_sm
+  en_core_web_lg
+  en_core_web_trf
+
+대상 샘플:
+  reports/spacy_parse_sample_20.md
+  reports/spacy_parse_sample_20_lg.md
+  reports/spacy_parse_sample_20_trf.md
+
+count 단위:
+  1 case x 1 error type x 1 model
+
+주의:
+  한 caption case가 여러 error type을 가질 수 있으므로 유형별 합계는 20보다 클 수 있다.
+  tag-list caption은 dependency relation 자체를 평가 제외해야 하므로 내부 POS/chunk 오류를 중복 집계하지 않았다.
+  ATTR_POS_MINOR는 구조가 깨진 major error가 아니라 후처리로 보존 가능한 minor ambiguity다.
+```
+
+### Case-level 요약
+
+`pipeline intervention required`는 parser가 심하게 틀린 경우만 뜻하지 않는다. tag-list, text mention처럼 모델이 문법적으로 그럴듯하게 파싱해도, caption-to-concept pipeline에서는 별도 branch가 필요한 경우까지 포함한다.
+
+| model | pipeline intervention required | parser-major residual | direct-use 가능 case | 주요 해석 |
+|---|---:|---:|---:|---|
+| `sm` | 13 / 20 | 약 8-9 / 20 | 7 / 20 | 빠르지만 compound noun, coordination, root, context 오류가 많이 남음 |
+| `lg` | 12 / 20 | 약 7-8 / 20 | 8 / 20 | `road/runs`, `arched windows`, `vest/scarf`는 개선되지만 `trash can`, `music stands`, 일부 attachment는 여전히 실패 |
+| `trf` | 10 / 20 | 2 / 20 + borderline 2 / 20 | 10 / 20 | tag-list/text mention까지 포함하면 10개 branch가 필요하지만, 순수 parser-major residual은 `ellipsis`, `music stands` 중심 |
+
+해석:
+
+```text
+trf의 10 / 20은 "trf가 10개를 심하게 틀렸다"는 뜻이 아니다.
+
+trf에서 pipeline intervention이 필요한 10개는 다음처럼 나뉜다.
+
+TAG_LIST branch:
+  06, 10, 14, 17
+
+TEXT_MENTION branch:
+  03, 08
+
+true parser-major residual:
+  15 ellipsis
+  16 music stands
+
+borderline semantic attachment:
+  01 with art posters attachment
+  18 near/orange minor attachment/attribute ambiguity
+```
+
+direct-use 가능 case:
+
+| model | cases |
+|---|---|
+| `sm` | 02, 04, 05, 07, 12, 13, 20 |
+| `lg` | 02, 04, 07, 11, 12, 13, 19, 20 |
+| `trf` | 02, 04, 05, 07, 09, 11, 12, 13, 19, 20 |
+
+### Error type x model count
+
+| error type | 관련 cases | `sm` | `lg` | `trf` | 비고 |
+|---|---|---:|---:|---:|---|
+| `TAG_LIST` | 06, 10, 14, 17 | 4 | 4 | 4 | 세 모델 모두 dependency relation으로 쓰면 안 됨 |
+| `TEXT_MENTION` | 03, 08 | 2 | 2 | 2 | 따옴표 내부 텍스트는 별도 `text_mention` tuple 필요 |
+| `MWE_OBJECT_POS` | 08, 16 | 2 | 2 | 1 | `trf`는 `trash can` 해결, `music stands`는 실패 |
+| `COORD_ATTACH` | 01, 11, 15 | 3 | 1 | 0 | `lg/trf`가 `arched windows`, `vest/scarf`를 많이 개선 |
+| `PP_ATTACH` | 01, 05, 18 | 1 | 2 | 2 | semantic head 재선택이 필요한 attachment 문제 |
+| `PARTICIPLE_ATTACH` | 03 | 1 | 1 | 0 | `trf`는 `speaking -> stands`로 개선 |
+| `ADV_CONTEXT` | 09 | 1 | 1 | 0 | `indoors`는 object가 아니라 context/location |
+| `HYPHEN_ADJ` | 09 | 1 | 0 | 0 | `bare-shouldered`는 attribute로 보존 필요 |
+| `ELLIPSIS` | 15 | 1 | 1 | 1 | `one wears X, the other Y`는 세 모델 모두 완전 복원 못 함 |
+| `ROOT_FAILURE` | 19 | 1 | 0 | 0 | `lg/trf`는 `road nsubj -> runs`, `runs ROOT` 해결 |
+| `POS_VERB_NOUN` | 09 | 0 | 1 | 0 | `lg`는 `smiles`를 `NOUN/ROOT`로 봄 |
+| `ATTR_POS_MINOR` | 05, 09, 18 | 0 | 0 | 3 | `trf`의 `orange`, `striped` 등 minor POS ambiguity |
+
+### 모델별 pipeline intervention list
+
+| model | intervention cases | 핵심 유형 |
+|---|---|---|
+| `sm` | 01, 03, 06, 08, 09, 10, 11, 14, 15, 16, 17, 18, 19 | `TAG_LIST`, `MWE_OBJECT_POS`, `COORD_ATTACH`, `ROOT_FAILURE`, `TEXT_MENTION` |
+| `lg` | 01, 03, 05, 06, 08, 09, 10, 14, 15, 16, 17, 18 | `TAG_LIST`, `MWE_OBJECT_POS`, `PP_ATTACH`, `TEXT_MENTION`, `ELLIPSIS` |
+| `trf` | 01, 03, 06, 08, 10, 14, 15, 16, 17, 18 | `TAG_LIST`, `TEXT_MENTION`, `ELLIPSIS`, `MWE_OBJECT_POS`, `PP_ATTACH` |
+
+### trf 세부 분해
+
+| category | count | cases | 의미 |
+|---|---:|---|---|
+| direct-use 가능 | 10 | 02, 04, 05, 07, 09, 11, 12, 13, 19, 20 | 일반 sentence parser output을 8단계 extractor 입력으로 쓸 수 있음 |
+| tag-list branch 필요 | 4 | 06, 10, 14, 17 | parser 오류라기보다 caption type이 list이므로 comma segment parser가 맞음 |
+| text-mention branch 필요 | 2 | 03, 08 | 따옴표 안 문구를 scene action/relation에서 분리해야 함 |
+| true parser-major residual | 2 | 15, 16 | ellipsis와 `music stands`는 모델만으로 해결 안 됨 |
+| borderline semantic attachment | 2 | 01, 18 | 문법적으로 가능하지만 concept extraction에서는 semantic head 재선택이 유리함 |
+
+### Count에서 중요한 해석
+
+```text
+trf가 가장 낫지만 "pipeline rule이 필요 없어지는 모델"은 아니다.
+
+반드시 별도 branch/rule이 필요한 유형:
+  TAG_LIST
+  TEXT_MENTION
+  ELLIPSIS
+  MWE_OBJECT_POS, 특히 music stands
+
+모델 교체로 많이 줄어드는 유형:
+  ROOT_FAILURE
+  COORD_ATTACH
+  PARTICIPLE_ATTACH
+  ADV_CONTEXT
+
+후처리로 충분히 처리 가능한 minor 유형:
+  ATTR_POS_MINOR
+```
 
 ## 20개 샘플에서 보이는 핵심 패턴
 
