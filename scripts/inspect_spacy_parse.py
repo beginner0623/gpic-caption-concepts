@@ -9,6 +9,7 @@ from typing import Iterable
 import spacy
 
 from quote_masking import DEFAULT_PLACEHOLDER, mask_quoted_text
+from tag_list_parser import is_tag_list_row, parse_tag_list
 
 
 def open_text(path: Path):
@@ -61,6 +62,7 @@ def render_doc(
     index: int,
     mask_quotes: bool = False,
     quote_placeholder: str = DEFAULT_PLACEHOLDER,
+    parse_tag_lists: bool = False,
 ) -> str:
     caption = row.get("caption", "")
     caption_id = row_caption_id(row)
@@ -70,38 +72,6 @@ def render_doc(
         else None
     )
     parse_caption = quote_result.masked_caption if quote_result else caption
-    doc = nlp(parse_caption)
-
-    token_rows = []
-    for token in doc:
-        token_rows.append(
-            [
-                token.i,
-                token.text,
-                token.lemma_,
-                token.pos_,
-                token.tag_,
-                token.dep_,
-                token.head.text,
-                token.head.i,
-            ]
-        )
-
-    chunk_rows = []
-    for chunk in doc.noun_chunks:
-        root = chunk.root
-        chunk_rows.append(
-            [
-                chunk.text,
-                root.text,
-                root.lemma_,
-                root.dep_,
-                root.head.text,
-                f"{chunk.start}:{chunk.end}",
-            ]
-        )
-
-    sent_rows = [[sent.text, f"{sent.start}:{sent.end}"] for sent in doc.sents]
     quote_rows = []
     if quote_result:
         for mention in quote_result.mentions:
@@ -153,19 +123,159 @@ def render_doc(
                 "",
             ]
         )
+
+    if parse_tag_lists and is_tag_list_row(row, parse_caption):
+        tag_result = parse_tag_list(nlp, parse_caption)
+        segment_rows = [
+            [segment.tag_id, segment.raw, segment.norm, f"{segment.char_start}:{segment.char_end}"]
+            for segment in tag_result.segments
+        ]
+        segment_chunk_rows = [
+            [
+                chunk.tag_id,
+                chunk.chunk,
+                chunk.root,
+                chunk.root_lemma,
+                chunk.root_dep,
+                chunk.root_head,
+                f"{chunk.token_start}:{chunk.token_end}",
+                f"{chunk.char_start}:{chunk.char_end}",
+            ]
+            for chunk in tag_result.noun_chunks
+        ]
+        segment_token_rows = [
+            [
+                token.tag_id,
+                token.i,
+                token.text,
+                token.lemma,
+                token.pos,
+                token.tag,
+                token.dep,
+                token.head,
+                token.head_i,
+                f"{token.char_start}:{token.char_end}",
+            ]
+            for token in tag_result.tokens
+        ]
+        mention_rows = [
+            [
+                mention.mention_id,
+                mention.concept_type,
+                mention.text,
+                mention.lemma,
+                mention.source_tag,
+                "" if mention.source_token_i is None else mention.source_token_i,
+                mention.role,
+                mention.confidence,
+            ]
+            for mention in tag_result.concept_mentions
+        ]
+        edge_rows = [
+            [
+                edge.edge_id,
+                edge.edge_type,
+                edge.source,
+                edge.target,
+                edge.confidence,
+                edge.evidence,
+            ]
+            for edge in tag_result.edges
+        ]
+        blocks.extend(
+            [
+                "### Tag Segments",
+                markdown_table(["tag_id", "raw", "norm", "char_span"], segment_rows)
+                if segment_rows
+                else "_none_",
+                "",
+                "### Segment Noun Chunks",
+                markdown_table(
+                    [
+                        "tag_id",
+                        "chunk",
+                        "root",
+                        "root_lemma",
+                        "root_dep",
+                        "root_head",
+                        "token_span",
+                        "char_span",
+                    ],
+                    segment_chunk_rows,
+                )
+                if segment_chunk_rows
+                else "_none_",
+                "",
+                "### Segment Tokens / POS / Lemma / Dependency",
+                markdown_table(
+                    ["tag_id", "i", "text", "lemma", "pos", "tag", "dep", "head", "head_i", "char_span"],
+                    segment_token_rows,
+                )
+                if segment_token_rows
+                else "_none_",
+                "",
+                "### Concept Mentions",
+                markdown_table(
+                    ["id", "type", "text", "lemma", "source_tag", "source_token", "role", "confidence"],
+                    mention_rows,
+                )
+                if mention_rows
+                else "_none_",
+                "",
+                "### Edges",
+                markdown_table(["id", "type", "source", "target", "confidence", "evidence"], edge_rows)
+                if edge_rows
+                else "_none_",
+                "",
+            ]
+        )
+        return "\n".join(blocks)
+
+    doc = nlp(parse_caption)
+
+    token_rows = []
+    for token in doc:
+        token_rows.append(
+            [
+                token.i,
+                token.text,
+                token.lemma_,
+                token.pos_,
+                token.tag_,
+                token.dep_,
+                token.head.text,
+                token.head.i,
+            ]
+        )
+
+    chunk_rows = []
+    for chunk in doc.noun_chunks:
+        root = chunk.root
+        chunk_rows.append(
+            [
+                chunk.text,
+                root.text,
+                root.lemma_,
+                root.dep_,
+                root.head.text,
+                f"{chunk.start}:{chunk.end}",
+            ]
+        )
+
+    sent_rows = [[sent.text, f"{sent.start}:{sent.end}"] for sent in doc.sents]
     blocks.extend(
         [
-        "### Sentences",
-        markdown_table(["sentence", "token_span"], sent_rows) if sent_rows else "_none_",
-        "",
-        "### Noun Chunks",
-        markdown_table(["chunk", "root", "root_lemma", "root_dep", "root_head", "token_span"], chunk_rows)
-        if chunk_rows
-        else "_none_",
-        "",
-        "### Tokens / POS / Lemma / Dependency",
-        markdown_table(["i", "text", "lemma", "pos", "tag", "dep", "head", "head_i"], token_rows),
-        "",
+            "### Sentences",
+            markdown_table(["sentence", "token_span"], sent_rows) if sent_rows else "_none_",
+            "",
+            "### Noun Chunks",
+            markdown_table(["chunk", "root", "root_lemma", "root_dep", "root_head", "token_span"], chunk_rows)
+            if chunk_rows
+            else "_none_",
+            "",
+            "### Tokens / POS / Lemma / Dependency",
+            markdown_table(["i", "text", "lemma", "pos", "tag", "dep", "head", "head_i"], token_rows),
+            "",
         ]
     )
     return "\n".join(blocks)
@@ -189,6 +299,11 @@ def main() -> int:
         default=DEFAULT_PLACEHOLDER,
         help="Natural-language placeholder used when --mask-quotes is enabled.",
     )
+    parser.add_argument(
+        "--parse-tag-lists",
+        action="store_true",
+        help="Render GPIC caption_type=tag rows with segment-level tag-list parsing.",
+    )
     args = parser.parse_args()
 
     nlp = spacy.load(args.model)
@@ -202,6 +317,7 @@ def main() -> int:
         f"- max_records: `{args.max_records}`",
         f"- mask_quotes: `{args.mask_quotes}`",
         f"- quote_placeholder: `{args.quote_placeholder}`",
+        f"- parse_tag_lists: `{args.parse_tag_lists}`",
         "",
     ]
 
@@ -215,6 +331,7 @@ def main() -> int:
                 index,
                 mask_quotes=args.mask_quotes,
                 quote_placeholder=args.quote_placeholder,
+                parse_tag_lists=args.parse_tag_lists,
             )
         )
 
