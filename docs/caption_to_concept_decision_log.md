@@ -3000,3 +3000,247 @@ near_end_of: 1
 from_side_of: 1
 base_of: 1
 ```
+
+## 2026-06-26: front/side 계열 전치사 MWE safety rule
+
+### 문제
+
+`front of` / `side of` 계열은 object-object spatial relation과 object-region relation이 섞인다.
+
+```text
+in front of the car
+  -> object가 car 앞에 있음
+  -> in_front_of
+
+the front of the car
+  -> car의 앞부분
+  -> front_region_of
+
+logo on the front of the shirt
+  -> shirt 앞부분 표면 위의 logo
+  -> in_front_of가 아님
+```
+
+초기 확장 lexicon에서는 다음 항목들이 너무 공격적으로 canonicalize되어 있었다.
+
+```text
+front of        -> in_front_of
+on front of     -> in_front_of
+on the front of -> in_front_of
+side of         -> side_of
+on side of      -> side_of
+on the side of  -> side_of
+```
+
+### 결정
+
+clean 자동 적용 범위를 줄였다.
+
+```text
+in front of -> in_front_of, high
+front of    -> front_region_of, medium
+side of     -> side_region_of, medium
+```
+
+다음은 clean core에서 제외하고 audit/review로 보낸다.
+
+```text
+in the front of
+on front of
+on the front of
+on side of
+on the side of
+```
+
+이 표현들은 나중에 Stage 9에서 region node를 명시적으로 만들 때 다시 다루는 편이 안전하다.
+
+### 구현
+
+```text
+scripts/build_preposition_mwe_lexicon.py
+scripts/preposition_mwe_lexicon.py
+scripts/raw_concept_extractor.py
+```
+
+builder에는 두 정책을 추가했다.
+
+```text
+SURFACE_REGION_CANONICAL_OVERRIDES:
+  front of -> front_region_of, medium
+  side of  -> side_region_of, medium
+
+SURFACE_REGION_REVIEW_TERMS:
+  in the front of
+  on front of
+  on the front of
+  on side of
+  on the side of
+```
+
+또한 audit로 빠진 긴 표현이 extractor에서 짧은 `front of` / `side of`로 fallback되지 않도록,
+`preposition_mwe_audit_flags.tsv`의 reject term을 loader가 읽고 raw extractor에서 block한다.
+
+### 결과
+
+```text
+clean_core: 136
+audit_flags: 7
+```
+
+audit reason:
+
+```text
+ambiguous_surface_region_phrase: 5
+predicate_head_not_preposition_mwe: 2
+```
+
+스모크 테스트:
+
+```text
+A person stands in front of a car.
+  -> relation(person, in_front_of, car), high
+
+A logo is on the front of a shirt.
+  -> no in_front_of collapse
+  -> relation(logo, on, front)
+  -> relation(front, of, shirt)
+
+The front of the car is red.
+  -> relation(front, front_region_of, car), medium
+
+The side of the building is brick.
+  -> relation(side, side_region_of, building), medium
+```
+
+100 sample 재검증:
+
+```text
+records_written: 100
+object: 674
+context: 65
+relation edges: 318
+self_edge_after_coref skipped: 4
+```
+
+## 2026-06-26: spatial/prepositional self-edge repair
+
+### 문제
+
+기존 self-edge 처리는 precision 방어만 했다.
+
+```text
+relation(source, target)
+if source == target:
+  skip self_edge_after_coref
+```
+
+이 방식은 `person in_front_of person` 같은 잘못된 relation을 count하지 않는 장점은 있지만,
+원래 caption에 있던 relation recall도 같이 사라진다.
+
+대표 케이스:
+
+```text
+case 47
+Each person has a microphone and nameplate in front of them.
+
+bad:
+  relation(person, in_front_of, person) -> skip
+
+desired:
+  relation(microphone, in_front_of, person)
+  relation(nameplate, in_front_of, person)
+```
+
+### 결정
+
+모든 self-edge를 복구하지 않고, spatial/prepositional relation에 한정해서 보수적 repair를 적용한다.
+
+적용 조건:
+
+```text
+edge_type == relation
+source == target
+relation in spatial/preposition relation whitelist
+target token is pronoun/reference
+```
+
+repair 방식은 두 가지다.
+
+```text
+1. alternate source repair
+   - have/hold/position/show/display 같은 predicate 아래에 relation phrase가 붙었고
+   - relation phrase 왼쪽 가까이에 object 후보가 있으면
+   - source를 그 object 후보로 교체
+
+2. alternate target repair
+   - source는 가까운 clause subject로 보존하는 편이 자연스럽고
+   - target pronoun이 plural/group pronoun이면
+   - source 이전의 plural/person antecedent를 다시 찾음
+```
+
+중립 단수 `it`은 아직 repair하지 않는다.
+`it`은 glass/tray/table/doily처럼 후보가 너무 쉽게 갈라져서, 현재 rule로 자동 복원하면 오히려 잘못된 relation을 만들 가능성이 높다.
+
+### 구현
+
+```text
+scripts/raw_concept_extractor.py
+```
+
+추가된 주요 helper:
+
+```text
+_repair_self_edge_relation()
+_prefers_alternate_relation_source()
+_alternate_relation_source_ids()
+_alternate_relation_target_id()
+_local_relation_source_candidates()
+_coordination_group_tokens()
+```
+
+repair evidence는 원래 relation 이름 뒤에 명시적으로 남긴다.
+
+```text
+in_front_of; repaired_self_edge_source from person
+beside; repaired_self_edge_target from them->woman
+```
+
+### 100 sample 결과
+
+```text
+before:
+  relation edges: 318
+  self_edge_after_coref skipped: 4
+
+after:
+  relation edges: 322
+  self_edge_after_coref skipped: 1
+```
+
+복원된 케이스:
+
+```text
+case 44:
+  relation(hockey_stick, in_front_of, hockey_player)
+
+case 47:
+  relation(microphone, in_front_of, person)
+  relation(nameplate, in_front_of, person)
+
+case 98:
+  relation(woman, beside, man)
+```
+
+보류한 케이스:
+
+```text
+case 39:
+  A spoon and sugar packet are beside it.
+
+  remaining skip:
+    relation(spoon, beside, spoon)
+
+  reason:
+    neutral it의 target 후보가 glass/tray/table/doily 등으로 갈라짐.
+    현재 rule로 자동 repair하면 packet beside spoon 같은 잘못된 복원이 생길 수 있어 skip 유지.
+```

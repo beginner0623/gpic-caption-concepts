@@ -100,6 +100,19 @@ ADPOSITION_OF_HEADS = {
     "outside",
 }
 
+SURFACE_REGION_CANONICAL_OVERRIDES = {
+    "front of": ("front_region_of", "spatial_region", "medium"),
+    "side of": ("side_region_of", "spatial_region", "medium"),
+}
+
+SURFACE_REGION_REVIEW_TERMS = {
+    "in the front of",
+    "on front of",
+    "on the front of",
+    "on side of",
+    "on the side of",
+}
+
 RELATION_CONFIDENCE_RANK = {"high": 3, "medium": 2, "low": 1}
 
 
@@ -379,12 +392,24 @@ def add_mixed_relation_candidates(candidates: dict[str, Candidate], path: Path) 
             )
 
 
+def apply_safety_overrides(candidate: Candidate) -> None:
+    if candidate.term not in SURFACE_REGION_CANONICAL_OVERRIDES:
+        return
+    canonical, relation_type, confidence = SURFACE_REGION_CANONICAL_OVERRIDES[candidate.term]
+    candidate.canonical = canonical
+    candidate.relation_type = relation_type
+    candidate.confidence = confidence
+    candidate.notes.add("ambiguous bare front/side phrase; keep as region_of, not object-object spatial relation")
+
+
 def decision_for(candidate: Candidate) -> tuple[str, str]:
     term = candidate.term
     words = term.split()
     first = words[0] if words else ""
     if term in NON_VISUAL_ADPOSITIONS:
         return "reject", "non_visual_adposition"
+    if term in SURFACE_REGION_REVIEW_TERMS:
+        return "reject", "ambiguous_surface_region_phrase"
     if first in PREDICATE_HEADS:
         return "reject", "predicate_head_not_preposition_mwe"
     if first.endswith("ing") or first.endswith("ed"):
@@ -444,6 +469,7 @@ def build(args: argparse.Namespace) -> tuple[list[dict[str, str]], list[dict[str
     audit_rows: list[dict[str, str]] = []
 
     for candidate in sorted(candidates.values(), key=lambda item: item.term):
+        apply_safety_overrides(candidate)
         decision, reason = decision_for(candidate)
         row = row_from_candidate(candidate, decision, reason)
         candidate_rows.append(row)

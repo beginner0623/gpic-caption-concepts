@@ -1728,7 +1728,7 @@ _none_
 | e9 | agent | m18 | m0 | medium | nsubj -> runs |
 | e10 | agent | m19 | m5 | medium | nsubj -> stretches |
 | e11 | relation | m0 | m2 | high | with |
-| e12 | relation | m0 | m4 | high | bottom_of |
+| e12 | relation | m0 | m4 | medium | bottom_of |
 | e13 | relation | m5 | m0 | high | beyond |
 | e14 | relation | m5 | m8 | medium | to |
 | e15 | relation | m5 | m9 | high | under |
@@ -3395,7 +3395,7 @@ _none_
 | e10 | relation | m0 | m2 | high | with |
 | e11 | relation | m0 | m3 | high | between |
 | e12 | relation | m8 | m7 | high | on |
-| e13 | relation | m8 | m10 | high | near_end_of |
+| e13 | relation | m8 | m10 | medium | near_end_of |
 | e14 | relation | m12 | m13 | high | across |
 | e15 | relation | m12 | m14 | medium | from |
 
@@ -4249,13 +4249,12 @@ _none_
 | e16 | agent | m22 | m0 | medium | inherited agent advcl -> positioned |
 | e17 | relation | m0 | m2 | high | on |
 | e18 | relation | m0 | m11 | high | with |
-| e19 | relation | m13 | m15 | medium | of |
-| e20 | relation | m13 | m17 | high | in |
+| e19 | relation | m10 | m0 | medium | in_front_of; repaired_self_edge_source from hockey player |
+| e20 | relation | m13 | m15 | medium | of |
+| e21 | relation | m13 | m17 | high | in |
 
 ### Skipped Raw Concept Edges
-| type | source | target | confidence | reason | evidence |
-| --- | --- | --- | --- | --- | --- |
-| relation | m0 | m0 | high | self_edge_after_coref | in_front_of |
+_none_
 
 ## 45
 
@@ -4381,7 +4380,7 @@ _none_
 | e13 | relation | m0 | m2 | high | with |
 | e14 | relation | m0 | m4 | high | with |
 | e15 | relation | m0 | m6 | high | under |
-| e16 | relation | m9 | m11 | high | from_side_of |
+| e16 | relation | m9 | m11 | medium | from_side_of |
 | e17 | relation | m9 | m12 | high | next_to |
 | e18 | relation | m16 | m17 | high | on |
 
@@ -4559,11 +4558,11 @@ _none_
 | e11 | relation | m1 | m3 | medium | at |
 | e12 | relation | m1 | m4 | medium | during |
 | e13 | relation | m6 | m1 | high | behind |
+| e14 | relation | m11 | m9 | medium | in_front_of; repaired_self_edge_source from person |
+| e15 | relation | m12 | m9 | medium | in_front_of; repaired_self_edge_source from person |
 
 ### Skipped Raw Concept Edges
-| type | source | target | confidence | reason | evidence |
-| --- | --- | --- | --- | --- | --- |
-| relation | m9 | m9 | high | self_edge_after_coref | in_front_of |
+_none_
 
 ## 48
 
@@ -6909,7 +6908,7 @@ _none_
 | e14 | relation | m9 | m11 | high | with |
 | e15 | relation | m9 | m19 | high | in |
 | e16 | relation | m13 | m14 | medium | to |
-| e17 | relation | m17 | m18 | high | base_of |
+| e17 | relation | m17 | m18 | medium | base_of |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -9032,12 +9031,11 @@ _none_
 | e14 | relation | m0 | m4 | medium | at |
 | e15 | relation | m8 | m12 | medium | into |
 | e16 | relation | m13 | m14 | high | in |
-| e17 | relation | m16 | m19 | high | at_top_of |
+| e17 | relation | m13 | m8 | medium | beside; repaired_self_edge_target from them->woman |
+| e18 | relation | m16 | m19 | high | at_top_of |
 
 ### Skipped Raw Concept Edges
-| type | source | target | confidence | reason | evidence |
-| --- | --- | --- | --- | --- | --- |
-| relation | m13 | m13 | high | self_edge_after_coref | beside |
+_none_
 
 ## 99
 

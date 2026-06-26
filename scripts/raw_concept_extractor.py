@@ -4,7 +4,9 @@ from dataclasses import asdict, dataclass
 
 from preposition_mwe_lexicon import (
     PREPOSITION_MWE_MIDDLE_LEMMAS,
+    PREPOSITION_MWE_REJECTED_TERMS,
     PrepositionMweEntry,
+    normalize_preposition_mwe,
     preposition_mwe_entry,
 )
 from quantity_lexicon import quantity_confidence, quantity_role
@@ -194,6 +196,28 @@ REFLEXIVE_PRONOUNS = {
     "yourselves",
 }
 PRONOUN_ANTECEDENT_MAX_DISTANCE = 80
+SELF_EDGE_REPAIR_SOURCE_HEAD_LEMMAS = {"carry", "contain", "display", "have", "hold", "position", "show", "wear"}
+SELF_EDGE_REPAIR_RELATIONS = SPATIAL_RELATIONS | {
+    "at_edge_of",
+    "at_top_of",
+    "base_of",
+    "behind",
+    "bottom_of",
+    "center_of",
+    "corner_of",
+    "front_region_of",
+    "from_side_of",
+    "in_front_of",
+    "inside",
+    "left_of",
+    "middle_of",
+    "near",
+    "near_end_of",
+    "next_to",
+    "on_top_of",
+    "right_of",
+    "side_region_of",
+}
 
 
 @dataclass(frozen=True)
@@ -483,9 +507,11 @@ class RawConceptExtractor:
             if prep.pos_ != "ADP" and prep.dep_ != "prep":
                 continue
             relation = prep.lemma_.lower()
+            relation_confidence = None
             mwe_entry = self._multiword_preposition_entry(prep)
             if mwe_entry is not None:
                 relation = mwe_entry.canonical
+                relation_confidence = mwe_entry.confidence
                 source = self._relation_source(self._multiword_preposition_source_head(prep))
             else:
                 if self._has_multiword_relation_child(prep):
@@ -495,10 +521,19 @@ class RawConceptExtractor:
             target_token = self._preposition_object(prep)
             if source is None or target_token is None:
                 continue
-            confidence = "high" if relation in SPATIAL_RELATIONS or "_" in relation else "medium"
+            confidence = relation_confidence or ("high" if relation in SPATIAL_RELATIONS or "_" in relation else "medium")
             for expanded_target in self._expand_conjunct_targets(target_token):
                 target = self._object_for_token(expanded_target, "prep_object", "medium")
                 if target is None:
+                    continue
+                if source == target and self._repair_self_edge_relation(
+                    prep,
+                    relation,
+                    source,
+                    target,
+                    confidence,
+                    expanded_target,
+                ):
                     continue
                 self.add_edge(
                     "relation",
@@ -905,6 +940,164 @@ class RawConceptExtractor:
                 return child
         return None
 
+    def _repair_self_edge_relation(
+        self,
+        prep,
+        relation: str,
+        source_id: str,
+        target_id: str,
+        confidence: str,
+        target_token,
+    ) -> bool:
+        if relation not in SELF_EDGE_REPAIR_RELATIONS:
+            return False
+        if target_token.i not in self.reference_object_by_token_i and target_token.pos_ != "PRON":
+            return False
+
+        if self._prefers_alternate_relation_source(prep, source_id, target_id):
+            repaired_sources = self._alternate_relation_source_ids(prep, source_id, target_id)
+            if repaired_sources:
+                for repaired_source in repaired_sources:
+                    if repaired_source == target_id or self._has_edge("relation", repaired_source, target_id):
+                        continue
+                    self.add_edge(
+                        "relation",
+                        repaired_source,
+                        target_id,
+                        "medium",
+                        f"{relation}; repaired_self_edge_source from {self._mention_text(source_id)}",
+                    )
+                return True
+
+        repaired_target = self._alternate_relation_target_id(prep, source_id, target_token)
+        if repaired_target is None:
+            return False
+        if repaired_target == source_id or self._has_edge("relation", source_id, repaired_target):
+            return False
+        self.add_edge(
+            "relation",
+            source_id,
+            repaired_target,
+            "medium",
+            f"{relation}; repaired_self_edge_target from {target_token.text}->{self._mention_text(target_id)}",
+        )
+        return True
+
+    def _prefers_alternate_relation_source(self, prep, source_id: str, target_id: str) -> bool:
+        source_head = self._multiword_preposition_source_head(prep)
+        if source_head.lemma_.lower() in SELF_EDGE_REPAIR_SOURCE_HEAD_LEMMAS:
+            return True
+        phrase_start = self._preposition_phrase_start(prep)
+        source_token_i = self._mention_token_i(source_id)
+        if source_token_i is None:
+            return True
+        if 0 < phrase_start - source_token_i <= 10:
+            return False
+        if phrase_start - source_token_i > 10:
+            return True
+        local_candidates = self._local_relation_source_candidates(prep, target_id)
+        return bool(local_candidates and source_token_i not in {token.i for _, token, _ in local_candidates})
+
+    def _alternate_relation_source_ids(self, prep, source_id: str, target_id: str) -> list[str]:
+        candidates = self._local_relation_source_candidates(prep, target_id)
+        if not candidates:
+            return []
+        best_score, best_token, best_object_id = candidates[0]
+        if best_score < 55:
+            return []
+        best_group = self._coordination_group_tokens(best_token)
+        if len(candidates) > 1:
+            second_score, second_token, _ = candidates[1]
+            same_group = second_token.i in {token.i for token in best_group}
+            if not same_group and best_score - second_score < 8:
+                return []
+        repaired: list[tuple[int, str]] = []
+        for token in best_group:
+            object_id = self.object_by_token_i.get(token.i)
+            if object_id is None or object_id in {source_id, target_id}:
+                continue
+            repaired.append((token.i, object_id))
+        if repaired:
+            return [object_id for _, object_id in sorted(repaired)]
+        if best_object_id not in {source_id, target_id}:
+            return [best_object_id]
+        return []
+
+    def _local_relation_source_candidates(self, prep, target_id: str) -> list[tuple[int, object, str]]:
+        phrase_start = self._preposition_phrase_start(prep)
+        lower_bound = max(prep.sent.start, phrase_start - 14)
+        candidates: list[tuple[int, object, str]] = []
+        for token_i, object_id in self.object_by_token_i.items():
+            if object_id == target_id or token_i < lower_bound or token_i >= phrase_start:
+                continue
+            token = self.doc[token_i]
+            if self._is_quote_token(token) or token.i in self.context_by_token_i:
+                continue
+            score = 100 - ((phrase_start - token_i) * 4)
+            if token.dep_ in OBJECT_DEPS:
+                score += 12
+            if token.dep_ == "conj":
+                score += 8
+            if token.head.i in self.object_by_token_i:
+                score += 5
+            if self._is_body_part_candidate(token):
+                score -= 30
+            candidates.append((score, token, object_id))
+        return sorted(candidates, key=lambda item: (-item[0], item[1].i))
+
+    def _alternate_relation_target_id(self, prep, source_id: str, target_token) -> str | None:
+        pronoun = self._pronoun_key(target_token)
+        if pronoun not in PLURAL_OR_GROUP_PRONOUNS:
+            return None
+        source_token_i = self._mention_token_i(source_id)
+        if source_token_i is None:
+            return None
+        best: tuple[int, int, str] | None = None
+        for token_i, object_id in self.object_by_token_i.items():
+            if object_id == source_id or token_i >= source_token_i:
+                continue
+            candidate = self.doc[token_i]
+            if not (self._is_plural_like(candidate) or self._is_person_candidate(candidate)):
+                continue
+            distance = target_token.i - token_i
+            if distance > PRONOUN_ANTECEDENT_MAX_DISTANCE:
+                continue
+            score = self._antecedent_score(target_token, candidate, distance)
+            if self._is_plural_like(candidate):
+                score += 25
+            if self._is_person_candidate(candidate):
+                score += 10
+            if score < 55:
+                continue
+            item = (score, token_i, object_id)
+            if best is None or item[0] > best[0] or (item[0] == best[0] and item[1] > best[1]):
+                best = item
+        return best[2] if best is not None else None
+
+    def _coordination_group_tokens(self, token) -> list:
+        group = {token.i: token}
+        head = token.head if token.dep_ == "conj" and token.head is not token else token
+        group[head.i] = head
+        for child in head.children:
+            if child.dep_ == "conj":
+                group[child.i] = child
+        for child in token.children:
+            if child.dep_ == "conj":
+                group[child.i] = child
+        return sorted(group.values(), key=lambda item: item.i)
+
+    def _mention_token_i(self, mention_id: str) -> int | None:
+        for mention in self.mentions:
+            if mention.mention_id == mention_id:
+                return mention.source_token_i
+        return None
+
+    def _preposition_phrase_start(self, prep) -> int:
+        head = prep.head
+        if prep.lemma_.lower() == "of" and head.head is not head and head.head.pos_ == "ADP":
+            return head.head.i
+        return prep.i
+
     def _expand_conjunct_targets(self, token) -> list:
         targets = [token]
         for child in token.children:
@@ -954,6 +1147,8 @@ class RawConceptExtractor:
 
     def _multiword_preposition_entry(self, prep) -> PrepositionMweEntry | None:
         candidates = self._multiword_preposition_candidates(prep)
+        if any(normalize_preposition_mwe(candidate) in PREPOSITION_MWE_REJECTED_TERMS for candidate in candidates):
+            return None
         for candidate in candidates:
             entry = preposition_mwe_entry(candidate)
             if entry is not None:

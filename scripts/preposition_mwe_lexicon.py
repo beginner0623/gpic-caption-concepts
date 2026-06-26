@@ -8,6 +8,9 @@ from pathlib import Path
 DEFAULT_PREPOSITION_MWE_LEXICON = (
     Path(__file__).resolve().parents[1] / "resources" / "lexicons" / "preposition_mwe_clean_core.tsv"
 )
+DEFAULT_PREPOSITION_MWE_AUDIT_FLAGS = (
+    Path(__file__).resolve().parents[1] / "resources" / "lexicons" / "preposition_mwe_audit_flags.tsv"
+)
 
 
 @dataclass(frozen=True)
@@ -54,7 +57,25 @@ def load_preposition_mwe_lexicon(
     return entries
 
 
+def load_rejected_preposition_mwe_terms(
+    path: Path = DEFAULT_PREPOSITION_MWE_AUDIT_FLAGS,
+) -> set[str]:
+    if not path.exists():
+        return set()
+    terms: set[str] = set()
+    with path.open("r", encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle, delimiter="\t")
+        for row in reader:
+            if row.get("decision", "").strip() != "reject":
+                continue
+            term = normalize_preposition_mwe(row.get("term", ""))
+            if term:
+                terms.add(term)
+    return terms
+
+
 PREPOSITION_MWE_ENTRIES = load_preposition_mwe_lexicon()
+PREPOSITION_MWE_REJECTED_TERMS = load_rejected_preposition_mwe_terms()
 PREPOSITION_MWE_MIDDLE_LEMMAS = {
     entry.middle for entry in PREPOSITION_MWE_ENTRIES.values() if entry.middle
 }

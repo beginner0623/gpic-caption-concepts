@@ -65,7 +65,7 @@
 | item | count |
 | --- | ---: |
 | `has_attribute` | 391 |
-| `relation` | 318 |
+| `relation` | 322 |
 | `agent` | 213 |
 | `patient` | 80 |
 | `has_context` | 38 |
@@ -99,6 +99,7 @@
 | `for` | 2 |
 | `around` | 2 |
 | `over` | 2 |
+| `in_front_of; repaired_self_edge_source from person` | 2 |
 | `onto` | 2 |
 | `among` | 2 |
 | `through` | 2 |
@@ -107,24 +108,26 @@
 | `bottom_of` | 1 |
 | `between` | 1 |
 | `near_end_of` | 1 |
+| `in_front_of; repaired_self_edge_source from hockey player` | 1 |
 | `from_side_of` | 1 |
 | `next_to` | 1 |
 | `below` | 1 |
 | `inside` | 1 |
 | `past` | 1 |
 | `base_of` | 1 |
+| `beside; repaired_self_edge_target from them->woman` | 1 |
 | `at_top_of` | 1 |
 
 ## Skipped Edges
 | item | count |
 | --- | ---: |
-| `self_edge_after_coref` | 4 |
+| `self_edge_after_coref` | 1 |
 
 ## Confidence
 | item | count |
 | --- | ---: |
 | `mention:high` | 1129 |
-| `edge:medium` | 579 |
-| `edge:high` | 494 |
+| `edge:medium` | 587 |
+| `edge:high` | 490 |
 | `mention:medium` | 258 |
 | `edge:low` | 7 |
