@@ -3815,3 +3815,91 @@ JSON serialization cost
 현재 가장 큰 병목은 raw rule 자체라기보다 `extract_raw_concepts.py`가 row-by-row로 `nlp(caption)`을 호출한다는 점이다.
 parse-only batched upper bound는 203.7 docs/sec인데, current row-by-row end-to-end는 45.4 docs/sec다.
 따라서 다음 최적화 후보는 `extract_raw_concepts.py`를 `nlp.pipe` 기반 batched 처리로 바꾸는 것이다.
+## 2026-06-27 - raw concept extraction nlp.pipe batch 처리 적용
+
+### 배경
+
+이전 current row-by-row benchmark는 `extract_raw_concepts.py`가 caption마다 `nlp(caption)`을 호출했기 때문에 GPU batch 효율을 거의 쓰지 못했다.
+
+이전 5k 결과:
+
+```text
+file: reports/raw_concepts_benchmark_5k_trf_gpu0_current_stage.json
+records: 5,000
+run_seconds: 110.0412
+docs/sec: 45.4375
+estimated 100M / 1 GPU: 25.4725 days
+```
+
+### 구현
+
+`extract_raw_concepts.py`를 batch 구조로 바꿨다.
+
+핵심 변경:
+
+```text
+1. input row를 batch_size 단위로 모은다.
+2. sentence caption은 nlp.pipe(captions, batch_size=..., n_process=...)로 처리한다.
+3. tag-list caption도 segment를 모아서 nlp.pipe(segment_texts, ...)로 처리한다.
+4. batch output은 원래 row order대로 다시 조립한다.
+5. benchmark_raw_concepts.py는 같은 process_indexed_row_batch helper를 재사용한다.
+```
+
+`tag_list_parser.py`에는 `parse_tag_list_from_docs(segments, docs)`를 추가했다.
+기존 `parse_tag_list(nlp, caption)` wrapper는 내부에서 `nlp.pipe`를 사용하도록 유지했다.
+
+### 검증
+
+100개 eval shard를 다시 생성했다.
+
+```text
+reports/raw_concepts_sample_100_trf_current.jsonl
+reports/raw_concepts_sample_100_trf_current_summary.md
+```
+
+mention id duplicate 검사:
+
+```text
+duplicate_records: 0
+```
+
+### 속도 결과
+
+환경:
+
+```text
+GPU: NVIDIA GeForce RTX 5080 Laptop GPU, 16GB
+model: en_core_web_trf
+batch_size: 256
+n_process: 1
+options: mask_quotes, parse_tag_lists, merge_object_mwes, merge_hyphen_spans, serialize_json
+```
+
+새 결과:
+
+| file | records | run_seconds | docs/sec | estimated 100M / 1 GPU |
+|---|---:|---:|---:|---:|
+| `reports/raw_concepts_benchmark_1k_trf_gpu0_batched_current_stage.json` | 1,000 | 6.3518 | 157.4349 | 7.3517 days |
+| `reports/raw_concepts_benchmark_5k_trf_gpu0_batched_current_stage.json` | 5,000 | 29.6084 | 168.8712 | 6.8538 days |
+
+비교:
+
+```text
+row-by-row 5k: 45.4375 docs/sec
+batched 5k:   168.8712 docs/sec
+speedup:       약 3.72x
+```
+
+16 GPU 선형 가정:
+
+```text
+100M / 16 GPU ~= 0.428 days ~= 10.3 hours
+```
+
+주의:
+
+```text
+이 값은 local RTX 5080 Laptop 반복 샘플 기준이다.
+H200 16장 환경에서는 실제 GPIC shard 여러 개로 다시 측정해야 한다.
+그래도 batch 구조 전환으로 3일/100M 조건은 훨씬 여유가 생겼다.
+```

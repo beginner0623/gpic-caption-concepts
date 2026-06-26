@@ -4,6 +4,8 @@
 - output: `reports\raw_concepts_sample_100_trf_current.jsonl`
 - model: `en_core_web_trf`
 - max_records: `100`
+- batch_size: `256`
+- n_process: `1`
 - records_written: `100`
 - mask_quotes: `True`
 - quote_handling: `raw_quote_retokenize`

@@ -444,8 +444,7 @@ def _is_quote_token(token) -> bool:
     return is_raw_quote_token(token)
 
 
-def parse_tag_list(nlp, caption: str) -> TagListParseResult:
-    segments = split_tag_segments(caption)
+def parse_tag_list_from_docs(segments: list[TagSegment], docs: list) -> TagListParseResult:
     noun_chunks: list[SegmentNounChunk] = []
     segment_tokens: list[SegmentToken] = []
     mentions: list[ConceptMention] = []
@@ -488,8 +487,7 @@ def parse_tag_list(nlp, caption: str) -> TagListParseResult:
             )
         )
 
-    for segment in segments:
-        doc = nlp(segment.raw)
+    for segment, doc in zip(segments, docs):
         for chunk in doc.noun_chunks:
             root = chunk.root
             noun_chunks.append(
@@ -674,6 +672,10 @@ def parse_tag_list(nlp, caption: str) -> TagListParseResult:
     )
 
 
+def parse_tag_list(nlp, caption: str) -> TagListParseResult:
+    segments = split_tag_segments(caption)
+    docs = list(nlp.pipe([segment.raw for segment in segments]))
+    return parse_tag_list_from_docs(segments, docs)
 def is_tag_list_row(row: dict, caption: str) -> bool:
     if row.get("caption_type") == "tag":
         return True
