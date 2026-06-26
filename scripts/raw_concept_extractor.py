@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass
 
+from quantity_lexicon import quantity_confidence, quantity_role
 from tag_list_parser import CONTEXT_TAGS, ConceptEdge, ConceptMention
 
 
@@ -118,6 +119,14 @@ SPATIAL_RELATIONS = {
 }
 
 MULTIWORD_RELATION_MIDS = {"top", "front", "back", "side", "middle", "center", "edge"}
+ROOT_ONLY_QUANTITY_ROLES = {
+    "approximate_quantity",
+    "distributive_quantity",
+    "group_quantity",
+    "indefinite_quantity",
+    "partitive_quantity",
+    "zero_quantity",
+}
 WITH_ABSOLUTE_CANDIDATE_DEPS = {"advcl", "conj", "dep", "nsubj", "nsubjpass"}
 WITH_ABSOLUTE_MODIFIER_DEPS = {"acl", "amod", "compound", "nummod", "poss"}
 WITH_ABSOLUTE_SKIP_DEPS = {"amod", "case", "cc", "compound", "det", "mark", "poss", "punct"}
@@ -193,6 +202,10 @@ class RawConceptExtractor:
     def _extract_noun_chunk_objects(self) -> None:
         for chunk_i, chunk in enumerate(self.doc.noun_chunks):
             root = chunk.root
+            root_quantity = quantity_role(root)
+            if root_quantity in ROOT_ONLY_QUANTITY_ROLES:
+                self._add_modifier(root, f"chunk{chunk_i}")
+                continue
             if root.pos_ not in OBJECT_POS and root.tag_ not in {"NN", "NNS", "NNP", "NNPS"}:
                 continue
             if self._is_multiword_relation_mid_token(root):
@@ -203,6 +216,19 @@ class RawConceptExtractor:
             object_id = self._ensure_object(root, f"chunk{chunk_i}", "noun_chunk_root", "high")
             for token in chunk:
                 if token.i == root.i or token.dep_ in SKIP_MODIFIER_DEPS:
+                    if token.i == root.i:
+                        continue
+                    if quantity_role(token) is None:
+                        continue
+                if quantity_role(token) is not None:
+                    modifier_id, edge_type, modifier_confidence = self._add_modifier(token, f"chunk{chunk_i}")
+                    self.add_edge(
+                        edge_type,
+                        object_id,
+                        modifier_id,
+                        modifier_confidence,
+                        f"chunk{chunk_i} quantity -> {root.text}",
+                    )
                     continue
                 if not self._looks_like_modifier(token):
                     continue
@@ -373,6 +399,17 @@ class RawConceptExtractor:
     def _add_recovered_object_modifiers(self, token, object_id: str, source_tag: str) -> None:
         for modifier in sorted(token.children, key=lambda child: child.i):
             if modifier.dep_ in SKIP_MODIFIER_DEPS:
+                if quantity_role(modifier) is None:
+                    continue
+            if quantity_role(modifier) is not None:
+                modifier_id, edge_type, modifier_confidence = self._add_modifier(modifier, source_tag)
+                self.add_edge(
+                    edge_type,
+                    object_id,
+                    modifier_id,
+                    modifier_confidence,
+                    f"{source_tag} quantity -> {token.text}",
+                )
                 continue
             if modifier.dep_ not in WITH_ABSOLUTE_MODIFIER_DEPS:
                 continue
@@ -406,6 +443,8 @@ class RawConceptExtractor:
         return object_id
 
     def _object_for_token(self, token, role: str, confidence: str) -> str | None:
+        if quantity_role(token) in ROOT_ONLY_QUANTITY_ROLES:
+            return None
         if token.i in self.context_by_token_i:
             return self.context_by_token_i[token.i]
         if token.i in self.object_by_token_i:
@@ -494,6 +533,8 @@ class RawConceptExtractor:
         return f"{first}_{middle}_of"
 
     def _looks_like_modifier(self, token) -> bool:
+        if quantity_role(token) is not None:
+            return True
         if token.pos_ in {"ADJ", "ADV", "NUM"}:
             return True
         if token.dep_ in MODIFIER_DEPS:
@@ -503,11 +544,12 @@ class RawConceptExtractor:
 
     def _add_modifier(self, token, source_tag: str) -> tuple[str, str, str]:
         lemma = token.lemma_.lower()
-        if token.dep_ == "nummod" or token.pos_ == "NUM":
-            role = "quantity"
+        quantity = quantity_role(token)
+        if quantity is not None:
+            role = quantity
             concept_type = "quantity"
             edge_type = "has_quantity"
-            confidence = "high"
+            confidence = quantity_confidence(quantity)
         elif lemma in COLOR_WORDS:
             role = "color_attribute"
             concept_type = "attribute"

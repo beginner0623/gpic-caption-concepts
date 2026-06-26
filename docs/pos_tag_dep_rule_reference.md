@@ -325,3 +325,151 @@ black-and-white -> single token
 | object MWE POS 보정 | 우리 retokenizer component | lexicon 기반 MWE token만 `NOUN/NN`으로 보정 |
 | with-absolute 누락 object 회수 | 우리 Stage 8 rule | noun chunk에서 빠진 noun-like token만 보수적으로 복구 |
 
+---
+
+## 8. Quantity Cue Rules
+
+2026-06-26 이후 quantity는 `token.dep_ == nummod` 또는 `token.pos_ == NUM`만으로 판단하지 않는다.
+`scripts/quantity_lexicon.py`의 공통 rule을 sentence branch와 tag-list branch가 함께 사용한다.
+
+### 8.1 Quantity Roles
+
+| role | examples | confidence | note |
+|---|---|---|---|
+| `exact_quantity` | `one`, `two`, `3`, `four` | high | exact count |
+| `approximate_quantity` | `several`, `few`, `many`, `multiple`, `numerous`, `various` | medium | approximate plural/count signal |
+| `indefinite_quantity` | `some`, `any` | medium | indefinite amount/count signal |
+| `group_quantity` | `both`, `all` | high | group-level quantifier |
+| `distributive_quantity` | `each`, `every` | high | distributive quantifier |
+| `zero_quantity` | `no`, `none` | high | zero-count / absence cue |
+| `partitive_quantity` | `half`, `most` | medium | partitive quantity |
+
+### 8.2 Sentence Branch Policy
+
+| position | handling |
+|---|---|
+| quantity inside noun chunk modifier | create `quantity` mention and `has_quantity` edge |
+| quantity with `det` dependency | do not skip if it matches quantity lexicon |
+| quantity with `amod` dependency | treat as quantity before attribute |
+| root-only `each/both/all/some/no` style quantity | create quantity mention, do not create object |
+| root-only quantity used as action subject | do not promote to object in `_object_for_token()` |
+
+Example:
+
+```text
+several cars
+-> object(cars)
+-> quantity(several, approximate_quantity)
+-> cars --has_quantity--> several
+```
+
+```text
+Four people ..., each holding a glass flask
+-> object(people)
+-> quantity(Four, exact_quantity)
+-> quantity(each, distributive_quantity)
+-> each is not counted as object
+```
+
+### 8.3 Tag-list Branch Policy
+
+Tag-list modifier 후보를 모을 때 quantity lexicon에 걸리는 token은 POS/dep와 무관하게 modifier 후보로 올린다.
+그 뒤 `attribute`가 아니라 `quantity` mention과 `has_quantity` edge를 만든다.
+
+Example:
+
+```text
+several cars, many cats, no people
+-> cars --has_quantity--> several
+-> cats --has_quantity--> many
+-> people --has_quantity--> no
+```
+
+---
+
+## 9. Nominal Reference Cue Rules
+
+2026-06-26 이후 `one/other/both/each`류 nominal-anaphoric 표현은 단어별 땜빵 rule이 아니라 cue class와 antecedent scoring으로 처리한다.
+
+관련 파일:
+
+```text
+scripts/reference_lexicon.py
+scripts/nominal_reference_resolver.py
+```
+
+### 9.1 Reference Classes
+
+| class | examples | 의미 |
+|---|---|---|
+| `singular_substitute` | `one`, `ones` | 이전 group/object type의 한 개체를 대체 |
+| `contrastive_reference` | `other`, `others`, `another` | 같은 antecedent group 안의 대비 항목 |
+| `group_reference` | `both`, `all` | 이전 group 전체 |
+| `distributive_reference` | `each`, `every` | 이전 group의 각 member |
+
+### 9.2 Reference로 보지 않는 경우
+
+뒤의 noun을 직접 수식하면 reference가 아니라 quantity/modifier 쪽에서 처리한다.
+
+```text
+one person
+both men
+other buildings
+each glass
+```
+
+조건:
+
+```text
+token.dep_ in {amod, det, nummod}
+and token.head is noun-like
+```
+
+### 9.3 Reference로 보는 경우
+
+standalone argument로 쓰이면 reference 후보로 본다.
+
+```text
+One wears a vest.
+the other a yellow shirt.
+others are seated.
+Both look toward the camera.
+each holding a flask.
+```
+
+주요 dependency/POS 조건:
+
+```text
+token.dep_ in {nsubj, nsubjpass, dobj, obj, pobj, attr, appos, conj, dep, ROOT}
+or token.pos_/tag is noun-like
+```
+
+### 9.4 Antecedent Scoring Feature
+
+| feature | 설명 |
+|---|---|
+| recency / distance | reference보다 앞에 있고 가까운 후보를 선호 |
+| sentence gap | 같은 문장/직전 문장 후보를 선호 |
+| plural/group signal | plural morphology, quantity, coordination group |
+| has_quantity signal | `several`, `two`, `many` 등 quantity edge가 있는 후보 |
+| coordination group | `man and woman` 같은 group 후보 |
+| agent_like antecedent | raw edge에서 action의 `agent`였던 object/group |
+| patient_like penalty | action의 `patient`였던 가까운 object group은 reference antecedent로 과신하지 않음 |
+| syntactic salience | agent/relation source 등 기존 edge 기반 salience |
+| reference modifiers | `a red one`의 `red` 같은 modifier |
+
+### 9.5 Conservative Status
+
+| status | 의미 |
+|---|---|
+| `resolved` | Stage 9 reference edge 후보로 사용 가능 |
+| `ambiguous` | 후보는 있지만 margin이 낮아 자동 적용 보류 |
+| `unresolved` | object count에서 surface reference 제외 후보 |
+
+현재 기본값:
+
+```text
+min_score = 45
+ambiguous_margin = 15
+max_antecedent_tokens = 80
+```

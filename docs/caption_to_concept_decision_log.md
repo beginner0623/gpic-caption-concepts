@@ -1548,3 +1548,573 @@ a sign that reads "MILE 0"
 - `a red one`, `the other`, `others`, `both`, `each` 같은 nominal reference는 fastcoref만으로 충분하지 않다.
 - plural/group antecedent에서 `both -> man and woman`처럼 단일 object로 collapse하면 정보가 손실된다.
 - possessive reference는 object redirect가 아니라 possessor metadata로 남길지 결정이 필요하다.
+
+---
+
+## 2026-06-26 - Maverick predefined-mention audit for nominal anaphora
+
+### 배경
+
+fastcoref는 `he/she/it/they` 같은 일반 pronoun에는 도움이 됐지만, `one/other/others/both/each` 같은 nominal-anaphoric reference에는 충분하지 않았다.
+
+예를 들면 다음과 같은 caption에서는 surface form만 보면 object인지 reference인지 애매하다.
+
+```text
+Several cars are parked nearby, including a red one.
+Two men smile for the camera. One wears a vest, the other a yellow shirt.
+Children sit on chairs. One child holds a violin, while others are seated.
+Four people sit at a table, each holding a glass.
+```
+
+그래서 외부 coreference 도구 중 Maverick을 추가로 실험했다.
+
+### 설치와 호환성
+
+`maverick-coref==1.0.7`을 설치했다.
+
+Windows에서는 설치 중 build 로그 출력 때문에 cp949 decoding error가 났고, `PYTHONUTF8=1`을 켠 뒤 설치가 성공했다.
+
+또 PyTorch 2.6 이후 `torch.load()`의 기본값이 `weights_only=True`로 바뀌면서 Maverick checkpoint 로딩이 실패했다.
+현재 audit script에서는 Maverick wrapper를 얇게 감싸 `load_from_checkpoint(..., weights_only=False)`로 로딩한다.
+
+이 설정은 신뢰하는 공식 Maverick checkpoint를 로컬에서 읽기 위한 compatibility patch다.
+임의의 checkpoint를 받을 때는 그대로 쓰면 안 된다.
+
+### 중요한 발견
+
+Maverick을 그냥 실행하면 `a red one` 같은 nominal mention을 안정적으로 잡지 못했다.
+
+하지만 우리가 만든 object candidate와 nominal candidate를 `predefined_mentions`로 넣으면 다음처럼 cluster를 만들 수 있었다.
+
+```text
+cars <-> a red one
+```
+
+즉 Maverick은 여기서 end-to-end resolver가 아니라, 우리가 만든 후보 mention들이 같은 coreference cluster로 묶일 수 있는지 확인하는 sidecar audit 도구에 가깝다.
+
+### 구현
+
+추가한 script:
+
+```text
+scripts/audit_maverick_nominal_references.py
+```
+
+입력:
+
+```text
+reports/raw_concepts_sample_100_trf_current.jsonl
+```
+
+출력:
+
+```text
+reports/maverick_nominal_audit_sample_100_trf_current.md
+reports/maverick_nominal_audit_sample_100_trf_current.jsonl
+```
+
+처리 흐름:
+
+```text
+raw concept JSONL
+  -> spaCy trf + quote/object-MWE/hyphen retokenizer
+  -> object mention 후보 구성
+  -> coordination group 후보 구성
+  -> one/other/others/both/each nominal 후보 구성
+  -> Maverick predefined_mentions로 cluster 생성
+  -> antecedent 후보를 rule로 선택
+  -> audit report 작성
+```
+
+### 100 sample 결과
+
+현재 sample 100개 기준 nominal 후보는 9개였다.
+
+```text
+one_anaphor: 4
+other_anaphor: 3
+group_both: 1
+distributive_each: 1
+```
+
+resolution 결과:
+
+```text
+resolved_to_candidate: 7
+unresolved: 2
+```
+
+하지만 resolved 7개를 그대로 성공으로 보면 안 된다.
+Maverick cluster가 너무 넓게 뭉치는 경우가 있어서 false positive 위험이 크다.
+그래서 report에는 `quality_flag`를 추가했다.
+
+```text
+compact_cluster
+broad_cluster_check_manually
+no_cluster
+```
+
+`broad_cluster_check_manually`는 자동 치환 금지 신호다.
+
+### 관찰된 사례
+
+좋은 신호:
+
+```text
+Several cars ... a red one
+-> one 후보가 cars 계열과 연결됨
+```
+
+```text
+A man and a woman ... Both
+-> Both가 coordination group과 연결됨
+```
+
+```text
+Four people ... each
+-> each가 Four people과 연결됨
+```
+
+위험한 신호:
+
+```text
+One wears a vest...
+```
+
+여기서 `One`은 사람 reference인데, cluster가 너무 넓으면 `bathroom` 같은 엉뚱한 antecedent가 후보로 잡힐 수 있다.
+
+```text
+others are seated...
+```
+
+`others`는 보통 이전 children/people group을 가리키지만, cluster가 넓으면 clothing group 쪽으로 잘못 붙을 수 있다.
+
+### 결정
+
+Maverick은 production Stage 8 resolver로 바로 넣지 않는다.
+
+현재 결정:
+
+```text
+Maverick = nominal anaphora audit sidecar
+```
+
+사용 방식:
+
+1. raw concept extraction은 기존 spaCy/rule pipeline으로 수행한다.
+2. `one/other/others/both/each` 후보만 별도 audit한다.
+3. Maverick cluster가 compact하고 antecedent가 명확할 때만 Stage 9 후보로 넘긴다.
+4. broad cluster는 자동 merge/redirect하지 않는다.
+5. `both/each`는 단일 object로 collapse하지 말고 group/distributive semantics를 보존한다.
+
+### 다음 작업
+
+nominal-anaphoric reference는 외부 도구만으로 해결하지 말고, 다음 rule을 같이 만들어야 한다.
+
+```text
+one + modifier
+  -> 가까운 이전 plural object type을 복사하고 modifier를 attribute로 붙이는 후보
+
+the other / others
+  -> discourse contrast link
+  -> object count에는 직접 넣지 않음
+
+both
+  -> coordination group link
+  -> 단일 object로 collapse하지 않음
+
+each
+  -> distributive group link
+  -> group member별 relation 후보로 확장 가능
+```
+
+따라서 다음 우선순위는 Maverick 적용 확대가 아니라, nominal reference 전용 conservative rule layer를 설계하는 것이다.
+
+---
+
+## 2026-06-26 - ambiguous quantity cue handling
+
+### 배경
+
+`several`, `few`, `many`, `multiple` 같은 수량 표현이 단순 modifier/attribute로 분류될 수 있다는 문제가 확인됐다.
+
+기존 Stage 8 rule은 quantity를 거의 다음 조건으로만 잡았다.
+
+```text
+token.dep_ == nummod
+or token.pos_ == NUM
+```
+
+하지만 spaCy는 다음 표현들을 항상 `NUM/nummod`로 주지 않는다.
+
+```text
+several cars
+few dogs
+many cats
+some people
+both men
+each glass
+no people
+```
+
+이 표현들은 caption-to-concept에서 단순 attribute가 아니라 count/group/distribution signal이다.
+
+### 결정
+
+공통 quantity lexicon을 만들고, sentence branch와 tag-list branch가 같이 사용하게 했다.
+
+추가한 파일:
+
+```text
+scripts/quantity_lexicon.py
+```
+
+현재 quantity role:
+
+```text
+exact_quantity
+approximate_quantity
+indefinite_quantity
+group_quantity
+distributive_quantity
+zero_quantity
+partitive_quantity
+```
+
+예시:
+
+```text
+Three people -> exact_quantity
+several cars -> approximate_quantity
+some people -> indefinite_quantity
+both men -> group_quantity
+each glass -> distributive_quantity
+no people -> zero_quantity
+most people -> partitive_quantity
+```
+
+### 구현
+
+sentence branch:
+
+```text
+scripts/raw_concept_extractor.py
+```
+
+변경점:
+
+1. noun chunk modifier 처리 전에 `quantity_role(token)`을 먼저 확인한다.
+2. `det`로 붙은 `some/all/every/no`도 quantity이면 skip하지 않는다.
+3. `with_absolute` recovery modifier에서도 같은 quantity rule을 사용한다.
+4. `each/both/all/some`처럼 noun chunk root 자체가 quantity/reference인 경우 object로 만들지 않는다.
+5. action subject/object 처리에서도 root-only quantity token은 object로 승격하지 않는다.
+
+tag-list branch:
+
+```text
+scripts/tag_list_parser.py
+```
+
+변경점:
+
+1. tag segment modifier 후보를 모을 때 quantity token은 POS/dep와 무관하게 후보로 올린다.
+2. modifier가 quantity이면 `attribute`가 아니라 `quantity` mention을 만들고 `has_quantity` edge를 붙인다.
+
+### Smoke test
+
+확인한 예시:
+
+```text
+Several cars are parked nearby, including a red one.
+-> Several: approximate_quantity
+-> cars --has_quantity--> Several
+```
+
+```text
+A few dogs and many cats sit near no people.
+-> few: approximate_quantity
+-> many: approximate_quantity
+-> no: zero_quantity
+```
+
+```text
+Both men hold each glass.
+-> Both: group_quantity
+-> each: distributive_quantity
+```
+
+```text
+several cars, many cats, no people
+-> tag-list branch에서도 has_quantity edge 생성
+```
+
+### 100 sample 결과
+
+재생성한 파일:
+
+```text
+reports/raw_concepts_sample_100_trf_current.jsonl
+reports/raw_concepts_sample_100_trf_current_summary.md
+```
+
+요약:
+
+```text
+object: 730
+attribute: 412
+action: 208
+context: 49
+quantity: 30
+```
+
+quantity role:
+
+```text
+exact_quantity: 15
+approximate_quantity: 8
+group_quantity: 4
+distributive_quantity: 2
+indefinite_quantity: 1
+```
+
+edge:
+
+```text
+has_quantity: 28
+```
+
+`Four people ..., each holding ...` case에서는 `each`가 더 이상 object로 들어가지 않고 `distributive_quantity`로만 남는다.
+
+### 남은 문제
+
+root-only quantity는 Stage 8에서 object로 세지 않는 것이 맞지만, 일부 relation은 Stage 9에서 다시 연결해야 한다.
+
+예:
+
+```text
+Four people ..., each holding a glass flask
+```
+
+Stage 8에서는 다음 정도까지만 안전하다.
+
+```text
+people --has_quantity--> Four
+quantity(each, distributive_quantity)
+action(holding)
+object(flask)
+```
+
+Stage 9에서는 다음 rule이 필요하다.
+
+```text
+each + action
+  -> antecedent group을 찾음
+  -> distributive action 후보로 연결
+```
+
+즉 이번 변경은 quantity detection 문제를 해결한 것이고, distributive/event binding은 다음 단계에서 별도로 처리한다.
+
+---
+
+## 2026-06-26 - class-based nominal reference resolver
+
+### 배경
+
+`one/other/others/both/each` 같은 nominal-anaphoric 표현을 처리해야 하지만, 단어별/문장별 땜빵 rule을 계속 늘리는 방식은 피하기로 했다.
+
+따라서 다음 원칙으로 Stage 8.5 sidecar resolver를 만들었다.
+
+```text
+word-specific patch X
+reference cue class + antecedent scoring O
+```
+
+### 추가한 파일
+
+```text
+scripts/reference_lexicon.py
+scripts/nominal_reference_resolver.py
+reports/nominal_reference_resolution_sample_100_trf_current.md
+reports/nominal_reference_resolution_sample_100_trf_current.jsonl
+```
+
+### Reference cue class
+
+현재 reference cue는 다음 class로만 분류한다.
+
+```text
+singular_substitute
+  examples: one, ones
+
+contrastive_reference
+  examples: other, others, another
+
+group_reference
+  examples: both, all
+
+distributive_reference
+  examples: each, every
+```
+
+중요한 점:
+
+```text
+one person
+both men
+other buildings
+each glass
+```
+
+처럼 뒤의 noun을 직접 수식하는 경우는 reference로 보지 않는다.
+이 경우는 quantity/modifier 쪽에서 처리한다.
+
+반대로 다음처럼 standalone argument로 쓰이면 reference 후보로 본다.
+
+```text
+One wears a vest.
+the other a yellow shirt.
+others are seated.
+Both look toward the camera.
+each holding a flask.
+```
+
+### Antecedent scoring feature
+
+후보 antecedent는 raw concept의 object mention과 dependency 기반 coordination group에서 만든다.
+점수는 단어 의미 리스트가 아니라 다음 구조적 feature로 계산한다.
+
+```text
+distance / recency
+sentence gap
+plural or group signal
+has_quantity signal
+coordination group 여부
+agent_like antecedent 여부
+patient_like candidate penalty
+syntactic salience
+reference modifier presence
+```
+
+`agent_like`는 raw edge에서 해당 object가 action의 `agent`로 등장했는지 본다.
+`patient_like`는 action의 `patient`로 등장했는지 본다.
+
+이 기준을 넣은 이유:
+
+```text
+Two men ... One wears a vest and red scarf, the other ...
+```
+
+에서 `vest and red scarf`는 가까운 coordination group이지만 patient-like object이다.
+반면 `Two men`은 이전 sentence의 agent-like plural group이다.
+따라서 `the other`는 `vest/scarf`가 아니라 `Two men` 쪽으로 가야 한다.
+
+마찬가지로:
+
+```text
+A man and a woman ... wearing a top and earrings. Both look ...
+```
+
+에서 `top and earrings`는 가까운 patient-like coordination group이고,
+`A man and a woman`은 더 멀지만 agent-like coordination group이다.
+
+### Conservative policy
+
+자동 적용을 너무 쉽게 하지 않기 위해 margin threshold를 둔다.
+
+현재 기본값:
+
+```text
+min_score: 45
+ambiguous_margin: 15
+max_antecedent_tokens: 80
+```
+
+정책:
+
+```text
+resolved
+  -> Stage 9 후보로 사용 가능
+
+ambiguous
+  -> 후보는 있지만 자동 적용하지 않음
+
+unresolved
+  -> object count에서 surface reference 제외 후보로 남김
+```
+
+### 100 sample 결과
+
+재생성한 파일:
+
+```text
+reports/nominal_reference_resolution_sample_100_trf_current.md
+reports/nominal_reference_resolution_sample_100_trf_current.jsonl
+```
+
+결과:
+
+```text
+references_seen: 9
+resolved: 8
+ambiguous: 1
+unresolved: 0
+```
+
+reference class:
+
+```text
+singular_substitute: 4
+contrastive_reference: 3
+group_reference: 1
+distributive_reference: 1
+```
+
+주요 case:
+
+```text
+case 15
+One -> Two men
+other -> Two men
+
+case 16
+others -> Children
+
+case 40
+a red one -> Several cars
+
+case 62
+Both -> A man and a woman
+status: ambiguous
+reason: margin 9, automatic application 보류
+
+case 98
+each -> Four people
+```
+
+### Maverick과의 관계
+
+Maverick은 predefined_mentions를 넣으면 일부 cluster signal을 주지만, cluster가 넓게 뭉치는 문제가 있었다.
+따라서 현재 기본 결정은 다음과 같다.
+
+```text
+nominal_reference_resolver.py
+  -> 기본 Stage 8.5 sidecar
+
+Maverick audit
+  -> 비교/검증용 external signal
+```
+
+### 남은 작업
+
+이 resolver는 아직 raw concepts를 직접 수정하지 않는다.
+다음 단계에서는 Stage 9에서 다음 edge 후보를 만들 수 있다.
+
+```text
+reference_link(reference, antecedent)
+substitute_type(one, antecedent_object_type)
+contrastive_link(other, antecedent_group)
+group_link(both, antecedent_group)
+distributive_link(each, antecedent_group)
+```
+
+단, `ambiguous`는 자동 적용하지 않는다.

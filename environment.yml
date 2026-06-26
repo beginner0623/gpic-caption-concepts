@@ -14,5 +14,6 @@ dependencies:
   - pip:
       - cupy-cuda13x
       - fastcoref==2.1.6
+      - maverick-coref==1.0.7
       - transformers<5
       - huggingface-hub<1

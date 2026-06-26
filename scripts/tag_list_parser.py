@@ -3,6 +3,8 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass
 import re
 
+from quantity_lexicon import quantity_confidence, quantity_role
+
 
 CONTEXT_TAGS = {
     "indoor",
@@ -362,7 +364,9 @@ def _modifier_tokens(doc, head) -> list:
     for token in doc:
         if token.i == head.i:
             continue
-        if token.head.i == head.i and (token.dep_ in MODIFIER_DEPS or token.pos_ in ATTRIBUTE_POS):
+        if quantity_role(token) is not None:
+            modifiers.append(token)
+        elif token.head.i == head.i and (token.dep_ in MODIFIER_DEPS or token.pos_ in ATTRIBUTE_POS):
             modifiers.append(token)
         elif token.i < head.i and token.pos_ in {"ADJ", "NOUN", "PROPN", "NUM", "VERB"}:
             modifiers.append(token)
@@ -517,23 +521,27 @@ def parse_tag_list(nlp, caption: str) -> TagListParseResult:
             )
             previous_object_ids.append(object_id)
             for modifier in _modifier_tokens(doc, head):
-                role = "attribute"
-                if modifier.tag_ in {"VBG", "VBN"}:
+                quantity = quantity_role(modifier)
+                concept_type = "quantity" if quantity is not None else "attribute"
+                role = quantity or "attribute"
+                edge_type = "has_quantity" if quantity is not None else "has_attribute"
+                confidence = quantity_confidence(quantity) if quantity is not None else "high"
+                if quantity is None and modifier.tag_ in {"VBG", "VBN"}:
                     role = "state_attribute"
                 attr_id = add_mention(
-                    "attribute",
+                    concept_type,
                     modifier.text,
                     modifier.lemma_,
                     segment.tag_id,
                     modifier.i,
                     role,
-                    "high",
+                    confidence,
                 )
                 add_edge(
-                    "has_attribute",
+                    edge_type,
                     object_id,
                     attr_id,
-                    "high",
+                    confidence,
                     f"{segment.tag_id} internal {modifier.dep_} -> {head.text}",
                 )
             continue
