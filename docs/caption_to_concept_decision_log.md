@@ -3725,3 +3725,93 @@ duplicate_records: 0
 | 57 | `m16` The object | `m17` rests |
 | 73 | `m19` the structure | `m20` stands |
 | 80 | `m16` The object | `m17` rests |
+## 2026-06-27 - 현재 stage 기준 throughput benchmark
+
+### 측정 환경
+
+```text
+GPU: NVIDIA GeForce RTX 5080 Laptop GPU, 16GB
+model: en_core_web_trf
+input: data/gpic_captions_eval/val/gpic_val_00000.jsonl.gz
+source records: 100
+benchmark method: source 100 captions 반복 확장
+```
+
+현재 stage 옵션:
+
+```text
+--mask-quotes
+--parse-tag-lists
+--merge-object-mwes
+--merge-hyphen-spans
+--serialize-json
+```
+
+CuPy/NVRTC 우회 옵션:
+
+```text
+--cupy-include-dir .mamba/env/Lib/site-packages/cupy/_core/include
+--disable-cupy-reduction-accelerators
+```
+
+### parse-only upper bound
+
+기존 `benchmark_spacy_parse.py`로 retokenizer 포함 spaCy parse+noun_chunks만 측정했다.
+
+```text
+file: reports/spacy_benchmark_10k_trf_gpu0_bs256_current_stage.json
+records: 10,000
+batch_size: 256
+parse_seconds: 49.0945
+docs/sec: 203.6887
+estimated 100M: 5.6822 days / 1 GPU
+```
+
+이 값은 raw concept extraction, tag-list branch, JSON serialization을 제외한 batched spaCy 상한선이다.
+
+### current row-by-row raw extraction
+
+새로 `scripts/benchmark_raw_concepts.py`를 추가했다.
+이 benchmark는 현재 `extract_raw_concepts.py`와 같은 row-by-row 구조로 다음을 포함한다.
+
+```text
+quote text metadata collection
+raw quote retokenization
+object MWE retokenization
+hyphen span retokenization
+tag-list branch
+raw concept extraction
+JSON serialization cost
+```
+
+결과:
+
+| file | records | run_seconds | docs/sec | estimated 100M / 1 GPU |
+|---|---:|---:|---:|---:|
+| `reports/raw_concepts_benchmark_1k_trf_gpu0_current_stage.json` | 1,000 | 17.1085 | 58.4506 | 19.8015 days |
+| `reports/raw_concepts_benchmark_5k_trf_gpu0_current_stage.json` | 5,000 | 110.0412 | 45.4375 | 25.4725 days |
+
+5k 결과를 보수 기준으로 잡으면 다음과 같다.
+
+```text
+1 GPU: 45.44 docs/sec
+1 GPU: 약 3.93M captions/day
+16 GPU 선형 가정: 약 62.8M captions/day
+100M / 16 GPU 선형 가정: 약 1.59 days
+```
+
+### 해석
+
+현재 local RTX 5080 Laptop 기준으로도 16 GPU 선형 병렬이면 3일/100M 조건은 숫자상 가능하다.
+다만 실제 H200 16장에서는 다음을 반드시 다시 측정해야 한다.
+
+```text
+1. 실제 H200에서 en_core_web_trf GPU throughput
+2. 100개 반복 샘플이 아니라 GPIC shard 여러 개 기준 caption length 분포 반영
+3. 현재 row-by-row CLI가 GPU batch를 충분히 못 쓰는 문제
+4. production에서는 nlp.pipe 기반 batched raw extraction으로 바꾸면 parse-only 상한선에 더 가까워질 가능성
+```
+
+현재 가장 큰 병목은 raw rule 자체라기보다 `extract_raw_concepts.py`가 row-by-row로 `nlp(caption)`을 호출한다는 점이다.
+parse-only batched upper bound는 203.7 docs/sec인데, current row-by-row end-to-end는 45.4 docs/sec다.
+따라서 다음 최적화 후보는 `extract_raw_concepts.py`를 `nlp.pipe` 기반 batched 처리로 바꾸는 것이다.
