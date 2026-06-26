@@ -176,12 +176,12 @@ _none_
 | m9 | object | bits | bit | chunk7 | 26 | noun_chunk_root | high |
 | m10 | attribute | small | small | chunk7 | 25 | size_attribute | high |
 | m11 | object | debris | debris | chunk8 | 28 | noun_chunk_root | high |
-| m12 | object | scene | scene | chunk9 | 33 | noun_chunk_root | high |
+| m12 | context | scene | scene | chunk9 | 33 | scene_context | high |
 | m13 | object | floor | floor | chunk10 | 39 | noun_chunk_root | high |
 | m14 | attribute | forest | forest | chunk10 | 38 | compound_modifier | medium |
 | m15 | object | tree trunk | tree_trunk | chunk11 | 42 | noun_chunk_root | high |
 | m16 | attribute | fallen | fallen | chunk11 | 41 | modifier_attribute | medium |
-| m17 | context | outdoors | outdoors | doc | 35 | context_word | medium |
+| m17 | context | outdoors | outdoors | doc | 35 | scene_context | high |
 | m18 | action | crawling | crawl | doc | 6 | verb_predicate | high |
 | m19 | action | shows | show | doc | 17 | verb_predicate | high |
 | m20 | action | scattered | scatter | doc | 29 | verb_predicate | high |
@@ -193,22 +193,23 @@ _none_
 | e0 | has_attribute | m0 | m1 | high | chunk0 amod -> insect |
 | e1 | has_attribute | m7 | m8 | medium | chunk6 amod -> splits |
 | e2 | has_attribute | m9 | m10 | high | chunk7 amod -> bits |
-| e3 | has_attribute | m13 | m14 | medium | chunk10 compound -> floor |
-| e4 | has_attribute | m15 | m16 | medium | chunk11 amod -> tree trunk |
-| e5 | has_context | scene | m17 | medium | context token outdoors |
-| e6 | agent | m18 | m0 | medium | nsubj -> crawling |
-| e7 | agent | m19 | m4 | medium | nsubj -> shows |
-| e8 | patient | m19 | m5 | medium | dobj -> shows |
-| e9 | agent | m20 | m7 | medium | inherited agent acl -> splits |
-| e10 | agent | m21 | m12 | medium | nsubj -> appears |
-| e11 | relation | m0 | m2 | high | with |
-| e12 | relation | m0 | m3 | high | on |
-| e13 | relation | m5 | m6 | medium | of |
-| e14 | relation | m4 | m7 | high | with |
-| e15 | relation | m4 | m9 | high | with |
-| e16 | relation | m9 | m11 | medium | of |
-| e17 | relation | m12 | m13 | high | on |
-| e18 | relation | m12 | m15 | high | on |
+| e3 | has_context | scene | m12 | high | scene_context token scene |
+| e4 | has_attribute | m13 | m14 | medium | chunk10 compound -> floor |
+| e5 | has_attribute | m15 | m16 | medium | chunk11 amod -> tree trunk |
+| e6 | has_context | scene | m17 | high | scene_context token outdoors |
+| e7 | agent | m18 | m0 | medium | nsubj -> crawling |
+| e8 | agent | m19 | m4 | medium | nsubj -> shows |
+| e9 | patient | m19 | m5 | medium | dobj -> shows |
+| e10 | agent | m20 | m7 | medium | inherited agent acl -> splits |
+| e11 | agent | m21 | m12 | medium | nsubj -> appears |
+| e12 | relation | m0 | m2 | high | with |
+| e13 | relation | m0 | m3 | high | on |
+| e14 | relation | m5 | m6 | medium | of |
+| e15 | relation | m4 | m7 | high | with |
+| e16 | relation | m4 | m9 | high | with |
+| e17 | relation | m9 | m11 | medium | of |
+| e18 | relation | m12 | m13 | high | on |
+| e19 | relation | m12 | m15 | high | on |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -478,7 +479,7 @@ _none_
 | m7 | attribute | green | green | chunk2 | 10 | color_attribute | high |
 | m8 | object | blooms | bloom | chunk3 | 14 | noun_chunk_root | high |
 | m9 | attribute | purple | purple | chunk3 | 13 | color_attribute | high |
-| m10 | object | background | background | chunk4 | 18 | noun_chunk_root | high |
+| m10 | context | background | background | chunk4 | 18 | scene_context | high |
 | m11 | object | people | people | chunk5 | 20 | noun_chunk_root | high |
 | m12 | object | fence | fence | chunk6 | 25 | noun_chunk_root | high |
 | m13 | attribute | wooden | wooden | chunk6 | 24 | material_attribute | high |
@@ -489,9 +490,8 @@ _none_
 | m18 | attribute | blue | blue | chunk9 | 34 | color_attribute | high |
 | m19 | object | area | area | chunk10 | 41 | noun_chunk_root | high |
 | m20 | attribute | garden | garden | chunk10 | 40 | compound_modifier | medium |
-| m21 | context | background | background | doc | 18 | context_word | medium |
-| m22 | action | stand | stand | doc | 4 | verb_predicate | high |
-| m23 | action | walk | walk | doc | 21 | verb_predicate | high |
+| m21 | action | stand | stand | doc | 4 | verb_predicate | high |
+| m22 | action | walk | walk | doc | 21 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -502,17 +502,17 @@ _none_
 | e3 | has_attribute | m4 | m5 | medium | chunk1 compound -> bed |
 | e4 | has_attribute | m6 | m7 | high | chunk2 amod -> grass |
 | e5 | has_attribute | m8 | m9 | high | chunk3 amod -> blooms |
-| e6 | has_attribute | m12 | m13 | high | chunk6 amod -> fence |
-| e7 | has_attribute | m14 | m15 | high | chunk7 amod -> umbrella |
-| e8 | has_attribute | m17 | m18 | high | chunk9 amod -> structure |
-| e9 | has_attribute | m19 | m20 | medium | chunk10 compound -> area |
-| e10 | has_context | scene | m21 | medium | context token background |
-| e11 | agent | m22 | m0 | medium | nsubj -> stand |
-| e12 | agent | m23 | m11 | medium | nsubj -> walk |
+| e6 | has_context | scene | m10 | high | scene_context token background |
+| e7 | has_attribute | m12 | m13 | high | chunk6 amod -> fence |
+| e8 | has_attribute | m14 | m15 | high | chunk7 amod -> umbrella |
+| e9 | has_attribute | m17 | m18 | high | chunk9 amod -> structure |
+| e10 | has_attribute | m19 | m20 | medium | chunk10 compound -> area |
+| e11 | agent | m21 | m0 | medium | nsubj -> stand |
+| e12 | agent | m22 | m11 | medium | nsubj -> walk |
 | e13 | relation | m0 | m4 | high | in |
 | e14 | relation | m4 | m6 | high | with |
 | e15 | relation | m4 | m8 | high | with |
-| e16 | relation | m11 | m21 | high | in |
+| e16 | relation | m11 | m10 | high | in |
 | e17 | relation | m11 | m12 | high | near |
 | e18 | relation | m11 | m14 | high | under |
 | e19 | relation | m16 | m19 | high | beyond |
@@ -722,7 +722,7 @@ _none_
 | m4 | object | silhouette | silhouette | chunk3 | 10 | noun_chunk_root | high |
 | m5 | object | man | man | chunk4 | 13 | noun_chunk_root | high |
 | m6 | object | hat | hat | chunk5 | 16 | noun_chunk_root | high |
-| m7 | object | scene | scene | chunk6 | 19 | noun_chunk_root | high |
+| m7 | context | scene | scene | chunk6 | 19 | scene_context | high |
 | m8 | object | sidewalk | sidewalk | chunk7 | 24 | noun_chunk_root | high |
 | m9 | attribute | city | city | chunk7 | 23 | compound_modifier | medium |
 | m10 | action | reads | read | doc | 6 | verb_predicate | high |
@@ -731,14 +731,15 @@ _none_
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m2 | m3 | high | chunk1 amod -> trash can |
-| e1 | has_attribute | m8 | m9 | medium | chunk7 compound -> sidewalk |
-| e2 | agent | m10 | m1 | medium | nsubj -> reads |
-| e3 | patient | m10 | m0 | medium | dobj -> reads |
-| e4 | relation | m1 | m2 | high | on |
-| e5 | relation | m1 | m4 | high | with |
-| e6 | relation | m4 | m5 | medium | of |
-| e7 | relation | m5 | m6 | high | in |
-| e8 | relation | m7 | m8 | high | on |
+| e1 | has_context | scene | m7 | high | scene_context token scene |
+| e2 | has_attribute | m8 | m9 | medium | chunk7 compound -> sidewalk |
+| e3 | agent | m10 | m1 | medium | nsubj -> reads |
+| e4 | patient | m10 | m0 | medium | dobj -> reads |
+| e5 | relation | m1 | m2 | high | on |
+| e6 | relation | m1 | m4 | high | with |
+| e7 | relation | m4 | m5 | medium | of |
+| e8 | relation | m5 | m6 | high | in |
+| e9 | relation | m7 | m8 | high | on |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -816,12 +817,11 @@ _none_
 | m7 | attribute | striped | strip | chunk2 | 14 | state_attribute | medium |
 | m8 | object | child | child | chunk3 | 18 | noun_chunk_root | high |
 | m9 | object | window | window | chunk4 | 27 | noun_chunk_root | high |
-| m10 | object | background | background | chunk5 | 31 | noun_chunk_root | high |
-| m11 | context | indoors | indoors | doc | 23 | context_word | medium |
-| m12 | context | background | background | doc | 31 | context_word | medium |
-| m13 | action | smiles | smile | doc | 6 | verb_predicate | high |
-| m14 | action | wearing | wear | doc | 9 | verb_predicate | high |
-| m15 | action | appears | appear | doc | 22 | verb_predicate | high |
+| m10 | context | background | background | chunk5 | 31 | scene_context | high |
+| m11 | context | indoors | indoors | doc | 23 | scene_context | high |
+| m12 | action | smiles | smile | doc | 6 | verb_predicate | high |
+| m13 | action | wearing | wear | doc | 9 | verb_predicate | high |
+| m14 | action | appears | appear | doc | 22 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -831,12 +831,12 @@ _none_
 | e2 | has_attribute | m4 | m5 | high | chunk2 amod -> hat |
 | e3 | has_attribute | m4 | m6 | high | chunk2 conj -> hat |
 | e4 | has_attribute | m4 | m7 | medium | chunk2 amod -> hat |
-| e5 | has_context | scene | m11 | medium | context token indoors |
-| e6 | has_context | scene | m12 | medium | context token background |
-| e7 | agent | m13 | m0 | medium | nsubj -> smiles |
-| e8 | agent | m14 | m0 | medium | inherited agent advcl -> smiles |
-| e9 | patient | m14 | m4 | medium | dobj -> wearing |
-| e10 | agent | m15 | m8 | medium | inherited agent conj -> is |
+| e5 | has_context | scene | m10 | high | scene_context token background |
+| e6 | has_context | scene | m11 | high | scene_context token indoors |
+| e7 | agent | m12 | m0 | medium | nsubj -> smiles |
+| e8 | agent | m13 | m0 | medium | inherited agent advcl -> smiles |
+| e9 | patient | m13 | m4 | medium | dobj -> wearing |
+| e10 | agent | m14 | m8 | medium | inherited agent conj -> is |
 | e11 | relation | m0 | m2 | high | with |
 | e12 | relation | m8 | m9 | high | with |
 
@@ -1296,19 +1296,24 @@ _none_
 | m4 | object | vest | vest | chunk3 | 13 | noun_chunk_root | high |
 | m5 | object | scarf | scarf | chunk4 | 16 | noun_chunk_root | high |
 | m6 | attribute | red | red | chunk4 | 15 | color_attribute | high |
-| m7 | action | smile | smile | doc | 2 | verb_predicate | high |
-| m8 | action | wears | wear | doc | 11 | verb_predicate | high |
+| m7 | reference | One | one | nominal_reference | 10 | singular_substitute | high |
+| m8 | reference | other | other | nominal_reference | 19 | contrastive_reference | high |
+| m9 | action | smile | smile | doc | 2 | verb_predicate | high |
+| m10 | action | wears | wear | doc | 11 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_quantity | m0 | m1 | high | chunk0 quantity -> men |
 | e1 | has_attribute | m5 | m6 | high | chunk4 amod -> scarf |
-| e2 | agent | m7 | m0 | medium | nsubj -> smile |
-| e3 | patient | m8 | m4 | medium | dobj -> wears |
-| e4 | patient | m8 | m5 | medium | dobj -> wears |
-| e5 | relation | m0 | m2 | medium | for |
-| e6 | relation | m0 | m3 | high | in |
+| e2 | refers_to | m7 | m0 | high | singular_substitute One -> men; score=102 |
+| e3 | refers_to | m8 | m0 | high | contrastive_reference other -> men; score=110; margin=21 |
+| e4 | agent | m9 | m0 | medium | nsubj -> smile |
+| e5 | agent | m10 | m0 | medium | nsubj -> wears; resolved One -> men |
+| e6 | patient | m10 | m4 | medium | dobj -> wears |
+| e7 | patient | m10 | m5 | medium | dobj -> wears |
+| e8 | relation | m0 | m2 | medium | for |
+| e9 | relation | m0 | m3 | high | in |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -1404,35 +1409,35 @@ _none_
 | m7 | quantity | One | one | chunk5 | 13 | exact_quantity | high |
 | m8 | object | violin | violin | chunk6 | 17 | noun_chunk_root | high |
 | m9 | object | music stands | music_stand | chunk8 | 24 | noun_chunk_root | high |
-| m10 | object | setting | setting | chunk9 | 28 | noun_chunk_root | high |
+| m10 | context | setting | setting | chunk9 | 28 | scene_context | high |
 | m11 | object | curtains | curtain | chunk10 | 34 | noun_chunk_root | high |
 | m12 | attribute | red | red | chunk10 | 33 | color_attribute | high |
 | m13 | object | chairs | chair | chunk11 | 37 | noun_chunk_root | high |
 | m14 | attribute | blue | blue | chunk11 | 36 | color_attribute | high |
-| m15 | object | background | background | chunk12 | 41 | noun_chunk_root | high |
-| m16 | context | indoors | indoors | doc | 30 | context_word | medium |
-| m17 | context | background | background | doc | 41 | context_word | medium |
-| m18 | action | sit | sit | doc | 6 | verb_predicate | high |
-| m19 | action | holds | hold | doc | 15 | verb_predicate | high |
-| m20 | action | seated | seat | doc | 22 | verb_predicate | high |
+| m15 | context | background | background | chunk12 | 41 | scene_context | high |
+| m16 | context | indoors | indoors | doc | 30 | scene_context | high |
+| m17 | action | sit | sit | doc | 6 | verb_predicate | high |
+| m18 | action | holds | hold | doc | 15 | verb_predicate | high |
+| m19 | action | seated | seat | doc | 22 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m1 | m2 | high | chunk1 amod -> dresses |
 | e1 | has_quantity | m6 | m7 | high | chunk5 quantity -> child |
-| e2 | has_attribute | m11 | m12 | high | chunk10 amod -> curtains |
-| e3 | has_attribute | m13 | m14 | high | chunk11 amod -> chairs |
-| e4 | has_context | scene | m16 | medium | context token indoors |
-| e5 | has_context | scene | m17 | medium | context token background |
-| e6 | agent | m18 | m0 | medium | nsubj -> sit |
-| e7 | agent | m19 | m6 | medium | nsubj -> holds |
-| e8 | patient | m19 | m8 | medium | dobj -> holds |
-| e9 | agent | m20 | m6 | medium | inherited agent advcl -> holds |
-| e10 | relation | m0 | m1 | high | in |
-| e11 | relation | m0 | m3 | high | in |
-| e12 | relation | m0 | m4 | high | on |
-| e13 | relation | m0 | m5 | medium | during |
+| e2 | has_context | scene | m10 | high | scene_context token setting |
+| e3 | has_attribute | m11 | m12 | high | chunk10 amod -> curtains |
+| e4 | has_attribute | m13 | m14 | high | chunk11 amod -> chairs |
+| e5 | has_context | scene | m15 | high | scene_context token background |
+| e6 | has_context | scene | m16 | high | scene_context token indoors |
+| e7 | agent | m17 | m0 | medium | nsubj -> sit |
+| e8 | agent | m18 | m6 | medium | nsubj -> holds |
+| e9 | patient | m18 | m8 | medium | dobj -> holds |
+| e10 | agent | m19 | m6 | medium | inherited agent advcl -> holds |
+| e11 | relation | m0 | m1 | high | in |
+| e12 | relation | m0 | m3 | high | in |
+| e13 | relation | m0 | m4 | high | on |
+| e14 | relation | m0 | m5 | medium | during |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -1570,44 +1575,44 @@ _none_
 | m1 | object | buildings | building | chunk1 | 7 | noun_chunk_root | high |
 | m2 | quantity | two | two | chunk1 | 5 | exact_quantity | high |
 | m3 | attribute | tall | tall | chunk1 | 6 | size_attribute | high |
-| m4 | object | dusk | dusk | chunk2 | 9 | noun_chunk_root | high |
+| m4 | context | dusk | dusk | chunk2 | 9 | scene_context | high |
 | m5 | object | streets | street | chunk3 | 13 | noun_chunk_root | high |
 | m6 | object | vehicles | vehicle | chunk4 | 15 | noun_chunk_root | high |
 | m7 | object | waterfront | waterfront | chunk5 | 19 | noun_chunk_root | high |
 | m8 | object | skyscrapers | skyscraper | chunk6 | 22 | noun_chunk_root | high |
 | m9 | attribute | lit-up | lit-up | chunk6 | 21 | state_attribute | medium |
-| m10 | object | distance | distance | chunk7 | 25 | noun_chunk_root | high |
+| m10 | context | distance | distance | chunk7 | 25 | scene_context | high |
 | m11 | object | sky | sky | chunk8 | 28 | noun_chunk_root | high |
 | m12 | object | hues | hue | chunk9 | 34 | noun_chunk_root | high |
 | m13 | attribute | soft | soft | chunk9 | 30 | modifier_attribute | medium |
 | m14 | attribute | orange | orange | chunk9 | 31 | color_attribute | high |
 | m15 | attribute | gray | gray | chunk9 | 33 | color_attribute | high |
 | m16 | object | horizon | horizon | chunk10 | 37 | noun_chunk_root | high |
-| m17 | context | dusk | dusk | doc | 9 | context_word | medium |
-| m18 | action | viewed | view | doc | 2 | verb_predicate | high |
-| m19 | action | stretch | stretch | doc | 16 | verb_predicate | high |
-| m20 | action | shows | show | doc | 29 | verb_predicate | high |
+| m17 | action | viewed | view | doc | 2 | verb_predicate | high |
+| m18 | action | stretch | stretch | doc | 16 | verb_predicate | high |
+| m19 | action | shows | show | doc | 29 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_quantity | m1 | m2 | high | chunk1 quantity -> buildings |
 | e1 | has_attribute | m1 | m3 | high | chunk1 amod -> buildings |
-| e2 | has_attribute | m8 | m9 | medium | chunk6 amod -> skyscrapers |
-| e3 | has_attribute | m12 | m13 | medium | chunk9 amod -> hues |
-| e4 | has_attribute | m12 | m14 | high | chunk9 nmod -> hues |
-| e5 | has_attribute | m12 | m15 | high | chunk9 conj -> hues |
-| e6 | has_context | scene | m17 | medium | context token dusk |
-| e7 | agent | m18 | m0 | medium | inherited agent acl -> cityscape |
-| e8 | agent | m19 | m5 | medium | nsubj -> stretch |
-| e9 | agent | m19 | m6 | medium | nsubj -> stretch |
-| e10 | agent | m20 | m11 | medium | nsubj -> shows |
-| e11 | patient | m20 | m12 | medium | dobj -> shows |
-| e12 | relation | m0 | m17 | medium | at |
-| e13 | relation | m5 | m7 | medium | toward |
-| e14 | relation | m7 | m8 | high | with |
-| e15 | relation | m8 | m10 | high | in |
-| e16 | relation | m11 | m16 | high | near |
+| e2 | has_context | scene | m4 | high | scene_context token dusk |
+| e3 | has_attribute | m8 | m9 | medium | chunk6 amod -> skyscrapers |
+| e4 | has_context | scene | m10 | high | scene_context token distance |
+| e5 | has_attribute | m12 | m13 | medium | chunk9 amod -> hues |
+| e6 | has_attribute | m12 | m14 | high | chunk9 nmod -> hues |
+| e7 | has_attribute | m12 | m15 | high | chunk9 conj -> hues |
+| e8 | agent | m17 | m0 | medium | inherited agent acl -> cityscape |
+| e9 | agent | m18 | m5 | medium | nsubj -> stretch |
+| e10 | agent | m18 | m6 | medium | nsubj -> stretch |
+| e11 | agent | m19 | m11 | medium | nsubj -> shows |
+| e12 | patient | m19 | m12 | medium | dobj -> shows |
+| e13 | relation | m0 | m4 | medium | at |
+| e14 | relation | m5 | m7 | medium | toward |
+| e15 | relation | m7 | m8 | high | with |
+| e16 | relation | m8 | m10 | high | in |
+| e17 | relation | m11 | m16 | high | near |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -1708,10 +1713,9 @@ _none_
 | m13 | quantity | few | few | chunk8 | 33 | approximate_quantity | medium |
 | m14 | attribute | distant | distant | chunk8 | 34 | modifier_attribute | medium |
 | m15 | object | power lines | power_line | chunk9 | 37 | noun_chunk_root | high |
-| m16 | object | background | background | chunk10 | 42 | noun_chunk_root | high |
-| m17 | context | background | background | doc | 42 | context_word | medium |
-| m18 | action | runs | run | doc | 7 | verb_predicate | high |
-| m19 | action | stretches | stretch | doc | 22 | verb_predicate | high |
+| m16 | context | background | background | chunk10 | 42 | scene_context | high |
+| m17 | action | runs | run | doc | 7 | verb_predicate | high |
+| m18 | action | stretches | stretch | doc | 22 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -1724,15 +1728,15 @@ _none_
 | e5 | has_attribute | m9 | m11 | high | chunk7 amod -> sky |
 | e6 | has_quantity | m12 | m13 | medium | chunk8 quantity -> trees |
 | e7 | has_attribute | m12 | m14 | medium | chunk8 amod -> trees |
-| e8 | has_context | scene | m17 | medium | context token background |
-| e9 | agent | m18 | m0 | medium | nsubj -> runs |
-| e10 | agent | m19 | m5 | medium | nsubj -> stretches |
+| e8 | has_context | scene | m16 | high | scene_context token background |
+| e9 | agent | m17 | m0 | medium | nsubj -> runs |
+| e10 | agent | m18 | m5 | medium | nsubj -> stretches |
 | e11 | relation | m0 | m2 | high | with |
 | e12 | relation | m0 | m4 | medium | bottom_of |
 | e13 | relation | m5 | m0 | high | beyond |
 | e14 | relation | m5 | m8 | medium | to |
 | e15 | relation | m5 | m9 | high | under |
-| e16 | relation | m12 | m17 | high | in |
+| e16 | relation | m12 | m16 | high | in |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -1930,12 +1934,11 @@ _none_
 | m17 | context | right | right | chunk14 | 50 | spatial_region | medium |
 | m18 | object | sign | sign | chunk15 | 56 | noun_chunk_root | high |
 | m19 | attribute | green-lit | green-lit | chunk15 | 55 | modifier_attribute | medium |
-| m20 | object | background | background | chunk16 | 61 | noun_chunk_root | high |
-| m21 | context | indoors | indoors | doc | 6 | context_word | medium |
-| m22 | context | background | background | doc | 61 | context_word | medium |
-| m23 | action | has | have | doc | 33 | verb_predicate | high |
-| m24 | action | touching | touch | doc | 38 | verb_predicate | high |
-| m25 | action | smiles | smile | doc | 51 | verb_predicate | high |
+| m20 | context | background | background | chunk16 | 61 | scene_context | high |
+| m21 | context | indoors | indoors | doc | 6 | scene_context | high |
+| m22 | action | has | have | doc | 33 | verb_predicate | high |
+| m23 | action | touching | touch | doc | 38 | verb_predicate | high |
+| m24 | action | smiles | smile | doc | 51 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -1944,13 +1947,13 @@ _none_
 | e1 | has_attribute | m2 | m3 | medium | chunk1 amod -> proximity |
 | e2 | has_attribute | m12 | m13 | medium | chunk10 amod -> hair |
 | e3 | has_attribute | m18 | m19 | medium | chunk15 amod -> sign |
-| e4 | has_context | scene | m21 | medium | context token indoors |
-| e5 | has_context | scene | m22 | medium | context token background |
-| e6 | agent | m23 | m10 | medium | nsubj -> has |
-| e7 | patient | m23 | m12 | medium | dobj -> has |
-| e8 | agent | m24 | m10 | medium | inherited agent conj -> has |
-| e9 | patient | m24 | m14 | medium | dobj -> touching |
-| e10 | agent | m25 | m16 | medium | nsubj -> smiles |
+| e4 | has_context | scene | m20 | high | scene_context token background |
+| e5 | has_context | scene | m21 | high | scene_context token indoors |
+| e6 | agent | m22 | m10 | medium | nsubj -> has |
+| e7 | patient | m22 | m12 | medium | dobj -> has |
+| e8 | agent | m23 | m10 | medium | inherited agent conj -> has |
+| e9 | patient | m23 | m14 | medium | dobj -> touching |
+| e10 | agent | m24 | m16 | medium | nsubj -> smiles |
 | e11 | relation | m0 | m2 | high | in |
 | e12 | relation | m0 | m4 | high | with |
 | e13 | relation | m0 | m6 | high | with |
@@ -1961,7 +1964,7 @@ _none_
 | e18 | relation | m10 | m11 | high | in |
 | e19 | relation | m10 | m15 | high | with |
 | e20 | relation | m16 | m17 | high | on |
-| e21 | relation | m18 | m22 | high | in |
+| e21 | relation | m18 | m20 | high | in |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -2304,15 +2307,14 @@ _none_
 | m12 | attribute | red | red | chunk5 | 23 | color_attribute | high |
 | m13 | attribute | blue | blue | chunk5 | 25 | color_attribute | high |
 | m14 | object | dog | dog | chunk6 | 32 | noun_chunk_root | high |
-| m15 | object | background | background | chunk7 | 36 | noun_chunk_root | high |
+| m15 | context | background | background | chunk7 | 36 | scene_context | high |
 | m16 | object | spectators | spectator | chunk8 | 38 | noun_chunk_root | high |
 | m17 | object | fence | fence | chunk9 | 42 | noun_chunk_root | high |
 | m18 | object | banner | banner | chunk10 | 46 | noun_chunk_root | high |
-| m19 | context | background | background | doc | 36 | context_word | medium |
-| m20 | action | leaps | leap | doc | 3 | verb_predicate | high |
-| m21 | action | stands | stand | doc | 27 | verb_predicate | high |
-| m22 | action | watching | watch | doc | 30 | verb_predicate | high |
-| m23 | action | stand | stand | doc | 39 | verb_predicate | high |
+| m19 | action | leaps | leap | doc | 3 | verb_predicate | high |
+| m20 | action | stands | stand | doc | 27 | verb_predicate | high |
+| m21 | action | watching | watch | doc | 30 | verb_predicate | high |
+| m22 | action | stand | stand | doc | 39 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -2324,18 +2326,18 @@ _none_
 | e4 | has_attribute | m9 | m10 | high | chunk4 amod -> outfit |
 | e5 | has_attribute | m11 | m12 | high | chunk5 amod -> trim |
 | e6 | has_attribute | m11 | m13 | high | chunk5 conj -> trim |
-| e7 | has_attribute | m18 | m0 | high | chunk10 nmod -> banner |
-| e8 | has_context | scene | m19 | medium | context token background |
-| e9 | agent | m20 | m1 | medium | nsubj -> leaps |
-| e10 | agent | m21 | m8 | medium | nsubj -> stands |
-| e11 | agent | m22 | m8 | medium | inherited agent advcl -> stands |
-| e12 | patient | m22 | m14 | medium | dobj -> watching |
-| e13 | agent | m23 | m16 | medium | nsubj -> stand |
+| e7 | has_context | scene | m15 | high | scene_context token background |
+| e8 | has_attribute | m18 | m0 | high | chunk10 nmod -> banner |
+| e9 | agent | m19 | m1 | medium | nsubj -> leaps |
+| e10 | agent | m20 | m8 | medium | nsubj -> stands |
+| e11 | agent | m21 | m8 | medium | inherited agent advcl -> stands |
+| e12 | patient | m21 | m14 | medium | dobj -> watching |
+| e13 | agent | m22 | m16 | medium | nsubj -> stand |
 | e14 | relation | m1 | m3 | high | over |
 | e15 | relation | m3 | m7 | high | on |
 | e16 | relation | m8 | m9 | high | in |
 | e17 | relation | m9 | m11 | high | with |
-| e18 | relation | m16 | m19 | high | in |
+| e18 | relation | m16 | m15 | high | in |
 | e19 | relation | m16 | m17 | high | behind |
 | e20 | relation | m16 | m18 | high | near |
 
@@ -2581,7 +2583,7 @@ _none_
 | m3 | attribute | green | green | chunk1 | 6 | color_attribute | high |
 | m4 | object | lake | lake | chunk2 | 11 | noun_chunk_root | high |
 | m5 | attribute | blue | blue | chunk2 | 10 | color_attribute | high |
-| m6 | object | distance | distance | chunk3 | 18 | noun_chunk_root | high |
+| m6 | context | distance | distance | chunk3 | 18 | scene_context | high |
 | m7 | action | flies | fly | doc | 3 | verb_predicate | high |
 | m8 | object | mountains | mountain | with_absolute13 | 15 | with_absolute_recovered_object | medium |
 | m9 | attribute | snow-capped | snow-cappe | with_absolute13 | 14 | state_attribute | medium |
@@ -2592,12 +2594,13 @@ _none_
 | e0 | has_attribute | m0 | m1 | high | chunk0 amod -> helicopter |
 | e1 | has_attribute | m2 | m3 | high | chunk1 amod -> hillside |
 | e2 | has_attribute | m4 | m5 | high | chunk2 amod -> lake |
-| e3 | agent | m7 | m0 | medium | nsubj -> flies |
-| e4 | scene_contains | scene | m8 | medium | with_absolute13 recovered mountains |
-| e5 | has_attribute | m8 | m9 | medium | with_absolute13 amod -> mountains |
-| e6 | relation | m0 | m2 | high | over |
-| e7 | relation | m0 | m4 | high | near |
-| e8 | relation | m8 | m6 | high | in |
+| e3 | has_context | scene | m6 | high | scene_context token distance |
+| e4 | agent | m7 | m0 | medium | nsubj -> flies |
+| e5 | scene_contains | scene | m8 | medium | with_absolute13 recovered mountains |
+| e6 | has_attribute | m8 | m9 | medium | with_absolute13 amod -> mountains |
+| e7 | relation | m0 | m2 | high | over |
+| e8 | relation | m0 | m4 | high | near |
+| e9 | relation | m8 | m6 | high | in |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -3163,7 +3166,7 @@ _none_
 | m17 | attribute | wooden | wooden | chunk10 | 39 | material_attribute | high |
 | m18 | object | banner | banner | chunk11 | 44 | noun_chunk_root | high |
 | m19 | attribute | colorful | colorful | chunk11 | 43 | modifier_attribute | medium |
-| m20 | context | indoors | indoors | doc | 36 | context_word | medium |
+| m20 | context | indoors | indoors | doc | 36 | scene_context | high |
 | m21 | action | wears | wear | doc | 8 | verb_predicate | high |
 | m22 | action | makes | make | doc | 13 | verb_predicate | high |
 | m23 | action | has | have | doc | 22 | verb_predicate | high |
@@ -3181,7 +3184,7 @@ _none_
 | e6 | has_attribute | m12 | m14 | medium | chunk8 compound -> necklace |
 | e7 | has_attribute | m16 | m17 | high | chunk10 amod -> door |
 | e8 | has_attribute | m18 | m19 | medium | chunk11 amod -> banner |
-| e9 | has_context | scene | m20 | medium | context token indoors |
+| e9 | has_context | scene | m20 | high | scene_context token indoors |
 | e10 | agent | m21 | m0 | medium | nsubj -> wears |
 | e11 | patient | m21 | m4 | medium | dobj -> wears |
 | e12 | agent | m22 | m0 | medium | inherited agent conj -> wears |
@@ -3611,17 +3614,15 @@ _none_
 | m10 | object | spoon | spoon | chunk6 | 26 | noun_chunk_root | high |
 | m11 | object | packet | packet | chunk7 | 29 | noun_chunk_root | high |
 | m12 | attribute | sugar | sugar | chunk7 | 28 | compound_modifier | medium |
-| m13 | object | background | background | chunk9 | 38 | noun_chunk_root | high |
+| m13 | context | background | background | chunk9 | 38 | scene_context | high |
 | m14 | attribute | blurred | blurred | chunk9 | 36 | modifier_attribute | medium |
 | m15 | attribute | outdoor | outdoor | chunk9 | 37 | modifier_attribute | medium |
 | m16 | object | rocks | rock | chunk10 | 40 | noun_chunk_root | high |
 | m17 | object | greenery | greenery | chunk11 | 42 | noun_chunk_root | high |
-| m18 | context | outdoor | outdoor | doc | 37 | context_word | medium |
-| m19 | context | background | background | doc | 38 | context_word | medium |
-| m20 | action | sits | sit | doc | 6 | verb_predicate | high |
-| m21 | action | topped | top | doc | 12 | verb_predicate | high |
-| m22 | action | resting | rest | doc | 16 | verb_predicate | high |
-| m23 | action | showing | show | doc | 39 | verb_predicate | high |
+| m18 | action | sits | sit | doc | 6 | verb_predicate | high |
+| m19 | action | topped | top | doc | 12 | verb_predicate | high |
+| m20 | action | resting | rest | doc | 16 | verb_predicate | high |
+| m21 | action | showing | show | doc | 39 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -3631,20 +3632,19 @@ _none_
 | e2 | has_attribute | m4 | m5 | high | chunk2 amod -> table |
 | e3 | has_attribute | m7 | m8 | high | chunk4 amod -> tray |
 | e4 | has_attribute | m11 | m12 | medium | chunk7 compound -> packet |
-| e5 | has_attribute | m13 | m14 | medium | chunk9 amod -> background |
-| e6 | has_attribute | m13 | m15 | medium | chunk9 amod -> background |
-| e7 | has_context | scene | m18 | medium | context token outdoor |
-| e8 | has_context | scene | m19 | medium | context token background |
-| e9 | agent | m20 | m0 | medium | nsubj -> sits |
-| e10 | agent | m21 | m0 | medium | inherited agent advcl -> sits |
-| e11 | agent | m22 | m0 | medium | inherited agent conj -> topped |
-| e12 | agent | m23 | m19 | medium | nsubj -> showing |
-| e13 | patient | m23 | m16 | medium | dobj -> showing |
-| e14 | patient | m23 | m17 | medium | dobj -> showing |
-| e15 | relation | m0 | m2 | medium | of |
-| e16 | relation | m0 | m4 | high | on |
-| e17 | relation | m0 | m6 | high | with |
-| e18 | relation | m7 | m9 | high | with |
+| e5 | has_context | scene | m13 | high | scene_context token background |
+| e6 | has_attribute | m13 | m14 | medium | chunk9 amod -> background |
+| e7 | has_attribute | m13 | m15 | medium | chunk9 amod -> background |
+| e8 | agent | m18 | m0 | medium | nsubj -> sits |
+| e9 | agent | m19 | m0 | medium | inherited agent advcl -> sits |
+| e10 | agent | m20 | m0 | medium | inherited agent conj -> topped |
+| e11 | agent | m21 | m13 | medium | nsubj -> showing |
+| e12 | patient | m21 | m16 | medium | dobj -> showing |
+| e13 | patient | m21 | m17 | medium | dobj -> showing |
+| e14 | relation | m0 | m2 | medium | of |
+| e15 | relation | m0 | m4 | high | on |
+| e16 | relation | m0 | m6 | high | with |
+| e17 | relation | m7 | m9 | high | with |
 
 ### Skipped Raw Concept Edges
 | type | source | target | confidence | reason | evidence |
@@ -3736,11 +3736,13 @@ _none_
 | m11 | object | trees | tree | chunk5 | 30 | noun_chunk_root | high |
 | m12 | object | buildings | building | chunk6 | 33 | noun_chunk_root | high |
 | m13 | attribute | other | other | chunk6 | 32 | modifier_attribute | medium |
-| m14 | object | background | background | chunk7 | 37 | noun_chunk_root | high |
-| m15 | context | background | background | doc | 37 | context_word | medium |
-| m16 | action | stands | stand | doc | 7 | verb_predicate | high |
-| m17 | action | including | include | doc | 16 | verb_predicate | high |
-| m18 | action | parked | park | doc | 22 | verb_predicate | high |
+| m14 | context | background | background | chunk7 | 37 | scene_context | high |
+| m15 | reference | one | one | nominal_reference | 19 | singular_substitute | high |
+| m16 | object | red car | car | nominal_reference | 19 | nominal_reference_instance | high |
+| m17 | attribute | red | red | nominal_reference | 18 | color_attribute | high |
+| m18 | action | stands | stand | doc | 7 | verb_predicate | high |
+| m19 | action | including | include | doc | 16 | verb_predicate | high |
+| m20 | action | parked | park | doc | 22 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -3752,13 +3754,18 @@ _none_
 | e4 | has_quantity | m7 | m8 | medium | chunk3 quantity -> cars |
 | e5 | has_attribute | m9 | m10 | medium | chunk4 amod -> sky |
 | e6 | has_attribute | m12 | m13 | medium | chunk6 amod -> buildings |
-| e7 | has_context | scene | m15 | medium | context token background |
-| e8 | agent | m16 | m0 | medium | nsubj -> stands |
-| e9 | agent | m17 | m7 | medium | inherited agent prep -> cars |
-| e10 | agent | m18 | m7 | medium | nsubjpass -> parked |
-| e11 | relation | m0 | m3 | high | with |
-| e12 | relation | m0 | m5 | high | on |
-| e13 | relation | m7 | m9 | high | under |
+| e7 | has_context | scene | m14 | high | scene_context token background |
+| e8 | refers_to | m15 | m7 | high | singular_substitute one -> cars; score=111; margin=21 |
+| e9 | derived_from | m16 | m7 | high | singular_substitute one -> cars; score=111; margin=21 |
+| e10 | has_attribute | m16 | m17 | high | nominal_reference amod -> one; singular_substitute one -> cars; score=111; margin=21 |
+| e11 | agent | m18 | m0 | medium | nsubj -> stands |
+| e12 | agent | m19 | m7 | medium | inherited agent prep -> cars |
+| e13 | patient | m19 | m16 | medium | pobj -> including; resolved one -> red car |
+| e14 | agent | m20 | m7 | medium | nsubjpass -> parked |
+| e15 | relation | m0 | m3 | high | with |
+| e16 | relation | m0 | m5 | high | on |
+| e17 | relation | m7 | m16 | medium | include |
+| e18 | relation | m7 | m9 | high | under |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -3958,8 +3965,8 @@ _none_
 | m9 | attribute | construction | construction | chunk3 | 17 | compound_modifier | medium |
 | m10 | object | rebar | rebar | chunk4 | 21 | noun_chunk_root | high |
 | m11 | attribute | steel | steel | chunk4 | 20 | material_attribute | high |
-| m12 | object | distance | distance | chunk5 | 31 | noun_chunk_root | high |
-| m13 | object | scene | scene | chunk6 | 34 | noun_chunk_root | high |
+| m12 | context | distance | distance | chunk5 | 31 | scene_context | high |
+| m13 | context | scene | scene | chunk6 | 34 | scene_context | high |
 | m14 | object | site | site | chunk7 | 39 | noun_chunk_root | high |
 | m15 | attribute | outdoor | outdoor | chunk7 | 37 | modifier_attribute | medium |
 | m16 | attribute | construction | construction | chunk7 | 38 | compound_modifier | medium |
@@ -3968,10 +3975,9 @@ _none_
 | m19 | attribute | concrete | concrete | chunk8 | 42 | material_attribute | high |
 | m20 | object | beams | beam | chunk9 | 46 | noun_chunk_root | high |
 | m21 | attribute | structural | structural | chunk9 | 45 | modifier_attribute | medium |
-| m22 | context | outdoor | outdoor | doc | 37 | context_word | medium |
-| m23 | action | run | run | doc | 4 | verb_predicate | high |
-| m24 | object | workers | worker | with_absolute25 | 26 | with_absolute_recovered_object | medium |
-| m25 | object | equipment | equipment | with_absolute25 | 28 | with_absolute_recovered_object | medium |
+| m22 | action | run | run | doc | 4 | verb_predicate | high |
+| m23 | object | workers | worker | with_absolute25 | 26 | with_absolute_recovered_object | medium |
+| m24 | object | equipment | equipment | with_absolute25 | 28 | with_absolute_recovered_object | medium |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -3983,20 +3989,21 @@ _none_
 | e4 | has_attribute | m7 | m8 | high | chunk3 amod -> fencing |
 | e5 | has_attribute | m7 | m9 | medium | chunk3 compound -> fencing |
 | e6 | has_attribute | m10 | m11 | high | chunk4 compound -> rebar |
-| e7 | has_attribute | m14 | m15 | medium | chunk7 amod -> site |
-| e8 | has_attribute | m14 | m16 | medium | chunk7 compound -> site |
-| e9 | has_attribute | m17 | m18 | medium | chunk8 amod -> walls |
-| e10 | has_attribute | m17 | m19 | high | chunk8 amod -> walls |
-| e11 | has_attribute | m20 | m21 | medium | chunk9 amod -> beams |
-| e12 | has_context | scene | m22 | medium | context token outdoor |
-| e13 | agent | m23 | m0 | medium | nsubj -> run |
-| e14 | scene_contains | scene | m24 | medium | with_absolute25 recovered workers |
-| e15 | scene_contains | scene | m25 | medium | with_absolute25 recovered equipment |
-| e16 | relation | m0 | m4 | high | across |
-| e17 | relation | m0 | m5 | high | under |
-| e18 | relation | m24 | m12 | high | in |
-| e19 | relation | m14 | m17 | high | with |
-| e20 | relation | m14 | m20 | high | with |
+| e7 | has_context | scene | m12 | high | scene_context token distance |
+| e8 | has_context | scene | m13 | high | scene_context token scene |
+| e9 | has_attribute | m14 | m15 | medium | chunk7 amod -> site |
+| e10 | has_attribute | m14 | m16 | medium | chunk7 compound -> site |
+| e11 | has_attribute | m17 | m18 | medium | chunk8 amod -> walls |
+| e12 | has_attribute | m17 | m19 | high | chunk8 amod -> walls |
+| e13 | has_attribute | m20 | m21 | medium | chunk9 amod -> beams |
+| e14 | agent | m22 | m0 | medium | nsubj -> run |
+| e15 | scene_contains | scene | m23 | medium | with_absolute25 recovered workers |
+| e16 | scene_contains | scene | m24 | medium | with_absolute25 recovered equipment |
+| e17 | relation | m0 | m4 | high | across |
+| e18 | relation | m0 | m5 | high | under |
+| e19 | relation | m23 | m12 | high | in |
+| e20 | relation | m14 | m17 | high | with |
+| e21 | relation | m14 | m20 | high | with |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -4082,14 +4089,13 @@ _none_
 | m7 | attribute | black | black | chunk3 | 19 | color_attribute | high |
 | m8 | object | Spectators | spectator | chunk4 | 22 | noun_chunk_root | high |
 | m9 | object | fence | fence | chunk5 | 27 | noun_chunk_root | high |
-| m10 | object | background | background | chunk6 | 30 | noun_chunk_root | high |
-| m11 | context | background | background | doc | 30 | context_word | medium |
-| m12 | action | stands | stand | doc | 7 | verb_predicate | high |
-| m13 | action | preparing | prepare | doc | 13 | verb_predicate | high |
-| m14 | action | kick | kick | doc | 15 | verb_predicate | high |
-| m15 | object | trees | tree | with_absolute32 | 33 | with_absolute_recovered_object | medium |
-| m16 | object | sky | sky | with_absolute32 | 37 | with_absolute_recovered_object | medium |
-| m17 | attribute | overcast | overcast | with_absolute32 | 36 | modifier_attribute | medium |
+| m10 | context | background | background | chunk6 | 30 | scene_context | high |
+| m11 | action | stands | stand | doc | 7 | verb_predicate | high |
+| m12 | action | preparing | prepare | doc | 13 | verb_predicate | high |
+| m13 | action | kick | kick | doc | 15 | verb_predicate | high |
+| m14 | object | trees | tree | with_absolute32 | 33 | with_absolute_recovered_object | medium |
+| m15 | object | sky | sky | with_absolute32 | 37 | with_absolute_recovered_object | medium |
+| m16 | attribute | overcast | overcast | with_absolute32 | 36 | modifier_attribute | medium |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -4098,18 +4104,18 @@ _none_
 | e1 | has_attribute | m3 | m4 | medium | chunk2 compound -> field |
 | e2 | has_attribute | m5 | m6 | high | chunk3 amod -> soccer ball |
 | e3 | has_attribute | m5 | m7 | high | chunk3 conj -> soccer ball |
-| e4 | has_context | scene | m11 | medium | context token background |
-| e5 | agent | m12 | m0 | medium | nsubj -> stands |
-| e6 | agent | m13 | m0 | medium | inherited agent advcl -> stands |
-| e7 | agent | m14 | m0 | medium | inherited agent xcomp -> preparing |
-| e8 | patient | m14 | m5 | medium | dobj -> kick |
-| e9 | scene_contains | scene | m15 | medium | with_absolute32 recovered trees |
-| e10 | scene_contains | scene | m16 | medium | with_absolute32 recovered sky |
-| e11 | has_attribute | m16 | m17 | medium | with_absolute32 amod -> sky |
+| e4 | has_context | scene | m10 | high | scene_context token background |
+| e5 | agent | m11 | m0 | medium | nsubj -> stands |
+| e6 | agent | m12 | m0 | medium | inherited agent advcl -> stands |
+| e7 | agent | m13 | m0 | medium | inherited agent xcomp -> preparing |
+| e8 | patient | m13 | m5 | medium | dobj -> kick |
+| e9 | scene_contains | scene | m14 | medium | with_absolute32 recovered trees |
+| e10 | scene_contains | scene | m15 | medium | with_absolute32 recovered sky |
+| e11 | has_attribute | m15 | m16 | medium | with_absolute32 amod -> sky |
 | e12 | relation | m0 | m1 | high | in |
 | e13 | relation | m0 | m3 | high | on |
 | e14 | relation | m8 | m9 | high | behind |
-| e15 | relation | m9 | m11 | high | in |
+| e15 | relation | m9 | m10 | high | in |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -4219,13 +4225,12 @@ _none_
 | m13 | object | wall | wall | chunk10 | 41 | noun_chunk_root | high |
 | m14 | attribute | yellow | yellow | chunk10 | 40 | color_attribute | high |
 | m15 | object | rink | rink | chunk11 | 44 | noun_chunk_root | high |
-| m16 | object | background | background | chunk12 | 49 | noun_chunk_root | high |
-| m17 | context | background | background | doc | 49 | context_word | medium |
-| m18 | action | stands | stand | doc | 3 | verb_predicate | high |
-| m19 | action | wearing | wear | doc | 7 | verb_predicate | high |
-| m20 | action | hold | hold | doc | 22 | verb_predicate | high |
-| m21 | action | positioned | position | doc | 29 | verb_predicate | high |
-| m22 | action | looking | look | doc | 36 | verb_predicate | high |
+| m16 | context | background | background | chunk12 | 49 | scene_context | high |
+| m17 | action | stands | stand | doc | 3 | verb_predicate | high |
+| m18 | action | wearing | wear | doc | 7 | verb_predicate | high |
+| m19 | action | hold | hold | doc | 22 | verb_predicate | high |
+| m20 | action | positioned | position | doc | 29 | verb_predicate | high |
+| m21 | action | looking | look | doc | 36 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -4237,21 +4242,21 @@ _none_
 | e4 | has_attribute | m8 | m9 | medium | chunk4 amod -> gear |
 | e5 | has_quantity | m11 | m12 | high | chunk7 quantity -> hands |
 | e6 | has_attribute | m13 | m14 | high | chunk10 amod -> wall |
-| e7 | has_context | scene | m17 | medium | context token background |
-| e8 | agent | m18 | m0 | medium | nsubj -> stands |
-| e9 | agent | m19 | m0 | medium | inherited agent advcl -> stands |
-| e10 | patient | m19 | m3 | medium | dobj -> wearing |
-| e11 | patient | m19 | m6 | medium | dobj -> wearing |
-| e12 | patient | m19 | m8 | medium | dobj -> wearing |
-| e13 | agent | m20 | m0 | medium | nsubj -> hold; resolved They -> hockey player |
-| e14 | patient | m20 | m10 | medium | dobj -> hold |
-| e15 | agent | m21 | m0 | medium | inherited agent advcl -> hold |
-| e16 | agent | m22 | m0 | medium | inherited agent advcl -> positioned |
+| e7 | has_context | scene | m16 | high | scene_context token background |
+| e8 | agent | m17 | m0 | medium | nsubj -> stands |
+| e9 | agent | m18 | m0 | medium | inherited agent advcl -> stands |
+| e10 | patient | m18 | m3 | medium | dobj -> wearing |
+| e11 | patient | m18 | m6 | medium | dobj -> wearing |
+| e12 | patient | m18 | m8 | medium | dobj -> wearing |
+| e13 | agent | m19 | m0 | medium | nsubj -> hold; resolved They -> hockey player |
+| e14 | patient | m19 | m10 | medium | dobj -> hold |
+| e15 | agent | m20 | m0 | medium | inherited agent advcl -> hold |
+| e16 | agent | m21 | m0 | medium | inherited agent advcl -> positioned |
 | e17 | relation | m0 | m2 | high | on |
 | e18 | relation | m0 | m11 | high | with |
 | e19 | relation | m10 | m0 | medium | in_front_of; repaired_self_edge_source from hockey player |
 | e20 | relation | m13 | m15 | medium | of |
-| e21 | relation | m13 | m17 | high | in |
+| e21 | relation | m13 | m16 | high | in |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -4733,14 +4738,13 @@ _none_
 | m7 | object | individual | individual | chunk3 | 13 | noun_chunk_root | high |
 | m8 | object | grass | grass | chunk4 | 18 | noun_chunk_root | high |
 | m9 | object | sunlight | sunlight | chunk5 | 20 | noun_chunk_root | high |
-| m10 | object | background | background | chunk6 | 24 | noun_chunk_root | high |
+| m10 | context | background | background | chunk6 | 24 | scene_context | high |
 | m11 | object | stamp | stamp | chunk7 | 28 | noun_chunk_root | high |
 | m12 | attribute | date | date | chunk7 | 27 | compound_modifier | medium |
 | m13 | context | corner | corner | chunk8 | 33 | spatial_region | medium |
-| m14 | context | outdoors | outdoors | doc | 15 | context_word | medium |
-| m15 | context | background | background | doc | 24 | context_word | medium |
-| m16 | action | wears | wear | doc | 2 | verb_predicate | high |
-| m17 | action | reads | read | doc | 29 | verb_predicate | high |
+| m14 | context | outdoors | outdoors | doc | 15 | scene_context | high |
+| m15 | action | wears | wear | doc | 2 | verb_predicate | high |
+| m16 | action | reads | read | doc | 29 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -4748,13 +4752,13 @@ _none_
 | e0 | has_attribute | m2 | m3 | high | chunk1 amod -> bicycle helmet |
 | e1 | has_attribute | m2 | m4 | high | chunk1 conj -> bicycle helmet |
 | e2 | has_attribute | m5 | m6 | high | chunk2 amod -> sunglasses |
-| e3 | has_attribute | m11 | m12 | medium | chunk7 compound -> stamp |
-| e4 | has_context | scene | m14 | medium | context token outdoors |
-| e5 | has_context | scene | m15 | medium | context token background |
-| e6 | agent | m16 | m1 | medium | nsubj -> wears |
-| e7 | patient | m16 | m2 | medium | dobj -> wears |
-| e8 | agent | m17 | m11 | medium | nsubj -> reads |
-| e9 | patient | m17 | m0 | medium | dobj -> reads |
+| e3 | has_context | scene | m10 | high | scene_context token background |
+| e4 | has_attribute | m11 | m12 | medium | chunk7 compound -> stamp |
+| e5 | has_context | scene | m14 | high | scene_context token outdoors |
+| e6 | agent | m15 | m1 | medium | nsubj -> wears |
+| e7 | patient | m15 | m2 | medium | dobj -> wears |
+| e8 | agent | m16 | m11 | medium | nsubj -> reads |
+| e9 | patient | m16 | m0 | medium | dobj -> reads |
 | e10 | relation | m2 | m5 | high | with |
 | e11 | relation | m11 | m13 | high | in |
 
@@ -4799,7 +4803,7 @@ _none_
 | m1 | attribute | orange | orange | t0 | 0 | attribute | high |
 | m2 | object | leaves | leaf | t1 | 1 | segment_head | high |
 | m3 | attribute | green | green | t1 | 0 | attribute | high |
-| m4 | object | background | background | t2 | 1 | segment_head | high |
+| m4 | context | background | background | t2 | 1 | scene_context | high |
 | m5 | attribute | blurred | blurred | t2 | 0 | attribute | high |
 
 ### Edges
@@ -4807,7 +4811,8 @@ _none_
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m0 | m1 | high | t0 internal amod -> flower |
 | e1 | has_attribute | m2 | m3 | high | t1 internal amod -> leaves |
-| e2 | has_attribute | m4 | m5 | high | t2 internal amod -> background |
+| e2 | has_context | scene | m4 | high | t2 context tag |
+| e3 | has_attribute | m4 | m5 | high | t2 internal amod -> background |
 
 ## 51
 
@@ -4988,12 +4993,11 @@ _none_
 | m10 | object | children | child | chunk7 | 29 | noun_chunk_root | high |
 | m11 | attribute | other | other | chunk7 | 28 | modifier_attribute | medium |
 | m12 | object | adults | adult | chunk8 | 31 | noun_chunk_root | high |
-| m13 | object | background | background | chunk9 | 36 | noun_chunk_root | high |
+| m13 | context | background | background | chunk9 | 36 | scene_context | high |
 | m14 | object | fence | fence | chunk10 | 39 | noun_chunk_root | high |
 | m15 | object | building | building | chunk11 | 41 | noun_chunk_root | high |
-| m16 | context | background | background | doc | 36 | context_word | medium |
-| m17 | action | kicks | kick | doc | 6 | verb_predicate | high |
-| m18 | action | runs | run | doc | 24 | verb_predicate | high |
+| m16 | action | kicks | kick | doc | 6 | verb_predicate | high |
+| m17 | action | runs | run | doc | 24 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -5002,15 +5006,15 @@ _none_
 | e1 | has_attribute | m4 | m5 | high | chunk3 amod -> field |
 | e2 | has_attribute | m7 | m8 | high | chunk5 amod -> jersey |
 | e3 | has_attribute | m10 | m11 | medium | chunk7 amod -> children |
-| e4 | has_context | scene | m16 | medium | context token background |
-| e5 | agent | m17 | m0 | medium | nsubj -> kicks |
-| e6 | patient | m17 | m3 | medium | dobj -> kicks |
-| e7 | agent | m18 | m6 | medium | nsubj -> runs |
+| e4 | has_context | scene | m13 | high | scene_context token background |
+| e5 | agent | m16 | m0 | medium | nsubj -> kicks |
+| e6 | patient | m16 | m3 | medium | dobj -> kicks |
+| e7 | agent | m17 | m6 | medium | nsubj -> runs |
 | e8 | relation | m0 | m1 | high | in |
 | e9 | relation | m0 | m4 | high | on |
 | e10 | relation | m6 | m7 | high | in |
 | e11 | relation | m7 | m9 | high | with |
-| e12 | relation | m10 | m16 | high | in |
+| e12 | relation | m10 | m13 | high | in |
 | e13 | relation | m10 | m14 | high | near |
 | e14 | relation | m10 | m15 | high | near |
 
@@ -5253,21 +5257,20 @@ _none_
 | m4 | object | sky | sky | chunk3 | 11 | noun_chunk_root | high |
 | m5 | attribute | cloudy | cloudy | chunk3 | 10 | modifier_attribute | medium |
 | m6 | object | Pine trees | pine_tree | chunk4 | 13 | noun_chunk_root | high |
-| m7 | object | foreground | foreground | chunk5 | 16 | noun_chunk_root | high |
-| m8 | context | foreground | foreground | doc | 16 | context_word | medium |
-| m9 | action | stretch | stretch | doc | 4 | verb_predicate | high |
-| m10 | action | frame | frame | doc | 14 | verb_predicate | high |
+| m7 | context | foreground | foreground | chunk5 | 16 | scene_context | high |
+| m8 | action | stretch | stretch | doc | 4 | verb_predicate | high |
+| m9 | action | frame | frame | doc | 14 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m0 | m1 | high | chunk0 amod -> fields |
 | e1 | has_attribute | m4 | m5 | medium | chunk3 amod -> sky |
-| e2 | has_context | scene | m8 | medium | context token foreground |
-| e3 | agent | m9 | m0 | medium | nsubj -> stretch |
-| e4 | agent | m9 | m2 | medium | nsubj -> stretch |
-| e5 | agent | m10 | m6 | medium | nsubj -> frame |
-| e6 | patient | m10 | m8 | medium | dobj -> frame |
+| e2 | has_context | scene | m7 | high | scene_context token foreground |
+| e3 | agent | m8 | m0 | medium | nsubj -> stretch |
+| e4 | agent | m8 | m2 | medium | nsubj -> stretch |
+| e5 | agent | m9 | m6 | medium | nsubj -> frame |
+| e6 | patient | m9 | m7 | medium | dobj -> frame |
 | e7 | relation | m0 | m3 | high | across |
 | e8 | relation | m0 | m4 | high | under |
 
@@ -5513,7 +5516,7 @@ _none_
 | m17 | object | spots | spot | chunk10 | 34 | noun_chunk_root | high |
 | m18 | attribute | bright | bright | chunk10 | 33 | visual_attribute | medium |
 | m19 | object | shadows | shadow | chunk11 | 37 | noun_chunk_root | high |
-| m20 | object | scene | scene | chunk12 | 40 | noun_chunk_root | high |
+| m20 | context | scene | scene | chunk12 | 40 | scene_context | high |
 | m21 | object | woodland | woodland | chunk13 | 49 | noun_chunk_root | high |
 | m22 | attribute | dense | dense | chunk13 | 48 | modifier_attribute | medium |
 | m23 | action | stand | stand | doc | 5 | verb_predicate | high |
@@ -5533,21 +5536,22 @@ _none_
 | e5 | has_attribute | m13 | m14 | medium | chunk8 compound -> floor |
 | e6 | has_attribute | m15 | m16 | medium | chunk9 amod -> light |
 | e7 | has_attribute | m17 | m18 | medium | chunk10 amod -> spots |
-| e8 | has_attribute | m21 | m22 | medium | chunk13 amod -> woodland |
-| e9 | agent | m23 | m0 | medium | nsubj -> stand |
-| e10 | agent | m24 | m6 | medium | nsubj -> filtering |
-| e11 | patient | m24 | m7 | medium | dobj -> filtering |
-| e12 | agent | m25 | m9 | medium | nsubj -> cover |
-| e13 | agent | m25 | m11 | medium | nsubj -> cover |
-| e14 | patient | m25 | m13 | medium | dobj -> cover |
-| e15 | agent | m26 | m15 | medium | nsubj -> creating |
-| e16 | patient | m26 | m17 | medium | dobj -> creating |
-| e17 | agent | m27 | m20 | medium | inherited agent advcl -> is |
-| e18 | relation | m0 | m2 | high | with |
-| e19 | relation | m0 | m4 | high | in |
-| e20 | relation | m6 | m8 | medium | onto |
-| e21 | relation | m15 | m19 | medium | among |
-| e22 | relation | m20 | m21 | medium | by |
+| e8 | has_context | scene | m20 | high | scene_context token scene |
+| e9 | has_attribute | m21 | m22 | medium | chunk13 amod -> woodland |
+| e10 | agent | m23 | m0 | medium | nsubj -> stand |
+| e11 | agent | m24 | m6 | medium | nsubj -> filtering |
+| e12 | patient | m24 | m7 | medium | dobj -> filtering |
+| e13 | agent | m25 | m9 | medium | nsubj -> cover |
+| e14 | agent | m25 | m11 | medium | nsubj -> cover |
+| e15 | patient | m25 | m13 | medium | dobj -> cover |
+| e16 | agent | m26 | m15 | medium | nsubj -> creating |
+| e17 | patient | m26 | m17 | medium | dobj -> creating |
+| e18 | agent | m27 | m20 | medium | inherited agent advcl -> is |
+| e19 | relation | m0 | m2 | high | with |
+| e20 | relation | m0 | m4 | high | in |
+| e21 | relation | m6 | m8 | medium | onto |
+| e22 | relation | m15 | m19 | medium | among |
+| e23 | relation | m20 | m21 | medium | by |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -5621,26 +5625,25 @@ _none_
 | m6 | object | Spectators | spectator | chunk4 | 17 | noun_chunk_root | high |
 | m7 | object | chairs | chair | chunk5 | 20 | noun_chunk_root | high |
 | m8 | object | fence | fence | chunk6 | 23 | noun_chunk_root | high |
-| m9 | object | background | background | chunk7 | 26 | noun_chunk_root | high |
-| m10 | context | background | background | doc | 26 | context_word | medium |
-| m11 | action | stands | stand | doc | 7 | verb_predicate | high |
-| m12 | action | walks | walk | doc | 14 | verb_predicate | high |
-| m13 | action | sit | sit | doc | 18 | verb_predicate | high |
+| m9 | context | background | background | chunk7 | 26 | scene_context | high |
+| m10 | action | stands | stand | doc | 7 | verb_predicate | high |
+| m11 | action | walks | walk | doc | 14 | verb_predicate | high |
+| m12 | action | sit | sit | doc | 18 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m0 | m1 | medium | chunk0 compound -> player |
 | e1 | has_attribute | m2 | m3 | high | chunk1 compound -> uniform |
-| e2 | has_context | scene | m10 | medium | context token background |
-| e3 | agent | m11 | m0 | medium | nsubj -> stands |
-| e4 | agent | m12 | m5 | medium | nsubj -> walks |
-| e5 | agent | m13 | m6 | medium | nsubj -> sit |
+| e2 | has_context | scene | m9 | high | scene_context token background |
+| e3 | agent | m10 | m0 | medium | nsubj -> stands |
+| e4 | agent | m11 | m5 | medium | nsubj -> walks |
+| e5 | agent | m12 | m6 | medium | nsubj -> sit |
 | e6 | relation | m0 | m2 | high | in |
 | e7 | relation | m0 | m4 | high | on |
 | e8 | relation | m6 | m7 | high | in |
 | e9 | relation | m6 | m8 | high | behind |
-| e10 | relation | m6 | m10 | high | in |
+| e10 | relation | m6 | m9 | high | in |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -5881,10 +5884,12 @@ _none_
 | m16 | object | camera | camera | chunk9 | 38 | noun_chunk_root | high |
 | m17 | object | smiles | smile | chunk10 | 41 | noun_chunk_root | high |
 | m18 | attribute | gentle | gentle | chunk10 | 40 | modifier_attribute | medium |
-| m19 | action | sit | sit | doc | 5 | verb_predicate | high |
-| m20 | action | holds | hold | doc | 16 | verb_predicate | high |
-| m21 | action | wearing | wear | doc | 25 | verb_predicate | high |
-| m22 | action | look | look | doc | 35 | verb_predicate | high |
+| m19 | group | A man and a woman | man_and_woman | nominal_reference | 1 | coordination_group | high |
+| m20 | reference | Both | both | nominal_reference | 34 | group_reference | high |
+| m21 | action | sit | sit | doc | 5 | verb_predicate | high |
+| m22 | action | holds | hold | doc | 16 | verb_predicate | high |
+| m23 | action | wearing | wear | doc | 25 | verb_predicate | high |
+| m24 | action | look | look | doc | 35 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -5897,15 +5902,21 @@ _none_
 | e5 | has_attribute | m10 | m12 | high | chunk6 amod -> top |
 | e6 | has_attribute | m13 | m14 | medium | chunk7 amod -> earrings |
 | e7 | has_attribute | m17 | m18 | medium | chunk10 amod -> smiles |
-| e8 | agent | m19 | m0 | medium | nsubj -> sit |
-| e9 | agent | m19 | m1 | medium | nsubj -> sit |
-| e10 | agent | m20 | m5 | medium | nsubj -> holds |
-| e11 | patient | m20 | m6 | medium | dobj -> holds |
-| e12 | agent | m21 | m5 | medium | inherited agent advcl -> holds |
-| e13 | patient | m21 | m10 | medium | dobj -> wearing |
-| e14 | patient | m21 | m13 | medium | dobj -> wearing |
-| e15 | relation | m0 | m2 | high | in |
-| e16 | relation | m6 | m9 | high | with |
+| e8 | has_member | m19 | m0 | high | coordination_group |
+| e9 | has_member | m19 | m1 | high | coordination_group |
+| e10 | refers_to | m20 | m19 | high | group_reference Both -> A man and a woman; score=120; margin=30 |
+| e11 | agent | m21 | m0 | medium | nsubj -> sit |
+| e12 | agent | m21 | m1 | medium | nsubj -> sit |
+| e13 | agent | m22 | m5 | medium | nsubj -> holds |
+| e14 | patient | m22 | m6 | medium | dobj -> holds |
+| e15 | agent | m23 | m5 | medium | inherited agent advcl -> holds |
+| e16 | patient | m23 | m10 | medium | dobj -> wearing |
+| e17 | patient | m23 | m13 | medium | dobj -> wearing |
+| e18 | agent | m24 | m19 | medium | nsubj -> look; resolved Both -> A man and a woman |
+| e19 | relation | m0 | m2 | high | in |
+| e20 | relation | m6 | m9 | high | with |
+| e21 | relation | m19 | m16 | medium | toward |
+| e22 | relation | m19 | m17 | high | with |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -6013,11 +6024,12 @@ _none_
 | m13 | attribute | third | third | chunk9 | 41 | modifier_attribute | medium |
 | m14 | object | gear | gear | chunk10 | 45 | noun_chunk_root | high |
 | m15 | attribute | similar | similar | chunk10 | 44 | modifier_attribute | medium |
-| m16 | context | inside | inside | doc | 13 | context_word | medium |
-| m17 | action | grappling | grapple | doc | 6 | verb_predicate | high |
-| m18 | action | controlling | control | doc | 22 | verb_predicate | high |
-| m19 | action | lying | lie | doc | 27 | verb_predicate | high |
-| m20 | action | bent | bend | doc | 47 | verb_predicate | high |
+| m16 | reference | One | one | nominal_reference | 17 | singular_substitute | high |
+| m17 | reference | other | other | nominal_reference | 24 | contrastive_reference | high |
+| m18 | action | grappling | grapple | doc | 6 | verb_predicate | high |
+| m19 | action | controlling | control | doc | 22 | verb_predicate | high |
+| m20 | action | lying | lie | doc | 27 | verb_predicate | high |
+| m21 | action | bent | bend | doc | 47 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -6029,16 +6041,22 @@ _none_
 | e4 | has_attribute | m10 | m11 | medium | chunk7 compound -> fence |
 | e5 | has_attribute | m12 | m13 | medium | chunk9 amod -> person |
 | e6 | has_attribute | m14 | m15 | medium | chunk10 amod -> gear |
-| e7 | has_context | scene | m16 | medium | context token inside |
-| e8 | agent | m17 | m0 | medium | nsubj -> grappling |
-| e9 | agent | m20 | m12 | medium | inherited agent acomp -> is |
-| e10 | relation | m0 | m2 | high | in |
-| e11 | relation | m0 | m4 | high | on |
-| e12 | relation | m0 | m7 | high | inside |
-| e13 | relation | m12 | m14 | high | in |
+| e7 | refers_to | m16 | m0 | high | singular_substitute One -> men; score=102; margin=20 |
+| e8 | refers_to | m17 | m0 | high | contrastive_reference other -> men; score=110; margin=30 |
+| e9 | agent | m18 | m0 | medium | nsubj -> grappling |
+| e10 | agent | m19 | m0 | medium | inherited agent advcl -> is |
+| e11 | agent | m20 | m0 | medium | inherited agent relcl -> other |
+| e12 | agent | m21 | m12 | medium | inherited agent acomp -> is |
+| e13 | relation | m0 | m2 | high | in |
+| e14 | relation | m0 | m4 | high | on |
+| e15 | relation | m0 | m7 | high | inside |
+| e16 | relation | m0 | m8 | high | on |
+| e17 | relation | m12 | m14 | high | in |
 
 ### Skipped Raw Concept Edges
-_none_
+| type | source | target | confidence | reason | evidence |
+| --- | --- | --- | --- | --- | --- |
+| patient | m19 | m0 | medium | pronoun_resolved_to_action_agent | dobj -> controlling; resolved other -> men |
 
 ## 64
 
@@ -6288,10 +6306,9 @@ _none_
 | m9 | attribute | blue | blue | chunk5 | 19 | color_attribute | high |
 | m10 | object | spectators | spectator | chunk6 | 25 | noun_chunk_root | high |
 | m11 | object | tents | tent | chunk7 | 27 | noun_chunk_root | high |
-| m12 | object | background | background | chunk8 | 31 | noun_chunk_root | high |
-| m13 | context | background | background | doc | 31 | context_word | medium |
-| m14 | action | controls | control | doc | 6 | verb_predicate | high |
-| m15 | action | stands | stand | doc | 21 | verb_predicate | high |
+| m12 | context | background | background | chunk8 | 31 | scene_context | high |
+| m13 | action | controls | control | doc | 6 | verb_predicate | high |
+| m14 | action | stands | stand | doc | 21 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -6300,10 +6317,10 @@ _none_
 | e1 | has_attribute | m4 | m5 | medium | chunk3 amod -> field |
 | e2 | has_attribute | m7 | m8 | medium | chunk5 amod -> uniform |
 | e3 | has_attribute | m7 | m9 | high | chunk5 amod -> uniform |
-| e4 | has_context | scene | m13 | medium | context token background |
-| e5 | agent | m14 | m0 | medium | nsubj -> controls |
-| e6 | patient | m14 | m3 | medium | dobj -> controls |
-| e7 | agent | m15 | m6 | medium | nsubj -> stands |
+| e4 | has_context | scene | m12 | high | scene_context token background |
+| e5 | agent | m13 | m0 | medium | nsubj -> controls |
+| e6 | patient | m13 | m3 | medium | dobj -> controls |
+| e7 | agent | m14 | m6 | medium | nsubj -> stands |
 | e8 | relation | m0 | m1 | high | in |
 | e9 | relation | m0 | m4 | high | on |
 | e10 | relation | m6 | m7 | high | in |
@@ -6462,24 +6479,23 @@ _none_
 | m2 | attribute | long | long | chunk1 | 3 | size_attribute | high |
 | m3 | object | hands | hand | chunk2 | 10 | noun_chunk_root | high |
 | m4 | quantity | both | both | chunk2 | 9 | group_quantity | high |
-| m5 | object | background | background | chunk3 | 14 | noun_chunk_root | high |
+| m5 | context | background | background | chunk3 | 14 | scene_context | high |
 | m6 | attribute | dark | dark | chunk3 | 13 | visual_attribute | medium |
-| m7 | context | background | background | doc | 14 | context_word | medium |
-| m8 | action | speaks | speak | doc | 5 | verb_predicate | high |
-| m9 | action | gesturing | gesture | doc | 7 | verb_predicate | high |
+| m7 | action | speaks | speak | doc | 5 | verb_predicate | high |
+| m8 | action | gesturing | gesture | doc | 7 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m1 | m2 | high | chunk1 amod -> hair |
 | e1 | has_quantity | m3 | m4 | high | chunk2 quantity -> hands |
-| e2 | has_attribute | m5 | m6 | medium | chunk3 amod -> background |
-| e3 | has_context | scene | m7 | medium | context token background |
-| e4 | agent | m8 | m0 | medium | nsubj -> speaks |
-| e5 | agent | m9 | m0 | medium | inherited agent advcl -> speaks |
+| e2 | has_context | scene | m5 | high | scene_context token background |
+| e3 | has_attribute | m5 | m6 | medium | chunk3 amod -> background |
+| e4 | agent | m7 | m0 | medium | nsubj -> speaks |
+| e5 | agent | m8 | m0 | medium | inherited agent advcl -> speaks |
 | e6 | relation | m0 | m1 | high | with |
 | e7 | relation | m0 | m3 | high | with |
-| e8 | relation | m0 | m7 | high | against |
+| e8 | relation | m0 | m5 | high | against |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -6740,15 +6756,14 @@ _none_
 | m9 | attribute | bright | bright | chunk4 | 17 | visual_attribute | medium |
 | m10 | attribute | red | red | chunk4 | 18 | color_attribute | high |
 | m11 | context | right | right | chunk5 | 24 | spatial_region | medium |
-| m12 | object | background | background | chunk6 | 30 | noun_chunk_root | high |
+| m12 | context | background | background | chunk6 | 30 | scene_context | high |
 | m13 | attribute | black-and-white | black-and-white | chunk6 | 29 | modifier_attribute | medium |
 | m14 | object | dog | dog | chunk7 | 33 | noun_chunk_root | high |
 | m15 | object | camera | camera | chunk8 | 41 | noun_chunk_root | high |
-| m16 | context | background | background | doc | 30 | context_word | medium |
-| m17 | action | stands | stand | doc | 10 | verb_predicate | high |
-| m18 | action | contrasting | contrast | doc | 26 | verb_predicate | high |
-| m19 | action | appears | appear | doc | 34 | verb_predicate | high |
-| m20 | action | looking | look | doc | 37 | verb_predicate | high |
+| m16 | action | stands | stand | doc | 10 | verb_predicate | high |
+| m17 | action | contrasting | contrast | doc | 26 | verb_predicate | high |
+| m18 | action | appears | appear | doc | 34 | verb_predicate | high |
+| m19 | action | looking | look | doc | 37 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -6759,16 +6774,16 @@ _none_
 | e3 | has_attribute | m6 | m7 | medium | chunk3 amod -> room |
 | e4 | has_attribute | m8 | m9 | medium | chunk4 amod -> balloon |
 | e5 | has_attribute | m8 | m10 | high | chunk4 amod -> balloon |
-| e6 | has_attribute | m12 | m13 | medium | chunk6 amod -> background |
-| e7 | has_context | scene | m16 | medium | context token background |
-| e8 | agent | m17 | m0 | medium | nsubj -> stands |
-| e9 | agent | m18 | m8 | medium | inherited agent advcl -> is |
-| e10 | agent | m19 | m14 | medium | nsubj -> appears |
-| e11 | agent | m20 | m14 | medium | inherited agent xcomp -> appears |
+| e6 | has_context | scene | m12 | high | scene_context token background |
+| e7 | has_attribute | m12 | m13 | medium | chunk6 amod -> background |
+| e8 | agent | m16 | m0 | medium | nsubj -> stands |
+| e9 | agent | m17 | m8 | medium | inherited agent advcl -> is |
+| e10 | agent | m18 | m14 | medium | nsubj -> appears |
+| e11 | agent | m19 | m14 | medium | inherited agent xcomp -> appears |
 | e12 | relation | m0 | m2 | high | with |
 | e13 | relation | m0 | m4 | high | with |
 | e14 | relation | m0 | m6 | high | in |
-| e15 | relation | m8 | m16 | high | with |
+| e15 | relation | m8 | m12 | high | with |
 | e16 | relation | m14 | m15 | medium | at |
 
 ### Skipped Raw Concept Edges
@@ -6876,17 +6891,16 @@ _none_
 | m9 | object | area | area | chunk4 | 19 | noun_chunk_root | high |
 | m10 | attribute | concrete | concrete | chunk4 | 18 | material_attribute | high |
 | m11 | object | puddles | puddle | chunk5 | 21 | noun_chunk_root | high |
-| m12 | object | foreground | foreground | chunk6 | 25 | noun_chunk_root | high |
+| m12 | context | foreground | foreground | chunk6 | 25 | scene_context | high |
 | m13 | object | stairs | stair | chunk7 | 28 | noun_chunk_root | high |
 | m14 | object | entrance | entrance | chunk8 | 35 | noun_chunk_root | high |
 | m15 | attribute | building | building | chunk8 | 33 | modifier_attribute | medium |
 | m16 | object | sky | sky | chunk9 | 38 | noun_chunk_root | high |
 | m17 | object | grass | grass | chunk10 | 43 | noun_chunk_root | high |
 | m18 | object | structure | structure | chunk12 | 50 | noun_chunk_root | high |
-| m19 | context | foreground | foreground | doc | 25 | context_word | medium |
-| m20 | action | stands | stand | doc | 11 | verb_predicate | high |
-| m21 | action | lead | lead | doc | 29 | verb_predicate | high |
-| m22 | action | grows | grow | doc | 44 | verb_predicate | high |
+| m19 | action | stands | stand | doc | 11 | verb_predicate | high |
+| m20 | action | lead | lead | doc | 29 | verb_predicate | high |
+| m21 | action | grows | grow | doc | 44 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -6897,16 +6911,16 @@ _none_
 | e3 | has_attribute | m5 | m6 | high | chunk2 amod -> trim |
 | e4 | has_attribute | m7 | m8 | high | chunk3 amod -> fence |
 | e5 | has_attribute | m9 | m10 | high | chunk4 amod -> area |
-| e6 | has_attribute | m14 | m15 | medium | chunk8 poss -> entrance |
-| e7 | has_context | scene | m19 | medium | context token foreground |
-| e8 | agent | m20 | m0 | medium | nsubj -> stands |
-| e9 | agent | m21 | m13 | medium | nsubj -> lead |
-| e10 | agent | m22 | m17 | medium | nsubj -> grows |
+| e6 | has_context | scene | m12 | high | scene_context token foreground |
+| e7 | has_attribute | m14 | m15 | medium | chunk8 poss -> entrance |
+| e8 | agent | m19 | m0 | medium | nsubj -> stands |
+| e9 | agent | m20 | m13 | medium | nsubj -> lead |
+| e10 | agent | m21 | m17 | medium | nsubj -> grows |
 | e11 | relation | m0 | m2 | high | with |
 | e12 | relation | m0 | m5 | high | with |
 | e13 | relation | m0 | m7 | high | behind |
 | e14 | relation | m9 | m11 | high | with |
-| e15 | relation | m9 | m19 | high | in |
+| e15 | relation | m9 | m12 | high | in |
 | e16 | relation | m13 | m14 | medium | to |
 | e17 | relation | m17 | m18 | medium | base_of |
 
@@ -7338,7 +7352,7 @@ _none_
 | m8 | object | ceiling | ceiling | chunk5 | 24 | noun_chunk_root | high |
 | m9 | object | ducts | duct | chunk6 | 27 | noun_chunk_root | high |
 | m10 | attribute | ventilation | ventilation | chunk6 | 26 | compound_modifier | medium |
-| m11 | context | indoors | indoors | doc | 19 | context_word | medium |
+| m11 | context | indoors | indoors | doc | 19 | scene_context | high |
 | m12 | action | holds | hold | doc | 10 | verb_predicate | high |
 | m13 | action | stands | stand | doc | 18 | verb_predicate | high |
 
@@ -7350,7 +7364,7 @@ _none_
 | e2 | has_attribute | m4 | m5 | medium | chunk2 amod -> belt |
 | e3 | has_attribute | m4 | m6 | medium | chunk2 compound -> belt |
 | e4 | has_attribute | m9 | m10 | medium | chunk6 compound -> ducts |
-| e5 | has_context | scene | m11 | medium | context token indoors |
+| e5 | has_context | scene | m11 | high | scene_context token indoors |
 | e6 | agent | m12 | m0 | medium | nsubj -> holds |
 | e7 | patient | m12 | m4 | medium | dobj -> holds |
 | e8 | agent | m13 | m0 | medium | nsubj -> stands; resolved She -> woman |
@@ -7633,7 +7647,7 @@ _none_
 | m2 | attribute | dark | dark | chunk0 | 3 | visual_attribute | medium |
 | m3 | attribute | gray | gray | chunk0 | 4 | color_attribute | high |
 | m4 | context | surface | surface | chunk1 | 11 | spatial_region | medium |
-| m5 | object | background | background | chunk2 | 17 | noun_chunk_root | high |
+| m5 | context | background | background | chunk2 | 17 | scene_context | high |
 | m6 | attribute | light-colored | light-colored | chunk2 | 15 | modifier_attribute | medium |
 | m7 | attribute | flat | flat | chunk2 | 16 | modifier_attribute | medium |
 | m8 | object | object | object | chunk3 | 20 | noun_chunk_root | high |
@@ -7644,12 +7658,11 @@ _none_
 | m13 | object | stone | stone | chunk7 | 34 | noun_chunk_root | high |
 | m14 | object | metal | metal | chunk8 | 36 | noun_chunk_root | high |
 | m15 | object | edges | edge | chunk9 | 39 | noun_chunk_root | high |
-| m16 | context | background | background | doc | 17 | context_word | medium |
-| m17 | action | rests | rest | doc | 12 | verb_predicate | high |
-| m18 | action | has | have | doc | 21 | verb_predicate | high |
-| m19 | action | suggesting | suggest | doc | 28 | verb_predicate | high |
-| m20 | action | made | make | doc | 32 | verb_predicate | high |
-| m21 | action | appears | appear | doc | 46 | verb_predicate | high |
+| m16 | action | rests | rest | doc | 12 | verb_predicate | high |
+| m17 | action | has | have | doc | 21 | verb_predicate | high |
+| m18 | action | suggesting | suggest | doc | 28 | verb_predicate | high |
+| m19 | action | made | make | doc | 32 | verb_predicate | high |
+| m20 | action | appears | appear | doc | 46 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -7657,20 +7670,20 @@ _none_
 | e0 | has_attribute | m0 | m1 | medium | chunk0 amod -> slab |
 | e1 | has_attribute | m0 | m2 | medium | chunk0 amod -> slab |
 | e2 | has_attribute | m0 | m3 | high | chunk0 amod -> slab |
-| e3 | has_attribute | m5 | m6 | medium | chunk2 amod -> background |
-| e4 | has_attribute | m5 | m7 | medium | chunk2 amod -> background |
-| e5 | has_attribute | m9 | m10 | medium | chunk4 amod -> texture |
-| e6 | has_attribute | m11 | m12 | medium | chunk5 amod -> imperfections |
-| e7 | has_context | scene | m16 | medium | context token background |
-| e8 | agent | m17 | m0 | medium | nsubj -> rests |
-| e9 | agent | m18 | m8 | medium | nsubj -> has |
-| e10 | patient | m18 | m9 | medium | dobj -> has |
-| e11 | patient | m18 | m11 | medium | dobj -> has |
-| e12 | agent | m19 | m8 | medium | inherited agent advcl -> has |
-| e13 | agent | m20 | m8 | medium | nsubjpass -> made; resolved it -> object |
-| e14 | agent | m21 | m15 | medium | nsubj -> appears; resolved it -> edges |
+| e3 | has_context | scene | m5 | high | scene_context token background |
+| e4 | has_attribute | m5 | m6 | medium | chunk2 amod -> background |
+| e5 | has_attribute | m5 | m7 | medium | chunk2 amod -> background |
+| e6 | has_attribute | m9 | m10 | medium | chunk4 amod -> texture |
+| e7 | has_attribute | m11 | m12 | medium | chunk5 amod -> imperfections |
+| e8 | agent | m16 | m0 | medium | nsubj -> rests |
+| e9 | agent | m17 | m8 | medium | nsubj -> has |
+| e10 | patient | m17 | m9 | medium | dobj -> has |
+| e11 | patient | m17 | m11 | medium | dobj -> has |
+| e12 | agent | m18 | m8 | medium | inherited agent advcl -> has |
+| e13 | agent | m19 | m8 | medium | nsubjpass -> made; resolved it -> object |
+| e14 | agent | m20 | m15 | medium | nsubj -> appears; resolved it -> edges |
 | e15 | relation | m0 | m4 | high | with |
-| e16 | relation | m0 | m16 | high | on |
+| e16 | relation | m0 | m5 | high | on |
 | e17 | relation | m8 | m13 | medium | of |
 | e18 | relation | m8 | m14 | medium | of |
 
@@ -8265,23 +8278,27 @@ _none_
 | m6 | object | flames | flame | chunk4 | 17 | noun_chunk_root | high |
 | m7 | object | fire | fire | chunk5 | 20 | noun_chunk_root | high |
 | m8 | object | ground | ground | chunk6 | 25 | noun_chunk_root | high |
-| m9 | context | outdoors | outdoors | doc | 7 | context_word | medium |
-| m10 | action | stand | stand | doc | 2 | verb_predicate | high |
-| m11 | action | stirring | stir | doc | 10 | verb_predicate | high |
-| m12 | action | burns | burn | doc | 21 | verb_predicate | high |
+| m9 | context | outdoors | outdoors | doc | 7 | scene_context | high |
+| m10 | reference | one | one | nominal_reference | 9 | singular_substitute | high |
+| m11 | action | stand | stand | doc | 2 | verb_predicate | high |
+| m12 | action | stirring | stir | doc | 10 | verb_predicate | high |
+| m13 | action | burns | burn | doc | 21 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_quantity | m0 | m1 | high | chunk0 quantity -> men |
 | e1 | has_attribute | m2 | m3 | high | chunk1 amod -> fire |
-| e2 | has_context | scene | m9 | medium | context token outdoors |
-| e3 | agent | m10 | m0 | medium | nsubj -> stand |
-| e4 | agent | m11 | m0 | medium | inherited agent advcl -> stand |
-| e5 | patient | m11 | m4 | medium | dobj -> stirring |
-| e6 | agent | m12 | m7 | medium | nsubj -> burns |
-| e7 | relation | m0 | m2 | high | near |
-| e8 | relation | m7 | m8 | high | on |
+| e2 | has_context | scene | m9 | high | scene_context token outdoors |
+| e3 | refers_to | m10 | m0 | high | singular_substitute one -> men; score=103 |
+| e4 | agent | m11 | m0 | medium | nsubj -> stand |
+| e5 | agent | m12 | m0 | medium | nsubj -> stirring; resolved one -> men |
+| e6 | patient | m12 | m4 | medium | dobj -> stirring |
+| e7 | agent | m13 | m7 | medium | nsubj -> burns |
+| e8 | relation | m0 | m2 | high | near |
+| e9 | relation | m0 | m5 | high | in |
+| e10 | relation | m0 | m6 | high | over |
+| e11 | relation | m7 | m8 | high | on |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -8566,7 +8583,7 @@ _none_
 | m6 | object | hats | hat | chunk4 | 13 | noun_chunk_root | high |
 | m7 | object | building | building | chunk5 | 18 | noun_chunk_root | high |
 | m8 | attribute | brick | brick | chunk5 | 17 | material_attribute | high |
-| m9 | context | outdoors | outdoors | doc | 14 | context_word | medium |
+| m9 | context | outdoors | outdoors | doc | 14 | scene_context | high |
 | m10 | action | stands | stand | doc | 5 | verb_predicate | high |
 
 ### Raw Concept Edges
@@ -8575,7 +8592,7 @@ _none_
 | e0 | has_quantity | m2 | m3 | high | chunk2 quantity -> officers |
 | e1 | has_attribute | m4 | m5 | high | chunk3 amod -> uniforms |
 | e2 | has_attribute | m7 | m8 | high | chunk5 compound -> building |
-| e3 | has_context | scene | m9 | medium | context token outdoors |
+| e3 | has_context | scene | m9 | high | scene_context token outdoors |
 | e4 | agent | m10 | m0 | medium | nsubj -> stands |
 | e5 | relation | m0 | m1 | high | in |
 | e6 | relation | m0 | m2 | high | with |
@@ -8642,9 +8659,8 @@ _none_
 | m5 | object | lake | lake | chunk2 | 12 | noun_chunk_root | high |
 | m6 | attribute | turquoise | turquoise | chunk2 | 11 | color_attribute | high |
 | m7 | object | mountains | mountain | chunk3 | 15 | noun_chunk_root | high |
-| m8 | object | background | background | chunk4 | 18 | noun_chunk_root | high |
-| m9 | context | background | background | doc | 18 | context_word | medium |
-| m10 | action | overlooks | overlook | doc | 3 | verb_predicate | high |
+| m8 | context | background | background | chunk4 | 18 | scene_context | high |
+| m9 | action | overlooks | overlook | doc | 3 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -8653,12 +8669,12 @@ _none_
 | e1 | has_attribute | m2 | m3 | high | chunk1 amod -> river |
 | e2 | has_attribute | m2 | m4 | medium | chunk1 amod -> river |
 | e3 | has_attribute | m5 | m6 | high | chunk2 amod -> lake |
-| e4 | has_context | scene | m9 | medium | context token background |
-| e5 | agent | m10 | m0 | medium | nsubj -> overlooks |
-| e6 | patient | m10 | m2 | medium | dobj -> overlooks |
-| e7 | patient | m10 | m5 | medium | dobj -> overlooks |
+| e4 | has_context | scene | m8 | high | scene_context token background |
+| e5 | agent | m9 | m0 | medium | nsubj -> overlooks |
+| e6 | patient | m9 | m2 | medium | dobj -> overlooks |
+| e7 | patient | m9 | m5 | medium | dobj -> overlooks |
 | e8 | relation | m0 | m7 | high | with |
-| e9 | relation | m7 | m9 | high | in |
+| e9 | relation | m7 | m8 | high | in |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -8867,11 +8883,10 @@ _none_
 | m8 | attribute | Evergreen | evergreen | chunk3 | 14 | modifier_attribute | medium |
 | m9 | object | wall | wall | chunk4 | 19 | noun_chunk_root | high |
 | m10 | attribute | stone | stone | chunk4 | 18 | material_attribute | high |
-| m11 | object | foreground | foreground | chunk5 | 23 | noun_chunk_root | high |
+| m11 | context | foreground | foreground | chunk5 | 23 | scene_context | high |
 | m12 | object | hillside | hillside | chunk6 | 27 | noun_chunk_root | high |
 | m13 | object | building | building | chunk7 | 31 | noun_chunk_root | high |
-| m14 | context | foreground | foreground | doc | 23 | context_word | medium |
-| m15 | action | stands | stand | doc | 7 | verb_predicate | high |
+| m14 | action | stands | stand | doc | 7 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -8882,11 +8897,11 @@ _none_
 | e3 | has_attribute | m4 | m6 | high | chunk2 amod -> sky |
 | e4 | has_attribute | m7 | m8 | medium | chunk3 amod -> trees |
 | e5 | has_attribute | m9 | m10 | high | chunk4 compound -> wall |
-| e6 | has_context | scene | m14 | medium | context token foreground |
-| e7 | agent | m15 | m0 | medium | nsubj -> stands |
+| e6 | has_context | scene | m11 | high | scene_context token foreground |
+| e7 | agent | m14 | m0 | medium | nsubj -> stands |
 | e8 | relation | m0 | m2 | high | with |
 | e9 | relation | m0 | m4 | high | against |
-| e10 | relation | m7 | m14 | high | in |
+| e10 | relation | m7 | m11 | high | in |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -9005,11 +9020,12 @@ _none_
 | m17 | object | text | text | chunk13 | 40 | noun_chunk_root | high |
 | m18 | object | bottom | bottom | chunk15 | 47 | noun_chunk_root | high |
 | m19 | object | image | image | chunk16 | 50 | noun_chunk_root | high |
-| m20 | action | stand | stand | doc | 5 | verb_predicate | high |
-| m21 | action | holding | hold | doc | 11 | verb_predicate | high |
-| m22 | action | wear | wear | doc | 18 | verb_predicate | high |
-| m23 | action | pour | pour | doc | 21 | verb_predicate | high |
-| m24 | action | stands | stand | doc | 33 | verb_predicate | high |
+| m20 | reference | each | each | nominal_reference | 10 | distributive_reference | high |
+| m21 | action | stand | stand | doc | 5 | verb_predicate | high |
+| m22 | action | holding | hold | doc | 11 | verb_predicate | high |
+| m23 | action | wear | wear | doc | 18 | verb_predicate | high |
+| m24 | action | pour | pour | doc | 21 | verb_predicate | high |
+| m25 | action | stands | stand | doc | 33 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -9019,20 +9035,21 @@ _none_
 | e2 | has_attribute | m6 | m7 | high | chunk4 compound -> flask |
 | e3 | has_quantity | m8 | m9 | high | chunk5 quantity -> men |
 | e4 | has_attribute | m14 | m15 | medium | chunk10 amod -> hijab |
-| e5 | agent | m20 | m0 | medium | nsubj -> stand |
-| e6 | agent | m21 | m0 | medium | inherited agent advcl -> stand |
-| e7 | patient | m21 | m6 | medium | dobj -> holding |
-| e8 | agent | m22 | m8 | medium | nsubj -> wear |
-| e9 | patient | m22 | m10 | medium | dobj -> wear |
-| e10 | agent | m23 | m8 | medium | inherited agent conj -> wear |
-| e11 | patient | m23 | m11 | medium | dobj -> pour |
-| e12 | agent | m24 | m13 | medium | nsubj -> stands |
-| e13 | relation | m0 | m2 | high | in |
-| e14 | relation | m0 | m4 | medium | at |
-| e15 | relation | m8 | m12 | medium | into |
-| e16 | relation | m13 | m14 | high | in |
-| e17 | relation | m13 | m8 | medium | beside; repaired_self_edge_target from them->woman |
-| e18 | relation | m16 | m19 | high | at_top_of |
+| e5 | refers_to | m20 | m0 | high | distributive_reference each -> people; score=112 |
+| e6 | agent | m21 | m0 | medium | nsubj -> stand |
+| e7 | agent | m22 | m0 | medium | nsubj -> holding; resolved each -> people |
+| e8 | patient | m22 | m6 | medium | dobj -> holding |
+| e9 | agent | m23 | m8 | medium | nsubj -> wear |
+| e10 | patient | m23 | m10 | medium | dobj -> wear |
+| e11 | agent | m24 | m8 | medium | inherited agent conj -> wear |
+| e12 | patient | m24 | m11 | medium | dobj -> pour |
+| e13 | agent | m25 | m13 | medium | nsubj -> stands |
+| e14 | relation | m0 | m2 | high | in |
+| e15 | relation | m0 | m4 | medium | at |
+| e16 | relation | m8 | m12 | medium | into |
+| e17 | relation | m13 | m14 | high | in |
+| e18 | relation | m13 | m8 | medium | beside; repaired_self_edge_target from them->woman |
+| e19 | relation | m16 | m19 | high | at_top_of |
 
 ### Skipped Raw Concept Edges
 _none_

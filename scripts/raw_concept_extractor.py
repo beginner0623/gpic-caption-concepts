@@ -12,6 +12,7 @@ from preposition_mwe_lexicon import (
 from quantity_lexicon import quantity_confidence, quantity_role
 from quote_retokenizer import is_raw_quote_token
 from reference_lexicon import reference_class
+from scene_context_lexicon import is_scene_context_lemma, scene_context_role
 from tag_list_parser import CONTEXT_TAGS, ConceptEdge, ConceptMention
 
 
@@ -196,6 +197,29 @@ REFLEXIVE_PRONOUNS = {
     "yourselves",
 }
 PRONOUN_ANTECEDENT_MAX_DISTANCE = 80
+NOMINAL_REFERENCE_MAX_DISTANCE = 80
+NOMINAL_REFERENCE_MIN_SCORE = 65
+NOMINAL_REFERENCE_AMBIGUOUS_MARGIN = 15
+NOMINAL_REFERENCE_MODIFIER_DEPS = {"amod", "compound", "nummod"}
+NOMINAL_REFERENCE_PLURAL_CLASSES = {
+    "contrastive_reference",
+    "distributive_reference",
+    "group_reference",
+}
+NOMINAL_REFERENCE_PERSON_AGENT_ACTION_LEMMAS = {
+    "gesture",
+    "grapple",
+    "hold",
+    "look",
+    "pose",
+    "sit",
+    "smile",
+    "stand",
+    "stir",
+    "talk",
+    "walk",
+    "wear",
+}
 SELF_EDGE_REPAIR_SOURCE_HEAD_LEMMAS = {"carry", "contain", "display", "have", "hold", "position", "show", "wear"}
 SELF_EDGE_REPAIR_RELATIONS = SPATIAL_RELATIONS | {
     "at_edge_of",
@@ -245,13 +269,16 @@ class RawConceptExtractor:
         self.context_by_token_i: dict[int, str] = {}
         self.quote_by_token_i: dict[int, str] = {}
         self.reference_object_by_token_i: dict[int, str] = {}
+        self.group_by_member_ids: dict[tuple[str, ...], str] = {}
 
     def run(self) -> RawConceptExtractionResult:
         self._extract_quote_attributes()
         self._extract_noun_chunk_objects()
         self._extract_quote_carrier_edges()
         self._extract_contexts()
+        self._merge_duplicate_scene_context_objects()
         self._resolve_reference_tokens()
+        self._resolve_nominal_reference_tokens()
         self._extract_actions()
         self._recover_with_absolute_objects()
         self._extract_preposition_relations()
@@ -372,6 +399,12 @@ class RawConceptExtractor:
                     if self._is_color_token(token):
                         self._add_modifier(token, f"chunk{chunk_i}")
                 continue
+            context_role = scene_context_role(root)
+            if context_role is not None:
+                role, confidence = context_role
+                context_id = self._ensure_scene_context(root, f"chunk{chunk_i}", role, confidence)
+                self._add_chunk_modifiers(chunk, root, context_id, chunk_i)
+                continue
             if not self._is_object_candidate_token(root):
                 continue
             if self._is_multiword_relation_mid_token(root):
@@ -380,51 +413,104 @@ class RawConceptExtractor:
                 self._ensure_spatial_region(root, f"chunk{chunk_i}")
                 continue
             object_id = self._ensure_object(root, f"chunk{chunk_i}", "noun_chunk_root", "high")
-            for token in chunk:
-                if token.i == root.i or token.dep_ in SKIP_MODIFIER_DEPS:
-                    if token.i == root.i:
-                        continue
-                    if quantity_role(token) is None:
-                        continue
-                if quantity_role(token) is not None:
-                    modifier_id, edge_type, modifier_confidence = self._add_modifier(token, f"chunk{chunk_i}")
-                    self.add_edge(
-                        edge_type,
-                        object_id,
-                        modifier_id,
-                        modifier_confidence,
-                        f"chunk{chunk_i} quantity -> {root.text}",
-                    )
+            self._add_chunk_modifiers(chunk, root, object_id, chunk_i)
+
+    def _add_chunk_modifiers(self, chunk, root, target_id: str, chunk_i: int) -> None:
+        for token in chunk:
+            if token.i == root.i or token.dep_ in SKIP_MODIFIER_DEPS:
+                if token.i == root.i:
                     continue
-                if not self._looks_like_modifier(token):
+                if quantity_role(token) is None:
                     continue
+            if quantity_role(token) is not None:
                 modifier_id, edge_type, modifier_confidence = self._add_modifier(token, f"chunk{chunk_i}")
                 self.add_edge(
                     edge_type,
-                    object_id,
+                    target_id,
                     modifier_id,
                     modifier_confidence,
-                    f"chunk{chunk_i} {token.dep_} -> {root.text}",
+                    f"chunk{chunk_i} quantity -> {root.text}",
                 )
+                continue
+            if not self._looks_like_modifier(token):
+                continue
+            modifier_id, edge_type, modifier_confidence = self._add_modifier(token, f"chunk{chunk_i}")
+            self.add_edge(
+                edge_type,
+                target_id,
+                modifier_id,
+                modifier_confidence,
+                f"chunk{chunk_i} {token.dep_} -> {root.text}",
+            )
 
     def _extract_contexts(self) -> None:
         for token in self.doc:
             lemma = token.lemma_.lower()
-            if lemma not in CONTEXT_TAGS:
-                continue
+            context_role = scene_context_role(token)
+            if context_role is None:
+                if lemma not in CONTEXT_TAGS or token.dep_ in {"amod", "compound"} or token.pos_ == "ADP":
+                    continue
+                role, confidence = "context_word", "medium"
+            else:
+                role, confidence = context_role
             if token.i in self.context_by_token_i:
                 continue
-            context_id = self.add_mention(
-                "context",
-                token.text,
-                lemma,
-                "doc",
-                token.i,
-                "context_word",
-                "medium",
+            self._ensure_scene_context(token, "doc", role, confidence)
+
+    def _merge_duplicate_scene_context_objects(self) -> None:
+        context_by_token = {
+            mention.source_token_i: mention.mention_id
+            for mention in self.mentions
+            if mention.concept_type == "context"
+            and mention.role == "scene_context"
+            and mention.source_token_i is not None
+        }
+        aliases: dict[str, str] = {}
+        dropped_mention_ids: set[str] = set()
+
+        for mention in self.mentions:
+            if mention.concept_type != "object" or mention.source_token_i not in context_by_token:
+                continue
+            if not is_scene_context_lemma(mention.lemma):
+                continue
+            aliases[mention.mention_id] = context_by_token[mention.source_token_i]
+            dropped_mention_ids.add(mention.mention_id)
+
+        if not aliases:
+            return
+
+        self.mentions = [
+            mention for mention in self.mentions if mention.mention_id not in dropped_mention_ids
+        ]
+        for token_i, mention_id in list(self.object_by_token_i.items()):
+            if mention_id in aliases:
+                del self.object_by_token_i[token_i]
+        self.edges = self._rewrite_edges_with_aliases(aliases, "scene_context_merge")
+
+    def _rewrite_edges_with_aliases(self, aliases: dict[str, str], reason: str) -> list[ConceptEdge]:
+        rewritten_edges: list[ConceptEdge] = []
+        seen: set[tuple[str, str, str, str, str]] = set()
+        for edge in self.edges:
+            source = aliases.get(edge.source, edge.source)
+            target = aliases.get(edge.target, edge.target)
+            if edge.edge_type == "relation" and source == target:
+                self.skip_edge(edge.edge_type, source, target, edge.confidence, edge.evidence, reason)
+                continue
+            key = (edge.edge_type, source, target, edge.confidence, edge.evidence)
+            if key in seen:
+                continue
+            seen.add(key)
+            rewritten_edges.append(
+                ConceptEdge(
+                    edge_id=f"e{len(rewritten_edges)}",
+                    edge_type=edge.edge_type,
+                    source=source,
+                    target=target,
+                    confidence=edge.confidence,
+                    evidence=edge.evidence,
+                )
             )
-            self.context_by_token_i[token.i] = context_id
-            self.add_edge("has_context", "scene", context_id, "medium", f"context token {token.text}")
+        return rewritten_edges
 
     def _extract_actions(self) -> None:
         for token in self.doc:
@@ -674,6 +760,28 @@ class RawConceptExtractor:
         self.quote_by_token_i[token.i] = quote_id
         return quote_id
 
+    def _ensure_scene_context(
+        self,
+        token,
+        source_tag: str,
+        role: str = "scene_context",
+        confidence: str = "high",
+    ) -> str:
+        if token.i in self.context_by_token_i:
+            return self.context_by_token_i[token.i]
+        context_id = self.add_mention(
+            "context",
+            token.text,
+            token.lemma_.lower(),
+            source_tag,
+            token.i,
+            role,
+            confidence,
+        )
+        self.context_by_token_i[token.i] = context_id
+        self.add_edge("has_context", "scene", context_id, confidence, f"{role} token {token.text}")
+        return context_id
+
     def _object_for_token(self, token, role: str, confidence: str) -> str | None:
         if token.i in self.reference_object_by_token_i:
             return self.reference_object_by_token_i[token.i]
@@ -705,6 +813,328 @@ class RawConceptExtractor:
                 object_id = self._personal_reference_object(token)
             if object_id is not None:
                 self.reference_object_by_token_i[token.i] = object_id
+
+    def _resolve_nominal_reference_tokens(self) -> None:
+        for token in self.doc:
+            ref_class = reference_class(token)
+            if ref_class is None:
+                continue
+            resolution = self._nominal_reference_resolution(token, ref_class)
+            if resolution is None:
+                continue
+            antecedent_candidate, score, margin = resolution
+            confidence = self._nominal_reference_confidence(score)
+            antecedent_id = self._nominal_reference_candidate_mention_id(antecedent_candidate, confidence)
+            if antecedent_id is None:
+                continue
+            ref_id = self.add_mention(
+                "reference",
+                token.text,
+                token.lemma_.lower(),
+                "nominal_reference",
+                token.i,
+                ref_class,
+                confidence,
+            )
+            evidence = self._nominal_reference_evidence(token, antecedent_id, score, margin)
+            self.add_edge("refers_to", ref_id, antecedent_id, confidence, evidence)
+
+            modifiers = self._nominal_reference_modifiers(token)
+            if ref_class == "singular_substitute" and modifiers:
+                instance_id = self._ensure_nominal_reference_instance(
+                    token,
+                    antecedent_id,
+                    modifiers,
+                    confidence,
+                    evidence,
+                )
+                self.reference_object_by_token_i[token.i] = instance_id
+            else:
+                self.reference_object_by_token_i[token.i] = antecedent_id
+
+    def _nominal_reference_resolution(self, token, ref_class: str) -> tuple[dict[str, object], int, int | None] | None:
+        scored: list[tuple[int, int, dict[str, object]]] = []
+        for candidate in self._nominal_reference_candidates(token):
+            token_i = int(candidate["token_i"])
+            distance = token.i - token_i
+            if distance > NOMINAL_REFERENCE_MAX_DISTANCE:
+                continue
+            score = self._nominal_reference_score(token, ref_class, candidate, distance)
+            if score < NOMINAL_REFERENCE_MIN_SCORE:
+                continue
+            scored.append((score, token_i, candidate))
+        if not scored:
+            return None
+        scored.sort(key=lambda item: (-item[0], item[1]))
+        best_score, _, best_candidate = scored[0]
+        margin = None if len(scored) == 1 else best_score - scored[1][0]
+        if margin is not None and margin < NOMINAL_REFERENCE_AMBIGUOUS_MARGIN:
+            return None
+        return best_candidate, best_score, margin
+
+    def _nominal_reference_candidates(self, ref_token) -> list[dict[str, object]]:
+        candidates: list[dict[str, object]] = []
+        for token_i, object_id in self.object_by_token_i.items():
+            if token_i >= ref_token.i:
+                continue
+            token = self.doc[token_i]
+            candidates.append(
+                {
+                    "candidate_type": "object",
+                    "token_i": token_i,
+                    "text": self._mention_text(object_id),
+                    "lemma": token.lemma_.lower(),
+                    "dep": token.dep_,
+                    "object_id": object_id,
+                    "member_ids": (),
+                    "plural_like": self._is_plural_like(token) or self._has_plural_quantity_signal(object_id),
+                    "person_like": self._is_person_candidate(token),
+                    "quantity_signal": self._has_quantity_signal(object_id),
+                    "exact_one_quantity": self._has_exact_one_quantity_signal(object_id),
+                }
+            )
+        candidates.extend(self._nominal_coordination_group_candidates(ref_token))
+        return candidates
+
+    def _nominal_coordination_group_candidates(self, ref_token) -> list[dict[str, object]]:
+        object_by_token = {
+            token_i: object_id
+            for token_i, object_id in self.object_by_token_i.items()
+            if token_i < ref_token.i
+        }
+        groups: list[dict[str, object]] = []
+        seen: set[tuple[str, ...]] = set()
+        for token_i, object_id in sorted(object_by_token.items()):
+            token = self.doc[token_i]
+            head = token.head if token.dep_ == "conj" and token.head.i in object_by_token else token
+            members = [head]
+            members.extend(
+                child
+                for child in head.children
+                if child.dep_ == "conj" and child.i in object_by_token
+            )
+            members = sorted({member.i: member for member in members}.values(), key=lambda item: item.i)
+            if len(members) < 2:
+                continue
+            member_ids = tuple(object_by_token[member.i] for member in members)
+            if member_ids in seen:
+                continue
+            seen.add(member_ids)
+            start = min(self._object_span_start(member) for member in members)
+            end = max(self._object_span_end(member) for member in members)
+            groups.append(
+                {
+                    "candidate_type": "coordination_group",
+                    "token_i": members[0].i,
+                    "text": self.doc[start:end].text,
+                    "lemma": "_and_".join(member.lemma_.lower() for member in members),
+                    "dep": members[0].dep_,
+                    "object_id": None,
+                    "member_ids": member_ids,
+                    "plural_like": True,
+                    "person_like": any(self._is_person_candidate(member) for member in members),
+                    "quantity_signal": False,
+                    "exact_one_quantity": False,
+                }
+            )
+        return groups
+
+    def _nominal_reference_score(self, ref_token, ref_class: str, candidate: dict[str, object], distance: int) -> int:
+        score = 0
+        if distance <= 8:
+            score += 35
+        elif distance <= 16:
+            score += 28
+        elif distance <= 32:
+            score += 20
+        elif distance <= 64:
+            score += 10
+        else:
+            score += 4
+
+        candidate_token = self.doc[int(candidate["token_i"])]
+        sent_gap = self._sent_index(ref_token) - self._sent_index(candidate_token)
+        if sent_gap == 0:
+            score += 12
+        elif sent_gap == 1:
+            score += 18
+        elif sent_gap == 2:
+            score += 8
+
+        if bool(candidate["plural_like"]):
+            if ref_class in NOMINAL_REFERENCE_PLURAL_CLASSES:
+                score += 34
+            elif ref_class == "singular_substitute":
+                score += 28
+        else:
+            if ref_class in NOMINAL_REFERENCE_PLURAL_CLASSES:
+                score -= 24
+            elif ref_class == "singular_substitute":
+                score -= 8
+
+        if candidate["candidate_type"] == "coordination_group" and ref_class in {
+            "distributive_reference",
+            "group_reference",
+        }:
+            score += 40
+
+        if bool(candidate["quantity_signal"]):
+            score += 10
+
+        if str(candidate["dep"]) in SUBJECT_DEPS:
+            score += 18
+        elif str(candidate["dep"]) in OBJECT_DEPS:
+            score += 8
+
+        if bool(candidate["person_like"]) and ref_class in NOMINAL_REFERENCE_PLURAL_CLASSES:
+            score += 10
+        elif self._nominal_reference_wants_person_agent(ref_token) and not bool(candidate["person_like"]):
+            score -= 45
+
+        if ref_class == "singular_substitute" and self._nominal_reference_modifiers(ref_token):
+            score += 8
+
+        if bool(candidate["exact_one_quantity"]) and ref_class in NOMINAL_REFERENCE_PLURAL_CLASSES:
+            score -= 18
+
+        if str(candidate["lemma"]).lower() in CONTEXT_TAGS:
+            score -= 60
+
+        return score
+
+    def _nominal_reference_candidate_mention_id(self, candidate: dict[str, object], confidence: str) -> str | None:
+        if candidate["candidate_type"] == "object":
+            return str(candidate["object_id"])
+        if candidate["candidate_type"] != "coordination_group":
+            return None
+        member_ids = tuple(str(member_id) for member_id in candidate["member_ids"])
+        if member_ids in self.group_by_member_ids:
+            return self.group_by_member_ids[member_ids]
+        group_id = self.add_mention(
+            "group",
+            str(candidate["text"]),
+            str(candidate["lemma"]),
+            "nominal_reference",
+            int(candidate["token_i"]),
+            "coordination_group",
+            confidence,
+        )
+        self.group_by_member_ids[member_ids] = group_id
+        for member_id in member_ids:
+            self.add_edge("has_member", group_id, member_id, confidence, "coordination_group")
+        return group_id
+
+    def _nominal_reference_wants_person_agent(self, token) -> bool:
+        return (
+            token.dep_ in SUBJECT_DEPS
+            and token.head is not token
+            and token.head.lemma_.lower() in NOMINAL_REFERENCE_PERSON_AGENT_ACTION_LEMMAS
+        )
+
+    def _object_span_start(self, token) -> int:
+        chunk = self._chunk_for_token(token)
+        return chunk.start if chunk is not None else token.i
+
+    def _object_span_end(self, token) -> int:
+        chunk = self._chunk_for_token(token)
+        return chunk.end if chunk is not None else token.i + 1
+
+    def _chunk_for_token(self, token):
+        for chunk in self.doc.noun_chunks:
+            if chunk.start <= token.i < chunk.end:
+                return chunk
+        return None
+
+    def _nominal_reference_modifiers(self, token) -> list:
+        modifiers = [
+            child
+            for child in token.children
+            if child.dep_ in NOMINAL_REFERENCE_MODIFIER_DEPS and self._looks_like_modifier(child)
+        ]
+        return sorted({modifier.i: modifier for modifier in modifiers}.values(), key=lambda item: item.i)
+
+    def _ensure_nominal_reference_instance(
+        self,
+        token,
+        antecedent_id: str,
+        modifiers: list,
+        confidence: str,
+        evidence: str,
+    ) -> str:
+        antecedent = self._mention_by_id(antecedent_id)
+        if antecedent is None:
+            return antecedent_id
+        instance_text = self._nominal_reference_instance_text(antecedent, modifiers)
+        instance_id = self.add_mention(
+            "object",
+            instance_text,
+            antecedent.lemma,
+            "nominal_reference",
+            token.i,
+            "nominal_reference_instance",
+            confidence,
+        )
+        self.object_by_token_i[token.i] = instance_id
+        self.add_edge("derived_from", instance_id, antecedent_id, confidence, evidence)
+        for modifier in modifiers:
+            modifier_id, edge_type, modifier_confidence = self._add_modifier(modifier, "nominal_reference")
+            self.add_edge(
+                edge_type,
+                instance_id,
+                modifier_id,
+                modifier_confidence,
+                f"nominal_reference {modifier.dep_} -> {token.text}; {evidence}",
+            )
+        return instance_id
+
+    def _nominal_reference_instance_text(self, antecedent: ConceptMention, modifiers: list) -> str:
+        modifier_text = " ".join(modifier.text for modifier in modifiers)
+        if modifier_text:
+            return f"{modifier_text} {antecedent.lemma}"
+        return antecedent.lemma
+
+    def _nominal_reference_confidence(self, score: int) -> str:
+        if score >= 85:
+            return "high"
+        return "medium"
+
+    def _nominal_reference_evidence(self, token, antecedent_id: str, score: int, margin: int | None) -> str:
+        antecedent_text = self._mention_text(antecedent_id)
+        if margin is None:
+            return f"{reference_class(token)} {token.text} -> {antecedent_text}; score={score}"
+        return f"{reference_class(token)} {token.text} -> {antecedent_text}; score={score}; margin={margin}"
+
+    def _has_quantity_signal(self, object_id: str) -> bool:
+        return any(edge.edge_type == "has_quantity" and edge.source == object_id for edge in self.edges)
+
+    def _has_plural_quantity_signal(self, object_id: str) -> bool:
+        for quantity in self._quantity_mentions_for_object(object_id):
+            if quantity.role in {
+                "approximate_quantity",
+                "distributive_quantity",
+                "group_quantity",
+                "partitive_quantity",
+            }:
+                return True
+            if quantity.role == "exact_quantity" and quantity.lemma not in {"0", "one", "zero"}:
+                return True
+        return False
+
+    def _has_exact_one_quantity_signal(self, object_id: str) -> bool:
+        return any(
+            quantity.role == "exact_quantity" and quantity.lemma in {"1", "one"}
+            for quantity in self._quantity_mentions_for_object(object_id)
+        )
+
+    def _quantity_mentions_for_object(self, object_id: str) -> list[ConceptMention]:
+        mentions = []
+        for edge in self.edges:
+            if edge.edge_type != "has_quantity" or edge.source != object_id:
+                continue
+            mention = self._mention_by_id(edge.target)
+            if mention is not None:
+                mentions.append(mention)
+        return mentions
 
     def _is_reference_token_for_rewiring(self, token) -> bool:
         if token.dep_ in {"det", "case", "mark", "punct", "cc"}:
@@ -867,10 +1297,16 @@ class RawConceptExtractor:
         return token.lower_ not in REFLEXIVE_PRONOUNS and token.lemma_.lower() not in REFLEXIVE_PRONOUNS
 
     def _mention_text(self, mention_id: str) -> str:
+        mention = self._mention_by_id(mention_id)
+        if mention is not None:
+            return mention.text
+        return mention_id
+
+    def _mention_by_id(self, mention_id: str) -> ConceptMention | None:
         for mention in self.mentions:
             if mention.mention_id == mention_id:
-                return mention.text
-        return mention_id
+                return mention
+        return None
 
     def _relation_source(self, head) -> str | None:
         if head.pos_ in ACTION_POS or head.pos_ == "AUX":

@@ -6,6 +6,7 @@ import re
 from quantity_lexicon import quantity_confidence, quantity_role
 from quote_retokenizer import is_raw_quote_token
 from reference_lexicon import reference_class
+from scene_context_lexicon import scene_context_role
 
 
 CONTEXT_TAGS = {
@@ -364,12 +365,24 @@ def _norm_tag_list_pos(token, *, is_head: bool = False, person_object_override: 
     return token.pos_, token.tag_
 
 
-def _is_context_segment(doc, segment: TagSegment) -> bool:
+def _context_segment_head(doc, segment: TagSegment):
+    if not len(doc):
+        return None
     if segment.norm in CONTEXT_TAGS:
-        return True
+        return doc[0], "scene_context", "high"
     if len(doc) == 1 and doc[0].lemma_.lower() in CONTEXT_TAGS:
-        return True
-    return False
+        return doc[0], "scene_context", "high"
+    root = _root_token(doc)
+    if root is None:
+        return None
+    role = scene_context_role(root)
+    if role is None:
+        return None
+    return root, role[0], role[1]
+
+
+def _is_context_segment(doc, segment: TagSegment) -> bool:
+    return _context_segment_head(doc, segment) is not None
 
 
 def _is_floating_attribute(doc) -> bool:
@@ -523,17 +536,41 @@ def parse_tag_list(nlp, caption: str) -> TagListParseResult:
             continue
 
         if _is_context_segment(doc, segment):
-            token = doc[0]
+            token, role, confidence = _context_segment_head(doc, segment)
             context_id = add_mention(
                 "context",
                 token.text,
                 token.lemma_,
                 segment.tag_id,
                 token.i,
-                "scene_context",
-                "high",
+                role,
+                confidence,
             )
-            add_edge("has_context", "scene", context_id, "high", f"{segment.tag_id} context tag")
+            add_edge("has_context", "scene", context_id, confidence, f"{segment.tag_id} context tag")
+            for modifier in _modifier_tokens(doc, token):
+                quantity = quantity_role(modifier)
+                concept_type = "quantity" if quantity is not None else "attribute"
+                modifier_role = quantity or "attribute"
+                edge_type = "has_quantity" if quantity is not None else "has_attribute"
+                modifier_confidence = quantity_confidence(quantity) if quantity is not None else "high"
+                if quantity is None and modifier.tag_ in {"VBG", "VBN"}:
+                    modifier_role = "state_attribute"
+                attr_id = add_mention(
+                    concept_type,
+                    modifier.text,
+                    modifier.lemma_,
+                    segment.tag_id,
+                    modifier.i,
+                    modifier_role,
+                    modifier_confidence,
+                )
+                add_edge(
+                    edge_type,
+                    context_id,
+                    attr_id,
+                    modifier_confidence,
+                    f"{segment.tag_id} internal {modifier.dep_} -> {token.text}",
+                )
             continue
 
         floating_attributes = _floating_attribute_tokens(doc)

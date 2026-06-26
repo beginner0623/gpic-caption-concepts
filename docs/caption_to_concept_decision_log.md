@@ -3244,3 +3244,330 @@ case 39:
     neutral it의 target 후보가 glass/tray/table/doily 등으로 갈라짐.
     현재 rule로 자동 repair하면 packet beside spoon 같은 잘못된 복원이 생길 수 있어 skip 유지.
 ```
+
+## 2026-06-26: scene_context retyping and duplicate merge
+
+### 문제
+
+`background`, `foreground`, `distance`, `scene`, `setting` 같은 단어는 물리적 object라기보다 caption 전체의 scene-level context에 가까운 경우가 많다.
+그런데 기존 extractor는 noun chunk root를 먼저 object로 만들고, 이후 `_extract_contexts()`에서 같은 token을 context로 다시 만들었다.
+
+대표 예시:
+
+```text
+in the background
+against a dark background
+Pine trees frame the foreground.
+blurred background
+```
+
+이 경우 raw concept에 다음처럼 중복이 생겼다.
+
+```text
+object(background)
+context(background)
+```
+
+object count table 관점에서는 `background/foreground`가 실제 object 빈도에 섞이는 것이 문제다.
+
+### 결정
+
+scene_context는 작고 보수적인 lexicon + syntax 조건으로 처리한다.
+`surface`, `ground`, `wall`, `sky`, `field`, `area`, `side`, `edge`, `corner`처럼 실제 scene element/object로 셀 수 있는 단어는 이번 rule에서 제외했다.
+
+현재 high-confidence scene context head:
+
+```text
+background
+foreground
+scene
+setting
+distance
+indoors
+outdoors
+dusk
+dawn
+```
+
+soft context head:
+
+```text
+day
+daytime
+evening
+indoor
+morning
+night
+nighttime
+outdoor
+sunset
+```
+
+soft head는 modifier로 쓰이면 context로 보지 않는다.
+예를 들어 `night sky`, `outdoor table` 같은 경우 token이 `compound/amod`로 붙으면 scene_context로 올리지 않는다.
+
+### 구현
+
+추가 파일:
+
+```text
+scripts/scene_context_lexicon.py
+```
+
+추가/수정한 핵심 함수:
+
+```text
+scene_context_role(token)
+is_scene_context_lemma(lemma)
+RawConceptExtractor._ensure_scene_context()
+RawConceptExtractor._merge_duplicate_scene_context_objects()
+RawConceptExtractor._add_chunk_modifiers()
+```
+
+sentence branch에서는 noun chunk root가 scene_context로 판정되면 object를 만들지 않고 context mention을 만든다.
+modifier는 버리지 않고 context에 그대로 붙인다.
+
+```text
+blurred background
+-> context(background)
+-> has_attribute(background, blurred)
+```
+
+기존 object/context 중복이 이미 만들어진 경우에는 token 기준 alias merge를 수행한다.
+
+```text
+object(background) + context(background)
+-> context(background)
+```
+
+tag-list branch에도 같은 원칙을 적용했다.
+
+```text
+orange flower, green leaves, blurred background
+-> object(flower), object(leaves), context(background)
+-> has_attribute(background, blurred)
+```
+
+### 100 sample 검증
+
+기준 리포트:
+
+```text
+reports/raw_concepts_sample_100_trf_current_summary.md
+reports/case_detail_sample_100_trf_current.md
+```
+
+변경 후 요약:
+
+```text
+object: 643
+context: 71
+scene_context role: 44
+relation edges: 322
+self_edge_after_coref skipped: 1
+```
+
+변경 직전 대비:
+
+```text
+object: 647 -> 643
+context: 70 -> 71
+scene_context: 40 -> 44
+relation: 322 -> 322
+self_edge_after_coref skipped: 1 -> 1
+```
+
+`background/foreground/distance/scene/setting/indoors/outdoors/dusk/dawn` 계열이 100개 상세 리포트에서 object mention으로 남지 않는 것을 확인했다.
+관계 edge 수와 self-edge repair 결과는 유지되어, scene_context retyping이 relation extraction을 크게 흔들지는 않았다.
+
+## 2026-06-26: nominal reference 복원 본류 적용
+
+### 실수
+
+`one/other/both/each` 같은 nominal/anaphoric reference에 대해 이전 구현은 다음 상태였다.
+
+```text
+오염 방지:
+  reference_class(token) != None인 token을 object 후보에서 제외
+
+복원:
+  scripts/nominal_reference_resolver.py sidecar audit에서만 수행
+  raw_concept_extractor 본류에는 미적용
+```
+
+따라서 40번 예시가 raw concept에서 누락됐다.
+
+```text
+Several cars, including a red one
+
+bad current raw:
+  object(cars)
+  quantity(several)
+  action(including)
+
+missing:
+  one -> cars
+  red one -> red car
+```
+
+이건 sidecar audit 결과를 본류 적용 결과로 착각한 것이다.
+
+### 결정
+
+nominal reference는 raw extractor 본류에서 high-confidence일 때만 복원한다.
+
+기본 원칙:
+
+```text
+1. one/other/both/each 자체를 object로 세지 않는다.
+2. 항상 reference mention을 만든다.
+3. antecedent가 확실하면 refers_to edge를 만든다.
+4. a red one처럼 modifier가 있는 singular substitute는 antecedent type을 복사한 derived object를 만든다.
+5. bare One/the other는 새 object를 만들지 않고 antecedent에 link만 건다.
+6. Both/each가 coordination group을 가리키면 group mention을 만든다.
+```
+
+### 구현
+
+수정 파일:
+
+```text
+scripts/raw_concept_extractor.py
+```
+
+추가한 핵심 함수:
+
+```text
+_resolve_nominal_reference_tokens()
+_nominal_reference_resolution()
+_nominal_reference_candidates()
+_nominal_coordination_group_candidates()
+_nominal_reference_score()
+_ensure_nominal_reference_instance()
+_nominal_reference_candidate_mention_id()
+```
+
+추가 mention / edge:
+
+```text
+concept_type:
+  reference
+  group
+
+roles:
+  singular_substitute
+  contrastive_reference
+  group_reference
+  distributive_reference
+  nominal_reference_instance
+  coordination_group
+
+edges:
+  refers_to
+  derived_from
+  has_member
+```
+
+### 40번 결과
+
+```text
+Several cars, including a red one
+
+reference(one)
+object(red car)
+refers_to(one, cars)
+derived_from(red car, cars)
+has_attribute(red car, red)
+patient(including, red car)
+relation(cars, include, red car)
+```
+
+즉 `one` 자체는 object가 아니고, `red car`가 derived object로 살아난다.
+
+### Both 오처리 수정
+
+초기 본류 적용 직후 62번에서 문제가 생겼다.
+
+```text
+A man and a woman ... Both look toward the camera
+
+bad:
+  Both -> earrings
+```
+
+원인:
+
+```text
+nearest plural object인 earrings가 score에서 이김
+coordination group candidate를 만들지 않았음
+```
+
+수정:
+
+```text
+A man and a woman
+-> group(A man and a woman)
+-> has_member(group, man)
+-> has_member(group, woman)
+
+Both
+-> refers_to(group)
+-> agent(look, group)
+```
+
+또한 `both/each`가 human-action subject인데 후보가 non-person object이면 강한 penalty를 준다.
+
+### 100 sample 검증
+
+기준 리포트:
+
+```text
+reports/raw_concepts_sample_100_trf_current_summary.md
+reports/case_detail_sample_100_trf_current.md
+```
+
+변경 후 summary:
+
+```text
+reference: 8
+group: 1
+nominal_reference_instance: 1
+refers_to edges: 8
+derived_from edges: 1
+has_member edges: 2
+```
+
+대표 복원:
+
+```text
+case 15:
+  One -> men
+  other -> men
+  agent(wears, men)
+
+case 40:
+  one -> cars
+  red one -> red car
+
+case 62:
+  Both -> A man and a woman
+  agent(look, A man and a woman)
+
+case 63:
+  One -> men
+  other -> men
+```
+
+### 남은 한계
+
+case 63은 아직 완전 해결이 아니다.
+
+```text
+One is on top, controlling the other...
+```
+
+현재는 `One`과 `other`가 둘 다 `men` antecedent로 붙는다.
+따라서 `one man controls other man`처럼 두 개의 distinct member instance로 split하지는 못한다.
+
+이 문제는 단순 reference link가 아니라 entity splitting / member-level anaphora 문제다.
+다음 단계에서 `Two men -> member_1/member_2` 같은 member instance 생성이 필요하다.
