@@ -28,18 +28,18 @@
 ## Concept Types
 | item | count |
 | --- | ---: |
-| `object` | 644 |
+| `object` | 639 |
 | `attribute` | 411 |
 | `action` | 208 |
 | `context` | 71 |
 | `quantity` | 30 |
-| `reference` | 8 |
+| `reference` | 13 |
 | `group` | 1 |
 
 ## Mention Roles
 | item | count |
 | --- | ---: |
-| `noun_chunk_root` | 547 |
+| `noun_chunk_root` | 542 |
 | `verb_predicate` | 208 |
 | `color_attribute` | 120 |
 | `modifier_attribute` | 95 |
@@ -60,9 +60,12 @@
 | `singular_substitute` | 4 |
 | `group_quantity` | 4 |
 | `contrastive_reference` | 2 |
+| `generic_structure_reference` | 2 |
 | `distributive_quantity` | 2 |
+| `generic_object_reference` | 2 |
 | `tag_list_person_object_override` | 2 |
 | `nominal_reference_instance` | 1 |
+| `generic_human_reference` | 1 |
 | `coordination_group` | 1 |
 | `group_reference` | 1 |
 | `indefinite_quantity` | 1 |
@@ -77,7 +80,7 @@
 | `patient` | 81 |
 | `has_context` | 44 |
 | `has_quantity` | 28 |
-| `refers_to` | 8 |
+| `refers_to` | 13 |
 | `candidate_has_attribute` | 7 |
 | `scene_contains` | 5 |
 | `has_member` | 2 |
@@ -139,6 +142,6 @@
 | --- | ---: |
 | `mention:high` | 1149 |
 | `edge:medium` | 560 |
-| `edge:high` | 546 |
+| `edge:high` | 551 |
 | `mention:medium` | 224 |
 | `edge:low` | 7 |

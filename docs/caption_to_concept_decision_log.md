@@ -3571,3 +3571,106 @@ One is on top, controlling the other...
 
 이 문제는 단순 reference link가 아니라 entity splitting / member-level anaphora 문제다.
 다음 단계에서 `Two men -> member_1/member_2` 같은 member instance 생성이 필요하다.
+
+## 2026-06-27 - generic definite NP reference resolver 적용
+
+### 배경
+
+100개 샘플에서 `The object`, `The structure`, `The individual` 같은 generic definite NP가 새 object로 count되는 문제가 남아 있었다.
+대표 케이스는 38, 49, 57, 73, 80이다.
+이 문제는 Maverick/Coref 같은 무거운 외부 coreference model을 100M caption production path에 넣기보다, spaCy parse 결과 위에서 high-confidence case만 빠르게 alias하는 방식으로 처리하기로 결정했다.
+
+### 적용한 방식
+
+`RawConceptExtractor.run()` 순서를 다음처럼 조정했다.
+
+```text
+scene_context merge
+-> pronoun/reference token 1차 resolve
+-> generic definite NP resolve
+-> pronoun/reference token 2차 resolve
+-> nominal reference resolve
+-> action/relation extraction
+```
+
+새 resolver는 다음 조건을 모두 만족할 때만 동작한다.
+
+```text
+1. noun chunk root가 generic trigger head이다.
+   - object/item/thing/entity/artifact/fragment/piece
+   - structure
+   - individual/figure
+
+2. NP가 definite이다.
+   - the/this/that/these/those + noun chunk
+   - plural-like root는 제외
+   - compound/amod로 다른 명사를 수식하는 token은 제외
+
+3. antecedent 후보가 앞에 나온 object mention이다.
+   - max token distance: 90
+   - person/structure/object role compatibility를 score에 반영
+   - 첫 문장 subject와 첫 object를 discourse topic 후보로 가산
+   - score >= 72, runner-up과 margin >= 14일 때만 resolve
+```
+
+resolve가 성공하면 새 object로 세지 않고 다음처럼 변환한다.
+
+```text
+object(The object) 제거
+reference(The object) 생성
+refers_to(reference, antecedent) 생성
+기존 edge의 source/target을 antecedent로 alias rewrite
+reference_object_by_token_i도 alias 반영
+```
+
+중요한 세부 결정:
+
+```text
+artifact/fragment/piece는 generic trigger로는 허용하지만,
+antecedent 후보에서 generic placeholder로 penalize하지 않는다.
+이유: case 57처럼 첫 문장의 artifact는 실제 object이고, 뒤의 The object가 그것을 가리킨다.
+
+antecedent skip head는 object/thing/item/entity/individual/structure/figure처럼 placeholder 성격이 강한 head로 제한한다.
+```
+
+### 100개 eval shard 결과
+
+입력:
+
+```text
+data/gpic_captions_eval/val/gpic_val_00000.jsonl.gz
+```
+
+갱신 파일:
+
+```text
+reports/raw_concepts_sample_100_trf_current.jsonl
+reports/raw_concepts_sample_100_trf_current_summary.md
+reports/case_detail_sample_100_trf_current.md
+```
+
+summary 변화:
+
+```text
+object: 644 -> 639
+reference: 8 -> 13
+refers_to edge: 8 -> 13
+```
+
+확인된 개선:
+
+| case | 이전 문제 | 현재 결과 |
+|---:|---|---|
+| 38 | `The structure`가 object로 count됨 | `reference(The structure) -> building` |
+| 49 | `The individual`이 object로 count됨 | `reference(The individual) -> person` |
+| 57 | `The object`가 object로 count됨 | `reference(The object) -> artifact` |
+| 73 | `the structure`가 object로 count됨 | `reference(the structure) -> building` |
+| 80 | `The object`가 object로 count됨 | `reference(The object) -> slab` |
+
+남은 한계:
+
+```text
+case 80의 마지막 it appears stationary는 아직 it -> edges로 resolve된다.
+이건 generic definite NP 문제가 아니라 pronoun resolution에서 body/part noun보다 whole object를 선호해야 하는 selectional preference 문제다.
+별도 이슈로 다루는 것이 맞다.
+```

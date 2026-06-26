@@ -3484,7 +3484,6 @@ _none_
 | m4 | attribute | golden | golden | chunk2 | 7 | color_attribute | high |
 | m5 | object | palm trees | palm_tree | chunk3 | 13 | noun_chunk_root | high |
 | m6 | attribute | tall | tall | chunk3 | 12 | size_attribute | high |
-| m7 | object | structure | structure | chunk4 | 16 | noun_chunk_root | high |
 | m8 | object | lawn | lawn | chunk5 | 21 | noun_chunk_root | high |
 | m9 | attribute | green | green | chunk5 | 20 | color_attribute | high |
 | m10 | object | sky | sky | chunk6 | 26 | noun_chunk_root | high |
@@ -3493,6 +3492,7 @@ _none_
 | m13 | object | shadows | shadow | chunk7 | 29 | noun_chunk_root | high |
 | m14 | object | grass | grass | chunk8 | 33 | noun_chunk_root | high |
 | m15 | object | trees | tree | chunk9 | 36 | noun_chunk_root | high |
+| m16 | reference | The structure | structure | generic_anaphoric | 16 | generic_structure_reference | high |
 | m16 | action | surrounded | surround | doc | 10 | verb_predicate | high |
 | m17 | action | sits | sit | doc | 17 | verb_predicate | high |
 | m18 | action | cast | cast | doc | 30 | verb_predicate | high |
@@ -3506,17 +3506,18 @@ _none_
 | e3 | has_attribute | m8 | m9 | high | chunk5 amod -> lawn |
 | e4 | has_attribute | m10 | m11 | medium | chunk6 amod -> sky |
 | e5 | has_attribute | m10 | m12 | high | chunk6 amod -> sky |
-| e6 | agent | m16 | m0 | medium | nsubjpass -> surrounded |
-| e7 | agent | m17 | m7 | medium | nsubj -> sits |
-| e8 | agent | m18 | m13 | medium | inherited agent acl -> shadows |
-| e9 | relation | m0 | m2 | high | with |
-| e10 | relation | m0 | m3 | high | with |
-| e11 | relation | m0 | m5 | medium | by |
-| e12 | relation | m7 | m8 | high | on |
-| e13 | relation | m7 | m10 | high | under |
-| e14 | relation | m7 | m13 | high | with |
-| e15 | relation | m13 | m14 | high | across |
-| e16 | relation | m13 | m15 | medium | from |
+| e6 | refers_to | m16 | m0 | high | generic definite NP score=172 margin=93 |
+| e7 | agent | m16 | m0 | medium | nsubjpass -> surrounded |
+| e8 | agent | m17 | m0 | medium | nsubj -> sits; resolved structure -> building |
+| e9 | agent | m18 | m13 | medium | inherited agent acl -> shadows |
+| e10 | relation | m0 | m2 | high | with |
+| e11 | relation | m0 | m3 | high | with |
+| e12 | relation | m0 | m5 | medium | by |
+| e13 | relation | m0 | m8 | high | on |
+| e14 | relation | m0 | m10 | high | under |
+| e15 | relation | m0 | m13 | high | with |
+| e16 | relation | m13 | m14 | high | across |
+| e17 | relation | m13 | m15 | medium | from |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -4735,7 +4736,6 @@ _none_
 | m4 | attribute | yellow | yellow | chunk1 | 6 | color_attribute | high |
 | m5 | object | sunglasses | sunglass | chunk2 | 10 | noun_chunk_root | high |
 | m6 | attribute | blue | blue | chunk2 | 9 | color_attribute | high |
-| m7 | object | individual | individual | chunk3 | 13 | noun_chunk_root | high |
 | m8 | object | grass | grass | chunk4 | 18 | noun_chunk_root | high |
 | m9 | object | sunlight | sunlight | chunk5 | 20 | noun_chunk_root | high |
 | m10 | context | background | background | chunk6 | 24 | scene_context | high |
@@ -4743,6 +4743,7 @@ _none_
 | m12 | attribute | date | date | chunk7 | 27 | compound_modifier | medium |
 | m13 | context | corner | corner | chunk8 | 33 | spatial_region | medium |
 | m14 | context | outdoors | outdoors | doc | 15 | scene_context | high |
+| m15 | reference | The individual | individual | generic_anaphoric | 13 | generic_human_reference | high |
 | m15 | action | wears | wear | doc | 2 | verb_predicate | high |
 | m16 | action | reads | read | doc | 29 | verb_predicate | high |
 
@@ -4755,12 +4756,13 @@ _none_
 | e3 | has_context | scene | m10 | high | scene_context token background |
 | e4 | has_attribute | m11 | m12 | medium | chunk7 compound -> stamp |
 | e5 | has_context | scene | m14 | high | scene_context token outdoors |
-| e6 | agent | m15 | m1 | medium | nsubj -> wears |
-| e7 | patient | m15 | m2 | medium | dobj -> wears |
-| e8 | agent | m16 | m11 | medium | nsubj -> reads |
-| e9 | patient | m16 | m0 | medium | dobj -> reads |
-| e10 | relation | m2 | m5 | high | with |
-| e11 | relation | m11 | m13 | high | in |
+| e6 | refers_to | m15 | m1 | high | generic definite NP score=177 margin=177 |
+| e7 | agent | m15 | m1 | medium | nsubj -> wears |
+| e8 | patient | m15 | m2 | medium | dobj -> wears |
+| e9 | agent | m16 | m11 | medium | nsubj -> reads |
+| e10 | patient | m16 | m0 | medium | dobj -> reads |
+| e11 | relation | m2 | m5 | high | with |
+| e12 | relation | m11 | m13 | high | in |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -5374,10 +5376,10 @@ _none_
 | m9 | object | marker | marker | chunk5 | 24 | noun_chunk_root | high |
 | m10 | attribute | scale | scale | chunk5 | 23 | compound_modifier | medium |
 | m11 | object | size | size | chunk6 | 29 | noun_chunk_root | high |
-| m12 | object | object | object | chunk7 | 32 | noun_chunk_root | high |
 | m13 | object | fragment | fragment | chunk8 | 40 | noun_chunk_root | high |
 | m14 | attribute | ancient | ancient | chunk8 | 37 | modifier_attribute | medium |
 | m15 | attribute | archaeological | archaeological | chunk8 | 39 | modifier_attribute | medium |
+| m16 | reference | The object | object | generic_anaphoric | 32 | generic_object_reference | high |
 | m16 | action | rests | rest | doc | 13 | verb_predicate | high |
 | m17 | action | reads | read | doc | 25 | verb_predicate | high |
 | m18 | action | indicating | indicate | doc | 27 | verb_predicate | high |
@@ -5393,15 +5395,16 @@ _none_
 | e4 | has_attribute | m9 | m10 | medium | chunk5 compound -> marker |
 | e5 | has_attribute | m13 | m14 | medium | chunk8 amod -> fragment |
 | e6 | has_attribute | m13 | m15 | medium | chunk8 conj -> fragment |
-| e7 | agent | m16 | m1 | medium | nsubj -> rests |
-| e8 | agent | m17 | m9 | medium | nsubj -> reads |
-| e9 | agent | m18 | m9 | medium | inherited agent advcl -> reads |
-| e10 | patient | m18 | m11 | medium | dobj -> indicating |
-| e11 | agent | m19 | m12 | medium | nsubj -> appears |
-| e12 | relation | m1 | m5 | high | with |
-| e13 | relation | m1 | m6 | high | with |
-| e14 | relation | m1 | m8 | high | on |
-| e15 | relation | m9 | m1 | high | below |
+| e7 | refers_to | m16 | m1 | high | generic definite NP score=132 margin=30 |
+| e8 | agent | m16 | m1 | medium | nsubj -> rests |
+| e9 | agent | m17 | m9 | medium | nsubj -> reads |
+| e10 | agent | m18 | m9 | medium | inherited agent advcl -> reads |
+| e11 | patient | m18 | m11 | medium | dobj -> indicating |
+| e12 | agent | m19 | m1 | medium | nsubj -> appears; resolved object -> artifact |
+| e13 | relation | m1 | m5 | high | with |
+| e14 | relation | m1 | m6 | high | with |
+| e15 | relation | m1 | m8 | high | on |
+| e16 | relation | m9 | m1 | high | below |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -6897,7 +6900,7 @@ _none_
 | m15 | attribute | building | building | chunk8 | 33 | modifier_attribute | medium |
 | m16 | object | sky | sky | chunk9 | 38 | noun_chunk_root | high |
 | m17 | object | grass | grass | chunk10 | 43 | noun_chunk_root | high |
-| m18 | object | structure | structure | chunk12 | 50 | noun_chunk_root | high |
+| m19 | reference | the structure | structure | generic_anaphoric | 50 | generic_structure_reference | high |
 | m19 | action | stands | stand | doc | 11 | verb_predicate | high |
 | m20 | action | lead | lead | doc | 29 | verb_predicate | high |
 | m21 | action | grows | grow | doc | 44 | verb_predicate | high |
@@ -6913,16 +6916,17 @@ _none_
 | e5 | has_attribute | m9 | m10 | high | chunk4 amod -> area |
 | e6 | has_context | scene | m12 | high | scene_context token foreground |
 | e7 | has_attribute | m14 | m15 | medium | chunk8 poss -> entrance |
-| e8 | agent | m19 | m0 | medium | nsubj -> stands |
-| e9 | agent | m20 | m13 | medium | nsubj -> lead |
-| e10 | agent | m21 | m17 | medium | nsubj -> grows |
-| e11 | relation | m0 | m2 | high | with |
-| e12 | relation | m0 | m5 | high | with |
-| e13 | relation | m0 | m7 | high | behind |
-| e14 | relation | m9 | m11 | high | with |
-| e15 | relation | m9 | m12 | high | in |
-| e16 | relation | m13 | m14 | medium | to |
-| e17 | relation | m17 | m18 | medium | base_of |
+| e8 | refers_to | m19 | m0 | high | generic definite NP score=154 margin=60 |
+| e9 | agent | m19 | m0 | medium | nsubj -> stands |
+| e10 | agent | m20 | m13 | medium | nsubj -> lead |
+| e11 | agent | m21 | m17 | medium | nsubj -> grows |
+| e12 | relation | m0 | m2 | high | with |
+| e13 | relation | m0 | m5 | high | with |
+| e14 | relation | m0 | m7 | high | behind |
+| e15 | relation | m9 | m11 | high | with |
+| e16 | relation | m9 | m12 | high | in |
+| e17 | relation | m13 | m14 | medium | to |
+| e18 | relation | m17 | m0 | medium | base_of |
 
 ### Skipped Raw Concept Edges
 _none_
@@ -7650,7 +7654,6 @@ _none_
 | m5 | context | background | background | chunk2 | 17 | scene_context | high |
 | m6 | attribute | light-colored | light-colored | chunk2 | 15 | modifier_attribute | medium |
 | m7 | attribute | flat | flat | chunk2 | 16 | modifier_attribute | medium |
-| m8 | object | object | object | chunk3 | 20 | noun_chunk_root | high |
 | m9 | object | texture | texture | chunk4 | 23 | noun_chunk_root | high |
 | m10 | attribute | visible | visible | chunk4 | 22 | modifier_attribute | medium |
 | m11 | object | imperfections | imperfection | chunk5 | 26 | noun_chunk_root | high |
@@ -7658,6 +7661,7 @@ _none_
 | m13 | object | stone | stone | chunk7 | 34 | noun_chunk_root | high |
 | m14 | object | metal | metal | chunk8 | 36 | noun_chunk_root | high |
 | m15 | object | edges | edge | chunk9 | 39 | noun_chunk_root | high |
+| m16 | reference | The object | object | generic_anaphoric | 20 | generic_object_reference | high |
 | m16 | action | rests | rest | doc | 12 | verb_predicate | high |
 | m17 | action | has | have | doc | 21 | verb_predicate | high |
 | m18 | action | suggesting | suggest | doc | 28 | verb_predicate | high |
@@ -7675,17 +7679,18 @@ _none_
 | e5 | has_attribute | m5 | m7 | medium | chunk2 amod -> background |
 | e6 | has_attribute | m9 | m10 | medium | chunk4 amod -> texture |
 | e7 | has_attribute | m11 | m12 | medium | chunk5 amod -> imperfections |
-| e8 | agent | m16 | m0 | medium | nsubj -> rests |
-| e9 | agent | m17 | m8 | medium | nsubj -> has |
-| e10 | patient | m17 | m9 | medium | dobj -> has |
-| e11 | patient | m17 | m11 | medium | dobj -> has |
-| e12 | agent | m18 | m8 | medium | inherited agent advcl -> has |
-| e13 | agent | m19 | m8 | medium | nsubjpass -> made; resolved it -> object |
-| e14 | agent | m20 | m15 | medium | nsubj -> appears; resolved it -> edges |
-| e15 | relation | m0 | m4 | high | with |
-| e16 | relation | m0 | m5 | high | on |
-| e17 | relation | m8 | m13 | medium | of |
-| e18 | relation | m8 | m14 | medium | of |
+| e8 | refers_to | m16 | m0 | high | generic definite NP score=150 margin=150 |
+| e9 | agent | m16 | m0 | medium | nsubj -> rests |
+| e10 | agent | m17 | m0 | medium | nsubj -> has; resolved object -> slab |
+| e11 | patient | m17 | m9 | medium | dobj -> has |
+| e12 | patient | m17 | m11 | medium | dobj -> has |
+| e13 | agent | m18 | m0 | medium | inherited agent advcl -> has |
+| e14 | agent | m19 | m0 | medium | nsubjpass -> made; resolved it -> slab |
+| e15 | agent | m20 | m15 | medium | nsubj -> appears; resolved it -> edges |
+| e16 | relation | m0 | m4 | high | with |
+| e17 | relation | m0 | m5 | high | on |
+| e18 | relation | m0 | m13 | medium | of |
+| e19 | relation | m0 | m14 | medium | of |
 
 ### Skipped Raw Concept Edges
 _none_

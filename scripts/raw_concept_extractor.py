@@ -220,6 +220,57 @@ NOMINAL_REFERENCE_PERSON_AGENT_ACTION_LEMMAS = {
     "walk",
     "wear",
 }
+GENERIC_ANAPHORIC_DETERMINERS = {"the", "this", "that", "these", "those"}
+GENERIC_ANAPHORIC_MAX_DISTANCE = 90
+GENERIC_ANAPHORIC_MIN_SCORE = 72
+GENERIC_ANAPHORIC_AMBIGUOUS_MARGIN = 14
+GENERIC_ANAPHORIC_OBJECT_HEADS = {
+    "artifact",
+    "entity",
+    "fragment",
+    "item",
+    "object",
+    "piece",
+    "thing",
+}
+GENERIC_ANAPHORIC_HUMAN_HEADS = {"figure", "individual"}
+GENERIC_ANAPHORIC_STRUCTURE_HEADS = {"structure"}
+GENERIC_ANAPHORIC_HEADS = (
+    GENERIC_ANAPHORIC_OBJECT_HEADS
+    | GENERIC_ANAPHORIC_HUMAN_HEADS
+    | GENERIC_ANAPHORIC_STRUCTURE_HEADS
+)
+GENERIC_ANTECEDENT_SKIP_HEADS = {
+    "entity",
+    "figure",
+    "individual",
+    "item",
+    "object",
+    "structure",
+    "thing",
+}
+STRUCTURE_ANTECEDENT_LEMMAS = {
+    "arch",
+    "barn",
+    "bridge",
+    "building",
+    "cabin",
+    "church",
+    "fence",
+    "gate",
+    "gazebo",
+    "house",
+    "hut",
+    "lighthouse",
+    "monument",
+    "pier",
+    "platform",
+    "shelter",
+    "shed",
+    "stadium",
+    "tower",
+    "wall",
+}
 SELF_EDGE_REPAIR_SOURCE_HEAD_LEMMAS = {"carry", "contain", "display", "have", "hold", "position", "show", "wear"}
 SELF_EDGE_REPAIR_RELATIONS = SPATIAL_RELATIONS | {
     "at_edge_of",
@@ -277,6 +328,8 @@ class RawConceptExtractor:
         self._extract_quote_carrier_edges()
         self._extract_contexts()
         self._merge_duplicate_scene_context_objects()
+        self._resolve_reference_tokens()
+        self._resolve_generic_anaphoric_nouns()
         self._resolve_reference_tokens()
         self._resolve_nominal_reference_tokens()
         self._extract_actions()
@@ -486,6 +539,179 @@ class RawConceptExtractor:
             if mention_id in aliases:
                 del self.object_by_token_i[token_i]
         self.edges = self._rewrite_edges_with_aliases(aliases, "scene_context_merge")
+
+    def _resolve_generic_anaphoric_nouns(self) -> None:
+        aliases: dict[str, str] = {}
+        dropped_ids: set[str] = set()
+
+        for chunk in self.doc.noun_chunks:
+            root = chunk.root
+            current_id = self.object_by_token_i.get(root.i)
+            if current_id is None:
+                continue
+            role = self._generic_anaphoric_role(root)
+            if role is None or not self._is_definite_generic_chunk(chunk):
+                continue
+            resolution = self._generic_anaphoric_resolution(root, role)
+            if resolution is None:
+                continue
+
+            antecedent_id, score, margin = resolution
+            if antecedent_id == current_id:
+                continue
+
+            confidence = "high" if score >= 92 else "medium"
+            ref_id = self.add_mention(
+                "reference",
+                chunk.text,
+                root.lemma_.lower(),
+                "generic_anaphoric",
+                root.i,
+                role,
+                confidence,
+            )
+            self.add_edge(
+                "refers_to",
+                ref_id,
+                antecedent_id,
+                confidence,
+                f"generic definite NP score={score} margin={margin}",
+            )
+            self.reference_object_by_token_i[root.i] = antecedent_id
+            aliases[current_id] = antecedent_id
+            dropped_ids.add(current_id)
+
+        if not aliases:
+            return
+
+        self.mentions = [mention for mention in self.mentions if mention.mention_id not in dropped_ids]
+        for token_i, mention_id in list(self.object_by_token_i.items()):
+            if mention_id in aliases:
+                del self.object_by_token_i[token_i]
+        for token_i, mention_id in list(self.reference_object_by_token_i.items()):
+            if mention_id in aliases:
+                self.reference_object_by_token_i[token_i] = aliases[mention_id]
+        self.edges = self._rewrite_edges_with_aliases(aliases, "generic_anaphoric_merge")
+
+    def _generic_anaphoric_role(self, token) -> str | None:
+        lemma = token.lemma_.lower()
+        if lemma in GENERIC_ANAPHORIC_HUMAN_HEADS:
+            return "generic_human_reference"
+        if lemma in GENERIC_ANAPHORIC_STRUCTURE_HEADS:
+            return "generic_structure_reference"
+        if lemma in GENERIC_ANAPHORIC_OBJECT_HEADS:
+            return "generic_object_reference"
+        return None
+
+    def _is_definite_generic_chunk(self, chunk) -> bool:
+        root = chunk.root
+        if self._is_plural_like(root):
+            return False
+        if root.dep_ in {"amod", "compound"}:
+            return False
+        return any(
+            child.dep_ == "det" and child.lemma_.lower() in GENERIC_ANAPHORIC_DETERMINERS
+            for child in root.children
+        )
+
+    def _generic_anaphoric_resolution(self, token, role: str) -> tuple[str, int, int] | None:
+        current_id = self.object_by_token_i.get(token.i)
+        scored: list[tuple[int, int, str]] = []
+        for token_i, mention_id in self.object_by_token_i.items():
+            if token_i >= token.i or mention_id == current_id:
+                continue
+            candidate = self.doc[token_i]
+            distance = token.i - token_i
+            if distance > GENERIC_ANAPHORIC_MAX_DISTANCE:
+                continue
+            score = self._generic_anaphoric_score(token, role, candidate, distance)
+            if score >= GENERIC_ANAPHORIC_MIN_SCORE:
+                scored.append((score, token_i, mention_id))
+
+        if not scored:
+            return None
+        scored.sort(key=lambda item: (-item[0], -item[1]))
+        best_score, _best_token_i, best_id = scored[0]
+        runner_up = scored[1][0] if len(scored) > 1 else 0
+        margin = best_score - runner_up
+        if runner_up and margin < GENERIC_ANAPHORIC_AMBIGUOUS_MARGIN:
+            return None
+        return best_id, best_score, margin
+
+    def _generic_anaphoric_score(self, token, role: str, candidate, distance: int) -> int:
+        if candidate.i in self.context_by_token_i:
+            return -100
+        candidate_lemma = candidate.lemma_.lower()
+        if candidate_lemma in GENERIC_ANTECEDENT_SKIP_HEADS:
+            return -80
+
+        score = 0
+        if distance <= 10:
+            score += 25
+        elif distance <= 25:
+            score += 20
+        elif distance <= 55:
+            score += 14
+        else:
+            score += 6
+
+        sent_gap = self._sentence_gap(candidate, token)
+        if sent_gap == 0:
+            score += 8
+        elif sent_gap == 1:
+            score += 24
+        elif sent_gap == 2:
+            score += 12
+        else:
+            score += 5
+
+        if candidate.dep_ in SUBJECT_DEPS:
+            score += 15
+        elif candidate.dep_ in OBJECT_DEPS:
+            score += 8
+        if self._is_first_sentence_subject(candidate):
+            score += 35
+        if self._is_first_object_candidate(candidate):
+            score += 18
+
+        if role == "generic_human_reference":
+            score += 65 if self._is_person_candidate(candidate) else -80
+        elif role == "generic_structure_reference":
+            if self._is_person_candidate(candidate) or self._is_body_part_candidate(candidate):
+                score -= 75
+            elif candidate_lemma in STRUCTURE_ANTECEDENT_LEMMAS:
+                score += 60
+            else:
+                score += 22
+        else:
+            if self._is_person_candidate(candidate):
+                score -= 70
+            elif self._is_body_part_candidate(candidate):
+                score -= 35
+            else:
+                score += 38
+        return score
+
+    def _sentence_gap(self, left, right) -> int:
+        return max(0, self._sentence_index(right) - self._sentence_index(left))
+
+    def _sentence_index(self, token) -> int:
+        for index, sent in enumerate(self.doc.sents):
+            if sent.start <= token.i < sent.end:
+                return index
+        return 0
+
+    def _is_first_sentence_subject(self, token) -> bool:
+        first_sent = next(self.doc.sents, None)
+        if first_sent is None:
+            return False
+        return token.sent.start == first_sent.start and token.dep_ in SUBJECT_DEPS
+
+    def _is_first_object_candidate(self, token) -> bool:
+        prior_object_tokens = [token_i for token_i in self.object_by_token_i if token_i <= token.i]
+        if not prior_object_tokens:
+            return False
+        return token.i == min(prior_object_tokens)
 
     def _rewrite_edges_with_aliases(self, aliases: dict[str, str], reason: str) -> list[ConceptEdge]:
         rewritten_edges: list[ConceptEdge] = []
