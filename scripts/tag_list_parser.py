@@ -4,6 +4,8 @@ from dataclasses import asdict, dataclass
 import re
 
 from quantity_lexicon import quantity_confidence, quantity_role
+from quote_retokenizer import is_raw_quote_token
+from reference_lexicon import reference_class
 
 
 CONTEXT_TAGS = {
@@ -27,8 +29,10 @@ CONTEXT_TAGS = {
 }
 
 ATTRIBUTE_POS = {"ADJ", "ADV"}
-OBJECT_POS = {"NOUN", "PROPN", "PRON"}
+OBJECT_POS = {"NOUN", "PROPN"}
 MODIFIER_DEPS = {"amod", "compound", "nummod", "poss", "acl"}
+PRONOUN_OBJECT_TAGS = {"PRP", "WP", "WP$", "WDT"}
+POSSESSIVE_PRONOUN_TAGS = {"PRP$", "WP$"}
 COLOR_WORDS = {
     "black",
     "white",
@@ -315,15 +319,35 @@ def _is_person_object_override(token, segment: TagSegment) -> bool:
 def _object_head(doc, segment: TagSegment | None = None):
     if segment is not None and _is_single_person_object_segment(doc, segment):
         return doc[0]
-    nouns = [token for token in doc if token.pos_ in OBJECT_POS]
+    nouns = [token for token in doc if _is_object_candidate_token(token)]
     if nouns:
         return nouns[-1]
     root = _root_token(doc)
-    if root is not None and root.pos_ in OBJECT_POS:
+    if root is not None and _is_object_candidate_token(root):
         return root
-    if len(doc) == 1 and root is not None and root.tag_ not in {"JJ", "JJR", "JJS", "VBN"}:
+    if (
+        len(doc) == 1
+        and root is not None
+        and root.tag_ not in {"JJ", "JJR", "JJS", "VBN"}
+        and root.pos_ != "PRON"
+        and root.tag_ not in PRONOUN_OBJECT_TAGS
+        and reference_class(root) is None
+        and quantity_role(root) is None
+    ):
         return root
     return None
+
+
+def _is_object_candidate_token(token) -> bool:
+    if _is_quote_token(token):
+        return False
+    if token.pos_ == "PRON" or token.tag_ in PRONOUN_OBJECT_TAGS:
+        return False
+    if reference_class(token) is not None:
+        return False
+    if _is_color_token(token):
+        return False
+    return token.pos_ in OBJECT_POS
 
 
 def _norm_tag_list_pos(token, *, is_head: bool = False, person_object_override: bool = False) -> tuple[str, str]:
@@ -352,6 +376,8 @@ def _is_floating_attribute(doc) -> bool:
     if len(doc) != 1:
         return False
     token = doc[0]
+    if _is_quote_token(token):
+        return True
     if token.pos_ in ATTRIBUTE_POS or token.tag_ in {"JJ", "JJR", "JJS", "VBN"}:
         return True
     if token.tag_ == "VBG":
@@ -359,10 +385,30 @@ def _is_floating_attribute(doc) -> bool:
     return False
 
 
+def _floating_attribute_tokens(doc) -> list:
+    if len(doc) == 1 and _is_floating_attribute(doc):
+        return [doc[0]]
+    content_tokens = [
+        token
+        for token in doc
+        if token.pos_ not in {"CCONJ", "PUNCT"} and token.dep_ not in {"cc", "punct"}
+    ]
+    if not content_tokens:
+        return []
+    if all(_is_color_token(token) for token in content_tokens):
+        return content_tokens
+    return []
+
+
 def _modifier_tokens(doc, head) -> list:
     modifiers = []
     for token in doc:
         if token.i == head.i:
+            continue
+        if _is_quote_token(token):
+            modifiers.append(token)
+            continue
+        if _is_possessive_pronoun(token):
             continue
         if quantity_role(token) is not None:
             modifiers.append(token)
@@ -371,6 +417,18 @@ def _modifier_tokens(doc, head) -> list:
         elif token.i < head.i and token.pos_ in {"ADJ", "NOUN", "PROPN", "NUM", "VERB"}:
             modifiers.append(token)
     return sorted({token.i: token for token in modifiers}.values(), key=lambda token: token.i)
+
+
+def _is_possessive_pronoun(token) -> bool:
+    return token.dep_ == "poss" and (token.tag_ in POSSESSIVE_PRONOUN_TAGS or token.pos_ == "PRON")
+
+
+def _is_color_token(token) -> bool:
+    return token.lemma_.lower() in COLOR_WORDS
+
+
+def _is_quote_token(token) -> bool:
+    return is_raw_quote_token(token)
 
 
 def parse_tag_list(nlp, caption: str) -> TagListParseResult:
@@ -478,30 +536,40 @@ def parse_tag_list(nlp, caption: str) -> TagListParseResult:
             add_edge("has_context", "scene", context_id, "high", f"{segment.tag_id} context tag")
             continue
 
-        if _is_floating_attribute(doc):
-            token = doc[0]
-            attr_id = add_mention(
-                "attribute",
-                token.text,
-                token.lemma_,
-                segment.tag_id,
-                token.i,
-                "floating_attribute",
-                "medium",
-            )
-            if previous_object_ids:
-                add_edge(
-                    "candidate_has_attribute",
-                    previous_object_ids[-1],
-                    attr_id,
-                    "low",
-                    f"{segment.tag_id} adjacent floating attribute",
+        floating_attributes = _floating_attribute_tokens(doc)
+        if floating_attributes:
+            for token in floating_attributes:
+                if _is_quote_token(token):
+                    role = "quote_text"
+                    confidence = "high"
+                elif _is_color_token(token):
+                    role = "color_attribute"
+                    confidence = "high"
+                else:
+                    role = "floating_attribute"
+                    confidence = "medium"
+                attr_id = add_mention(
+                    "attribute",
+                    token.text,
+                    token.lemma_,
+                    segment.tag_id,
+                    token.i,
+                    role,
+                    confidence,
                 )
+                if previous_object_ids:
+                    add_edge(
+                        "candidate_has_attribute",
+                        previous_object_ids[-1],
+                        attr_id,
+                        "low",
+                        f"{segment.tag_id} adjacent floating attribute",
+                    )
             continue
 
         head = _object_head(doc, segment)
         if head is not None:
-            head_is_object_pos = head.pos_ in OBJECT_POS
+            head_is_object_pos = _is_object_candidate_token(head)
             head_is_person_override = _is_person_object_override(head, segment)
             role = "segment_head"
             confidence = "high"
@@ -526,7 +594,9 @@ def parse_tag_list(nlp, caption: str) -> TagListParseResult:
                 role = quantity or "attribute"
                 edge_type = "has_quantity" if quantity is not None else "has_attribute"
                 confidence = quantity_confidence(quantity) if quantity is not None else "high"
-                if quantity is None and modifier.tag_ in {"VBG", "VBN"}:
+                if quantity is None and _is_quote_token(modifier):
+                    role = "quote_text"
+                elif quantity is None and modifier.tag_ in {"VBG", "VBN"}:
                     role = "state_attribute"
                 attr_id = add_mention(
                     concept_type,

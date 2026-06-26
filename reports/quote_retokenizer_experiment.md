@@ -854,18 +854,16 @@
 | m1 | attribute | white | white | 1 | color_attribute | high |
 | m2 | attribute | fabric | fabric | 2 | material_attribute | high |
 | m3 | object | number | number | 6 | noun_chunk_root | high |
-| m4 | object | the | the | 27 | noun_chunk_root | high |
-| m5 | action | stitched | stitch | 9 | verb_predicate | high |
-| m6 | action | frayed | fray | 20 | verb_predicate | high |
-| m7 | action | sits | sit | 25 | verb_predicate | high |
+| m4 | action | stitched | stitch | 9 | verb_predicate | high |
+| m5 | action | frayed | fray | 20 | verb_predicate | high |
+| m6 | action | sits | sit | 25 | verb_predicate | high |
 
 **Raw Concept Edges**
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m0 | m1 | high | chunk0 amod -> tag |
 | e1 | has_attribute | m0 | m2 | high | chunk0 compound -> tag |
-| e2 | patient | m7 | m4 | medium | pobj -> sits |
-| e3 | relation | m0 | m3 | high | with |
+| e2 | relation | m0 | m3 | high | with |
 
 ## screen_shows_text
 
@@ -939,26 +937,25 @@
 | m2 | object | audience | audience | 11 | noun_chunk_root | high |
 | m3 | object | flag | flag | 15 | noun_chunk_root | high |
 | m4 | attribute | American | american | 14 | modifier_attribute | medium |
-| m5 | object | her | she | 18 | noun_chunk_root | high |
-| m6 | object | screen | screen | 22 | noun_chunk_root | high |
-| m7 | object | Divide | divide | 28 | noun_chunk_root | high |
-| m8 | attribute | Access | access | 27 | compound_modifier | medium |
-| m9 | action | stands | stand | 2 | verb_predicate | high |
-| m10 | action | speaking | speak | 6 | verb_predicate | high |
-| m11 | action | shows | show | 23 | verb_predicate | high |
-| m12 | action | Closing | close | 25 | verb_predicate | high |
+| m5 | object | screen | screen | 22 | noun_chunk_root | high |
+| m6 | object | Divide | divide | 28 | noun_chunk_root | high |
+| m7 | attribute | Access | access | 27 | compound_modifier | medium |
+| m8 | action | stands | stand | 2 | verb_predicate | high |
+| m9 | action | speaking | speak | 6 | verb_predicate | high |
+| m10 | action | shows | show | 23 | verb_predicate | high |
+| m11 | action | Closing | close | 25 | verb_predicate | high |
 
 **Raw Concept Edges**
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m3 | m4 | medium | chunk4 amod -> flag |
-| e1 | has_attribute | m7 | m8 | medium | chunk7 compound -> Divide |
-| e2 | agent | m9 | m0 | medium | nsubj -> stands |
-| e3 | agent | m11 | m6 | medium | nsubj -> shows |
-| e4 | patient | m12 | m7 | medium | dobj -> Closing |
+| e1 | has_attribute | m6 | m7 | medium | chunk7 compound -> Divide |
+| e2 | agent | m8 | m0 | medium | nsubj -> stands |
+| e3 | agent | m10 | m5 | medium | nsubj -> shows |
+| e4 | patient | m11 | m6 | medium | dobj -> Closing |
 | e5 | relation | m0 | m1 | medium | at |
 | e6 | relation | m0 | m2 | high | in_front_of |
-| e7 | relation | m3 | m5 | high | behind |
+| e7 | relation | m3 | m0 | high | behind |
 
 ### raw_merge_after_parser
 
@@ -1010,22 +1007,21 @@
 | m2 | object | audience | audience | 11 | noun_chunk_root | high |
 | m3 | object | flag | flag | 15 | noun_chunk_root | high |
 | m4 | attribute | American | american | 14 | modifier_attribute | medium |
-| m5 | object | her | she | 18 | noun_chunk_root | high |
-| m6 | object | screen | screen | 22 | noun_chunk_root | high |
-| m7 | action | stands | stand | 2 | verb_predicate | high |
-| m8 | action | speaking | speak | 6 | verb_predicate | high |
-| m9 | action | shows | show | 23 | verb_predicate | high |
-| m10 | action | "Closing the Access Divide." | closing_the_access_divide. | 24 | verb_predicate | high |
+| m5 | object | screen | screen | 22 | noun_chunk_root | high |
+| m6 | action | stands | stand | 2 | verb_predicate | high |
+| m7 | action | speaking | speak | 6 | verb_predicate | high |
+| m8 | action | shows | show | 23 | verb_predicate | high |
+| m9 | action | "Closing the Access Divide." | closing_the_access_divide. | 24 | verb_predicate | high |
 
 **Raw Concept Edges**
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m3 | m4 | medium | chunk4 amod -> flag |
-| e1 | agent | m7 | m0 | medium | nsubj -> stands |
-| e2 | agent | m9 | m6 | medium | nsubj -> shows |
+| e1 | agent | m6 | m0 | medium | nsubj -> stands |
+| e2 | agent | m8 | m5 | medium | nsubj -> shows |
 | e3 | relation | m0 | m1 | medium | at |
 | e4 | relation | m0 | m2 | high | in_front_of |
-| e5 | relation | m3 | m5 | high | behind |
+| e5 | relation | m3 | m0 | high | behind |
 
 ### raw_merge_first
 
@@ -1078,23 +1074,22 @@
 | m2 | object | audience | audience | 11 | noun_chunk_root | high |
 | m3 | object | flag | flag | 15 | noun_chunk_root | high |
 | m4 | attribute | American | american | 14 | modifier_attribute | medium |
-| m5 | object | her | she | 18 | noun_chunk_root | high |
-| m6 | object | screen | screen | 22 | noun_chunk_root | high |
-| m7 | object | "Closing the Access Divide." | closing_the_access_divide. | 24 | noun_chunk_root | high |
-| m8 | action | stands | stand | 2 | verb_predicate | high |
-| m9 | action | speaking | speak | 6 | verb_predicate | high |
-| m10 | action | shows | show | 23 | verb_predicate | high |
+| m5 | object | screen | screen | 22 | noun_chunk_root | high |
+| m6 | object | "Closing the Access Divide." | closing_the_access_divide. | 24 | noun_chunk_root | high |
+| m7 | action | stands | stand | 2 | verb_predicate | high |
+| m8 | action | speaking | speak | 6 | verb_predicate | high |
+| m9 | action | shows | show | 23 | verb_predicate | high |
 
 **Raw Concept Edges**
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m3 | m4 | medium | chunk4 amod -> flag |
-| e1 | agent | m8 | m0 | medium | nsubj -> stands |
-| e2 | agent | m10 | m6 | medium | nsubj -> shows |
-| e3 | patient | m10 | m7 | medium | dobj -> shows |
+| e1 | agent | m7 | m0 | medium | nsubj -> stands |
+| e2 | agent | m9 | m5 | medium | nsubj -> shows |
+| e3 | patient | m9 | m6 | medium | dobj -> shows |
 | e4 | relation | m0 | m1 | medium | at |
 | e5 | relation | m0 | m2 | high | in_front_of |
-| e6 | relation | m3 | m5 | high | behind |
+| e6 | relation | m3 | m0 | high | behind |
 
 ### raw_merge_before_parser
 
@@ -1146,21 +1141,20 @@
 | m2 | object | audience | audience | 11 | noun_chunk_root | high |
 | m3 | object | flag | flag | 15 | noun_chunk_root | high |
 | m4 | attribute | American | american | 14 | modifier_attribute | medium |
-| m5 | object | her | she | 18 | noun_chunk_root | high |
-| m6 | object | screen | screen | 22 | noun_chunk_root | high |
-| m7 | action | stands | stand | 2 | verb_predicate | high |
-| m8 | action | speaking | speak | 6 | verb_predicate | high |
-| m9 | action | shows | show | 23 | verb_predicate | high |
+| m5 | object | screen | screen | 22 | noun_chunk_root | high |
+| m6 | action | stands | stand | 2 | verb_predicate | high |
+| m7 | action | speaking | speak | 6 | verb_predicate | high |
+| m8 | action | shows | show | 23 | verb_predicate | high |
 
 **Raw Concept Edges**
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m3 | m4 | medium | chunk4 amod -> flag |
-| e1 | agent | m7 | m0 | medium | nsubj -> stands |
-| e2 | agent | m9 | m6 | medium | nsubj -> shows |
+| e1 | agent | m6 | m0 | medium | nsubj -> stands |
+| e2 | agent | m8 | m5 | medium | nsubj -> shows |
 | e3 | relation | m0 | m1 | medium | at |
 | e4 | relation | m0 | m2 | high | in_front_of |
-| e5 | relation | m3 | m5 | high | behind |
+| e5 | relation | m3 | m0 | high | behind |
 
 ## poster_reads_text
 
@@ -1458,22 +1452,17 @@
 | m1 | object | can | can | 6 | noun_chunk_root | high |
 | m2 | attribute | black | black | 4 | color_attribute | high |
 | m3 | attribute | trash | trash | 5 | compound_modifier | medium |
-| m4 | object | a | a | 16 | noun_chunk_root | high |
-| m5 | object | The | the | 19 | noun_chunk_root | high |
-| m6 | object | sidewalk | sidewalk | 25 | noun_chunk_root | high |
-| m7 | action | reads | read | 7 | verb_predicate | high |
-| m8 | object | a | a | 10 | relation_head | medium |
-| m9 | object | scene | scene | 20 | relation_head | medium |
+| m4 | object | sidewalk | sidewalk | 25 | noun_chunk_root | high |
+| m5 | action | reads | read | 7 | verb_predicate | high |
+| m6 | object | scene | scene | 20 | relation_head | medium |
 
 **Raw Concept Edges**
 | id | type | source | target | confidence | evidence |
 | --- | --- | --- | --- | --- | --- |
 | e0 | has_attribute | m1 | m2 | high | chunk1 amod -> can |
 | e1 | has_attribute | m1 | m3 | medium | chunk1 compound -> can |
-| e2 | agent | m7 | m0 | medium | nsubj -> reads |
+| e2 | agent | m5 | m0 | medium | nsubj -> reads |
 | e3 | relation | m0 | m1 | high | on |
-| e4 | relation | m0 | m4 | medium | man |
-| e5 | relation | m4 | m5 | medium | hat |
 
 ## building_with_sign
 

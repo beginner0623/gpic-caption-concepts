@@ -324,6 +324,17 @@ def render_doc(
             ]
             for edge in raw_result.edges
         ]
+        skipped_edge_rows = [
+            [
+                skipped_edge["edge_type"],
+                skipped_edge["source"],
+                skipped_edge["target"],
+                skipped_edge["confidence"],
+                skipped_edge["reason"],
+                skipped_edge["evidence"],
+            ]
+            for skipped_edge in raw_result.skipped_edges
+        ]
         blocks.extend(
             [
                 "### Raw Concept Mentions",
@@ -337,6 +348,11 @@ def render_doc(
                 "### Raw Concept Edges",
                 markdown_table(["id", "type", "source", "target", "confidence", "evidence"], edge_rows)
                 if edge_rows
+                else "_none_",
+                "",
+                "### Skipped Raw Concept Edges",
+                markdown_table(["type", "source", "target", "confidence", "reason", "evidence"], skipped_edge_rows)
+                if skipped_edge_rows
                 else "_none_",
                 "",
             ]

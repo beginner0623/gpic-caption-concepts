@@ -38,8 +38,10 @@ spaCy가 하는 일:
 
 | set 이름 | 값 | 쓰는 곳 | 의미 |
 |---|---|---|---|
-| `OBJECT_POS` | `NOUN`, `PROPN`, `PRON` | noun chunk object, relation source/target | object로 볼 수 있는 coarse POS |
+| `OBJECT_POS` | `NOUN`, `PROPN` | noun chunk object, relation source/target | raw object로 볼 수 있는 coarse POS. `PRON`은 surface reference이므로 제외 |
 | object fallback tags | `NN`, `NNS`, `NNP`, `NNPS` | noun chunk root, `_object_for_token`, with recovery | POS가 틀려도 noun tag면 object 후보 |
+| `PRONOUN_OBJECT_TAGS` | `PRP`, `WP`, `WP$`, `WDT` | object 후보 필터 | personal/relative pronoun을 countable object로 세지 않음 |
+| `POSSESSIVE_PRONOUN_TAGS` | `PRP$`, `WP$` | modifier 후보 필터 | `her`, `his`, `their`, `whose`류를 attribute로 세지 않음 |
 | `ACTION_POS` | `VERB` | action extraction | action predicate 후보 |
 | `MODIFIER_DEPS` | `amod`, `compound`, `nummod`, `poss`, `acl`, `advmod` | `_looks_like_modifier()` | object에 붙는 modifier 후보 |
 | `SUBJECT_DEPS` | `nsubj`, `nsubjpass` | action agent edge | verb의 주어 |
@@ -51,10 +53,38 @@ spaCy가 하는 일:
 
 | 단계 | 조건 | 통과하면 | 실패하면 | 보수적인 이유 |
 |---|---|---|---|---|
-| noun chunk root 확인 | `root.pos_ in OBJECT_POS` 또는 `root.tag_ in {NN,NNS,NNP,NNPS}` | object mention 생성 | 해당 chunk skip | noun chunk 전체가 아니라 root가 noun-like일 때만 object |
+| noun chunk root 확인 | `_is_object_candidate_token(root)` | object mention 생성 | 해당 chunk skip | noun chunk 전체가 아니라 root가 noun-like일 때만 object |
+| pronoun/reference 제외 | `pos=PRON`, `tag in {PRP,WP,WP$,WDT}`, `reference_class(token) != None` | skip | 계속 진행 없음 | `it`, `them`, `who`, `one`, `other` 같은 surface reference를 object count에 넣지 않음 |
 | multi-word relation 중간 token 제외 | `top/front/...`가 ADP 아래 있고 `of` prep child가 있음 | object가 아니라 relation middle로 제외 | 계속 진행 | `top`을 object로 세지 않기 위함 |
 | spatial region anchor 처리 | `top/front/...`가 ADP 아래 있음 | context `spatial_region`으로 저장 | 계속 진행 | `front`, `back` 같은 공간 anchor를 물체로 세지 않음 |
 | lowercase PROPN 보정 | `token.pos_ == PROPN` and `token.text.islower()` | role=`lowercase_propn_as_object`, confidence=`medium` | 일반 object | `blue jersey` 같은 lowercase PROPN 오인 완화 |
+
+### 2.2.1 Reference Rewiring Before Blocking
+
+pronoun/reference token은 object mention으로 만들지 않는다.
+다만 edge recall을 잃지 않기 위해 action/relation 추출 전에 `reference_object_by_token_i`를 먼저 만든다.
+
+| 대상 | antecedent 찾는 방법 | edge에서 쓰는 방식 | object count |
+|---|---|---|---|
+| `He`, `him`, `her`, `them`, `it` 등 personal pronoun | 이전 object 중 person/gender/number/recency/dependency salience score가 높은 후보 | `_object_for_token(pronoun)`이 antecedent object id 반환 | pronoun object는 만들지 않음 |
+| `that/which/who` relative pronoun | `that -> reads -> relcl -> sign`처럼 relative clause head의 명사 object | `agent(reads, sign)`처럼 rewiring | relative pronoun object는 만들지 않음 |
+| `one/other/both/each` nominal reference | raw extractor가 아니라 Stage 8.5 nominal resolver sidecar에서 처리 | raw edge 자동 복사는 보류 | surface reference object는 만들지 않음 |
+
+예시:
+
+```text
+He has red nail polish
+-> agent(has, man)
+
+An American flag is behind her
+-> relation(American flag, behind, woman)
+
+glowing lights behind them
+-> relation(lights, behind, person)
+
+a stone sign that reads "MILE 0..."
+-> agent(reads, sign)
+```
 
 ### 2.3 Noun Chunk Modifier to Attribute
 
@@ -62,6 +92,7 @@ spaCy가 하는 일:
 |---|---|---|---|
 | token이 chunk root와 같음 | skip | `curtains` in `red curtains` | root는 object |
 | `token.dep_ in SKIP_MODIFIER_DEPS` | skip | `a`, `the`, `and` | function word 제외 |
+| possessive pronoun | skip | `her phone`, `their bags`, `whose shirt` | 소유 대명사는 visual attribute가 아니라 reference/possession 정보 |
 | `token.pos_ in {ADJ, ADV, NUM}` | modifier 후보 | `red`, `large`, `two` | `_looks_like_modifier()` |
 | `token.dep_ in MODIFIER_DEPS` | modifier 후보 | `compound`, `amod`, `nummod` | noun compound도 attribute 후보 |
 | lemma가 color/material/size/visual lexicon에 있음 | modifier 후보 | `blue`, `wooden`, `large` | POS가 흔들려도 lexicon으로 보완 |
@@ -70,6 +101,7 @@ spaCy가 하는 일:
 
 | 조건 | concept type | role | edge | confidence |
 |---|---|---|---|---|
+| possessive pronoun | skip | 없음 | 없음 | 없음 |
 | `token.dep_ == nummod` 또는 `token.pos_ == NUM` | `quantity` | `quantity` | `has_quantity` | high |
 | lemma in `COLOR_WORDS` | `attribute` | `color_attribute` | `has_attribute` | high |
 | lemma in `MATERIAL_WORDS` | `attribute` | `material_attribute` | `has_attribute` | high |
@@ -92,8 +124,8 @@ spaCy가 하는 일:
 |---|---|---|
 | `token.pos_ in ACTION_POS` | action mention 후보 | `run`, `stand`, `kick` |
 | `token.dep_ in {aux, amod}` | action에서 제외 | auxiliary, modifier verb 제외 |
-| child `dep in SUBJECT_DEPS` | `action --agent--> object` | `man stands` |
-| child `dep in OBJECT_DEPS` | `action --patient--> object` | `kick ball` |
+| child `dep in SUBJECT_DEPS` | `action --agent--> object` | `man stands`, `He has... -> man`, `that reads... -> sign` |
+| child `dep in OBJECT_DEPS` | `action --patient--> object` | `kick ball`, `reads quote_text` |
 | subject/object child가 `conj`를 가짐 | conjunct target도 확장 | `man and woman stand` |
 
 ### 2.7 Relation Extraction
@@ -104,6 +136,7 @@ spaCy가 하는 일:
 | prep child `dep in {pobj, pcomp}` | relation target 후보 | `on table`의 `table` | `_preposition_object()` |
 | relation source가 verb/action | verb subject를 source로 선택 | `man stands on field` | `man --on--> field` |
 | relation source가 object | object를 source로 선택 | `man with hat` | `man --with--> hat` |
+| relation target이 resolved pronoun | target을 antecedent object로 치환 | `behind her -> behind woman` | pronoun object는 생성하지 않음 |
 | target이 `conj`를 가짐 | target 확장 | `walls and beams` | 같은 relation을 conj target에도 적용 |
 | relation in `SPATIAL_RELATIONS` 또는 relation에 `_` 포함 | confidence high | `on`, `in_front_of` | 나머지는 medium |
 
@@ -169,7 +202,7 @@ spaCy POS/dependency/noun chunk를 다시 돌리지 않고, 이미 생성된 값
 
 | 조건 | 처리 | 이유 |
 |---|---|---|
-| modifier dep in `amod`, `compound`, `nummod`, `poss`, `acl` | attribute 후보 | noun에 직접 붙는 modifier만 허용 |
+| modifier dep in `amod`, `compound`, `nummod`, `poss`, `acl` | attribute 후보 | noun에 직접 붙는 modifier만 허용. 단 possessive pronoun은 제외 |
 | modifier dep in `advmod` | 제외 | `above -> trees` 같은 부작용 방지 |
 | modifier가 `_looks_like_modifier()` 통과 | `_add_modifier()`로 role mapping | 기존 attribute logic 재사용 |
 
@@ -207,7 +240,9 @@ tag-list caption은 문장이 아니라 comma-separated segment에 가깝기 때
 | set 이름 | 값 | 쓰는 곳 | 의미 |
 |---|---|---|---|
 | `ATTRIBUTE_POS` | `ADJ`, `ADV` | floating attribute, modifier | tag-list에서 독립 attribute 후보 |
-| `OBJECT_POS` | `NOUN`, `PROPN`, `PRON` | segment head | tag-list object head 후보 |
+| `OBJECT_POS` | `NOUN`, `PROPN` | segment head | tag-list object head 후보. `PRON`은 제외 |
+| `PRONOUN_OBJECT_TAGS` | `PRP`, `WP`, `WP$`, `WDT` | segment head 필터 | pronoun/relative pronoun segment를 object로 세지 않음 |
+| `POSSESSIVE_PRONOUN_TAGS` | `PRP$`, `WP$` | segment modifier 필터 | possessive pronoun을 attribute로 세지 않음 |
 | `MODIFIER_DEPS` | `amod`, `compound`, `nummod`, `poss`, `acl` | segment modifier | object head에 붙는 modifier |
 | `CONTEXT_TAGS` | `indoor`, `outdoor`, `background`, ... | context segment | scene context |
 | `PERSON_OBJECT_WORDS` | `man`, `woman`, `people`, `child`, ... | single person segment override | `man`이 `INTJ/UH`로 잡혀도 object로 보정 |
@@ -217,8 +252,8 @@ tag-list caption은 문장이 아니라 comma-separated segment에 가깝기 때
 | 우선순위 | 조건 | 결과 | 비고 |
 |---:|---|---|---|
 | 1 | single-token segment가 person lexicon에 있음 | 그 token을 head로 선택 | `man` tag-list 문제 해결 |
-| 2 | segment 안에 `pos_ in OBJECT_POS` token 있음 | 마지막 noun-like token을 head로 선택 | `blue shirt`의 `shirt` |
-| 3 | root가 `pos_ in OBJECT_POS` | root 선택 | 일반 segment |
+| 2 | segment 안에 `_is_object_candidate_token(token)` 통과 token 있음 | 마지막 noun-like token을 head로 선택 | `blue shirt`의 `shirt` |
+| 3 | root가 `_is_object_candidate_token(root)` 통과 | root 선택 | 일반 segment |
 | 4 | single-token이고 root tag가 `JJ/JJR/JJS/VBN`이 아님 | root 선택 | ambiguous segment fallback |
 | 5 | 위 조건 없음 | unknown 처리 가능 | low confidence |
 
@@ -466,10 +501,81 @@ or token.pos_/tag is noun-like
 | `ambiguous` | 후보는 있지만 margin이 낮아 자동 적용 보류 |
 | `unresolved` | object count에서 surface reference 제외 후보 |
 
+### 9.6 Recommendation Policy
+
+| case | recommendation | 의미 |
+|---|---|---|
+| `a red one`처럼 modifier가 있는 `singular_substitute` | `copy_antecedent_type_apply_modifiers` | antecedent type을 복사하고 `red` 같은 modifier를 attribute 후보로 반영 |
+| 15/63/89 같은 bare `one` | `link_singular_reference` | 새 object를 만들지 않고 antecedent/member reference link로만 남김 |
+| `other`, `others`, `another` | `link_contrastive_reference` | 같은 antecedent group 안의 대비 항목으로 연결 |
+| `both`, `all` | `link_group_reference` 또는 ambiguous면 manual review | group 전체 reference |
+| `each`, `every` | `link_distributive_reference` | group member별 분배 reference |
+
 현재 기본값:
 
 ```text
 min_score = 45
 ambiguous_margin = 15
 max_antecedent_tokens = 80
+```
+## Quote Span Rule
+
+quote span은 parser 전 `raw_quote_merger`에서 하나의 token으로 merge한다.
+이 token은 실제 visual object가 아니라 text value이므로 object 후보에서는 제외하고, `attribute` / `quote_text`로 보존한다.
+
+| 조건 | 처리 | 이유 |
+|---|---|---|
+| token extension `is_raw_quote == True` | object candidate에서 제외 | quote 내부 문구를 object count에 넣지 않기 위함 |
+| token surface가 `"..."` 또는 `“...”` | quote token으로 fallback 판정 | extension이 없는 경로에서도 안전하게 감지 |
+| quote token이 doc 안에 존재 | `attribute`, role=`quote_text` mention 생성 | caption의 text value 정보는 보존 |
+| action patient가 quote token | `action --patient--> quote_text` edge 유지 | `poster reads "..."` 같은 정보 보존 |
+| object modifier가 quote token | `object --has_attribute--> quote_text` edge 유지 | `a "ROYAL CANIN" banner` 같은 정보 보존 |
+| quote token dep가 `appos/nmod/compound`이고 head가 object | `head_object --has_attribute--> quote_text` edge 추가 | `the number "1709-1"`, `the text "..."` 같은 carrier 구조 보존 |
+
+현재 정책:
+
+```text
+quote_text는 Stage 8에서 attribute로만 남긴다.
+TEXT_SPAN / LABEL_VALUE 같은 canonical type으로 바꾸는 작업은 Stage 9에서 수행한다.
+```
+## Non-finite Action Agent Inheritance
+
+Stage 8 action extraction은 원래 action token의 직접 child에 `nsubj` / `nsubjpass`가 있을 때만 `agent` edge를 만들었다.
+하지만 caption에는 subject가 생략된 participle / infinitive / coordinated verb가 많으므로, 직접 subject가 없을 때만 아래 rule로 agent를 상속한다.
+
+| action token 조건 | agent 후보 | 예시 | 비고 |
+|---|---|---|---|
+| `dep in {acl, relcl}` | action의 head noun | `steps leading to a door` -> `agent(leading, steps)` | noun-attached clause |
+| `dep in {advcl, xcomp, ccomp, conj, acomp}` | parent verb의 subject | `man stands, watching dog` -> `agent(watching, man)` | parent subject가 있으면 상속 |
+| parent verb도 subject 없음 | parent action에서 재귀적으로 탐색 | `preparing to kick` -> `kick` inherits `preparing`의 inherited subject | depth cycle 방지 |
+| `dep == prep` and lemma in `{include}` | action의 head noun | `statistics including numbers` -> `agent(including, statistics)` | 제한된 prep-action만 허용 |
+| direct `nsubj/nsubjpass` 있음 | inheritance 적용 안 함 | `woman smiles` | 명시 subject 우선 |
+| subject가 `one/other/both/each` 계열 reference | raw 자동 collapse 보류 | `One wears...`, `Both look...` | Stage 8.5 sidecar / Stage 9 대상 |
+
+현재 100 sample 기준:
+
+```text
+inherited agent edges: 61
+remaining action without agent: 4
+```
+
+남은 4개는 non-finite parser 문제가 아니라 nominal/anaphoric reference 문제로 분류한다.
+## Self-edge / Self-resolution Guards
+
+coreference/referential rewiring 이후 만들어지는 명백한 self-edge는 Stage 8에서 방어적으로 제거한다.
+다만 모든 self-like 의미를 제거하지 않고, 현재는 안전한 범위만 적용한다.
+
+| 조건 | 처리 | 이유 |
+|---|---|---|
+| `edge_type == relation` and `source == target` | edge drop, reason=`self_edge_after_coref` | visual relation에서 `spoon beside spoon` 같은 구조는 대부분 resolution 오류 |
+| action patient가 pronoun resolution으로 생김 | 같은 action의 agent와 target이 같으면 skip | `light surrounding it -> light` 같은 self-like 오류 방지 |
+| pronoun이 reflexive, 예: `itself/himself/themselves` | skip rule 적용 안 함 | 진짜 자기참조 가능성 보존 |
+| pronoun subject의 head verb lemma in `crawl/fly/glide/jump/leap/run/sit/stand/swim/walk` | body-part antecedent 강한 감점 | `it glides -> head`보다 `duck` 같은 whole object 선호 |
+| pronoun object가 같은 action의 subject 후보로 resolve됨 | non-reflexive이면 강한 감점 | `surrounding it -> light`보다 이전 salient object 선호 |
+
+현재 100 sample 기준:
+
+```text
+self_edges_remaining: 0
+self_edge_after_coref skipped: 4
 ```

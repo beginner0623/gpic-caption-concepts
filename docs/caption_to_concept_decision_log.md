@@ -2042,6 +2042,17 @@ unresolved
   -> object count에서 surface reference 제외 후보로 남김
 ```
 
+singular substitute는 modifier 유무에 따라 다르게 다룬다.
+
+```text
+a red one
+  -> antecedent type 복사 + red modifier 반영 후보
+
+bare one
+  -> 새 object를 만들지 않음
+  -> antecedent/member reference link만 남김
+```
+
 ### 100 sample 결과
 
 재생성한 파일:
@@ -2074,6 +2085,7 @@ distributive_reference: 1
 ```text
 case 15
 One -> Two men
+recommendation: link_singular_reference
 other -> Two men
 
 case 16
@@ -2081,11 +2093,20 @@ others -> Children
 
 case 40
 a red one -> Several cars
+recommendation: copy_antecedent_type_apply_modifiers
 
 case 62
 Both -> A man and a woman
 status: ambiguous
 reason: margin 9, automatic application 보류
+
+case 63
+One -> Two men
+recommendation: link_singular_reference
+
+case 89
+one -> Two men
+recommendation: link_singular_reference
 
 case 98
 each -> Four people
@@ -2118,3 +2139,864 @@ distributive_link(each, antecedent_group)
 ```
 
 단, `ambiguous`는 자동 적용하지 않는다.
+
+---
+
+## 2026-06-26: raw concept에서 pronoun/reference object와 possessive pronoun attribute 제외
+
+### 문제
+
+100개 상세 리포트 검토에서 다음 두 가지 잔여 오류가 확인됐다.
+
+```text
+1. pronoun / relative pronoun / anaphoric nominal object가 raw object로 들어감
+   examples: it, them, who, one, other, others, both, each
+
+2. possessive pronoun이 attribute로 들어감
+   examples: her phone -> her가 attribute
+```
+
+이 둘은 countable visual concept으로 직접 세면 안 된다.
+특히 `one/other/both/each`류는 Stage 8 object가 아니라 Stage 8.5 nominal reference resolver에서 antecedent link 후보로 처리해야 한다.
+
+### 결정
+
+Sentence branch와 tag-list branch 모두 같은 정책으로 정리했다.
+
+```text
+raw object 후보:
+  allow:
+    POS in {NOUN, PROPN}
+    or tag in {NN, NNS, NNP, NNPS}
+
+  exclude:
+    POS == PRON
+    tag in {PRP, WP, WP$, WDT}
+    reference_class(token) != None
+    root-only quantity cue
+
+raw attribute 후보:
+  exclude:
+    dep == poss and tag in {PRP$, WP$}
+    dep == poss and POS == PRON
+```
+
+즉 `it`, `them`, `who`, `which` 같은 pronoun/relative pronoun은 object count에서 제외한다.
+`one`, `other`, `others`, `both`, `each` 같은 anaphoric nominal/reference cue도 object count에서 제외한다.
+`her`, `his`, `their`, `whose` 같은 possessive pronoun은 visual attribute로 세지 않는다.
+
+### 구현 파일
+
+```text
+scripts/raw_concept_extractor.py
+scripts/tag_list_parser.py
+docs/pos_tag_dep_rule_reference.md
+```
+
+### 100 sample 검증
+
+재생성한 파일:
+
+```text
+reports/raw_concepts_sample_100_trf_current.jsonl
+reports/raw_concepts_sample_100_trf_current_summary.md
+reports/case_detail_sample_100_trf_current.md
+reports/nominal_reference_resolution_sample_100_trf_current.md
+reports/nominal_reference_resolution_sample_100_trf_current.jsonl
+```
+
+검증 결과:
+
+```text
+pronoun_or_reference_objects: 0
+possessive_pronoun_attributes: 0
+```
+
+raw concept count:
+
+```text
+object: 704
+attribute: 399
+action: 208
+context: 49
+quantity: 30
+```
+
+nominal reference resolver:
+
+```text
+references_seen: 9
+resolved: 8
+ambiguous: 1
+unresolved: 0
+```
+
+### 해석
+
+Stage 8 raw concept는 이제 surface reference를 countable object로 직접 세지 않는다.
+대신 Stage 8.5에서 reference cue와 antecedent scoring으로 별도 sidecar를 만든다.
+
+따라서 `a red one`은 raw object `one`으로 세지 않고,
+Stage 8.5에서 `one -> Several cars`처럼 antecedent 후보를 찾은 뒤
+Stage 9 canonicalization에서 `car + red` 쪽으로 반영하는 구조가 맞다.
+
+반대로 15/63/89 같은 bare `one`은 `man` 같은 새 object type으로 복사하지 않는다.
+이 경우는 raw object에서 제외하고, Stage 8.5 sidecar에서 antecedent/member reference link로만 남긴다.
+
+---
+
+## 2026-06-26: pronoun blocking 순서 수정 - 먼저 antecedent로 rewiring한 뒤 object count에서 제외
+
+### 문제
+
+직전 구현은 pronoun/reference token을 object에서 바로 제외했다.
+이 덕분에 object count 오염은 줄었지만, pronoun이 subject/object/relation target으로 쓰인 edge까지 같이 사라졌다.
+
+대표 오류:
+
+```text
+case 35
+He has red nail polish...
+
+잘못된 상태:
+  action(has)
+  patient(has, nail_polish)
+  agent 없음
+
+원하는 상태:
+  agent(has, man)
+  patient(has, nail_polish)
+```
+
+```text
+case 03
+An American flag is behind her
+
+잘못된 상태:
+  relation 없음
+
+원하는 상태:
+  relation(American flag, behind, woman)
+```
+
+```text
+case 51
+a stone sign that reads "MILE 0 VICTORIA BC"
+
+원하는 상태:
+  agent(reads, sign)
+  patient(reads, quote_text)
+```
+
+### 결정
+
+Stage 8 sentence branch의 순서를 수정했다.
+
+```text
+1. object noun chunk 생성
+2. context 생성
+3. reference_object_by_token_i 생성
+   - pronoun/relative pronoun token -> 기존 object id
+4. action / relation edge 추출
+   - subject/object/relation target이 pronoun이면 antecedent object id로 치환
+5. pronoun/reference surface 자체는 object mention으로 만들지 않음
+```
+
+즉 blocking을 먼저 하는 것이 아니라,
+edge에서 쓸 antecedent rewiring map을 먼저 만든 뒤 object count에서는 제외한다.
+
+### 구현
+
+```text
+scripts/raw_concept_extractor.py
+```
+
+새로 추가된 핵심 구조:
+
+```text
+reference_object_by_token_i:
+  token_i(He)   -> object_id(man)
+  token_i(her)  -> object_id(woman)
+  token_i(them) -> object_id(person/people)
+  token_i(that) -> object_id(sign)
+```
+
+personal pronoun은 다음 feature를 보수적으로 점수화한다.
+
+```text
+recency / distance
+candidate가 subject였는지
+person/gender/number match
+same/previous sentence
+context penalty
+```
+
+relative pronoun은 fastcoref보다 dependency rule을 우선한다.
+
+```text
+that -> reads -> relcl -> sign
+-> agent(reads, sign)
+```
+
+### 100 sample 검증
+
+재생성한 파일:
+
+```text
+reports/raw_concepts_sample_100_trf_current.jsonl
+reports/raw_concepts_sample_100_trf_current_summary.md
+reports/case_detail_sample_100_trf_current.md
+```
+
+object count 오염:
+
+```text
+pronoun_reference_objects: 0
+```
+
+대표 case 결과:
+
+```text
+case 03
+relation(American flag, behind, woman)
+
+case 28
+relation(lights, behind, person)
+
+case 35
+agent(has, man)
+
+case 41
+agent(stands, man)
+relation(curtains, behind, man)
+
+case 51
+agent(reads, sign)
+patient(reads, "MILE 0 VICTORIA BC")
+```
+
+edge count 변화:
+
+```text
+relation: 302 -> 328
+agent: 144 -> 153
+patient: 78 -> 79
+```
+
+object count는 그대로 유지됐다.
+
+```text
+object: 704
+```
+
+### fastcoref와의 관계
+
+fastcoref는 이미 `He -> man`, `her -> woman`, `them -> person/people` 후보를 찾을 수 있음을 audit으로 확인했다.
+하지만 100M caption 처리 기본 경로에 fastcoref를 직접 넣으면 비용이 커진다.
+
+따라서 현재 기본 Stage 8은 다음처럼 간다.
+
+```text
+production default:
+  dependency/recency 기반 lightweight rewiring
+
+fastcoref:
+  audit 또는 high-risk subset 검증용
+```
+
+필요하면 이후 옵션으로 `--use-fastcoref-rewiring` 같은 batch resolver를 별도 stage로 붙일 수 있다.
+
+### 보정: nominal reference는 raw rewiring에서 제외
+
+처음 lightweight rewiring을 넣을 때 `both/each`가 personal pronoun처럼 raw edge에 직접 연결되는 문제가 있었다.
+예를 들어 `Both look...`이 `agent(look, woman)`처럼 단일 object로 잘못 collapse될 수 있었다.
+
+그래서 raw rewiring 대상에서 `reference_class(token) != None`인 token은 제외했다.
+
+```text
+raw rewiring 허용:
+  he / she / him / her / it / they / them / that / which / who ...
+
+raw rewiring 제외:
+  one / other / others / both / each / all / every ...
+```
+
+이후 policy:
+
+```text
+relative pronoun:
+  raw edge rewiring 허용
+  example: that reads -> sign reads
+
+personal pronoun:
+  raw edge rewiring 허용
+  example: He has -> man has
+
+nominal/anaphoric reference:
+  raw edge rewiring 보류
+  Stage 8.5 nominal_reference_resolver sidecar에서 처리
+```
+## 2026-06-26: quote span은 object에서 제외하고 quote_text attribute로 보존
+
+### 문제
+
+raw quote retokenization 이후에도 quote span이 noun chunk root로 잡히면 object count에 들어가는 경우가 있었다.
+
+대표 예:
+
+```text
+case 03: "Closing the Access Divide."
+case 08: "BANG GOES THE KNIGHTHOOD"
+case 32: "BORDERLINE BIENNALE ..."
+case 47: “edición, diversidad cultural y desarrollo.”
+case 51: "MILE 0 VICTORIA BC"
+case 78: “Assembleia Legislativa do Estado do Espírito Santo”
+```
+
+이 값들은 실제 visual object가 아니라 화면/간판/포스터/번호 등에 적힌 text value다.
+따라서 object count에 들어가면 concept frequency를 오염시킨다.
+
+### 결정
+
+quote span은 다음 정책으로 처리한다.
+
+```text
+1. 원문 quote span 자체를 tokenizer 직후 Retokenizer로 merge한다.
+2. merged quote token에 is_raw_quote metadata를 붙인다.
+3. Stage 8 object candidate에서는 quote token을 제외한다.
+4. quote token은 attribute / quote_text mention으로 반드시 1회 보존한다.
+5. parser가 안정적으로 연결한 edge는 유지한다.
+6. quote token의 syntactic head가 이미 object이면 carrier edge를 추가한다.
+```
+
+즉 quote는 object가 아니다.
+하지만 caption에 적힌 유용한 정보이므로 버리지 않고 `quote_text` attribute로 보존한다.
+
+### 구현
+
+```text
+scripts/quote_retokenizer.py
+scripts/raw_concept_extractor.py
+scripts/tag_list_parser.py
+```
+
+핵심 구현:
+
+```text
+quote_retokenizer:
+  RAW_QUOTE_FLAG = is_raw_quote
+  retokenizer.merge(span, attrs={"LEMMA": ..., "_": {"is_raw_quote": True}})
+
+raw_concept_extractor:
+  _extract_quote_attributes()
+  _extract_quote_carrier_edges()
+  _is_object_candidate_token(token)에서 quote token 제외
+  _object_for_token(quote) -> quote_text attribute id 반환
+
+tag_list_parser:
+  quote token을 segment object head에서 제외
+  단독 quote segment는 floating attribute / quote_text로 처리
+```
+
+### 100 sample 검증
+
+```text
+quote metadata count: 13
+quote_text attribute count: 13
+quote object count: 0
+```
+
+대표 edge 보존:
+
+```text
+case 08:
+  patient(reads, "BANG GOES THE KNIGHTHOOD")
+
+case 25:
+  banner --has_attribute--> "ROYAL CANIN"
+
+case 03:
+  text --has_attribute--> "Closing the Access Divide."
+
+case 32:
+  patient(reads, "BORDERLINE BIENNALE ...")
+
+case 51:
+  patient(reads, "MILE 0 VICTORIA BC")
+
+case 90:
+  number --has_attribute--> "1709-1"
+```
+
+남은 주의점:
+
+```text
+case 90:
+  with the number "1709-1"
+
+현재는 "1709-1" 자체가 quote_text attribute로 보존되고,
+`appos -> number` 구조를 이용해 `number --has_attribute--> quote_text`까지 복원된다.
+다만 더 복잡한 text-bearing structure는 Stage 9 canonicalization에서
+number/sign/text/banner -> quote_text로 추가 보강하는 편이 안전하다.
+```
+## 2026-06-26: non-finite / subject-ellipsis action agent inheritance
+
+### 문제
+
+기존 Stage 8 action extraction은 action token의 직접 child에 `nsubj` / `nsubjpass`가 있을 때만 agent edge를 만들었다.
+하지만 caption에는 다음처럼 표면 주어가 생략된 non-finite verb가 자주 나온다.
+
+```text
+A woman stands at a podium speaking...
+-> speaking의 agent는 woman
+
+A man stands nearby, watching the dog.
+-> watching의 agent는 man
+
+A female soccer player stands..., preparing to kick a ball.
+-> preparing의 agent는 soccer player
+-> kick의 agent도 soccer player
+```
+
+이전 rule에서는 action 자체와 patient는 잡히지만 agent가 비어 있었다.
+
+### 결정
+
+직접 subject가 없는 action에 한해서, 다음 일반 rule로 agent를 상속한다.
+
+```text
+acl / relcl:
+  action head noun을 agent 후보로 사용
+
+advcl / xcomp / ccomp / conj / acomp:
+  parent verb의 subject를 agent 후보로 사용
+  parent verb도 subject가 없으면 재귀적으로 상위 action에서 찾음
+
+including 계열 prep action:
+  head noun을 agent 후보로 사용
+```
+
+명시적 subject가 이미 있으면 inheritance를 적용하지 않는다.
+nominal/anaphoric reference, 예: `one`, `other`, `both`, `each`,는 raw 단계에서 억지로 collapse하지 않고 sidecar에 남긴다.
+
+### 구현
+
+```text
+scripts/raw_concept_extractor.py
+```
+
+핵심 helper:
+
+```text
+_inherited_action_agent_tokens()
+_allows_agent_inheritance()
+_verb_subjects()
+```
+
+### 100 sample 검증
+
+```text
+before:
+  action without agent: 64
+
+after:
+  inherited agent edges: 61
+  action without agent: 4
+```
+
+대표 복원:
+
+```text
+case 03: agent(speaking, woman)
+case 25: agent(watching, man)
+case 30: agent(sharing, man), agent(sharing, woman)
+case 41: agent(singing, man)
+case 43: agent(preparing, soccer player), agent(kick, soccer player)
+case 44: agent(positioned, hockey player), agent(looking, hockey player)
+case 48: agent(holding, man), agent(smiling, woman)
+```
+
+남은 4개는 raw agent inheritance 문제가 아니라 nominal/anaphoric reference 문제다.
+
+```text
+case 15: One wears...
+case 62: Both look...
+case 63: One is on top, controlling...
+case 63: other who is lying...
+```
+
+이들은 Stage 8.5 nominal reference sidecar와 Stage 9 canonicalization에서 처리하는 편이 안전하다.
+
+### 추가 수정
+
+non-finite inheritance가 case 44의 기존 pronoun bug를 드러냈다.
+
+```text
+They hold...
+bad: They -> shorts
+desired: They -> hockey player
+```
+
+원인은 `hockey_player`처럼 object MWE lemma가 underscore로 합쳐지면서 `player`를 person lemma로 인식하지 못한 것이다.
+따라서 person candidate 판정에서 underscore/hyphen으로 나뉜 lemma part도 확인하도록 수정했다.
+
+```text
+hockey_player -> player -> person candidate
+soccer_player -> player -> person candidate
+```
+## 2026-06-26: self-edge drop and self-resolution guards
+
+### 문제
+
+pronoun/reference rewiring 이후 relation source와 target이 같은 object로 collapse되는 self-edge가 남았다.
+
+대표 오류:
+
+```text
+case 39: relation(spoon, beside, spoon)
+case 44: relation(hockey player, in_front_of, hockey player)
+case 47: relation(person, in_front_of, person)
+case 98: relation(woman, beside, woman)
+```
+
+또한 neutral pronoun `it`이 가장 가까운 noun이나 같은 action의 subject로 잘못 붙는 문제가 있었다.
+
+```text
+case 22:
+  bad: agent(glides, head)
+  desired: agent(glides, duck)
+
+case 32:
+  bad: patient(surrounding, light)
+  desired: patient(surrounding, eye)
+```
+
+### 결정
+
+Stage 8에서 다음 방어 rule을 적용한다.
+
+```text
+1. relation edge에서 source == target이면 drop
+2. non-reflexive pronoun-resolved patient가 같은 action의 agent와 같으면 reject
+3. locomotion/posture action의 subject pronoun은 body part antecedent를 강하게 감점
+4. pronoun object가 같은 action의 subject로 resolve되는 self-like 후보도 강하게 감점
+```
+
+reflexive pronoun은 예외다.
+
+```text
+itself, himself, herself, themselves, ...
+```
+
+### 구현
+
+```text
+scripts/raw_concept_extractor.py
+scripts/extract_raw_concepts.py
+scripts/inspect_spacy_parse.py
+```
+
+핵심 구조:
+
+```text
+RawConceptExtractionResult.skipped_edges
+RawConceptExtractor.skip_edge()
+_is_self_resolved_action_target()
+_is_nonreflexive_self_resolution_candidate()
+_pronoun_controls_whole_agent_action()
+_is_body_part_candidate()
+```
+
+`extract_raw_concepts.py`는 JSONL record에 `skipped_edges`를 저장하고 summary에 reason별 count를 기록한다.
+`inspect_spacy_parse.py`는 case 상세 md에 `Skipped Raw Concept Edges` 표를 추가한다.
+
+### 100 sample 검증
+
+```text
+self_edges_remaining: 0
+skipped self_edge_after_coref: 4
+```
+
+대표 결과:
+
+```text
+case 22:
+  agent(glides, duck)
+
+case 32:
+  patient(surrounding, eye)
+
+case 39:
+  drop relation(spoon, beside, spoon)
+
+case 44:
+  drop relation(hockey player, in_front_of, hockey player)
+
+case 47:
+  drop relation(person, in_front_of, person)
+
+case 98:
+  drop relation(woman, beside, woman)
+```
+
+현재는 repair 가능한 경우는 resolution scoring에서 먼저 고치고,
+그래도 self-edge가 생기는 relation만 drop한다.
+
+## 2026-06-26: 전치사 MWE 전용 lexicon 분리
+
+### 문제
+
+기존 `resources/lexicons/multiword_relation_*` 파일은 전치사 MWE만 담은 파일이 아니었다.
+`in front of`, `on top of`, `next to` 같은 clean adposition뿐 아니라 `attached to`, `covered with`, `looking at`, `lying on` 같은 predicate + preposition 표현도 섞여 있었다.
+
+이 파일을 그대로 Stage 8 전치사 relation 처리에 쓰면 다음 두 층위가 섞인다.
+
+```text
+전치사 MWE: in front of, on top of, next to, inside of
+predicate span: attached to, looking at, covered with, made of
+```
+
+따라서 전치사 MWE는 명사 MWE처럼 별도 clean core 파일로 관리하기로 결정했다.
+
+### 결정
+
+전치사 MWE 전용 파일을 새로 만들었다.
+
+```text
+resources/lexicons/preposition_mwe_clean_core.tsv
+```
+
+이 파일에는 전치사/부사적 전치사구로 볼 수 있는 항목만 넣는다.
+
+포함:
+
+```text
+in front of
+on top of
+next to
+inside of
+outside of
+close to
+near to
+left of / right of
+in the middle of / in the center of
+```
+
+제외:
+
+```text
+attached to
+covered with
+looking at
+lying on
+made of
+connected to
+```
+
+제외한 항목들은 전치사 MWE가 아니라 predicate span / action relation 후보이므로, 이후 별도 predicate lexicon에서 관리한다.
+
+### 구현
+
+새 loader를 추가했다.
+
+```text
+scripts/preposition_mwe_lexicon.py
+```
+
+`scripts/raw_concept_extractor.py`는 더 이상 hardcoded `top/front/back/side/middle/center/edge` 목록에 의존하지 않고, `preposition_mwe_clean_core.tsv`를 읽어서 multi-word preposition relation을 판단한다.
+
+현재 지원하는 주요 패턴:
+
+| pattern | 예시 | 처리 |
+|---|---|---|
+| `adp_mid_of` | `on top of`, `in front of` | inner `of`에서 하나의 relation으로 collapse |
+| `adp_det_mid_of` | `in the front of`, `on the side of` | determiner 포함 surface를 우선 매칭 |
+| `mid_of` | `front of`, `left of` | bare region phrase로 매칭 |
+| `adp_adp` | `next to`, `close to`, `across from` | head + final ADP surface로 매칭 |
+| `adp_of` | `inside of`, `outside of` | canonical `inside` / `outside`으로 매핑 |
+
+### 검증
+
+스모크 테스트:
+
+```text
+A cat sits on top of a table.
+  -> relation(cat, on_top_of, table)
+
+A microphone is in front of a person.
+  -> relation(microphone, in_front_of, person)
+
+A chair is next to a table.
+  -> relation(chair, next_to, table)
+
+A toy is inside of a box.
+  -> relation(toy, inside, box)
+
+A cup is close to a plate.
+  -> relation(cup, near, plate)
+```
+
+100 sample 재생성 결과:
+
+```text
+relation edges: 320
+self_edge_after_coref skipped: 4
+```
+
+확인된 MWE relation evidence:
+
+```text
+in_front_of: 2
+next_to: 1
+inside: 1
+bottom_of: 1
+side_of: 1
+at_top_of: 1
+```
+
+### 현재 정책
+
+전치사 MWE lexicon은 "문법적으로 전치사 역할을 하는 multi-word expression"만 관리한다.
+`attached to`, `looking at`, `covered with`처럼 predicate 의미가 핵심인 표현은 이 파일에 넣지 않는다.
+
+## 2026-06-26: 전치사 MWE lexicon 확장 - candidate / clean / audit 구조
+
+### 문제
+
+초기 `preposition_mwe_clean_core.tsv`는 매우 보수적으로 시작해서 36개 항목만 담고 있었다.
+`in front of`, `on top of`, `next to` 같은 핵심 표현은 처리했지만, GPIC caption에서 나올 수 있는 region phrase 계열 coverage가 부족했다.
+
+### 결정
+
+전치사 MWE를 손으로 직접 추가하지 않고 builder를 통해 관리한다.
+
+새 스크립트:
+
+```text
+scripts/build_preposition_mwe_lexicon.py
+```
+
+생성 파일:
+
+```text
+resources/lexicons/preposition_mwe_candidates.tsv
+resources/lexicons/preposition_mwe_clean_core.tsv
+resources/lexicons/preposition_mwe_audit_flags.tsv
+```
+
+extractor는 계속 `preposition_mwe_clean_core.tsv`만 참조한다.
+`candidates`는 검토용 전체 후보이고, `audit_flags`는 clean에서 제외한 후보를 기록한다.
+
+### 확장 source
+
+```text
+1. generated_region_pattern
+   top/bottom/front/back/side/edge/center/middle/left/right/corner/end/base/surface + of
+   at/on/in/from/near/along/to/by + (the) + region + of
+
+2. manual_clean_adposition
+   across from, adjacent to, ahead of, out of, off of, up against 등
+
+3. mixed_relation_collapse_rules
+   기존 multiword_relation_collapse_rules.tsv 중
+   complex_preposition_phrase / multiword_adposition_phrase만 후보로 import
+```
+
+### reject rule
+
+다음은 전치사 MWE clean core에서 제외한다.
+
+```text
+predicate head로 시작:
+  leaning against
+  surrounded by
+  attached to
+  covered with
+  looking at
+
+non-visual adposition:
+  because of
+  due to
+  according to
+  instead of
+```
+
+이번 build에서 실제 audit로 빠진 항목:
+
+```text
+leaning against -> predicate_head_not_preposition_mwe
+surrounded by   -> predicate_head_not_preposition_mwe
+```
+
+### 결과
+
+```text
+before clean_core: 36
+candidate: 143
+after clean_core: 141
+audit_flags: 2
+```
+
+pattern 분포:
+
+```text
+adp_mid_of: 55
+adp_det_mid_of: 55
+mid_of: 14
+adp_adp: 10
+adp_of: 7
+```
+
+source 분포:
+
+```text
+generated_region_pattern: 124
+mixed_relation_collapse_rules: 29
+manual_clean_adposition: 17
+```
+
+### 스모크 테스트
+
+```text
+A sign stands at the edge of a road.
+  -> relation(sign, at_edge_of, road)
+
+A vase sits near the corner of a table.
+  -> relation(vase, near_corner_of, table)
+
+A person stands to the left of a car.
+  -> relation(person, left_of, car)
+
+A box is out of a bag.
+  -> relation(box, out_of, bag)
+
+A cup is adjacent to a plate.
+  -> relation(cup, next_to, plate)
+
+A poster hangs from the side of a building.
+  -> relation(poster, from_side_of, building)
+```
+
+### 100 sample 재검증
+
+```text
+records_written: 100
+relation edges: 318
+self_edge_after_coref skipped: 4
+```
+
+이전보다 object mention은 줄고 context mention은 늘었다.
+이는 `side/end/base/top` 같은 region noun이 독립 object가 아니라 multi-word preposition 내부 토큰으로 처리되기 때문이다.
+
+```text
+object: 674
+context: 65
+```
+
+새로 확인된 MWE relation evidence:
+
+```text
+near_end_of: 1
+from_side_of: 1
+base_of: 1
+```

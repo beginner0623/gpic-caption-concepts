@@ -83,6 +83,7 @@ def main() -> int:
     confidence_counts: Counter[str] = Counter()
     edge_type_counts: Counter[str] = Counter()
     edge_evidence_counts: Counter[str] = Counter()
+    skipped_edge_counts: Counter[str] = Counter()
 
     written = 0
     with args.output.open("w", encoding="utf-8") as handle:
@@ -100,12 +101,14 @@ def main() -> int:
                 parse_path = "tag_list"
                 mentions = [mention.to_dict() for mention in tag_result.concept_mentions]
                 edges = [edge.to_dict() for edge in tag_result.edges]
+                skipped_edges = []
             else:
                 doc = nlp(parse_caption)
                 raw_result = extract_raw_concepts(doc)
                 parse_path = "sentence"
                 mentions = [mention.to_dict() for mention in raw_result.concept_mentions]
                 edges = [edge.to_dict() for edge in raw_result.edges]
+                skipped_edges = raw_result.skipped_edges
 
             quote_mentions = [mention.to_dict() for mention in quote_result.mentions] if quote_result else []
             record = {
@@ -119,6 +122,7 @@ def main() -> int:
                 "quote_mentions": quote_mentions,
                 "concept_mentions": mentions,
                 "edges": edges,
+                "skipped_edges": skipped_edges,
             }
             handle.write(json.dumps(record, ensure_ascii=False) + "\n")
             written += 1
@@ -134,6 +138,8 @@ def main() -> int:
                 confidence_counts[f'edge:{edge["confidence"]}'] += 1
                 if edge["edge_type"] == "relation":
                     edge_evidence_counts[str(edge["evidence"])] += 1
+            for skipped_edge in skipped_edges:
+                skipped_edge_counts[str(skipped_edge["reason"])] += 1
 
     if args.summary_output:
         docs = [
@@ -168,6 +174,9 @@ def main() -> int:
             "",
             "## Relation Evidence",
             markdown_count_table(edge_evidence_counts),
+            "",
+            "## Skipped Edges",
+            markdown_count_table(skipped_edge_counts),
             "",
             "## Confidence",
             markdown_count_table(confidence_counts),

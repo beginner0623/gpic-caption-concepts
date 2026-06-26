@@ -1,0 +1,142 @@
+term	canonical	relation_type	pattern	middle	final_adp	confidence	source	notes
+across from	across_from	spatial_opposition	adp_adp	across	from	high	manual_clean_adposition	curated visual multiword adposition
+adjacent to	next_to	spatial_proximity	adp_adp	adjacent	to	high	manual_clean_adposition	curated visual multiword adposition
+ahead of	ahead_of	spatial_depth	adp_of	ahead	of	high	manual_clean_adposition	curated visual multiword adposition
+along edge of	along_edge_of	spatial_path	adp_mid_of	edge	of	medium	generated_region_pattern	generated spatial region pattern
+along side of	along_side_of	spatial_path	adp_mid_of	side	of	medium	generated_region_pattern	generated spatial region pattern
+along the edge of	along_edge_of	spatial_path	adp_det_mid_of	edge	of	medium	generated_region_pattern	generated spatial region pattern
+along the side of	along_side_of	spatial_path	adp_det_mid_of	side	of	medium	generated_region_pattern	generated spatial region pattern
+alongside of	next_to	spatial_proximity	adp_of	alongside	of	medium	manual_clean_adposition	curated visual multiword adposition
+at back of	at_back_of	spatial_region	adp_mid_of	back	of	medium	generated_region_pattern	generated spatial region pattern
+at base of	base_of	spatial_region	adp_mid_of	base	of	high	generated_region_pattern	generated spatial region pattern
+at bottom of	bottom_of	spatial_region	adp_mid_of	bottom	of	high	generated_region_pattern	generated spatial region pattern
+at center of	center_of	spatial_region	adp_mid_of	center	of	high	generated_region_pattern	generated spatial region pattern
+at corner of	corner_of	spatial_region	adp_mid_of	corner	of	high	generated_region_pattern	generated spatial region pattern
+at edge of	at_edge_of	spatial_region	adp_mid_of	edge	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+at end of	end_of	spatial_region	adp_mid_of	end	of	high	generated_region_pattern	generated spatial region pattern
+at front of	at_front_of	spatial_region	adp_mid_of	front	of	medium	generated_region_pattern	generated spatial region pattern
+at left of	left_of	spatial_lateral	adp_mid_of	left	of	medium	generated_region_pattern	generated spatial region pattern
+at middle of	middle_of	spatial_region	adp_mid_of	middle	of	high	generated_region_pattern	generated spatial region pattern
+at right of	right_of	spatial_lateral	adp_mid_of	right	of	medium	generated_region_pattern	generated spatial region pattern
+at side of	side_of	spatial_lateral	adp_mid_of	side	of	medium	generated_region_pattern	generated spatial region pattern
+at surface of	surface_of	spatial_region	adp_mid_of	surface	of	medium	generated_region_pattern	generated spatial region pattern
+at the back of	at_back_of	spatial_region	adp_det_mid_of	back	of	medium	generated_region_pattern	generated spatial region pattern
+at the base of	base_of	spatial_region	adp_det_mid_of	base	of	high	generated_region_pattern	generated spatial region pattern
+at the bottom of	bottom_of	spatial_region	adp_det_mid_of	bottom	of	high	generated_region_pattern	generated spatial region pattern
+at the center of	center_of	spatial_region	adp_det_mid_of	center	of	high	generated_region_pattern	generated spatial region pattern
+at the corner of	corner_of	spatial_region	adp_det_mid_of	corner	of	high	generated_region_pattern	generated spatial region pattern
+at the edge of	at_edge_of	spatial_region	adp_det_mid_of	edge	of	high	generated_region_pattern	generated spatial region pattern
+at the end of	end_of	spatial_region	adp_det_mid_of	end	of	high	generated_region_pattern	generated spatial region pattern
+at the front of	at_front_of	spatial_region	adp_det_mid_of	front	of	medium	generated_region_pattern	generated spatial region pattern
+at the left of	left_of	spatial_lateral	adp_det_mid_of	left	of	medium	generated_region_pattern	generated spatial region pattern
+at the middle of	middle_of	spatial_region	adp_det_mid_of	middle	of	high	generated_region_pattern	generated spatial region pattern
+at the right of	right_of	spatial_lateral	adp_det_mid_of	right	of	medium	generated_region_pattern	generated spatial region pattern
+at the side of	side_of	spatial_lateral	adp_det_mid_of	side	of	medium	generated_region_pattern	generated spatial region pattern
+at the surface of	surface_of	spatial_region	adp_det_mid_of	surface	of	medium	generated_region_pattern	generated spatial region pattern
+at the top of	at_top_of	spatial_region	adp_det_mid_of	top	of	high	generated_region_pattern	generated spatial region pattern
+at top of	at_top_of	spatial_region	adp_mid_of	top	of	high	generated_region_pattern	generated spatial region pattern
+away from	away_from	spatial_separation	adp_adp	away	from	medium	manual_clean_adposition	curated visual multiword adposition
+back of	behind	spatial_depth	mid_of	back	of	medium	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+base of	base_of	spatial_region	mid_of	base	of	medium	generated_region_pattern	generated spatial region pattern
+bottom of	bottom_of	spatial_region	mid_of	bottom	of	medium	generated_region_pattern	generated spatial region pattern
+by side of	side_of	spatial_lateral	adp_mid_of	side	of	medium	generated_region_pattern	generated spatial region pattern
+by the side of	side_of	spatial_lateral	adp_det_mid_of	side	of	medium	generated_region_pattern	generated spatial region pattern
+center of	center_of	spatial_region	mid_of	center	of	medium	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+close to	near	spatial_proximity	adp_adp	close	to	high	manual_clean_adposition|mixed_relation_collapse_rules	curated visual multiword adposition|imported from multiword_relation_collapse_rules.tsv:multiword_adposition_phrase
+corner of	corner_of	spatial_region	mid_of	corner	of	medium	generated_region_pattern	generated spatial region pattern
+edge of	edge_of	spatial_region	mid_of	edge	of	medium	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+end of	end_of	spatial_region	mid_of	end	of	medium	generated_region_pattern	generated spatial region pattern
+from back of	from_back_of	spatial_source	adp_mid_of	back	of	medium	generated_region_pattern	generated spatial region pattern
+from bottom of	from_bottom_of	spatial_source	adp_mid_of	bottom	of	medium	generated_region_pattern	generated spatial region pattern
+from center of	from_center_of	spatial_source	adp_mid_of	center	of	medium	generated_region_pattern	generated spatial region pattern
+from edge of	from_edge_of	spatial_source	adp_mid_of	edge	of	medium	generated_region_pattern	generated spatial region pattern
+from front of	from_front_of	spatial_source	adp_mid_of	front	of	medium	generated_region_pattern	generated spatial region pattern
+from left of	from_left_of	spatial_source	adp_mid_of	left	of	medium	generated_region_pattern	generated spatial region pattern
+from middle of	from_middle_of	spatial_source	adp_mid_of	middle	of	medium	generated_region_pattern	generated spatial region pattern
+from right of	from_right_of	spatial_source	adp_mid_of	right	of	medium	generated_region_pattern	generated spatial region pattern
+from side of	from_side_of	spatial_source	adp_mid_of	side	of	medium	generated_region_pattern	generated spatial region pattern
+from the back of	from_back_of	spatial_source	adp_det_mid_of	back	of	medium	generated_region_pattern	generated spatial region pattern
+from the bottom of	from_bottom_of	spatial_source	adp_det_mid_of	bottom	of	medium	generated_region_pattern	generated spatial region pattern
+from the center of	from_center_of	spatial_source	adp_det_mid_of	center	of	medium	generated_region_pattern	generated spatial region pattern
+from the edge of	from_edge_of	spatial_source	adp_det_mid_of	edge	of	medium	generated_region_pattern	generated spatial region pattern
+from the front of	from_front_of	spatial_source	adp_det_mid_of	front	of	medium	generated_region_pattern	generated spatial region pattern
+from the left of	from_left_of	spatial_source	adp_det_mid_of	left	of	medium	generated_region_pattern	generated spatial region pattern
+from the middle of	from_middle_of	spatial_source	adp_det_mid_of	middle	of	medium	generated_region_pattern	generated spatial region pattern
+from the right of	from_right_of	spatial_source	adp_det_mid_of	right	of	medium	generated_region_pattern	generated spatial region pattern
+from the side of	from_side_of	spatial_source	adp_det_mid_of	side	of	medium	generated_region_pattern	generated spatial region pattern
+from the top of	from_top_of	spatial_source	adp_det_mid_of	top	of	medium	generated_region_pattern	generated spatial region pattern
+from top of	from_top_of	spatial_source	adp_mid_of	top	of	medium	generated_region_pattern	generated spatial region pattern
+front of	in_front_of	spatial_depth	mid_of	front	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+in back of	behind	spatial_depth	adp_mid_of	back	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+in between	between	spatial_region	adp_adp	in	between	medium	manual_clean_adposition	curated visual multiword adposition
+in center of	center_of	spatial_region	adp_mid_of	center	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+in corner of	corner_of	spatial_region	adp_mid_of	corner	of	high	generated_region_pattern	generated spatial region pattern
+in front of	in_front_of	spatial_depth	adp_mid_of	front	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+in middle of	middle_of	spatial_region	adp_mid_of	middle	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+in the back of	behind	spatial_depth	adp_det_mid_of	back	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+in the center of	center_of	spatial_region	adp_det_mid_of	center	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+in the corner of	corner_of	spatial_region	adp_det_mid_of	corner	of	high	generated_region_pattern	generated spatial region pattern
+in the front of	in_front_of	spatial_depth	adp_det_mid_of	front	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+in the middle of	middle_of	spatial_region	adp_det_mid_of	middle	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+inside of	inside	spatial_containment	adp_of	inside	of	high	manual_clean_adposition|mixed_relation_collapse_rules	curated visual multiword adposition|imported from multiword_relation_collapse_rules.tsv:multiword_adposition_phrase
+left of	left_of	spatial_lateral	mid_of	left	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+middle of	middle_of	spatial_region	mid_of	middle	of	medium	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+near back of	near_back_of	spatial_region	adp_mid_of	back	of	medium	generated_region_pattern	generated spatial region pattern
+near base of	near_base_of	spatial_region	adp_mid_of	base	of	medium	generated_region_pattern	generated spatial region pattern
+near bottom of	near_bottom_of	spatial_region	adp_mid_of	bottom	of	medium	generated_region_pattern	generated spatial region pattern
+near center of	near_center_of	spatial_region	adp_mid_of	center	of	medium	generated_region_pattern	generated spatial region pattern
+near corner of	near_corner_of	spatial_region	adp_mid_of	corner	of	medium	generated_region_pattern	generated spatial region pattern
+near edge of	near_edge_of	spatial_region	adp_mid_of	edge	of	high	generated_region_pattern	generated spatial region pattern
+near end of	near_end_of	spatial_region	adp_mid_of	end	of	medium	generated_region_pattern	generated spatial region pattern
+near front of	near_front_of	spatial_region	adp_mid_of	front	of	medium	generated_region_pattern	generated spatial region pattern
+near middle of	near_middle_of	spatial_region	adp_mid_of	middle	of	medium	generated_region_pattern	generated spatial region pattern
+near side of	near_side_of	spatial_region	adp_mid_of	side	of	medium	generated_region_pattern	generated spatial region pattern
+near the back of	near_back_of	spatial_region	adp_det_mid_of	back	of	medium	generated_region_pattern	generated spatial region pattern
+near the base of	near_base_of	spatial_region	adp_det_mid_of	base	of	medium	generated_region_pattern	generated spatial region pattern
+near the bottom of	near_bottom_of	spatial_region	adp_det_mid_of	bottom	of	medium	generated_region_pattern	generated spatial region pattern
+near the center of	near_center_of	spatial_region	adp_det_mid_of	center	of	medium	generated_region_pattern	generated spatial region pattern
+near the corner of	near_corner_of	spatial_region	adp_det_mid_of	corner	of	medium	generated_region_pattern	generated spatial region pattern
+near the edge of	near_edge_of	spatial_region	adp_det_mid_of	edge	of	high	generated_region_pattern	generated spatial region pattern
+near the end of	near_end_of	spatial_region	adp_det_mid_of	end	of	medium	generated_region_pattern	generated spatial region pattern
+near the front of	near_front_of	spatial_region	adp_det_mid_of	front	of	medium	generated_region_pattern	generated spatial region pattern
+near the middle of	near_middle_of	spatial_region	adp_det_mid_of	middle	of	medium	generated_region_pattern	generated spatial region pattern
+near the side of	near_side_of	spatial_region	adp_det_mid_of	side	of	medium	generated_region_pattern	generated spatial region pattern
+near the top of	near_top_of	spatial_region	adp_det_mid_of	top	of	medium	generated_region_pattern	generated spatial region pattern
+near to	near	spatial_proximity	adp_adp	near	to	high	manual_clean_adposition|mixed_relation_collapse_rules	curated visual multiword adposition|imported from multiword_relation_collapse_rules.tsv:multiword_adposition_phrase
+near top of	near_top_of	spatial_region	adp_mid_of	top	of	medium	generated_region_pattern	generated spatial region pattern
+next to	next_to	spatial_proximity	adp_adp	next	to	high	manual_clean_adposition|mixed_relation_collapse_rules	curated visual multiword adposition|imported from multiword_relation_collapse_rules.tsv:multiword_adposition_phrase
+off of	off_of	spatial_separation	adp_of	off	of	medium	manual_clean_adposition	curated visual multiword adposition
+on back of	at_back_of	spatial_region	adp_mid_of	back	of	medium	generated_region_pattern	generated spatial region pattern
+on bottom of	bottom_of	spatial_region	adp_mid_of	bottom	of	high	generated_region_pattern	generated spatial region pattern
+on edge of	edge_of	spatial_region	adp_mid_of	edge	of	medium	generated_region_pattern	generated spatial region pattern
+on front of	in_front_of	spatial_depth	adp_mid_of	front	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+on left of	left_of	spatial_lateral	adp_mid_of	left	of	high	generated_region_pattern	generated spatial region pattern
+on right of	right_of	spatial_lateral	adp_mid_of	right	of	high	generated_region_pattern	generated spatial region pattern
+on side of	side_of	spatial_lateral	adp_mid_of	side	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+on surface of	surface_of	spatial_support	adp_mid_of	surface	of	high	generated_region_pattern	generated spatial region pattern
+on the back of	at_back_of	spatial_region	adp_det_mid_of	back	of	medium	generated_region_pattern	generated spatial region pattern
+on the bottom of	bottom_of	spatial_region	adp_det_mid_of	bottom	of	high	generated_region_pattern	generated spatial region pattern
+on the edge of	edge_of	spatial_region	adp_det_mid_of	edge	of	medium	generated_region_pattern	generated spatial region pattern
+on the front of	in_front_of	spatial_depth	adp_det_mid_of	front	of	medium	generated_region_pattern	generated spatial region pattern
+on the left of	left_of	spatial_lateral	adp_det_mid_of	left	of	high	generated_region_pattern	generated spatial region pattern
+on the right of	right_of	spatial_lateral	adp_det_mid_of	right	of	high	generated_region_pattern	generated spatial region pattern
+on the side of	side_of	spatial_lateral	adp_det_mid_of	side	of	high	generated_region_pattern	generated spatial region pattern
+on the surface of	surface_of	spatial_support	adp_det_mid_of	surface	of	high	generated_region_pattern	generated spatial region pattern
+on the top of	on_top_of	spatial_support	adp_det_mid_of	top	of	high	generated_region_pattern	generated spatial region pattern
+on top of	on_top_of	spatial_support	adp_mid_of	top	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+opposite from	opposite_from	spatial_opposition	adp_adp	opposite	from	medium	manual_clean_adposition	curated visual multiword adposition
+opposite of	opposite_of	spatial_opposition	adp_of	opposite	of	medium	manual_clean_adposition	curated visual multiword adposition
+opposite to	opposite_to	spatial_opposition	adp_adp	opposite	to	medium	manual_clean_adposition	curated visual multiword adposition
+out of	out_of	spatial_path	adp_of	out	of	high	manual_clean_adposition	curated visual multiword adposition
+outside of	outside	spatial_outside	adp_of	outside	of	high	manual_clean_adposition|mixed_relation_collapse_rules	curated visual multiword adposition|imported from multiword_relation_collapse_rules.tsv:multiword_adposition_phrase
+right of	right_of	spatial_lateral	mid_of	right	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+side of	side_of	spatial_lateral	mid_of	side	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+surface of	surface_of	spatial_region	mid_of	surface	of	medium	generated_region_pattern	generated spatial region pattern
+to left of	left_of	spatial_lateral	adp_mid_of	left	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+to right of	right_of	spatial_lateral	adp_mid_of	right	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+to the left of	left_of	spatial_lateral	adp_det_mid_of	left	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+to the right of	right_of	spatial_lateral	adp_det_mid_of	right	of	high	generated_region_pattern|mixed_relation_collapse_rules	generated spatial region pattern|imported from multiword_relation_collapse_rules.tsv:complex_preposition_phrase
+top of	at_top_of	spatial_region	mid_of	top	of	medium	generated_region_pattern	generated spatial region pattern
+toward end of	toward_end_of	spatial_path	adp_mid_of	end	of	medium	generated_region_pattern	generated spatial region pattern
+toward the end of	toward_end_of	spatial_path	adp_det_mid_of	end	of	medium	generated_region_pattern	generated spatial region pattern
+up against	against	spatial_contact	adp_adp	up	against	medium	manual_clean_adposition	curated visual multiword adposition

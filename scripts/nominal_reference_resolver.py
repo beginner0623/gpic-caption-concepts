@@ -404,7 +404,9 @@ def recommendation_for(ref: ReferenceCandidate, status: str) -> str:
     if status == "ambiguous":
         return "manual_review_ambiguous_reference"
     if ref.ref_class == "singular_substitute":
-        return "copy_antecedent_type_apply_modifiers"
+        if ref.modifiers:
+            return "copy_antecedent_type_apply_modifiers"
+        return "link_singular_reference"
     if ref.ref_class == "contrastive_reference":
         return "link_contrastive_reference"
     if ref.ref_class == "group_reference":
@@ -544,7 +546,8 @@ def write_summary(path: Path, args: argparse.Namespace, rows: list[dict[str, Any
             "- `resolved`: Stage 9에서 reference edge 후보로 사용할 수 있습니다.",
             "- `ambiguous`: 후보는 찾았지만 margin이 낮으므로 자동 적용하지 않습니다.",
             "- `unresolved`: object count에서 surface reference를 제외하고, 별도 unresolved로 남깁니다.",
-            "- `singular_substitute`: antecedent type을 복사하고 reference modifier를 attribute 후보로 붙입니다.",
+            "- `singular_substitute` with modifiers: `a red one`처럼 antecedent type을 복사하고 reference modifier를 attribute 후보로 붙입니다.",
+            "- bare `singular_substitute`: `One wears...`처럼 새 object를 만들지 않고 antecedent/member reference link로만 남깁니다.",
             "- `group_reference` / `distributive_reference`: 단일 object로 collapse하지 않고 group/distribution link로 남깁니다.",
             "",
         ]
