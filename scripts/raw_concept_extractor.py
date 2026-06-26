@@ -118,6 +118,9 @@ SPATIAL_RELATIONS = {
 }
 
 MULTIWORD_RELATION_MIDS = {"top", "front", "back", "side", "middle", "center", "edge"}
+WITH_ABSOLUTE_CANDIDATE_DEPS = {"advcl", "conj", "dep", "nsubj", "nsubjpass"}
+WITH_ABSOLUTE_MODIFIER_DEPS = {"acl", "amod", "compound", "nummod", "poss"}
+WITH_ABSOLUTE_SKIP_DEPS = {"amod", "case", "cc", "compound", "det", "mark", "poss", "punct"}
 
 
 @dataclass(frozen=True)
@@ -145,6 +148,7 @@ class RawConceptExtractor:
         self._extract_noun_chunk_objects()
         self._extract_contexts()
         self._extract_actions()
+        self._recover_with_absolute_objects()
         self._extract_preposition_relations()
         self._extract_negations()
         return RawConceptExtractionResult(self.mentions, self.edges)
@@ -298,6 +302,33 @@ class RawConceptExtractor:
                     relation,
                 )
 
+    def _recover_with_absolute_objects(self) -> None:
+        recovered: set[int] = set()
+        for with_token in self.doc:
+            if not self._is_with_absolute_cue(with_token):
+                continue
+            source_tag = f"with_absolute{with_token.i}"
+            for token in self.doc[with_token.i + 1 : with_token.sent.end]:
+                if token.text in {".", ";", ":", "!", "?"}:
+                    break
+                if token.i in recovered or not self._is_with_absolute_recovery_candidate(token):
+                    continue
+                recovered.add(token.i)
+                object_id = self._ensure_object(
+                    token,
+                    source_tag,
+                    "with_absolute_recovered_object",
+                    "medium",
+                )
+                self.add_edge(
+                    "scene_contains",
+                    "scene",
+                    object_id,
+                    "medium",
+                    f"{source_tag} recovered {token.text}",
+                )
+                self._add_recovered_object_modifiers(token, object_id, source_tag)
+
     def _extract_negations(self) -> None:
         for token in self.doc:
             if token.dep_ != "neg":
@@ -319,6 +350,42 @@ class RawConceptExtractor:
                 "high",
             )
             self.add_edge("negates", neg_id, target, "high", f"neg -> {token.head.text}")
+
+    def _is_with_absolute_cue(self, token) -> bool:
+        return token.lower_ == "with" and token.tag_ == "IN" and token.dep_ == "mark"
+
+    def _is_with_absolute_recovery_candidate(self, token) -> bool:
+        if token.i in self.object_by_token_i or token.i in self.context_by_token_i:
+            return False
+        if token.dep_ not in WITH_ABSOLUTE_CANDIDATE_DEPS:
+            return False
+        if token.dep_ in WITH_ABSOLUTE_SKIP_DEPS:
+            return False
+        if token.pos_ not in {"NOUN", "PROPN"} and token.tag_ not in {"NN", "NNS", "NNP", "NNPS"}:
+            return False
+        lemma = token.lemma_.lower()
+        if lemma in CONTEXT_TAGS:
+            return False
+        if self._is_multiword_relation_mid_token(token) or self._is_spatial_region_anchor(token):
+            return False
+        return True
+
+    def _add_recovered_object_modifiers(self, token, object_id: str, source_tag: str) -> None:
+        for modifier in sorted(token.children, key=lambda child: child.i):
+            if modifier.dep_ in SKIP_MODIFIER_DEPS:
+                continue
+            if modifier.dep_ not in WITH_ABSOLUTE_MODIFIER_DEPS:
+                continue
+            if not self._looks_like_modifier(modifier):
+                continue
+            modifier_id, edge_type, modifier_confidence = self._add_modifier(modifier, source_tag)
+            self.add_edge(
+                edge_type,
+                object_id,
+                modifier_id,
+                modifier_confidence,
+                f"{source_tag} {modifier.dep_} -> {token.text}",
+            )
 
     def _ensure_object(self, token, source_tag: str, role: str, confidence: str) -> str:
         if token.i in self.object_by_token_i:

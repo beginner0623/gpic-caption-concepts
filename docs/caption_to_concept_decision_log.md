@@ -1287,3 +1287,105 @@ tag-list-only lexical normalization O
 - person lexicon을 너무 넓히지 않는다.
 - 나중에 object single-word lexicon을 따로 만들 경우, person override와 일반 object override를 분리한다.
 - sentence caption에는 같은 override를 적용하지 않는다.
+
+---
+
+## 2026-06-26 - with-absolute missing object recovery
+
+### 배경
+
+with-absolute 구문에서 spaCy가 `with`를 `SCONJ/mark`로 보고, 뒤쪽 noun이 noun chunk에서 빠지는 문제가 있었다.
+
+대표 문제 케이스:
+
+```text
+case 29: with snow-capped mountains in the distance
+case 42: with workers and equipment in the distance
+case 43: with trees and an overcast sky above
+```
+
+### 비교한 방법
+
+A안:
+
+```text
+parser 전에 with를 ADP/IN으로 강제
+```
+
+B안:
+
+```text
+raw parse는 그대로 두고 Stage 8에서 with-absolute 뒤쪽 missing noun-like token만 보수적으로 회수
+```
+
+### 실험 결과
+
+현재 retokenizer pipeline 기준으로 case 29, 42, 43을 다시 확인했다.
+
+```text
+A안:
+  dependency parse 변화 없음
+  noun chunk 변화 없음
+
+B안:
+  case 29 -> mountains 회수, snow-capped attribute 연결 가능
+  case 42 -> workers, equipment 회수
+  case 43 -> trees, sky 회수, overcast attribute 연결 가능
+```
+
+기존 정상 케이스 16, 27, 37, 40, 49, 67, 77, 97에서는 B안 recovery가 추가 object를 만들지 않았다.
+
+### 결정
+
+A안은 폐기한다.
+with POS를 강제로 ADP로 바꿔도 parser/noun chunk가 개선되지 않았다.
+
+B안을 채택한다.
+단, 매우 좁은 조건에서만 작동한다.
+
+### 구현
+
+`scripts/raw_concept_extractor.py`에 `_recover_with_absolute_objects()`를 추가했다.
+
+작동 조건:
+
+```text
+with token:
+  lower == "with"
+  tag == IN
+  dep == mark
+
+candidate token:
+  with 뒤쪽 같은 sentence 안에 있음
+  기존 object/context로 잡히지 않음
+  dep in {advcl, conj, dep, nsubj, nsubjpass}
+  POS/TAG가 noun-like
+  context word가 아님
+  compound/poss/amod/det/cc 등 modifier token이 아님
+```
+
+회수된 object는 다음처럼 기록한다.
+
+```text
+concept_type: object
+role: with_absolute_recovered_object
+confidence: medium
+edge: scene_contains(scene, recovered_object)
+```
+
+회수된 object에 직접 붙은 modifier는 기존 `_add_modifier()` 로직을 재사용해 attribute로 연결한다.
+단, with-absolute recovery에서는 부작용을 줄이기 위해 `advmod` 같은 부사성 modifier는 attribute로 붙이지 않고, `amod`, `compound`, `nummod`, `poss`, `acl`만 허용한다.
+
+예:
+
+```text
+snow-capped -> mountains
+overcast -> sky
+```
+
+### 원칙
+
+- spaCy raw POS/dependency/noun chunk는 수정하지 않는다.
+- 기존 noun chunk root로 잡힌 object는 건드리지 않는다.
+- relation을 강하게 붙이지 않고 `scene_contains`로 약하게 둔다.
+- Stage 9에서 필요하면 canonical graph edge로 재해석한다.
