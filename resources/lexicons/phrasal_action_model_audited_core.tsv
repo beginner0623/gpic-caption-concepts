@@ -1,0 +1,12 @@
+term	canonical	verb	particle_1	particle_2	source	source_count	candidate_type	visual_relevance	caption_plausibility	collapse_policy	decision	confidence	reason
+pick up	pick_up	pick	up		visual_genome_relation_predicates|gqa_relation_predicates	87	particle_verb	high	high	action_canonicalize	accept	high	physical object manipulation; particle changes event meaning beyond ordinary spatial relation
+hold up	hold_up	hold	up		visual_genome_relation_predicates	971	particle_verb	high	high	action_canonicalize	accept	high	physical support/display action in image relations; particle changes target structure
+sit down	sit_down	sit	down		visual_genome_relation_predicates	22	particle_verb	high	high	action_canonicalize	accept	high	body pose transition/action; not an ordinary locative relation
+stand up	stand_up	stand	up		visual_genome_relation_predicates	22	particle_verb	high	high	action_canonicalize	accept	high	body pose transition/action; not an ordinary locative relation
+lie down	lie_down	lie	down		visual_genome_relation_predicates	11	particle_verb	high	high	action_canonicalize	accept	high	body pose action; external seed surfaces include lying down and laying down
+bend over	bend_over	bend	over		visual_genome_relation_predicates	78	particle_verb	high	high	action_canonicalize	accept	high	body pose action; over is part of the pose predicate
+blow out	blow_out	blow	out		visual_genome_relation_predicates|gqa_relation_predicates	101	particle_verb	high	high	action_canonicalize	accept	high	physical state-change action such as blowing out flame/candle
+stick out	stick_out	stick	out		visual_genome_relation_predicates	210	particle_verb	high	high	action_canonicalize	accept	high	visible protrusion/state action; out is predicate particle rather than object relation
+fall off	fall_off	fall	off		visual_genome_relation_predicates|gqa_relation_predicates	89	particle_verb	high	high	action_canonicalize	accept	high	physical detachment/fall event; particle changes event meaning
+jump off	jump_off	jump	off		visual_genome_relation_predicates|gqa_relation_predicates	85	particle_verb	high	high	action_canonicalize	accept	high	physical launch/detachment action; particle changes event meaning
+hang off	hang_off	hang	off		visual_genome_relation_predicates|gqa_relation_predicates	324	particle_verb	high	high	action_canonicalize	accept	high	physical support/detachment configuration; particle is part of predicate semantics

@@ -21,6 +21,8 @@ ACTION_POS = {"VERB"}
 MODIFIER_DEPS = {"amod", "compound", "nummod", "poss", "acl", "advmod"}
 SUBJECT_DEPS = {"nsubj", "nsubjpass"}
 OBJECT_DEPS = {"dobj", "obj", "attr", "oprd", "pobj"}
+ACTION_PARTICLE_DEPS = {"prt", "compound:prt"}
+ACTION_PARTICLE_TAGS = {"RP"}
 SKIP_MODIFIER_DEPS = {"det", "punct", "case", "cc", "mark"}
 AGENT_INHERITABLE_ACTION_DEPS = {"acl", "advcl", "xcomp", "ccomp", "conj", "relcl", "acomp"}
 PREPOSITIONAL_AGENT_INHERITANCE_LEMMAS = {"include"}
@@ -759,7 +761,24 @@ class RawConceptExtractor:
             patient_candidates: list[tuple[object, str, str]] = []
 
             for child in token.children:
-                if child.dep_ in SUBJECT_DEPS:
+                if self._is_action_particle(child, token):
+                    particle_id = self.add_mention(
+                        "particle",
+                        child.text,
+                        child.lemma_.lower(),
+                        "action_particle",
+                        child.i,
+                        "phrasal_particle",
+                        "medium",
+                    )
+                    self.add_edge(
+                        "has_particle",
+                        action_id,
+                        particle_id,
+                        "medium",
+                        f"{child.dep_} -> {token.text}",
+                    )
+                elif child.dep_ in SUBJECT_DEPS:
                     for subject in self._expand_conjunct_targets(child):
                         object_id = self._object_for_token(subject, "verb_subject", "medium")
                         if object_id:
@@ -1557,6 +1576,13 @@ class RawConceptExtractor:
 
     def _verb_subjects(self, verb) -> list:
         return [child for child in verb.children if child.dep_ in SUBJECT_DEPS]
+
+    def _is_action_particle(self, token, head) -> bool:
+        if token.head.i != head.i:
+            return False
+        if token.dep_ in ACTION_PARTICLE_DEPS:
+            return True
+        return token.tag_ in ACTION_PARTICLE_TAGS and token.pos_ == "PART"
 
     def _inherited_action_agent_tokens(self, token, seen: set[int] | None = None) -> list:
         if seen is None:

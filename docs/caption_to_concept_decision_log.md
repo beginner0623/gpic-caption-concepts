@@ -3903,3 +3903,158 @@ speedup:       약 3.72x
 H200 16장 환경에서는 실제 GPIC shard 여러 개로 다시 측정해야 한다.
 그래도 batch 구조 전환으로 3일/100M 조건은 훨씬 여유가 생겼다.
 ```
+
+## 2026-06-27: Stage 9 canonicalization v0 시작
+
+### 목표
+
+Stage 8 raw extractor에서 모든 의미를 바로 확정하지 않고, Stage 9에서 canonical event를 따로 만든다.
+
+이번 구현 범위:
+
+```text
+1. action particle evidence 보존
+2. 보수적 phrasal action whitelist 로드
+3. nsubjpass를 canonical event의 theme role로 변환
+4. passive by-frame을 by_agent_or_causer role로 변환
+5. raw concept / raw edge는 그대로 보존
+```
+
+### 구동사 처리 원칙
+
+`pick up`, `sit down`, `bend over`처럼 particle이 action 의미 자체를 바꾸는 경우만 Stage 9에서 canonical action으로 접는다.
+
+```text
+raw:
+  action: pick
+  has_particle: up
+
+stage9:
+  canonical_action: pick_up
+```
+
+반대로 아래 유형은 core whitelist에서 제외했다.
+
+```text
+stand on table
+  -> action: stand
+  -> relation: on
+
+sit in chair
+  -> action: sit
+  -> relation: in
+
+surrounded by trees
+  -> passive by-frame
+  -> phrasal action 아님
+
+filled with water / covered with snow
+  -> predicate-specific argument frame
+  -> phrasal action collapse 아님
+```
+
+### 추가 파일
+
+```text
+resources/lexicons/phrasal_action_audit_rubric.md
+resources/lexicons/phrasal_action_model_audited_core.tsv
+resources/lexicons/phrasal_action_audit_flags.tsv
+scripts/phrasal_action_lexicon.py
+scripts/canonicalize_raw_concepts.py
+```
+
+`phrasal_action_model_audited_core.tsv`는 수동 검수 gold가 아니다.
+외부 relation predicate source인 Visual Genome / GQA 후보를 고정 rubric으로 보수적으로 분류한 초기 model-audited seed다.
+따라서 처음에는 `accept/high`만 parser에 적용한다.
+
+### 수동태 처리 원칙
+
+Stage 8에서는 spaCy dependency evidence를 보존한다.
+
+```text
+raw edge:
+  agent(action, object)
+  evidence: nsubjpass -> mounted
+```
+
+Stage 9에서는 의미역을 바꾼다.
+
+```text
+canonical event:
+  action: mount
+  theme: object
+```
+
+`by` relation이 있으면 event role로 추가한다.
+
+```text
+raw:
+  agent(surrounded, building), evidence=nsubjpass
+  relation(building, by, trees)
+
+stage9:
+  event surround
+  theme: building
+  by_agent_or_causer: trees
+```
+
+주의:
+
+```text
+SceneGraphParser처럼 trees --surround--> building 형태로 raw graph를 flatten하지 않는다.
+canonical event role만 추가하고 raw graph는 보존한다.
+```
+
+### 100개 샘플 검증
+
+기존 alt 100개 GPIC caption shard에 대해 Stage 8을 다시 실행하고 Stage 9를 적용했다.
+
+```text
+raw input:
+  reports/raw_concepts_alt100_val00001_trf_stage9_input.jsonl
+
+stage9 output:
+  reports/canonical_concepts_alt100_val00001_trf_stage9_v0.jsonl
+  reports/canonical_concepts_alt100_val00001_trf_stage9_v0_summary.md
+```
+
+무결성 검사:
+
+```text
+records: 100
+duplicate mention id records: 0
+bad raw edge refs: 0
+bad stage9 role refs: 0
+bad stage9 relation refs: 0
+```
+
+새 raw concept type / edge type:
+
+```text
+particle mentions: 4
+has_particle edges: 4
+```
+
+Stage 9 notes:
+
+```text
+passive_subject_to_theme: 19
+passive_by_frame_to_event_role: 2
+phrasal_action_canonicalized: 2
+```
+
+canonicalized phrasal action examples:
+
+```text
+holds + up  -> hold_up
+lying + down -> lie_down
+```
+
+whitelist 밖 particle evidence examples:
+
+```text
+look + on
+filled + out
+```
+
+이들은 raw evidence로는 보존되지만 `phrasal_action_model_audited_core.tsv`에 없으므로 canonical action label은 바꾸지 않는다.
