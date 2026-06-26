@@ -1389,3 +1389,162 @@ overcast -> sky
 - 기존 noun chunk root로 잡힌 object는 건드리지 않는다.
 - relation을 강하게 붙이지 않고 `scene_contains`로 약하게 둔다.
 - Stage 9에서 필요하면 canonical graph edge로 재해석한다.
+
+---
+
+## 2026-06-26 - fastcoref sidecar audit for pronoun/anaphoric references
+
+### 배경
+
+100개 caption raw concept 결과에서 `he`, `she`, `it`, `they`, `them`, `that`, `who`, `both`, `each`, `others` 같은 reference 표현이 그대로 `object`로 들어가는 문제가 확인됐다.
+
+예:
+
+```text
+The duck swims... It glides...
+object: duck
+object: it
+agent(glides, it)
+```
+
+이 상태로 concept count를 만들면 실제 object가 아니라 문법적 reference가 count에 섞인다.
+
+### 실험한 도구
+
+`fastcoref==2.1.6`의 `FCoref`를 sidecar로 붙였다.
+
+중요한 호환성:
+
+```text
+fastcoref + transformers 5.x -> 모델 로딩 실패
+fastcoref + transformers<5 -> CPU inference 성공
+```
+
+따라서 `environment.yml`에는 `fastcoref==2.1.6`, `transformers<5`를 추가한다.
+
+처음에는 로컬 Windows GPU 실행이 `cudnnGetVersion` 로딩 문제로 실패했다.
+원인은 `scripts/run_python.ps1`이 micromamba env를 활성화하지 않고 `python.exe`만 직접 실행해, env 안의 `Library\bin` CUDA/cuDNN DLL보다 시스템 CUDA DLL이 먼저 잡힐 수 있었기 때문이다.
+
+해결:
+
+```text
+run_python.ps1에서 .mamba/env, Scripts, Library/bin, Library/usr/bin, Library/mingw-w64/bin을 PATH 앞에 추가
+```
+
+수정 후 확인:
+
+```text
+torch cuda: 13.0
+device: NVIDIA GeForce RTX 5080 Laptop GPU
+cudnn version: 92301
+fastcoref FCoref(device="cuda:0") smoke test 성공
+```
+
+현재 fastcoref audit 기본 device는 `cuda:0`이다.
+H200 서버에서는 같은 wrapper 원칙을 유지하되, multi-GPU sharding을 별도 구현해야 한다.
+
+### 구현
+
+`scripts/audit_fastcoref_resolution.py`를 추가했다.
+
+역할:
+
+```text
+raw concept JSONL
+  -> caption별 fastcoref cluster 생성
+  -> raw concept 안의 pronoun/anaphoric mention 탐지
+  -> coref antecedent span 탐색
+  -> antecedent span 안의 기존 object mention과 연결 가능한지 audit
+```
+
+이 스크립트는 기존 raw concept JSONL을 직접 수정하지 않는다.
+현재는 보정 전 검토용 sidecar report만 생성한다.
+
+### 100개 샘플 결과
+
+실행 파일:
+
+```text
+reports/fastcoref_audit_sample_100_trf_current.md
+reports/fastcoref_audit_sample_100_trf_current.jsonl
+```
+
+결과:
+
+```text
+reference_mentions_seen: 45
+resolved_to_object: 34
+unresolved: 11
+```
+
+reference type:
+
+```text
+pronoun_reference: 23
+possessive_reference: 13
+nominal_reference: 7
+relative_reference: 2
+```
+
+추천 처리:
+
+```text
+redirect_edges_to_antecedent: 20
+attach_possessor_metadata: 13
+exclude_from_object_count_unresolved: 9
+prefer_dependency_rule: 2
+manual_nominal_resolution: 1
+```
+
+### 중요한 수정
+
+처음 구현에서는 fastcoref antecedent span 안의 마지막 object를 고르는 문제가 있었다.
+
+예:
+
+```text
+A man in a blue shirt -> shirt
+A paved road with a yellow line -> line
+```
+
+이건 잘못된 연결이다.
+현재는 antecedent span과 겹치는 첫 noun chunk의 root를 우선 선택한다.
+
+수정 후:
+
+```text
+A man in a blue shirt -> man
+A paved road with a yellow line -> road
+A tall glass of latte macchiato -> glass
+A small artifact with a rounded top and flat base -> artifact
+```
+
+### 현재 결정
+
+fastcoref는 Stage 8 raw extraction 앞단에 넣지 않는다.
+caption을 rewrite하지도 않는다.
+
+현재 채택할 구조:
+
+```text
+spaCy parse / raw concept extraction
+  -> fastcoref sidecar
+  -> pronoun object는 count에서 제외
+  -> coref가 안정적으로 antecedent object를 찾은 경우 edge만 redirect 후보로 기록
+```
+
+`that/who/which` relative pronoun은 fastcoref보다 dependency rule로 처리하는 쪽이 더 안전하다.
+
+예:
+
+```text
+a sign that reads "MILE 0"
+```
+
+여기서는 `that`을 object로 세지 않고, Stage 8 rule에서 `sign --reads_text--> quote` 같은 구조로 바꾸는 방향이 맞다.
+
+### 남은 문제
+
+- `a red one`, `the other`, `others`, `both`, `each` 같은 nominal reference는 fastcoref만으로 충분하지 않다.
+- plural/group antecedent에서 `both -> man and woman`처럼 단일 object로 collapse하면 정보가 손실된다.
+- possessive reference는 object redirect가 아니라 possessor metadata로 남길지 결정이 필요하다.

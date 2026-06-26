@@ -5,7 +5,6 @@ dependencies:
   - python=3.11
   - pip
   - tqdm
-  - huggingface_hub
   - joblib
   - spacy
   - spacy-model-en_core_web_sm
@@ -14,3 +13,6 @@ dependencies:
   - spacy-model-en_core_web_trf
   - pip:
       - cupy-cuda13x
+      - fastcoref==2.1.6
+      - transformers<5
+      - huggingface-hub<1
