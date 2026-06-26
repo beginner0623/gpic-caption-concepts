@@ -312,6 +312,7 @@ class RawConceptExtractionResult:
 class RawConceptExtractor:
     def __init__(self, doc):
         self.doc = doc
+        self.next_mention_i = 0
         self.mentions: list[ConceptMention] = []
         self.edges: list[ConceptEdge] = []
         self.skipped_edges: list[dict[str, object]] = []
@@ -387,7 +388,8 @@ class RawConceptExtractor:
         role: str,
         confidence: str,
     ) -> str:
-        mention_id = f"m{len(self.mentions)}"
+        mention_id = f"m{self.next_mention_i}"
+        self.next_mention_i += 1
         self.mentions.append(
             ConceptMention(
                 mention_id=mention_id,

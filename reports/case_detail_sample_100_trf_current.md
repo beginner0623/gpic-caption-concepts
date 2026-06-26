@@ -3493,9 +3493,9 @@ _none_
 | m14 | object | grass | grass | chunk8 | 33 | noun_chunk_root | high |
 | m15 | object | trees | tree | chunk9 | 36 | noun_chunk_root | high |
 | m16 | reference | The structure | structure | generic_anaphoric | 16 | generic_structure_reference | high |
-| m16 | action | surrounded | surround | doc | 10 | verb_predicate | high |
-| m17 | action | sits | sit | doc | 17 | verb_predicate | high |
-| m18 | action | cast | cast | doc | 30 | verb_predicate | high |
+| m17 | action | surrounded | surround | doc | 10 | verb_predicate | high |
+| m18 | action | sits | sit | doc | 17 | verb_predicate | high |
+| m19 | action | cast | cast | doc | 30 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -3507,9 +3507,9 @@ _none_
 | e4 | has_attribute | m10 | m11 | medium | chunk6 amod -> sky |
 | e5 | has_attribute | m10 | m12 | high | chunk6 amod -> sky |
 | e6 | refers_to | m16 | m0 | high | generic definite NP score=172 margin=93 |
-| e7 | agent | m16 | m0 | medium | nsubjpass -> surrounded |
-| e8 | agent | m17 | m0 | medium | nsubj -> sits; resolved structure -> building |
-| e9 | agent | m18 | m13 | medium | inherited agent acl -> shadows |
+| e7 | agent | m17 | m0 | medium | nsubjpass -> surrounded |
+| e8 | agent | m18 | m0 | medium | nsubj -> sits; resolved structure -> building |
+| e9 | agent | m19 | m13 | medium | inherited agent acl -> shadows |
 | e10 | relation | m0 | m2 | high | with |
 | e11 | relation | m0 | m3 | high | with |
 | e12 | relation | m0 | m5 | medium | by |
@@ -4744,8 +4744,8 @@ _none_
 | m13 | context | corner | corner | chunk8 | 33 | spatial_region | medium |
 | m14 | context | outdoors | outdoors | doc | 15 | scene_context | high |
 | m15 | reference | The individual | individual | generic_anaphoric | 13 | generic_human_reference | high |
-| m15 | action | wears | wear | doc | 2 | verb_predicate | high |
-| m16 | action | reads | read | doc | 29 | verb_predicate | high |
+| m16 | action | wears | wear | doc | 2 | verb_predicate | high |
+| m17 | action | reads | read | doc | 29 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -4757,10 +4757,10 @@ _none_
 | e4 | has_attribute | m11 | m12 | medium | chunk7 compound -> stamp |
 | e5 | has_context | scene | m14 | high | scene_context token outdoors |
 | e6 | refers_to | m15 | m1 | high | generic definite NP score=177 margin=177 |
-| e7 | agent | m15 | m1 | medium | nsubj -> wears |
-| e8 | patient | m15 | m2 | medium | dobj -> wears |
-| e9 | agent | m16 | m11 | medium | nsubj -> reads |
-| e10 | patient | m16 | m0 | medium | dobj -> reads |
+| e7 | agent | m16 | m1 | medium | nsubj -> wears |
+| e8 | patient | m16 | m2 | medium | dobj -> wears |
+| e9 | agent | m17 | m11 | medium | nsubj -> reads |
+| e10 | patient | m17 | m0 | medium | dobj -> reads |
 | e11 | relation | m2 | m5 | high | with |
 | e12 | relation | m11 | m13 | high | in |
 
@@ -5380,10 +5380,10 @@ _none_
 | m14 | attribute | ancient | ancient | chunk8 | 37 | modifier_attribute | medium |
 | m15 | attribute | archaeological | archaeological | chunk8 | 39 | modifier_attribute | medium |
 | m16 | reference | The object | object | generic_anaphoric | 32 | generic_object_reference | high |
-| m16 | action | rests | rest | doc | 13 | verb_predicate | high |
-| m17 | action | reads | read | doc | 25 | verb_predicate | high |
-| m18 | action | indicating | indicate | doc | 27 | verb_predicate | high |
-| m19 | action | appears | appear | doc | 33 | verb_predicate | high |
+| m17 | action | rests | rest | doc | 13 | verb_predicate | high |
+| m18 | action | reads | read | doc | 25 | verb_predicate | high |
+| m19 | action | indicating | indicate | doc | 27 | verb_predicate | high |
+| m20 | action | appears | appear | doc | 33 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -5396,11 +5396,11 @@ _none_
 | e5 | has_attribute | m13 | m14 | medium | chunk8 amod -> fragment |
 | e6 | has_attribute | m13 | m15 | medium | chunk8 conj -> fragment |
 | e7 | refers_to | m16 | m1 | high | generic definite NP score=132 margin=30 |
-| e8 | agent | m16 | m1 | medium | nsubj -> rests |
-| e9 | agent | m17 | m9 | medium | nsubj -> reads |
-| e10 | agent | m18 | m9 | medium | inherited agent advcl -> reads |
-| e11 | patient | m18 | m11 | medium | dobj -> indicating |
-| e12 | agent | m19 | m1 | medium | nsubj -> appears; resolved object -> artifact |
+| e8 | agent | m17 | m1 | medium | nsubj -> rests |
+| e9 | agent | m18 | m9 | medium | nsubj -> reads |
+| e10 | agent | m19 | m9 | medium | inherited agent advcl -> reads |
+| e11 | patient | m19 | m11 | medium | dobj -> indicating |
+| e12 | agent | m20 | m1 | medium | nsubj -> appears; resolved object -> artifact |
 | e13 | relation | m1 | m5 | high | with |
 | e14 | relation | m1 | m6 | high | with |
 | e15 | relation | m1 | m8 | high | on |
@@ -6901,9 +6901,9 @@ _none_
 | m16 | object | sky | sky | chunk9 | 38 | noun_chunk_root | high |
 | m17 | object | grass | grass | chunk10 | 43 | noun_chunk_root | high |
 | m19 | reference | the structure | structure | generic_anaphoric | 50 | generic_structure_reference | high |
-| m19 | action | stands | stand | doc | 11 | verb_predicate | high |
-| m20 | action | lead | lead | doc | 29 | verb_predicate | high |
-| m21 | action | grows | grow | doc | 44 | verb_predicate | high |
+| m20 | action | stands | stand | doc | 11 | verb_predicate | high |
+| m21 | action | lead | lead | doc | 29 | verb_predicate | high |
+| m22 | action | grows | grow | doc | 44 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -6917,9 +6917,9 @@ _none_
 | e6 | has_context | scene | m12 | high | scene_context token foreground |
 | e7 | has_attribute | m14 | m15 | medium | chunk8 poss -> entrance |
 | e8 | refers_to | m19 | m0 | high | generic definite NP score=154 margin=60 |
-| e9 | agent | m19 | m0 | medium | nsubj -> stands |
-| e10 | agent | m20 | m13 | medium | nsubj -> lead |
-| e11 | agent | m21 | m17 | medium | nsubj -> grows |
+| e9 | agent | m20 | m0 | medium | nsubj -> stands |
+| e10 | agent | m21 | m13 | medium | nsubj -> lead |
+| e11 | agent | m22 | m17 | medium | nsubj -> grows |
 | e12 | relation | m0 | m2 | high | with |
 | e13 | relation | m0 | m5 | high | with |
 | e14 | relation | m0 | m7 | high | behind |
@@ -7662,11 +7662,11 @@ _none_
 | m14 | object | metal | metal | chunk8 | 36 | noun_chunk_root | high |
 | m15 | object | edges | edge | chunk9 | 39 | noun_chunk_root | high |
 | m16 | reference | The object | object | generic_anaphoric | 20 | generic_object_reference | high |
-| m16 | action | rests | rest | doc | 12 | verb_predicate | high |
-| m17 | action | has | have | doc | 21 | verb_predicate | high |
-| m18 | action | suggesting | suggest | doc | 28 | verb_predicate | high |
-| m19 | action | made | make | doc | 32 | verb_predicate | high |
-| m20 | action | appears | appear | doc | 46 | verb_predicate | high |
+| m17 | action | rests | rest | doc | 12 | verb_predicate | high |
+| m18 | action | has | have | doc | 21 | verb_predicate | high |
+| m19 | action | suggesting | suggest | doc | 28 | verb_predicate | high |
+| m20 | action | made | make | doc | 32 | verb_predicate | high |
+| m21 | action | appears | appear | doc | 46 | verb_predicate | high |
 
 ### Raw Concept Edges
 | id | type | source | target | confidence | evidence |
@@ -7680,13 +7680,13 @@ _none_
 | e6 | has_attribute | m9 | m10 | medium | chunk4 amod -> texture |
 | e7 | has_attribute | m11 | m12 | medium | chunk5 amod -> imperfections |
 | e8 | refers_to | m16 | m0 | high | generic definite NP score=150 margin=150 |
-| e9 | agent | m16 | m0 | medium | nsubj -> rests |
-| e10 | agent | m17 | m0 | medium | nsubj -> has; resolved object -> slab |
-| e11 | patient | m17 | m9 | medium | dobj -> has |
-| e12 | patient | m17 | m11 | medium | dobj -> has |
-| e13 | agent | m18 | m0 | medium | inherited agent advcl -> has |
-| e14 | agent | m19 | m0 | medium | nsubjpass -> made; resolved it -> slab |
-| e15 | agent | m20 | m15 | medium | nsubj -> appears; resolved it -> edges |
+| e9 | agent | m17 | m0 | medium | nsubj -> rests |
+| e10 | agent | m18 | m0 | medium | nsubj -> has; resolved object -> slab |
+| e11 | patient | m18 | m9 | medium | dobj -> has |
+| e12 | patient | m18 | m11 | medium | dobj -> has |
+| e13 | agent | m19 | m0 | medium | inherited agent advcl -> has |
+| e14 | agent | m20 | m0 | medium | nsubjpass -> made; resolved it -> slab |
+| e15 | agent | m21 | m15 | medium | nsubj -> appears; resolved it -> edges |
 | e16 | relation | m0 | m4 | high | with |
 | e17 | relation | m0 | m5 | high | on |
 | e18 | relation | m0 | m13 | medium | of |
