@@ -4438,3 +4438,91 @@ reports/canonical_concepts_alt100_val00001_trf_stage9_canonical_parent_v1.jsonl
 reports/canonical_concepts_alt100_val00001_trf_stage9_canonical_parent_v1_summary.md
 reports/case_detail_alt100_val00001_trf_stage9_canonical_parent_v1.md
 ```
+
+## 2026-06-28: Stage 8+9 pipeline throughput benchmark
+
+목표:
+
+```text
+현재 구현 기준으로 caption 수가 늘어날 때 처리 속도를 측정한다.
+측정 범위는 spaCy trf parse + Stage 8 raw concept extraction + Stage 9 canonical parent/fact generation이다.
+```
+
+구현:
+
+```text
+scripts/benchmark_stage9_pipeline.py
+```
+
+측정 조건:
+
+```text
+input: data/gpic_captions_eval/val/gpic_val_00000.jsonl.gz
+model: en_core_web_trf
+GPU: prefer_gpu=True, gpu_enabled=True
+batch_size: 256
+n_process: 1
+enabled:
+  - raw quote retokenize
+  - tag-list parsing
+  - object MWE merge
+  - hyphen span merge
+  - Stage 9 canonical parent/fact generation
+serialize_json: True
+
+CuPy workaround:
+  --cupy-include-dir .mamba/env/Lib/site-packages/cupy/_core/include
+  --disable-cupy-reduction-accelerators
+```
+
+결과:
+
+```text
+target=100:
+  run_seconds: 0.5943
+  docs/sec: 168.2704
+  estimated 100M: 6.8783 days
+  linear workers for 100M / 3 days: 2.2928
+
+target=1,000:
+  run_seconds: 7.1859
+  docs/sec: 139.1606
+  estimated 100M: 8.3171 days
+  linear workers for 100M / 3 days: 2.7724
+
+target=10,000:
+  run_seconds: 60.3119
+  docs/sec: 165.8048
+  estimated 100M: 6.9805 days
+  linear workers for 100M / 3 days: 2.3268
+```
+
+10k output scale:
+
+```text
+records: 10,000
+raw concept mentions: 137,700
+raw edges: 112,200
+canonical entities: 72,400
+canonical events: 20,800
+canonical relations: 32,800
+canonical facts: 199,200
+count-eligible facts: 197,300
+serialized JSON bytes: 202,233,794
+```
+
+주의:
+
+```text
+JSON serialization cost는 포함했지만 full JSONL disk write cost는 포함하지 않았다.
+multi-GPU sharding과 compressed input/output I/O는 아직 별도 측정이 필요하다.
+```
+
+출력:
+
+```text
+reports/stage9_pipeline_benchmark_val00000_100.json
+reports/stage9_pipeline_benchmark_val00000_1000.json
+reports/stage9_pipeline_benchmark_val00000_10000.json
+reports/stage9_pipeline_benchmark_summary.md
+```
