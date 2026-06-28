@@ -1,0 +1,123 @@
+term	canonical	parent_chain	count_channel	confidence	source	notes
+adult	adult	person|human	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+attendee	attendee	person|human	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+boy	boy	person|human	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+child	child	person|human	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+girl	girl	person|human	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+kid	child	person|human	entity	high	stage9_seed	synonym canonicalization
+man	man	person|human	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+men	man	person|human	entity	high	stage9_seed	plural lemma fallback
+people	people	person|human	entity	high	stage9_seed	group-like human mention
+person	person	person|human	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+player	player	person|human	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+referee	referee	person|human	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+rider	rider	person|human	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+runner	runner	person|human	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+woman	woman	person|human	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+women	woman	person|human	entity	high	stage9_seed	plural lemma fallback
+animal	animal	animal|living_thing	entity	high	stage9_seed	coarse animal mention
+bird	bird	animal|living_thing	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+cat	cat	animal|living_thing	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+cow	cow	animal|living_thing	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+dog	dog	animal|living_thing	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+duck	duck	animal|living_thing	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+horse	horse	animal|living_thing	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+sheep	sheep	animal|living_thing	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+woodpecker	woodpecker	bird|animal|living_thing	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+automobile	car	vehicle	entity	high	stage9_seed	synonym canonicalization
+bicycle	bicycle	vehicle	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+bike	bicycle	vehicle	entity	high	stage9_seed	synonym canonicalization
+bus	bus	vehicle	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+car	car	vehicle	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+motorbike	motorcycle	vehicle	entity	high	stage9_seed	synonym canonicalization
+motorcycle	motorcycle	vehicle	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+suv	suv	vehicle	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+truck	truck	vehicle	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+van	van	vehicle	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+vehicle	vehicle	vehicle	entity	high	stage9_seed	coarse vehicle mention
+blazer	blazer	clothing|wearable	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+cap	cap	clothing|wearable	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+coat	coat	clothing|wearable	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+collar	collar	clothing|wearable	entity	medium	stage9_seed	ambiguous object/clothing part
+dress	dress	clothing|wearable	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+helmet	helmet	protective_gear|clothing|wearable	entity	high	stage9_seed	helmet is wearable but more specific as protective gear
+jacket	jacket	clothing|wearable	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+jersey	jersey	clothing|wearable	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+mask	mask	clothing|wearable	entity	medium	stage9_seed	ambiguous protective/face covering
+scarf	scarf	clothing|wearable	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+shirt	shirt	clothing|wearable	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+shoe	shoe	clothing|wearable	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+skirt	skirt	clothing|wearable	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+suit	suit	clothing|wearable	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+uniform	uniform	clothing|wearable	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+vest	vest	clothing|wearable	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+camera	camera	device|artifact	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+cell phone	cell_phone	phone|device|artifact	entity	high	stage9_seed	synonym canonicalization
+cell_phone	cell_phone	phone|device|artifact	entity	high	stage9_seed	underscore variant
+computer	computer	device|artifact	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+device	device	device|artifact	entity	high	stage9_seed	coarse device mention
+hearing aid	hearing_aid	device|artifact	entity	high	stage9_seed	synonym canonicalization
+hearing_aid	hearing_aid	device|artifact	entity	high	stage9_seed	underscore variant
+laptop	laptop	computer|device|artifact	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+mobile phone	cell_phone	phone|device|artifact	entity	high	stage9_seed	synonym canonicalization
+monitor	monitor	device|artifact	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+phone	phone	device|artifact	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+remote	remote	device|artifact	entity	medium	stage9_seed	ambiguous remote/control object
+screen	screen	device|artifact	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+tablet	tablet	device|artifact	entity	medium	stage9_seed	ambiguous tablet/device
+banner	banner	text_carrier|artifact	entity	high	stage9_seed	visual text carrier
+book	book	document|text_carrier|artifact	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+document	document	document|text_carrier|artifact	entity	high	stage9_seed	coarse document mention
+label	label	text_carrier|artifact	entity	high	stage9_seed	visual text carrier
+list	list	document|text_carrier|artifact	entity	medium	stage9_seed	ambiguous list/document
+page	page	document|text_carrier|artifact	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+paper	paper	document|text_carrier|artifact	entity	high	stage9_seed	keep fine lemma, add parent for coarse counting
+plaque	plaque	text_carrier|artifact	entity	high	stage9_seed	visual text carrier
+sign	sign	text_carrier|artifact	entity	high	stage9_seed	visual text carrier
+text	text	text_content	entity	high	stage9_seed	raw text carrier/content mention
+background	background	scene_context	entity	high	stage9_seed	scene context parent, not physical object parent
+daytime	daytime	scene_context|time_context	entity	high	stage9_seed	scene context parent
+dawn	dawn	scene_context|time_context	entity	high	stage9_seed	scene context parent
+distance	distance	scene_context|spatial_context	entity	high	stage9_seed	scene context parent
+dusk	dusk	scene_context|time_context	entity	high	stage9_seed	scene context parent
+foreground	foreground	scene_context	entity	high	stage9_seed	scene context parent
+indoor	indoor	scene_context	entity	high	stage9_seed	scene context parent
+indoors	indoors	scene_context	entity	high	stage9_seed	scene context parent
+night	night	scene_context|time_context	entity	high	stage9_seed	scene context parent
+outdoor	outdoor	scene_context	entity	high	stage9_seed	scene context parent
+outdoors	outdoors	scene_context	entity	high	stage9_seed	scene context parent
+scene	scene	scene_context	entity	high	stage9_seed	scene context parent
+setting	setting	scene_context	entity	high	stage9_seed	scene context parent
+arm	arm	body_part	entity	high	stage9_seed	body part parent
+back	back	body_part	entity	medium	stage9_seed	ambiguous body/region
+body	body	body_part	entity	high	stage9_seed	body part parent
+ear	ear	body_part	entity	high	stage9_seed	body part parent
+eye	eye	body_part	entity	high	stage9_seed	body part parent
+face	face	body_part	entity	high	stage9_seed	body part parent
+finger	finger	body_part	entity	high	stage9_seed	body part parent
+foot	foot	body_part	entity	high	stage9_seed	body part parent
+hair	hair	body_part	entity	high	stage9_seed	body part parent
+hand	hand	body_part	entity	high	stage9_seed	body part parent
+head	head	body_part	entity	high	stage9_seed	body part parent
+leg	leg	body_part	entity	high	stage9_seed	body part parent
+mouth	mouth	body_part	entity	high	stage9_seed	body part parent
+neck	neck	body_part	entity	high	stage9_seed	body part parent
+wing	wing	body_part	entity	medium	stage9_seed	body part for animals/birds
+bed	bed	furniture|artifact	entity	high	stage9_seed	furniture parent
+bench	bench	furniture|artifact	entity	high	stage9_seed	furniture parent
+chair	chair	furniture|artifact	entity	high	stage9_seed	furniture parent
+couch	sofa	furniture|artifact	entity	high	stage9_seed	synonym canonicalization
+desk	desk	furniture|artifact	entity	high	stage9_seed	furniture parent
+sofa	sofa	furniture|artifact	entity	high	stage9_seed	furniture parent
+table	table	furniture|artifact	entity	high	stage9_seed	furniture parent
+basketball	basketball	ball|sports_equipment|artifact	entity	high	stage9_seed	sports equipment parent
+bat	bat	sports_equipment|artifact	entity	medium	stage9_seed	ambiguous animal/sports equipment
+ball	ball	sports_equipment|artifact	entity	high	stage9_seed	sports equipment parent
+baseball bat	baseball_bat	sports_equipment|artifact	entity	high	stage9_seed	sports equipment parent
+baseball_bat	baseball_bat	sports_equipment|artifact	entity	high	stage9_seed	underscore variant
+net	net	sports_equipment|artifact	entity	medium	stage9_seed	ambiguous sports/mesh object
+racket	racket	sports_equipment|artifact	entity	high	stage9_seed	sports equipment parent
+soccer ball	soccer_ball	ball|sports_equipment|artifact	entity	high	stage9_seed	sports equipment parent
+soccer_ball	soccer_ball	ball|sports_equipment|artifact	entity	high	stage9_seed	underscore variant
+tennis racket	tennis_racket	racket|sports_equipment|artifact	entity	high	stage9_seed	sports equipment parent
+tennis_racket	tennis_racket	racket|sports_equipment|artifact	entity	high	stage9_seed	underscore variant

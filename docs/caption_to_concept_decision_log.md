@@ -4307,3 +4307,134 @@ reports/canonical_concepts_alt100_val00001_trf_stage9_pp_source_v1.jsonl
 reports/canonical_concepts_alt100_val00001_trf_stage9_pp_source_v1_summary.md
 reports/case_detail_alt100_val00001_trf_stage9_pp_source_v1.md
 ```
+
+## 2026-06-28: Stage 9 canonical parent v1
+
+목표:
+
+```text
+Stage 9를 단순 reference repair 단계가 아니라 countable canonical source 생성 단계로 확장한다.
+단, raw mention/edge는 바꾸지 않고 Stage 9 아래에 별도 canonical layer를 추가한다.
+```
+
+핵심 결정:
+
+```text
+canonical_lemma와 parent concept을 분리한다.
+
+예:
+  woman
+    canonical_lemma: woman
+    parent_chain: person / human
+
+  red
+    canonical: red
+    parent_chain: color_attribute / color / visual_attribute
+
+  sit
+    canonical_action: sit
+    parent_chain: body_pose_action / visual_action
+```
+
+이유:
+
+```text
+woman을 person으로 직접 바꾸면 fine-grained count가 사라진다.
+반대로 parent_chain을 별도 필드로 두면 fine level과 coarse level을 동시에 셀 수 있다.
+```
+
+구현:
+
+```text
+scripts/stage9_lexical_canonicalizer.py
+
+resources/lexicons/stage9_object_canonical_seed.tsv
+resources/lexicons/stage9_action_canonical_seed.tsv
+resources/lexicons/attribute_clean_core_typed_candidate.tsv
+resources/lexicons/relation_span_clean_core.tsv
+resources/lexicons/preposition_mwe_clean_core.tsv
+```
+
+추가된 Stage 9 출력:
+
+```text
+canonical_entities:
+  - canonical_lemma
+  - raw_canonical_lemma
+  - parent_chain
+  - count_channel
+  - count_keys
+  - lexical_canonicalization
+  - count_eligible
+
+canonical_events:
+  - canonical_action
+  - action_parent_chain
+  - count_keys
+
+canonical_relations:
+  - raw_relation
+  - canonical_relation
+  - relation_parent_chain
+  - count_keys
+
+canonical_facts:
+  - entity_exists
+  - has_attribute
+  - has_quantity
+  - action_event
+  - event_role
+  - relation
+```
+
+운영 원칙:
+
+```text
+parent concept은 caption에 직접 주입하지 않는다.
+parent concept은 count level / abstraction level로만 보존한다.
+
+WordNet/OEWN 기반 확장은 지금 바로 auto-apply하지 않고,
+나중에 candidate generation + audit TSV 형태로 확장한다.
+```
+
+검증:
+
+```text
+sample100 val00000:
+  bad_refs: 0
+  self_rel: 0
+  semicolon_rel: 0
+  facts:
+    entity_exists: 724
+    has_attribute: 392
+    relation: 328
+    event_role: 305
+    action_event: 208
+    has_quantity: 28
+    candidate_has_attribute: 7
+
+alt100 val00001:
+  bad_refs: 0
+  self_rel: 0
+  semicolon_rel: 0
+  facts:
+    entity_exists: 699
+    has_attribute: 388
+    relation: 330
+    event_role: 273
+    action_event: 200
+    has_quantity: 34
+    candidate_has_attribute: 2
+```
+
+출력:
+
+```text
+reports/canonical_concepts_sample100_val00000_trf_stage9_canonical_parent_v1.jsonl
+reports/canonical_concepts_sample100_val00000_trf_stage9_canonical_parent_v1_summary.md
+reports/case_detail_sample100_val00000_trf_stage9_canonical_parent_v1.md
+
+reports/canonical_concepts_alt100_val00001_trf_stage9_canonical_parent_v1.jsonl
+reports/canonical_concepts_alt100_val00001_trf_stage9_canonical_parent_v1_summary.md
+reports/case_detail_alt100_val00001_trf_stage9_canonical_parent_v1.md
+```

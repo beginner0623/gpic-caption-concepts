@@ -1,0 +1,39 @@
+term	canonical	parent_chain	count_channel	confidence	source	notes
+bend	bend	body_pose_action|visual_action	action	high	stage9_seed	keep lemma, add parent for coarse counting
+bend_over	bend_over	body_pose_action|visual_action	action	high	stage9_seed	phrasal action canonical already collapsed
+carry	carry	manipulation_action|visual_action	action	high	stage9_seed	object manipulation
+clap	clap	gesture_action|visual_action	action	high	stage9_seed	human gesture
+control	control	manipulation_action|visual_action	action	medium	stage9_seed	physical control/manipulation when visual
+dress	wear	wearing_action|visual_action	action	high	stage9_seed	synonym-like visual action canonicalization
+face	face	orientation_action|visual_action	action	high	stage9_seed	orientation action
+glide	glide	locomotion_action|visual_action	action	high	stage9_seed	motion action
+hang	hang	attachment_action|visual_action	action	high	stage9_seed	attachment/posture action
+hold	hold	manipulation_action|visual_action	action	high	stage9_seed	object manipulation
+hold_up	hold_up	manipulation_action|visual_action	action	high	stage9_seed	phrasal action canonical already collapsed
+jump	jump	locomotion_action|visual_action	action	high	stage9_seed	motion action
+jump_off	jump_off	locomotion_action|visual_action	action	high	stage9_seed	phrasal action canonical already collapsed
+lie	lie	body_pose_action|visual_action	action	high	stage9_seed	body pose
+lie_down	lie_down	body_pose_action|visual_action	action	high	stage9_seed	phrasal action canonical already collapsed
+look	look	gaze_action|visual_action	action	high	stage9_seed	visual attention action
+move	move	locomotion_action|visual_action	action	high	stage9_seed	motion action
+pick_up	pick_up	manipulation_action|visual_action	action	high	stage9_seed	phrasal action canonical already collapsed
+play	play	activity_action|visual_action	action	high	stage9_seed	activity action
+point	point	gesture_action|visual_action	action	high	stage9_seed	human gesture
+pose	pose	body_pose_action|visual_action	action	high	stage9_seed	body pose
+put_down	put_down	manipulation_action|visual_action	action	high	stage9_seed	phrasal action canonical already collapsed
+read	read	text_interaction_action|visual_action	action	medium	stage9_seed	visual text interaction
+ride	ride	locomotion_action|visual_action	action	high	stage9_seed	motion action
+run	run	locomotion_action|visual_action	action	high	stage9_seed	motion action
+seat	sit	body_pose_action|visual_action	action	high	stage9_seed	spaCy lemma for seated posture; count with sit
+sit	sit	body_pose_action|visual_action	action	high	stage9_seed	body pose
+sit_down	sit_down	body_pose_action|visual_action	action	high	stage9_seed	phrasal action canonical already collapsed
+skate	skate	locomotion_action|visual_action	action	high	stage9_seed	motion action
+smile	smile	expression_action|visual_action	action	high	stage9_seed	facial expression
+speak	speak	communication_action|visual_action	action	medium	stage9_seed	communication action visible only through context
+stand	stand	body_pose_action|visual_action	action	high	stage9_seed	body pose
+stand_up	stand_up	body_pose_action|visual_action	action	high	stage9_seed	phrasal action canonical already collapsed
+swim	swim	locomotion_action|visual_action	action	high	stage9_seed	motion action
+talk	talk	communication_action|visual_action	action	medium	stage9_seed	communication action visible only through context
+walk	walk	locomotion_action|visual_action	action	high	stage9_seed	motion action
+watch	watch	gaze_action|visual_action	action	medium	stage9_seed	visual attention action
+wear	wear	wearing_action|visual_action	action	high	stage9_seed	clothing/action canonical

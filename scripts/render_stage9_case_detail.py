@@ -107,11 +107,14 @@ def canonical_entity_rows(stage9: dict[str, object]) -> list[list[object]]:
                 entity.get("canonical_lemma"),
                 entity.get("text"),
                 entity.get("semantic_type"),
+                entity.get("parent_chain"),
                 entity.get("raw_mention_ids"),
                 entity.get("source"),
                 entity.get("parent_entity_id"),
                 entity.get("member_entity_ids"),
                 entity.get("cardinality"),
+                entity.get("count_eligible"),
+                entity.get("count_keys"),
             ]
         )
     return rows
@@ -149,8 +152,10 @@ def canonical_event_rows(stage9: dict[str, object]) -> list[list[object]]:
                 event.get("raw_action_text"),
                 event.get("raw_action_lemma"),
                 event.get("canonical_action"),
+                event.get("action_parent_chain"),
                 event.get("particles"),
                 "; ".join(role_summary),
+                event.get("count_keys"),
                 event.get("notes"),
             ]
         )
@@ -195,13 +200,34 @@ def canonical_relation_rows(stage9: dict[str, object]) -> list[list[object]]:
                 relation.get("target"),
                 relation.get("canonical_source"),
                 relation.get("canonical_target"),
+                relation.get("raw_relation"),
                 relation.get("canonical_relation"),
+                relation.get("relation_parent_chain"),
                 relation.get("confidence"),
                 relation.get("raw_edge_id"),
                 relation.get("consumed_by_event"),
                 relation.get("self_relation_after_canonicalization"),
                 source_selection_method,
                 source_selection_reason,
+            ]
+        )
+    return rows
+
+
+def canonical_fact_rows(stage9: dict[str, object]) -> list[list[object]]:
+    rows = []
+    for fact in stage9.get("canonical_facts", []):
+        rows.append(
+            [
+                fact.get("fact_id"),
+                fact.get("fact_type"),
+                fact.get("source_canonical") or fact.get("action") or fact.get("canonical"),
+                fact.get("relation") or fact.get("role") or fact.get("attribute") or fact.get("quantity"),
+                fact.get("target_canonical"),
+                fact.get("parent_chain") or fact.get("attribute_parent_chain") or fact.get("quantity_parent_chain") or fact.get("relation_parent_chain") or fact.get("action_parent_chain"),
+                fact.get("count_key"),
+                fact.get("count_eligible"),
+                fact.get("confidence"),
             ]
         )
     return rows
@@ -272,11 +298,14 @@ def render_record(record: dict[str, object], index: int) -> str:
                     "canonical_lemma",
                     "text",
                     "semantic_type",
+                    "parent_chain",
                     "raw_mentions",
                     "source",
                     "parent_entity",
                     "member_entities",
                     "cardinality",
+                    "count_eligible",
+                    "count_keys",
                 ],
                 canonical_entity_rows(stage9),
             ),
@@ -303,8 +332,10 @@ def render_record(record: dict[str, object], index: int) -> str:
                     "raw_text",
                     "raw_lemma",
                     "canonical_action",
+                    "action_parent_chain",
                     "particles",
                     "roles_summary",
+                    "count_keys",
                     "notes",
                 ],
                 canonical_event_rows(stage9),
@@ -335,7 +366,9 @@ def render_record(record: dict[str, object], index: int) -> str:
                     "raw_target",
                     "canonical_source",
                     "canonical_target",
+                    "raw_relation",
                     "relation",
+                    "relation_parent_chain",
                     "confidence",
                     "raw_edge",
                     "consumed_by_event",
@@ -344,6 +377,22 @@ def render_record(record: dict[str, object], index: int) -> str:
                     "selection_reason",
                 ],
                 canonical_relation_rows(stage9),
+            ),
+            "",
+            "### Stage 9 Canonical Facts",
+            markdown_table(
+                [
+                    "fact_id",
+                    "fact_type",
+                    "source/action/canonical",
+                    "relation/role/value",
+                    "target",
+                    "parent_chain",
+                    "count_key",
+                    "count_eligible",
+                    "confidence",
+                ],
+                canonical_fact_rows(stage9),
             ),
             "",
             "### Stage 9 Canonicalization Notes",
