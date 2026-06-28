@@ -1,0 +1,3 @@
+term	canonical	count_channel	confidence	source	notes
+dress	wear	action	high	stage9_seed:synonym_seed	synonym-like visual action canonicalization
+seat	sit	action	high	stage9_seed:synonym_seed	spaCy lemma for seated posture; count with sit

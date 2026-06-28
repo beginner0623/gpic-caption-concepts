@@ -1,0 +1,9 @@
+term	canonical	count_channel	confidence	source	notes
+kid	child	entity	high	stage9_seed:synonym_seed	synonym canonicalization
+men	man	entity	high	stage9_seed:synonym_seed	plural lemma fallback
+women	woman	entity	high	stage9_seed:synonym_seed	plural lemma fallback
+automobile	car	entity	high	stage9_seed:synonym_seed	synonym canonicalization
+bike	bicycle	entity	high	stage9_seed:synonym_seed	synonym canonicalization
+motorbike	motorcycle	entity	high	stage9_seed:synonym_seed	synonym canonicalization
+mobile_phone	cell_phone	entity	high	stage9_seed:synonym_seed	synonym canonicalization
+couch	sofa	entity	high	stage9_seed:synonym_seed	synonym canonicalization

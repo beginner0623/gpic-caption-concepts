@@ -14,8 +14,11 @@ from phrasal_action_lexicon import (
 )
 from stage9_lexical_canonicalizer import (
     DEFAULT_ACTION_CANONICAL_LEXICON,
+    DEFAULT_ACTION_PARENT_LEXICON,
     DEFAULT_ATTRIBUTE_CANONICAL_LEXICON,
     DEFAULT_OBJECT_CANONICAL_LEXICON,
+    DEFAULT_OBJECT_MWE_CANONICAL_LEXICON,
+    DEFAULT_OBJECT_PARENT_LEXICON,
     DEFAULT_PREPOSITION_MWE_LEXICON,
     DEFAULT_RELATION_CANONICAL_LEXICON,
     Stage9CanonicalLexicon,
@@ -166,10 +169,7 @@ def canonicalize_record(
             "action_parent_chain": action_info["parent_chain"],
             "count_channel": action_info["count_channel"],
             "count_keys": action_info["count_keys"],
-            "lexical_canonicalization": {
-                "source": action_info["source"],
-                "confidence": action_info["confidence"],
-            },
+            "lexical_canonicalization": action_info["lexical_canonicalization"],
             "source_token_i": action.get("source_token_i"),
             "roles": [],
             "particles": list(particles),
@@ -303,10 +303,7 @@ def canonicalize_record(
         relation_record["relation_parent_chain"] = relation_info["parent_chain"]
         relation_record["count_channel"] = relation_info["count_channel"]
         relation_record["count_keys"] = relation_info["count_keys"]
-        relation_record["lexical_canonicalization"] = {
-            "source": relation_info["source"],
-            "confidence": relation_info["confidence"],
-        }
+        relation_record["lexical_canonicalization"] = relation_info["lexical_canonicalization"]
         if relation_record["canonical_relation"] != relation_record["raw_relation"]:
             notes.append(
                 {
@@ -470,10 +467,7 @@ def build_canonical_facts(
                 "raw_edge_id": edge.get("edge_id"),
                 "raw_target_mention_id": edge.get("target"),
                 "confidence": edge.get("confidence"),
-                "lexical_canonicalization": {
-                    "source": value["source"],
-                    "confidence": value["confidence"],
-                },
+                "lexical_canonicalization": value["lexical_canonicalization"],
             }
         )
 
@@ -566,12 +560,20 @@ def update_summary(record: dict[str, object], counters: dict[str, Counter[str]])
             counters["entity_parents"][str(parent)] += 1
         if not entity.get("count_eligible", True):
             counters["entities"]["not_count_eligible"] += 1
+        lexical = entity.get("lexical_canonicalization", {})
+        if isinstance(lexical, dict):
+            counters["entity_canonical_sources"][str(lexical.get("canonical_source") or lexical.get("source") or "")] += 1
+            counters["entity_parent_sources"][str(lexical.get("parent_source") or "")] += 1
     for link in entity_links:
         counters["entity_links"][str(link.get("link_type", ""))] += 1
     for event in events:
         counters["events"][str(event.get("canonical_action", ""))] += 1
         for parent in event.get("action_parent_chain", []):
             counters["action_parents"][str(parent)] += 1
+        lexical = event.get("lexical_canonicalization", {})
+        if isinstance(lexical, dict):
+            counters["action_canonical_sources"][str(lexical.get("canonical_source") or lexical.get("source") or "")] += 1
+            counters["action_parent_sources"][str(lexical.get("parent_source") or "")] += 1
         for role in event.get("roles", []):
             counters["roles"][str(role.get("role", ""))] += 1
             if role.get("recovered_from_skipped_edge"):
@@ -590,6 +592,10 @@ def update_summary(record: dict[str, object], counters: dict[str, Counter[str]])
             counters["relations"]["reference_scoped_endpoint"] += 1
         if relation.get("self_relation_after_canonicalization"):
             counters["relations"]["self_after_canonicalization"] += 1
+        lexical = relation.get("lexical_canonicalization", {})
+        if isinstance(lexical, dict):
+            counters["relation_canonical_sources"][str(lexical.get("canonical_source") or lexical.get("source") or "")] += 1
+            counters["relation_parent_sources"][str(lexical.get("parent_source") or "")] += 1
     for fact in facts:
         counters["facts"][str(fact.get("fact_type", ""))] += 1
         if fact.get("count_eligible"):
@@ -624,8 +630,11 @@ def write_summary(
         "",
         f"- input: `{input_path}`",
         f"- phrasal_action_lexicon: `{lexicon_paths['phrasal_action']}`",
-        f"- object_canonical_lexicon: `{lexicon_paths['object']}`",
-        f"- action_canonical_lexicon: `{lexicon_paths['action']}`",
+        f"- object_synonym_lexicon: `{lexicon_paths['object']}`",
+        f"- object_parent_lexicon: `{lexicon_paths['object_parent']}`",
+        f"- object_mwe_canonical_lexicon: `{lexicon_paths['object_mwe']}`",
+        f"- action_synonym_lexicon: `{lexicon_paths['action']}`",
+        f"- action_parent_lexicon: `{lexicon_paths['action_parent']}`",
         f"- attribute_canonical_lexicon: `{lexicon_paths['attribute']}`",
         f"- relation_canonical_lexicon: `{lexicon_paths['relation']}`",
         f"- preposition_mwe_lexicon: `{lexicon_paths['preposition_mwe']}`",
@@ -650,6 +659,14 @@ def write_summary(
         "",
         markdown_count_table(counters["entity_parents"]),
         "",
+        "## Entity Canonical Sources",
+        "",
+        markdown_count_table(counters["entity_canonical_sources"]),
+        "",
+        "## Entity Parent Sources",
+        "",
+        markdown_count_table(counters["entity_parent_sources"]),
+        "",
         "## Entity Links",
         "",
         markdown_count_table(counters["entity_links"]),
@@ -666,9 +683,25 @@ def write_summary(
         "",
         markdown_count_table(counters["action_parents"]),
         "",
+        "## Canonical Action Sources",
+        "",
+        markdown_count_table(counters["action_canonical_sources"]),
+        "",
+        "## Canonical Action Parent Sources",
+        "",
+        markdown_count_table(counters["action_parent_sources"]),
+        "",
         "## Canonical Relation Parents",
         "",
         markdown_count_table(counters["relation_parents"]),
+        "",
+        "## Canonical Relation Sources",
+        "",
+        markdown_count_table(counters["relation_canonical_sources"]),
+        "",
+        "## Canonical Relation Parent Sources",
+        "",
+        markdown_count_table(counters["relation_parent_sources"]),
         "",
         "## Canonical Facts",
         "",
@@ -703,7 +736,10 @@ def main() -> int:
         help="Accepted high-confidence phrasal action lexicon TSV",
     )
     parser.add_argument("--object-canonical-lexicon", type=Path, default=DEFAULT_OBJECT_CANONICAL_LEXICON)
+    parser.add_argument("--object-parent-lexicon", type=Path, default=DEFAULT_OBJECT_PARENT_LEXICON)
+    parser.add_argument("--object-mwe-canonical-lexicon", type=Path, default=DEFAULT_OBJECT_MWE_CANONICAL_LEXICON)
     parser.add_argument("--action-canonical-lexicon", type=Path, default=DEFAULT_ACTION_CANONICAL_LEXICON)
+    parser.add_argument("--action-parent-lexicon", type=Path, default=DEFAULT_ACTION_PARENT_LEXICON)
     parser.add_argument("--attribute-canonical-lexicon", type=Path, default=DEFAULT_ATTRIBUTE_CANONICAL_LEXICON)
     parser.add_argument("--relation-canonical-lexicon", type=Path, default=DEFAULT_RELATION_CANONICAL_LEXICON)
     parser.add_argument("--preposition-mwe-lexicon", type=Path, default=DEFAULT_PREPOSITION_MWE_LEXICON)
@@ -713,6 +749,9 @@ def main() -> int:
     stage9_lexicon = load_stage9_canonical_lexicon(
         object_path=args.object_canonical_lexicon,
         action_path=args.action_canonical_lexicon,
+        object_parent_path=args.object_parent_lexicon,
+        action_parent_path=args.action_parent_lexicon,
+        object_mwe_path=args.object_mwe_canonical_lexicon,
         attribute_path=args.attribute_canonical_lexicon,
         relation_path=args.relation_canonical_lexicon,
         preposition_mwe_path=args.preposition_mwe_lexicon,
@@ -737,7 +776,10 @@ def main() -> int:
             lexicon_paths={
                 "phrasal_action": args.phrasal_action_lexicon,
                 "object": args.object_canonical_lexicon,
+                "object_parent": args.object_parent_lexicon,
+                "object_mwe": args.object_mwe_canonical_lexicon,
                 "action": args.action_canonical_lexicon,
+                "action_parent": args.action_parent_lexicon,
                 "attribute": args.attribute_canonical_lexicon,
                 "relation": args.relation_canonical_lexicon,
                 "preposition_mwe": args.preposition_mwe_lexicon,

@@ -100,6 +100,9 @@ def skipped_edge_rows(record: dict[str, object]) -> list[list[object]]:
 def canonical_entity_rows(stage9: dict[str, object]) -> list[list[object]]:
     rows = []
     for entity in stage9.get("canonical_entities", []):
+        lexical = entity.get("lexical_canonicalization", {})
+        if not isinstance(lexical, dict):
+            lexical = {}
         rows.append(
             [
                 entity.get("entity_id"),
@@ -107,6 +110,8 @@ def canonical_entity_rows(stage9: dict[str, object]) -> list[list[object]]:
                 entity.get("canonical_lemma"),
                 entity.get("text"),
                 entity.get("semantic_type"),
+                lexical.get("canonical_source") or lexical.get("source"),
+                lexical.get("parent_source"),
                 entity.get("parent_chain"),
                 entity.get("raw_mention_ids"),
                 entity.get("source"),
@@ -140,6 +145,9 @@ def entity_link_rows(stage9: dict[str, object]) -> list[list[object]]:
 def canonical_event_rows(stage9: dict[str, object]) -> list[list[object]]:
     rows = []
     for event in stage9.get("canonical_events", []):
+        lexical = event.get("lexical_canonicalization", {})
+        if not isinstance(lexical, dict):
+            lexical = {}
         role_summary = []
         for role in event.get("roles", []):
             role_summary.append(
@@ -152,6 +160,8 @@ def canonical_event_rows(stage9: dict[str, object]) -> list[list[object]]:
                 event.get("raw_action_text"),
                 event.get("raw_action_lemma"),
                 event.get("canonical_action"),
+                lexical.get("canonical_source") or lexical.get("source"),
+                lexical.get("parent_source"),
                 event.get("action_parent_chain"),
                 event.get("particles"),
                 "; ".join(role_summary),
@@ -186,6 +196,9 @@ def canonical_event_role_rows(stage9: dict[str, object]) -> list[list[object]]:
 def canonical_relation_rows(stage9: dict[str, object]) -> list[list[object]]:
     rows = []
     for relation in stage9.get("canonical_relations", []):
+        lexical = relation.get("lexical_canonicalization", {})
+        if not isinstance(lexical, dict):
+            lexical = {}
         source_selection = relation.get("source_selection")
         if isinstance(source_selection, dict):
             source_selection_method = source_selection.get("method")
@@ -202,6 +215,8 @@ def canonical_relation_rows(stage9: dict[str, object]) -> list[list[object]]:
                 relation.get("canonical_target"),
                 relation.get("raw_relation"),
                 relation.get("canonical_relation"),
+                lexical.get("canonical_source") or lexical.get("source"),
+                lexical.get("parent_source"),
                 relation.get("relation_parent_chain"),
                 relation.get("confidence"),
                 relation.get("raw_edge_id"),
@@ -298,6 +313,8 @@ def render_record(record: dict[str, object], index: int) -> str:
                     "canonical_lemma",
                     "text",
                     "semantic_type",
+                    "canonical_source",
+                    "parent_source",
                     "parent_chain",
                     "raw_mentions",
                     "source",
@@ -332,6 +349,8 @@ def render_record(record: dict[str, object], index: int) -> str:
                     "raw_text",
                     "raw_lemma",
                     "canonical_action",
+                    "canonical_source",
+                    "parent_source",
                     "action_parent_chain",
                     "particles",
                     "roles_summary",
@@ -368,6 +387,8 @@ def render_record(record: dict[str, object], index: int) -> str:
                     "canonical_target",
                     "raw_relation",
                     "relation",
+                    "relation_canonical_source",
+                    "relation_parent_source",
                     "relation_parent_chain",
                     "confidence",
                     "raw_edge",

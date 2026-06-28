@@ -4526,3 +4526,63 @@ reports/stage9_pipeline_benchmark_val00000_1000.json
 reports/stage9_pipeline_benchmark_val00000_10000.json
 reports/stage9_pipeline_benchmark_summary.md
 ```
+
+## 2026-06-28: Stage 9 canonicalization v2 source split
+
+정정:
+
+```text
+Stage 9 canonicalization의 핵심은 lemmatization이 아니다.
+Lemmatization은 형태소 정규화이고, Stage 9의 주목표는 synonym/alias 기준 main concept 정규화와 parent ontology mapping이다.
+```
+
+결정:
+
+```text
+term -> canonical 과 canonical -> parent_chain을 분리한다.
+결과 JSON/MD에서는 canonical_source와 parent_source를 따로 기록한다.
+```
+
+생성된 split lexicon:
+
+```text
+resources/lexicons/stage9_object_synonym_seed.tsv  # 8 rows
+resources/lexicons/stage9_object_parent_seed.tsv   # 109 rows
+resources/lexicons/stage9_action_synonym_seed.tsv  # 2 rows
+resources/lexicons/stage9_action_parent_seed.tsv   # 36 rows
+```
+
+구현:
+
+```text
+scripts/stage9_lexical_canonicalizer.py
+scripts/canonicalize_raw_concepts.py
+scripts/render_stage9_case_detail.py
+scripts/split_stage9_seed_lexicons.py
+```
+
+검증 출력:
+
+```text
+reports/canonical_concepts_sample100_val00000_trf_stage9_canonical_v2.jsonl
+reports/canonical_concepts_sample100_val00000_trf_stage9_canonical_v2_summary.md
+reports/case_detail_sample100_val00000_trf_stage9_canonical_v2.md
+
+reports/canonical_concepts_alt100_val00001_trf_stage9_canonical_v2.jsonl
+reports/canonical_concepts_alt100_val00001_trf_stage9_canonical_v2_summary.md
+reports/case_detail_alt100_val00001_trf_stage9_canonical_v2.md
+```
+
+주의:
+
+```text
+현재 parent coverage는 아직 낮다.
+sample100에서는 entity parent none이 460개, alt100에서는 448개다.
+다음 확장은 WordNet/OEWN/Open Images hierarchy/COCO-LVIS supercategory/VerbNet 등에서 후보를 만들고 audit해서 frozen lexicon으로 승격하는 방식이 맞다.
+```
+
+상세 설계 문서:
+
+```text
+docs/stage9_canonicalization_v2_design.md
+```
