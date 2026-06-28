@@ -18,6 +18,8 @@ from tag_list_parser import CONTEXT_TAGS, ConceptEdge, ConceptMention
 
 OBJECT_POS = {"NOUN", "PROPN"}
 ACTION_POS = {"VERB"}
+ACTION_NOISE_SURFACES = {"'", "'s", "'re", "’", "’s", "’re"}
+ACTION_NOISE_LEMMAS = {"'", "’"}
 MODIFIER_DEPS = {"amod", "compound", "nummod", "poss", "acl", "advmod"}
 SUBJECT_DEPS = {"nsubj", "nsubjpass"}
 OBJECT_DEPS = {"dobj", "obj", "attr", "oprd", "pobj"}
@@ -751,6 +753,8 @@ class RawConceptExtractor:
         for token in self.doc:
             if token.pos_ not in ACTION_POS or token.dep_ in {"aux", "amod"}:
                 continue
+            if self._is_action_noise_token(token):
+                continue
             action_id = self.add_mention(
                 "action",
                 token.text,
@@ -839,6 +843,9 @@ class RawConceptExtractor:
                     "medium",
                     evidence,
                 )
+
+    def _is_action_noise_token(self, token) -> bool:
+        return token.text.lower() in ACTION_NOISE_SURFACES or token.lemma_.lower() in ACTION_NOISE_LEMMAS
 
     def _extract_preposition_relations(self) -> None:
         for prep in self.doc:

@@ -1,0 +1,43 @@
+term	parent_chain	count_channel	confidence	source	notes
+filter	light_filtering_action|visual_effect_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	light filtering through visible material
+obscure	occlusion_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	visual occlusion/obscuring predicate
+overlook	view_orientation_action|visual_action	action	medium	10k_auto_feedback_v1 + fixed_rubric + action_ontology	viewpoint/spatial overlooking predicate
+center	spatial_position_state|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	centered visual placement/state
+engage	social_interaction_or_activity_state|visual_action	action	medium	10k_auto_feedback_v1 + fixed_rubric + action_ontology	engaged in visible conversation/activity
+tilt	orientation_state_or_motion_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	tilted body/object orientation
+support	support_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	physical support relation/action
+prepare	preparation_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	visible preparation activity
+angle	orientation_state|visual_action	action	medium	10k_auto_feedback_v1 + fixed_rubric + action_ontology	angled object/body orientation
+tie	attachment_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	tied/tying attachment predicate
+pass	motion_action|visual_action	action	medium	10k_auto_feedback_v1 + fixed_rubric + action_ontology	passing movement predicate
+emphasize	visual_emphasis_action|visual_action	action	medium	10k_auto_feedback_v1 + fixed_rubric + action_ontology	caption visual emphasis predicate
+title	text_annotation_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	titled text/document predicate
+curl	shape_or_body_motion_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	curled shape/body motion
+dot	distribution_state|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	dotted/scattered distribution predicate
+nestle	placement_state|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	nestled placement state
+resemble	visual_similarity_predicate|visual_action	action	medium	10k_auto_feedback_v1 + fixed_rubric + action_ontology	visual similarity predicate
+bathe	illumination_or_coverage_state|visual_action	action	medium	10k_auto_feedback_v1 + fixed_rubric + action_ontology	bathed in light/color/coverage state
+fade	visual_transition_state|visual_action	action	medium	10k_auto_feedback_v1 + fixed_rubric + action_ontology	fading visual transition
+stack	arrangement_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	stacked object arrangement
+discuss	communication_or_text_predicate|visual_action	action	medium	10k_auto_feedback_v1 + fixed_rubric + action_ontology	visible discussion or text discusses predicate
+speed	locomotion_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	speeding motion
+adorn	decoration_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	adorned/decorated predicate
+cling	attachment_state|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	clinging attachment state
+stream	flow_or_illumination_action|visual_action	action	medium	10k_auto_feedback_v1 + fixed_rubric + action_ontology	streaming light/water predicate
+climb	locomotion_or_growth_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	climbing motion or plant growth over surface
+fall	downward_motion_or_precipitation_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	falling motion/precipitation
+navigate	locomotion_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	navigating visible path/water/slope
+paddle	locomotion_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	paddling water locomotion
+pull	manipulation_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	pulling physical object
+slope	spatial_extent_state|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	sloped spatial extent/state
+advertise	text_display_action|visual_action	action	medium	10k_auto_feedback_v1 + fixed_rubric + action_ontology	poster/sign advertises text predicate
+blend	visual_transition_state|visual_action	action	medium	10k_auto_feedback_v1 + fixed_rubric + action_ontology	visual blending/transition
+hug	social_contact_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	visible hugging/contact action
+wait	waiting_state|visual_action	action	medium	10k_auto_feedback_v1 + fixed_rubric + action_ontology	visible waiting state/activity
+dribble	sports_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	basketball/sports dribble action
+suspend	support_or_hanging_state|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	suspended/hanging support state
+identify	text_annotation_action|visual_action	action	medium	10k_auto_feedback_v1 + fixed_rubric + action_ontology	label/text identifies visual item
+celebrate	social_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	visible celebration action
+interact	social_interaction_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	visible interaction action
+relax	body_pose_or_activity_state|visual_action	action	medium	10k_auto_feedback_v1 + fixed_rubric + action_ontology	visible relaxing body/activity state
+tuck	placement_action|visual_action	action	high	10k_auto_feedback_v1 + fixed_rubric + action_ontology	tucked placement state

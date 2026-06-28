@@ -1,0 +1,3 @@
+term	canonical	count_channel	confidence	source	notes
+bath	bathe	action	medium	10k_auto_feedback_v1 + fixed_rubric + parser_lemma_repair	spaCy lemma artifact from bathed; map to bathe before parent lookup
+slop	slope	action	medium	10k_auto_feedback_v1 + fixed_rubric + parser_lemma_repair	spaCy lemma artifact from slopes/sloping; map to slope before parent lookup

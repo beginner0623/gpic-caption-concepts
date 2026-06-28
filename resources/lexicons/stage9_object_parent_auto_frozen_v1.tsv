@@ -1,0 +1,39 @@
+term	parent_chain	count_channel	confidence	source	notes
+individual	person|human	entity	high	10k_auto_feedback_v1 + fixed_rubric + project_ontology	generic human noun
+shoulder	body_part	entity	high	10k_auto_feedback_v1 + fixed_rubric + body_part_ontology	human/animal body part
+right_hand	body_part	entity	high	10k_auto_feedback_v1 + fixed_rubric + body_part_ontology	side-specific hand
+left_hand	body_part	entity	high	10k_auto_feedback_v1 + fixed_rubric + body_part_ontology	side-specific hand
+counter	support_surface|furniture|artifact	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	physical counter/surface
+sun	celestial_object|natural_object	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	celestial natural object
+trim	decorative_or_structural_part|artifact	entity	medium	10k_auto_feedback_v1 + fixed_rubric + object_ontology	trim can be decorative or structural part
+board	flat_object_or_surface|artifact	entity	medium	10k_auto_feedback_v1 + fixed_rubric + object_ontology	board is a broad flat artifact/surface
+illustration	artwork|visual_element|artifact	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	visual artwork/document element
+emblem	symbol|decoration|artifact	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	symbolic decorative object
+expression	facial_expression|visual_attribute	entity	medium	10k_auto_feedback_v1 + fixed_rubric + object_ontology	nominalized facial expression; keep broad visual parent
+portion	part|spatial_region	entity	medium	10k_auto_feedback_v1 + fixed_rubric + object_ontology	generic part/portion noun
+wheel	vehicle_part|artifact	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	vehicle/object wheel
+dirt	natural_material|ground_material	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	natural ground material
+ring	accessory_or_shape|artifact	entity	medium	10k_auto_feedback_v1 + fixed_rubric + object_ontology	ambiguous jewelry/ring shape
+script	text_element|document	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	written script/text element
+rope	cordage|tool|artifact	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	physical cordage/rope
+container	container|artifact	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	generic physical container
+balloon	toy_or_inflatable_object|artifact	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	inflatable object/balloon
+basket	container|artifact	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	physical basket/container
+tile	construction_material|surface_element|artifact	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	tile as surface/building element
+fabric	textile|material	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	textile/material noun
+wear	clothing|wearable	entity	medium	10k_auto_feedback_v1 + fixed_rubric + object_ontology	noun wear as clothing category
+shrub	plant|living_thing	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	plant/shrub
+diagram	document_visual|visual_element|artifact	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	diagram as document visual element
+sleeve	clothing_part|clothing|wearable	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	clothing part
+stair	architectural_part|structure|artifact	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	stair/stairs built structure part
+streetlight	lighting_device|structure|artifact	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	street lighting object
+cross	symbol_or_religious_object|artifact	entity	medium	10k_auto_feedback_v1 + fixed_rubric + object_ontology	cross symbol/object ambiguity
+arrangement	object_group|visual_composition	entity	medium	10k_auto_feedback_v1 + fixed_rubric + object_ontology	arrangement as composed visual group
+cluster	group|collection	entity	medium	10k_auto_feedback_v1 + fixed_rubric + object_ontology	cluster/group noun
+element	visual_element	entity	medium	10k_auto_feedback_v1 + fixed_rubric + object_ontology	generic visual element
+sticker	decoration|artifact	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	sticker as decorative artifact
+curb	road_part|structure	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	road/sidewalk part
+environment	scene_context|place	entity	medium	10k_auto_feedback_v1 + fixed_rubric + object_ontology	scene/environment noun
+hallway	indoor_place|place	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	indoor place
+moss	plant|living_thing	entity	high	10k_auto_feedback_v1 + fixed_rubric + object_ontology	plant/moss
+base	support_part|spatial_region	entity	medium	10k_auto_feedback_v1 + fixed_rubric + object_ontology	base can be support part or spatial region

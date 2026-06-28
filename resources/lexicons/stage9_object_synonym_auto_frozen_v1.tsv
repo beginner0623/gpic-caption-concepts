@@ -1,0 +1,9 @@
+term	canonical	count_channel	confidence	source	notes
+individual	person	entity	high	10k_auto_feedback_v1 + fixed_rubric + project_ontology	generic human noun collapsed for coarse person counting
+individuals	person	entity	high	10k_auto_feedback_v1 + fixed_rubric + project_ontology	plural generic human noun collapsed for coarse person counting
+right_hand	hand	entity	high	10k_auto_feedback_v1 + fixed_rubric + body_part_ontology	side-specific body part collapsed to main body part
+right_hands	hand	entity	high	10k_auto_feedback_v1 + fixed_rubric + body_part_ontology	plural side-specific body part collapsed to main body part
+left_hand	hand	entity	high	10k_auto_feedback_v1 + fixed_rubric + body_part_ontology	side-specific body part collapsed to main body part
+left_hands	hand	entity	high	10k_auto_feedback_v1 + fixed_rubric + body_part_ontology	plural side-specific body part collapsed to main body part
+streetlight	streetlamp	entity	high	10k_auto_feedback_v1 + fixed_rubric + lexical_variant	streetlight/streetlamp variant collapsed for coarse object counting
+streetlights	streetlamp	entity	high	10k_auto_feedback_v1 + fixed_rubric + lexical_variant	plural streetlight/streetlamp variant collapsed for coarse object counting

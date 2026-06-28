@@ -5188,3 +5188,58 @@ reports/feedback_summary_10k_train00000_00099_auto_feedback_v1.md
 4. high-frequency `raw_attribute_role` 기반 attribute expansion candidate TSV.
 5. self-edge repair candidate analyzer.
 6. relation canonicalization은 계속 raw-preserving 유지.
+
+## 2026-06-29: auto-frozen v1 lexicon update from 10k feedback
+
+목표:
+
+- 10k auto-feedback 후보에서 위험이 낮은 항목만 첫 번째 `auto_frozen_v1` lexicon으로 분리한다.
+- 사람이 직접 gold로 고른 것처럼 표현하지 않고, fixed rubric 기반 automatic freeze로 기록한다.
+- Stage 8/9를 다시 실행해 before/after regression 수치를 확인한다.
+
+추가된 lexicon:
+
+```text
+resources/lexicons/stage9_object_synonym_auto_frozen_v1.tsv
+resources/lexicons/stage9_object_parent_auto_frozen_v1.tsv
+resources/lexicons/stage9_action_synonym_auto_frozen_v1.tsv
+resources/lexicons/stage9_action_parent_auto_frozen_v1.tsv
+resources/lexicons/stage9_attribute_auto_frozen_v1.tsv
+resources/lexicons/stage9_attribute_synonym_auto_frozen_v1.tsv
+```
+
+코드 변경:
+
+- `stage9_lexical_canonicalizer.py`
+  - seed/expansion lexicon 이후 auto-frozen lexicon을 추가로 로드한다.
+  - attribute lexicon도 base + auto-frozen 구조로 확장했다.
+- `canonicalize_raw_concepts.py`
+  - auto-frozen lexicon CLI option과 summary 출력 경로를 추가했다.
+- `raw_concept_extractor.py`
+  - `’s`, `'s`, `’re`, `'re` 같은 apostrophe 조각이 `VERB`로 잡혀 action이 되는 경우만 차단했다.
+  - `be`는 아직 차단하지 않았다. copular/state 정책이 따로 필요하다.
+
+10k before/after:
+
+| metric | auto_feedback_v1 | auto_frozen_v1 rerun | delta |
+|---|---:|---:|---:|
+| events | 35,769 | 35,670 | -99 |
+| entity_parent_none | 18,290 | 16,223 | -2,067 |
+| action_parent_fallback | 3,176 | 1,872 | -1,304 |
+| raw_attribute_role | 23,778 | 17,419 | -6,359 |
+| raw_relation | 4,570 | 4,570 | 0 |
+| skipped_edges | 412 | 412 | 0 |
+
+100개 회귀:
+
+| dataset | entities | parent_none | events | action_fallback | raw_relation | raw_attribute | self_relation | skipped_edges |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| sample100 val00000 | 724 | 123 | 208 | 12 | 28 | 103 | 0 | 2 |
+| alt100 val00001 | 701 | 111 | 200 | 12 | 32 | 112 | 0 | 10 |
+
+해석:
+
+- Stage 9 coverage는 개선됐다.
+- relation은 raw-preserving 정책을 유지했기 때문에 변화가 없다.
+- self-edge repair는 이번 lexicon update로 해결되는 문제가 아니어서 그대로 남았다.
+- 다음 작업은 남은 parent long-tail, `be`/wide predicate 정책, self-edge repair analyzer, object MWE/phrasal action freeze다.

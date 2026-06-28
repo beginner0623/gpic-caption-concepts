@@ -1,0 +1,2230 @@
+# Stage 9 Canonicalization Summary
+
+- input: `reports\raw_concepts_sample100_val00000_trf_auto_frozen_v1.jsonl`
+- phrasal_action_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\phrasal_action_model_audited_core.tsv`
+- object_synonym_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_object_synonym_seed.tsv`
+- object_synonym_expansion_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_object_synonym_expansion_v1.tsv`
+- object_synonym_auto_frozen_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_object_synonym_auto_frozen_v1.tsv`
+- object_parent_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_object_parent_seed.tsv`
+- object_parent_expansion_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_object_parent_expansion_v1.tsv`
+- object_parent_expansion_v2_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_object_parent_expansion_v2.tsv`
+- object_parent_expansion_v3_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_object_parent_expansion_v3.tsv`
+- object_parent_auto_frozen_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_object_parent_auto_frozen_v1.tsv`
+- object_mwe_canonical_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\object_noun_mwe_clean_core.tsv`
+- action_synonym_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_action_synonym_seed.tsv`
+- action_synonym_expansion_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_action_synonym_expansion_v1.tsv`
+- action_synonym_auto_frozen_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_action_synonym_auto_frozen_v1.tsv`
+- action_parent_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_action_parent_seed.tsv`
+- action_parent_expansion_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_action_parent_expansion_v1.tsv`
+- action_parent_expansion_v2_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_action_parent_expansion_v2.tsv`
+- action_parent_auto_frozen_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_action_parent_auto_frozen_v1.tsv`
+- attribute_canonical_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\attribute_clean_core_typed_candidate.tsv`
+- attribute_auto_frozen_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_attribute_auto_frozen_v1.tsv`
+- attribute_synonym_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_attribute_synonym_seed.tsv`
+- attribute_synonym_auto_frozen_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_attribute_synonym_auto_frozen_v1.tsv`
+- relation_canonical_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\relation_span_clean_core.tsv`
+- preposition_mwe_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\preposition_mwe_clean_core.tsv`
+
+## Records
+
+| item | count |
+| --- | ---: |
+| `records` | 100 |
+| `sentence` | 79 |
+| `tag_list` | 21 |
+
+## Canonical Event Actions
+
+| item | count |
+| --- | ---: |
+| `stand` | 40 |
+| `sit` | 14 |
+| `hold` | 9 |
+| `wear` | 9 |
+| `show` | 7 |
+| `read` | 6 |
+| `appear` | 5 |
+| `have` | 5 |
+| `smile` | 5 |
+| `stretch` | 5 |
+| `run` | 5 |
+| `surround` | 5 |
+| `walk` | 4 |
+| `speak` | 3 |
+| `lead` | 3 |
+| `park` | 3 |
+| `rest` | 3 |
+| `include` | 3 |
+| `look` | 3 |
+| `cover` | 3 |
+| `play` | 2 |
+| `create` | 2 |
+| `frame` | 2 |
+| `make` | 2 |
+| `kick` | 2 |
+| `display` | 2 |
+| `control` | 2 |
+| `overlook` | 2 |
+| `crawl` | 1 |
+| `scatter` | 1 |
+| `fill` | 1 |
+| `view` | 1 |
+| `touch` | 1 |
+| `swim` | 1 |
+| `glide` | 1 |
+| `reflect` | 1 |
+| `jump` | 1 |
+| `watch` | 1 |
+| `work` | 1 |
+| `fly` | 1 |
+| `share` | 1 |
+| `talk` | 1 |
+| `carry` | 1 |
+| `depict` | 1 |
+| `pave` | 1 |
+| `cast` | 1 |
+| `top` | 1 |
+| `sing` | 1 |
+| `prepare` | 1 |
+| `position` | 1 |
+| `hang` | 1 |
+| `line` | 1 |
+| `give` | 1 |
+| `indicate` | 1 |
+| `filter` | 1 |
+| `fade` | 1 |
+| `grapple` | 1 |
+| `lie` | 1 |
+| `bend_over` | 1 |
+| `support` | 1 |
+| `gesture` | 1 |
+| `rise` | 1 |
+| `contrast` | 1 |
+| `grow` | 1 |
+| `feature` | 1 |
+| `nestle` | 1 |
+| `complete` | 1 |
+| `hold_up` | 1 |
+| `face` | 1 |
+| `suggest` | 1 |
+| `place` | 1 |
+| `kneel` | 1 |
+| `plant` | 1 |
+| `stir` | 1 |
+| `burn` | 1 |
+| `stitch` | 1 |
+| `fray` | 1 |
+| `pour` | 1 |
+| `let` | 1 |
+| `wind` | 1 |
+
+## Canonical Entities
+
+| item | count |
+| --- | ---: |
+| `object` | 639 |
+| `context` | 71 |
+| `reference` | 6 |
+| `instance` | 4 |
+| `contrastive_instance` | 2 |
+| `group` | 2 |
+
+## Canonical Entity Semantic Types
+
+| item | count |
+| --- | ---: |
+| `object` | 572 |
+| `person` | 76 |
+| `clothing` | 35 |
+| `document` | 18 |
+| `device` | 10 |
+| `vehicle` | 7 |
+| `animal` | 5 |
+| `group` | 1 |
+
+## Canonical Entity Parents
+
+| item | count |
+| --- | ---: |
+| `artifact` | 183 |
+| `person` | 90 |
+| `human` | 90 |
+| `structure` | 65 |
+| `place` | 59 |
+| `scene_context` | 58 |
+| `wearable` | 49 |
+| `clothing` | 48 |
+| `living_thing` | 43 |
+| `plant` | 37 |
+| `architectural_part` | 36 |
+| `scene_element` | 25 |
+| `body_part` | 21 |
+| `surface` | 18 |
+| `natural_scene` | 17 |
+| `furniture` | 16 |
+| `device` | 15 |
+| `text_carrier` | 14 |
+| `spatial_region` | 14 |
+| `landform` | 14 |
+| `path` | 11 |
+| `outdoor_scene` | 11 |
+| `accessory` | 10 |
+| `visual_element` | 10 |
+| `text_content` | 8 |
+| `vehicle` | 8 |
+| `symbol` | 7 |
+| `container` | 7 |
+| `natural_element` | 7 |
+| `illumination` | 7 |
+| `animal` | 6 |
+| `plant_part` | 5 |
+| `platform` | 5 |
+| `sports_equipment` | 5 |
+| `body_of_water` | 5 |
+| `building` | 4 |
+| `textile` | 4 |
+| `spatial_boundary` | 4 |
+| `text_element` | 4 |
+| `document` | 4 |
+| `material_source` | 4 |
+| `athlete` | 4 |
+| `visual_document` | 3 |
+| `decoration` | 3 |
+| `symbol_or_religious_object` | 3 |
+| `ball` | 3 |
+| `spatial_context` | 3 |
+| `structural_part_or_light_element` | 3 |
+| `natural_object` | 3 |
+| `toy_or_inflatable_object` | 3 |
+| `interior_place` | 3 |
+| `design_element` | 3 |
+| `settlement` | 3 |
+| `event` | 2 |
+| `sports_place` | 2 |
+| `furnishing` | 2 |
+| `time_context` | 2 |
+| `visual_property` | 2 |
+| `visual_marking` | 2 |
+| `infrastructure` | 2 |
+| `floor_covering` | 2 |
+| `decorative_or_structural_part` | 2 |
+| `food_or_drink` | 2 |
+| `visual_composition` | 2 |
+| `tree` | 2 |
+| `equipment` | 2 |
+| `lighting_device` | 2 |
+| `award` | 2 |
+| `support_part` | 2 |
+| `accessory_or_weapon` | 1 |
+| `person_group` | 1 |
+| `flag` | 1 |
+| `drinking_vessel` | 1 |
+| `protective_gear` | 1 |
+| `generic_object` | 1 |
+| `color_attribute` | 1 |
+| `body_part_or_container` | 1 |
+| `aircraft` | 1 |
+| `artwork` | 1 |
+| `body_motion` | 1 |
+| `plant_area` | 1 |
+| `utensil` | 1 |
+| `sports_facility` | 1 |
+| `eyewear` | 1 |
+| `writing_tool` | 1 |
+| `water_body` | 1 |
+| `shelter` | 1 |
+| `surface_region` | 1 |
+| `background` | 1 |
+| `natural_material` | 1 |
+| `ground_material` | 1 |
+| `activity` | 1 |
+| `food` | 1 |
+| `material` | 1 |
+| `person_or_audio_device` | 1 |
+| `bag` | 1 |
+| `insect` | 1 |
+| `visual_pattern` | 1 |
+| `visual_representation` | 1 |
+
+## Entity Canonical Sources
+
+| item | count |
+| --- | ---: |
+| `raw_lemma` | 692 |
+| `visual_genome_object_synset|wordnet_noun_mwe` | 15 |
+| `lvis_object|visual_genome_object_synset|wordnet_noun_mwe` | 6 |
+| `stage9_seed:synonym_seed` | 4 |
+| `openimages_boxable` | 3 |
+| `coco_object|openimages_boxable` | 1 |
+| `wordnet_noun_mwe` | 1 |
+| `openimages_boxable|visual_genome_object_synset|wordnet_noun_mwe` | 1 |
+| `10k_auto_feedback_v1 + fixed_rubric + project_ontology` | 1 |
+
+## Entity Parent Sources
+
+| item | count |
+| --- | ---: |
+| `stage9_seed:parent_seed` | 237 |
+| `none` | 123 |
+| `1k_stage9_audit_v3 + wordnet_hypernym` | 50 |
+| `wordnet_synset:building.n.01 + stage9_audit` | 17 |
+| `wordnet_synset:sky.n.01 + stage9_audit` | 17 |
+| `10k_auto_feedback_v1 + fixed_rubric + object_ontology` | 15 |
+| `wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit` | 15 |
+| `semantic_type_fallback` | 15 |
+| `wordnet_synset:wall.n.01 + stage9_audit` | 9 |
+| `wordnet_synset:grass.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit` | 8 |
+| `wordnet_synset:fence.n.01 + stage9_audit` | 8 |
+| `wordnet_synset:surface.n.01 + 1k_stage9_audit_v2` | 7 |
+| `wordnet_synset:field.n.01 + stage9_audit` | 7 |
+| `wordnet_synset:window.n.01 + stage9_audit` | 6 |
+| `wordnet_synset:ground.n.08 + 1k_stage9_audit_v2` | 6 |
+| `wordnet_synset:top.n.01 + 1k_stage9_audit_v2` | 4 |
+| `wordnet_synset:hat.n.01 + 1k_stage9_audit_v2` | 4 |
+| `wordnet_synset:road.n.01 + stage9_audit` | 4 |
+| `wordnet_synset:horizon.n.01 + 1k_stage9_audit_v2` | 4 |
+| `wordnet_synset:spectator.n.01 + 1k_stage9_audit_v2` | 4 |
+| `wordnet_synset:light.n.01 + 1k_stage9_audit_v2` | 4 |
+| `wordnet_synset:hillside.n.01 + 1k_stage9_audit_v2` | 4 |
+| `wordnet_synset:pipe.n.01 + 1k_stage9_audit_v2` | 4 |
+| `wordnet_synset:hill.n.01 + 1k_stage9_audit_v2` | 4 |
+| `wordnet_synset:floor.n.01 + stage9_audit` | 3 |
+| `wordnet_synset:bag.n.01 + stage9_audit` | 3 |
+| `wordnet_synset:sidewalk.n.01 + stage9_audit` | 3 |
+| `wordnet_synset:roof.n.01 + stage9_audit` | 3 |
+| `wordnet_synset:mountain.n.01 + stage9_audit` | 3 |
+| `wordnet_synset:frame.n.01 + 1k_stage9_audit_v2` | 3 |
+| `wordnet_synset:stage.n.03 + stage9_audit` | 3 |
+| `wordnet_synset:pillar.n.01 + 1k_stage9_audit_v2` | 3 |
+| `wordnet_synset:shadow.n.01 + 1k_stage9_audit_v2` | 3 |
+| `wordnet_synset:entrance.n.01 + 1k_stage9_audit_v2` | 3 |
+| `wordnet_hypernym:device.n.01 + 1k_stage9_audit_v2` | 3 |
+| `compound_head:player + 1k_stage9_audit_v2` | 3 |
+| `wordnet_synset:sunlight.n.01 + 1k_stage9_audit_v2` | 3 |
+| `wordnet_synset:number.n.02 + 1k_stage9_audit_v2` | 3 |
+| `wordnet_synset:poster.n.01 + 1k_stage9_audit_v2` | 2 |
+| `wordnet_synset:podium.n.01 + 1k_stage9_audit_v2` | 2 |
+| `wordnet_synset:flower.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit` | 2 |
+| `COCO object label + wordnet_synset:umbrella.n.01 + stage9_audit` | 2 |
+| `wordnet_synset:area.n.05 + 1k_stage9_audit_v2` | 2 |
+| `wordnet_synset:church.n.02 + 1k_stage9_audit_v2` | 2 |
+| `wordnet_synset:door.n.01 + stage9_audit` | 2 |
+| `wordnet_synset:court.n.01 + stage9_audit` | 2 |
+| `wordnet_synset:street.n.01 + stage9_audit` | 2 |
+| `wordnet_synset:curtain.n.01 + 1k_stage9_audit_v2` | 2 |
+| `wordnet_synset:worker.n.01 + 1k_stage9_audit_v2` | 2 |
+| `1k_stage9_audit_v3 + compound_head:line` | 2 |
+| `wordnet_synset:water.n.01 + stage9_audit` | 2 |
+| `wordnet_synset:costume.n.01 + 1k_stage9_audit_v2` | 2 |
+| `wordnet_synset:lake.n.01 + stage9_audit` | 2 |
+| `wordnet_synset:drink.n.01 + 1k_stage9_audit_v2` | 2 |
+| `wordnet_synset:close-up.n.01 + 1k_stage9_audit_v2` | 2 |
+| `wordnet_synset:house.n.01 + stage9_audit` | 2 |
+| `wordnet_synset:glass.n.01 + 1k_stage9_audit_v2` | 2 |
+| `wordnet_synset:gear.n.04 + 1k_stage9_audit_v2` | 2 |
+| `wordnet_synset:leaf.n.01 + 1k_stage9_audit_v2` | 2 |
+| `wordnet_synset:room.n.01 + stage9_audit` | 2 |
+| `wordnet_synset:foliage.n.01 + 1k_stage9_audit_v2` | 2 |
+| `wordnet_synset:stone.n.01 + stage9_audit` | 2 |
+| `wordnet_synset:logo.n.01 + 1k_stage9_audit_v2` | 2 |
+| `wordnet_synset:ceiling.n.01 + 1k_stage9_audit_v2` | 2 |
+| `wordnet_synset:river.n.01 + stage9_audit` | 2 |
+| `wordnet_synset:trunk.n.01 + compound_modifier:tree + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:audience.n.01 + 1k_stage9_audit_v2` | 1 |
+| `1k_stage9_audit_v3 + compound_head:flag` | 1 |
+| `wordnet_synset:structure.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:flag.n.01 + 1k_stage9_audit_v2` | 1 |
+| `1k_stage9_audit_v3 + compound_head:glass` | 1 |
+| `wordnet_synset:landscape.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:object.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:display.n.06 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:reflection.n.06 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:hue.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:line.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:branch.n.01 + compound_head_inheritance + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:panel.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:beach.n.01 + stage9_audit` | 1 |
+| `wordnet_synset:artwork.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:path.n.04 + stage9_audit` | 1 |
+| `wordnet_synset:column.n.04 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:palm.n.03 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:lawn.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:tray.n.01 + 1k_stage9_audit_v2` | 1 |
+| `COCO object label + wordnet_hypernym:utensil.n.01 + stage9_audit` | 1 |
+| `wordnet_synset:rock.n.01 + stage9_audit` | 1 |
+| `COCO object label + wordnet_hypernym:device.n.01 + stage9_audit` | 1 |
+| `wordnet_synset:rink.n.01 + compound_modifier:ice + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:shorts.n.01 + 1k_stage9_audit_v2` | 1 |
+| `1k_stage9_audit_v3 + compound_head:stick` | 1 |
+| `wordnet_synset:box.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:sunglasses.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:park.n.02 + stage9_audit` | 1 |
+| `wordnet_synset:pine.n.01 + compound_head:tree + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:branch.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:shrub.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit` | 1 |
+| `wordnet_synset:tower.n.01 + stage9_audit` | 1 |
+| `wordnet_synset:tent.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:patch.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:backdrop.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:cloud.n.01 + stage9_audit` | 1 |
+| `1k_stage9_audit_v3 + compound_head:player` | 1 |
+| `wordnet_synset:game.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:ocean.n.01 + stage9_audit` | 1 |
+| `wordnet_synset:wave.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:plant.n.02 + stage9_audit` | 1 |
+| `wordnet_synset:food.n.01 + stage9_audit` | 1 |
+| `wordnet_synset:clothing.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:forest.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:slope.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:hall.n.03 + 1k_stage9_audit_v2` | 1 |
+| `COCO object label + wordnet_synset:backpack.n.01 + stage9_audit` | 1 |
+| `wordnet_synset:image.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:pattern.n.01 + 1k_stage9_audit_v2` | 1 |
+| `wordnet_synset:view.n.02 + 1k_stage9_audit_v2` | 1 |
+
+## Entity Links
+
+| item | count |
+| --- | ---: |
+| `refers_to` | 13 |
+
+## Canonical Event Roles
+
+| item | count |
+| --- | ---: |
+| `agent` | 213 |
+| `patient` | 92 |
+
+## Raw Event Roles Before Count Collapse
+
+| item | count |
+| --- | ---: |
+| `agent` | 207 |
+| `patient` | 82 |
+| `theme` | 10 |
+| `by_agent_or_causer` | 6 |
+
+## Event Role Voice Normalization
+
+| item | count |
+| --- | ---: |
+| `none` | 288 |
+| `passive_to_active` | 16 |
+| `reference_recovery` | 1 |
+
+## Event Role Flags
+
+| item | count |
+| --- | ---: |
+| `recovered_from_skipped_edge` | 1 |
+
+## Canonical Relations
+
+| item | count |
+| --- | ---: |
+| `with` | 85 |
+| `in` | 68 |
+| `on` | 44 |
+| `near` | 14 |
+| `under` | 14 |
+| `of` | 12 |
+| `at` | 10 |
+| `behind` | 8 |
+| `by` | 8 |
+| `consumed_by_event` | 6 |
+| `next_to` | 6 |
+| `in_front_of` | 5 |
+| `to` | 5 |
+| `across` | 5 |
+| `above` | 4 |
+| `reference_scoped_endpoint` | 4 |
+| `include` | 4 |
+| `into` | 4 |
+| `during` | 3 |
+| `from` | 3 |
+| `against` | 3 |
+| `beyond` | 2 |
+| `down` | 2 |
+| `pp_source_disambiguated` | 2 |
+| `for` | 2 |
+| `toward` | 2 |
+| `around` | 2 |
+| `among` | 2 |
+| `through` | 2 |
+| `bottom_of` | 1 |
+| `between` | 1 |
+| `near_end_of` | 1 |
+| `from_side_of` | 1 |
+| `below` | 1 |
+| `inside` | 1 |
+| `past` | 1 |
+| `base_of` | 1 |
+| `at_top_of` | 1 |
+
+## Canonical Action Parents
+
+| item | count |
+| --- | ---: |
+| `visual_action` | 208 |
+| `body_pose_action` | 57 |
+| `manipulation_action` | 13 |
+| `locomotion_action` | 13 |
+| `visual_presentation_action` | 11 |
+| `spatial_configuration_action` | 11 |
+| `wearing_action` | 9 |
+| `text_interaction_action` | 6 |
+| `appearance_state` | 5 |
+| `possession_or_property_state` | 5 |
+| `expression_action` | 5 |
+| `spatial_extent_state` | 5 |
+| `communication_action` | 4 |
+| `gaze_action` | 4 |
+| `path_orientation_action` | 3 |
+| `placement_state_action` | 3 |
+| `vehicle_action` | 3 |
+| `support_state_action` | 3 |
+| `enumeration_or_composition_predicate` | 3 |
+| `occlusion_or_covering_action` | 3 |
+| `activity_action` | 2 |
+| `creation_action` | 2 |
+| `visual_framing_action` | 2 |
+| `creation_or_material_predicate` | 2 |
+| `body_motion_action` | 2 |
+| `sports_action` | 2 |
+| `view_orientation_action` | 2 |
+| `distribution_state` | 1 |
+| `containment_state_action` | 1 |
+| `perception_action` | 1 |
+| `optical_reflection_action` | 1 |
+| `activity_or_operation_action` | 1 |
+| `construction_action` | 1 |
+| `projection_or_shadow_action` | 1 |
+| `placement_or_covering_action` | 1 |
+| `performance_or_communication_action` | 1 |
+| `preparation_action` | 1 |
+| `placement_or_arrangement_state` | 1 |
+| `attachment_action` | 1 |
+| `arrangement_action` | 1 |
+| `transfer_or_gesture_action` | 1 |
+| `visual_indication_or_text_action` | 1 |
+| `light_filtering_action` | 1 |
+| `visual_effect_action` | 1 |
+| `visual_transition_state` | 1 |
+| `support_action` | 1 |
+| `gesture_action` | 1 |
+| `vertical_motion_or_extent_action` | 1 |
+| `visual_comparison_state` | 1 |
+| `biological_growth_action` | 1 |
+| `visual_feature_predicate` | 1 |
+| `placement_state` | 1 |
+| `orientation_action` | 1 |
+| `visual_inference_predicate` | 1 |
+| `placement_action` | 1 |
+| `shape_or_motion_action` | 1 |
+
+## Canonical Action Sources
+
+| item | count |
+| --- | ---: |
+| `raw_action` | 205 |
+| `stage9_seed:synonym_seed` | 2 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:leap.v.01` | 1 |
+
+## Canonical Action Parent Sources
+
+| item | count |
+| --- | ---: |
+| `stage9_seed:parent_seed` | 113 |
+| `1k_stage9_action_audit_v2 + project_action_ontology` | 15 |
+| `visual_action_fallback` | 12 |
+| `wordnet_synset:show.v.01 + stage9_audit` | 7 |
+| `10k_auto_feedback_v1 + fixed_rubric + action_ontology` | 7 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:stretch.v.02` | 5 |
+| `wordnet_synset:surround.v.01 + stage9_audit` | 5 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:lead.v.01` | 3 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:park.v.01` | 3 |
+| `wordnet_synset:rest.v.01 + stage9_audit` | 3 |
+| `wordnet_synset:cover.v.01 + stage9_audit` | 3 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:create.v.01` | 2 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:frame.v.01` | 2 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:make.v.01` | 2 |
+| `wordnet_synset:kick.v.01 + stage9_audit` | 2 |
+| `wordnet_synset:display.v.01 + stage9_audit` | 2 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:scatter.v.01` | 1 |
+| `wordnet_synset:fill.v.01 + stage9_audit` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:view.v.01` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:reflect.v.01` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:work.v.01` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:fly.v.01` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:depict.v.01` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:pave.v.01` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:cast.v.01` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:top.v.01` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:sing.v.01` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:position.v.01` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:line.v.01` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:give.v.01` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:indicate.v.01` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:gesture.v.01` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:rise.v.01` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:contrast.v.01` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:grow.v.01` | 1 |
+| `wordnet_synset:put.v.01 + stage9_audit` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:kneel.v.01` | 1 |
+| `1k_stage9_action_audit_v2 + wordnet_synset:wind.v.02` | 1 |
+
+## Canonical Relation Parents
+
+| item | count |
+| --- | ---: |
+| `visual_relation` | 328 |
+| `association_relation` | 85 |
+| `spatial_containment` | 69 |
+| `spatial_support` | 44 |
+| `spatial_proximity` | 30 |
+| `spatial_vertical` | 19 |
+| `spatial_depth` | 13 |
+| `part_relation` | 12 |
+| `spatial_location` | 10 |
+| `spatial_region` | 7 |
+| `spatial_path` | 7 |
+| `spatial_contact` | 3 |
+| `spatial_source` | 1 |
+
+## Canonical Relation Sources
+
+| item | count |
+| --- | ---: |
+| `manual_relation_seed|visual_genome_relationship_alias|visual_genome_relationship_count` | 215 |
+| `manual_relation_seed|openimages_relationship_triplet|visual_genome_relationship_alias|visual_genome_relationship_count` | 66 |
+| `raw_relation` | 28 |
+| `manual_relation_seed|streusle_mwe|visual_genome_relationship_alias|visual_genome_relationship_count` | 14 |
+| `generated_region_pattern` | 5 |
+
+## Canonical Relation Parent Sources
+
+| item | count |
+| --- | ---: |
+| `manual_relation_seed|visual_genome_relationship_alias|visual_genome_relationship_count` | 215 |
+| `manual_relation_seed|openimages_relationship_triplet|visual_genome_relationship_alias|visual_genome_relationship_count` | 66 |
+| `raw_relation` | 28 |
+| `manual_relation_seed|streusle_mwe|visual_genome_relationship_alias|visual_genome_relationship_count` | 14 |
+| `generated_region_pattern` | 5 |
+
+## Canonical Facts
+
+| item | count |
+| --- | ---: |
+| `count_eligible` | 1973 |
+| `entity_exists` | 724 |
+| `has_attribute` | 392 |
+| `relation` | 328 |
+| `event_role` | 305 |
+| `action_event` | 208 |
+| `has_quantity` | 28 |
+| `not_count_eligible` | 19 |
+| `candidate_has_attribute` | 7 |
+
+## Top Canonical Fact Count Keys
+
+| item | count |
+| --- | ---: |
+| `action_event:stand` | 40 |
+| `entity_exists:man` | 26 |
+| `entity_exists:background` | 19 |
+| `entity_exists:woman` | 17 |
+| `entity_exists:building` | 17 |
+| `entity_exists:sky` | 17 |
+| `entity_exists:tree` | 15 |
+| `action_event:sit` | 14 |
+| `entity_exists:person` | 10 |
+| `entity_exists:shirt` | 10 |
+| `action_event:hold` | 9 |
+| `action_event:wear` | 9 |
+| `entity_exists:wall` | 9 |
+| `entity_exists:text` | 8 |
+| `entity_exists:people` | 8 |
+| `entity_exists:grass` | 8 |
+| `entity_exists:fence` | 8 |
+| `event_role:stand:agent:man` | 8 |
+| `entity_exists:surface` | 7 |
+| `action_event:show` | 7 |
+| `entity_exists:field` | 7 |
+| `has_attribute:sky:blue` | 7 |
+| `entity_exists:uniform` | 7 |
+| `entity_exists:table` | 6 |
+| `entity_exists:sign` | 6 |
+| `action_event:read` | 6 |
+| `entity_exists:child` | 6 |
+| `entity_exists:window` | 6 |
+| `entity_exists:ground` | 6 |
+| `entity_exists:right` | 6 |
+| `action_event:appear` | 5 |
+| `entity_exists:screen` | 5 |
+| `event_role:stand:agent:woman` | 5 |
+| `action_event:have` | 5 |
+| `entity_exists:hair` | 5 |
+| `entity_exists:indoors` | 5 |
+| `action_event:smile` | 5 |
+| `event_role:stand:agent:building` | 5 |
+| `entity_exists:chair` | 5 |
+| `action_event:stretch` | 5 |
+| `has_attribute:sky:clear` | 5 |
+| `action_event:run` | 5 |
+| `action_event:surround` | 5 |
+| `entity_exists:car` | 5 |
+| `entity_exists:scene` | 4 |
+| `entity_exists:outdoors` | 4 |
+| `action_event:walk` | 4 |
+| `entity_exists:top` | 4 |
+| `entity_exists:hat` | 4 |
+| `entity_exists:jersey` | 4 |
+| `entity_exists:road` | 4 |
+| `has_attribute:sky:cloudy` | 4 |
+| `entity_exists:horizon` | 4 |
+| `has_attribute:field:green` | 4 |
+| `entity_exists:banner` | 4 |
+| `entity_exists:dog` | 4 |
+| `entity_exists:spectator` | 4 |
+| `entity_exists:light` | 4 |
+| `entity_exists:hillside` | 4 |
+| `entity_exists:hand` | 4 |
+| `entity_exists:pipe` | 4 |
+| `entity_exists:suit` | 4 |
+| `entity_exists:hill` | 4 |
+| `entity_exists:floor` | 3 |
+| `action_event:speak` | 3 |
+| `entity_exists:bag` | 3 |
+| `entity_exists:cross` | 3 |
+| `action_event:lead` | 3 |
+| `entity_exists:sidewalk` | 3 |
+| `entity_exists:roof` | 3 |
+| `entity_exists:front` | 3 |
+| `action_event:park` | 3 |
+| `relation:building:with:window` | 3 |
+| `has_attribute:shirt:white` | 3 |
+| `event_role:hold:agent:man` | 3 |
+| `relation:man:in:shirt` | 3 |
+| `entity_exists:mountain` | 3 |
+| `entity_exists:camera` | 3 |
+| `has_quantity:man:two` | 3 |
+| `event_role:wear:agent:man` | 3 |
+| `entity_exists:distance` | 3 |
+| `entity_exists:frame` | 3 |
+| `event_role:smile:agent:woman` | 3 |
+| `relation:spectator:behind:fence` | 3 |
+| `entity_exists:mask` | 3 |
+| `entity_exists:stage` | 3 |
+| `event_role:stand:agent:person` | 3 |
+| `entity_exists:pillar` | 3 |
+| `entity_exists:beam` | 3 |
+| `entity_exists:earring` | 3 |
+| `has_quantity:hand:both` | 3 |
+| `entity_exists:shadow` | 3 |
+| `event_role:stand:agent:tree` | 3 |
+| `entity_exists:entrance` | 3 |
+| `action_event:rest` | 3 |
+| `action_event:include` | 3 |
+| `entity_exists:microphone` | 3 |
+| `action_event:look` | 3 |
+| `entity_exists:sunlight` | 3 |
+| `entity_exists:player` | 3 |
+| `entity_exists:number` | 3 |
+| `entity_exists:balloon` | 3 |
+| `entity_exists:foreground` | 3 |
+| `action_event:cover` | 3 |
+| `entity_exists:edge` | 3 |
+| `relation:man:in:suit` | 3 |
+| `entity_exists:town` | 3 |
+| `entity_exists:poster` | 2 |
+| `entity_exists:wing` | 2 |
+| `has_attribute:floor:forest` | 2 |
+| `entity_exists:podium` | 2 |
+| `event_role:speak:agent:woman` | 2 |
+| `has_quantity:people:three` | 2 |
+| `event_role:stand:agent:people` | 2 |
+| `entity_exists:flower` | 2 |
+| `entity_exists:bed` | 2 |
+| `entity_exists:umbrella` | 2 |
+| `entity_exists:area` | 2 |
+| `has_attribute:flower:orange` | 2 |
+| `entity_exists:chandelier` | 2 |
+| `entity_exists:church` | 2 |
+| `entity_exists:door` | 2 |
+| `has_attribute:door:wood` | 2 |
+| `relation:church:with:cross` | 2 |
+| `has_attribute:sidewalk:city` | 2 |
+| `relation:man:in:hat` | 2 |
+| `entity_exists:referee` | 2 |
+| `entity_exists:court` | 2 |
+| `entity_exists:street` | 2 |
+| `has_attribute:building:large` | 2 |
+| `has_attribute:building:stone` | 2 |
+| `has_attribute:window:arched` | 2 |
+| `relation:building:with:roof` | 2 |
+| `entity_exists:head` | 2 |
+| `action_event:play` | 2 |
+| `entity_exists:indoor` | 2 |
+| `has_attribute:wall:brick` | 2 |
+| `entity_exists:curtain` | 2 |
+| `event_role:sit:agent:child` | 2 |
+| `entity_exists:worker` | 2 |
+| `event_role:show:agent:sky` | 2 |
+| `entity_exists:power_line` | 2 |
+| `event_role:stretch:agent:field` | 2 |
+| `relation:field:under:sky` | 2 |
+| `entity_exists:left` | 2 |
+| `entity_exists:center` | 2 |
+| `has_attribute:hair:dark` | 2 |
+| `relation:people:with:woman` | 2 |
+| `relation:woman:in:center` | 2 |
+| `relation:woman:on:right` | 2 |
+| `entity_exists:water` | 2 |
+| `entity_exists:body` | 2 |
+| `action_event:create` | 2 |
+| `entity_exists:rink` | 2 |
+| `entity_exists:page` | 2 |
+| `entity_exists:book` | 2 |
+| `entity_exists:outfit` | 2 |
+| `entity_exists:trim` | 2 |
+| `has_attribute:outfit:black` | 2 |
+| `has_attribute:trim:red` | 2 |
+| `relation:spectator:in:background` | 2 |
+| `entity_exists:costume` | 2 |
+| `has_attribute:light:glow` | 2 |
+| `entity_exists:lake` | 2 |
+| `has_attribute:hillside:green` | 2 |
+| `entity_exists:drink` | 2 |
+| `entity_exists:close-up` | 2 |
+| `entity_exists:eye` | 2 |
+| `entity_exists:bottom` | 2 |
+| `action_event:frame` | 2 |
+| `entity_exists:phone` | 2 |
+| `event_role:walk:agent:woman` | 2 |
+| `has_attribute:wall:stone` | 2 |
+| `has_attribute:shirt:black` | 2 |
+| `event_role:wear:patient:shirt` | 2 |
+| `action_event:make` | 2 |
+| `entity_exists:house` | 2 |
+| `relation:building:under:sky` | 2 |
+| `entity_exists:glass` | 2 |
+| `has_attribute:background:blurred` | 2 |
+| `has_attribute:building:brick` | 2 |
+| `has_quantity:car:several` | 2 |
+| `has_attribute:sky:bright` | 2 |
+| `relation:man:into:microphone` | 2 |
+| `relation:man:on:stage` | 2 |
+| `has_attribute:pipe:metal` | 2 |
+| `event_role:run:agent:pipe` | 2 |
+| `entity_exists:soccer_player` | 2 |
+| `entity_exists:soccer_ball` | 2 |
+| `has_attribute:uniform:black` | 2 |
+| `action_event:kick` | 2 |
+| `event_role:kick:patient:soccer_ball` | 2 |
+| `relation:soccer_player:in:uniform` | 2 |
+| `relation:soccer_player:on:field` | 2 |
+| `entity_exists:gear` | 2 |
+| `has_attribute:jersey:white` | 2 |
+| `entity_exists:metal` | 2 |
+| `has_quantity:people:four` | 2 |
+| `has_attribute:screen:large` | 2 |
+| `event_role:sit:agent:people` | 2 |
+| `action_event:display` | 2 |
+| `event_role:display:agent:screen` | 2 |
+| `event_role:display:patient:text` | 2 |
+| `relation:people:at:table` | 2 |
+| `relation:woman:next_to:man` | 2 |
+| `event_role:wear:agent:person` | 2 |
+| `entity_exists:leaf` | 2 |
+| `entity_exists:boy` | 2 |
+| `entity_exists:artifact` | 2 |
+| `entity_exists:base` | 2 |
+| `event_role:stand:agent:player` | 2 |
+| `relation:player:in:uniform` | 2 |
+| `entity_exists:room` | 2 |
+| `entity_exists:ribbon` | 2 |
+| `entity_exists:man_and_woman` | 2 |
+| `event_role:sit:agent:man` | 2 |
+| `event_role:sit:agent:woman` | 2 |
+| `event_role:wear:agent:woman` | 2 |
+| `event_role:wear:patient:earring` | 2 |
+| `action_event:control` | 2 |
+| `has_attribute:shirt:striped` | 2 |
+| `has_attribute:shirt:red` | 2 |
+| `entity_exists:foliage` | 2 |
+| `has_attribute:hair:long` | 2 |
+| `relation:woman:with:hair` | 2 |
+| `entity_exists:stone` | 2 |
+| `entity_exists:logo` | 2 |
+| `action_event:overlook` | 2 |
+| `relation:tree:under:sky` | 2 |
+| `entity_exists:ceiling` | 2 |
+| `entity_exists:slab` | 2 |
+| `entity_exists:fire` | 2 |
+| `entity_exists:tag` | 2 |
+| `entity_exists:river` | 2 |
+| `entity_exists:flask` | 2 |
+| `entity_exists:dreadlock` | 1 |
+| `entity_exists:bow` | 1 |
+| `entity_exists:sticker` | 1 |
+| `has_attribute:bow:red` | 1 |
+| `has_attribute:poster:art` | 1 |
+| `event_role:sit:agent:person` | 1 |
+| `relation:person:with:dreadlock` | 1 |
+| `relation:person:with:bow` | 1 |
+| `relation:person:at:table` | 1 |
+| `relation:person:with:poster` | 1 |
+| `relation:person:with:sticker` | 1 |
+| `entity_exists:insect` | 1 |
+| `entity_exists:wood` | 1 |
+| `entity_exists:age` | 1 |
+| `entity_exists:split` | 1 |
+| `entity_exists:bit` | 1 |
+| `entity_exists:debris` | 1 |
+| `entity_exists:tree_trunk` | 1 |
+| `has_attribute:insect:brown` | 1 |
+| `has_attribute:split:visible` | 1 |
+| `has_attribute:bit:small` | 1 |
+| `has_attribute:tree_trunk:fallen` | 1 |
+| `action_event:crawl` | 1 |
+| `event_role:crawl:agent:insect` | 1 |
+| `event_role:show:agent:wood` | 1 |
+| `event_role:show:patient:sign` | 1 |
+| `action_event:scatter` | 1 |
+| `event_role:scatter:agent:split` | 1 |
+| `event_role:appear:agent:scene` | 1 |
+| `relation:insect:with:wing` | 1 |
+| `relation:insect:on:surface` | 1 |
+| `relation:sign:of:age` | 1 |
+| `relation:wood:with:split` | 1 |
+| `relation:wood:with:bit` | 1 |
+| `relation:bit:of:debris` | 1 |
+| `relation:scene:on:floor` | 1 |
+| `relation:scene:on:tree_trunk` | 1 |
+| `entity_exists:audience` | 1 |
+| `entity_exists:american_flag` | 1 |
+| `has_attribute:text:closing_the_access_divide.` | 1 |
+| `event_role:show:agent:screen` | 1 |
+| `event_role:show:patient:text` | 1 |
+| `relation:woman:at:podium` | 1 |
+| `relation:woman:in_front_of:audience` | 1 |
+| `relation:american_flag:behind:woman` | 1 |
+| `entity_exists:shopping_cart` | 1 |
+| `entity_exists:grocery` | 1 |
+| `has_quantity:person:one` | 1 |
+| `has_attribute:bag:red` | 1 |
+| `has_attribute:bag:snack` | 1 |
+| `action_event:fill` | 1 |
+| `event_role:fill:agent:shopping_cart` | 1 |
+| `event_role:hold:agent:person` | 1 |
+| `event_role:hold:patient:bag` | 1 |
+| `relation:people:with:shopping_cart` | 1 |
+| `relation:shopping_cart:with:grocery` | 1 |
+| `relation:shopping_cart:with:bag` | 1 |
+| `entity_exists:bloom` | 1 |
+| `entity_exists:structure` | 1 |
+| `has_attribute:flower:bright` | 1 |
+| `has_attribute:flower:glass` | 1 |
+| `has_attribute:bed:garden` | 1 |
+| `has_attribute:grass:green` | 1 |
+| `has_attribute:bloom:purple` | 1 |
+| `has_attribute:fence:wood` | 1 |
+| `has_attribute:umbrella:large` | 1 |
+| `has_attribute:structure:blue` | 1 |
+| `has_attribute:area:garden` | 1 |
+| `event_role:stand:agent:flower` | 1 |
+| `event_role:walk:agent:people` | 1 |
+| `relation:flower:in:bed` | 1 |
+| `relation:bed:with:grass` | 1 |
+| `relation:bed:with:bloom` | 1 |
+| `relation:people:in:background` | 1 |
+| `relation:people:near:fence` | 1 |
+| `relation:people:under:umbrella` | 1 |
+| `relation:tree:beyond:area` | 1 |
+| `entity_exists:couple` | 1 |
+| `entity_exists:party` | 1 |
+| `entity_exists:flag` | 1 |
+| `entity_exists:wine_glass` | 1 |
+| `has_attribute:couple:smile` | 1 |
+| `has_attribute:party:formal` | 1 |
+| `has_attribute:flag:british` | 1 |
+| `entity_exists:step` | 1 |
+| `has_attribute:church:white` | 1 |
+| `has_attribute:step:stone` | 1 |
+| `event_role:have:agent:church` | 1 |
+| `event_role:have:patient:step` | 1 |
+| `event_role:lead:agent:step` | 1 |
+| `relation:cross:on:top` | 1 |
+| `relation:step:to:door` | 1 |
+| `entity_exists:trash_can` | 1 |
+| `entity_exists:silhouette` | 1 |
+| `has_attribute:trash_can:black` | 1 |
+| `event_role:read:agent:poster` | 1 |
+| `relation:poster:on:trash_can` | 1 |
+| `relation:poster:with:silhouette` | 1 |
+| `relation:silhouette:of:man` | 1 |
+| `relation:scene:on:sidewalk` | 1 |
+| `has_attribute:child:young` | 1 |
+| `has_attribute:hair:blonde` | 1 |
+| `has_attribute:hat:blue` | 1 |
+| `has_attribute:hat:white` | 1 |
+| `has_attribute:hat:striped` | 1 |
+| `event_role:smile:agent:child` | 1 |
+| `event_role:wear:agent:child` | 1 |
+| `event_role:wear:patient:hat` | 1 |
+| `event_role:appear:agent:child` | 1 |
+| `relation:child:with:hair` | 1 |
+| `relation:child:with:window` | 1 |
+| `entity_exists:skater` | 1 |
+| `entity_exists:helmet` | 1 |
+| `has_attribute:skater:roller` | 1 |
+| `has_attribute:jersey:blue` | 1 |
+| `entity_exists:sedan` | 1 |
+| `entity_exists:bus` | 1 |
+| `has_attribute:roof:gray` | 1 |
+| `has_attribute:street:cobblestone` | 1 |
+| `has_attribute:sedan:dark` | 1 |
+| `has_attribute:sky:partly` | 1 |
+| `event_role:park:patient:sedan` | 1 |
+| `relation:building:on:street` | 1 |
+| `relation:sedan:in:front` | 1 |
+| `relation:bus:down:road` | 1 |
+| `relation:bus:under:sky` | 1 |
+| `entity_exists:basketball` | 1 |
+| `has_attribute:court:gym` | 1 |
+| `has_quantity:people:several` | 1 |
+| `has_attribute:shirt:pink` | 1 |
+| `has_attribute:shirt:gray` | 1 |
+| `event_role:hold:patient:basketball` | 1 |
+| `event_role:play:agent:people` | 1 |
+| `relation:basketball:above:head` | 1 |
+| `relation:man:on:court` | 1 |
+| `relation:people:in:shirt` | 1 |
+| `entity_exists:landscape` | 1 |
+| `entity_exists:object` | 1 |
+| `has_attribute:landscape:desert` | 1 |
+| `has_attribute:object:black` | 1 |
+| `has_attribute:ground:dry` | 1 |
+| `has_attribute:ground:rocky` | 1 |
+| `event_role:sit:agent:object` | 1 |
+| `relation:landscape:with:mountain` | 1 |
+| `relation:mountain:under:sky` | 1 |
+| `relation:object:on:ground` | 1 |
+| `entity_exists:boot` | 1 |
+| `entity_exists:display` | 1 |
+| `has_attribute:boot:brown` | 1 |
+| `entity_exists:bathroom` | 1 |
+| `entity_exists:vest` | 1 |
+| `entity_exists:scarf` | 1 |
+| `has_attribute:scarf:red` | 1 |
+| `event_role:smile:agent:man` | 1 |
+| `event_role:wear:patient:vest` | 1 |
+| `event_role:wear:patient:scarf` | 1 |
+| `relation:man:for:camera` | 1 |
+| `relation:man:in:bathroom` | 1 |
+| `entity_exists:dress` | 1 |
+| `entity_exists:performance` | 1 |
+| `entity_exists:violin` | 1 |
+| `entity_exists:music_stand` | 1 |
+| `entity_exists:setting` | 1 |
+| `has_attribute:dress:white` | 1 |
+| `has_quantity:child:one` | 1 |
+| `has_attribute:curtain:red` | 1 |
+| `has_attribute:chair:blue` | 1 |
+| `event_role:hold:agent:child` | 1 |
+| `event_role:hold:patient:violin` | 1 |
+| `relation:child:in:dress` | 1 |
+| `relation:child:in:shirt` | 1 |
+| `relation:child:on:chair` | 1 |
+| `relation:child:during:performance` | 1 |
+| `entity_exists:reflection` | 1 |
+| `has_attribute:wall:glass` | 1 |
+| `entity_exists:cityscape` | 1 |
+| `entity_exists:dusk` | 1 |
+| `entity_exists:vehicle` | 1 |
+| `entity_exists:waterfront` | 1 |
+| `entity_exists:skyscraper` | 1 |
+| `entity_exists:hue` | 1 |
+| `has_quantity:building:two` | 1 |
+| `has_attribute:building:tall` | 1 |
+| `has_attribute:skyscraper:lit-up` | 1 |
+| `has_attribute:hue:soft` | 1 |
+| `has_attribute:hue:orange` | 1 |
+| `has_attribute:hue:gray` | 1 |
+| `action_event:view` | 1 |
+| `event_role:view:agent:cityscape` | 1 |
+| `event_role:stretch:agent:street` | 1 |
+| `event_role:stretch:agent:vehicle` | 1 |
+| `event_role:show:patient:hue` | 1 |
+| `relation:cityscape:at:dusk` | 1 |
+| `relation:street:toward:waterfront` | 1 |
+| `relation:waterfront:with:skyscraper` | 1 |
+| `relation:skyscraper:in:distance` | 1 |
+| `relation:sky:near:horizon` | 1 |
+| `entity_exists:line` | 1 |
+| `has_attribute:road:paved` | 1 |
+| `has_attribute:line:yellow` | 1 |
+| `has_attribute:field:vast` | 1 |
+| `has_quantity:tree:few` | 1 |
+| `has_attribute:tree:distant` | 1 |
+| `event_role:run:agent:road` | 1 |
+| `relation:road:with:line` | 1 |
+| `relation:road:bottom_of:frame` | 1 |
+| `relation:field:beyond:road` | 1 |
+| `relation:field:to:horizon` | 1 |
+| `relation:tree:in:background` | 1 |
+| `entity_exists:teacher` | 1 |
+| `entity_exists:student` | 1 |
+| `entity_exists:rug` | 1 |
+| `has_quantity:student:six` | 1 |
+| `has_attribute:rug:colorful` | 1 |
+| `has_attribute:rug:classroom` | 1 |
+| `event_role:stand:agent:teacher` | 1 |
+| `event_role:stand:agent:student` | 1 |
+| `relation:student:in:shirt` | 1 |
+| `relation:teacher:on:rug` | 1 |
+| `entity_exists:proximity` | 1 |
+| `entity_exists:lip` | 1 |
+| `entity_exists:finger` | 1 |
+| `has_attribute:proximity:close` | 1 |
+| `has_attribute:sign:green-lit` | 1 |
+| `event_role:have:agent:woman` | 1 |
+| `event_role:have:patient:hair` | 1 |
+| `action_event:touch` | 1 |
+| `event_role:touch:agent:woman` | 1 |
+| `event_role:touch:patient:lip` | 1 |
+| `relation:people:in:proximity` | 1 |
+| `relation:people:with:man` | 1 |
+| `relation:man:on:left` | 1 |
+| `relation:woman:with:finger` | 1 |
+| `relation:sign:in:background` | 1 |
+| `entity_exists:duck` | 1 |
+| `entity_exists:ripple` | 1 |
+| `entity_exists:neck` | 1 |
+| `entity_exists:chest` | 1 |
+| `entity_exists:tree_branch` | 1 |
+| `has_attribute:duck:brown` | 1 |
+| `has_attribute:water:calm` | 1 |
+| `has_attribute:water:blue` | 1 |
+| `has_attribute:chest:light` | 1 |
+| `has_attribute:tree_branch:light` | 1 |
+| `has_attribute:tree_branch:faint` | 1 |
+| `action_event:swim` | 1 |
+| `event_role:swim:agent:duck` | 1 |
+| `event_role:create:agent:duck` | 1 |
+| `event_role:create:patient:ripple` | 1 |
+| `action_event:glide` | 1 |
+| `event_role:glide:agent:duck` | 1 |
+| `action_event:reflect` | 1 |
+| `event_role:reflect:agent:water` | 1 |
+| `event_role:reflect:patient:tree_branch` | 1 |
+| `relation:duck:in:water` | 1 |
+| `relation:ripple:around:body` | 1 |
+| `relation:duck:near:surface` | 1 |
+| `entity_exists:scoreboard` | 1 |
+| `entity_exists:rider` | 1 |
+| `has_attribute:scoreboard:green` | 1 |
+| `has_attribute:rink:hockey` | 1 |
+| `has_attribute:rider:rough` | 1 |
+| `has_attribute:surface:ice` | 1 |
+| `entity_exists:basket` | 1 |
+| `has_attribute:dog:brown` | 1 |
+| `has_attribute:basket:blue` | 1 |
+| `has_attribute:basket:white` | 1 |
+| `has_attribute:basket:red` | 1 |
+| `has_attribute:trim:blue` | 1 |
+| `has_attribute:banner:royal_canin` | 1 |
+| `action_event:jump` | 1 |
+| `event_role:jump:agent:dog` | 1 |
+| `action_event:watch` | 1 |
+| `event_role:watch:agent:man` | 1 |
+| `event_role:watch:patient:dog` | 1 |
+| `event_role:stand:agent:spectator` | 1 |
+| `relation:dog:above:basket` | 1 |
+| `relation:basket:on:grass` | 1 |
+| `relation:man:in:outfit` | 1 |
+| `relation:outfit:with:trim` | 1 |
+| `relation:spectator:near:banner` | 1 |
+| `entity_exists:axe` | 1 |
+| `entity_exists:stump` | 1 |
+| `entity_exists:panel` | 1 |
+| `entity_exists:wire` | 1 |
+| `entity_exists:switch` | 1 |
+| `has_attribute:panel:electrical` | 1 |
+| `action_event:work` | 1 |
+| `event_role:work:agent:man` | 1 |
+| `relation:man:on:panel` | 1 |
+| `has_attribute:costume:blue` | 1 |
+| `has_attribute:costume:pink` | 1 |
+| `relation:person:in:costume` | 1 |
+| `relation:person:on:stage` | 1 |
+| `relation:person:with:light` | 1 |
+| `relation:light:behind:person` | 1 |
+| `entity_exists:helicopter` | 1 |
+| `has_attribute:helicopter:yellow` | 1 |
+| `has_attribute:lake:blue` | 1 |
+| `has_attribute:mountain:snow-cappe` | 1 |
+| `action_event:fly` | 1 |
+| `event_role:fly:agent:helicopter` | 1 |
+| `relation:helicopter:above:hillside` | 1 |
+| `relation:helicopter:near:lake` | 1 |
+| `relation:mountain:in:distance` | 1 |
+| `entity_exists:beach` | 1 |
+| `has_attribute:beach:sandy` | 1 |
+| `action_event:share` | 1 |
+| `event_role:share:agent:man` | 1 |
+| `event_role:share:agent:woman` | 1 |
+| `event_role:share:patient:drink` | 1 |
+| `relation:man:on:beach` | 1 |
+| `entity_exists:giraffe` | 1 |
+| `entity_exists:savanna` | 1 |
+| `has_quantity:giraffe:several` | 1 |
+| `has_attribute:savanna:dry` | 1 |
+| `has_attribute:savanna:dusty` | 1 |
+| `has_attribute:tree:scatter` | 1 |
+| `event_role:stand:agent:giraffe` | 1 |
+| `relation:giraffe:in:savanna` | 1 |
+| `relation:savanna:with:tree` | 1 |
+| `entity_exists:human_eye` | 1 |
+| `entity_exists:iris` | 1 |
+| `entity_exists:pupil` | 1 |
+| `entity_exists:eyelash` | 1 |
+| `entity_exists:skin` | 1 |
+| `has_attribute:iris:green` | 1 |
+| `has_attribute:pupil:dark` | 1 |
+| `has_attribute:eyelash:blurred` | 1 |
+| `has_attribute:light:warm` | 1 |
+| `event_role:frame:patient:eye` | 1 |
+| `event_role:frame:agent:eyelash` | 1 |
+| `event_role:frame:agent:skin` | 1 |
+| `event_role:surround:agent:light` | 1 |
+| `event_role:surround:patient:eye` | 1 |
+| `event_role:read:agent:text` | 1 |
+| `relation:close-up:of:human_eye` | 1 |
+| `relation:human_eye:with:iris` | 1 |
+| `relation:human_eye:with:pupil` | 1 |
+| `relation:text:at:bottom` | 1 |
+| `has_attribute:bag:black` | 1 |
+| `action_event:talk` | 1 |
+| `event_role:talk:agent:woman` | 1 |
+| `action_event:carry` | 1 |
+| `event_role:carry:agent:woman` | 1 |
+| `event_role:carry:patient:bag` | 1 |
+| `relation:woman:down:sidewalk` | 1 |
+| `relation:woman:on:phone` | 1 |
+| `entity_exists:stencil` | 1 |
+| `entity_exists:artwork` | 1 |
+| `entity_exists:collar` | 1 |
+| `entity_exists:circle` | 1 |
+| `entity_exists:alley` | 1 |
+| `has_attribute:stencil:black_and_white` | 1 |
+| `has_attribute:stencil:graffiti` | 1 |
+| `has_attribute:pillar:concrete` | 1 |
+| `has_attribute:collar:ruff` | 1 |
+| `has_attribute:alley:narrow` | 1 |
+| `has_attribute:beam:wood` | 1 |
+| `event_role:read:agent:stencil` | 1 |
+| `action_event:depict` | 1 |
+| `event_role:depict:agent:artwork` | 1 |
+| `event_role:depict:patient:man` | 1 |
+| `event_role:surround:agent:man` | 1 |
+| `event_role:stand:agent:pillar` | 1 |
+| `relation:stencil:on:pillar` | 1 |
+| `relation:man:in:collar` | 1 |
+| `relation:man:by:circle` | 1 |
+| `relation:pillar:next_to:alley` | 1 |
+| `relation:alley:with:wall` | 1 |
+| `relation:alley:with:beam` | 1 |
+| `entity_exists:goatee` | 1 |
+| `entity_exists:gesture` | 1 |
+| `entity_exists:nail_polish` | 1 |
+| `entity_exists:necklace` | 1 |
+| `has_attribute:gesture:hand` | 1 |
+| `has_attribute:nail_polish:red` | 1 |
+| `has_attribute:necklace:silver` | 1 |
+| `has_attribute:necklace:chain` | 1 |
+| `has_attribute:banner:colorful` | 1 |
+| `event_role:make:agent:man` | 1 |
+| `event_role:make:patient:gesture` | 1 |
+| `event_role:have:agent:man` | 1 |
+| `event_role:have:patient:nail_polish` | 1 |
+| `event_role:have:patient:necklace` | 1 |
+| `event_role:have:patient:earring` | 1 |
+| `relation:man:with:hair` | 1 |
+| `relation:man:with:goatee` | 1 |
+| `relation:man:with:hand` | 1 |
+| `relation:man:near:door` | 1 |
+| `relation:man:near:banner` | 1 |
+| `entity_exists:smokestack` | 1 |
+| `has_attribute:sign:p.j._hurphy_moving_&_storage` | 1 |
+| `has_attribute:smokestack:tall` | 1 |
+| `relation:building:with:sign` | 1 |
+| `relation:building:next_to:road` | 1 |
+| `relation:building:near:smokestack` | 1 |
+| `relation:building:near:power_line` | 1 |
+| `entity_exists:alleyway` | 1 |
+| `entity_exists:brick` | 1 |
+| `entity_exists:path` | 1 |
+| `has_attribute:alleyway:narrow` | 1 |
+| `has_quantity:wall:two` | 1 |
+| `has_attribute:wall:tall` | 1 |
+| `has_attribute:tree:bare` | 1 |
+| `has_attribute:wall:left` | 1 |
+| `action_event:pave` | 1 |
+| `event_role:pave:agent:alleyway` | 1 |
+| `event_role:stretch:agent:alleyway` | 1 |
+| `event_role:stretch:agent:shadow` | 1 |
+| `relation:alleyway:with:brick` | 1 |
+| `relation:alleyway:between:wall` | 1 |
+| `relation:tree:on:right` | 1 |
+| `relation:tree:near_end_of:path` | 1 |
+| `relation:shadow:across:ground` | 1 |
+| `relation:shadow:from:wall` | 1 |
+| `entity_exists:column` | 1 |
+| `entity_exists:palm_tree` | 1 |
+| `entity_exists:lawn` | 1 |
+| `has_attribute:building:beige` | 1 |
+| `has_attribute:entrance:golden` | 1 |
+| `has_attribute:palm_tree:tall` | 1 |
+| `has_attribute:lawn:green` | 1 |
+| `event_role:surround:patient:building` | 1 |
+| `event_role:surround:agent:palm_tree` | 1 |
+| `event_role:sit:agent:building` | 1 |
+| `action_event:cast` | 1 |
+| `event_role:cast:agent:shadow` | 1 |
+| `relation:building:with:column` | 1 |
+| `relation:building:with:entrance` | 1 |
+| `relation:building:on:lawn` | 1 |
+| `relation:building:with:shadow` | 1 |
+| `relation:shadow:across:grass` | 1 |
+| `relation:shadow:from:tree` | 1 |
+| `entity_exists:macchiato` | 1 |
+| `entity_exists:foam` | 1 |
+| `entity_exists:tray` | 1 |
+| `entity_exists:doily` | 1 |
+| `entity_exists:spoon` | 1 |
+| `entity_exists:packet` | 1 |
+| `entity_exists:rock` | 1 |
+| `entity_exists:greenery` | 1 |
+| `has_attribute:glass:tall` | 1 |
+| `has_attribute:macchiato:latte` | 1 |
+| `has_attribute:table:wood` | 1 |
+| `has_attribute:tray:black` | 1 |
+| `has_attribute:packet:sugar` | 1 |
+| `has_attribute:background:outdoor` | 1 |
+| `event_role:sit:agent:glass` | 1 |
+| `action_event:top` | 1 |
+| `event_role:top:agent:glass` | 1 |
+| `event_role:rest:agent:glass` | 1 |
+| `event_role:show:agent:background` | 1 |
+| `event_role:show:patient:rock` | 1 |
+| `event_role:show:patient:greenery` | 1 |
+| `relation:glass:of:macchiato` | 1 |
+| `relation:glass:on:table` | 1 |
+| `relation:glass:with:foam` | 1 |
+| `relation:tray:with:doily` | 1 |
+| `entity_exists:lot` | 1 |
+| `has_attribute:building:curved` | 1 |
+| `has_attribute:window:large` | 1 |
+| `has_attribute:lot:paved` | 1 |
+| `has_attribute:building:other` | 1 |
+| `has_attribute:car:red` | 1 |
+| `event_role:include:agent:car` | 1 |
+| `event_role:include:patient:car` | 1 |
+| `event_role:park:patient:car` | 1 |
+| `relation:building:on:lot` | 1 |
+| `relation:car:include:car` | 1 |
+| `relation:car:under:sky` | 1 |
+| `entity_exists:acoustic_guitar` | 1 |
+| `entity_exists:keyboard` | 1 |
+| `has_attribute:shirt:blue` | 1 |
+| `has_attribute:curtain:black` | 1 |
+| `event_role:play:agent:man` | 1 |
+| `event_role:play:patient:acoustic_guitar` | 1 |
+| `action_event:sing` | 1 |
+| `event_role:sing:agent:man` | 1 |
+| `relation:man:with:curtain` | 1 |
+| `relation:man:with:keyboard` | 1 |
+| `relation:curtain:behind:man` | 1 |
+| `entity_exists:fencing` | 1 |
+| `entity_exists:rebar` | 1 |
+| `entity_exists:site` | 1 |
+| `entity_exists:equipment` | 1 |
+| `has_attribute:pipe:large` | 1 |
+| `has_attribute:pipe:rusted` | 1 |
+| `has_attribute:fencing:green` | 1 |
+| `has_attribute:fencing:construction` | 1 |
+| `has_attribute:rebar:steel` | 1 |
+| `has_attribute:site:outdoor` | 1 |
+| `has_attribute:site:construction` | 1 |
+| `has_attribute:wall:expose` | 1 |
+| `has_attribute:wall:concrete` | 1 |
+| `has_attribute:beam:structural` | 1 |
+| `relation:pipe:across:frame` | 1 |
+| `relation:pipe:under:sky` | 1 |
+| `relation:worker:in:distance` | 1 |
+| `relation:site:with:wall` | 1 |
+| `relation:site:with:beam` | 1 |
+| `has_attribute:field:grass` | 1 |
+| `has_attribute:soccer_ball:white` | 1 |
+| `has_attribute:soccer_ball:black` | 1 |
+| `has_attribute:sky:overcast` | 1 |
+| `event_role:stand:agent:soccer_player` | 1 |
+| `action_event:prepare` | 1 |
+| `event_role:prepare:agent:soccer_player` | 1 |
+| `event_role:kick:agent:soccer_player` | 1 |
+| `relation:fence:in:background` | 1 |
+| `entity_exists:hockey_player` | 1 |
+| `entity_exists:ice_rink` | 1 |
+| `entity_exists:short` | 1 |
+| `entity_exists:hockey_stick` | 1 |
+| `has_attribute:hockey_player:young` | 1 |
+| `has_attribute:jersey:maroon` | 1 |
+| `has_attribute:short:black` | 1 |
+| `has_attribute:gear:protective` | 1 |
+| `has_attribute:wall:yellow` | 1 |
+| `event_role:stand:agent:hockey_player` | 1 |
+| `event_role:wear:agent:hockey_player` | 1 |
+| `event_role:wear:patient:jersey` | 1 |
+| `event_role:wear:patient:short` | 1 |
+| `event_role:wear:patient:gear` | 1 |
+| `event_role:hold:agent:hockey_player` | 1 |
+| `event_role:hold:patient:hockey_stick` | 1 |
+| `action_event:position` | 1 |
+| `event_role:position:agent:hockey_player` | 1 |
+| `event_role:look:agent:hockey_player` | 1 |
+| `relation:hockey_player:on:ice_rink` | 1 |
+| `relation:hockey_player:with:hand` | 1 |
+| `relation:hockey_stick:in_front_of:hockey_player` | 1 |
+| `relation:wall:of:rink` | 1 |
+| `relation:wall:in:background` | 1 |
+| `entity_exists:spire` | 1 |
+| `entity_exists:streetlamp` | 1 |
+| `entity_exists:facade` | 1 |
+| `entity_exists:box` | 1 |
+| `has_attribute:spire:decorative` | 1 |
+| `has_attribute:streetlamp:black` | 1 |
+| `has_attribute:facade:building` | 1 |
+| `has_attribute:box:flower` | 1 |
+| `has_attribute:floor:upper` | 1 |
+| `action_event:hang` | 1 |
+| `event_role:hang:agent:streetlamp` | 1 |
+| `action_event:line` | 1 |
+| `event_role:line:agent:box` | 1 |
+| `event_role:line:patient:window` | 1 |
+| `relation:building:with:spire` | 1 |
+| `relation:streetlamp:from_side_of:frame` | 1 |
+| `relation:streetlamp:next_to:facade` | 1 |
+| `relation:window:on:floor` | 1 |
+| `entity_exists:pile` | 1 |
+| `entity_exists:cornfield` | 1 |
+| `has_attribute:metal:rusty` | 1 |
+| `has_attribute:pile:scrap` | 1 |
+| `has_attribute:pipe:broken` | 1 |
+| `has_attribute:beam:red` | 1 |
+| `entity_exists:discussion` | 1 |
+| `entity_exists:nameplate` | 1 |
+| `has_attribute:discussion:panel` | 1 |
+| `has_quantity:person:each` | 1 |
+| `has_attribute:text:edición,_diversidad_cultural_y_desarrollo.` | 1 |
+| `event_role:have:agent:person` | 1 |
+| `event_role:have:patient:microphone` | 1 |
+| `event_role:have:patient:nameplate` | 1 |
+| `relation:people:during:discussion` | 1 |
+| `relation:screen:behind:people` | 1 |
+| `relation:microphone:in_front_of:person` | 1 |
+| `relation:nameplate:in_front_of:person` | 1 |
+| `entity_exists:tuxedo` | 1 |
+| `entity_exists:thumbs-up` | 1 |
+| `entity_exists:trophy` | 1 |
+| `action_event:give` | 1 |
+| `event_role:give:agent:man` | 1 |
+| `event_role:give:patient:thumbs-up` | 1 |
+| `event_role:hold:patient:trophy` | 1 |
+| `relation:man:in:tuxedo` | 1 |
+| `entity_exists:bicycle_helmet` | 1 |
+| `entity_exists:sunglass` | 1 |
+| `entity_exists:stamp` | 1 |
+| `entity_exists:corner` | 1 |
+| `has_attribute:bicycle_helmet:black` | 1 |
+| `has_attribute:bicycle_helmet:yellow` | 1 |
+| `has_attribute:sunglass:blue` | 1 |
+| `has_attribute:stamp:date` | 1 |
+| `event_role:wear:patient:bicycle_helmet` | 1 |
+| `event_role:read:agent:stamp` | 1 |
+| `relation:bicycle_helmet:with:sunglass` | 1 |
+| `relation:stamp:in:corner` | 1 |
+| `has_attribute:leaf:green` | 1 |
+| `entity_exists:park` | 1 |
+| `has_attribute:umbrella:black` | 1 |
+| `has_attribute:sign:stone` | 1 |
+| `has_attribute:park:grassy` | 1 |
+| `event_role:hold:patient:umbrella` | 1 |
+| `event_role:read:agent:sign` | 1 |
+| `relation:man:next_to:sign` | 1 |
+| `relation:man:in:park` | 1 |
+| `entity_exists:adult` | 1 |
+| `has_attribute:jersey:yellow` | 1 |
+| `has_attribute:child:other` | 1 |
+| `event_role:kick:agent:boy` | 1 |
+| `event_role:run:agent:player` | 1 |
+| `relation:boy:in:jersey` | 1 |
+| `relation:boy:on:field` | 1 |
+| `relation:player:in:jersey` | 1 |
+| `relation:jersey:with:number` | 1 |
+| `relation:child:in:background` | 1 |
+| `relation:child:near:fence` | 1 |
+| `relation:child:near:building` | 1 |
+| `entity_exists:decor` | 1 |
+| `has_attribute:balloon:green` | 1 |
+| `has_attribute:balloon:yellow` | 1 |
+| `has_attribute:decor:party` | 1 |
+| `entity_exists:lamp` | 1 |
+| `entity_exists:bulb` | 1 |
+| `has_attribute:lamp:glass` | 1 |
+| `has_attribute:surface:reflective` | 1 |
+| `has_attribute:glass:cracked` | 1 |
+| `has_attribute:building:mercedes-benz` | 1 |
+| `has_attribute:pillar:blue` | 1 |
+| `has_attribute:window:glass` | 1 |
+| `event_role:park:agent:car` | 1 |
+| `relation:building:with:car` | 1 |
+| `relation:car:in:front` | 1 |
+| `entity_exists:valley` | 1 |
+| `entity_exists:pine_tree` | 1 |
+| `event_role:stretch:agent:tree` | 1 |
+| `event_role:frame:agent:pine_tree` | 1 |
+| `event_role:frame:patient:foreground` | 1 |
+| `relation:field:across:valley` | 1 |
+| `entity_exists:marker` | 1 |
+| `entity_exists:size` | 1 |
+| `entity_exists:fragment` | 1 |
+| `has_attribute:artifact:small` | 1 |
+| `has_attribute:artifact:weathered` | 1 |
+| `has_attribute:artifact:orange-brown` | 1 |
+| `has_attribute:base:flat` | 1 |
+| `has_attribute:marker:scale` | 1 |
+| `has_attribute:fragment:ancient` | 1 |
+| `has_attribute:fragment:archaeological` | 1 |
+| `event_role:rest:agent:artifact` | 1 |
+| `event_role:read:agent:marker` | 1 |
+| `action_event:indicate` | 1 |
+| `event_role:indicate:agent:marker` | 1 |
+| `event_role:indicate:patient:size` | 1 |
+| `event_role:appear:agent:artifact` | 1 |
+| `relation:artifact:with:top` | 1 |
+| `relation:artifact:with:base` | 1 |
+| `relation:artifact:on:surface` | 1 |
+| `relation:marker:below:artifact` | 1 |
+| `entity_exists:bark` | 1 |
+| `entity_exists:clearing` | 1 |
+| `entity_exists:branch` | 1 |
+| `entity_exists:bush` | 1 |
+| `entity_exists:spot` | 1 |
+| `entity_exists:woodland` | 1 |
+| `has_attribute:tree:tall` | 1 |
+| `has_attribute:bark:rough` | 1 |
+| `has_attribute:clearing:forest` | 1 |
+| `has_attribute:bush:green` | 1 |
+| `has_attribute:leaf:dry` | 1 |
+| `has_attribute:light:dappled` | 1 |
+| `has_attribute:spot:bright` | 1 |
+| `has_attribute:woodland:dense` | 1 |
+| `action_event:filter` | 1 |
+| `event_role:filter:agent:branch` | 1 |
+| `event_role:filter:patient:sunlight` | 1 |
+| `event_role:cover:agent:bush` | 1 |
+| `event_role:cover:agent:leaf` | 1 |
+| `event_role:cover:patient:floor` | 1 |
+| `event_role:create:agent:light` | 1 |
+| `event_role:create:patient:spot` | 1 |
+| `event_role:surround:agent:scene` | 1 |
+| `relation:tree:with:bark` | 1 |
+| `relation:tree:in:clearing` | 1 |
+| `relation:branch:on:ground` | 1 |
+| `relation:light:among:shadow` | 1 |
+| `relation:scene:by:woodland` | 1 |
+| `entity_exists:umpire` | 1 |
+| `has_attribute:player:softball` | 1 |
+| `has_attribute:uniform:maroon` | 1 |
+| `event_role:walk:agent:umpire` | 1 |
+| `event_role:sit:agent:spectator` | 1 |
+| `relation:player:on:base` | 1 |
+| `relation:spectator:in:chair` | 1 |
+| `entity_exists:tower` | 1 |
+| `has_attribute:church:stone` | 1 |
+| `has_attribute:entrance:arched` | 1 |
+| `event_role:stand:agent:church` | 1 |
+| `event_role:lead:agent:entrance` | 1 |
+| `relation:cross:on:tower` | 1 |
+| `relation:church:under:sky` | 1 |
+| `relation:entrance:into:building` | 1 |
+| `has_attribute:sky:gradient` | 1 |
+| `action_event:fade` | 1 |
+| `event_role:fade:agent:sky` | 1 |
+| `entity_exists:rose` | 1 |
+| `entity_exists:smile` | 1 |
+| `has_attribute:room:dimly` | 1 |
+| `has_attribute:room:light` | 1 |
+| `has_attribute:rose:single` | 1 |
+| `has_attribute:rose:red` | 1 |
+| `has_attribute:top:dark` | 1 |
+| `has_attribute:top:purple` | 1 |
+| `has_attribute:earring:dangle` | 1 |
+| `has_attribute:smile:gentle` | 1 |
+| `event_role:hold:agent:woman` | 1 |
+| `event_role:hold:patient:rose` | 1 |
+| `event_role:wear:patient:top` | 1 |
+| `event_role:look:agent:man_and_woman` | 1 |
+| `relation:man:in:room` | 1 |
+| `relation:rose:with:ribbon` | 1 |
+| `relation:man_and_woman:toward:camera` | 1 |
+| `relation:man_and_woman:with:smile` | 1 |
+| `entity_exists:mat` | 1 |
+| `entity_exists:gym` | 1 |
+| `entity_exists:back` | 1 |
+| `has_attribute:uniform:camouflage` | 1 |
+| `has_attribute:mat:blue` | 1 |
+| `has_attribute:mat:red` | 1 |
+| `has_attribute:fence:chain-link` | 1 |
+| `has_attribute:person:third` | 1 |
+| `has_attribute:gear:similar` | 1 |
+| `action_event:grapple` | 1 |
+| `event_role:grapple:agent:man` | 1 |
+| `event_role:control:agent:man` | 1 |
+| `event_role:control:patient:man` | 1 |
+| `action_event:lie` | 1 |
+| `event_role:lie:agent:man` | 1 |
+| `action_event:bend_over` | 1 |
+| `event_role:bend_over:agent:person` | 1 |
+| `relation:man:in:uniform` | 1 |
+| `relation:man:on:mat` | 1 |
+| `relation:man:inside:gym` | 1 |
+| `relation:man:on:top` | 1 |
+| `relation:person:in:gear` | 1 |
+| `entity_exists:chinese` | 1 |
+| `has_attribute:sign:colorful` | 1 |
+| `has_attribute:sign:real` | 1 |
+| `has_attribute:sign:estate` | 1 |
+| `event_role:cover:agent:wall` | 1 |
+| `relation:woman:past:wall` | 1 |
+| `relation:wall:with:sign` | 1 |
+| `relation:sign:in:chinese` | 1 |
+| `entity_exists:pool` | 1 |
+| `entity_exists:night` | 1 |
+| `entity_exists:grandparent` | 1 |
+| `has_attribute:car:toy` | 1 |
+| `entity_exists:ball` | 1 |
+| `entity_exists:tent` | 1 |
+| `has_attribute:field:grassy` | 1 |
+| `has_attribute:uniform:light` | 1 |
+| `has_attribute:uniform:blue` | 1 |
+| `event_role:control:agent:soccer_player` | 1 |
+| `event_role:control:patient:ball` | 1 |
+| `entity_exists:block` | 1 |
+| `has_attribute:pipe:long` | 1 |
+| `has_attribute:pipe:rusty` | 1 |
+| `has_attribute:hillside:lush` | 1 |
+| `has_attribute:block:concrete` | 1 |
+| `has_attribute:foliage:dense` | 1 |
+| `has_attribute:sunlight:bright` | 1 |
+| `action_event:support` | 1 |
+| `event_role:support:patient:pipe` | 1 |
+| `event_role:support:agent:block` | 1 |
+| `event_role:support:agent:foliage` | 1 |
+| `event_role:support:agent:tree` | 1 |
+| `event_role:surround:agent:pipe` | 1 |
+| `relation:pipe:across:hillside` | 1 |
+| `relation:pipe:under:sunlight` | 1 |
+| `has_attribute:background:dark` | 1 |
+| `action_event:gesture` | 1 |
+| `event_role:gesture:agent:woman` | 1 |
+| `relation:woman:with:hand` | 1 |
+| `relation:woman:against:background` | 1 |
+| `entity_exists:crater` | 1 |
+| `entity_exists:mist` | 1 |
+| `entity_exists:patch` | 1 |
+| `entity_exists:material` | 1 |
+| `has_attribute:crater:rocky` | 1 |
+| `has_attribute:crater:steamy` | 1 |
+| `has_attribute:stone:dark` | 1 |
+| `has_attribute:stone:rough` | 1 |
+| `has_attribute:material:white` | 1 |
+| `action_event:rise` | 1 |
+| `event_role:rise:agent:mist` | 1 |
+| `event_role:cover:patient:ground` | 1 |
+| `relation:crater:with:mist` | 1 |
+| `relation:mist:from:edge` | 1 |
+| `relation:ground:in:stone` | 1 |
+| `relation:ground:in:patch` | 1 |
+| `relation:patch:of:material` | 1 |
+| `entity_exists:statistic` | 1 |
+| `entity_exists:region` | 1 |
+| `entity_exists:empire` | 1 |
+| `entity_exists:percentage` | 1 |
+| `has_quantity:region:various` | 1 |
+| `has_attribute:empire:russian` | 1 |
+| `event_role:show:agent:table` | 1 |
+| `event_role:show:patient:statistic` | 1 |
+| `event_role:include:agent:statistic` | 1 |
+| `event_role:include:patient:number` | 1 |
+| `event_role:include:patient:percentage` | 1 |
+| `relation:statistic:for:region` | 1 |
+| `relation:region:of:empire` | 1 |
+| `relation:statistic:include:number` | 1 |
+| `relation:statistic:include:percentage` | 1 |
+| `entity_exists:mouth` | 1 |
+| `has_attribute:dog:yellow` | 1 |
+| `has_attribute:eye:wide` | 1 |
+| `has_attribute:mouth:open` | 1 |
+| `has_attribute:room:dark` | 1 |
+| `has_attribute:balloon:bright` | 1 |
+| `has_attribute:balloon:red` | 1 |
+| `has_attribute:background:black_and_white` | 1 |
+| `event_role:stand:agent:dog` | 1 |
+| `action_event:contrast` | 1 |
+| `event_role:contrast:agent:balloon` | 1 |
+| `event_role:appear:agent:dog` | 1 |
+| `event_role:look:agent:dog` | 1 |
+| `relation:dog:with:eye` | 1 |
+| `relation:dog:with:mouth` | 1 |
+| `relation:dog:in:room` | 1 |
+| `relation:balloon:with:background` | 1 |
+| `relation:dog:at:camera` | 1 |
+| `entity_exists:section` | 1 |
+| `entity_exists:puddle` | 1 |
+| `entity_exists:stair` | 1 |
+| `has_attribute:building:gray` | 1 |
+| `has_attribute:section:blue` | 1 |
+| `has_attribute:section:low` | 1 |
+| `has_attribute:fence:green` | 1 |
+| `has_attribute:area:concrete` | 1 |
+| `has_attribute:entrance:building` | 1 |
+| `event_role:lead:agent:stair` | 1 |
+| `action_event:grow` | 1 |
+| `event_role:grow:agent:grass` | 1 |
+| `relation:building:with:section` | 1 |
+| `relation:building:with:trim` | 1 |
+| `relation:building:behind:fence` | 1 |
+| `relation:area:with:puddle` | 1 |
+| `relation:area:in:foreground` | 1 |
+| `relation:stair:to:entrance` | 1 |
+| `relation:grass:base_of:building` | 1 |
+| `entity_exists:jacket` | 1 |
+| `entity_exists:backdrop` | 1 |
+| `has_attribute:suit:blue` | 1 |
+| `has_attribute:podium:wood` | 1 |
+| `has_attribute:suit:gray` | 1 |
+| `has_attribute:jacket:yellow` | 1 |
+| `event_role:speak:agent:man` | 1 |
+| `relation:man:at:podium` | 1 |
+| `relation:man:to:left` | 1 |
+| `relation:woman:to:right` | 1 |
+| `relation:woman:in:jacket` | 1 |
+| `relation:woman:in_front_of:backdrop` | 1 |
+| `relation:backdrop:with:logo` | 1 |
+| `relation:backdrop:with:text` | 1 |
+| `entity_exists:concrete` | 1 |
+| `entity_exists:dirt` | 1 |
+| `entity_exists:glove` | 1 |
+| `entity_exists:ledge` | 1 |
+| `entity_exists:cloud` | 1 |
+| `has_attribute:hand:person` | 1 |
+| `has_attribute:ledge:stone` | 1 |
+| `has_attribute:town:sprawl` | 1 |
+| `has_quantity:building:many` | 1 |
+| `has_attribute:building:white` | 1 |
+| `has_quantity:roof:some` | 1 |
+| `has_attribute:roof:colorful` | 1 |
+| `has_attribute:tree:green` | 1 |
+| `has_attribute:hill:distant` | 1 |
+| `has_attribute:cloud:scatter` | 1 |
+| `event_role:hold:agent:hand` | 1 |
+| `event_role:hold:patient:phone` | 1 |
+| `event_role:overlook:agent:ledge` | 1 |
+| `event_role:overlook:patient:town` | 1 |
+| `action_event:feature` | 1 |
+| `event_role:feature:agent:town` | 1 |
+| `event_role:feature:patient:building` | 1 |
+| `action_event:nestle` | 1 |
+| `event_role:nestle:agent:building` | 1 |
+| `action_event:complete` | 1 |
+| `event_role:complete:agent:hill` | 1 |
+| `event_role:complete:agent:cloud` | 1 |
+| `event_role:complete:patient:horizon` | 1 |
+| `relation:hand:on:ledge` | 1 |
+| `relation:building:among:tree` | 1 |
+| `entity_exists:belt` | 1 |
+| `entity_exists:duct` | 1 |
+| `has_attribute:outfit:theme` | 1 |
+| `has_attribute:belt:shiny` | 1 |
+| `has_attribute:belt:championship` | 1 |
+| `has_attribute:duct:ventilation` | 1 |
+| `action_event:hold_up` | 1 |
+| `event_role:hold_up:agent:woman` | 1 |
+| `event_role:hold_up:patient:belt` | 1 |
+| `relation:woman:in:outfit` | 1 |
+| `relation:woman:under:chandelier` | 1 |
+| `entity_exists:desk` | 1 |
+| `entity_exists:chamber` | 1 |
+| `entity_exists:portuguese` | 1 |
+| `has_attribute:desk:wood` | 1 |
+| `has_attribute:chamber:large` | 1 |
+| `has_attribute:chamber:legislative` | 1 |
+| `has_quantity:person:several` | 1 |
+| `event_role:include:agent:text` | 1 |
+| `event_role:sit:patient:person` | 1 |
+| `action_event:face` | 1 |
+| `event_role:face:agent:person` | 1 |
+| `event_role:face:patient:screen` | 1 |
+| `relation:people:in:suit` | 1 |
+| `relation:people:at:desk` | 1 |
+| `relation:people:in:chamber` | 1 |
+| `relation:text:in:portuguese` | 1 |
+| `relation:person:near:front` | 1 |
+| `entity_exists:medal` | 1 |
+| `entity_exists:pin` | 1 |
+| `has_attribute:medal:gold` | 1 |
+| `entity_exists:texture` | 1 |
+| `entity_exists:imperfection` | 1 |
+| `has_attribute:slab:square` | 1 |
+| `has_attribute:slab:dark` | 1 |
+| `has_attribute:slab:gray` | 1 |
+| `has_attribute:background:light_colored` | 1 |
+| `has_attribute:background:flat` | 1 |
+| `has_attribute:texture:visible` | 1 |
+| `has_attribute:imperfection:minor` | 1 |
+| `event_role:rest:agent:slab` | 1 |
+| `event_role:have:agent:slab` | 1 |
+| `event_role:have:patient:texture` | 1 |
+| `event_role:have:patient:imperfection` | 1 |
+| `action_event:suggest` | 1 |
+| `event_role:suggest:agent:slab` | 1 |
+| `event_role:make:patient:slab` | 1 |
+| `event_role:appear:agent:edge` | 1 |
+| `relation:slab:with:surface` | 1 |
+| `relation:slab:on:background` | 1 |
+| `relation:slab:of:stone` | 1 |
+| `relation:slab:of:metal` | 1 |
+| `has_attribute:tree:snow-covered` | 1 |
+| `has_attribute:hill:snowy` | 1 |
+| `relation:tree:on:hill` | 1 |
+| `has_attribute:woman:young` | 1 |
+| `has_attribute:hair:brown` | 1 |
+| `has_attribute:earring:large` | 1 |
+| `has_attribute:earring:hoop` | 1 |
+| `entity_exists:football_player` | 1 |
+| `entity_exists:game` | 1 |
+| `has_attribute:uniform:green` | 1 |
+| `has_attribute:uniform:white` | 1 |
+| `event_role:run:agent:football_player` | 1 |
+| `event_role:stand:agent:referee` | 1 |
+| `relation:football_player:in:uniform` | 1 |
+| `relation:football_player:on:field` | 1 |
+| `relation:football_player:during:game` | 1 |
+| `entity_exists:ocean` | 1 |
+| `entity_exists:coastline` | 1 |
+| `entity_exists:wave` | 1 |
+| `entity_exists:bet` | 1 |
+| `entity_exists:chip` | 1 |
+| `has_quantity:boy:three` | 1 |
+| `has_attribute:table:green` | 1 |
+| `has_attribute:table:roulette` | 1 |
+| `event_role:stand:agent:boy` | 1 |
+| `action_event:place` | 1 |
+| `event_role:place:agent:boy` | 1 |
+| `event_role:place:patient:bet` | 1 |
+| `relation:boy:around:table` | 1 |
+| `relation:boy:with:chip` | 1 |
+| `entity_exists:dump_truck` | 1 |
+| `entity_exists:nighttime` | 1 |
+| `entity_exists:street_light` | 1 |
+| `has_attribute:bed:orange` | 1 |
+| `has_attribute:ground:wet` | 1 |
+| `entity_exists:plant` | 1 |
+| `entity_exists:shoe` | 1 |
+| `has_attribute:plant:small` | 1 |
+| `has_attribute:plant:green` | 1 |
+| `has_attribute:shoe:black` | 1 |
+| `action_event:kneel` | 1 |
+| `event_role:kneel:agent:woman` | 1 |
+| `action_event:plant` | 1 |
+| `event_role:plant:agent:woman` | 1 |
+| `event_role:plant:patient:plant` | 1 |
+| `event_role:wear:patient:shoe` | 1 |
+| `relation:woman:in:grass` | 1 |
+| `entity_exists:food` | 1 |
+| `entity_exists:pan` | 1 |
+| `entity_exists:flame` | 1 |
+| `has_attribute:fire:large` | 1 |
+| `action_event:stir` | 1 |
+| `event_role:stir:agent:man` | 1 |
+| `event_role:stir:patient:food` | 1 |
+| `action_event:burn` | 1 |
+| `event_role:burn:agent:fire` | 1 |
+| `relation:man:near:fire` | 1 |
+| `relation:man:in:pan` | 1 |
+| `relation:man:above:flame` | 1 |
+| `relation:fire:on:ground` | 1 |
+| `entity_exists:garment` | 1 |
+| `entity_exists:fabric` | 1 |
+| `entity_exists:clothing` | 1 |
+| `has_attribute:tag:white` | 1 |
+| `has_attribute:tag:fabric` | 1 |
+| `has_attribute:garment:bright` | 1 |
+| `has_attribute:garment:yellow` | 1 |
+| `has_attribute:fabric:textured` | 1 |
+| `has_attribute:fabric:wrinkled` | 1 |
+| `has_attribute:number:1709-1` | 1 |
+| `action_event:stitch` | 1 |
+| `event_role:stitch:patient:tag` | 1 |
+| `action_event:fray` | 1 |
+| `event_role:fray:patient:tag` | 1 |
+| `event_role:sit:agent:tag` | 1 |
+| `relation:tag:with:number` | 1 |
+| `relation:tag:on:garment` | 1 |
+| `relation:tag:at:edge` | 1 |
+| `relation:tag:against:fabric` | 1 |
+| `relation:fabric:of:clothing` | 1 |
+| `entity_exists:forest` | 1 |
+| `entity_exists:slope` | 1 |
+| `has_attribute:hill:green` | 1 |
+| `entity_exists:hall` | 1 |
+| `entity_exists:speaker` | 1 |
+| `has_attribute:hall:conference` | 1 |
+| `has_attribute:chair:red` | 1 |
+| `has_attribute:screen:presentation` | 1 |
+| `entity_exists:officer` | 1 |
+| `has_quantity:officer:two` | 1 |
+| `has_attribute:uniform:brown` | 1 |
+| `relation:man:with:officer` | 1 |
+| `relation:officer:in:uniform` | 1 |
+| `relation:officer:in:hat` | 1 |
+| `relation:man:near:building` | 1 |
+| `has_attribute:hillside:forested` | 1 |
+| `has_attribute:river:wide` | 1 |
+| `has_attribute:river:wind` | 1 |
+| `has_attribute:lake:turquoise` | 1 |
+| `event_role:overlook:agent:hillside` | 1 |
+| `event_role:overlook:patient:river` | 1 |
+| `event_role:overlook:patient:lake` | 1 |
+| `relation:hillside:with:mountain` | 1 |
+| `relation:mountain:in:background` | 1 |
+| `entity_exists:backpack` | 1 |
+| `entity_exists:booth` | 1 |
+| `has_attribute:backpack:green` | 1 |
+| `has_attribute:sign:blue` | 1 |
+| `has_attribute:booth:exhibition` | 1 |
+| `entity_exists:bee` | 1 |
+| `has_attribute:bee:dark` | 1 |
+| `has_attribute:body:fuzzy` | 1 |
+| `has_attribute:wing:transparent` | 1 |
+| `event_role:stand:agent:close-up` | 1 |
+| `relation:close-up:of:bee` | 1 |
+| `relation:bee:with:body` | 1 |
+| `relation:bee:with:wing` | 1 |
+| `relation:close-up:on:surface` | 1 |
+| `entity_exists:church_tower` | 1 |
+| `has_attribute:church_tower:stone` | 1 |
+| `has_attribute:roof:pointed` | 1 |
+| `has_attribute:tree:evergreen` | 1 |
+| `event_role:stand:agent:church_tower` | 1 |
+| `relation:church_tower:with:roof` | 1 |
+| `relation:church_tower:against:sky` | 1 |
+| `relation:tree:in:foreground` | 1 |
+| `entity_exists:lab_coat` | 1 |
+| `entity_exists:goggle` | 1 |
+| `entity_exists:liquid` | 1 |
+| `entity_exists:hijab` | 1 |
+| `entity_exists:image` | 1 |
+| `has_attribute:lab_coat:white` | 1 |
+| `has_attribute:flask:glass` | 1 |
+| `has_quantity:man:three` | 1 |
+| `has_attribute:hijab:patterned` | 1 |
+| `event_role:hold:agent:people` | 1 |
+| `event_role:hold:patient:flask` | 1 |
+| `event_role:wear:patient:goggle` | 1 |
+| `action_event:pour` | 1 |
+| `event_role:pour:agent:man` | 1 |
+| `event_role:pour:patient:liquid` | 1 |
+| `relation:people:in:lab_coat` | 1 |
+| `relation:man:into:flask` | 1 |
+| `relation:woman:in:hijab` | 1 |
+| `relation:logo:at_top_of:image` | 1 |
+| `entity_exists:pattern` | 1 |
+| `entity_exists:skylight` | 1 |
+| `has_attribute:ceiling:domed` | 1 |
+| `has_attribute:pattern:repeat` | 1 |
+| `has_attribute:pattern:octagonal` | 1 |
+| `has_attribute:skylight:central` | 1 |
+| `has_attribute:light:bright` | 1 |
+| `action_event:let` | 1 |
+| `event_role:let:agent:ceiling` | 1 |
+| `event_role:let:agent:skylight` | 1 |
+| `event_role:let:patient:light` | 1 |
+| `relation:ceiling:with:pattern` | 1 |
+| `entity_exists:view` | 1 |
+| `has_attribute:view:aerial` | 1 |
+| `event_role:show:agent:view` | 1 |
+| `event_role:show:patient:town` | 1 |
+| `action_event:wind` | 1 |
+| `event_role:wind:agent:road` | 1 |
+| `relation:town:with:house` | 1 |
+| `relation:town:with:river` | 1 |
+| `relation:town:with:road` | 1 |
+| `relation:road:through:field` | 1 |
+| `relation:road:through:hill` | 1 |
+
+## Top Canonical Fact Parent Count Keys
+
+| item | count |
+| --- | ---: |
+| `attribute_parent:visual_attribute` | 399 |
+| `relation_parent:visual_relation` | 328 |
+| `action_parent:visual_action` | 208 |
+| `entity_parent:artifact` | 183 |
+| `attribute_parent:color_attribute` | 139 |
+| `attribute_parent:color` | 134 |
+| `entity_parent:person` | 90 |
+| `entity_parent:human` | 90 |
+| `relation_parent:association_relation` | 85 |
+| `relation_parent:spatial_containment` | 69 |
+| `entity_parent:structure` | 65 |
+| `entity_parent:place` | 59 |
+| `entity_parent:scene_context` | 58 |
+| `action_parent:body_pose_action` | 57 |
+| `entity_parent:wearable` | 49 |
+| `entity_parent:clothing` | 48 |
+| `relation_parent:spatial_support` | 44 |
+| `entity_parent:living_thing` | 43 |
+| `attribute_parent:material` | 39 |
+| `attribute_parent:material_attribute` | 38 |
+| `entity_parent:plant` | 37 |
+| `entity_parent:architectural_part` | 36 |
+| `attribute_parent:compound_modifier` | 35 |
+| `attribute_parent:modifier_attribute` | 33 |
+| `relation_parent:spatial_proximity` | 30 |
+| `attribute_parent:size_attribute` | 28 |
+| `quantity_parent:quantity` | 28 |
+| `attribute_parent:clean_exact_overlap` | 27 |
+| `entity_parent:scene_element` | 25 |
+| `attribute_parent:state_attribute` | 22 |
+| `attribute_parent:brightness_attribute` | 22 |
+| `attribute_parent:brightness` | 22 |
+| `entity_parent:body_part` | 21 |
+| `relation_parent:spatial_vertical` | 19 |
+| `entity_parent:surface` | 18 |
+| `attribute_parent:tone` | 18 |
+| `entity_parent:natural_scene` | 17 |
+| `entity_parent:furniture` | 16 |
+| `entity_parent:device` | 15 |
+| `quantity_parent:exact_quantity` | 15 |
+| `entity_parent:text_carrier` | 14 |
+| `attribute_parent:size` | 14 |
+| `entity_parent:spatial_region` | 14 |
+| `entity_parent:landform` | 14 |
+| `relation_parent:spatial_depth` | 13 |
+| `action_parent:manipulation_action` | 13 |
+| `action_parent:locomotion_action` | 13 |
+| `relation_parent:part_relation` | 12 |
+| `attribute_parent:attribute` | 12 |
+| `action_parent:visual_presentation_action` | 11 |
+| `action_parent:spatial_configuration_action` | 11 |
+| `entity_parent:path` | 11 |
+| `entity_parent:outdoor_scene` | 11 |
+| `relation_parent:spatial_location` | 10 |
+| `attribute_parent:state` | 10 |
+| `entity_parent:accessory` | 10 |
+| `entity_parent:visual_element` | 10 |
+| `attribute_parent:texture` | 10 |
+| `attribute_parent:weather_attribute` | 10 |
+| `attribute_parent:weather` | 10 |
+| `action_parent:wearing_action` | 9 |
+| `attribute_parent:shape_attribute` | 9 |
+| `entity_parent:text_content` | 8 |
+| `entity_parent:vehicle` | 8 |
+| `quantity_parent:approximate_quantity` | 8 |
+| `attribute_parent:texture_attribute` | 8 |
+| `entity_parent:symbol` | 7 |
+| `entity_parent:container` | 7 |
+| `attribute_parent:shape` | 7 |
+| `attribute_parent:height` | 7 |
+| `relation_parent:spatial_region` | 7 |
+| `entity_parent:natural_element` | 7 |
+| `entity_parent:illumination` | 7 |
+| `relation_parent:spatial_path` | 7 |
+| `action_parent:text_interaction_action` | 6 |
+| `entity_parent:animal` | 6 |
+| `entity_parent:plant_part` | 5 |
+| `action_parent:appearance_state` | 5 |
+| `entity_parent:platform` | 5 |
+| `attribute_parent:quote_text` | 5 |
+| `action_parent:possession_or_property_state` | 5 |
+| `attribute_parent:pattern_attribute` | 5 |
+| `action_parent:expression_action` | 5 |
+| `entity_parent:sports_equipment` | 5 |
+| `action_parent:spatial_extent_state` | 5 |
+| `attribute_parent:opaqeness` | 5 |
+| `entity_parent:body_of_water` | 5 |
+| `action_parent:communication_action` | 4 |
+| `entity_parent:building` | 4 |
+| `attribute_parent:pattern` | 4 |
+| `entity_parent:textile` | 4 |
+| `entity_parent:spatial_boundary` | 4 |
+| `entity_parent:text_element` | 4 |
+| `attribute_parent:color_quantity` | 4 |
+| `entity_parent:document` | 4 |
+| `attribute_parent:floating_attribute` | 4 |
+| `action_parent:gaze_action` | 4 |
+| `attribute_parent:width` | 4 |
+| `entity_parent:material_source` | 4 |
+| `entity_parent:athlete` | 4 |
+| `entity_parent:visual_document` | 3 |
+| `entity_parent:decoration` | 3 |
+| `attribute_parent:visibility_attribute` | 3 |
+| `attribute_parent:visibility` | 3 |
+| `attribute_parent:style_attribute` | 3 |
+| `attribute_parent:style` | 3 |
+| `entity_parent:symbol_or_religious_object` | 3 |
+| `action_parent:path_orientation_action` | 3 |
+| `attribute_parent:age_attribute` | 3 |
+| `attribute_parent:age` | 3 |
+| `attribute_parent:pattern_marking` | 3 |
+| `action_parent:placement_state_action` | 3 |
+| `action_parent:vehicle_action` | 3 |
+| `entity_parent:ball` | 3 |
+| `entity_parent:spatial_context` | 3 |
+| `attribute_parent:visual_quality_attribute` | 3 |
+| `attribute_parent:visual_quality` | 3 |
+| `entity_parent:structural_part_or_light_element` | 3 |
+| `quantity_parent:group_quantity` | 3 |
+| `entity_parent:natural_object` | 3 |
+| `action_parent:support_state_action` | 3 |
+| `action_parent:enumeration_or_composition_predicate` | 3 |
+| `entity_parent:toy_or_inflatable_object` | 3 |
+| `attribute_parent:coco_subtype_rule` | 3 |
+| `attribute_parent:density_attribute` | 3 |
+| `attribute_parent:density` | 3 |
+| `action_parent:occlusion_or_covering_action` | 3 |
+| `entity_parent:interior_place` | 3 |
+| `attribute_parent:length` | 3 |
+| `relation_parent:spatial_contact` | 3 |
+| `entity_parent:design_element` | 3 |
+| `entity_parent:settlement` | 3 |
+| `entity_parent:event` | 2 |
+| `entity_parent:sports_place` | 2 |
+| `action_parent:activity_action` | 2 |
+| `entity_parent:furnishing` | 2 |
+| `entity_parent:time_context` | 2 |
+| `entity_parent:visual_property` | 2 |
+| `entity_parent:visual_marking` | 2 |
+| `entity_parent:infrastructure` | 2 |
+| `attribute_parent:surface_material_attribute` | 2 |
+| `attribute_parent:surface_material` | 2 |
+| `attribute_parent:spatial_depth_attribute` | 2 |
+| `attribute_parent:spatial_depth` | 2 |
+| `entity_parent:floor_covering` | 2 |
+| `action_parent:creation_action` | 2 |
+| `entity_parent:decorative_or_structural_part` | 2 |
+| `entity_parent:food_or_drink` | 2 |
+| `attribute_parent:condition_attribute` | 2 |
+| `entity_parent:visual_composition` | 2 |
+| `action_parent:visual_framing_action` | 2 |
+| `action_parent:creation_or_material_predicate` | 2 |
+| `attribute_parent:spatial_position_attribute` | 2 |
+| `attribute_parent:spatial_position` | 2 |
+| `entity_parent:tree` | 2 |
+| `attribute_parent:scene_context_attribute` | 2 |
+| `attribute_parent:scene_context` | 2 |
+| `attribute_parent:non_textile_material_type` | 2 |
+| `action_parent:body_motion_action` | 2 |
+| `action_parent:sports_action` | 2 |
+| `entity_parent:equipment` | 2 |
+| `entity_parent:lighting_device` | 2 |
+| `attribute_parent:other` | 2 |
+| `entity_parent:award` | 2 |
+| `attribute_parent:surface_cover_attribute` | 2 |
+| `attribute_parent:surface_cover` | 2 |
+| `entity_parent:support_part` | 2 |
+| `action_parent:view_orientation_action` | 2 |
+| `entity_parent:accessory_or_weapon` | 1 |
+| `action_parent:distribution_state` | 1 |
+| `entity_parent:person_group` | 1 |
+| `entity_parent:flag` | 1 |
+| `action_parent:containment_state_action` | 1 |
+| `entity_parent:drinking_vessel` | 1 |
+| `attribute_parent:hair_color` | 1 |
+| `entity_parent:protective_gear` | 1 |
+| `entity_parent:generic_object` | 1 |
+| `entity_parent:color_attribute` | 1 |
+| `attribute_parent:hardness` | 1 |
+| `action_parent:perception_action` | 1 |
+| `entity_parent:body_part_or_container` | 1 |
+| `action_parent:optical_reflection_action` | 1 |
+| `action_parent:activity_or_operation_action` | 1 |
+| `entity_parent:aircraft` | 1 |
+| `attribute_parent:cleanliness` | 1 |
+| `attribute_parent:color_temperature_attribute` | 1 |
+| `attribute_parent:color_temperature` | 1 |
+| `entity_parent:artwork` | 1 |
+| `entity_parent:body_motion` | 1 |
+| `attribute_parent:condition` | 1 |
+| `action_parent:construction_action` | 1 |
+| `entity_parent:plant_area` | 1 |
+| `action_parent:projection_or_shadow_action` | 1 |
+| `entity_parent:utensil` | 1 |
+| `action_parent:placement_or_covering_action` | 1 |
+| `action_parent:performance_or_communication_action` | 1 |
+| `action_parent:preparation_action` | 1 |
+| `entity_parent:sports_facility` | 1 |
+| `action_parent:placement_or_arrangement_state` | 1 |
+| `action_parent:attachment_action` | 1 |
+| `action_parent:arrangement_action` | 1 |
+| `relation_parent:spatial_source` | 1 |
+| `quantity_parent:distributive_quantity` | 1 |
+| `action_parent:transfer_or_gesture_action` | 1 |
+| `entity_parent:eyewear` | 1 |
+| `entity_parent:writing_tool` | 1 |
+| `action_parent:visual_indication_or_text_action` | 1 |
+| `action_parent:light_filtering_action` | 1 |
+| `action_parent:visual_effect_action` | 1 |
+| `action_parent:visual_transition_state` | 1 |
+| `attribute_parent:textile_pattern` | 1 |
+| `entity_parent:water_body` | 1 |
+| `entity_parent:shelter` | 1 |
+| `action_parent:support_action` | 1 |
+| `action_parent:gesture_action` | 1 |
+| `entity_parent:surface_region` | 1 |
+| `action_parent:vertical_motion_or_extent_action` | 1 |
+| `action_parent:visual_comparison_state` | 1 |
+| `action_parent:biological_growth_action` | 1 |
+| `entity_parent:background` | 1 |
+| `entity_parent:natural_material` | 1 |
+| `entity_parent:ground_material` | 1 |
+| `quantity_parent:indefinite_quantity` | 1 |
+| `action_parent:visual_feature_predicate` | 1 |
+| `action_parent:placement_state` | 1 |
+| `action_parent:orientation_action` | 1 |
+| `action_parent:visual_inference_predicate` | 1 |
+| `entity_parent:activity` | 1 |
+| `action_parent:placement_action` | 1 |
+| `entity_parent:food` | 1 |
+| `entity_parent:material` | 1 |
+| `entity_parent:person_or_audio_device` | 1 |
+| `entity_parent:bag` | 1 |
+| `entity_parent:insect` | 1 |
+| `entity_parent:visual_pattern` | 1 |
+| `entity_parent:visual_representation` | 1 |
+| `action_parent:shape_or_motion_action` | 1 |
+
+## Canonicalization Notes
+
+| item | count |
+| --- | ---: |
+| `relation_lexical_canonicalized` | 13 |
+| `passive_subject_to_patient` | 10 |
+| `passive_by_frame_to_agent` | 6 |
+| `action_lexical_canonicalized` | 3 |
+| `pp_source_disambiguated` | 2 |
+| `phrasal_action_canonicalized` | 2 |
+| `skipped_reference_role_recovered` | 1 |
