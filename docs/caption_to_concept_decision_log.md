@@ -5115,3 +5115,76 @@ GPIC shard 실행
 -> Stage 8/9 재실행
 -> before/after regression report
 ```
+
+## 2026-06-29: first unique 10k auto-feedback run
+
+목표:
+
+- `gpic_iterative_feedback_plan.md` 기준으로 실제 10k caption을 돌려 feedback loop를 시작한다.
+- 단순히 caption to concept 결과를 만드는 것뿐 아니라, 다음 자동 보완 후보를 수집한다.
+
+입력 준비:
+
+- `train` shard를 내려받기 시작했으나, train shard 하나가 val에서 잘라 쓰던 shard보다 훨씬 커서 100 shards 전체가 필요하지 않았다.
+- 다운로드는 32개 이상 완료된 상태에서 중단했고, 완료 shard에서 10,000 records만 merge했다.
+
+입력:
+
+```text
+data/gpic_captions_10k_train00000_00099/train/gpic_train_00000_00099_merged_10000.jsonl.gz
+```
+
+출력:
+
+```text
+reports/raw_concepts_10k_train00000_00099_trf_auto_feedback_v1.jsonl
+reports/raw_concepts_10k_train00000_00099_trf_auto_feedback_v1_summary.md
+reports/canonical_concepts_10k_train00000_00099_trf_auto_feedback_v1.jsonl
+reports/canonical_concepts_10k_train00000_00099_trf_auto_feedback_v1_summary.md
+reports/stage9_quality_audit_10k_train00000_00099_auto_feedback_v1.md
+reports/feedback_candidates_10k_train00000_00099_auto_feedback_v1.tsv
+reports/feedback_dashboard_10k_train00000_00099_auto_feedback_v1.md
+reports/case_detail_10k_train00000_00099_trf_auto_feedback_v1_first1000.md
+reports/feedback_summary_10k_train00000_00099_auto_feedback_v1.md
+```
+
+코드 변경:
+
+- `scripts/collect_feedback_candidates.py` 추가.
+  - Stage 9 output에서 parent none, action fallback, raw attribute, raw relation, generic reference, MWE candidate, self-edge repair candidate, OCR/symbol anomaly를 자동 수집한다.
+- `scripts/merge_jsonl_gz.py` 추가.
+  - caption JSONL shards를 하나의 JSONL/JSONL.GZ로 병합한다.
+- `scripts/extract_raw_concepts.py`에 GPU 옵션 추가.
+  - `--gpu-id`, `--prefer-gpu`, `--cupy-include-dir`, `--disable-cupy-reduction-accelerators`.
+- `scripts/audit_stage9_quality.py` 문구 수정.
+  - 사람 검토 queue가 아니라 fixed rubric 기반 automatic audit 후보 queue로 표현한다.
+
+10k 주요 수치:
+
+| metric | count | per caption |
+|---|---:|---:|
+| canonical entities | 98,291 | 9.829 |
+| canonical events | 35,769 | 3.577 |
+| entity_parent_none | 18,290 | 1.829 |
+| action_parent_fallback | 3,176 | 0.318 |
+| raw_relation | 4,570 | 0.457 |
+| raw_attribute_role | 23,778 | 2.378 |
+| skipped_edges | 412 | 0.041 |
+| self_edge_repair_candidate | 308 | 0.031 |
+
+해석:
+
+- Stage 8는 충분히 많은 concept tuple을 뽑고 있다.
+- 10k에서 가장 큰 병목은 Stage 9 parent/canonical coverage다.
+- `individual`, `shoulder`, `right_hand`, `counter`, `sun`, `board`, `illustration`, `emblem`, `expression` 등이 high-frequency parent 후보로 올라왔다.
+- action fallback은 `be`, `’`, `filter`, `obscure`, `overlook`, `center`, `engage`, `tilt`처럼 noise/auxiliary, visual state, physical action, text/document predicate가 섞여 있다.
+- self-edge repair 후보가 308개로 늘어서, reference repair는 실제 queue로 다룰 가치가 있다.
+
+다음 자동 보완 우선순위:
+
+1. 10k `entity_parent_none` 기반 Stage 9 parent expansion candidate builder.
+2. `action_parent_fallback` 자동 subtype 분류.
+3. `’`, `’re`, copular `be` action count pollution 방어.
+4. high-frequency `raw_attribute_role` 기반 attribute expansion candidate TSV.
+5. self-edge repair candidate analyzer.
+6. relation canonicalization은 계속 raw-preserving 유지.

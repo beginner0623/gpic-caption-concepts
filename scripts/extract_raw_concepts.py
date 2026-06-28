@@ -8,6 +8,10 @@ from typing import Iterable
 
 import spacy
 
+from benchmark_spacy_parse import (
+    disable_cupy_reduction_accelerators,
+    patch_cupy_nvrtc_include,
+)
 from hyphen_span_retokenizer import ensure_hyphen_span_merger
 from inspect_spacy_parse import caption_shape, iter_rows, row_caption_id
 from object_mwe_retokenizer import DEFAULT_OBJECT_MWE_LEXICON, ensure_object_mwe_merger
@@ -168,6 +172,10 @@ def main() -> int:
     parser.add_argument("--model", default="en_core_web_trf")
     parser.add_argument("--batch-size", type=int, default=256, help="spaCy nlp.pipe batch size")
     parser.add_argument("--n-process", type=int, default=1, help="spaCy nlp.pipe worker process count")
+    parser.add_argument("--gpu-id", type=int, default=None, help="Require a specific spaCy GPU id before loading the model.")
+    parser.add_argument("--prefer-gpu", action="store_true", help="Prefer GPU before loading the spaCy model.")
+    parser.add_argument("--cupy-include-dir", type=Path, default=None, help="Optional CuPy include dir for NVRTC header lookup.")
+    parser.add_argument("--disable-cupy-reduction-accelerators", action="store_true", help="Disable selected CuPy reduction accelerators for local compatibility.")
     parser.add_argument(
         "--mask-quotes",
         action="store_true",
@@ -200,6 +208,15 @@ def main() -> int:
         help="TSV lexicon used by --merge-object-mwes.",
     )
     args = parser.parse_args()
+
+    if args.cupy_include_dir is not None:
+        patch_cupy_nvrtc_include(args.cupy_include_dir)
+    if args.disable_cupy_reduction_accelerators:
+        disable_cupy_reduction_accelerators()
+    if args.gpu_id is not None:
+        spacy.require_gpu(args.gpu_id)
+    elif args.prefer_gpu:
+        spacy.prefer_gpu()
 
     nlp = spacy.load(args.model)
     if args.mask_quotes:
