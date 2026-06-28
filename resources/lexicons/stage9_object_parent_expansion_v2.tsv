@@ -1,0 +1,140 @@
+term	parent_chain	count_channel	confidence	source	notes
+microphone	device|artifact	entity	high	wordnet_hypernym:device.n.01 + 1k_stage9_audit_v2	audio input device; frequent GPIC object
+light	illumination|visual_element	entity	medium	wordnet_synset:light.n.01 + 1k_stage9_audit_v2	ambiguous lamp/light/illumination; keep broad visual parent
+glass	artifact|material_source	entity	medium	wordnet_synset:glass.n.01 + 1k_stage9_audit_v2	ambiguous eyeglasses/glass material/container; broad artifact/material parent
+area	spatial_region|place	entity	medium	wordnet_synset:area.n.05 + 1k_stage9_audit_v2	generic region; useful for coarse scene counts
+leaf	plant_part|plant|living_thing	entity	high	wordnet_synset:leaf.n.01 + 1k_stage9_audit_v2	plant part
+flag	symbol|artifact	entity	high	wordnet_synset:flag.n.01 + 1k_stage9_audit_v2	physical symbolic object
+group	collection	entity	medium	wordnet_synset:group.n.01 + 1k_stage9_audit_v2	generic collection; keep broad
+ground	surface|scene_element	entity	high	wordnet_synset:ground.n.08 + 1k_stage9_audit_v2	scene/support surface
+spectator	person|human	entity	high	wordnet_synset:spectator.n.01 + 1k_stage9_audit_v2	human role
+hat	clothing|wearable	entity	high	wordnet_synset:hat.n.01 + 1k_stage9_audit_v2	wearable object
+statue	artwork|artifact	entity	high	wordnet_synset:statue.n.01 + 1k_stage9_audit_v2	art object
+number	symbol|text_element	entity	medium	wordnet_synset:number.n.02 + 1k_stage9_audit_v2	visual/text symbol, not physical object parent
+structure	structure|artifact	entity	medium	wordnet_synset:structure.n.01 + 1k_stage9_audit_v2	generic built/physical structure
+hill	landform|place	entity	high	wordnet_synset:hill.n.01 + 1k_stage9_audit_v2	landform
+pattern	visual_pattern|design_element	entity	medium	wordnet_synset:pattern.n.01 + 1k_stage9_audit_v2	visual design element
+forest	outdoor_scene|place	entity	high	wordnet_synset:forest.n.01 + 1k_stage9_audit_v2	natural place
+track	path|sports_facility|place	entity	medium	wordnet_synset:track.n.09 + 1k_stage9_audit_v2	ambiguous path/sports track
+figure	representation|artwork|artifact	entity	medium	wordnet_synset:figure.n.06 + 1k_stage9_audit_v2	ambiguous person-like figure/statue/diagram
+logo	symbol|design_element|artifact	entity	high	wordnet_synset:logo.n.01 + 1k_stage9_audit_v2	visual brand symbol
+piece	generic_object|artifact	entity	medium	wordnet_synset:piece.n.01 + 1k_stage9_audit_v2	generic object fragment/item
+row	arrangement|spatial_region	entity	medium	wordnet_synset:row.n.01 + 1k_stage9_audit_v2	spatial arrangement
+audience	person_group|person|human	entity	high	wordnet_synset:audience.n.01 + 1k_stage9_audit_v2	group of people
+branch	plant_part|plant|living_thing	entity	high	wordnet_synset:branch.n.01 + 1k_stage9_audit_v2	tree/plant part
+platform	structure|artifact	entity	high	wordnet_synset:platform.n.01 + 1k_stage9_audit_v2	raised supporting structure
+podium	furniture|platform|artifact	entity	high	wordnet_synset:podium.n.01 + 1k_stage9_audit_v2	speaking platform
+side	spatial_region|scene_element	entity	medium	wordnet_synset:side.n.04 + 1k_stage9_audit_v2	region/side; do not force relation semantics
+costume	clothing|wearable	entity	high	wordnet_synset:costume.n.01 + 1k_stage9_audit_v2	wearable outfit
+top	spatial_region|scene_element	entity	medium	wordnet_synset:top.n.01 + 1k_stage9_audit_v2	region of object/scene
+crowd	person_group|person|human	entity	high	wordnet_synset:crowd.n.01 + 1k_stage9_audit_v2	group of people
+event	activity|context	entity	medium	wordnet_synset:event.n.01 + 1k_stage9_audit_v2	contextual activity noun
+landscape	outdoor_scene|place	entity	high	wordnet_synset:landscape.n.01 + 1k_stage9_audit_v2	scene/place
+gear	equipment|artifact	entity	high	wordnet_synset:gear.n.04 + 1k_stage9_audit_v2	equipment
+church	building|structure|artifact	entity	high	wordnet_synset:church.n.02 + 1k_stage9_audit_v2	building
+entrance	architectural_part|structure|artifact	entity	high	wordnet_synset:entrance.n.01 + 1k_stage9_audit_v2	architectural access region
+barrier	structure|artifact	entity	high	wordnet_synset:barrier.n.01 + 1k_stage9_audit_v2	physical barrier
+photo	visual_document|image|artifact	entity	high	wordnet_synset:photograph.n.01 + 1k_stage9_audit_v2	visual document
+sunglass	eyewear|clothing|wearable	entity	high	wordnet_synset:sunglasses.n.01 + 1k_stage9_audit_v2	wearable eyewear
+box	container|artifact	entity	high	wordnet_synset:box.n.01 + 1k_stage9_audit_v2	container object
+pole	structure|artifact	entity	high	wordnet_synset:pole.n.01 + 1k_stage9_audit_v2	long support object
+lighting	illumination|visual_element	entity	medium	wordnet_synset:lighting.n.02 + 1k_stage9_audit_v2	scene illumination
+palm_tree	tree|plant|living_thing	entity	high	wordnet_synset:palm.n.03 + 1k_stage9_audit_v2	tree subtype
+design	design_element|visual_pattern	entity	medium	wordnet_synset:design.n.04 + 1k_stage9_audit_v2	visual design
+arch	architectural_part|structure|artifact	entity	high	wordnet_synset:arch.n.01 + 1k_stage9_audit_v2	architectural part
+short	clothing|wearable	entity	high	wordnet_synset:shorts.n.01 + 1k_stage9_audit_v2	wearable clothing; spaCy lemma for shorts
+railing	architectural_part|structure|artifact	entity	high	wordnet_synset:railing.n.01 + 1k_stage9_audit_v2	barrier/architectural part
+pant	clothing|wearable	entity	high	wordnet_synset:trouser.n.01 + 1k_stage9_audit_v2	wearable clothing; spaCy lemma for pants
+tree_branch	plant_part|plant|living_thing	entity	high	wordnet_synset:branch.n.01 + compound_head_inheritance + 1k_stage9_audit_v2	compound plant part
+drink	food_or_drink	entity	high	wordnet_synset:drink.n.01 + 1k_stage9_audit_v2	consumable
+frame	structure|artifact	entity	medium	wordnet_synset:frame.n.01 + 1k_stage9_audit_v2	ambiguous picture/object frame
+sunlight	illumination|natural_element	entity	high	wordnet_synset:sunlight.n.01 + 1k_stage9_audit_v2	natural light
+patch	surface_region|visual_marking	entity	medium	wordnet_synset:patch.n.01 + 1k_stage9_audit_v2	local region/marking
+horizon	spatial_boundary|scene_element	entity	high	wordnet_synset:horizon.n.01 + 1k_stage9_audit_v2	scene boundary
+worker	person|human	entity	high	wordnet_synset:worker.n.01 + 1k_stage9_audit_v2	human role
+cyclist	person|human	entity	high	wordnet_synset:cyclist.n.01 + 1k_stage9_audit_v2	human role
+part	generic_part	entity	medium	wordnet_synset:part.n.01 + 1k_stage9_audit_v2	generic part
+name	text_element|symbol	entity	medium	wordnet_synset:name.n.01 + 1k_stage9_audit_v2	textual/symbolic label
+backdrop	background|artifact	entity	medium	wordnet_synset:backdrop.n.01 + 1k_stage9_audit_v2	stage/photo background object
+image	visual_document|artifact	entity	medium	wordnet_synset:image.n.01 + 1k_stage9_audit_v2	visual representation/document
+view	visual_representation|scene_context	entity	medium	wordnet_synset:view.n.02 + 1k_stage9_audit_v2	generic visual view
+space	place|spatial_region	entity	medium	wordnet_synset:space.n.01 + 1k_stage9_audit_v2	spatial region/place
+poster	visual_document|artifact	entity	high	wordnet_synset:poster.n.01 + 1k_stage9_audit_v2	printed visual document
+surface	surface|scene_element	entity	medium	wordnet_synset:surface.n.01 + 1k_stage9_audit_v2	surface/support region
+map	visual_document|artifact	entity	high	wordnet_synset:map.n.01 + 1k_stage9_audit_v2	visual document
+doorway	architectural_part|structure|artifact	entity	high	wordnet_synset:doorway.n.01 + 1k_stage9_audit_v2	architectural opening
+line	visual_marking|text_element	entity	medium	wordnet_synset:line.n.01 + 1k_stage9_audit_v2	ambiguous marking/row/line of text
+item	generic_object|artifact	entity	medium	wordnet_synset:item.n.01 + 1k_stage9_audit_v2	generic item
+tent	shelter|structure|artifact	entity	high	wordnet_synset:tent.n.01 + 1k_stage9_audit_v2	portable shelter
+foliage	plant|living_thing	entity	high	wordnet_synset:foliage.n.01 + 1k_stage9_audit_v2	plant mass
+hall	interior_place|place	entity	high	wordnet_synset:hall.n.03 + 1k_stage9_audit_v2	interior place
+stem	plant_part|plant|living_thing	entity	high	wordnet_synset:stem.n.01 + 1k_stage9_audit_v2	plant part
+soccer_player	athlete|person|human	entity	high	compound_head:player + 1k_stage9_audit_v2	sports-person compound
+shore	landform|place	entity	high	wordnet_synset:shore.n.01 + 1k_stage9_audit_v2	land/water boundary
+ice_rink	sports_facility|place	entity	high	wordnet_synset:rink.n.01 + compound_modifier:ice + 1k_stage9_audit_v2	sports facility
+shadow	visual_element	entity	medium	wordnet_synset:shadow.n.01 + 1k_stage9_audit_v2	visual light effect
+trail	path|place	entity	high	wordnet_synset:trail.n.01 + 1k_stage9_audit_v2	path
+cloth	textile|artifact	entity	high	wordnet_synset:cloth.n.01 + 1k_stage9_audit_v2	textile object
+hillside	landform|place	entity	high	wordnet_synset:hillside.n.01 + 1k_stage9_audit_v2	landform
+clothing	clothing|wearable	entity	high	wordnet_synset:clothing.n.01 + 1k_stage9_audit_v2	wearable class noun
+tray	container|artifact	entity	high	wordnet_synset:tray.n.01 + 1k_stage9_audit_v2	container object
+vegetation	plant|living_thing	entity	high	wordnet_synset:vegetation.n.01 + 1k_stage9_audit_v2	plant mass
+object	generic_object	entity	medium	wordnet_synset:object.n.01 + 1k_stage9_audit_v2	generic physical object
+game	activity|event	entity	medium	wordnet_synset:game.n.01 + 1k_stage9_audit_v2	activity context
+baby	person|human	entity	high	wordnet_synset:baby.n.01 + 1k_stage9_audit_v2	human age class
+soldier	person|human	entity	high	wordnet_synset:soldier.n.01 + 1k_stage9_audit_v2	human role
+jean	clothing|wearable	entity	high	wordnet_synset:jean.n.01 + 1k_stage9_audit_v2	wearable clothing
+ceiling	architectural_part|surface|artifact	entity	high	wordnet_synset:ceiling.n.01 + 1k_stage9_audit_v2	architectural surface
+tree_trunk	plant_part|plant|living_thing	entity	high	wordnet_synset:trunk.n.01 + compound_modifier:tree + 1k_stage9_audit_v2	tree part
+tone	visual_property	entity	medium	wordnet_synset:tone.n.02 + 1k_stage9_audit_v2	color/light quality
+character	symbol|text_element	entity	medium	wordnet_synset:character.n.08 + 1k_stage9_audit_v2	letter/symbol or fictional figure; keep broad symbolic parent
+conference_room	interior_place|place	entity	high	wordnet_synset:conference_room.n.01 + 1k_stage9_audit_v2	interior place
+hoodie	clothing|wearable	entity	high	wordnet_synset:hoodie.n.01 + 1k_stage9_audit_v2	wearable clothing
+painting	artwork|artifact	entity	high	wordnet_synset:painting.n.01 + 1k_stage9_audit_v2	art object
+curtain	textile|furnishing|artifact	entity	high	wordnet_synset:curtain.n.01 + 1k_stage9_audit_v2	furnishing textile
+machine	device|artifact	entity	high	wordnet_synset:machine.n.01 + 1k_stage9_audit_v2	device/machine object
+cliff	landform|place	entity	high	wordnet_synset:cliff.n.01 + 1k_stage9_audit_v2	landform
+bride	person|human	entity	high	wordnet_synset:bride.n.01 + 1k_stage9_audit_v2	human role
+shield	equipment|artifact	entity	high	wordnet_synset:shield.n.01 + 1k_stage9_audit_v2	protective equipment/symbolic object
+clothe	clothing|wearable	entity	high	wordnet_synset:clothes.n.01 + 1k_stage9_audit_v2	spaCy lemma for clothes
+sculpture	artwork|artifact	entity	high	wordnet_synset:sculpture.n.01 + 1k_stage9_audit_v2	art object
+marking	visual_marking|surface_feature	entity	medium	wordnet_synset:marking.n.01 + 1k_stage9_audit_v2	visual mark
+pipe	structure|artifact	entity	high	wordnet_synset:pipe.n.01 + 1k_stage9_audit_v2	tube/pipe object
+column	architectural_part|structure|artifact	entity	high	wordnet_synset:column.n.04 + 1k_stage9_audit_v2	architectural support
+attire	clothing|wearable	entity	high	wordnet_synset:attire.n.01 + 1k_stage9_audit_v2	clothing class noun
+staircase	architectural_part|structure|artifact	entity	high	wordnet_synset:staircase.n.01 + 1k_stage9_audit_v2	architectural part
+terrain	landform|place	entity	high	wordnet_synset:terrain.n.01 + 1k_stage9_audit_v2	landform/ground type
+lettering	text_element|symbol	entity	high	wordnet_synset:lettering.n.01 + 1k_stage9_audit_v2	text element
+altar	furniture|artifact	entity	high	wordnet_synset:altar.n.01 + 1k_stage9_audit_v2	religious furniture/object
+arena	sports_facility|place	entity	high	wordnet_synset:arena.n.01 + 1k_stage9_audit_v2	sports/performance place
+t_shirt	clothing|wearable	entity	high	wordnet_synset:t-shirt.n.01 + 1k_stage9_audit_v2	wearable clothing
+robe	clothing|wearable	entity	high	wordnet_synset:robe.n.01 + 1k_stage9_audit_v2	wearable clothing
+stripe	visual_pattern|design_element	entity	high	wordnet_synset:stripe.n.01 + 1k_stage9_audit_v2	visual pattern
+seat	furniture|artifact	entity	high	wordnet_synset:seat.n.03 + 1k_stage9_audit_v2	furniture object
+artwork	artwork|artifact	entity	high	wordnet_synset:artwork.n.01 + 1k_stage9_audit_v2	art object
+close-up	visual_composition	entity	medium	wordnet_synset:close-up.n.01 + 1k_stage9_audit_v2	photographic composition, not physical object
+heron	bird|animal|living_thing	entity	high	wordnet_synset:heron.n.01 + 1k_stage9_audit_v2	animal
+hockey_player	athlete|person|human	entity	high	compound_head:player + 1k_stage9_audit_v2	sports-person compound
+lawn	plant_area|place	entity	high	wordnet_synset:lawn.n.01 + 1k_stage9_audit_v2	grass-covered place
+carpet	textile|furnishing|artifact	entity	high	wordnet_synset:carpet.n.01 + 1k_stage9_audit_v2	furnishing textile
+skyline	scene_element|place	entity	medium	wordnet_synset:skyline.n.01 + 1k_stage9_audit_v2	scene outline
+panel	structure|artifact	entity	medium	wordnet_synset:panel.n.01 + 1k_stage9_audit_v2	flat object/structure
+shape	visual_property	entity	medium	wordnet_synset:shape.n.01 + 1k_stage9_audit_v2	visual property noun
+classroom	interior_place|place	entity	high	wordnet_synset:classroom.n.01 + 1k_stage9_audit_v2	interior place
+pine_tree	tree|plant|living_thing	entity	high	wordnet_synset:pine.n.01 + compound_head:tree + 1k_stage9_audit_v2	tree subtype
+symbol	symbol|text_element	entity	high	wordnet_synset:symbol.n.01 + 1k_stage9_audit_v2	symbolic visual element
+display	device|artifact	entity	medium	wordnet_synset:display.n.06 + 1k_stage9_audit_v2	visual display/device; ambiguous noun
+gate	structure|artifact	entity	high	wordnet_synset:gate.n.01 + 1k_stage9_audit_v2	physical gate
+pillar	architectural_part|structure|artifact	entity	high	wordnet_synset:pillar.n.01 + 1k_stage9_audit_v2	architectural support
+feather	animal_part	entity	high	wordnet_synset:feather.n.01 + 1k_stage9_audit_v2	animal part
+tie	clothing|wearable	entity	high	wordnet_synset:necktie.n.01 + 1k_stage9_audit_v2	wearable clothing
+pavement	surface|artifact	entity	high	wordnet_synset:pavement.n.02 + 1k_stage9_audit_v2	built ground surface
+peak	landform|place	entity	high	wordnet_synset:peak.n.04 + 1k_stage9_audit_v2	landform
+drawing	artwork|visual_document|artifact	entity	high	wordnet_synset:drawing.n.01 + 1k_stage9_audit_v2	visual document/artwork
+slope	landform|place	entity	high	wordnet_synset:slope.n.01 + 1k_stage9_audit_v2	landform
+musician	person|human	entity	high	wordnet_synset:musician.n.01 + 1k_stage9_audit_v2	human role
+sand	natural_element	entity	high	wordnet_synset:sand.n.01 + 1k_stage9_audit_v2	natural material/element
+shelf	furniture|artifact	entity	high	wordnet_synset:shelf.n.01 + 1k_stage9_audit_v2	furniture/storage object
+reflection	visual_element	entity	medium	wordnet_synset:reflection.n.06 + 1k_stage9_audit_v2	visual optical effect
+wave	natural_element	entity	medium	wordnet_synset:wave.n.01 + 1k_stage9_audit_v2	water/energy wave; broad natural element
+hue	color_attribute|visual_property	entity	medium	wordnet_synset:hue.n.01 + 1k_stage9_audit_v2	color property noun

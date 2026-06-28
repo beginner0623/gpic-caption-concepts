@@ -1,0 +1,13 @@
+term	canonical	count_channel	confidence	source	notes
+jog	run	action	high	1k_stage9_action_audit_v2 + wordnet_synset:jog.v.01	locomotion synonym for coarse counting
+sprint	run	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:sprint.v.01	fast running; collapse to run for coarse counting
+leap	jump	action	high	1k_stage9_action_audit_v2 + wordnet_synset:leap.v.01	jump/leap synonym
+clasp	hold	action	high	1k_stage9_action_audit_v2 + wordnet_synset:clasp.v.01	hold/grasp with hands
+grasp	hold	action	high	project_action_synonym_seed + wordnet_synset:grasp.v.01	hold/grip synonym
+grip	hold	action	high	1k_stage9_action_audit_v2 + wordnet_synset:grip.v.01	hold/grip synonym
+clutch	hold	action	high	project_action_synonym_seed + wordnet_synset:clutch.v.01	hold tightly
+gaze	look	action	high	project_action_synonym_seed + wordnet_synset:gaze.v.01	visual attention synonym
+stare	look	action	high	project_action_synonym_seed + wordnet_synset:stare.v.01	visual attention synonym
+peer	look	action	high	project_action_synonym_seed + wordnet_synset:peer.v.01	visual attention synonym
+lit-up	illuminate	action	medium	1k_stage9_action_audit_v2	caption adjective/action artifact; map to illumination predicate
+instal	install	action	medium	1k_stage9_action_audit_v2	spaCy/OCR lemma artifact for installed

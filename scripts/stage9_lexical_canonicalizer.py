@@ -15,10 +15,14 @@ LEGACY_ACTION_CANONICAL_LEXICON = LEXICON_DIR / "stage9_action_canonical_seed.ts
 DEFAULT_OBJECT_CANONICAL_LEXICON = LEXICON_DIR / "stage9_object_synonym_seed.tsv"
 DEFAULT_OBJECT_SYNONYM_EXPANSION_LEXICON = LEXICON_DIR / "stage9_object_synonym_expansion_v1.tsv"
 DEFAULT_ACTION_CANONICAL_LEXICON = LEXICON_DIR / "stage9_action_synonym_seed.tsv"
+DEFAULT_ACTION_SYNONYM_EXPANSION_LEXICON = LEXICON_DIR / "stage9_action_synonym_expansion_v1.tsv"
 DEFAULT_OBJECT_PARENT_LEXICON = LEXICON_DIR / "stage9_object_parent_seed.tsv"
 DEFAULT_OBJECT_PARENT_EXPANSION_LEXICON = LEXICON_DIR / "stage9_object_parent_expansion_v1.tsv"
+DEFAULT_OBJECT_PARENT_EXPANSION_V2_LEXICON = LEXICON_DIR / "stage9_object_parent_expansion_v2.tsv"
+DEFAULT_OBJECT_PARENT_EXPANSION_V3_LEXICON = LEXICON_DIR / "stage9_object_parent_expansion_v3.tsv"
 DEFAULT_ACTION_PARENT_LEXICON = LEXICON_DIR / "stage9_action_parent_seed.tsv"
 DEFAULT_ACTION_PARENT_EXPANSION_LEXICON = LEXICON_DIR / "stage9_action_parent_expansion_v1.tsv"
+DEFAULT_ACTION_PARENT_EXPANSION_V2_LEXICON = LEXICON_DIR / "stage9_action_parent_expansion_v2.tsv"
 DEFAULT_OBJECT_MWE_CANONICAL_LEXICON = LEXICON_DIR / "object_noun_mwe_clean_core.tsv"
 DEFAULT_ATTRIBUTE_CANONICAL_LEXICON = LEXICON_DIR / "attribute_clean_core_typed_candidate.tsv"
 DEFAULT_ATTRIBUTE_SYNONYM_LEXICON = LEXICON_DIR / "stage9_attribute_synonym_seed.tsv"
@@ -300,10 +304,14 @@ def load_stage9_canonical_lexicon(
     object_path: Path = DEFAULT_OBJECT_CANONICAL_LEXICON,
     object_synonym_expansion_path: Path = DEFAULT_OBJECT_SYNONYM_EXPANSION_LEXICON,
     action_path: Path = DEFAULT_ACTION_CANONICAL_LEXICON,
+    action_synonym_expansion_path: Path = DEFAULT_ACTION_SYNONYM_EXPANSION_LEXICON,
     object_parent_path: Path = DEFAULT_OBJECT_PARENT_LEXICON,
     object_parent_expansion_path: Path = DEFAULT_OBJECT_PARENT_EXPANSION_LEXICON,
+    object_parent_expansion_v2_path: Path = DEFAULT_OBJECT_PARENT_EXPANSION_V2_LEXICON,
+    object_parent_expansion_v3_path: Path = DEFAULT_OBJECT_PARENT_EXPANSION_V3_LEXICON,
     action_parent_path: Path = DEFAULT_ACTION_PARENT_LEXICON,
     action_parent_expansion_path: Path = DEFAULT_ACTION_PARENT_EXPANSION_LEXICON,
+    action_parent_expansion_v2_path: Path = DEFAULT_ACTION_PARENT_EXPANSION_V2_LEXICON,
     object_mwe_path: Path = DEFAULT_OBJECT_MWE_CANONICAL_LEXICON,
     attribute_path: Path = DEFAULT_ATTRIBUTE_CANONICAL_LEXICON,
     attribute_synonym_path: Path = DEFAULT_ATTRIBUTE_SYNONYM_LEXICON,
@@ -327,9 +335,12 @@ def load_stage9_canonical_lexicon(
             default_count_channel="action",
             entries=action_synonyms,
         )
+    load_synonym_entries(action_synonym_expansion_path, default_count_channel="action", entries=action_synonyms)
 
     object_parents = load_parent_entries(object_parent_path, default_count_channel="entity")
     load_parent_entries(object_parent_expansion_path, default_count_channel="entity", entries=object_parents)
+    load_parent_entries(object_parent_expansion_v2_path, default_count_channel="entity", entries=object_parents)
+    load_parent_entries(object_parent_expansion_v3_path, default_count_channel="entity", entries=object_parents)
     if not object_parents:
         load_legacy_seed_parents(
             LEGACY_OBJECT_CANONICAL_LEXICON,
@@ -339,6 +350,7 @@ def load_stage9_canonical_lexicon(
 
     action_parents = load_parent_entries(action_parent_path, default_count_channel="action")
     load_parent_entries(action_parent_expansion_path, default_count_channel="action", entries=action_parents)
+    load_parent_entries(action_parent_expansion_v2_path, default_count_channel="action", entries=action_parents)
     if not action_parents:
         load_legacy_seed_parents(
             LEGACY_ACTION_CANONICAL_LEXICON,

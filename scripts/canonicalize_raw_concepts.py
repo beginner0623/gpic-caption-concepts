@@ -14,13 +14,17 @@ from phrasal_action_lexicon import (
 )
 from stage9_lexical_canonicalizer import (
     DEFAULT_ACTION_CANONICAL_LEXICON,
+    DEFAULT_ACTION_SYNONYM_EXPANSION_LEXICON,
     DEFAULT_ACTION_PARENT_EXPANSION_LEXICON,
+    DEFAULT_ACTION_PARENT_EXPANSION_V2_LEXICON,
     DEFAULT_ACTION_PARENT_LEXICON,
     DEFAULT_ATTRIBUTE_CANONICAL_LEXICON,
     DEFAULT_ATTRIBUTE_SYNONYM_LEXICON,
     DEFAULT_OBJECT_CANONICAL_LEXICON,
     DEFAULT_OBJECT_MWE_CANONICAL_LEXICON,
     DEFAULT_OBJECT_PARENT_EXPANSION_LEXICON,
+    DEFAULT_OBJECT_PARENT_EXPANSION_V2_LEXICON,
+    DEFAULT_OBJECT_PARENT_EXPANSION_V3_LEXICON,
     DEFAULT_OBJECT_PARENT_LEXICON,
     DEFAULT_OBJECT_SYNONYM_EXPANSION_LEXICON,
     DEFAULT_PREPOSITION_MWE_LEXICON,
@@ -671,10 +675,14 @@ def write_summary(
         f"- object_synonym_expansion_lexicon: `{lexicon_paths['object_synonym_expansion']}`",
         f"- object_parent_lexicon: `{lexicon_paths['object_parent']}`",
         f"- object_parent_expansion_lexicon: `{lexicon_paths['object_parent_expansion']}`",
+        f"- object_parent_expansion_v2_lexicon: `{lexicon_paths['object_parent_expansion_v2']}`",
+        f"- object_parent_expansion_v3_lexicon: `{lexicon_paths['object_parent_expansion_v3']}`",
         f"- object_mwe_canonical_lexicon: `{lexicon_paths['object_mwe']}`",
         f"- action_synonym_lexicon: `{lexicon_paths['action']}`",
+        f"- action_synonym_expansion_lexicon: `{lexicon_paths['action_synonym_expansion']}`",
         f"- action_parent_lexicon: `{lexicon_paths['action_parent']}`",
         f"- action_parent_expansion_lexicon: `{lexicon_paths['action_parent_expansion']}`",
+        f"- action_parent_expansion_v2_lexicon: `{lexicon_paths['action_parent_expansion_v2']}`",
         f"- attribute_canonical_lexicon: `{lexicon_paths['attribute']}`",
         f"- attribute_synonym_lexicon: `{lexicon_paths['attribute_synonym']}`",
         f"- relation_canonical_lexicon: `{lexicon_paths['relation']}`",
@@ -792,10 +800,14 @@ def main() -> int:
     parser.add_argument("--object-synonym-expansion-lexicon", type=Path, default=DEFAULT_OBJECT_SYNONYM_EXPANSION_LEXICON)
     parser.add_argument("--object-parent-lexicon", type=Path, default=DEFAULT_OBJECT_PARENT_LEXICON)
     parser.add_argument("--object-parent-expansion-lexicon", type=Path, default=DEFAULT_OBJECT_PARENT_EXPANSION_LEXICON)
+    parser.add_argument("--object-parent-expansion-v2-lexicon", type=Path, default=DEFAULT_OBJECT_PARENT_EXPANSION_V2_LEXICON)
+    parser.add_argument("--object-parent-expansion-v3-lexicon", type=Path, default=DEFAULT_OBJECT_PARENT_EXPANSION_V3_LEXICON)
     parser.add_argument("--object-mwe-canonical-lexicon", type=Path, default=DEFAULT_OBJECT_MWE_CANONICAL_LEXICON)
     parser.add_argument("--action-canonical-lexicon", type=Path, default=DEFAULT_ACTION_CANONICAL_LEXICON)
+    parser.add_argument("--action-synonym-expansion-lexicon", type=Path, default=DEFAULT_ACTION_SYNONYM_EXPANSION_LEXICON)
     parser.add_argument("--action-parent-lexicon", type=Path, default=DEFAULT_ACTION_PARENT_LEXICON)
     parser.add_argument("--action-parent-expansion-lexicon", type=Path, default=DEFAULT_ACTION_PARENT_EXPANSION_LEXICON)
+    parser.add_argument("--action-parent-expansion-v2-lexicon", type=Path, default=DEFAULT_ACTION_PARENT_EXPANSION_V2_LEXICON)
     parser.add_argument("--attribute-canonical-lexicon", type=Path, default=DEFAULT_ATTRIBUTE_CANONICAL_LEXICON)
     parser.add_argument("--attribute-synonym-lexicon", type=Path, default=DEFAULT_ATTRIBUTE_SYNONYM_LEXICON)
     parser.add_argument("--relation-canonical-lexicon", type=Path, default=DEFAULT_RELATION_CANONICAL_LEXICON)
@@ -807,10 +819,14 @@ def main() -> int:
         object_path=args.object_canonical_lexicon,
         object_synonym_expansion_path=args.object_synonym_expansion_lexicon,
         action_path=args.action_canonical_lexicon,
+        action_synonym_expansion_path=args.action_synonym_expansion_lexicon,
         object_parent_path=args.object_parent_lexicon,
         object_parent_expansion_path=args.object_parent_expansion_lexicon,
+        object_parent_expansion_v2_path=args.object_parent_expansion_v2_lexicon,
+        object_parent_expansion_v3_path=args.object_parent_expansion_v3_lexicon,
         action_parent_path=args.action_parent_lexicon,
         action_parent_expansion_path=args.action_parent_expansion_lexicon,
+        action_parent_expansion_v2_path=args.action_parent_expansion_v2_lexicon,
         object_mwe_path=args.object_mwe_canonical_lexicon,
         attribute_path=args.attribute_canonical_lexicon,
         attribute_synonym_path=args.attribute_synonym_lexicon,
@@ -840,10 +856,14 @@ def main() -> int:
                 "object_synonym_expansion": args.object_synonym_expansion_lexicon,
                 "object_parent": args.object_parent_lexicon,
                 "object_parent_expansion": args.object_parent_expansion_lexicon,
+                "object_parent_expansion_v2": args.object_parent_expansion_v2_lexicon,
+                "object_parent_expansion_v3": args.object_parent_expansion_v3_lexicon,
                 "object_mwe": args.object_mwe_canonical_lexicon,
                 "action": args.action_canonical_lexicon,
+                "action_synonym_expansion": args.action_synonym_expansion_lexicon,
                 "action_parent": args.action_parent_lexicon,
                 "action_parent_expansion": args.action_parent_expansion_lexicon,
+                "action_parent_expansion_v2": args.action_parent_expansion_v2_lexicon,
                 "attribute": args.attribute_canonical_lexicon,
                 "attribute_synonym": args.attribute_synonym_lexicon,
                 "relation": args.relation_canonical_lexicon,

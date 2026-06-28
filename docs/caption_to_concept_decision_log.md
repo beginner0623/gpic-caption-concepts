@@ -4742,3 +4742,230 @@ reports/case_detail_alt100_val00001_trf_stage9_canonical_v2.md
 - Open Images hierarchy, LVIS/COCO supercategory를 object parent 후보로 추가한다.
 - VerbNet/FrameNet 기반 action parent 후보를 만든다.
 - `turquoise`, `teal`, `magenta`처럼 basic color collapse가 애매한 색은 아직 자동 적용하지 않는다.
+
+## 2026-06-28: Stage 9 canonical v2를 새 1k GPIC shard로 확장 평가
+
+목표:
+
+- 기존에 테스트한 `val_00000`, `val_00001` 100개 샘플을 피하고, 새로운 shard에서 1k를 돌려 Stage 9 병목이 반복되는지 확인한다.
+- 새 룰을 추가하지 않고 현재 Stage 8/9 파이프라인 그대로 baseline을 확장한다.
+- relation은 semantic parent로 무리하게 분류하지 않고 raw-preserving key로 유지한다.
+
+입력:
+
+```text
+data/gpic_captions_1k_val00002_00011/val/gpic_val_00002.jsonl.gz
+...
+data/gpic_captions_1k_val00002_00011/val/gpic_val_00011.jsonl.gz
+data/gpic_captions_1k_val00002_00011/val/gpic_val_00002_00011_merged_1000.jsonl.gz
+```
+
+실행 설정:
+
+```text
+Stage 8:
+  model: en_core_web_trf
+  max_records: 1000
+  batch_size: 64
+  n_process: 1
+  mask_quotes: true
+  parse_tag_lists: true
+  merge_object_mwes: true
+  merge_hyphen_spans: true
+
+Stage 9:
+  canonical v2 lexicon defaults
+  phrasal_action_model_audited_core.tsv
+  object/action parent expansion v1
+  relation raw-preserving policy 유지
+```
+
+출력:
+
+```text
+reports/raw_concepts_1k_val00002_00011_trf_current.jsonl
+reports/raw_concepts_1k_val00002_00011_trf_current_summary.md
+reports/canonical_concepts_1k_val00002_00011_trf_stage9_canonical_v2.jsonl
+reports/canonical_concepts_1k_val00002_00011_trf_stage9_canonical_v2_summary.md
+reports/stage9_quality_audit_1k_val00002_00011_canonical_v2.md
+reports/case_detail_1k_val00002_00011_trf_stage9_canonical_v2_first100.md
+```
+
+핵심 결과:
+
+| metric | count |
+|---|---:|
+| records | 1000 |
+| entities | 7344 |
+| entity_parent_none | 3420 |
+| events | 2294 |
+| action_parent_fallback | 888 |
+| relations | 3382 |
+| raw_relation | 245 |
+| raw_attribute | 1519 |
+| self_relation_after_canonicalization | 0 |
+| skipped_edges | 36 |
+
+해석:
+
+- 가장 큰 병목은 여전히 `entity_parent_none`이다. 1k 기준 3420개가 남았고, 대부분 object다.
+- 상위 missing parent는 `microphone`, `light`, `glass`, `area`, `leaf`, `flag`, `group`, `ground`, `spectator`, `hat`, `statue`, `number`, `structure`, `hill` 등이다.
+- `action_parent_fallback`은 888개이며 `have`, `appear`, `include`, `line`, `park`, `stretch`, `set`, `feature`, `lead` 등이 반복된다. parent 추가 대상과 action count 제외 후보를 분리해야 한다.
+- `raw_attribute`는 1519개이며 `grassy`, `other`, `paved`, `light`, `indoor`, `young`, `bare`, `outdoor`, `calm` 등이 반복된다. 명확한 attribute만 v2로 승격한다.
+- relation은 `to`, `from`, `include`, `into`, `for`, `toward`, `during`, `like` 등이 raw로 남지만, 의미 parent 분류가 위험하므로 raw relation key를 유지한다.
+- graph integrity는 크게 무너지지 않았다. canonical self relation은 0개이고, skip된 edge 36개 중 `self_edge_after_coref`가 25개다.
+
+다음 결정:
+
+1. 1k audit 기반으로 `stage9_object_parent_expansion_v2.tsv` 후보를 먼저 만든다.
+2. 후보 생성은 외부 source 기반으로 하고, GPIC target caption을 보고 whitelist를 고르지 않는다.
+3. synonym canonicalization은 parent coverage를 확장한 다음, high-confidence alias만 따로 진행한다.
+4. relation은 당분간 parent 분류를 보류하고 raw-preserving canonical key만 유지한다.
+
+## 2026-06-28: Stage 9 object parent expansion v2 적용
+
+목표:
+
+- 1k audit에서 반복적으로 나온 `entity_parent_none`을 줄인다.
+- synonym canonicalization은 아직 건드리지 않고, parent coverage만 보강한다.
+- `relation` parent 분류는 계속 보류한다.
+
+변경 파일:
+
+```text
+resources/lexicons/stage9_object_parent_expansion_v2.tsv
+scripts/stage9_lexical_canonicalizer.py
+scripts/canonicalize_raw_concepts.py
+```
+
+구현:
+
+- `stage9_object_parent_expansion_v2.tsv`를 새로 추가했다.
+- Stage 9 로더가 기존 `stage9_object_parent_expansion_v1.tsv` 다음에 v2 parent lexicon을 추가로 읽도록 했다.
+- canonicalization summary에 `object_parent_expansion_v2_lexicon` 경로를 기록하도록 했다.
+
+v2 parent 적용 기준:
+
+- 1k audit에서 반복된 missing parent 중 parent가 비교적 명확한 항목을 우선 추가했다.
+- WordNet/OEWN synset/hypernym, compound head inheritance, project ontology audit를 source/notes에 기록했다.
+- 애매한 항목은 `medium` confidence와 넓은 parent를 부여했다.
+- relation은 parent 분류하지 않았다.
+
+예시:
+
+| term | parent_chain | confidence |
+|---|---|---|
+| `microphone` | `device|artifact` | high |
+| `leaf` | `plant_part|plant|living_thing` | high |
+| `flag` | `symbol|artifact` | high |
+| `spectator` | `person|human` | high |
+| `hat` | `clothing|wearable` | high |
+| `statue` | `artwork|artifact` | high |
+| `hill`, `hillside`, `cliff`, `slope` | `landform|place` | high |
+| `soccer_player`, `hockey_player` | `athlete|person|human` | high |
+| `area`, `side`, `top`, `surface` | spatial/scene-region 계열 | medium |
+| `glass`, `light`, `figure`, `character` | ambiguous broad parent | medium |
+
+재실행 출력:
+
+```text
+reports/canonical_concepts_1k_val00002_00011_trf_stage9_parent_v2.jsonl
+reports/canonical_concepts_1k_val00002_00011_trf_stage9_parent_v2_summary.md
+reports/stage9_quality_audit_1k_val00002_00011_parent_v2.md
+reports/case_detail_1k_val00002_00011_trf_stage9_parent_v2_all1000.md
+```
+
+개선 전후:
+
+| metric | before canonical v2 | after parent v2 |
+|---|---:|---:|
+| records | 1000 | 1000 |
+| entities | 7344 | 7344 |
+| entity_parent_none | 3420 | 1852 |
+| action_parent_fallback | 888 | 888 |
+| raw_relation | 245 | 245 |
+| raw_attribute | 1519 | 1519 |
+| self_relation_after_canonicalization | 0 | 0 |
+| skipped_edges | 36 | 36 |
+
+해석:
+
+- parent v2만으로 `entity_parent_none`이 1568개 감소했다.
+- 상위 missing parent는 `microphone/light/glass/area/leaf/...` 같은 반복 항목에서, `star/step/judoka/sweater/...` 같은 5~6회 long-tail로 내려갔다.
+- action/relation/attribute 숫자는 의도적으로 변하지 않았다. 이번 변경은 parent coverage만 개선하는 것이 목적이었다.
+
+다음 과제:
+
+- 남은 parent none은 long-tail 중심이므로, 10k 이상에서 반복되는 항목만 v3 후보로 올린다.
+- 다음 큰 병목은 `action_parent_fallback`과 `raw_attribute_role`이다.
+- relation은 계속 raw-preserving으로 유지한다.
+
+## 2026-06-28: Stage 9 parent long-tail v3 + action canonical/parent v2
+
+목표:
+
+- `entity_parent_none`의 남은 long-tail을 추가로 줄인다.
+- action에 대해서도 object처럼 `raw action -> canonical action -> parent action` 흐름을 적용한다.
+- 단, action synonym은 high-confidence만 작게 넣고, 애매한 동사는 canonical은 유지하되 parent만 부여한다.
+
+변경 파일:
+
+```text
+resources/lexicons/stage9_object_parent_expansion_v3.tsv
+resources/lexicons/stage9_action_synonym_expansion_v1.tsv
+resources/lexicons/stage9_action_parent_expansion_v2.tsv
+scripts/stage9_lexical_canonicalizer.py
+scripts/canonicalize_raw_concepts.py
+```
+
+구현:
+
+- object parent는 `stage9_object_parent_expansion_v2.tsv` 다음에 `v3`를 추가로 읽는다.
+- action synonym은 기존 seed 다음에 `stage9_action_synonym_expansion_v1.tsv`를 읽는다.
+- action parent는 기존 seed/v1 다음에 `stage9_action_parent_expansion_v2.tsv`를 읽는다.
+- Stage 9 summary에 새 lexicon 경로를 모두 기록한다.
+
+기준:
+
+- parent long-tail은 1k audit의 반복 missing term 중 WordNet/OEWN hypernym 또는 compound head 기준으로 비교적 안정적인 항목만 추가했다.
+- `speaker`, `dish`, `crane`, `pitcher`, `band`처럼 의미가 갈리는 항목은 단일 parent로 강제하지 않고 broad parent를 사용했다.
+- action synonym은 `jog -> run`, `leap -> jump`, `grip/clasp -> hold`, `gaze/stare -> look`처럼 대표 synonym으로 봐도 손실이 작은 것만 넣었다.
+- `have`, `appear`, `include`, `feature`, `suggest` 같은 caption predicate는 canonical을 억지로 합치지 않고 parent만 부여했다.
+
+재실행 출력:
+
+```text
+reports/canonical_concepts_1k_val00002_00011_trf_stage9_parent_action_v3.jsonl
+reports/canonical_concepts_1k_val00002_00011_trf_stage9_parent_action_v3_summary.md
+reports/stage9_quality_audit_1k_val00002_00011_parent_action_v3.md
+reports/case_detail_1k_val00002_00011_trf_stage9_parent_action_v3_all1000.md
+```
+
+개선 전후:
+
+| metric | parent v2 | parent+action v3 |
+|---|---:|---:|
+| records | 1000 | 1000 |
+| entities | 7344 | 7344 |
+| entity_parent_none | 1852 | 1078 |
+| events | 2294 | 2294 |
+| action_parent_fallback | 888 | 76 |
+| relations | 3382 | 3382 |
+| raw_relation | 245 | 245 |
+| raw_attribute | 1519 | 1519 |
+| self_relation_after_canonicalization | 0 | 0 |
+| skipped_edges | 36 | 36 |
+
+해석:
+
+- parent v3로 `entity_parent_none`이 추가로 774개 감소했다.
+- action parent v2로 `action_parent_fallback`이 812개 감소했다.
+- relation, raw attribute, skipped edge, self relation은 변하지 않았다. 즉 이번 변경은 Stage 9 lexical canonicalization coverage만 넓힌 것이다.
+- 남은 action fallback은 대부분 1~2회짜리 long-tail 또는 punctuation/OCR artifact다.
+- 남은 parent none도 `focus`, `ring`, `trunk`, `trim`, `material`, `scale`처럼 의미가 갈리는 long-tail이 많다.
+
+다음 과제:
+
+- 10k 이상에서 parent/action long-tail을 다시 보고, 1k에만 과적합된 항목은 넣지 않는다.
+- punctuation/OCR artifact action은 canonicalization보다 noise/token cleanup 단계에서 처리하는 편이 맞다.
+- action synonym은 계속 보수적으로 유지하고, 애매한 것은 parent에서만 묶는다.

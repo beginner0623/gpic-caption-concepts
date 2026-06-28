@@ -1,0 +1,210 @@
+term	parent_chain	count_channel	confidence	source	notes
+star	symbol_or_celestial_object|visual_element	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	ambiguous flag star/celestial star; keep broad visual parent
+step	architectural_part|structure|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	stairs/steps as built structure part
+judoka	athlete|person|human	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	judo athlete
+sweater	clothing|wearable	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	wearable clothing
+interior	interior_place|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	inside place/setting
+student	person|human	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	human role
+facade	architectural_part|structure|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	building exterior face
+edge	spatial_region|scene_element	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	boundary/region; keep broad
+speaker	person_or_audio_device|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	ambiguous human speaker/audio device
+gown	clothing|wearable	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	wearable clothing
+dock	structure|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	waterfront structure/place
+controller	device|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	control device
+football_player	athlete|person|human	entity	high	1k_stage9_audit_v3 + compound_head:player	athlete compound
+fur	animal_part|material	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	animal covering/material noun
+power_line	infrastructure|artifact	entity	high	1k_stage9_audit_v3 + compound_head:line	utility line
+courtyard	outdoor_place|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	enclosed outdoor place
+dish	food_or_container|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	ambiguous prepared food/plate vessel
+outfit	clothing|wearable	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	clothing set
+pool	water_body|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	water body or swimming pool
+stand	support_structure|furniture|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	object support/stand; can also be spectator stands
+square	public_place|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	public square/place
+tool	tool|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	physical tool
+place	place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	generic place
+crane	machine_or_animal|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	construction crane or bird; keep broad
+cityscape	place|scene_element	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	urban scene view
+cactus	plant|living_thing	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	plant
+storefront	building_part|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	shop/building front
+sailboat	boat|vehicle	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	water vehicle
+ribbon	accessory|decoration|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	decorative strip/accessory
+ship	boat|vehicle	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	water vehicle
+word	text_element	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	text element
+valley	landform|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	landform
+bank	landform|place	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	river bank/slope; keep place parent
+beam	structural_part_or_light_element|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	structural beam or light beam
+ruler	measurement_device|tool|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	measuring tool
+greenery	plant|living_thing	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	vegetation
+detail	visual_element	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	visual/detail noun
+shutter	architectural_part|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	window covering/building part
+canopy	covering_structure|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	overhead covering
+monument	structure|artwork|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	memorial structure
+reed	plant|living_thing	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	plant
+mat	floor_covering|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	mat/floor covering
+match	sports_event	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	sports match/event
+tail	animal_part_or_vehicle_part	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	animal tail or aircraft tail
+mirror	reflective_object|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	reflective object
+gymnasium	sports_facility|interior_place|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	indoor sports place
+boot	clothing|wearable	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	footwear
+officer	person|human	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	human role
+member	person|human	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	member/person in group contexts
+presentation	visual_document|event	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	presentation screen/event content
+glove	clothing|wearable	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	wearable clothing
+post	structure|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	upright support/post
+lantern	lighting_device|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	lighting object
+sauce	food	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	food substance
+silhouette	visual_element	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	visual outline
+carving	artwork|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	carved artwork/detail
+paint	material|visual_attribute	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	paint material/color layer
+antenna	device_part_or_animal_part	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	antenna/antennae ambiguity
+medal	award|accessory|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	award object
+machinery	machine|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	machines/equipment
+rug	floor_covering|textile|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	floor textile
+groom	person|human	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	human wedding role
+guest	person|human	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	human role
+sunset	time_context|natural_scene	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	time/natural scene
+case	container|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	case/container; broad artifact
+hole	spatial_region|scene_element	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	opening/region
+portrait	artwork|visual_document|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	visual artwork/document
+roadside	place|spatial_region	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	roadside place
+archway	architectural_part|structure	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	architectural opening
+balcony	architectural_part|structure	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	building part
+pitcher	person_or_container|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	baseball pitcher or container
+block	structure|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	physical block/barrier/part
+scaffolding	structure|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	temporary support structure
+polo_shirt	clothing|wearable	entity	high	1k_stage9_audit_v3 + compound_head:shirt	clothing compound
+marker	writing_tool|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	writing tool/marker
+american_flag	flag|symbol|artifact	entity	high	1k_stage9_audit_v3 + compound_head:flag	flag subtype
+bar	place_or_structure|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	bar place/rod/counter ambiguity
+guitar	musical_instrument|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	instrument
+awning	covering_structure|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	covering structure
+rack	furniture|support_structure|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	storage/support rack
+border	spatial_region|visual_element	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	boundary/visual border
+tablecloth	textile|furnishing|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	table textile
+shoreline	landform|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	coastline/shore
+potted_plant	plant|living_thing	entity	high	1k_stage9_audit_v3 + compound_head:plant	plant object
+sideline	spatial_region|sports_field_part	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	sports field boundary
+letter	text_element|symbol	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	text symbol
+title	text_element	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	text/title element
+petal	plant_part|plant	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	flower part
+nose	body_part	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	body part
+butterfly	insect|animal|living_thing	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	animal/insect
+temple	building|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	building/place
+equipment	artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	equipment/artifact
+stall	structure|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	booth/stall structure
+living_room	interior_place|place	entity	high	1k_stage9_audit_v3 + compound_head:room	room/place
+note	text_document|text_carrier|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	written note/document
+rabbit	animal|living_thing	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	animal
+certificate	document|text_carrier|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	document
+beetle	insect|animal|living_thing	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	animal/insect
+lid	container_part|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	container part
+bleacher	seating_structure|furniture|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	stadium seating
+button	clothing_part_or_device_part|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	button on clothing/device
+performer	person|human	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	human role
+bookshelf	furniture|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	furniture
+deer	animal|living_thing	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	animal
+beak	animal_part	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	bird part
+clock	device|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	clock/time device
+award	award|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	award object/concept
+trophy	award|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	award object
+moon	celestial_body|natural_object	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	celestial object
+wire	artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	wire/cable
+race_car	car|vehicle	entity	high	1k_stage9_audit_v3 + compound_head:car	vehicle subtype
+whiteboard	board|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	writing board
+sports_car	car|vehicle	entity	high	1k_stage9_audit_v3 + compound_head:car	vehicle subtype
+robot	machine|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	machine/artifact
+cabinet	furniture|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	furniture/storage
+ceiling_fan	appliance|device|artifact	entity	high	1k_stage9_audit_v3 + compound_head:fan	device
+band	accessory_or_group|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	band/accessory/group ambiguity
+street_corner	place|spatial_region	entity	high	1k_stage9_audit_v3 + compound_head:corner	urban place
+stick	natural_object_or_tool|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	stick/rod/tool ambiguity
+chest	body_part_or_container|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	body chest or storage chest
+bow	accessory_or_weapon|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	hair bow/ribbon or archery bow
+signpost	sign|structure|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	sign support
+paneling	architectural_part|surface	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	wall/surface covering
+lot	place	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	parking/dirt lot place
+conference	event	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	event context
+setup	arrangement	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	arranged scene/setup
+moth	insect|animal|living_thing	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	animal/insect
+air	natural_element	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	air/atmosphere
+fish	animal|living_thing	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	animal
+color	visual_property	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	color property noun
+figurine	artwork|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	figure/art object
+headdress	clothing|wearable	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	wearable head item
+drum	musical_instrument|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	instrument
+instrument	musical_instrument|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	instrument
+pedestal	support_structure|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	support base
+party	event	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	social event
+decoration	decoration|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	decorative object
+castle	building|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	building/place
+village	settlement|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	settlement/place
+headscarf	clothing|wearable	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	wearable clothing
+patio	place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	outdoor place
+deck	structure|place	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	deck/platform/place
+necklace	accessory|wearable	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	wearable accessory
+pathway	path|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	path/place
+mound	landform|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	landform
+catcher	athlete|person|human	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	sports role
+component	part|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	object part/component
+town	settlement|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	settlement/place
+picture	artwork|visual_document|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	visual document/artwork
+lamppost	lighting_device|structure|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	lamp support
+shop	place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	commercial place
+dome	architectural_part|structure	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	architectural part
+pond	water_body|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	water body
+gesture	body_motion|visual_element	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	visible gesture noun
+headband	accessory|wearable	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	wearable accessory
+legging	clothing|wearable	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	clothing
+daylight	illumination|time_context	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	light/time context
+formation	arrangement	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	arrangement noun
+bin	container|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	container
+cover	covering|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	cover/covering object
+city	settlement|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	place
+street_sign	sign|artifact	entity	high	1k_stage9_audit_v3 + compound_head:sign	sign object
+stool	furniture|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	furniture
+dancer	person|human	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	human role
+name_tag	label|artifact	entity	high	1k_stage9_audit_v3 + compound_head:tag	wearable label
+coat_stand	furniture|artifact	entity	high	1k_stage9_audit_v3 + compound_head:stand	furniture/support
+lamp	lighting_device|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	lighting object
+creature	animal|living_thing	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	living creature; broad animal parent
+rim	object_part|edge	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	object edge/rim
+bedroom	interior_place|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	room/place
+ruin	structure|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	ruined structure/place
+bib	clothing|wearable	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	wearable item
+blanket	textile|furnishing|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	textile/furnishing
+glow	illumination|visual_element	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	light/visual effect noun
+stream	water_body|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	water body
+athlete	person|human	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	human role
+texture	visual_property	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	visual property
+architecture	structure|building_style	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	built environment/style
+dune	landform|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	landform
+mural	artwork|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	wall artwork
+beard	hair|body_part	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	facial hair
+center	spatial_region	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	central region
+streetlamp	lighting_device|structure|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	lighting object/structure
+spire	architectural_part|structure	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	architectural part
+sheet	textile_or_document|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	sheet textile/paper ambiguity
+section	spatial_region	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	part/section
+christmas_tree	tree|plant|artifact	entity	medium	1k_stage9_audit_v3 + compound_head:tree	tree/decorative object
+can	container|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	container/can
+vessel	container_or_vehicle|artifact	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	container/ship ambiguity
+twig	plant_part|plant	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	plant part
+bee	insect|animal|living_thing	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	animal/insect
+walkway	path|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	path/place
+wine_glass	drinking_vessel|artifact	entity	high	1k_stage9_audit_v3 + compound_head:glass	drinking vessel
+harbor	place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	place
+mountain_range	landform|place	entity	high	1k_stage9_audit_v3 + compound_head:range	landform
+blossom	plant_part|plant	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	flower/blossom
+hockey_stick	sports_equipment|artifact	entity	high	1k_stage9_audit_v3 + compound_head:stick	sports equipment
+pedestrian	person|human	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	human role
+ice	natural_element	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	natural material/element
+cemetery	place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	place
+watch	accessory|device|wearable	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	wearable device/accessory
+helicopter	aircraft|vehicle	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	vehicle
+alleyway	path|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	urban path/place
+shell	animal_part|natural_object	entity	medium	1k_stage9_audit_v3 + wordnet_hypernym	shell object/natural part
+herb	plant|food	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	plant/food
+fountain	structure|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	water feature/structure
+wrestler	athlete|person|human	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	human athlete
+crater	landform|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	landform
+vase	container|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	container/art object

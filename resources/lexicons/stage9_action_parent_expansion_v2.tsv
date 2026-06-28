@@ -1,0 +1,153 @@
+term	parent_chain	count_channel	confidence	source	notes
+have	possession_or_property_state|visual_action	action	medium	1k_stage9_action_audit_v2 + project_action_ontology	visual has/has-part/property predicate
+appear	appearance_state|visual_action	action	medium	1k_stage9_action_audit_v2 + project_action_ontology	appearance/stative visual predicate
+include	enumeration_or_composition_predicate|visual_action	action	medium	1k_stage9_action_audit_v2 + project_action_ontology	caption composition/enumeration predicate
+line	arrangement_action|spatial_configuration_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:line.v.01	objects line a road/wall/path
+park	placement_state_action|vehicle_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:park.v.01	vehicle/person placement state
+stretch	spatial_extent_state|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:stretch.v.02	spatial extent predicate
+set	placement_or_arrangement_state|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:set.v.01	set/placed/arranged visual state
+feature	visual_feature_predicate|visual_presentation_action|visual_action	action	medium	1k_stage9_action_audit_v2 + project_action_ontology	caption feature/has-prominent-part predicate
+lead	path_orientation_action|spatial_configuration_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:lead.v.01	path/line leads to target
+rise	vertical_motion_or_extent_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:rise.v.01	vertical extent/motion
+grow	biological_growth_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:grow.v.01	plant/body growth or growth state
+position	placement_or_arrangement_state|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:position.v.01	positioned/placed state
+label	text_annotation_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:label.v.01	visual label/text annotation
+raise	body_or_object_motion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:raise.v.01	raised body/object motion
+suggest	visual_inference_predicate|visual_action	action	low	1k_stage9_action_audit_v2 + project_action_ontology	caption inference predicate; keep separate, low confidence
+write	text_creation_or_display_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:write.v.01	written text or writing action
+gather	grouping_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:gather.v.01	people/objects gather together
+take	capture_or_manipulation_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:take.v.01	photo-taking or object-taking; ambiguous
+float	locomotion_or_support_state|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:float.v.01	floating object/vehicle state
+arrange	arrangement_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:arrange.v.01	arranged objects
+reflect	optical_reflection_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:reflect.v.01	mirror/reflection visual action
+frame	visual_framing_action|spatial_configuration_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:frame.v.01	objects frame scene/source
+rid	visual_texture_state|visual_action	action	low	1k_stage9_action_audit_v2	parser artifact from ridged; keep low-confidence visual property state
+shake	gesture_or_contact_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:shake.v.01	shake hands/body/object
+fly	locomotion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:fly.v.01	flight motion
+extend	spatial_extent_state|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:extend.v.01	extends across/into
+paint	coloring_or_creation_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:paint.v.01	painting or painted state
+perch	body_pose_or_support_state|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:perch.v.01	bird/person perched on support
+perform	performance_action|activity_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:perform.v.01	visible performance action
+make	creation_or_material_predicate|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:make.v.01	made of / making action ambiguity
+illuminate	illumination_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:illuminate.v.01	lighting/illumination
+gesture	gesture_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:gesture.v.01	gesture action
+see	perception_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:see.v.01	visible/perception predicate
+compete	sports_action|activity_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:compete.v.01	sports/competition action
+glow	illumination_state|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:glow.v.01	glowing light state
+wave	gesture_or_motion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:wave.v.01	waving/undulating motion
+decorate	decoration_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:decorate.v.01	decorative modification
+scatter	distribution_state|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:scatter.v.01	scattered spatial distribution
+sing	performance_or_communication_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:sing.v.01	singing performance
+kneel	body_pose_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:kneel.v.01	body pose
+mount	attachment_or_placement_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:mount.v.01	mounted/placed/attached; can be ride context
+listen	perception_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:listen.v.01	visible listening context
+draw	creation_or_targeting_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:draw.v.01	drawing or drawing bow ambiguity
+drive	vehicle_use_action|locomotion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:drive.v.01	vehicle operation
+reach	body_motion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:reach.v.01	reaching motion
+create	creation_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:create.v.01	creation/making action
+flank	spatial_configuration_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:flank.v.01	objects on sides of target
+curve	shape_state|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:curve.v.01	curved shape/state
+indicate	visual_indication_or_text_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:indicate.v.01	sign/visual indication
+observe	perception_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:observe.v.01	visible observation
+light	illumination_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:light.v.01	lighting/illuminating
+blur	visual_effect_state|visual_action	action	medium	1k_stage9_action_audit_v2	blurred background/state
+cast	projection_or_shadow_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:cast.v.01	cast shadow/light/object
+span	spatial_extent_state|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:span.v.01	bridge/line spans target
+turn	rotation_or_orientation_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:turn.v.01	turn/rotate/orient
+spread	distribution_state|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:spread.v.01	spread out distribution
+highlight	visual_emphasis_or_text_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:highlight.v.01	highlighted visual/text feature
+bloom	biological_growth_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:bloom.v.01	flower bloom
+pin	attachment_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:pin.v.01	pinned/attached
+tackle	contact_action|sports_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:tackle.v.01	sports/contact action
+use	interaction_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:use.v.01	visible use/operation
+form	creation_or_configuration_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:form.v.01	form shape/group
+flow	fluid_motion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:flow.v.01	water/fluid flow
+mirror	optical_reflection_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:mirror.v.01	mirror/reflect visual predicate
+blanket	covering_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:blanket.v.01	covered/blanketed state
+chase	locomotion_action|activity_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:chase.v.01	pursuit action
+shin	illumination_state|visual_action	action	low	1k_stage9_action_audit_v2	parser artifact likely shine/shines; low confidence
+wrap	covering_or_enclosure_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:wrap.v.01	wrapped/covered
+drape	covering_or_placement_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:drape.v.01	draped cloth state/action
+list	text_enumeration_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:list.v.01	text/list display
+view	perception_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:view.v.01	visible viewing context
+crouch	body_pose_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:crouch.v.01	body pose
+wind	shape_or_motion_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:wind.v.02	winding path or winding motion
+stop	motion_state_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:stop.v.01	stopped vehicle/person/object state
+mark	text_annotation_or_surface_marking_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:mark.v.01	marked surface/text/label
+race	sports_action|locomotion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:race.v.01	racing motion
+examine	perception_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:examine.v.01	visible inspection
+adjust	manipulation_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:adjust.v.01	manual adjustment
+follow	locomotion_or_tracking_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:follow.v.01	follow/behind motion
+send	caused_motion_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:send.v.01	sending object/debris/hair motion
+connect	attachment_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:connect.v.01	connected/linked objects
+explain	communication_or_text_presentation_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:explain.v.01	teaching/poster explanation context
+browse	activity_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:browse.v.01	visible browsing activity
+tile	surface_covering_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:tile.v.01	tiled surface state
+hover	locomotion_or_support_state|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:hover.v.01	hovering motion/state
+laugh	expression_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:laugh.v.01	facial expression/action
+serve	food_service_or_transfer_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:serve.v.01	serving food or served-in container
+say	text_display_or_communication_action|visual_action	action	medium	1k_stage9_action_audit_v2 + project_action_ontology	text says/sign says or speech; keep separate canonical
+dock	placement_state_action|vehicle_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:dock.v.01	docked boat/vehicle state
+reveal	visual_presentation_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:reveal.v.01	revealing visible content
+lay	placement_or_body_pose_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:lay.v.01	laid object or laying body ambiguity
+print	text_rendering_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:print.v.01	printed text/image
+hide	occlusion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:hide.v.01	hidden/hiding visual occlusion
+depict	visual_presentation_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:depict.v.01	image/art depicts content
+roll	rolling_or_shape_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:roll.v.01	rolling motion or rolled shape
+pave	construction_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:pave.v.01	paving/paved surface
+fold	shape_change_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:fold.v.01	folded state/action
+give	transfer_or_gesture_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:give.v.01	give object or thumbs-up gesture
+separate	spatial_configuration_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:separate.v.01	separation boundary/configuration
+cluster	grouping_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:cluster.v.01	clustered objects
+shape	shape_state|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:shape.v.01	shaped object/state
+cross	locomotion_or_path_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:cross.v.01	crossing person/line/path
+top	placement_or_covering_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:top.v.01	topped-by state
+crash	contact_or_wave_motion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:crash.v.01	wave/vehicle/contact motion
+work	activity_or_operation_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:work.v.01	working/operating visible activity
+travel	locomotion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:travel.v.01	travel motion
+lift	manipulation_or_motion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:lift.v.01	lifting object/body
+keep	state_maintenance_action|visual_action	action	low	1k_stage9_action_audit_v2 + wordnet_synset:keep.v.01	usually instructional text; low confidence visual predicate
+capture	image_capture_or_representation_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:capture.v.01	camera capture or image representation
+carve	surface_marking_or_creation_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:carve.v.01	carved surface/text
+leave	trace_or_motion_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:leave.v.01	leaving trail/object
+aim	targeting_or_orientation_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:aim.v.01	aiming bow/weapon/gaze
+tower	vertical_extent_state|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:tower.v.01	towering structure
+project	projection_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:project.v.01	projected shadow/light/image
+address	communication_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:address.v.01	addressing audience
+shroud	covering_or_occlusion_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:shroud.v.01	mist/snow covers scene
+drift	locomotion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:drift.v.01	drifting vehicle/object
+contrast	visual_comparison_state|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:contrast.v.01	visual contrast state
+install	attachment_or_placement_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:install.v.01	installed object/component
+spray	fluid_motion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:spray.v.01	water/spray motion
+cascade	fluid_motion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:cascade.v.01	waterfall/fluid motion
+march	locomotion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:march.v.01	marching people
+break	state_change_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:break.v.01	breaking object
+continue	continuation_state|visual_action	action	low	1k_stage9_action_audit_v2 + project_action_ontology	mostly discourse/temporal; low confidence
+defend	sports_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:defend.v.01	sports defensive action
+accompany	association_state|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:accompany.v.01	object/person accompanied by another
+teach	communication_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:teach.v.01	teaching visible context
+plow	construction_or_agriculture_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:plow.v.01	plowed/paving field/road
+style	arrangement_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:style.v.01	styled hair/clothing
+spike	sports_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:spike.v.01	volleyball/sports spike
+block	obstruction_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:block.v.01	barrier blocks path
+organize	arrangement_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:organize.v.01	organized visual/text layout
+sail	locomotion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:sail.v.01	boat sailing
+name	text_labeling_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:name.v.01	named text/label
+rush	fluid_or_fast_motion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:rush.v.01	rushing water/person
+linger	persistence_state|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:linger.v.01	lingering snow/cloud/object
+embed	attachment_or_inclusion_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:embed.v.01	embedded object/text
+shoot	projectile_or_emission_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:shoot.v.01	shoot beam/object/projectile
+dominate	spatial_prominence_state|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:dominate.v.01	prominent object dominates scene
+shade	occlusion_or_light_state|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:shade.v.01	shaded by object/light
+push	manipulation_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:push.v.01	pushing object
+present	visual_presentation_or_communication_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:present.v.01	presentation/showing action
+border	spatial_configuration_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:border.v.01	bordering path/area
+fire	projectile_or_emission_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:fire.v.01	firing jet/weapon/light
+mix	preparation_or_combination_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:mix.v.01	mixed food/materials
+season	preparation_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:season.v.01	seasoned food state
+sell	commerce_activity|visual_action	action	low	1k_stage9_action_audit_v2 + wordnet_synset:sell.v.01	visible market/stall activity but not always visual
+silhouette	visual_effect_state|visual_action	action	medium	1k_stage9_action_audit_v2	silhouetted visual state
+remain	persistence_state|visual_action	action	low	1k_stage9_action_audit_v2 + wordnet_synset:remain.v.01	state persistence, low visual specificity
+breathe	biological_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:breathe.v.01	visible scuba/breathing context
+focus	perception_or_camera_action|visual_action	action	medium	1k_stage9_action_audit_v2 + wordnet_synset:focus.v.01	focusing gaze/camera
+scratch	surface_marking_action|visual_action	action	high	1k_stage9_action_audit_v2 + wordnet_synset:scratch.v.01	scratched mark/state
