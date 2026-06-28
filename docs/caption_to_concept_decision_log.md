@@ -5011,3 +5011,72 @@ Stage 9 canonical/parent:
 
 - 이건 특정 caption만 고치는 땜빵이 아니라 morphology 기반 disambiguation이다.
 - 다만 모든 color word plural을 object로 허용하지는 않았다. `reds`, `blues` 같은 색상 명사화가 object로 오염될 수 있어서, 우선 `orange/glass`처럼 실제 GPIC/visual caption에서 object sense가 강한 ambiguous lemma만 허용한다.
+
+## 2026-06-29: plural lexical object 1k regression rerun and iterative feedback plan
+
+재실행 목표:
+
+- 직전 plural lexical object rule을 1k 샘플 전체에 다시 적용한다.
+- 이전 기준선 `stage9_parent_action_v3`와 비교해서 regression 여부를 본다.
+- 10k 확장 대신, 앞으로 GPIC를 돌리며 후보를 축적할 feedback loop를 먼저 문서화한다.
+
+재실행 출력:
+
+```text
+reports/raw_concepts_1k_val00002_00011_trf_plural_v1.jsonl
+reports/raw_concepts_1k_val00002_00011_trf_plural_v1_summary.md
+reports/canonical_concepts_1k_val00002_00011_trf_stage9_plural_v1.jsonl
+reports/canonical_concepts_1k_val00002_00011_trf_stage9_plural_v1_summary.md
+reports/stage9_quality_audit_1k_val00002_00011_plural_v1.md
+reports/case_detail_1k_val00002_00011_trf_stage9_plural_v1_all1000.md
+reports/stage9_plural_v1_regression_1k_val00002_00011.md
+```
+
+before/after 핵심 수치:
+
+| metric | parent_action_v3 | plural_v1 | delta |
+|---|---:|---:|---:|
+| records | 1000 | 1000 | 0 |
+| entities | 7344 | 7344 | 0 |
+| parent_none | 1078 | 1078 | 0 |
+| events | 2294 | 2294 | 0 |
+| action_fallback | 76 | 76 | 0 |
+| relations | 3382 | 3382 | 0 |
+| raw_relation | 245 | 245 | 0 |
+| raw_attribute | 1519 | 1519 | 0 |
+| self_relation | 0 | 0 | 0 |
+| skipped_edges | 36 | 36 | 0 |
+| facts | 20618 | 20618 | 0 |
+
+목표 단어 변화:
+
+| item | before | after | delta |
+|---|---:|---:|---:|
+| entity canonical `glass` | 38 | 6 | -32 |
+| entity canonical `glasses` | 0 | 32 | +32 |
+| entity surface `glass` | 6 | 6 | 0 |
+| entity surface `glasses` | 32 | 32 | 0 |
+| attribute `glass` | 15 | 15 | 0 |
+| attribute `orange` | 45 | 45 | 0 |
+
+해석:
+
+- 전체 구조 metric은 변하지 않았다.
+- 변화는 의도한 `glasses` canonical 분리에 집중됐다.
+- `glass facade`, `glass mug`, `glass railing` 같은 material attribute는 그대로 attribute로 남았다.
+- `glasses` surface object는 더 이상 singular/material `glass` canonical에 섞이지 않는다.
+- 이번 1k에는 `oranges` object 예시는 없었다. focused probe에서는 정상 동작을 확인했다.
+
+추가 문서:
+
+```text
+docs/gpic_iterative_feedback_plan.md
+```
+
+여기에는 10k 확장 전에 GPIC 실행에서 어떤 feedback candidate를 모을지 정리했다. 핵심 방향은 다음과 같다.
+
+- GPIC는 clean rule의 정답이 아니라 candidate generator로만 쓴다.
+- Maverick 1M은 generic anaphoric noun/coref 후보 수집용으로 쓰고, full output을 저장하지 않는다.
+- object MWE, preposition MWE, phrasal action은 서로 다른 lexicon으로 관리한다.
+- coreference score는 `one/other/both`, self-edge, body-part vs whole-object, generic duplicate를 중심으로 개선한다.
+- Stage 9는 parent_none/action_fallback/raw_attribute를 자동 집계해서 다음 lexicon 후보를 만든다.
