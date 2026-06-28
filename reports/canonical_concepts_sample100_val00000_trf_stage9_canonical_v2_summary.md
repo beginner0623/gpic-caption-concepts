@@ -184,10 +184,30 @@
 
 | item | count |
 | --- | ---: |
+| `agent` | 213 |
+| `patient` | 92 |
+
+## Raw Event Roles Before Count Collapse
+
+| item | count |
+| --- | ---: |
 | `agent` | 207 |
 | `patient` | 82 |
 | `theme` | 10 |
 | `by_agent_or_causer` | 6 |
+
+## Event Role Voice Normalization
+
+| item | count |
+| --- | ---: |
+| `none` | 288 |
+| `passive_to_active` | 16 |
+| `reference_recovery` | 1 |
+
+## Event Role Flags
+
+| item | count |
+| --- | ---: |
 | `recovered_from_skipped_edge` | 1 |
 
 ## Canonical Relations
@@ -676,7 +696,7 @@
 | `has_attribute:street:cobblestone` | 1 |
 | `has_attribute:sedan:dark` | 1 |
 | `has_attribute:sky:partly` | 1 |
-| `event_role:park:theme:sedan` | 1 |
+| `event_role:park:patient:sedan` | 1 |
 | `relation:building:on:street` | 1 |
 | `relation:sedan:in:front` | 1 |
 | `relation:bus:down:road` | 1 |
@@ -885,9 +905,9 @@
 | `has_attribute:pupil:dark` | 1 |
 | `has_attribute:eyelash:blurred` | 1 |
 | `has_attribute:light:warm` | 1 |
-| `event_role:frame:theme:eye` | 1 |
-| `event_role:frame:by_agent_or_causer:eyelash` | 1 |
-| `event_role:frame:by_agent_or_causer:skin` | 1 |
+| `event_role:frame:patient:eye` | 1 |
+| `event_role:frame:agent:eyelash` | 1 |
+| `event_role:frame:agent:skin` | 1 |
 | `event_role:surround:agent:light` | 1 |
 | `event_role:surround:patient:eye` | 1 |
 | `event_role:read:agent:text` | 1 |
@@ -978,8 +998,8 @@
 | `has_attribute:entrance:golden` | 1 |
 | `has_attribute:palm_tree:tall` | 1 |
 | `has_attribute:lawn:green` | 1 |
-| `event_role:surround:theme:building` | 1 |
-| `event_role:surround:by_agent_or_causer:palm_tree` | 1 |
+| `event_role:surround:patient:building` | 1 |
+| `event_role:surround:agent:palm_tree` | 1 |
 | `event_role:sit:agent:building` | 1 |
 | `action_event:cast` | 1 |
 | `event_role:cast:agent:shadow` | 1 |
@@ -1022,7 +1042,7 @@
 | `has_attribute:car:red` | 1 |
 | `event_role:include:agent:car` | 1 |
 | `event_role:include:patient:car` | 1 |
-| `event_role:park:theme:car` | 1 |
+| `event_role:park:patient:car` | 1 |
 | `relation:building:on:lot` | 1 |
 | `relation:car:include:car` | 1 |
 | `relation:car:under:sky` | 1 |
@@ -1320,10 +1340,10 @@
 | `has_attribute:foliage:dense` | 1 |
 | `has_attribute:sunlight:bright` | 1 |
 | `action_event:support` | 1 |
-| `event_role:support:theme:pipe` | 1 |
-| `event_role:support:by_agent_or_causer:block` | 1 |
-| `event_role:support:by_agent_or_causer:foliage` | 1 |
-| `event_role:support:by_agent_or_causer:tree` | 1 |
+| `event_role:support:patient:pipe` | 1 |
+| `event_role:support:agent:block` | 1 |
+| `event_role:support:agent:foliage` | 1 |
+| `event_role:support:agent:tree` | 1 |
 | `event_role:surround:agent:pipe` | 1 |
 | `relation:pipe:across:hillside` | 1 |
 | `relation:pipe:under:sunlight` | 1 |
@@ -1343,7 +1363,7 @@
 | `has_attribute:material:white` | 1 |
 | `action_event:rise` | 1 |
 | `event_role:rise:agent:mist` | 1 |
-| `event_role:cover:theme:ground` | 1 |
+| `event_role:cover:patient:ground` | 1 |
 | `relation:crater:with:mist` | 1 |
 | `relation:mist:from:edge` | 1 |
 | `relation:ground:in:stone` | 1 |
@@ -1465,7 +1485,7 @@
 | `has_attribute:chamber:legislative` | 1 |
 | `has_quantity:individual:several` | 1 |
 | `event_role:include:agent:text` | 1 |
-| `event_role:sit:theme:individual` | 1 |
+| `event_role:sit:patient:individual` | 1 |
 | `event_role:stand:agent:individual` | 1 |
 | `action_event:face` | 1 |
 | `event_role:face:agent:individual` | 1 |
@@ -1493,7 +1513,7 @@
 | `event_role:have:patient:imperfection` | 1 |
 | `action_event:suggest` | 1 |
 | `event_role:suggest:agent:slab` | 1 |
-| `event_role:make:theme:slab` | 1 |
+| `event_role:make:patient:slab` | 1 |
 | `event_role:appear:agent:edge` | 1 |
 | `relation:slab:with:surface` | 1 |
 | `relation:slab:on:background` | 1 |
@@ -1570,9 +1590,9 @@
 | `has_attribute:fabric:wrinkled` | 1 |
 | `has_attribute:number:1709-1` | 1 |
 | `action_event:stitch` | 1 |
-| `event_role:stitch:theme:tag` | 1 |
+| `event_role:stitch:patient:tag` | 1 |
 | `action_event:fray` | 1 |
-| `event_role:fray:theme:tag` | 1 |
+| `event_role:fray:patient:tag` | 1 |
 | `event_role:sit:agent:tag` | 1 |
 | `relation:tag:with:number` | 1 |
 | `relation:tag:on:garment` | 1 |
@@ -1768,8 +1788,8 @@
 | item | count |
 | --- | ---: |
 | `relation_lexical_canonicalized` | 13 |
-| `passive_subject_to_theme` | 10 |
-| `passive_by_frame_to_event_role` | 6 |
+| `passive_subject_to_patient` | 10 |
+| `passive_by_frame_to_agent` | 6 |
 | `pp_source_disambiguated` | 2 |
 | `action_lexical_canonicalized` | 2 |
 | `phrasal_action_canonicalized` | 2 |

@@ -191,11 +191,31 @@
 
 | item | count |
 | --- | ---: |
+| `agent` | 181 |
+| `patient` | 92 |
+
+## Raw Event Roles Before Count Collapse
+
+| item | count |
+| --- | ---: |
 | `agent` | 179 |
 | `patient` | 73 |
 | `theme` | 19 |
-| `recovered_from_skipped_edge` | 2 |
 | `by_agent_or_causer` | 2 |
+
+## Event Role Voice Normalization
+
+| item | count |
+| --- | ---: |
+| `none` | 250 |
+| `passive_to_active` | 21 |
+| `reference_recovery` | 2 |
+
+## Event Role Flags
+
+| item | count |
+| --- | ---: |
+| `recovered_from_skipped_edge` | 2 |
 
 ## Canonical Relations
 
@@ -390,6 +410,7 @@
 | `entity_exists:right` | 3 |
 | `has_quantity:people:two` | 3 |
 | `has_attribute:sky:blue` | 3 |
+| `event_role:line:patient:street` | 3 |
 | `entity_exists:step` | 3 |
 | `entity_exists:text` | 3 |
 | `entity_exists:dress` | 3 |
@@ -454,7 +475,6 @@
 | `has_quantity:car:several` | 2 |
 | `has_attribute:car:parked` | 2 |
 | `event_role:stand:agent:people` | 2 |
-| `event_role:line:patient:street` | 2 |
 | `relation:people:near:building` | 2 |
 | `entity_exists:pant` | 2 |
 | `has_attribute:step:stone` | 2 |
@@ -529,7 +549,7 @@
 | `entity_exists:suv` | 2 |
 | `entity_exists:scene` | 2 |
 | `has_attribute:sky:overcast` | 2 |
-| `event_role:set:theme:scene` | 2 |
+| `event_role:set:patient:scene` | 2 |
 | `entity_exists:buffalo` | 2 |
 | `entity_exists:slope` | 2 |
 | `has_attribute:grass:green` | 2 |
@@ -562,7 +582,7 @@
 | `has_attribute:poster:colorful` | 1 |
 | `has_quantity:bottle:various` | 1 |
 | `has_attribute:supply:art` | 1 |
-| `event_role:mount:theme:poster` | 1 |
+| `event_role:mount:patient:poster` | 1 |
 | `event_role:display:agent:computer_monitor` | 1 |
 | `event_role:display:patient:image` | 1 |
 | `event_role:sit:agent:bottle` | 1 |
@@ -896,9 +916,9 @@
 | `has_attribute:trash_can:small` | 1 |
 | `has_attribute:trash_can:metal` | 1 |
 | `has_attribute:plaque:green` | 1 |
-| `event_role:set:theme:archway` | 1 |
+| `event_role:set:patient:archway` | 1 |
 | `event_role:stand:agent:window` | 1 |
-| `event_role:mount:theme:plaque` | 1 |
+| `event_role:mount:patient:plaque` | 1 |
 | `relation:archway:with:carving` | 1 |
 | `relation:archway:into:wall` | 1 |
 | `relation:window:to:left` | 1 |
@@ -1031,7 +1051,7 @@
 | `event_role:contain:agent:trunk` | 1 |
 | `event_role:contain:patient:setup` | 1 |
 | `event_role:stand:agent:figurine` | 1 |
-| `event_role:line:theme:interior` | 1 |
+| `event_role:line:patient:interior` | 1 |
 | `relation:trunk:of:car` | 1 |
 | `relation:setup:with:subwoofer` | 1 |
 | `relation:setup:with:display` | 1 |
@@ -1101,7 +1121,7 @@
 | `has_attribute:structure:white` | 1 |
 | `has_attribute:vest:green` | 1 |
 | `action_event:see` | 1 |
-| `event_role:see:theme:person` | 1 |
+| `event_role:see:patient:person` | 1 |
 | `relation:man:with:hair` | 1 |
 | `relation:man:into:microphone` | 1 |
 | `relation:man:under:structure` | 1 |
@@ -1169,7 +1189,7 @@
 | `has_attribute:suv:white` | 1 |
 | `has_attribute:sedan:silver` | 1 |
 | `event_role:line:agent:row` | 1 |
-| `event_role:park:theme:car` | 1 |
+| `event_role:park:patient:car` | 1 |
 | `event_role:include:agent:car` | 1 |
 | `event_role:include:patient:suv` | 1 |
 | `event_role:include:patient:sedan` | 1 |
@@ -1247,12 +1267,12 @@
 | `event_role:display:agent:space` | 1 |
 | `event_role:display:patient:object` | 1 |
 | `action_event:illuminate` | 1 |
-| `event_role:illuminate:theme:wall` | 1 |
-| `event_role:illuminate:by_agent_or_causer:light` | 1 |
+| `event_role:illuminate:patient:wall` | 1 |
+| `event_role:illuminate:agent:light` | 1 |
 | `event_role:sit:agent:vase` | 1 |
 | `action_event:arrange` | 1 |
-| `event_role:arrange:theme:figurine` | 1 |
-| `event_role:arrange:theme:item` | 1 |
+| `event_role:arrange:patient:figurine` | 1 |
+| `event_role:arrange:patient:item` | 1 |
 | `relation:space:on:shelf` | 1 |
 | `relation:space:on:pedestal` | 1 |
 | `relation:vase:on:pedestal` | 1 |
@@ -1378,7 +1398,7 @@
 | `entity_exists:racetrack` | 1 |
 | `has_attribute:jacket:blue` | 1 |
 | `has_attribute:jacket:black` | 1 |
-| `event_role:park:theme:sports_car` | 1 |
+| `event_role:park:patient:sports_car` | 1 |
 | `relation:sports_car:with:number` | 1 |
 | `relation:sports_car:on:racetrack` | 1 |
 | `relation:people:next_to:sports_car` | 1 |
@@ -1403,10 +1423,10 @@
 | `event_role:show:patient:name` | 1 |
 | `event_role:show:patient:detail` | 1 |
 | `action_event:label` | 1 |
-| `event_role:label:theme:paper` | 1 |
+| `event_role:label:patient:paper` | 1 |
 | `action_event:type` | 1 |
-| `event_role:fill:theme:entry` | 1 |
-| `event_role:fill:by_agent_or_causer:hand` | 1 |
+| `event_role:fill:patient:entry` | 1 |
+| `event_role:fill:agent:hand` | 1 |
 | `event_role:include:agent:entry` | 1 |
 | `event_role:include:patient:date` | 1 |
 | `event_role:include:patient:signature` | 1 |
@@ -1440,7 +1460,7 @@
 | `has_quantity:angel:one` | 1 |
 | `has_attribute:trim:gold` | 1 |
 | `has_attribute:tag:small` | 1 |
-| `event_role:display:theme:figurine` | 1 |
+| `event_role:display:patient:figurine` | 1 |
 | `event_role:have:agent:angel` | 1 |
 | `event_role:have:patient:trim` | 1 |
 | `event_role:lie:agent:angel` | 1 |
@@ -1582,7 +1602,7 @@
 | `has_attribute:area:park-like` | 1 |
 | `event_role:play:agent:people` | 1 |
 | `event_role:play:patient:chess` | 1 |
-| `event_role:sit:theme:girl` | 1 |
+| `event_role:sit:patient:girl` | 1 |
 | `action_event:focus` | 1 |
 | `event_role:focus:agent:people` | 1 |
 | `relation:people:under:tree` | 1 |
@@ -1615,7 +1635,7 @@
 | `event_role:show:agent:badge` | 1 |
 | `event_role:show:patient:design` | 1 |
 | `action_event:place` | 1 |
-| `event_role:place:theme:badge` | 1 |
+| `event_role:place:patient:badge` | 1 |
 | `relation:design:with:crown` | 1 |
 | `relation:design:with:text` | 1 |
 | `relation:badge:on:surface` | 1 |
@@ -1625,10 +1645,9 @@
 | `has_attribute:bush:large` | 1 |
 | `has_attribute:sky:dusky` | 1 |
 | `event_role:run:agent:sidewalk` | 1 |
-| `event_role:park:theme:suv` | 1 |
+| `event_role:park:patient:suv` | 1 |
 | `action_event:pile` | 1 |
 | `event_role:pile:agent:bush` | 1 |
-| `event_role:line:theme:street` | 1 |
 | `relation:sidewalk:between:car` | 1 |
 | `relation:sidewalk:between:house` | 1 |
 | `relation:suv:on:right` | 1 |
@@ -1774,11 +1793,11 @@
 
 | item | count |
 | --- | ---: |
-| `passive_subject_to_theme` | 19 |
+| `passive_subject_to_patient` | 19 |
 | `relation_lexical_canonicalized` | 10 |
 | `action_lexical_canonicalized` | 2 |
 | `skipped_reference_role_recovered` | 2 |
-| `passive_by_frame_to_event_role` | 2 |
+| `passive_by_frame_to_agent` | 2 |
 | `phrasal_action_canonicalized` | 2 |
 | `pp_source_disambiguated` | 2 |
 | `conj_agent_reference_target_inherited` | 1 |

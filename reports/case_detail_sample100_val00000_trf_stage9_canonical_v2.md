@@ -60,9 +60,9 @@ _none_
 | ce0 | m8 | sits | sit | sit | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:sit", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | sit | agent | m0 | ent_m0 | medium | e2 | nsubj -> sits |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | sit | agent | agent | none | m0 | ent_m0 | medium | e2 | nsubj -> sits |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -186,13 +186,13 @@ _none_
 | ce3 | m21 | appears | appear | appear | raw_action | visual_action_fallback | visual_action |  | agent:m12->ent_m12 | {"canonical": "action:appear", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | crawl | agent | m0 | ent_m0 | medium | e7 | nsubj -> crawling |  |  |
-| ce1 | show | agent | m4 | ent_m4 | medium | e8 | nsubj -> shows |  |  |
-| ce1 | show | patient | m5 | ent_m5 | medium | e9 | dobj -> shows |  |  |
-| ce2 | scatter | agent | m7 | ent_m7 | medium | e10 | inherited agent acl -> splits |  |  |
-| ce3 | appear | agent | m12 | ent_m12 | medium | e11 | nsubj -> appears |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | crawl | agent | agent | none | m0 | ent_m0 | medium | e7 | nsubj -> crawling |  |  |
+| ce1 | show | agent | agent | none | m4 | ent_m4 | medium | e8 | nsubj -> shows |  |  |
+| ce1 | show | patient | patient | none | m5 | ent_m5 | medium | e9 | dobj -> shows |  |  |
+| ce2 | scatter | agent | agent | none | m7 | ent_m7 | medium | e10 | inherited agent acl -> splits |  |  |
+| ce3 | appear | agent | agent | none | m12 | ent_m12 | medium | e11 | nsubj -> appears |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -307,12 +307,12 @@ _none_
 | ce2 | m9 | shows | show | show | raw_action | visual_action_fallback | visual_action |  | agent:m5->ent_m5; patient:m6->ent_m6 | {"canonical": "action:show", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m1 | ent_m1 | medium | e1 | nsubj -> stands |  |  |
-| ce1 | speak | agent | m1 | ent_m1 | medium | e2 | inherited agent advcl -> stands |  |  |
-| ce2 | show | agent | m5 | ent_m5 | medium | e3 | nsubj -> shows |  |  |
-| ce2 | show | patient | m6 | ent_m6 | medium | e4 | dobj -> shows |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m1 | ent_m1 | medium | e1 | nsubj -> stands |  |  |
+| ce1 | speak | agent | agent | none | m1 | ent_m1 | medium | e2 | inherited agent advcl -> stands |  |  |
+| ce2 | show | agent | agent | none | m5 | ent_m5 | medium | e3 | nsubj -> shows |  |  |
+| ce2 | show | patient | patient | none | m6 | ent_m6 | medium | e4 | dobj -> shows |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -410,12 +410,12 @@ _none_
 | ce2 | m12 | holds | hold | hold | raw_action | stage9_seed:parent_seed | manipulation_action, visual_action |  | agent:m5->ent_m5; patient:m7->ent_m7 | {"canonical": "action:hold", "parents": ["action_parent:manipulation_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e4 | nsubj -> stand |  |  |
-| ce1 | fill | agent | m2 | ent_m2 | medium | e5 | inherited agent acl -> shopping cart |  |  |
-| ce2 | hold | agent | m5 | ent_m5 | medium | e6 | nsubj -> holds |  |  |
-| ce2 | hold | patient | m7 | ent_m7 | medium | e7 | dobj -> holds |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e4 | nsubj -> stand |  |  |
+| ce1 | fill | agent | agent | none | m2 | ent_m2 | medium | e5 | inherited agent acl -> shopping cart |  |  |
+| ce2 | hold | agent | agent | none | m5 | ent_m5 | medium | e6 | nsubj -> holds |  |  |
+| ce2 | hold | patient | patient | none | m7 | ent_m7 | medium | e7 | dobj -> holds |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -539,10 +539,10 @@ _none_
 | ce1 | m22 | walk | walk | walk | raw_action | stage9_seed:parent_seed | locomotion_action, visual_action |  | agent:m11->ent_m11 | {"canonical": "action:walk", "parents": ["action_parent:locomotion_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e11 | nsubj -> stand |  |  |
-| ce1 | walk | agent | m11 | ent_m11 | medium | e12 | nsubj -> walk |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e11 | nsubj -> stand |  |  |
+| ce1 | walk | agent | agent | none | m11 | ent_m11 | medium | e12 | nsubj -> walk |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -719,11 +719,11 @@ _none_
 | ce1 | m9 | leading | lead | lead | raw_action | visual_action_fallback | visual_action |  | agent:m4->ent_m4 | {"canonical": "action:lead", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | have | agent | m0 | ent_m0 | medium | e3 | nsubj -> has |  |  |
-| ce0 | have | patient | m4 | ent_m4 | medium | e4 | dobj -> has |  |  |
-| ce1 | lead | agent | m4 | ent_m4 | medium | e5 | inherited agent acl -> steps |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | have | agent | agent | none | m0 | ent_m0 | medium | e3 | nsubj -> has |  |  |
+| ce0 | have | patient | patient | none | m4 | ent_m4 | medium | e4 | dobj -> has |  |  |
+| ce1 | lead | agent | agent | none | m4 | ent_m4 | medium | e5 | inherited agent acl -> steps |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -816,10 +816,10 @@ _none_
 | ce0 | m10 | reads | read | read | raw_action | stage9_seed:parent_seed | text_interaction_action, visual_action |  | agent:m1->ent_m1; patient:m0->None | {"canonical": "action:read", "parents": ["action_parent:text_interaction_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | read | agent | m1 | ent_m1 | medium | e3 | nsubj -> reads |  |  |
-| ce0 | read | patient | m0 |  | medium | e4 | dobj -> reads |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | read | agent | agent | none | m1 | ent_m1 | medium | e3 | nsubj -> reads |  |  |
+| ce0 | read | patient | patient | none | m0 |  | medium | e4 | dobj -> reads |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -924,12 +924,12 @@ _none_
 | ce2 | m14 | appears | appear | appear | raw_action | visual_action_fallback | visual_action |  | agent:m8->ent_m8 | {"canonical": "action:appear", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | smile | agent | m0 | ent_m0 | medium | e7 | nsubj -> smiles |  |  |
-| ce1 | wear | agent | m0 | ent_m0 | medium | e8 | inherited agent advcl -> smiles |  |  |
-| ce1 | wear | patient | m4 | ent_m4 | medium | e9 | dobj -> wearing |  |  |
-| ce2 | appear | agent | m8 | ent_m8 | medium | e10 | inherited agent conj -> is |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | smile | agent | agent | none | m0 | ent_m0 | medium | e7 | nsubj -> smiles |  |  |
+| ce1 | wear | agent | agent | none | m0 | ent_m0 | medium | e8 | inherited agent advcl -> smiles |  |  |
+| ce1 | wear | patient | patient | none | m4 | ent_m4 | medium | e9 | dobj -> wearing |  |  |
+| ce2 | appear | agent | agent | none | m8 | ent_m8 | medium | e10 | inherited agent conj -> is |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -1104,13 +1104,13 @@ _none_
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ce0 | m17 | stands | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
-| ce1 | m18 | parked | park | park | raw_action | visual_action_fallback | visual_action |  | theme:m9->ent_m9 | {"canonical": "action:park", "parents": ["action_parent:visual_action"]} |  |
+| ce1 | m18 | parked | park | park | raw_action | visual_action_fallback | visual_action |  | patient<-theme[passive_to_active]:m9->ent_m9 | {"canonical": "action:park", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e8 | nsubj -> stands |  |  |
-| ce1 | park | theme | m9 | ent_m9 | medium | e9 | nsubjpass -> parked |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e8 | nsubj -> stands |  |  |
+| ce1 | park | patient | theme | passive_to_active | m9 | ent_m9 | medium | e9 | nsubjpass -> parked |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -1145,7 +1145,7 @@ _none_
 | cf17 | action_event | stand |  |  | body_pose_action, visual_action | action_event:stand | True | high |
 | cf18 | event_role | stand | agent | building |  | event_role:stand:agent:building | True | medium |
 | cf19 | action_event | park |  |  | visual_action | action_event:park | True | low |
-| cf20 | event_role | park | theme | sedan |  | event_role:park:theme:sedan | True | medium |
+| cf20 | event_role | park | patient | sedan |  | event_role:park:patient:sedan | True | medium |
 | cf21 | relation | building | with | roof | association_relation, visual_relation | relation:building:with:roof | True | high |
 | cf22 | relation | building | with | window | association_relation, visual_relation | relation:building:with:window | True | high |
 | cf23 | relation | building | on | street | spatial_support, visual_relation | relation:building:on:street | True | high |
@@ -1156,7 +1156,7 @@ _none_
 ### Stage 9 Canonicalization Notes
 | kind | action_mention | raw_edge | target | canonical_target | reason | full_note |
 | --- | --- | --- | --- | --- | --- | --- |
-| passive_subject_to_theme | m18 | e9 | m9 |  |  | {"action_mention_id": "m18", "kind": "passive_subject_to_theme", "raw_edge_id": "e9", "target": "m9"} |
+| passive_subject_to_patient | m18 | e9 | m9 |  |  | {"action_mention_id": "m18", "kind": "passive_subject_to_patient", "raw_edge_id": "e9", "raw_role": "theme", "role": "patient", "target": "m9", "voice_normalization": "passive_to_active"} |
 
 ## 12
 
@@ -1225,11 +1225,11 @@ _none_
 | ce1 | m13 | play | play | play | raw_action | stage9_seed:parent_seed | activity_action, visual_action |  | agent:m7->ent_m7 | {"canonical": "action:play", "parents": ["action_parent:activity_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | hold | agent | m0 | ent_m0 | medium | e5 | nsubj -> holds |  |  |
-| ce0 | hold | patient | m3 | ent_m3 | medium | e6 | dobj -> holds |  |  |
-| ce1 | play | agent | m7 | ent_m7 | medium | e7 | nsubj -> play |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | hold | agent | agent | none | m0 | ent_m0 | medium | e5 | nsubj -> holds |  |  |
+| ce0 | hold | patient | patient | none | m3 | ent_m3 | medium | e6 | dobj -> holds |  |  |
+| ce1 | play | agent | agent | none | m7 | ent_m7 | medium | e7 | nsubj -> play |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -1327,9 +1327,9 @@ _none_
 | ce0 | m10 | sits | sit | sit | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m5->ent_m5 | {"canonical": "action:sit", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | sit | agent | m5 | ent_m5 | medium | e5 | nsubj -> sits |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | sit | agent | agent | none | m5 | ent_m5 | medium | e5 | nsubj -> sits |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -1490,12 +1490,12 @@ _none_
 | ce1 | m10 | wears | wear | wear | raw_action | stage9_seed:parent_seed | wearing_action, visual_action |  | agent:m0->eref_m7; patient:m4->ent_m4; patient:m5->ent_m5 | {"canonical": "action:wear", "parents": ["action_parent:wearing_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | smile | agent | m0 | ent_m0 | medium | e4 | nsubj -> smile |  |  |
-| ce1 | wear | agent | m0 | eref_m7 | medium | e5 | nsubj -> wears; resolved One -> men |  |  |
-| ce1 | wear | patient | m4 | ent_m4 | medium | e6 | dobj -> wears |  |  |
-| ce1 | wear | patient | m5 | ent_m5 | medium | e7 | dobj -> wears |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | smile | agent | agent | none | m0 | ent_m0 | medium | e4 | nsubj -> smile |  |  |
+| ce1 | wear | agent | agent | none | m0 | eref_m7 | medium | e5 | nsubj -> wears; resolved One -> men |  |  |
+| ce1 | wear | patient | patient | none | m4 | ent_m4 | medium | e6 | dobj -> wears |  |  |
+| ce1 | wear | patient | patient | none | m5 | ent_m5 | medium | e7 | dobj -> wears |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -1610,12 +1610,12 @@ _none_
 | ce2 | m19 | seated | seat | sit | stage9_seed:synonym_seed | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m6->ent_m6 | {"canonical": "action:sit", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | sit | agent | m0 | ent_m0 | medium | e7 | nsubj -> sit |  |  |
-| ce1 | hold | agent | m6 | ent_m6 | medium | e8 | nsubj -> holds |  |  |
-| ce1 | hold | patient | m8 | ent_m8 | medium | e9 | dobj -> holds |  |  |
-| ce2 | sit | agent | m6 | ent_m6 | medium | e10 | inherited agent advcl -> holds |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | sit | agent | agent | none | m0 | ent_m0 | medium | e7 | nsubj -> sit |  |  |
+| ce1 | hold | agent | agent | none | m6 | ent_m6 | medium | e8 | nsubj -> holds |  |  |
+| ce1 | hold | patient | patient | none | m8 | ent_m8 | medium | e9 | dobj -> holds |  |  |
+| ce2 | sit | agent | agent | none | m6 | ent_m6 | medium | e10 | inherited agent advcl -> holds |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -1810,13 +1810,13 @@ _none_
 | ce2 | m19 | shows | show | show | raw_action | visual_action_fallback | visual_action |  | agent:m11->ent_m11; patient:m12->ent_m12 | {"canonical": "action:show", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | view | agent | m0 | ent_m0 | medium | e8 | inherited agent acl -> cityscape |  |  |
-| ce1 | stretch | agent | m5 | ent_m5 | medium | e9 | nsubj -> stretch |  |  |
-| ce1 | stretch | agent | m6 | ent_m6 | medium | e10 | nsubj -> stretch |  |  |
-| ce2 | show | agent | m11 | ent_m11 | medium | e11 | nsubj -> shows |  |  |
-| ce2 | show | patient | m12 | ent_m12 | medium | e12 | dobj -> shows |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | view | agent | agent | none | m0 | ent_m0 | medium | e8 | inherited agent acl -> cityscape |  |  |
+| ce1 | stretch | agent | agent | none | m5 | ent_m5 | medium | e9 | nsubj -> stretch |  |  |
+| ce1 | stretch | agent | agent | none | m6 | ent_m6 | medium | e10 | nsubj -> stretch |  |  |
+| ce2 | show | agent | agent | none | m11 | ent_m11 | medium | e11 | nsubj -> shows |  |  |
+| ce2 | show | patient | patient | none | m12 | ent_m12 | medium | e12 | dobj -> shows |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -1943,10 +1943,10 @@ _none_
 | ce1 | m18 | stretches | stretch | stretch | raw_action | visual_action_fallback | visual_action |  | agent:m5->ent_m5 | {"canonical": "action:stretch", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | run | agent | m0 | ent_m0 | medium | e9 | nsubj -> runs |  |  |
-| ce1 | stretch | agent | m5 | ent_m5 | medium | e10 | nsubj -> stretches |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | run | agent | agent | none | m0 | ent_m0 | medium | e9 | nsubj -> runs |  |  |
+| ce1 | stretch | agent | agent | none | m5 | ent_m5 | medium | e10 | nsubj -> stretches |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -2046,10 +2046,10 @@ _none_
 | ce0 | m8 | stand | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m0->ent_m0; agent:m1->ent_m1 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e4 | nsubj -> stand |  |  |
-| ce0 | stand | agent | m1 | ent_m1 | medium | e5 | nsubj -> stand |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e4 | nsubj -> stand |  |  |
+| ce0 | stand | agent | agent | none | m1 | ent_m1 | medium | e5 | nsubj -> stand |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -2177,13 +2177,13 @@ _none_
 | ce2 | m24 | smiles | smile | smile | raw_action | stage9_seed:parent_seed | expression_action, visual_action |  | agent:m16->ent_m16 | {"canonical": "action:smile", "parents": ["action_parent:expression_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | have | agent | m10 | ent_m10 | medium | e6 | nsubj -> has |  |  |
-| ce0 | have | patient | m12 | ent_m12 | medium | e7 | dobj -> has |  |  |
-| ce1 | touch | agent | m10 | ent_m10 | medium | e8 | inherited agent conj -> has |  |  |
-| ce1 | touch | patient | m14 | ent_m14 | medium | e9 | dobj -> touching |  |  |
-| ce2 | smile | agent | m16 | ent_m16 | medium | e10 | nsubj -> smiles |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | have | agent | agent | none | m10 | ent_m10 | medium | e6 | nsubj -> has |  |  |
+| ce0 | have | patient | patient | none | m12 | ent_m12 | medium | e7 | dobj -> has |  |  |
+| ce1 | touch | agent | agent | none | m10 | ent_m10 | medium | e8 | inherited agent conj -> has |  |  |
+| ce1 | touch | patient | patient | none | m14 | ent_m14 | medium | e9 | dobj -> touching |  |  |
+| ce2 | smile | agent | agent | none | m16 | ent_m16 | medium | e10 | nsubj -> smiles |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -2329,14 +2329,14 @@ _none_
 | ce3 | m19 | reflects | reflect | reflect | raw_action | visual_action_fallback | visual_action |  | agent:m12->ent_m12; patient:m13->ent_m13 | {"canonical": "action:reflect", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | swim | agent | m0 | ent_m0 | medium | e6 | nsubj -> swims |  |  |
-| ce1 | create | agent | m0 | ent_m0 | medium | e7 | inherited agent advcl -> swims |  |  |
-| ce1 | create | patient | m5 | ent_m5 | medium | e8 | dobj -> creating |  |  |
-| ce2 | glide | agent | m0 | ent_m0 | medium | e9 | nsubj -> glides; resolved it -> duck |  |  |
-| ce3 | reflect | agent | m12 | ent_m12 | medium | e10 | nsubj -> reflects |  |  |
-| ce3 | reflect | patient | m13 | ent_m13 | medium | e11 | dobj -> reflects |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | swim | agent | agent | none | m0 | ent_m0 | medium | e6 | nsubj -> swims |  |  |
+| ce1 | create | agent | agent | none | m0 | ent_m0 | medium | e7 | inherited agent advcl -> swims |  |  |
+| ce1 | create | patient | patient | none | m5 | ent_m5 | medium | e8 | dobj -> creating |  |  |
+| ce2 | glide | agent | agent | none | m0 | ent_m0 | medium | e9 | nsubj -> glides; resolved it -> duck |  |  |
+| ce3 | reflect | agent | agent | none | m12 | ent_m12 | medium | e10 | nsubj -> reflects |  |  |
+| ce3 | reflect | patient | patient | none | m13 | ent_m13 | medium | e11 | dobj -> reflects |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -2602,13 +2602,13 @@ _none_
 | ce3 | m22 | stand | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m16->ent_m16 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | leap | agent | m1 | ent_m1 | medium | e9 | nsubj -> leaps |  |  |
-| ce1 | stand | agent | m8 | ent_m8 | medium | e10 | nsubj -> stands |  |  |
-| ce2 | watch | agent | m8 | ent_m8 | medium | e11 | inherited agent advcl -> stands |  |  |
-| ce2 | watch | patient | m14 | ent_m14 | medium | e12 | dobj -> watching |  |  |
-| ce3 | stand | agent | m16 | ent_m16 | medium | e13 | nsubj -> stand |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | leap | agent | agent | none | m1 | ent_m1 | medium | e9 | nsubj -> leaps |  |  |
+| ce1 | stand | agent | agent | none | m8 | ent_m8 | medium | e10 | nsubj -> stands |  |  |
+| ce2 | watch | agent | agent | none | m8 | ent_m8 | medium | e11 | inherited agent advcl -> stands |  |  |
+| ce2 | watch | patient | patient | none | m14 | ent_m14 | medium | e12 | dobj -> watching |  |  |
+| ce3 | stand | agent | agent | none | m16 | ent_m16 | medium | e13 | nsubj -> stand |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -2776,9 +2776,9 @@ _none_
 | ce0 | m7 | works | work | work | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0 | {"canonical": "action:work", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | work | agent | m0 | ent_m0 | medium | e2 | nsubj -> works |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | work | agent | agent | none | m0 | ent_m0 | medium | e2 | nsubj -> works |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -2857,9 +2857,9 @@ _none_
 | ce0 | m7 | stands | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e3 | nsubj -> stands |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e3 | nsubj -> stands |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -2947,9 +2947,9 @@ _none_
 | ce0 | m7 | flies | fly | fly | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0 | {"canonical": "action:fly", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | fly | agent | m0 | ent_m0 | medium | e4 | nsubj -> flies |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | fly | agent | agent | none | m0 | ent_m0 | medium | e4 | nsubj -> flies |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -3033,13 +3033,13 @@ _none_
 | ce1 | m6 | sharing | share | share | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0; agent:m1->ent_m1; patient:m4->ent_m4 | {"canonical": "action:share", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e1 | nsubj -> stand |  |  |
-| ce0 | stand | agent | m1 | ent_m1 | medium | e2 | nsubj -> stand |  |  |
-| ce1 | share | agent | m0 | ent_m0 | medium | e3 | inherited agent advcl -> stand |  |  |
-| ce1 | share | agent | m1 | ent_m1 | medium | e4 | inherited agent advcl -> stand |  |  |
-| ce1 | share | patient | m4 | ent_m4 | medium | e5 | dobj -> sharing |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e1 | nsubj -> stand |  |  |
+| ce0 | stand | agent | agent | none | m1 | ent_m1 | medium | e2 | nsubj -> stand |  |  |
+| ce1 | share | agent | agent | none | m0 | ent_m0 | medium | e3 | inherited agent advcl -> stand |  |  |
+| ce1 | share | agent | agent | none | m1 | ent_m1 | medium | e4 | inherited agent advcl -> stand |  |  |
+| ce1 | share | patient | patient | none | m4 | ent_m4 | medium | e5 | dobj -> sharing |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -3117,9 +3117,9 @@ _none_
 | ce0 | m7 | stand | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e4 | nsubj -> stand |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e4 | nsubj -> stand |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -3220,20 +3220,20 @@ _none_
 ### Stage 9 Canonical Events
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | m16 | framed | frame | frame | raw_action | visual_action_fallback | visual_action |  | theme:m7->ent_m7; by_agent_or_causer:m8->ent_m8; by_agent_or_causer:m10->ent_m10 | {"canonical": "action:frame", "parents": ["action_parent:visual_action"]} |  |
+| ce0 | m16 | framed | frame | frame | raw_action | visual_action_fallback | visual_action |  | patient<-theme[passive_to_active]:m7->ent_m7; agent<-by_agent_or_causer[passive_to_active]:m8->ent_m8; agent<-by_agent_or_causer[passive_to_active]:m10->ent_m10 | {"canonical": "action:frame", "parents": ["action_parent:visual_action"]} |  |
 | ce1 | m17 | surrounding | surround | surround | raw_action | visual_action_fallback | visual_action |  | agent:m11->ent_m11; patient:m7->ent_m7 | {"canonical": "action:surround", "parents": ["action_parent:visual_action"]} |  |
 | ce2 | m18 | reads | read | read | raw_action | stage9_seed:parent_seed | text_interaction_action, visual_action |  | agent:m14->ent_m14; patient:m0->None | {"canonical": "action:read", "parents": ["action_parent:text_interaction_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | frame | theme | m7 | ent_m7 | medium | e5 | nsubjpass -> framed |  |  |
-| ce0 | frame | by_agent_or_causer | m8 | ent_m8 | medium | e13 | passive by-frame |  |  |
-| ce0 | frame | by_agent_or_causer | m10 | ent_m10 | medium | e14 | passive by-frame |  |  |
-| ce1 | surround | agent | m11 | ent_m11 | medium | e6 | nsubj -> surrounding |  |  |
-| ce1 | surround | patient | m7 | ent_m7 | medium | e7 | dobj -> surrounding; resolved it -> eye |  |  |
-| ce2 | read | agent | m14 | ent_m14 | medium | e8 | nsubj -> reads |  |  |
-| ce2 | read | patient | m0 |  | medium | e9 | dobj -> reads |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | frame | patient | theme | passive_to_active | m7 | ent_m7 | medium | e5 | nsubjpass -> framed |  |  |
+| ce0 | frame | agent | by_agent_or_causer | passive_to_active | m8 | ent_m8 | medium | e13 | passive by-frame |  |  |
+| ce0 | frame | agent | by_agent_or_causer | passive_to_active | m10 | ent_m10 | medium | e14 | passive by-frame |  |  |
+| ce1 | surround | agent | agent | none | m11 | ent_m11 | medium | e6 | nsubj -> surrounding |  |  |
+| ce1 | surround | patient | patient | none | m7 | ent_m7 | medium | e7 | dobj -> surrounding; resolved it -> eye |  |  |
+| ce2 | read | agent | agent | none | m14 | ent_m14 | medium | e8 | nsubj -> reads |  |  |
+| ce2 | read | patient | patient | none | m0 |  | medium | e9 | dobj -> reads |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -3264,9 +3264,9 @@ _none_
 | cf13 | has_attribute | light | warm |  | modifier_attribute, visual_attribute | has_attribute:light:warm | True | medium |
 | cf14 | has_attribute | light | glow |  | state_attribute, visual_attribute | has_attribute:light:glow | True | medium |
 | cf15 | action_event | frame |  |  | visual_action | action_event:frame | True | low |
-| cf16 | event_role | frame | theme | eye |  | event_role:frame:theme:eye | True | medium |
-| cf17 | event_role | frame | by_agent_or_causer | eyelash |  | event_role:frame:by_agent_or_causer:eyelash | True | medium |
-| cf18 | event_role | frame | by_agent_or_causer | skin |  | event_role:frame:by_agent_or_causer:skin | True | medium |
+| cf16 | event_role | frame | patient | eye |  | event_role:frame:patient:eye | True | medium |
+| cf17 | event_role | frame | agent | eyelash |  | event_role:frame:agent:eyelash | True | medium |
+| cf18 | event_role | frame | agent | skin |  | event_role:frame:agent:skin | True | medium |
 | cf19 | action_event | surround |  |  | visual_action | action_event:surround | True | low |
 | cf20 | event_role | surround | agent | light |  | event_role:surround:agent:light | True | medium |
 | cf21 | event_role | surround | patient | eye |  | event_role:surround:patient:eye | True | medium |
@@ -3283,9 +3283,9 @@ _none_
 ### Stage 9 Canonicalization Notes
 | kind | action_mention | raw_edge | target | canonical_target | reason | full_note |
 | --- | --- | --- | --- | --- | --- | --- |
-| passive_subject_to_theme | m16 | e5 | m7 |  |  | {"action_mention_id": "m16", "kind": "passive_subject_to_theme", "raw_edge_id": "e5", "target": "m7"} |
-| passive_by_frame_to_event_role | m16 | e13 |  |  |  | {"action_mention_id": "m16", "by_agent_or_causer": "m8", "kind": "passive_by_frame_to_event_role", "raw_edge_id": "e13", "theme": "m7"} |
-| passive_by_frame_to_event_role | m16 | e14 |  |  |  | {"action_mention_id": "m16", "by_agent_or_causer": "m10", "kind": "passive_by_frame_to_event_role", "raw_edge_id": "e14", "theme": "m7"} |
+| passive_subject_to_patient | m16 | e5 | m7 |  |  | {"action_mention_id": "m16", "kind": "passive_subject_to_patient", "raw_edge_id": "e5", "raw_role": "theme", "role": "patient", "target": "m7", "voice_normalization": "passive_to_active"} |
+| passive_by_frame_to_agent | m16 | e13 |  |  |  | {"action_mention_id": "m16", "agent": "m8", "kind": "passive_by_frame_to_agent", "patient": "m7", "raw_edge_id": "e13", "raw_role": "by_agent_or_causer", "role": "agent", "voice_normalization": "passive_to_active"} |
+| passive_by_frame_to_agent | m16 | e14 |  |  |  | {"action_mention_id": "m16", "agent": "m10", "kind": "passive_by_frame_to_agent", "patient": "m7", "raw_edge_id": "e14", "raw_role": "by_agent_or_causer", "role": "agent", "voice_normalization": "passive_to_active"} |
 
 ## 33
 
@@ -3343,12 +3343,12 @@ _none_
 | ce2 | m8 | carrying | carry | carry | raw_action | stage9_seed:parent_seed | manipulation_action, visual_action |  | agent:m0->ent_m0; patient:m4->ent_m4 | {"canonical": "action:carry", "parents": ["action_parent:manipulation_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | walk | agent | m0 | ent_m0 | medium | e2 | nsubj -> walks |  |  |
-| ce1 | talk | agent | m0 | ent_m0 | medium | e3 | inherited agent advcl -> walks |  |  |
-| ce2 | carry | agent | m0 | ent_m0 | medium | e4 | inherited agent advcl -> walks |  |  |
-| ce2 | carry | patient | m4 | ent_m4 | medium | e5 | dobj -> carrying |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | walk | agent | agent | none | m0 | ent_m0 | medium | e2 | nsubj -> walks |  |  |
+| ce1 | talk | agent | agent | none | m0 | ent_m0 | medium | e3 | inherited agent advcl -> walks |  |  |
+| ce2 | carry | agent | agent | none | m0 | ent_m0 | medium | e4 | inherited agent advcl -> walks |  |  |
+| ce2 | carry | patient | patient | none | m4 | ent_m4 | medium | e5 | dobj -> carrying |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -3467,13 +3467,13 @@ _none_
 | ce3 | m22 | stands | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m12->ent_m12 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | read | agent | m1 | ent_m1 | medium | e7 | nsubj -> reads |  |  |
-| ce1 | depict | agent | m6 | ent_m6 | medium | e8 | nsubj -> depicts |  |  |
-| ce1 | depict | patient | m7 | ent_m7 | medium | e9 | dobj -> depicts |  |  |
-| ce2 | surround | agent | m7 | ent_m7 | medium | e10 | inherited agent acl -> man |  |  |
-| ce3 | stand | agent | m12 | ent_m12 | medium | e11 | nsubj -> stands |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | read | agent | agent | none | m1 | ent_m1 | medium | e7 | nsubj -> reads |  |  |
+| ce1 | depict | agent | agent | none | m6 | ent_m6 | medium | e8 | nsubj -> depicts |  |  |
+| ce1 | depict | patient | patient | none | m7 | ent_m7 | medium | e9 | dobj -> depicts |  |  |
+| ce2 | surround | agent | agent | none | m7 | ent_m7 | medium | e10 | inherited agent acl -> man |  |  |
+| ce3 | stand | agent | agent | none | m12 | ent_m12 | medium | e11 | nsubj -> stands |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -3626,17 +3626,17 @@ _none_
 | ce3 | m24 | standing | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | wear | agent | m0 | ent_m0 | medium | e10 | nsubj -> wears |  |  |
-| ce0 | wear | patient | m4 | ent_m4 | medium | e11 | dobj -> wears |  |  |
-| ce1 | make | agent | m0 | ent_m0 | medium | e12 | inherited agent conj -> wears |  |  |
-| ce1 | make | patient | m6 | ent_m6 | medium | e13 | dobj -> makes |  |  |
-| ce2 | have | agent | m0 | ent_m0 | medium | e14 | nsubj -> has; resolved He -> man |  |  |
-| ce2 | have | patient | m10 | ent_m10 | medium | e15 | dobj -> has |  |  |
-| ce2 | have | patient | m12 | ent_m12 | medium | e16 | dobj -> has |  |  |
-| ce2 | have | patient | m15 | ent_m15 | medium | e17 | dobj -> has |  |  |
-| ce3 | stand | agent | m0 | ent_m0 | medium | e18 | inherited agent advcl -> has |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | wear | agent | agent | none | m0 | ent_m0 | medium | e10 | nsubj -> wears |  |  |
+| ce0 | wear | patient | patient | none | m4 | ent_m4 | medium | e11 | dobj -> wears |  |  |
+| ce1 | make | agent | agent | none | m0 | ent_m0 | medium | e12 | inherited agent conj -> wears |  |  |
+| ce1 | make | patient | patient | none | m6 | ent_m6 | medium | e13 | dobj -> makes |  |  |
+| ce2 | have | agent | agent | none | m0 | ent_m0 | medium | e14 | nsubj -> has; resolved He -> man |  |  |
+| ce2 | have | patient | patient | none | m10 | ent_m10 | medium | e15 | dobj -> has |  |  |
+| ce2 | have | patient | patient | none | m12 | ent_m12 | medium | e16 | dobj -> has |  |  |
+| ce2 | have | patient | patient | none | m15 | ent_m15 | medium | e17 | dobj -> has |  |  |
+| ce3 | stand | agent | agent | none | m0 | ent_m0 | medium | e18 | inherited agent advcl -> has |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -3748,9 +3748,9 @@ _none_
 | ce0 | m8 | stands | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m1->ent_m1 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m1 | ent_m1 | medium | e3 | nsubj -> stands |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m1 | ent_m1 | medium | e3 | nsubj -> stands |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -3865,12 +3865,12 @@ _none_
 | ce3 | m19 | stretch | stretch | stretch | raw_action | visual_action_fallback | visual_action |  | agent:m12->ent_m12 | {"canonical": "action:stretch", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | pave | agent | m0 | ent_m0 | medium | e6 | inherited agent acl -> alleyway |  |  |
-| ce1 | stretch | agent | m0 | ent_m0 | medium | e7 | nsubj -> stretches |  |  |
-| ce2 | stand | agent | m8 | ent_m8 | medium | e8 | nsubj -> stands |  |  |
-| ce3 | stretch | agent | m12 | ent_m12 | medium | e9 | nsubj -> stretch |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | pave | agent | agent | none | m0 | ent_m0 | medium | e6 | inherited agent acl -> alleyway |  |  |
+| ce1 | stretch | agent | agent | none | m0 | ent_m0 | medium | e7 | nsubj -> stretches |  |  |
+| ce2 | stand | agent | agent | none | m8 | ent_m8 | medium | e8 | nsubj -> stands |  |  |
+| ce3 | stretch | agent | agent | none | m12 | ent_m12 | medium | e9 | nsubj -> stretch |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -3998,17 +3998,17 @@ _none_
 ### Stage 9 Canonical Events
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | m17 | surrounded | surround | surround | raw_action | visual_action_fallback | visual_action |  | theme:m0->ent_m0; by_agent_or_causer:m5->ent_m5 | {"canonical": "action:surround", "parents": ["action_parent:visual_action"]} |  |
+| ce0 | m17 | surrounded | surround | surround | raw_action | visual_action_fallback | visual_action |  | patient<-theme[passive_to_active]:m0->ent_m0; agent<-by_agent_or_causer[passive_to_active]:m5->ent_m5 | {"canonical": "action:surround", "parents": ["action_parent:visual_action"]} |  |
 | ce1 | m18 | sits | sit | sit | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:sit", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 | ce2 | m19 | cast | cast | cast | raw_action | visual_action_fallback | visual_action |  | agent:m13->ent_m13 | {"canonical": "action:cast", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | surround | theme | m0 | ent_m0 | medium | e7 | nsubjpass -> surrounded |  |  |
-| ce0 | surround | by_agent_or_causer | m5 | ent_m5 | medium | e12 | passive by-frame |  |  |
-| ce1 | sit | agent | m0 | ent_m0 | medium | e8 | nsubj -> sits; resolved structure -> building |  |  |
-| ce2 | cast | agent | m13 | ent_m13 | medium | e9 | inherited agent acl -> shadows |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | surround | patient | theme | passive_to_active | m0 | ent_m0 | medium | e7 | nsubjpass -> surrounded |  |  |
+| ce0 | surround | agent | by_agent_or_causer | passive_to_active | m5 | ent_m5 | medium | e12 | passive by-frame |  |  |
+| ce1 | sit | agent | agent | none | m0 | ent_m0 | medium | e8 | nsubj -> sits; resolved structure -> building |  |  |
+| ce2 | cast | agent | agent | none | m13 | ent_m13 | medium | e9 | inherited agent acl -> shadows |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -4042,8 +4042,8 @@ _none_
 | cf14 | has_attribute | sky | clear |  | weather_attribute, opaqeness, weather, visual_attribute | has_attribute:sky:clear | True | medium |
 | cf15 | has_attribute | sky | blue |  | color_attribute, color, visual_attribute | has_attribute:sky:blue | True | high |
 | cf16 | action_event | surround |  |  | visual_action | action_event:surround | True | low |
-| cf17 | event_role | surround | theme | building |  | event_role:surround:theme:building | True | medium |
-| cf18 | event_role | surround | by_agent_or_causer | palm_tree |  | event_role:surround:by_agent_or_causer:palm_tree | True | medium |
+| cf17 | event_role | surround | patient | building |  | event_role:surround:patient:building | True | medium |
+| cf18 | event_role | surround | agent | palm_tree |  | event_role:surround:agent:palm_tree | True | medium |
 | cf19 | action_event | sit |  |  | body_pose_action, visual_action | action_event:sit | True | high |
 | cf20 | event_role | sit | agent | building |  | event_role:sit:agent:building | True | medium |
 | cf21 | action_event | cast |  |  | visual_action | action_event:cast | True | low |
@@ -4060,8 +4060,8 @@ _none_
 ### Stage 9 Canonicalization Notes
 | kind | action_mention | raw_edge | target | canonical_target | reason | full_note |
 | --- | --- | --- | --- | --- | --- | --- |
-| passive_subject_to_theme | m17 | e7 | m0 |  |  | {"action_mention_id": "m17", "kind": "passive_subject_to_theme", "raw_edge_id": "e7", "target": "m0"} |
-| passive_by_frame_to_event_role | m17 | e12 |  |  |  | {"action_mention_id": "m17", "by_agent_or_causer": "m5", "kind": "passive_by_frame_to_event_role", "raw_edge_id": "e12", "theme": "m0"} |
+| passive_subject_to_patient | m17 | e7 | m0 |  |  | {"action_mention_id": "m17", "kind": "passive_subject_to_patient", "raw_edge_id": "e7", "raw_role": "theme", "role": "patient", "target": "m0", "voice_normalization": "passive_to_active"} |
+| passive_by_frame_to_agent | m17 | e12 |  |  |  | {"action_mention_id": "m17", "agent": "m5", "kind": "passive_by_frame_to_agent", "patient": "m0", "raw_edge_id": "e12", "raw_role": "by_agent_or_causer", "role": "agent", "voice_normalization": "passive_to_active"} |
 
 ## 39
 
@@ -4152,14 +4152,14 @@ _none_
 | ce3 | m21 | showing | show | show | raw_action | visual_action_fallback | visual_action |  | agent:m13->ent_m13; patient:m16->ent_m16; patient:m17->ent_m17 | {"canonical": "action:show", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | sit | agent | m0 | ent_m0 | medium | e8 | nsubj -> sits |  |  |
-| ce1 | top | agent | m0 | ent_m0 | medium | e9 | inherited agent advcl -> sits |  |  |
-| ce2 | rest | agent | m0 | ent_m0 | medium | e10 | inherited agent conj -> topped |  |  |
-| ce3 | show | agent | m13 | ent_m13 | medium | e11 | nsubj -> showing |  |  |
-| ce3 | show | patient | m16 | ent_m16 | medium | e12 | dobj -> showing |  |  |
-| ce3 | show | patient | m17 | ent_m17 | medium | e13 | dobj -> showing |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | sit | agent | agent | none | m0 | ent_m0 | medium | e8 | nsubj -> sits |  |  |
+| ce1 | top | agent | agent | none | m0 | ent_m0 | medium | e9 | inherited agent advcl -> sits |  |  |
+| ce2 | rest | agent | agent | none | m0 | ent_m0 | medium | e10 | inherited agent conj -> topped |  |  |
+| ce3 | show | agent | agent | none | m13 | ent_m13 | medium | e11 | nsubj -> showing |  |  |
+| ce3 | show | patient | patient | none | m16 | ent_m16 | medium | e12 | dobj -> showing |  |  |
+| ce3 | show | patient | patient | none | m17 | ent_m17 | medium | e13 | dobj -> showing |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -4292,15 +4292,15 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ce0 | m18 | stands | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 | ce1 | m19 | including | include | include | raw_action | visual_action_fallback | visual_action |  | agent:m7->ent_m7; patient:m16->ent_m16 | {"canonical": "action:include", "parents": ["action_parent:visual_action"]} |  |
-| ce2 | m20 | parked | park | park | raw_action | visual_action_fallback | visual_action |  | theme:m7->ent_m7 | {"canonical": "action:park", "parents": ["action_parent:visual_action"]} |  |
+| ce2 | m20 | parked | park | park | raw_action | visual_action_fallback | visual_action |  | patient<-theme[passive_to_active]:m7->ent_m7 | {"canonical": "action:park", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e11 | nsubj -> stands |  |  |
-| ce1 | include | agent | m7 | ent_m7 | medium | e12 | inherited agent prep -> cars |  |  |
-| ce1 | include | patient | m16 | ent_m16 | medium | e13 | pobj -> including; resolved one -> red car |  |  |
-| ce2 | park | theme | m7 | ent_m7 | medium | e14 | nsubjpass -> parked |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e11 | nsubj -> stands |  |  |
+| ce1 | include | agent | agent | none | m7 | ent_m7 | medium | e12 | inherited agent prep -> cars |  |  |
+| ce1 | include | patient | patient | none | m16 | ent_m16 | medium | e13 | pobj -> including; resolved one -> red car |  |  |
+| ce2 | park | patient | theme | passive_to_active | m7 | ent_m7 | medium | e14 | nsubjpass -> parked |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -4337,7 +4337,7 @@ _none_
 | cf21 | event_role | include | agent | car |  | event_role:include:agent:car | True | medium |
 | cf22 | event_role | include | patient | car |  | event_role:include:patient:car | True | medium |
 | cf23 | action_event | park |  |  | visual_action | action_event:park | True | low |
-| cf24 | event_role | park | theme | car |  | event_role:park:theme:car | True | medium |
+| cf24 | event_role | park | patient | car |  | event_role:park:patient:car | True | medium |
 | cf25 | relation | building | with | window | association_relation, visual_relation | relation:building:with:window | True | high |
 | cf26 | relation | building | on | lot | spatial_support, visual_relation | relation:building:on:lot | True | high |
 | cf27 | relation | car | include | car | visual_relation | relation:car:include:car | True | medium |
@@ -4346,7 +4346,7 @@ _none_
 ### Stage 9 Canonicalization Notes
 | kind | action_mention | raw_edge | target | canonical_target | reason | full_note |
 | --- | --- | --- | --- | --- | --- | --- |
-| passive_subject_to_theme | m20 | e14 | m7 |  |  | {"action_mention_id": "m20", "kind": "passive_subject_to_theme", "raw_edge_id": "e14", "target": "m7"} |
+| passive_subject_to_patient | m20 | e14 | m7 |  |  | {"action_mention_id": "m20", "kind": "passive_subject_to_patient", "raw_edge_id": "e14", "raw_role": "theme", "role": "patient", "target": "m7", "voice_normalization": "passive_to_active"} |
 
 ## 41
 
@@ -4416,12 +4416,12 @@ _none_
 | ce2 | m12 | stands | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | play | agent | m0 | ent_m0 | medium | e2 | nsubj -> plays |  |  |
-| ce0 | play | patient | m3 | ent_m3 | medium | e3 | dobj -> plays |  |  |
-| ce1 | sing | agent | m0 | ent_m0 | medium | e4 | inherited agent advcl -> plays |  |  |
-| ce2 | stand | agent | m0 | ent_m0 | medium | e5 | nsubj -> stands; resolved He -> man |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | play | agent | agent | none | m0 | ent_m0 | medium | e2 | nsubj -> plays |  |  |
+| ce0 | play | patient | patient | none | m3 | ent_m3 | medium | e3 | dobj -> plays |  |  |
+| ce1 | sing | agent | agent | none | m0 | ent_m0 | medium | e4 | inherited agent advcl -> plays |  |  |
+| ce2 | stand | agent | agent | none | m0 | ent_m0 | medium | e5 | nsubj -> stands; resolved He -> man |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -4555,9 +4555,9 @@ _none_
 | ce0 | m22 | run | run | run | raw_action | stage9_seed:parent_seed | locomotion_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:run", "parents": ["action_parent:locomotion_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | run | agent | m0 | ent_m0 | medium | e14 | nsubj -> run |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | run | agent | agent | none | m0 | ent_m0 | medium | e14 | nsubj -> run |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -4683,12 +4683,12 @@ _none_
 | ce2 | m13 | kick | kick | kick | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0; patient:m5->ent_m5 | {"canonical": "action:kick", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e5 | nsubj -> stands |  |  |
-| ce1 | prepare | agent | m0 | ent_m0 | medium | e6 | inherited agent advcl -> stands |  |  |
-| ce2 | kick | agent | m0 | ent_m0 | medium | e7 | inherited agent xcomp -> preparing |  |  |
-| ce2 | kick | patient | m5 | ent_m5 | medium | e8 | dobj -> kick |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e5 | nsubj -> stands |  |  |
+| ce1 | prepare | agent | agent | none | m0 | ent_m0 | medium | e6 | inherited agent advcl -> stands |  |  |
+| ce2 | kick | agent | agent | none | m0 | ent_m0 | medium | e7 | inherited agent xcomp -> preparing |  |  |
+| ce2 | kick | patient | patient | none | m5 | ent_m5 | medium | e8 | dobj -> kick |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -4821,17 +4821,17 @@ _none_
 | ce4 | m21 | looking | look | look | raw_action | stage9_seed:parent_seed | gaze_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:look", "parents": ["action_parent:gaze_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e8 | nsubj -> stands |  |  |
-| ce1 | wear | agent | m0 | ent_m0 | medium | e9 | inherited agent advcl -> stands |  |  |
-| ce1 | wear | patient | m3 | ent_m3 | medium | e10 | dobj -> wearing |  |  |
-| ce1 | wear | patient | m6 | ent_m6 | medium | e11 | dobj -> wearing |  |  |
-| ce1 | wear | patient | m8 | ent_m8 | medium | e12 | dobj -> wearing |  |  |
-| ce2 | hold | agent | m0 | ent_m0 | medium | e13 | nsubj -> hold; resolved They -> hockey player |  |  |
-| ce2 | hold | patient | m10 | ent_m10 | medium | e14 | dobj -> hold |  |  |
-| ce3 | position | agent | m0 | ent_m0 | medium | e15 | inherited agent advcl -> hold |  |  |
-| ce4 | look | agent | m0 | ent_m0 | medium | e16 | inherited agent advcl -> positioned |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e8 | nsubj -> stands |  |  |
+| ce1 | wear | agent | agent | none | m0 | ent_m0 | medium | e9 | inherited agent advcl -> stands |  |  |
+| ce1 | wear | patient | patient | none | m3 | ent_m3 | medium | e10 | dobj -> wearing |  |  |
+| ce1 | wear | patient | patient | none | m6 | ent_m6 | medium | e11 | dobj -> wearing |  |  |
+| ce1 | wear | patient | patient | none | m8 | ent_m8 | medium | e12 | dobj -> wearing |  |  |
+| ce2 | hold | agent | agent | none | m0 | ent_m0 | medium | e13 | nsubj -> hold; resolved They -> hockey player |  |  |
+| ce2 | hold | patient | patient | none | m10 | ent_m10 | medium | e14 | dobj -> hold |  |  |
+| ce3 | position | agent | agent | none | m0 | ent_m0 | medium | e15 | inherited agent advcl -> hold |  |  |
+| ce4 | look | agent | agent | none | m0 | ent_m0 | medium | e16 | inherited agent advcl -> positioned |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -4973,12 +4973,12 @@ _none_
 | ce2 | m21 | line | line | line | raw_action | visual_action_fallback | visual_action |  | agent:m14->ent_m14; patient:m16->ent_m16 | {"canonical": "action:line", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e9 | nsubj -> stands |  |  |
-| ce1 | hang | agent | m9 | ent_m9 | medium | e10 | nsubj -> hangs |  |  |
-| ce2 | line | agent | m14 | ent_m14 | medium | e11 | nsubj -> line |  |  |
-| ce2 | line | patient | m16 | ent_m16 | medium | e12 | dobj -> line |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e9 | nsubj -> stands |  |  |
+| ce1 | hang | agent | agent | none | m9 | ent_m9 | medium | e10 | nsubj -> hangs |  |  |
+| ce2 | line | agent | agent | none | m14 | ent_m14 | medium | e11 | nsubj -> line |  |  |
+| ce2 | line | patient | patient | none | m16 | ent_m16 | medium | e12 | dobj -> line |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -5174,14 +5174,14 @@ _none_
 | ce2 | m15 | has | have | have | raw_action | visual_action_fallback | visual_action |  | agent:m9->ent_m9; patient:m11->ent_m11; patient:m12->ent_m12 | {"canonical": "action:have", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | sit | agent | m1 | ent_m1 | medium | e5 | nsubj -> sit |  |  |
-| ce1 | display | agent | m6 | ent_m6 | medium | e6 | nsubj -> displays |  |  |
-| ce1 | display | patient | m8 | ent_m8 | medium | e7 | dobj -> displays |  |  |
-| ce2 | have | agent | m9 | ent_m9 | medium | e8 | nsubj -> has |  |  |
-| ce2 | have | patient | m11 | ent_m11 | medium | e9 | dobj -> has |  |  |
-| ce2 | have | patient | m12 | ent_m12 | medium | e10 | dobj -> has |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | sit | agent | agent | none | m1 | ent_m1 | medium | e5 | nsubj -> sit |  |  |
+| ce1 | display | agent | agent | none | m6 | ent_m6 | medium | e6 | nsubj -> displays |  |  |
+| ce1 | display | patient | patient | none | m8 | ent_m8 | medium | e7 | dobj -> displays |  |  |
+| ce2 | have | agent | agent | none | m9 | ent_m9 | medium | e8 | nsubj -> has |  |  |
+| ce2 | have | patient | patient | none | m11 | ent_m11 | medium | e9 | dobj -> has |  |  |
+| ce2 | have | patient | patient | none | m12 | ent_m12 | medium | e10 | dobj -> has |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -5290,14 +5290,14 @@ _none_
 | ce3 | m9 | smiling | smile | smile | raw_action | stage9_seed:parent_seed | expression_action, visual_action |  | agent:m5->ent_m5 | {"canonical": "action:smile", "parents": ["action_parent:expression_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | give | agent | m0 | ent_m0 | medium | e0 | nsubj -> gives |  |  |
-| ce0 | give | patient | m2 | ent_m2 | medium | e1 | dobj -> gives |  |  |
-| ce1 | hold | agent | m0 | ent_m0 | medium | e2 | inherited agent advcl -> gives |  |  |
-| ce1 | hold | patient | m3 | ent_m3 | medium | e3 | dobj -> holding |  |  |
-| ce2 | stand | agent | m5 | ent_m5 | medium | e4 | nsubj -> stands |  |  |
-| ce3 | smile | agent | m5 | ent_m5 | medium | e5 | inherited agent advcl -> stands |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | give | agent | agent | none | m0 | ent_m0 | medium | e0 | nsubj -> gives |  |  |
+| ce0 | give | patient | patient | none | m2 | ent_m2 | medium | e1 | dobj -> gives |  |  |
+| ce1 | hold | agent | agent | none | m0 | ent_m0 | medium | e2 | inherited agent advcl -> gives |  |  |
+| ce1 | hold | patient | patient | none | m3 | ent_m3 | medium | e3 | dobj -> holding |  |  |
+| ce2 | stand | agent | agent | none | m5 | ent_m5 | medium | e4 | nsubj -> stands |  |  |
+| ce3 | smile | agent | agent | none | m5 | ent_m5 | medium | e5 | inherited agent advcl -> stands |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -5410,12 +5410,12 @@ _none_
 | ce1 | m17 | reads | read | read | raw_action | stage9_seed:parent_seed | text_interaction_action, visual_action |  | agent:m11->ent_m11; patient:m0->None | {"canonical": "action:read", "parents": ["action_parent:text_interaction_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | wear | agent | m1 | ent_m1 | medium | e7 | nsubj -> wears |  |  |
-| ce0 | wear | patient | m2 | ent_m2 | medium | e8 | dobj -> wears |  |  |
-| ce1 | read | agent | m11 | ent_m11 | medium | e9 | nsubj -> reads |  |  |
-| ce1 | read | patient | m0 |  | medium | e10 | dobj -> reads |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | wear | agent | agent | none | m1 | ent_m1 | medium | e7 | nsubj -> wears |  |  |
+| ce0 | wear | patient | patient | none | m2 | ent_m2 | medium | e8 | dobj -> wears |  |  |
+| ce1 | read | agent | agent | none | m11 | ent_m11 | medium | e9 | nsubj -> reads |  |  |
+| ce1 | read | patient | patient | none | m0 |  | medium | e10 | dobj -> reads |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -5574,13 +5574,13 @@ _none_
 | ce2 | m10 | reads | read | read | raw_action | stage9_seed:parent_seed | text_interaction_action, visual_action |  | agent:m4->ent_m4; patient:m0->None | {"canonical": "action:read", "parents": ["action_parent:text_interaction_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | hold | agent | m1 | ent_m1 | medium | e3 | nsubj -> holds |  |  |
-| ce0 | hold | patient | m2 | ent_m2 | medium | e4 | dobj -> holds |  |  |
-| ce1 | stand | agent | m1 | ent_m1 | medium | e5 | inherited agent conj -> holds |  |  |
-| ce2 | read | agent | m4 | ent_m4 | medium | e6 | nsubj -> reads; resolved that -> sign |  |  |
-| ce2 | read | patient | m0 |  | medium | e7 | dobj -> reads |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | hold | agent | agent | none | m1 | ent_m1 | medium | e3 | nsubj -> holds |  |  |
+| ce0 | hold | patient | patient | none | m2 | ent_m2 | medium | e4 | dobj -> holds |  |  |
+| ce1 | stand | agent | agent | none | m1 | ent_m1 | medium | e5 | inherited agent conj -> holds |  |  |
+| ce2 | read | agent | agent | none | m4 | ent_m4 | medium | e6 | nsubj -> reads; resolved that -> sign |  |  |
+| ce2 | read | patient | patient | none | m0 |  | medium | e7 | dobj -> reads |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -5693,11 +5693,11 @@ _none_
 | ce1 | m17 | runs | run | run | raw_action | stage9_seed:parent_seed | locomotion_action, visual_action |  | agent:m6->ent_m6 | {"canonical": "action:run", "parents": ["action_parent:locomotion_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | kick | agent | m0 | ent_m0 | medium | e5 | nsubj -> kicks |  |  |
-| ce0 | kick | patient | m3 | ent_m3 | medium | e6 | dobj -> kicks |  |  |
-| ce1 | run | agent | m6 | ent_m6 | medium | e7 | nsubj -> runs |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | kick | agent | agent | none | m0 | ent_m0 | medium | e5 | nsubj -> kicks |  |  |
+| ce0 | kick | patient | patient | none | m3 | ent_m3 | medium | e6 | dobj -> kicks |  |  |
+| ce1 | run | agent | agent | none | m6 | ent_m6 | medium | e7 | nsubj -> runs |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -5931,9 +5931,9 @@ _none_
 | ce0 | m9 | parked | park | park | raw_action | visual_action_fallback | visual_action |  | agent:m2->ent_m2 | {"canonical": "action:park", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | park | agent | m2 | ent_m2 | medium | e4 | inherited agent acl -> cars |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | park | agent | agent | none | m2 | ent_m2 | medium | e4 | inherited agent acl -> cars |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -6020,12 +6020,12 @@ _none_
 | ce1 | m9 | frame | frame | frame | raw_action | visual_action_fallback | visual_action |  | agent:m6->ent_m6; patient:m7->ent_m7 | {"canonical": "action:frame", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stretch | agent | m0 | ent_m0 | medium | e3 | nsubj -> stretch |  |  |
-| ce0 | stretch | agent | m2 | ent_m2 | medium | e4 | nsubj -> stretch |  |  |
-| ce1 | frame | agent | m6 | ent_m6 | medium | e5 | nsubj -> frame |  |  |
-| ce1 | frame | patient | m7 | ent_m7 | medium | e6 | dobj -> frame |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stretch | agent | agent | none | m0 | ent_m0 | medium | e3 | nsubj -> stretch |  |  |
+| ce0 | stretch | agent | agent | none | m2 | ent_m2 | medium | e4 | nsubj -> stretch |  |  |
+| ce1 | frame | agent | agent | none | m6 | ent_m6 | medium | e5 | nsubj -> frame |  |  |
+| ce1 | frame | patient | patient | none | m7 | ent_m7 | medium | e6 | dobj -> frame |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -6139,13 +6139,13 @@ _none_
 | ce3 | m20 | appears | appear | appear | raw_action | visual_action_fallback | visual_action |  | agent:m1->ent_m1 | {"canonical": "action:appear", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | rest | agent | m1 | ent_m1 | medium | e8 | nsubj -> rests |  |  |
-| ce1 | read | agent | m9 | ent_m9 | medium | e9 | nsubj -> reads |  |  |
-| ce2 | indicate | agent | m9 | ent_m9 | medium | e10 | inherited agent advcl -> reads |  |  |
-| ce2 | indicate | patient | m11 | ent_m11 | medium | e11 | dobj -> indicating |  |  |
-| ce3 | appear | agent | m1 | ent_m1 | medium | e12 | nsubj -> appears; resolved object -> artifact |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | rest | agent | agent | none | m1 | ent_m1 | medium | e8 | nsubj -> rests |  |  |
+| ce1 | read | agent | agent | none | m9 | ent_m9 | medium | e9 | nsubj -> reads |  |  |
+| ce2 | indicate | agent | agent | none | m9 | ent_m9 | medium | e10 | inherited agent advcl -> reads |  |  |
+| ce2 | indicate | patient | patient | none | m11 | ent_m11 | medium | e11 | dobj -> indicating |  |  |
+| ce3 | appear | agent | agent | none | m1 | ent_m1 | medium | e12 | nsubj -> appears; resolved object -> artifact |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -6293,17 +6293,17 @@ _none_
 | ce4 | m27 | surrounded | surround | surround | raw_action | visual_action_fallback | visual_action |  | agent:m20->ent_m20 | {"canonical": "action:surround", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e10 | nsubj -> stand |  |  |
-| ce1 | filter | agent | m6 | ent_m6 | medium | e11 | nsubj -> filtering |  |  |
-| ce1 | filter | patient | m7 | ent_m7 | medium | e12 | dobj -> filtering |  |  |
-| ce2 | cover | agent | m9 | ent_m9 | medium | e13 | nsubj -> cover |  |  |
-| ce2 | cover | agent | m11 | ent_m11 | medium | e14 | nsubj -> cover |  |  |
-| ce2 | cover | patient | m13 | ent_m13 | medium | e15 | dobj -> cover |  |  |
-| ce3 | create | agent | m15 | ent_m15 | medium | e16 | nsubj -> creating |  |  |
-| ce3 | create | patient | m17 | ent_m17 | medium | e17 | dobj -> creating |  |  |
-| ce4 | surround | agent | m20 | ent_m20 | medium | e18 | inherited agent advcl -> is |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e10 | nsubj -> stand |  |  |
+| ce1 | filter | agent | agent | none | m6 | ent_m6 | medium | e11 | nsubj -> filtering |  |  |
+| ce1 | filter | patient | patient | none | m7 | ent_m7 | medium | e12 | dobj -> filtering |  |  |
+| ce2 | cover | agent | agent | none | m9 | ent_m9 | medium | e13 | nsubj -> cover |  |  |
+| ce2 | cover | agent | agent | none | m11 | ent_m11 | medium | e14 | nsubj -> cover |  |  |
+| ce2 | cover | patient | patient | none | m13 | ent_m13 | medium | e15 | dobj -> cover |  |  |
+| ce3 | create | agent | agent | none | m15 | ent_m15 | medium | e16 | nsubj -> creating |  |  |
+| ce3 | create | patient | patient | none | m17 | ent_m17 | medium | e17 | dobj -> creating |  |  |
+| ce4 | surround | agent | agent | none | m20 | ent_m20 | medium | e18 | inherited agent advcl -> is |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -6432,11 +6432,11 @@ _none_
 | ce2 | m12 | sit | sit | sit | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m6->ent_m6 | {"canonical": "action:sit", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e3 | nsubj -> stands |  |  |
-| ce1 | walk | agent | m5 | ent_m5 | medium | e4 | nsubj -> walks |  |  |
-| ce2 | sit | agent | m6 | ent_m6 | medium | e5 | nsubj -> sit |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e3 | nsubj -> stands |  |  |
+| ce1 | walk | agent | agent | none | m5 | ent_m5 | medium | e4 | nsubj -> walks |  |  |
+| ce2 | sit | agent | agent | none | m6 | ent_m6 | medium | e5 | nsubj -> sit |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -6535,10 +6535,10 @@ _none_
 | ce1 | m10 | leads | lead | lead | raw_action | visual_action_fallback | visual_action |  | agent:m6->ent_m6 | {"canonical": "action:lead", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e3 | nsubj -> stands |  |  |
-| ce1 | lead | agent | m6 | ent_m6 | medium | e4 | nsubj -> leads |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e3 | nsubj -> stands |  |  |
+| ce1 | lead | agent | agent | none | m6 | ent_m6 | medium | e4 | nsubj -> leads |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -6618,10 +6618,10 @@ _none_
 | ce1 | m6 | fading | fade | fade | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0 | {"canonical": "action:fade", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | show | agent | m0 | ent_m0 | medium | e1 | nsubj -> shows |  |  |
-| ce1 | fade | agent | m0 | ent_m0 | medium | e2 | inherited agent ccomp -> shows |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | show | agent | agent | none | m0 | ent_m0 | medium | e1 | nsubj -> shows |  |  |
+| ce1 | fade | agent | agent | none | m0 | ent_m0 | medium | e2 | inherited agent ccomp -> shows |  |  |
 
 ### Stage 9 Canonical Relations
 _none_
@@ -6738,16 +6738,16 @@ _none_
 | ce3 | m24 | look | look | look | raw_action | stage9_seed:parent_seed | gaze_action, visual_action |  | agent:m19->eref_m20 | {"canonical": "action:look", "parents": ["action_parent:gaze_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | sit | agent | m0 | ent_m0 | medium | e11 | nsubj -> sit |  |  |
-| ce0 | sit | agent | m1 | ent_m1 | medium | e12 | nsubj -> sit |  |  |
-| ce1 | hold | agent | m5 | ent_m5 | medium | e13 | nsubj -> holds |  |  |
-| ce1 | hold | patient | m6 | ent_m6 | medium | e14 | dobj -> holds |  |  |
-| ce2 | wear | agent | m5 | ent_m5 | medium | e15 | inherited agent advcl -> holds |  |  |
-| ce2 | wear | patient | m10 | ent_m10 | medium | e16 | dobj -> wearing |  |  |
-| ce2 | wear | patient | m13 | ent_m13 | medium | e17 | dobj -> wearing |  |  |
-| ce3 | look | agent | m19 | eref_m20 | medium | e18 | nsubj -> look; resolved Both -> A man and a woman |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | sit | agent | agent | none | m0 | ent_m0 | medium | e11 | nsubj -> sit |  |  |
+| ce0 | sit | agent | agent | none | m1 | ent_m1 | medium | e12 | nsubj -> sit |  |  |
+| ce1 | hold | agent | agent | none | m5 | ent_m5 | medium | e13 | nsubj -> holds |  |  |
+| ce1 | hold | patient | patient | none | m6 | ent_m6 | medium | e14 | dobj -> holds |  |  |
+| ce2 | wear | agent | agent | none | m5 | ent_m5 | medium | e15 | inherited agent advcl -> holds |  |  |
+| ce2 | wear | patient | patient | none | m10 | ent_m10 | medium | e16 | dobj -> wearing |  |  |
+| ce2 | wear | patient | patient | none | m13 | ent_m13 | medium | e17 | dobj -> wearing |  |  |
+| ce3 | look | agent | agent | none | m19 | eref_m20 | medium | e18 | nsubj -> look; resolved Both -> A man and a woman |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -6889,18 +6889,18 @@ _none_
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ce0 | m18 | grappling | grapple | grapple | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0 | {"canonical": "action:grapple", "parents": ["action_parent:visual_action"]} |  |
-| ce1 | m19 | controlling | control | control | raw_action | stage9_seed:parent_seed | manipulation_action, visual_action |  | agent:m0->ent_m0; patient:m0->eref_m17 | {"canonical": "action:control", "parents": ["action_parent:manipulation_action", "action_parent:visual_action"]} |  |
+| ce1 | m19 | controlling | control | control | raw_action | stage9_seed:parent_seed | manipulation_action, visual_action |  | agent:m0->ent_m0; patient[reference_recovery]:m0->eref_m17 | {"canonical": "action:control", "parents": ["action_parent:manipulation_action", "action_parent:visual_action"]} |  |
 | ce2 | m20 | lying | lie | lie | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m0->eref_m17 | {"canonical": "action:lie", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 | ce3 | m21 | bent | bend | bend_over | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action | over | agent:m12->ent_m12 | {"canonical": "action:bend_over", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} | phrasal_action:bend over |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | grapple | agent | m0 | ent_m0 | medium | e9 | nsubj -> grappling |  |  |
-| ce1 | control | agent | m0 | ent_m0 | medium | e10 | inherited agent advcl -> is |  |  |
-| ce1 | control | patient | m0 | eref_m17 | medium |  | dobj -> controlling; resolved other -> men | pronoun_resolved_to_action_agent |  |
-| ce2 | lie | agent | m0 | eref_m17 | medium | e11 | inherited agent relcl -> other |  |  |
-| ce3 | bend_over | agent | m12 | ent_m12 | medium | e13 | inherited agent acomp -> is |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | grapple | agent | agent | none | m0 | ent_m0 | medium | e9 | nsubj -> grappling |  |  |
+| ce1 | control | agent | agent | none | m0 | ent_m0 | medium | e10 | inherited agent advcl -> is |  |  |
+| ce1 | control | patient | patient | reference_recovery | m0 | eref_m17 | medium |  | dobj -> controlling; resolved other -> men | pronoun_resolved_to_action_agent |  |
+| ce2 | lie | agent | agent | none | m0 | eref_m17 | medium | e11 | inherited agent relcl -> other |  |  |
+| ce3 | bend_over | agent | agent | none | m12 | ent_m12 | medium | e13 | inherited agent acomp -> is |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -7008,10 +7008,10 @@ _none_
 | ce1 | m8 | covered | cover | cover | raw_action | visual_action_fallback | visual_action |  | agent:m1->ent_m1 | {"canonical": "action:cover", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | walk | agent | m0 | ent_m0 | medium | e3 | nsubj -> walks |  |  |
-| ce1 | cover | agent | m1 | ent_m1 | medium | e4 | inherited agent acl -> wall |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | walk | agent | agent | none | m0 | ent_m0 | medium | e3 | nsubj -> walks |  |  |
+| ce1 | cover | agent | agent | none | m1 | ent_m1 | medium | e4 | inherited agent acl -> wall |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -7236,11 +7236,11 @@ _none_
 | ce1 | m14 | stands | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m6->ent_m6 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | control | agent | m0 | ent_m0 | medium | e5 | nsubj -> controls |  |  |
-| ce0 | control | patient | m3 | ent_m3 | medium | e6 | dobj -> controls |  |  |
-| ce1 | stand | agent | m6 | ent_m6 | medium | e7 | nsubj -> stands |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | control | agent | agent | none | m0 | ent_m0 | medium | e5 | nsubj -> controls |  |  |
+| ce0 | control | patient | patient | none | m3 | ent_m3 | medium | e6 | dobj -> controls |  |  |
+| ce1 | stand | agent | agent | none | m6 | ent_m6 | medium | e7 | nsubj -> stands |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -7347,18 +7347,18 @@ _none_
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ce0 | m14 | runs | run | run | raw_action | stage9_seed:parent_seed | locomotion_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:run", "parents": ["action_parent:locomotion_action", "action_parent:visual_action"]} |  |
-| ce1 | m15 | supported | support | support | raw_action | visual_action_fallback | visual_action |  | theme:m0->ent_m0; by_agent_or_causer:m7->ent_m7; by_agent_or_causer:m9->ent_m9; by_agent_or_causer:m11->ent_m11 | {"canonical": "action:support", "parents": ["action_parent:visual_action"]} |  |
+| ce1 | m15 | supported | support | support | raw_action | visual_action_fallback | visual_action |  | patient<-theme[passive_to_active]:m0->ent_m0; agent<-by_agent_or_causer[passive_to_active]:m7->ent_m7; agent<-by_agent_or_causer[passive_to_active]:m9->ent_m9; agent<-by_agent_or_causer[passive_to_active]:m11->ent_m11 | {"canonical": "action:support", "parents": ["action_parent:visual_action"]} |  |
 | ce2 | m16 | surrounded | surround | surround | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0 | {"canonical": "action:surround", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | run | agent | m0 | ent_m0 | medium | e8 | nsubj -> runs |  |  |
-| ce1 | support | theme | m0 | ent_m0 | medium | e9 | nsubjpass -> supported; resolved It -> pipe |  |  |
-| ce1 | support | by_agent_or_causer | m7 | ent_m7 | medium | e12 | passive by-frame |  |  |
-| ce1 | support | by_agent_or_causer | m9 | ent_m9 | medium | e13 | passive by-frame |  |  |
-| ce1 | support | by_agent_or_causer | m11 | ent_m11 | medium | e14 | passive by-frame |  |  |
-| ce2 | surround | agent | m0 | ent_m0 | medium | e10 | inherited agent conj -> supported |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | run | agent | agent | none | m0 | ent_m0 | medium | e8 | nsubj -> runs |  |  |
+| ce1 | support | patient | theme | passive_to_active | m0 | ent_m0 | medium | e9 | nsubjpass -> supported; resolved It -> pipe |  |  |
+| ce1 | support | agent | by_agent_or_causer | passive_to_active | m7 | ent_m7 | medium | e12 | passive by-frame |  |  |
+| ce1 | support | agent | by_agent_or_causer | passive_to_active | m9 | ent_m9 | medium | e13 | passive by-frame |  |  |
+| ce1 | support | agent | by_agent_or_causer | passive_to_active | m11 | ent_m11 | medium | e14 | passive by-frame |  |  |
+| ce2 | surround | agent | agent | none | m0 | ent_m0 | medium | e10 | inherited agent conj -> supported |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -7389,10 +7389,10 @@ _none_
 | cf14 | action_event | run |  |  | locomotion_action, visual_action | action_event:run | True | high |
 | cf15 | event_role | run | agent | pipe |  | event_role:run:agent:pipe | True | medium |
 | cf16 | action_event | support |  |  | visual_action | action_event:support | True | low |
-| cf17 | event_role | support | theme | pipe |  | event_role:support:theme:pipe | True | medium |
-| cf18 | event_role | support | by_agent_or_causer | block |  | event_role:support:by_agent_or_causer:block | True | medium |
-| cf19 | event_role | support | by_agent_or_causer | foliage |  | event_role:support:by_agent_or_causer:foliage | True | medium |
-| cf20 | event_role | support | by_agent_or_causer | tree |  | event_role:support:by_agent_or_causer:tree | True | medium |
+| cf17 | event_role | support | patient | pipe |  | event_role:support:patient:pipe | True | medium |
+| cf18 | event_role | support | agent | block |  | event_role:support:agent:block | True | medium |
+| cf19 | event_role | support | agent | foliage |  | event_role:support:agent:foliage | True | medium |
+| cf20 | event_role | support | agent | tree |  | event_role:support:agent:tree | True | medium |
 | cf21 | action_event | surround |  |  | visual_action | action_event:surround | True | low |
 | cf22 | event_role | surround | agent | pipe |  | event_role:surround:agent:pipe | True | medium |
 | cf23 | relation | pipe | across | hillside | spatial_path, visual_relation | relation:pipe:across:hillside | True | high |
@@ -7404,10 +7404,10 @@ _none_
 ### Stage 9 Canonicalization Notes
 | kind | action_mention | raw_edge | target | canonical_target | reason | full_note |
 | --- | --- | --- | --- | --- | --- | --- |
-| passive_subject_to_theme | m15 | e9 | m0 |  |  | {"action_mention_id": "m15", "kind": "passive_subject_to_theme", "raw_edge_id": "e9", "target": "m0"} |
-| passive_by_frame_to_event_role | m15 | e12 |  |  |  | {"action_mention_id": "m15", "by_agent_or_causer": "m7", "kind": "passive_by_frame_to_event_role", "raw_edge_id": "e12", "theme": "m0"} |
-| passive_by_frame_to_event_role | m15 | e13 |  |  |  | {"action_mention_id": "m15", "by_agent_or_causer": "m9", "kind": "passive_by_frame_to_event_role", "raw_edge_id": "e13", "theme": "m0"} |
-| passive_by_frame_to_event_role | m15 | e14 |  |  |  | {"action_mention_id": "m15", "by_agent_or_causer": "m11", "kind": "passive_by_frame_to_event_role", "raw_edge_id": "e14", "theme": "m0"} |
+| passive_subject_to_patient | m15 | e9 | m0 |  |  | {"action_mention_id": "m15", "kind": "passive_subject_to_patient", "raw_edge_id": "e9", "raw_role": "theme", "role": "patient", "target": "m0", "voice_normalization": "passive_to_active"} |
+| passive_by_frame_to_agent | m15 | e12 |  |  |  | {"action_mention_id": "m15", "agent": "m7", "kind": "passive_by_frame_to_agent", "patient": "m0", "raw_edge_id": "e12", "raw_role": "by_agent_or_causer", "role": "agent", "voice_normalization": "passive_to_active"} |
+| passive_by_frame_to_agent | m15 | e13 |  |  |  | {"action_mention_id": "m15", "agent": "m9", "kind": "passive_by_frame_to_agent", "patient": "m0", "raw_edge_id": "e13", "raw_role": "by_agent_or_causer", "role": "agent", "voice_normalization": "passive_to_active"} |
+| passive_by_frame_to_agent | m15 | e14 |  |  |  | {"action_mention_id": "m15", "agent": "m11", "kind": "passive_by_frame_to_agent", "patient": "m0", "raw_edge_id": "e14", "raw_role": "by_agent_or_causer", "role": "agent", "voice_normalization": "passive_to_active"} |
 
 ## 69
 
@@ -7465,10 +7465,10 @@ _none_
 | ce1 | m8 | gesturing | gesture | gesture | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0 | {"canonical": "action:gesture", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | speak | agent | m0 | ent_m0 | medium | e4 | nsubj -> speaks |  |  |
-| ce1 | gesture | agent | m0 | ent_m0 | medium | e5 | inherited agent advcl -> speaks |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | speak | agent | agent | none | m0 | ent_m0 | medium | e4 | nsubj -> speaks |  |  |
+| ce1 | gesture | agent | agent | none | m0 | ent_m0 | medium | e5 | inherited agent advcl -> speaks |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -7562,13 +7562,13 @@ _none_
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ce0 | m12 | rising | rise | rise | raw_action | visual_action_fallback | visual_action |  | agent:m3->ent_m3 | {"canonical": "action:rise", "parents": ["action_parent:visual_action"]} |  |
-| ce1 | m13 | covered | cover | cover | raw_action | visual_action_fallback | visual_action |  | theme:m5->ent_m5 | {"canonical": "action:cover", "parents": ["action_parent:visual_action"]} |  |
+| ce1 | m13 | covered | cover | cover | raw_action | visual_action_fallback | visual_action |  | patient<-theme[passive_to_active]:m5->ent_m5 | {"canonical": "action:cover", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | rise | agent | m3 | ent_m3 | medium | e5 | inherited agent acl -> mist |  |  |
-| ce1 | cover | theme | m5 | ent_m5 | medium | e6 | nsubjpass -> covered |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | rise | agent | agent | none | m3 | ent_m3 | medium | e5 | inherited agent acl -> mist |  |  |
+| ce1 | cover | patient | theme | passive_to_active | m5 | ent_m5 | medium | e6 | nsubjpass -> covered |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -7597,7 +7597,7 @@ _none_
 | cf12 | action_event | rise |  |  | visual_action | action_event:rise | True | low |
 | cf13 | event_role | rise | agent | mist |  | event_role:rise:agent:mist | True | medium |
 | cf14 | action_event | cover |  |  | visual_action | action_event:cover | True | low |
-| cf15 | event_role | cover | theme | ground |  | event_role:cover:theme:ground | True | medium |
+| cf15 | event_role | cover | patient | ground |  | event_role:cover:patient:ground | True | medium |
 | cf16 | relation | crater | with | mist | association_relation, visual_relation | relation:crater:with:mist | True | high |
 | cf17 | relation | mist | from | edge | visual_relation | relation:mist:from:edge | True | medium |
 | cf18 | relation | ground | in | stone | spatial_containment, visual_relation | relation:ground:in:stone | True | high |
@@ -7607,7 +7607,7 @@ _none_
 ### Stage 9 Canonicalization Notes
 | kind | action_mention | raw_edge | target | canonical_target | reason | full_note |
 | --- | --- | --- | --- | --- | --- | --- |
-| passive_subject_to_theme | m13 | e6 | m5 |  |  | {"action_mention_id": "m13", "kind": "passive_subject_to_theme", "raw_edge_id": "e6", "target": "m5"} |
+| passive_subject_to_patient | m13 | e6 | m5 |  |  | {"action_mention_id": "m13", "kind": "passive_subject_to_patient", "raw_edge_id": "e6", "raw_role": "theme", "role": "patient", "target": "m5", "voice_normalization": "passive_to_active"} |
 
 ## 71
 
@@ -7670,13 +7670,13 @@ _none_
 | ce1 | m9 | including | include | include | raw_action | visual_action_fallback | visual_action |  | agent:m1->ent_m1; patient:m6->ent_m6; patient:m7->ent_m7 | {"canonical": "action:include", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | show | agent | m0 | ent_m0 | medium | e2 | nsubj -> shows |  |  |
-| ce0 | show | patient | m1 | ent_m1 | medium | e3 | dobj -> shows |  |  |
-| ce1 | include | agent | m1 | ent_m1 | medium | e4 | inherited agent prep -> statistics |  |  |
-| ce1 | include | patient | m6 | ent_m6 | medium | e5 | pobj -> including |  |  |
-| ce1 | include | patient | m7 | ent_m7 | medium | e6 | pobj -> including |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | show | agent | agent | none | m0 | ent_m0 | medium | e2 | nsubj -> shows |  |  |
+| ce0 | show | patient | patient | none | m1 | ent_m1 | medium | e3 | dobj -> shows |  |  |
+| ce1 | include | agent | agent | none | m1 | ent_m1 | medium | e4 | inherited agent prep -> statistics |  |  |
+| ce1 | include | patient | patient | none | m6 | ent_m6 | medium | e5 | pobj -> including |  |  |
+| ce1 | include | patient | patient | none | m7 | ent_m7 | medium | e6 | pobj -> including |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -7794,12 +7794,12 @@ _none_
 | ce3 | m19 | looking | look | look | raw_action | stage9_seed:parent_seed | gaze_action, visual_action |  | agent:m14->ent_m14 | {"canonical": "action:look", "parents": ["action_parent:gaze_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e8 | nsubj -> stands |  |  |
-| ce1 | contrast | agent | m8 | ent_m8 | medium | e9 | inherited agent advcl -> is |  |  |
-| ce2 | appear | agent | m14 | ent_m14 | medium | e10 | nsubj -> appears |  |  |
-| ce3 | look | agent | m14 | ent_m14 | medium | e11 | inherited agent xcomp -> appears |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e8 | nsubj -> stands |  |  |
+| ce1 | contrast | agent | agent | none | m8 | ent_m8 | medium | e9 | inherited agent advcl -> is |  |  |
+| ce2 | appear | agent | agent | none | m14 | ent_m14 | medium | e10 | nsubj -> appears |  |  |
+| ce3 | look | agent | agent | none | m14 | ent_m14 | medium | e11 | inherited agent xcomp -> appears |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -7938,11 +7938,11 @@ _none_
 | ce2 | m23 | grows | grow | grow | raw_action | visual_action_fallback | visual_action |  | agent:m17->ent_m17 | {"canonical": "action:grow", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e9 | nsubj -> stands |  |  |
-| ce1 | lead | agent | m13 | ent_m13 | medium | e10 | nsubj -> lead |  |  |
-| ce2 | grow | agent | m17 | ent_m17 | medium | e12 | nsubj -> grows |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e9 | nsubj -> stands |  |  |
+| ce1 | lead | agent | agent | none | m13 | ent_m13 | medium | e10 | nsubj -> lead |  |  |
+| ce2 | grow | agent | agent | none | m17 | ent_m17 | medium | e12 | nsubj -> grows |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -8087,12 +8087,12 @@ _none_
 | ce3 | m23 | sits | sit | sit | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m13->ent_m13 | {"canonical": "action:sit", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m1 | ent_m1 | medium | e4 | nsubj -> stands |  |  |
-| ce1 | speak | agent | m1 | ent_m1 | medium | e5 | inherited agent advcl -> stands |  |  |
-| ce2 | sit | agent | m8 | ent_m8 | medium | e6 | nsubj -> sits |  |  |
-| ce3 | sit | agent | m13 | ent_m13 | medium | e7 | nsubj -> sits |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m1 | ent_m1 | medium | e4 | nsubj -> stands |  |  |
+| ce1 | speak | agent | agent | none | m1 | ent_m1 | medium | e5 | inherited agent advcl -> stands |  |  |
+| ce2 | sit | agent | agent | none | m8 | ent_m8 | medium | e6 | nsubj -> sits |  |  |
+| ce3 | sit | agent | agent | none | m13 | ent_m13 | medium | e7 | nsubj -> sits |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -8311,18 +8311,18 @@ _none_
 | ce4 | m27 | complete | complete | complete | raw_action | visual_action_fallback | visual_action |  | agent:m18->ent_m18; agent:m20->ent_m20; patient:m22->ent_m22 | {"canonical": "action:complete", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | hold | agent | m0 | ent_m0 | medium | e11 | nsubj -> holds |  |  |
-| ce0 | hold | patient | m2 | ent_m2 | medium | e12 | dobj -> holds |  |  |
-| ce1 | overlook | agent | m3 | ent_m3 | medium | e13 | inherited agent acl -> ledge |  |  |
-| ce1 | overlook | patient | m5 | ent_m5 | medium | e14 | dobj -> overlooking |  |  |
-| ce2 | feature | agent | m7 | ent_m7 | medium | e15 | nsubj -> features |  |  |
-| ce2 | feature | patient | m8 | ent_m8 | medium | e16 | dobj -> features |  |  |
-| ce3 | nestle | agent | m8 | ent_m8 | medium | e17 | inherited agent acl -> buildings |  |  |
-| ce4 | complete | agent | m18 | ent_m18 | medium | e18 | nsubj -> complete |  |  |
-| ce4 | complete | agent | m20 | ent_m20 | medium | e19 | nsubj -> complete |  |  |
-| ce4 | complete | patient | m22 | ent_m22 | medium | e20 | dobj -> complete |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | hold | agent | agent | none | m0 | ent_m0 | medium | e11 | nsubj -> holds |  |  |
+| ce0 | hold | patient | patient | none | m2 | ent_m2 | medium | e12 | dobj -> holds |  |  |
+| ce1 | overlook | agent | agent | none | m3 | ent_m3 | medium | e13 | inherited agent acl -> ledge |  |  |
+| ce1 | overlook | patient | patient | none | m5 | ent_m5 | medium | e14 | dobj -> overlooking |  |  |
+| ce2 | feature | agent | agent | none | m7 | ent_m7 | medium | e15 | nsubj -> features |  |  |
+| ce2 | feature | patient | patient | none | m8 | ent_m8 | medium | e16 | dobj -> features |  |  |
+| ce3 | nestle | agent | agent | none | m8 | ent_m8 | medium | e17 | inherited agent acl -> buildings |  |  |
+| ce4 | complete | agent | agent | none | m18 | ent_m18 | medium | e18 | nsubj -> complete |  |  |
+| ce4 | complete | agent | agent | none | m20 | ent_m20 | medium | e19 | nsubj -> complete |  |  |
+| ce4 | complete | patient | patient | none | m22 | ent_m22 | medium | e20 | dobj -> complete |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -8449,11 +8449,11 @@ _none_
 | ce1 | m14 | stands | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | hold_up | agent | m0 | ent_m0 | medium | e6 | nsubj -> holds |  |  |
-| ce0 | hold_up | patient | m4 | ent_m4 | medium | e8 | dobj -> holds |  |  |
-| ce1 | stand | agent | m0 | ent_m0 | medium | e9 | nsubj -> stands; resolved She -> woman |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | hold_up | agent | agent | none | m0 | ent_m0 | medium | e6 | nsubj -> holds |  |  |
+| ce0 | hold_up | patient | patient | none | m4 | ent_m4 | medium | e8 | dobj -> holds |  |  |
+| ce1 | stand | agent | agent | none | m0 | ent_m0 | medium | e9 | nsubj -> stands; resolved She -> woman |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -8574,22 +8574,22 @@ _none_
 | ce0 | m16 | sit | sit | sit | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m1->ent_m1 | {"canonical": "action:sit", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 | ce1 | m17 | displays | display | display | raw_action | visual_action_fallback | visual_action |  | agent:m8->ent_m8; patient:m10->ent_m10 | {"canonical": "action:display", "parents": ["action_parent:visual_action"]} |  |
 | ce2 | m18 | including | include | include | raw_action | visual_action_fallback | visual_action |  | agent:m10->ent_m10; patient:m0->None | {"canonical": "action:include", "parents": ["action_parent:visual_action"]} |  |
-| ce3 | m19 | seated | seat | sit | stage9_seed:synonym_seed | stage9_seed:parent_seed | body_pose_action, visual_action |  | theme:m12->ent_m12 | {"canonical": "action:sit", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
+| ce3 | m19 | seated | seat | sit | stage9_seed:synonym_seed | stage9_seed:parent_seed | body_pose_action, visual_action |  | patient<-theme[passive_to_active]:m12->ent_m12 | {"canonical": "action:sit", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 | ce4 | m20 | standing | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m12->ent_m12 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 | ce5 | m21 | facing | face | face | raw_action | stage9_seed:parent_seed | orientation_action, visual_action |  | agent:m12->ent_m12; patient:m15->ent_m15 | {"canonical": "action:face", "parents": ["action_parent:orientation_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | sit | agent | m1 | ent_m1 | medium | e5 | nsubj -> sit |  |  |
-| ce1 | display | agent | m8 | ent_m8 | medium | e6 | nsubj -> displays |  |  |
-| ce1 | display | patient | m10 | ent_m10 | medium | e7 | dobj -> displays |  |  |
-| ce2 | include | agent | m10 | ent_m10 | medium | e8 | inherited agent prep -> text |  |  |
-| ce2 | include | patient | m0 |  | medium | e9 | pobj -> including |  |  |
-| ce3 | sit | theme | m12 | ent_m12 | medium | e10 | nsubjpass -> seated |  |  |
-| ce4 | stand | agent | m12 | ent_m12 | medium | e11 | inherited agent conj -> seated |  |  |
-| ce5 | face | agent | m12 | ent_m12 | medium | e12 | inherited agent conj -> standing |  |  |
-| ce5 | face | patient | m15 | ent_m15 | medium | e13 | dobj -> facing |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | sit | agent | agent | none | m1 | ent_m1 | medium | e5 | nsubj -> sit |  |  |
+| ce1 | display | agent | agent | none | m8 | ent_m8 | medium | e6 | nsubj -> displays |  |  |
+| ce1 | display | patient | patient | none | m10 | ent_m10 | medium | e7 | dobj -> displays |  |  |
+| ce2 | include | agent | agent | none | m10 | ent_m10 | medium | e8 | inherited agent prep -> text |  |  |
+| ce2 | include | patient | patient | none | m0 |  | medium | e9 | pobj -> including |  |  |
+| ce3 | sit | patient | theme | passive_to_active | m12 | ent_m12 | medium | e10 | nsubjpass -> seated |  |  |
+| ce4 | stand | agent | agent | none | m12 | ent_m12 | medium | e11 | inherited agent conj -> seated |  |  |
+| ce5 | face | agent | agent | none | m12 | ent_m12 | medium | e12 | inherited agent conj -> standing |  |  |
+| ce5 | face | patient | patient | none | m15 | ent_m15 | medium | e13 | dobj -> facing |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -8628,7 +8628,7 @@ _none_
 | cf21 | event_role | include | agent | text |  | event_role:include:agent:text | True | medium |
 | cf22 | event_role | include | patient |  |  | event_role:include:patient | False | medium |
 | cf23 | action_event | sit |  |  | body_pose_action, visual_action | action_event:sit | True | high |
-| cf24 | event_role | sit | theme | individual |  | event_role:sit:theme:individual | True | medium |
+| cf24 | event_role | sit | patient | individual |  | event_role:sit:patient:individual | True | medium |
 | cf25 | action_event | stand |  |  | body_pose_action, visual_action | action_event:stand | True | high |
 | cf26 | event_role | stand | agent | individual |  | event_role:stand:agent:individual | True | medium |
 | cf27 | action_event | face |  |  | orientation_action, visual_action | action_event:face | True | high |
@@ -8645,7 +8645,7 @@ _none_
 | kind | action_mention | raw_edge | target | canonical_target | reason | full_note |
 | --- | --- | --- | --- | --- | --- | --- |
 | action_lexical_canonicalized | m19 |  |  |  |  | {"action_mention_id": "m19", "canonical": "sit", "kind": "action_lexical_canonicalized", "raw_canonical_action": "seat", "source": "stage9_seed:synonym_seed"} |
-| passive_subject_to_theme | m19 | e10 | m12 |  |  | {"action_mention_id": "m19", "kind": "passive_subject_to_theme", "raw_edge_id": "e10", "target": "m12"} |
+| passive_subject_to_patient | m19 | e10 | m12 |  |  | {"action_mention_id": "m19", "kind": "passive_subject_to_patient", "raw_edge_id": "e10", "raw_role": "theme", "role": "patient", "target": "m12", "voice_normalization": "passive_to_active"} |
 
 ## 79
 
@@ -8790,19 +8790,19 @@ _none_
 | ce0 | m17 | rests | rest | rest | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0 | {"canonical": "action:rest", "parents": ["action_parent:visual_action"]} |  |
 | ce1 | m18 | has | have | have | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0; patient:m9->ent_m9; patient:m11->ent_m11 | {"canonical": "action:have", "parents": ["action_parent:visual_action"]} |  |
 | ce2 | m19 | suggesting | suggest | suggest | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0 | {"canonical": "action:suggest", "parents": ["action_parent:visual_action"]} |  |
-| ce3 | m20 | made | make | make | raw_action | visual_action_fallback | visual_action |  | theme:m0->ent_m0 | {"canonical": "action:make", "parents": ["action_parent:visual_action"]} |  |
+| ce3 | m20 | made | make | make | raw_action | visual_action_fallback | visual_action |  | patient<-theme[passive_to_active]:m0->ent_m0 | {"canonical": "action:make", "parents": ["action_parent:visual_action"]} |  |
 | ce4 | m21 | appears | appear | appear | raw_action | visual_action_fallback | visual_action |  | agent:m15->ent_m15 | {"canonical": "action:appear", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | rest | agent | m0 | ent_m0 | medium | e9 | nsubj -> rests |  |  |
-| ce1 | have | agent | m0 | ent_m0 | medium | e10 | nsubj -> has; resolved object -> slab |  |  |
-| ce1 | have | patient | m9 | ent_m9 | medium | e11 | dobj -> has |  |  |
-| ce1 | have | patient | m11 | ent_m11 | medium | e12 | dobj -> has |  |  |
-| ce2 | suggest | agent | m0 | ent_m0 | medium | e13 | inherited agent advcl -> has |  |  |
-| ce3 | make | theme | m0 | ent_m0 | medium | e14 | nsubjpass -> made; resolved it -> slab |  |  |
-| ce4 | appear | agent | m15 | ent_m15 | medium | e15 | nsubj -> appears; resolved it -> edges |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | rest | agent | agent | none | m0 | ent_m0 | medium | e9 | nsubj -> rests |  |  |
+| ce1 | have | agent | agent | none | m0 | ent_m0 | medium | e10 | nsubj -> has; resolved object -> slab |  |  |
+| ce1 | have | patient | patient | none | m9 | ent_m9 | medium | e11 | dobj -> has |  |  |
+| ce1 | have | patient | patient | none | m11 | ent_m11 | medium | e12 | dobj -> has |  |  |
+| ce2 | suggest | agent | agent | none | m0 | ent_m0 | medium | e13 | inherited agent advcl -> has |  |  |
+| ce3 | make | patient | theme | passive_to_active | m0 | ent_m0 | medium | e14 | nsubjpass -> made; resolved it -> slab |  |  |
+| ce4 | appear | agent | agent | none | m15 | ent_m15 | medium | e15 | nsubj -> appears; resolved it -> edges |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -8840,7 +8840,7 @@ _none_
 | cf22 | action_event | suggest |  |  | visual_action | action_event:suggest | True | low |
 | cf23 | event_role | suggest | agent | slab |  | event_role:suggest:agent:slab | True | medium |
 | cf24 | action_event | make |  |  | visual_action | action_event:make | True | low |
-| cf25 | event_role | make | theme | slab |  | event_role:make:theme:slab | True | medium |
+| cf25 | event_role | make | patient | slab |  | event_role:make:patient:slab | True | medium |
 | cf26 | action_event | appear |  |  | visual_action | action_event:appear | True | low |
 | cf27 | event_role | appear | agent | edge |  | event_role:appear:agent:edge | True | medium |
 | cf28 | relation | slab | with | surface | association_relation, visual_relation | relation:slab:with:surface | True | high |
@@ -8851,7 +8851,7 @@ _none_
 ### Stage 9 Canonicalization Notes
 | kind | action_mention | raw_edge | target | canonical_target | reason | full_note |
 | --- | --- | --- | --- | --- | --- | --- |
-| passive_subject_to_theme | m20 | e14 | m0 |  |  | {"action_mention_id": "m20", "kind": "passive_subject_to_theme", "raw_edge_id": "e14", "target": "m0"} |
+| passive_subject_to_patient | m20 | e14 | m0 |  |  | {"action_mention_id": "m20", "kind": "passive_subject_to_patient", "raw_edge_id": "e14", "raw_role": "theme", "role": "patient", "target": "m0", "voice_normalization": "passive_to_active"} |
 
 ## 81
 
@@ -8904,9 +8904,9 @@ _none_
 | ce0 | m7 | stand | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e4 | nsubj -> stand |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e4 | nsubj -> stand |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -8997,12 +8997,12 @@ _none_
 | ce1 | m13 | wearing | wear | wear | raw_action | stage9_seed:parent_seed | wearing_action, visual_action |  | agent:m0->ent_m0; patient:m5->ent_m5; patient:m9->ent_m9 | {"canonical": "action:wear", "parents": ["action_parent:wearing_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | smile | agent | m0 | ent_m0 | medium | e8 | nsubj -> smiles |  |  |
-| ce1 | wear | agent | m0 | ent_m0 | medium | e9 | inherited agent advcl -> smiles |  |  |
-| ce1 | wear | patient | m5 | ent_m5 | medium | e10 | dobj -> wearing |  |  |
-| ce1 | wear | patient | m9 | ent_m9 | medium | e11 | dobj -> wearing |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | smile | agent | agent | none | m0 | ent_m0 | medium | e8 | nsubj -> smiles |  |  |
+| ce1 | wear | agent | agent | none | m0 | ent_m0 | medium | e9 | inherited agent advcl -> smiles |  |  |
+| ce1 | wear | patient | patient | none | m5 | ent_m5 | medium | e10 | dobj -> wearing |  |  |
+| ce1 | wear | patient | patient | none | m9 | ent_m9 | medium | e11 | dobj -> wearing |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -9092,10 +9092,10 @@ _none_
 | ce1 | m10 | stands | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m6->ent_m6 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | run | agent | m0 | ent_m0 | medium | e2 | nsubj -> run |  |  |
-| ce1 | stand | agent | m6 | ent_m6 | medium | e3 | nsubj -> stands |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | run | agent | agent | none | m0 | ent_m0 | medium | e2 | nsubj -> run |  |  |
+| ce1 | stand | agent | agent | none | m6 | ent_m6 | medium | e3 | nsubj -> stands |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -9299,11 +9299,11 @@ _none_
 | ce1 | m8 | placing | place | place | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0; patient:m5->ent_m5 | {"canonical": "action:place", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e3 | nsubj -> stand |  |  |
-| ce1 | place | agent | m0 | ent_m0 | medium | e4 | inherited agent advcl -> stand |  |  |
-| ce1 | place | patient | m5 | ent_m5 | medium | e5 | dobj -> placing |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e3 | nsubj -> stand |  |  |
+| ce1 | place | agent | agent | none | m0 | ent_m0 | medium | e4 | inherited agent advcl -> stand |  |  |
+| ce1 | place | patient | patient | none | m5 | ent_m5 | medium | e5 | dobj -> placing |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -9460,14 +9460,14 @@ _none_
 | ce3 | m11 | wearing | wear | wear | raw_action | stage9_seed:parent_seed | wearing_action, visual_action |  | agent:m5->ent_m5; patient:m6->ent_m6 | {"canonical": "action:wear", "parents": ["action_parent:wearing_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | kneel | agent | m0 | ent_m0 | medium | e3 | nsubj -> kneels |  |  |
-| ce1 | plant | agent | m0 | ent_m0 | medium | e4 | inherited agent advcl -> kneels |  |  |
-| ce1 | plant | patient | m2 | ent_m2 | medium | e5 | dobj -> planting |  |  |
-| ce2 | stand | agent | m5 | ent_m5 | medium | e6 | nsubj -> stands |  |  |
-| ce3 | wear | agent | m5 | ent_m5 | medium | e7 | inherited agent advcl -> stands |  |  |
-| ce3 | wear | patient | m6 | ent_m6 | medium | e8 | dobj -> wearing |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | kneel | agent | agent | none | m0 | ent_m0 | medium | e3 | nsubj -> kneels |  |  |
+| ce1 | plant | agent | agent | none | m0 | ent_m0 | medium | e4 | inherited agent advcl -> kneels |  |  |
+| ce1 | plant | patient | patient | none | m2 | ent_m2 | medium | e5 | dobj -> planting |  |  |
+| ce2 | stand | agent | agent | none | m5 | ent_m5 | medium | e6 | nsubj -> stands |  |  |
+| ce3 | wear | agent | agent | none | m5 | ent_m5 | medium | e7 | inherited agent advcl -> stands |  |  |
+| ce3 | wear | patient | patient | none | m6 | ent_m6 | medium | e8 | dobj -> wearing |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -9572,12 +9572,12 @@ _none_
 | ce2 | m13 | burns | burn | burn | raw_action | visual_action_fallback | visual_action |  | agent:m7->ent_m7 | {"canonical": "action:burn", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e4 | nsubj -> stand |  |  |
-| ce1 | stir | agent | m0 | eref_m10 | medium | e5 | nsubj -> stirring; resolved one -> men |  |  |
-| ce1 | stir | patient | m4 | ent_m4 | medium | e6 | dobj -> stirring |  |  |
-| ce2 | burn | agent | m7 | ent_m7 | medium | e7 | nsubj -> burns |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e4 | nsubj -> stand |  |  |
+| ce1 | stir | agent | agent | none | m0 | eref_m10 | medium | e5 | nsubj -> stirring; resolved one -> men |  |  |
+| ce1 | stir | patient | patient | none | m4 | ent_m4 | medium | e6 | dobj -> stirring |  |  |
+| ce2 | burn | agent | agent | none | m7 | ent_m7 | medium | e7 | nsubj -> burns |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -9687,16 +9687,16 @@ _none_
 ### Stage 9 Canonical Events
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | m14 | stitched | stitch | stitch | raw_action | visual_action_fallback | visual_action |  | theme:m1->ent_m1 | {"canonical": "action:stitch", "parents": ["action_parent:visual_action"]} |  |
-| ce1 | m15 | frayed | fray | fray | raw_action | visual_action_fallback | visual_action |  | theme:m8->ent_m8 | {"canonical": "action:fray", "parents": ["action_parent:visual_action"]} |  |
+| ce0 | m14 | stitched | stitch | stitch | raw_action | visual_action_fallback | visual_action |  | patient<-theme[passive_to_active]:m1->ent_m1 | {"canonical": "action:stitch", "parents": ["action_parent:visual_action"]} |  |
+| ce1 | m15 | frayed | fray | fray | raw_action | visual_action_fallback | visual_action |  | patient<-theme[passive_to_active]:m8->ent_m8 | {"canonical": "action:fray", "parents": ["action_parent:visual_action"]} |  |
 | ce2 | m16 | sits | sit | sit | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m8->ent_m8 | {"canonical": "action:sit", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stitch | theme | m1 | ent_m1 | medium | e7 | nsubjpass -> stitched |  |  |
-| ce1 | fray | theme | m8 | ent_m8 | medium | e8 | nsubjpass -> frayed |  |  |
-| ce2 | sit | agent | m8 | ent_m8 | medium | e9 | inherited agent conj -> frayed |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stitch | patient | theme | passive_to_active | m1 | ent_m1 | medium | e7 | nsubjpass -> stitched |  |  |
+| ce1 | fray | patient | theme | passive_to_active | m8 | ent_m8 | medium | e8 | nsubjpass -> frayed |  |  |
+| ce2 | sit | agent | agent | none | m8 | ent_m8 | medium | e9 | inherited agent conj -> frayed |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -9725,9 +9725,9 @@ _none_
 | cf12 | has_attribute | fabric | wrinkled |  | texture_attribute, texture, visual_attribute | has_attribute:fabric:wrinkled | True | medium |
 | cf13 | has_attribute | number | 1709-1 |  | quote_text, visual_attribute | has_attribute:number:1709-1 | True | high |
 | cf14 | action_event | stitch |  |  | visual_action | action_event:stitch | True | low |
-| cf15 | event_role | stitch | theme | tag |  | event_role:stitch:theme:tag | True | medium |
+| cf15 | event_role | stitch | patient | tag |  | event_role:stitch:patient:tag | True | medium |
 | cf16 | action_event | fray |  |  | visual_action | action_event:fray | True | low |
-| cf17 | event_role | fray | theme | tag |  | event_role:fray:theme:tag | True | medium |
+| cf17 | event_role | fray | patient | tag |  | event_role:fray:patient:tag | True | medium |
 | cf18 | action_event | sit |  |  | body_pose_action, visual_action | action_event:sit | True | high |
 | cf19 | event_role | sit | agent | tag |  | event_role:sit:agent:tag | True | medium |
 | cf20 | relation | tag | with | number | association_relation, visual_relation | relation:tag:with:number | True | high |
@@ -9739,8 +9739,8 @@ _none_
 ### Stage 9 Canonicalization Notes
 | kind | action_mention | raw_edge | target | canonical_target | reason | full_note |
 | --- | --- | --- | --- | --- | --- | --- |
-| passive_subject_to_theme | m14 | e7 | m1 |  |  | {"action_mention_id": "m14", "kind": "passive_subject_to_theme", "raw_edge_id": "e7", "target": "m1"} |
-| passive_subject_to_theme | m15 | e8 | m8 |  |  | {"action_mention_id": "m15", "kind": "passive_subject_to_theme", "raw_edge_id": "e8", "target": "m8"} |
+| passive_subject_to_patient | m14 | e7 | m1 |  |  | {"action_mention_id": "m14", "kind": "passive_subject_to_patient", "raw_edge_id": "e7", "raw_role": "theme", "role": "patient", "target": "m1", "voice_normalization": "passive_to_active"} |
+| passive_subject_to_patient | m15 | e8 | m8 |  |  | {"action_mention_id": "m15", "kind": "passive_subject_to_patient", "raw_edge_id": "e8", "raw_role": "theme", "role": "patient", "target": "m8", "voice_normalization": "passive_to_active"} |
 | relation_lexical_canonicalized |  | e11 |  |  |  | {"canonical": "on", "kind": "relation_lexical_canonicalized", "raw_edge_id": "e11", "raw_relation": "onto", "source": "manual_relation_seed\|visual_genome_relationship_alias\|visual_genome_relationship_count"} |
 
 ## 91
@@ -9932,9 +9932,9 @@ _none_
 | ce0 | m10 | stands | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e4 | nsubj -> stands |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e4 | nsubj -> stands |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -10027,11 +10027,11 @@ _none_
 | ce0 | m9 | overlooks | overlook | overlook | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0; patient:m2->ent_m2; patient:m5->ent_m5 | {"canonical": "action:overlook", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | overlook | agent | m0 | ent_m0 | medium | e5 | nsubj -> overlooks |  |  |
-| ce0 | overlook | patient | m2 | ent_m2 | medium | e6 | dobj -> overlooks |  |  |
-| ce0 | overlook | patient | m5 | ent_m5 | medium | e7 | dobj -> overlooks |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | overlook | agent | agent | none | m0 | ent_m0 | medium | e5 | nsubj -> overlooks |  |  |
+| ce0 | overlook | patient | patient | none | m2 | ent_m2 | medium | e6 | dobj -> overlooks |  |  |
+| ce0 | overlook | patient | patient | none | m5 | ent_m5 | medium | e7 | dobj -> overlooks |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -10184,9 +10184,9 @@ _none_
 | ce0 | m8 | stands | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e3 | nsubj -> stands |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e3 | nsubj -> stands |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -10284,9 +10284,9 @@ _none_
 | ce0 | m14 | stands | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e7 | nsubj -> stands |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e7 | nsubj -> stands |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -10421,16 +10421,16 @@ _none_
 | ce4 | m25 | stands | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m13->ent_m13 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | stand | agent | m0 | ent_m0 | medium | e6 | nsubj -> stand |  |  |
-| ce1 | hold | agent | m0 | eref_m20 | medium | e7 | nsubj -> holding; resolved each -> people |  |  |
-| ce1 | hold | patient | m6 | ent_m6 | medium | e8 | dobj -> holding |  |  |
-| ce2 | wear | agent | m8 | ent_m8 | medium | e9 | nsubj -> wear |  |  |
-| ce2 | wear | patient | m10 | ent_m10 | medium | e10 | dobj -> wear |  |  |
-| ce3 | pour | agent | m8 | ent_m8 | medium | e11 | inherited agent conj -> wear |  |  |
-| ce3 | pour | patient | m11 | ent_m11 | medium | e12 | dobj -> pour |  |  |
-| ce4 | stand | agent | m13 | ent_m13 | medium | e13 | nsubj -> stands |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | stand | agent | agent | none | m0 | ent_m0 | medium | e6 | nsubj -> stand |  |  |
+| ce1 | hold | agent | agent | none | m0 | eref_m20 | medium | e7 | nsubj -> holding; resolved each -> people |  |  |
+| ce1 | hold | patient | patient | none | m6 | ent_m6 | medium | e8 | dobj -> holding |  |  |
+| ce2 | wear | agent | agent | none | m8 | ent_m8 | medium | e9 | nsubj -> wear |  |  |
+| ce2 | wear | patient | patient | none | m10 | ent_m10 | medium | e10 | dobj -> wear |  |  |
+| ce3 | pour | agent | agent | none | m8 | ent_m8 | medium | e11 | inherited agent conj -> wear |  |  |
+| ce3 | pour | patient | patient | none | m11 | ent_m11 | medium | e12 | dobj -> pour |  |  |
+| ce4 | stand | agent | agent | none | m13 | ent_m13 | medium | e13 | nsubj -> stands |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -10548,11 +10548,11 @@ _none_
 | ce0 | m9 | lets | let | let | raw_action | visual_action_fallback | visual_action | in | agent:m0->ent_m0; agent:m5->ent_m5; patient:m7->ent_m7 | {"canonical": "action:let", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | let | agent | m0 | ent_m0 | medium | e5 | nsubj -> lets |  |  |
-| ce0 | let | agent | m5 | ent_m5 | medium | e6 | nsubj -> lets |  |  |
-| ce0 | let | patient | m7 | ent_m7 | medium | e8 | dobj -> lets |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | let | agent | agent | none | m0 | ent_m0 | medium | e5 | nsubj -> lets |  |  |
+| ce0 | let | agent | agent | none | m5 | ent_m5 | medium | e6 | nsubj -> lets |  |  |
+| ce0 | let | patient | patient | none | m7 | ent_m7 | medium | e8 | dobj -> lets |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |
@@ -10642,11 +10642,11 @@ _none_
 | ce1 | m10 | winding | wind | wind | raw_action | visual_action_fallback | visual_action |  | agent:m5->ent_m5 | {"canonical": "action:wind", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
-| event_id | canonical_action | role | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | show | agent | m0 | ent_m0 | medium | e2 | nsubj -> shows |  |  |
-| ce0 | show | patient | m2 | ent_m2 | medium | e3 | dobj -> shows |  |  |
-| ce1 | wind | agent | m5 | ent_m5 | medium | e4 | inherited agent acl -> roads |  |  |
+| event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ce0 | show | agent | agent | none | m0 | ent_m0 | medium | e2 | nsubj -> shows |  |  |
+| ce0 | show | patient | patient | none | m2 | ent_m2 | medium | e3 | dobj -> shows |  |  |
+| ce1 | wind | agent | agent | none | m5 | ent_m5 | medium | e4 | inherited agent acl -> roads |  |  |
 
 ### Stage 9 Canonical Relations
 | relation_id | raw_source | raw_target | canonical_source | canonical_target | raw_relation | relation | relation_canonical_source | relation_parent_source | relation_parent_chain | confidence | raw_edge | consumed_by_event | self_after_canonicalization | source_selection | selection_reason |

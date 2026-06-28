@@ -68,6 +68,15 @@ def norm_text(value: object) -> str:
     return " ".join(str(value or "").strip().lower().split())
 
 
+def normalized_event_role(raw_role: object) -> str:
+    role = norm_text(raw_role).replace(" ", "_")
+    if role in {"theme", "patient"}:
+        return "patient"
+    if role in {"by_agent_or_causer", "agent"}:
+        return "agent"
+    return role
+
+
 def action_particles(
     action_id: str,
     outgoing_edges: dict[str, list[dict[str, object]]],
@@ -176,31 +185,42 @@ def canonicalize_record(
             "notes": event_notes,
         }
 
-        passive_themes: list[str] = []
+        passive_patient_ids: list[str] = []
         for edge in outgoing_edges.get(action_id, []):
             edge_type = edge.get("edge_type")
             if edge_type == "agent":
                 if is_passive_subject_edge(edge):
-                    role = "theme"
-                    passive_themes.append(str(edge.get("target")))
+                    raw_role = "theme"
+                    role = normalized_event_role(raw_role)
+                    voice_normalization = "passive_to_active"
+                    passive_patient_ids.append(str(edge.get("target")))
                     notes.append(
                         {
-                            "kind": "passive_subject_to_theme",
+                            "kind": "passive_subject_to_patient",
                             "action_mention_id": action_id,
                             "raw_edge_id": edge.get("edge_id"),
                             "target": edge.get("target"),
+                            "raw_role": raw_role,
+                            "role": role,
+                            "voice_normalization": voice_normalization,
                         }
                     )
                 else:
+                    raw_role = "agent"
                     role = "agent"
+                    voice_normalization = "none"
             elif edge_type == "patient":
+                raw_role = "patient"
                 role = "patient"
+                voice_normalization = "none"
             else:
                 continue
 
             event["roles"].append(
                 {
                     "role": role,
+                    "raw_role": raw_role,
+                    "voice_normalization": voice_normalization,
                     "target": edge.get("target"),
                     "canonical_target": canonical_target_for_role(
                         str(edge.get("target")),
@@ -214,14 +234,16 @@ def canonicalize_record(
                 }
             )
 
-        for theme_id in passive_themes:
+        for patient_id in passive_patient_ids:
             for relation in relation_edges:
-                if relation.get("source") != theme_id or relation.get("evidence") != PASSIVE_BY_RELATION:
+                if relation.get("source") != patient_id or relation.get("evidence") != PASSIVE_BY_RELATION:
                     continue
                 consumed_relation_ids.add(str(relation.get("edge_id")))
                 event["roles"].append(
                     {
-                        "role": "by_agent_or_causer",
+                        "role": "agent",
+                        "raw_role": "by_agent_or_causer",
+                        "voice_normalization": "passive_to_active",
                         "target": relation.get("target"),
                         "canonical_target": reference_model["mention_to_entity"].get(str(relation.get("target"))),
                         "confidence": relation.get("confidence"),
@@ -231,15 +253,22 @@ def canonicalize_record(
                 )
                 notes.append(
                     {
-                        "kind": "passive_by_frame_to_event_role",
+                        "kind": "passive_by_frame_to_agent",
                         "action_mention_id": action_id,
-                        "theme": theme_id,
-                        "by_agent_or_causer": relation.get("target"),
+                        "patient": patient_id,
+                        "agent": relation.get("target"),
+                        "raw_role": "by_agent_or_causer",
+                        "role": "agent",
                         "raw_edge_id": relation.get("edge_id"),
+                        "voice_normalization": "passive_to_active",
                     }
                 )
 
         for recovered_role in recovered_roles_from_skipped_edges(action, skipped_edges, reference_model):
+            raw_role = recovered_role.get("raw_role") or recovered_role.get("role")
+            recovered_role["raw_role"] = raw_role
+            recovered_role["role"] = normalized_event_role(raw_role)
+            recovered_role.setdefault("voice_normalization", "reference_recovery")
             event["roles"].append(recovered_role)
             notes.append(
                 {
@@ -503,6 +532,8 @@ def build_canonical_facts(
                     "count_key": make_fact_count_key(["event_role", action, role.get("role"), target_lemma]),
                     "count_eligible": bool(action and target_lemma),
                     "raw_edge_id": role.get("raw_edge_id"),
+                    "raw_role": role.get("raw_role"),
+                    "voice_normalization": role.get("voice_normalization"),
                     "confidence": role.get("confidence"),
                 }
             )
@@ -576,8 +607,10 @@ def update_summary(record: dict[str, object], counters: dict[str, Counter[str]])
             counters["action_parent_sources"][str(lexical.get("parent_source") or "")] += 1
         for role in event.get("roles", []):
             counters["roles"][str(role.get("role", ""))] += 1
+            counters["raw_event_roles"][str(role.get("raw_role") or role.get("role") or "")] += 1
+            counters["event_role_voice_normalization"][str(role.get("voice_normalization") or "none")] += 1
             if role.get("recovered_from_skipped_edge"):
-                counters["roles"]["recovered_from_skipped_edge"] += 1
+                counters["event_role_flags"]["recovered_from_skipped_edge"] += 1
     for relation in relations:
         counters["relations"][str(relation.get("canonical_relation", ""))] += 1
         for parent in relation.get("relation_parent_chain", []):
@@ -674,6 +707,18 @@ def write_summary(
         "## Canonical Event Roles",
         "",
         markdown_count_table(counters["roles"]),
+        "",
+        "## Raw Event Roles Before Count Collapse",
+        "",
+        markdown_count_table(counters["raw_event_roles"]),
+        "",
+        "## Event Role Voice Normalization",
+        "",
+        markdown_count_table(counters["event_role_voice_normalization"]),
+        "",
+        "## Event Role Flags",
+        "",
+        markdown_count_table(counters["event_role_flags"]),
         "",
         "## Canonical Relations",
         "",

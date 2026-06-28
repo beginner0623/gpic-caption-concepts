@@ -4586,3 +4586,61 @@ sample100에서는 entity parent none이 460개, alt100에서는 448개다.
 ```text
 docs/stage9_canonicalization_v2_design.md
 ```
+
+## 2026-06-28: Stage 9 event role count collapse
+
+결정:
+
+```text
+최종 count-facing event role은 agent/patient만 사용한다.
+theme은 patient로, by_agent_or_causer는 agent로 collapse한다.
+```
+
+정의:
+
+```text
+agent = active-voice normalization 이후 subject-side argument. 의도적 행위자만 뜻하지 않는다.
+patient = active-voice normalization 이후 object/theme-side argument. passive subject를 포함한다.
+```
+
+구현:
+
+```text
+active subject        -> agent
+active object/patient -> patient
+passive subject       -> patient, raw_role=theme, voice_normalization=passive_to_active
+passive by-phrase     -> agent, raw_role=by_agent_or_causer, voice_normalization=passive_to_active
+```
+
+검증:
+
+```text
+sample100 Canonical Event Roles:
+  agent: 213
+  patient: 92
+
+sample100 raw trace:
+  agent: 207
+  patient: 82
+  theme: 10
+  by_agent_or_causer: 6
+
+alt100 Canonical Event Roles:
+  agent: 181
+  patient: 92
+
+alt100 raw trace:
+  agent: 179
+  patient: 73
+  theme: 19
+  by_agent_or_causer: 2
+```
+
+출력:
+
+```text
+reports/canonical_concepts_sample100_val00000_trf_stage9_canonical_v2_summary.md
+reports/case_detail_sample100_val00000_trf_stage9_canonical_v2.md
+reports/canonical_concepts_alt100_val00001_trf_stage9_canonical_v2_summary.md
+reports/case_detail_alt100_val00001_trf_stage9_canonical_v2.md
+```

@@ -108,3 +108,38 @@ scripts/canonicalize_raw_concepts.py
 scripts/render_stage9_case_detail.py
 scripts/split_stage9_seed_lexicons.py
 ```
+
+## Event role count collapse
+
+Stage 9 v2의 count-facing event role은 `agent`와 `patient`만 사용한다. 여기서 `agent`는 의도적 행위자만 뜻하지 않고, active-voice normalization 이후 subject-side argument를 뜻한다. 따라서 `snow covers road`, `trees surround building`, `sunlight lights room`에서 `snow`, `trees`, `sunlight`는 모두 count schema상 `agent`로 둔다.
+
+정책:
+
+| raw/internal role | count-facing role | 설명 |
+|---|---|---|
+| `agent` | `agent` | 능동태 subject-side argument |
+| `patient` | `patient` | 능동태 object-side argument |
+| `theme` | `patient` | passive subject / 상태나 배치의 중심 대상 |
+| `by_agent_or_causer` | `agent` | passive `by` phrase를 active subject-side argument로 정규화 |
+
+출력 정책:
+
+- `canonical_events[].roles[].role`은 `agent` 또는 `patient`만 사용한다.
+- 디버깅/감사용으로 `raw_role`을 남긴다.
+- passive 정규화는 `voice_normalization=passive_to_active`로 표시한다.
+- reference 복원 role은 `voice_normalization=reference_recovery`로 표시한다.
+- relation/location 정보는 event role로 늘리지 않고 기존 `relation` fact로 유지한다.
+
+예시:
+
+```text
+The building is surrounded by trees.
+
+canonical event role:
+  surround patient building
+  surround agent trees
+
+trace:
+  patient <- raw_role: theme, voice_normalization: passive_to_active
+  agent   <- raw_role: by_agent_or_causer, voice_normalization: passive_to_active
+```

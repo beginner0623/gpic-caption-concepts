@@ -150,8 +150,15 @@ def canonical_event_rows(stage9: dict[str, object]) -> list[list[object]]:
             lexical = {}
         role_summary = []
         for role in event.get("roles", []):
+            role_label = str(role.get("role") or "")
+            raw_role = role.get("raw_role")
+            if raw_role and raw_role != role_label:
+                role_label = f"{role_label}<-{raw_role}"
+            voice = role.get("voice_normalization")
+            if voice and voice != "none":
+                role_label = f"{role_label}[{voice}]"
             role_summary.append(
-                f"{role.get('role')}:{role.get('target')}->{role.get('canonical_target')}"
+                f"{role_label}:{role.get('target')}->{role.get('canonical_target')}"
             )
         rows.append(
             [
@@ -181,6 +188,8 @@ def canonical_event_role_rows(stage9: dict[str, object]) -> list[list[object]]:
                     event.get("event_id"),
                     event.get("canonical_action"),
                     role.get("role"),
+                    role.get("raw_role"),
+                    role.get("voice_normalization"),
                     role.get("target"),
                     role.get("canonical_target"),
                     role.get("confidence"),
@@ -366,6 +375,8 @@ def render_record(record: dict[str, object], index: int) -> str:
                     "event_id",
                     "canonical_action",
                     "role",
+                    "raw_role",
+                    "voice_normalization",
                     "raw_target",
                     "canonical_target",
                     "confidence",
