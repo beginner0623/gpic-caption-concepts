@@ -1,6 +1,6 @@
 # Caption-to-Concept Decision Log
 
-Last updated: 2026-06-26 KST
+Last updated: 2026-06-28 KST
 
 이 파일은 `gpic-caption-concepts` 프로젝트의 단일 시계열 정리 파일이다.
 앞으로 caption-to-concept 파이프라인에서 어떤 결정을 했고, 어떤 실험을 했고, 어떤 결과가 나왔고, 무엇을 보류했는지는 이 파일에 계속 누적한다.
@@ -4212,4 +4212,98 @@ case 73 / 94:
 ```text
 it + flow -> water 같은 selectional preference 기반 pronoun repair는 이번 범위에서 제외했다.
 이 문제는 action-role semantic compatibility table이 준비된 뒤 Stage 9 scoring으로 처리한다.
+```
+
+## 2026-06-28: Stage 9 PP source disambiguation v1
+
+문제:
+
+```text
+verb-headed PP가 항상 action agent/source 쪽으로 떨어지면,
+"hold basketball above head" 같은 구조에서 relation source가 `man`으로 남는다.
+하지만 같은 문장 안의 "on gym court"는 `man`이 source로 남는 것이 맞다.
+```
+
+결정:
+
+```text
+Stage 8 raw relation은 보존한다.
+Stage 9에서만 canonical_source를 보수적으로 재선택한다.
+```
+
+구현:
+
+```text
+scripts/stage9_pp_source_disambiguation.py
+```
+
+이 모듈은 case별 예외가 아니라 다음 후보/feature 기반 scoring으로 동작한다.
+
+```text
+candidate source:
+  - current raw source / agent
+  - event patient/theme
+
+features:
+  - relation label
+  - canonical action frame
+  - PP target semantic class
+  - body-part anchor
+  - trajectory relation
+  - placement support/container
+  - created-object location
+```
+
+high/medium confidence로 충분히 강한 경우만 `canonical_source`를 바꾼다.
+바꾼 경우에는 canonical relation에 `source_selection`을 남기고,
+`canonicalization_notes`에 `pp_source_disambiguated` note를 추가한다.
+
+검증:
+
+```text
+sample100:
+  pp_source_disambiguated: 2
+  bad_refs: 0
+  self_after: 0
+
+alt100:
+  pp_source_disambiguated: 2
+  bad_refs: 0
+  self_after: 0
+```
+
+대표 변경:
+
+```text
+sample case 12:
+  raw:       man --above--> head
+  canonical: basketball --above--> head
+  reason: patient_body_part_anchor
+
+sample case 22:
+  raw:       duck --around--> body
+  canonical: ripples --around--> body
+  reason: created_object_location
+
+alt case 79:
+  raw:       person --in_front_of--> face
+  canonical: rope --in_front_of--> face
+  reason: patient_body_part_anchor
+
+alt case 99:
+  raw:       woman --over--> net
+  canonical: volleyball --over--> net
+  reason: patient_trajectory
+```
+
+출력:
+
+```text
+reports/canonical_concepts_sample100_val00000_trf_stage9_pp_source_v1.jsonl
+reports/canonical_concepts_sample100_val00000_trf_stage9_pp_source_v1_summary.md
+reports/case_detail_sample100_val00000_trf_stage9_pp_source_v1.md
+
+reports/canonical_concepts_alt100_val00001_trf_stage9_pp_source_v1.jsonl
+reports/canonical_concepts_alt100_val00001_trf_stage9_pp_source_v1_summary.md
+reports/case_detail_alt100_val00001_trf_stage9_pp_source_v1.md
 ```

@@ -12,6 +12,7 @@ from phrasal_action_lexicon import (
     load_phrasal_action_lexicon,
     phrasal_action_entry,
 )
+from stage9_pp_source_disambiguation import pp_source_disambiguation
 from stage9_reference_model import (
     build_reference_model,
     canonical_relation_endpoint,
@@ -208,20 +209,46 @@ def canonicalize_record(
         target = str(edge.get("target"))
         canonical_source = canonical_relation_endpoint(source, edge, "source", reference_model)
         canonical_target = canonical_relation_endpoint(target, edge, "target", reference_model)
-        canonical_relations.append(
-            {
-                "relation_id": f"cr{len(canonical_relations)}",
-                "source": edge.get("source"),
-                "target": edge.get("target"),
-                "canonical_source": canonical_source,
-                "canonical_target": canonical_target,
-                "canonical_relation": edge.get("evidence"),
-                "confidence": edge.get("confidence"),
-                "raw_edge_id": edge.get("edge_id"),
-                "consumed_by_event": str(edge.get("edge_id")) in consumed_relation_ids,
-                "self_relation_after_canonicalization": canonical_source == canonical_target,
-            }
+        source_selection = pp_source_disambiguation(
+            edge=edge,
+            canonical_source=canonical_source,
+            canonical_target=canonical_target,
+            canonical_events=canonical_events,
+            mentions_by_id=mentions_by_id,
         )
+        if source_selection is not None:
+            canonical_source = source_selection["selected_source"]
+            notes.append(
+                {
+                    "kind": "pp_source_disambiguated",
+                    "raw_edge_id": edge.get("edge_id"),
+                    "relation": edge.get("evidence"),
+                    "raw_source": edge.get("source"),
+                    "raw_target": edge.get("target"),
+                    "previous_canonical_source": source_selection.get("previous_canonical_source"),
+                    "canonical_source": canonical_source,
+                    "canonical_target": canonical_target,
+                    "action_mention_id": source_selection.get("action_mention_id"),
+                    "canonical_action": source_selection.get("canonical_action"),
+                    "reason": source_selection.get("reason"),
+                    "confidence": source_selection.get("confidence"),
+                }
+            )
+        relation_record = {
+            "relation_id": f"cr{len(canonical_relations)}",
+            "source": edge.get("source"),
+            "target": edge.get("target"),
+            "canonical_source": canonical_source,
+            "canonical_target": canonical_target,
+            "canonical_relation": edge.get("evidence"),
+            "confidence": edge.get("confidence"),
+            "raw_edge_id": edge.get("edge_id"),
+            "consumed_by_event": str(edge.get("edge_id")) in consumed_relation_ids,
+            "self_relation_after_canonicalization": canonical_source == canonical_target,
+        }
+        if source_selection is not None:
+            relation_record["source_selection"] = source_selection
+        canonical_relations.append(relation_record)
 
     output = dict(record)
     output["stage9"] = {
@@ -308,6 +335,8 @@ def update_summary(record: dict[str, object], counters: dict[str, Counter[str]])
         counters["relations"][str(relation.get("canonical_relation", ""))] += 1
         if relation.get("consumed_by_event"):
             counters["relations"]["consumed_by_event"] += 1
+        if relation.get("source_selection"):
+            counters["relations"]["pp_source_disambiguated"] += 1
         default_source = f"ent_{relation.get('source')}"
         default_target = f"ent_{relation.get('target')}"
         if relation.get("canonical_source") != default_source or relation.get("canonical_target") != default_target:
