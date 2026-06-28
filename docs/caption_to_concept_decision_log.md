@@ -5080,3 +5080,38 @@ docs/gpic_iterative_feedback_plan.md
 - object MWE, preposition MWE, phrasal action은 서로 다른 lexicon으로 관리한다.
 - coreference score는 `one/other/both`, self-edge, body-part vs whole-object, generic duplicate를 중심으로 개선한다.
 - Stage 9는 parent_none/action_fallback/raw_attribute를 자동 집계해서 다음 lexicon 후보를 만든다.
+
+## 2026-06-29: no-human-audit policy for iterative feedback loop
+
+결정:
+
+- 사람 audit은 pipeline 필수 단계에서 제외한다.
+- GPIC 100M caption 처리를 목표로 하므로, 사람이 후보를 직접 고르거나 최종 승인하는 구조는 만들지 않는다.
+- 후보 승격/거절은 source 근거, fixed rubric, Codex/LLM automatic audit, confidence, regression test로 결정한다.
+- 사람이 보는 과정은 optional sanity check로만 둔다. 즉 사람이 보지 않아도 pipeline은 진행 가능해야 한다.
+
+용어 변경:
+
+| 기존 표현 | 새 표현 | 이유 |
+|---|---|---|
+| `clean_core` | `auto_frozen_core` | 사람이 검수한 gold처럼 보이지 않게 하기 위해 |
+| `clean lexicon` | `frozen lexicon` / `auto_frozen lexicon` | 자동 audit 기반 적용 목록임을 명시 |
+| `manually curated` | `automatically audited with a fixed rubric` | 논문/보고서 표현의 정확성 |
+
+문서 반영:
+
+```text
+docs/gpic_iterative_feedback_plan.md
+```
+
+핵심 운영 방식:
+
+```text
+GPIC shard 실행
+-> failure/candidate 자동 수집
+-> source별 candidate TSV 생성
+-> rubric 기반 automatic/model audit
+-> auto_frozen_core_vN freeze
+-> Stage 8/9 재실행
+-> before/after regression report
+```
