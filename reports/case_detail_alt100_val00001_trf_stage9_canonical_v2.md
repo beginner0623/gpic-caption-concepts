@@ -1,4 +1,4 @@
-# Stage 9 Canonical v2 Case Detail - alt100 val00001
+# alt100 val00001 trf stage9 canonical v2
 
 - input: `reports\canonical_concepts_alt100_val00001_trf_stage9_canonical_v2.jsonl`
 - max_records: `100`
@@ -59,11 +59,11 @@
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | poster | posters | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:poster", "parents": []} |
-| ent_m3 | object | wall | wall | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:wall", "parents": []} |
+| ent_m3 | object | wall | wall | object | raw_lemma | wordnet_synset:wall.n.01 + stage9_audit | architectural_part, structure, artifact | m3 | raw_mention |  |  |  | True | {"canonical": "entity:wall", "parents": ["entity_parent:architectural_part", "entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m5 | object | desk | desk | object | raw_lemma | stage9_seed:parent_seed | furniture, artifact | m5 | raw_mention |  |  |  | True | {"canonical": "entity:desk", "parents": ["entity_parent:furniture", "entity_parent:artifact"]} |
 | ent_m6 | object | computer_monitor | computer monitor | object | openimages_boxable\|visual_genome_object_synset\|wordnet_noun_mwe | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:computer_monitor", "parents": []} |
 | ent_m7 | object | image | image | object | raw_lemma | none |  | m7 | raw_mention |  |  |  | True | {"canonical": "entity:image", "parents": []} |
-| ent_m8 | object | bottle | bottles | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:bottle", "parents": []} |
+| ent_m8 | object | bottle | bottles | object | raw_lemma | COCO object label + wordnet_hypernym:container.n.01 + stage9_audit | container, artifact | m8 | raw_mention |  |  |  | True | {"canonical": "entity:bottle", "parents": ["entity_parent:container", "entity_parent:artifact"]} |
 | ent_m10 | object | supply | supplies | object | raw_lemma | none |  | m10 | raw_mention |  |  |  | True | {"canonical": "entity:supply", "parents": []} |
 | ent_m12 | object | desk | desk | object | raw_lemma | stage9_seed:parent_seed | furniture, artifact | m12 | raw_mention |  |  |  | True | {"canonical": "entity:desk", "parents": ["entity_parent:furniture", "entity_parent:artifact"]} |
 
@@ -74,7 +74,7 @@ _none_
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ce0 | m13 | mounted | mount | mount | raw_action | visual_action_fallback | visual_action |  | patient<-theme[passive_to_active]:m0->ent_m0 | {"canonical": "action:mount", "parents": ["action_parent:visual_action"]} |  |
-| ce1 | m14 | displays | display | display | raw_action | visual_action_fallback | visual_action |  | agent:m6->ent_m6; patient:m7->ent_m7 | {"canonical": "action:display", "parents": ["action_parent:visual_action"]} |  |
+| ce1 | m14 | displays | display | display | raw_action | wordnet_synset:display.v.01 + stage9_audit | visual_presentation_action, visual_action |  | agent:m6->ent_m6; patient:m7->ent_m7 | {"canonical": "action:display", "parents": ["action_parent:visual_presentation_action", "action_parent:visual_action"]} |  |
 | ce2 | m15 | sit | sit | sit | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m8->ent_m8; agent:m10->ent_m10 | {"canonical": "action:sit", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
@@ -97,11 +97,11 @@ _none_
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | poster |  |  |  | entity_exists:poster | True | low |
-| cf1 | entity_exists | wall |  |  |  | entity_exists:wall | True | low |
+| cf1 | entity_exists | wall |  |  | architectural_part, structure, artifact | entity_exists:wall | True | high |
 | cf2 | entity_exists | desk |  |  | furniture, artifact | entity_exists:desk | True | high |
 | cf3 | entity_exists | computer_monitor |  |  |  | entity_exists:computer_monitor | True | high |
 | cf4 | entity_exists | image |  |  |  | entity_exists:image | True | low |
-| cf5 | entity_exists | bottle |  |  |  | entity_exists:bottle | True | low |
+| cf5 | entity_exists | bottle |  |  | container, artifact | entity_exists:bottle | True | high |
 | cf6 | entity_exists | supply |  |  |  | entity_exists:supply | True | low |
 | cf7 | entity_exists | desk |  |  | furniture, artifact | entity_exists:desk | True | high |
 | cf8 | has_quantity | poster | several |  | approximate_quantity, quantity | has_quantity:poster:several | True | medium |
@@ -111,7 +111,7 @@ _none_
 | cf12 | has_attribute | supply | art |  | compound_modifier, visual_attribute | has_attribute:supply:art | True | medium |
 | cf13 | action_event | mount |  |  | visual_action | action_event:mount | True | low |
 | cf14 | event_role | mount | patient | poster |  | event_role:mount:patient:poster | True | medium |
-| cf15 | action_event | display |  |  | visual_action | action_event:display | True | low |
+| cf15 | action_event | display |  |  | visual_presentation_action, visual_action | action_event:display | True | high |
 | cf16 | event_role | display | agent | computer_monitor |  | event_role:display:agent:computer_monitor | True | medium |
 | cf17 | event_role | display | patient | image |  | event_role:display:patient:image | True | medium |
 | cf18 | action_event | sit |  |  | body_pose_action, visual_action | action_event:sit | True | high |
@@ -175,11 +175,11 @@ _none_
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | church | church | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:church", "parents": []} |
-| ent_m2 | object | tower | towers | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:tower", "parents": []} |
+| ent_m2 | object | tower | towers | object | raw_lemma | wordnet_synset:tower.n.01 + stage9_audit | structure, artifact | m2 | raw_mention |  |  |  | True | {"canonical": "entity:tower", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m4 | object | walkway | walkway | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:walkway", "parents": []} |
-| ent_m6 | object | garden | garden | object | raw_lemma | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:garden", "parents": []} |
+| ent_m6 | object | garden | garden | object | raw_lemma | wordnet_synset:garden.n.01 + stage9_audit | outdoor_scene, place | m6 | raw_mention |  |  |  | True | {"canonical": "entity:garden", "parents": ["entity_parent:outdoor_scene", "entity_parent:place"]} |
 | ent_m8 | object | hedge | hedges | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:hedge", "parents": []} |
-| ent_m10 | object | flower | flowers | object | raw_lemma | none |  | m10 | raw_mention |  |  |  | True | {"canonical": "entity:flower", "parents": []} |
+| ent_m10 | object | flower | flowers | object | raw_lemma | wordnet_synset:flower.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m10 | raw_mention |  |  |  | True | {"canonical": "entity:flower", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -207,11 +207,11 @@ _none_
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | church |  |  |  | entity_exists:church | True | low |
-| cf1 | entity_exists | tower |  |  |  | entity_exists:tower | True | low |
+| cf1 | entity_exists | tower |  |  | structure, artifact | entity_exists:tower | True | high |
 | cf2 | entity_exists | walkway |  |  |  | entity_exists:walkway | True | low |
-| cf3 | entity_exists | garden |  |  |  | entity_exists:garden | True | low |
+| cf3 | entity_exists | garden |  |  | outdoor_scene, place | entity_exists:garden | True | high |
 | cf4 | entity_exists | hedge |  |  |  | entity_exists:hedge | True | low |
-| cf5 | entity_exists | flower |  |  |  | entity_exists:flower | True | low |
+| cf5 | entity_exists | flower |  |  | plant, living_thing | entity_exists:flower | True | high |
 | cf6 | has_attribute | church | stone |  | material_attribute, material, visual_attribute | has_attribute:church:stone | True | high |
 | cf7 | has_attribute | tower | pointed |  | modifier_attribute, visual_attribute | has_attribute:tower:pointed | True | medium |
 | cf8 | has_attribute | walkway | arched |  | visual_attribute | has_attribute:walkway:arched | True | medium |
@@ -268,7 +268,7 @@ _none_
 | ent_m0 | object | tricycle | tricycle | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:tricycle", "parents": []} |
 | ent_m2 | object | man | man | person | raw_lemma | stage9_seed:parent_seed | person, human | m2 | raw_mention |  |  |  | True | {"canonical": "entity:man", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m4 | context | outdoor | outdoor | object | raw_lemma | stage9_seed:parent_seed | scene_context | m4 | raw_mention |  |  |  | True | {"canonical": "entity:outdoor", "parents": ["entity_parent:scene_context"]} |
-| ent_m5 | object | tree | trees | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
+| ent_m5 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m5 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -288,7 +288,7 @@ _none_
 | cf0 | entity_exists | tricycle |  |  |  | entity_exists:tricycle | True | low |
 | cf1 | entity_exists | man |  |  | person, human | entity_exists:man | True | high |
 | cf2 | entity_exists | outdoor |  |  | scene_context | entity_exists:outdoor | True | high |
-| cf3 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
+| cf3 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
 | cf4 | has_attribute | tricycle | orange |  | color_attribute, color, visual_attribute | has_attribute:tricycle:orange | True | high |
 | cf5 | candidate_has_attribute | man | smile |  | floating_attribute, visual_attribute | candidate_has_attribute:man:smile | False | low |
 | cf6 | has_attribute | tree | green |  | color_attribute, color, visual_attribute | has_attribute:tree:green | True | high |
@@ -341,9 +341,9 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | man | man | person | raw_lemma | stage9_seed:parent_seed | person, human | m0 | raw_mention |  |  |  | True | {"canonical": "entity:man", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m2 | object | woman | woman | person | raw_lemma | stage9_seed:parent_seed | person, human | m2 | raw_mention |  |  |  | True | {"canonical": "entity:woman", "parents": ["entity_parent:person", "entity_parent:human"]} |
-| ent_m3 | object | street | street | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:street", "parents": []} |
+| ent_m3 | object | street | street | object | raw_lemma | wordnet_synset:street.n.01 + stage9_audit | path, place | m3 | raw_mention |  |  |  | True | {"canonical": "entity:street", "parents": ["entity_parent:path", "entity_parent:place"]} |
 | ent_m5 | object | hand | hands | object | raw_lemma | stage9_seed:parent_seed | body_part | m5 | raw_mention |  |  |  | True | {"canonical": "entity:hand", "parents": ["entity_parent:body_part"]} |
-| ent_m6 | object | building | building | object | raw_lemma | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": []} |
+| ent_m6 | object | building | building | object | raw_lemma | wordnet_synset:building.n.01 + stage9_audit | structure, artifact | m6 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -374,9 +374,9 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | man |  |  | person, human | entity_exists:man | True | high |
 | cf1 | entity_exists | woman |  |  | person, human | entity_exists:woman | True | high |
-| cf2 | entity_exists | street |  |  |  | entity_exists:street | True | low |
+| cf2 | entity_exists | street |  |  | path, place | entity_exists:street | True | high |
 | cf3 | entity_exists | hand |  |  | body_part | entity_exists:hand | True | high |
-| cf4 | entity_exists | building |  |  |  | entity_exists:building | True | low |
+| cf4 | entity_exists | building |  |  | structure, artifact | entity_exists:building | True | high |
 | cf5 | has_attribute | man | old |  | condition_attribute, clean_exact_overlap, maturity, newness, visual_attribute | has_attribute:man:old | True | medium |
 | cf6 | has_attribute | street | city |  | compound_modifier, visual_attribute | has_attribute:street:city | True | medium |
 | cf7 | has_attribute | building | large |  | size_attribute, clean_exact_overlap, size, visual_attribute | has_attribute:building:large | True | high |
@@ -448,16 +448,16 @@ _none_
 ### Stage 9 Canonical Entities
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ent_m0 | object | street | street | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:street", "parents": []} |
-| ent_m2 | object | water | water | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:water", "parents": []} |
-| ent_m3 | object | road | road | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:road", "parents": []} |
+| ent_m0 | object | street | street | object | raw_lemma | wordnet_synset:street.n.01 + stage9_audit | path, place | m0 | raw_mention |  |  |  | True | {"canonical": "entity:street", "parents": ["entity_parent:path", "entity_parent:place"]} |
+| ent_m2 | object | water | water | object | raw_lemma | wordnet_synset:water.n.01 + stage9_audit | natural_element | m2 | raw_mention |  |  |  | True | {"canonical": "entity:water", "parents": ["entity_parent:natural_element"]} |
+| ent_m3 | object | road | road | object | raw_lemma | wordnet_synset:road.n.01 + stage9_audit | path, place | m3 | raw_mention |  |  |  | True | {"canonical": "entity:road", "parents": ["entity_parent:path", "entity_parent:place"]} |
 | ent_m4 | object | stop_sign | stop signs | object | coco_object\|lvis_object\|openimages_boxable\|visual_genome_object_synset | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:stop_sign", "parents": []} |
 | ent_m5 | object | sign | sign | document | raw_lemma | stage9_seed:parent_seed | text_carrier, artifact | m5 | raw_mention |  |  |  | True | {"canonical": "entity:sign", "parents": ["entity_parent:text_carrier", "entity_parent:artifact"]} |
 | ent_m8 | context | background | background | object | raw_lemma | stage9_seed:parent_seed | scene_context | m8 | raw_mention |  |  |  | True | {"canonical": "entity:background", "parents": ["entity_parent:scene_context"]} |
-| ent_m9 | object | tree | trees | object | raw_lemma | none |  | m9 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
+| ent_m9 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m9 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m11 | object | hill | hill | object | raw_lemma | none |  | m11 | raw_mention |  |  |  | True | {"canonical": "entity:hill", "parents": []} |
 | ent_m13 | object | floodwater | floodwaters | object | raw_lemma | none |  | m13 | raw_mention |  |  |  | True | {"canonical": "entity:floodwater", "parents": []} |
-| ent_m14 | object | sky | sky | object | raw_lemma | none |  | m14 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": []} |
+| ent_m14 | object | sky | sky | object | raw_lemma | wordnet_synset:sky.n.01 + stage9_audit | natural_scene | m14 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": ["entity_parent:natural_scene"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -465,7 +465,7 @@ _none_
 ### Stage 9 Canonical Events
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | m15 | covering | cover | cover | raw_action | visual_action_fallback | visual_action |  | agent:m2->ent_m2; patient:m3->ent_m3 | {"canonical": "action:cover", "parents": ["action_parent:visual_action"]} |  |
+| ce0 | m15 | covering | cover | cover | raw_action | wordnet_synset:cover.v.01 + stage9_audit | occlusion_or_covering_action, visual_action |  | agent:m2->ent_m2; patient:m3->ent_m3 | {"canonical": "action:cover", "parents": ["action_parent:occlusion_or_covering_action", "action_parent:visual_action"]} |  |
 | ce1 | m16 | submerging | submerge | submerge | raw_action | visual_action_fallback | visual_action |  | agent:m2->ent_m2; patient:m4->ent_m4 | {"canonical": "action:submerge", "parents": ["action_parent:visual_action"]} |  |
 | ce2 | m17 | stands | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m5->ent_m5 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
@@ -488,22 +488,22 @@ _none_
 ### Stage 9 Canonical Facts
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| cf0 | entity_exists | street |  |  |  | entity_exists:street | True | low |
-| cf1 | entity_exists | water |  |  |  | entity_exists:water | True | low |
-| cf2 | entity_exists | road |  |  |  | entity_exists:road | True | low |
+| cf0 | entity_exists | street |  |  | path, place | entity_exists:street | True | high |
+| cf1 | entity_exists | water |  |  | natural_element | entity_exists:water | True | high |
+| cf2 | entity_exists | road |  |  | path, place | entity_exists:road | True | high |
 | cf3 | entity_exists | stop_sign |  |  |  | entity_exists:stop_sign | True | high |
 | cf4 | entity_exists | sign |  |  | text_carrier, artifact | entity_exists:sign | True | high |
 | cf5 | entity_exists | background |  |  | scene_context | entity_exists:background | True | high |
-| cf6 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
+| cf6 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
 | cf7 | entity_exists | hill |  |  |  | entity_exists:hill | True | low |
 | cf8 | entity_exists | floodwater |  |  |  | entity_exists:floodwater | True | low |
-| cf9 | entity_exists | sky |  |  |  | entity_exists:sky | True | low |
+| cf9 | entity_exists | sky |  |  | natural_scene | entity_exists:sky | True | high |
 | cf10 | has_attribute | street | flooded |  | modifier_attribute, visual_attribute | has_attribute:street:flooded | True | medium |
 | cf11 | has_attribute | sign | green |  | color_attribute, color, visual_attribute | has_attribute:sign:green | True | high |
 | cf12 | has_attribute | sign | digital |  | modifier_attribute, visual_attribute | has_attribute:sign:digital | True | medium |
 | cf13 | has_attribute | tree | bare |  | visual_attribute | has_attribute:tree:bare | True | medium |
 | cf14 | has_attribute | hill | grassy |  | modifier_attribute, visual_attribute | has_attribute:hill:grassy | True | medium |
-| cf15 | action_event | cover |  |  | visual_action | action_event:cover | True | low |
+| cf15 | action_event | cover |  |  | occlusion_or_covering_action, visual_action | action_event:cover | True | high |
 | cf16 | event_role | cover | agent | water |  | event_role:cover:agent:water | True | medium |
 | cf17 | event_role | cover | patient | road |  | event_role:cover:patient:road | True | medium |
 | cf18 | action_event | submerge |  |  | visual_action | action_event:submerge | True | low |
@@ -589,16 +589,16 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | football_player | football players | object | visual_genome_object_synset\|wordnet_noun_mwe | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:football_player", "parents": []} |
 | ent_m2 | object | uniform | uniforms | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m2 | raw_mention |  |  |  | True | {"canonical": "entity:uniform", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
-| ent_m5 | object | field | field | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": []} |
+| ent_m5 | object | field | field | object | raw_lemma | wordnet_synset:field.n.01 + stage9_audit | outdoor_scene, place | m5 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": ["entity_parent:outdoor_scene", "entity_parent:place"]} |
 | ent_m7 | object | line | lines | object | raw_lemma | none |  | m7 | raw_mention |  |  |  | True | {"canonical": "entity:line", "parents": []} |
 | ent_m9 | object | helmet | helmets | clothing | raw_lemma | stage9_seed:parent_seed | protective_gear, clothing, wearable | m9 | raw_mention |  |  |  | True | {"canonical": "entity:helmet", "parents": ["entity_parent:protective_gear", "entity_parent:clothing", "entity_parent:wearable"]} |
 | ent_m10 | object | glove | gloves | object | raw_lemma | none |  | m10 | raw_mention |  |  |  | True | {"canonical": "entity:glove", "parents": []} |
-| ent_m11 | object | snow | snow | object | raw_lemma | none |  | m11 | raw_mention |  |  |  | True | {"canonical": "entity:snow", "parents": []} |
+| ent_m11 | object | snow | snow | object | raw_lemma | wordnet_synset:snow.n.01 + stage9_audit | natural_element | m11 | raw_mention |  |  |  | True | {"canonical": "entity:snow", "parents": ["entity_parent:natural_element"]} |
 | ent_m12 | object | sideline | sidelines | object | raw_lemma | none |  | m12 | raw_mention |  |  |  | True | {"canonical": "entity:sideline", "parents": []} |
 | ent_m13 | object | cone | cones | object | raw_lemma | none |  | m13 | raw_mention |  |  |  | True | {"canonical": "entity:cone", "parents": []} |
 | ent_m15 | context | background | background | object | raw_lemma | stage9_seed:parent_seed | scene_context | m15 | raw_mention |  |  |  | True | {"canonical": "entity:background", "parents": ["entity_parent:scene_context"]} |
-| ent_m16 | object | tree | trees | object | raw_lemma | none |  | m16 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
-| ent_m18 | object | fence | fence | object | raw_lemma | none |  | m18 | raw_mention |  |  |  | True | {"canonical": "entity:fence", "parents": []} |
+| ent_m16 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m16 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
+| ent_m18 | object | fence | fence | object | raw_lemma | wordnet_synset:fence.n.01 + stage9_audit | structure, artifact | m18 | raw_mention |  |  |  | True | {"canonical": "entity:fence", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m19 | object | lighting | lighting | object | raw_lemma | none |  | m19 | raw_mention |  |  |  | True | {"canonical": "entity:lighting", "parents": []} |
 
 ### Stage 9 Entity Links
@@ -609,7 +609,7 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ce0 | m21 | stand | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 | ce1 | m22 | wear | wear | wear | raw_action | stage9_seed:parent_seed | wearing_action, visual_action |  | agent:m0->ent_m0; patient:m9->ent_m9; patient:m10->ent_m10 | {"canonical": "action:wear", "parents": ["action_parent:wearing_action", "action_parent:visual_action"]} |  |
-| ce2 | m23 | shows | show | show | raw_action | visual_action_fallback | visual_action |  | agent:m15->ent_m15; patient:m16->ent_m16; patient:m18->ent_m18 | {"canonical": "action:show", "parents": ["action_parent:visual_action"]} |  |
+| ce2 | m23 | shows | show | show | raw_action | wordnet_synset:show.v.01 + stage9_audit | visual_presentation_action, visual_action |  | agent:m15->ent_m15; patient:m16->ent_m16; patient:m18->ent_m18 | {"canonical": "action:show", "parents": ["action_parent:visual_presentation_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
 | event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
@@ -637,16 +637,16 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | football_player |  |  |  | entity_exists:football_player | True | high |
 | cf1 | entity_exists | uniform |  |  | clothing, wearable | entity_exists:uniform | True | high |
-| cf2 | entity_exists | field |  |  |  | entity_exists:field | True | low |
+| cf2 | entity_exists | field |  |  | outdoor_scene, place | entity_exists:field | True | medium |
 | cf3 | entity_exists | line |  |  |  | entity_exists:line | True | low |
 | cf4 | entity_exists | helmet |  |  | protective_gear, clothing, wearable | entity_exists:helmet | True | high |
 | cf5 | entity_exists | glove |  |  |  | entity_exists:glove | True | low |
-| cf6 | entity_exists | snow |  |  |  | entity_exists:snow | True | low |
+| cf6 | entity_exists | snow |  |  | natural_element | entity_exists:snow | True | high |
 | cf7 | entity_exists | sideline |  |  |  | entity_exists:sideline | True | low |
 | cf8 | entity_exists | cone |  |  |  | entity_exists:cone | True | low |
 | cf9 | entity_exists | background |  |  | scene_context | entity_exists:background | True | high |
-| cf10 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
-| cf11 | entity_exists | fence |  |  |  | entity_exists:fence | True | low |
+| cf10 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
+| cf11 | entity_exists | fence |  |  | structure, artifact | entity_exists:fence | True | high |
 | cf12 | entity_exists | lighting |  |  |  | entity_exists:lighting | True | low |
 | cf13 | has_quantity | football_player | three |  | exact_quantity, quantity | has_quantity:football_player:three | True | high |
 | cf14 | has_attribute | uniform | blue |  | color_attribute, color, visual_attribute | has_attribute:uniform:blue | True | high |
@@ -662,7 +662,7 @@ _none_
 | cf24 | event_role | wear | agent | football_player |  | event_role:wear:agent:football_player | True | medium |
 | cf25 | event_role | wear | patient | helmet |  | event_role:wear:patient:helmet | True | medium |
 | cf26 | event_role | wear | patient | glove |  | event_role:wear:patient:glove | True | medium |
-| cf27 | action_event | show |  |  | visual_action | action_event:show | True | low |
+| cf27 | action_event | show |  |  | visual_presentation_action, visual_action | action_event:show | True | high |
 | cf28 | event_role | show | agent | background |  | event_role:show:agent:background | True | medium |
 | cf29 | event_role | show | patient | tree |  | event_role:show:patient:tree | True | medium |
 | cf30 | event_role | show | patient | fence |  | event_role:show:patient:fence | True | medium |
@@ -742,10 +742,10 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | people | people | person | raw_lemma | stage9_seed:parent_seed | person, human | m0 | raw_mention |  |  |  | True | {"canonical": "entity:people", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m2 | object | plaza | plaza | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:plaza", "parents": []} |
-| ent_m4 | object | building | building | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": []} |
-| ent_m8 | object | sky | sky | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": []} |
+| ent_m4 | object | building | building | object | raw_lemma | wordnet_synset:building.n.01 + stage9_audit | structure, artifact | m4 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
+| ent_m8 | object | sky | sky | object | raw_lemma | wordnet_synset:sky.n.01 + stage9_audit | natural_scene | m8 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": ["entity_parent:natural_scene"]} |
 | ent_m11 | object | car | cars | vehicle | raw_lemma | stage9_seed:parent_seed | vehicle | m11 | raw_mention |  |  |  | True | {"canonical": "entity:car", "parents": ["entity_parent:vehicle"]} |
-| ent_m14 | object | street | street | object | raw_lemma | none |  | m14 | raw_mention |  |  |  | True | {"canonical": "entity:street", "parents": []} |
+| ent_m14 | object | street | street | object | raw_lemma | wordnet_synset:street.n.01 + stage9_audit | path, place | m14 | raw_mention |  |  |  | True | {"canonical": "entity:street", "parents": ["entity_parent:path", "entity_parent:place"]} |
 | ent_m15 | context | right | right | object | raw_lemma | semantic_type_fallback | scene_context | m15 | raw_mention |  |  |  | True | {"canonical": "entity:right", "parents": ["entity_parent:scene_context"]} |
 | ent_m16 | object | sign | sign | document | raw_lemma | stage9_seed:parent_seed | text_carrier, artifact | m16 | raw_mention |  |  |  | True | {"canonical": "entity:sign", "parents": ["entity_parent:text_carrier", "entity_parent:artifact"]} |
 | ent_m18 | object | lamppost | lamppost | object | raw_lemma | none |  | m18 | raw_mention |  |  |  | True | {"canonical": "entity:lamppost", "parents": []} |
@@ -780,10 +780,10 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | people |  |  | person, human | entity_exists:people | True | high |
 | cf1 | entity_exists | plaza |  |  |  | entity_exists:plaza | True | low |
-| cf2 | entity_exists | building |  |  |  | entity_exists:building | True | low |
-| cf3 | entity_exists | sky |  |  |  | entity_exists:sky | True | low |
+| cf2 | entity_exists | building |  |  | structure, artifact | entity_exists:building | True | high |
+| cf3 | entity_exists | sky |  |  | natural_scene | entity_exists:sky | True | high |
 | cf4 | entity_exists | car |  |  | vehicle | entity_exists:car | True | high |
-| cf5 | entity_exists | street |  |  |  | entity_exists:street | True | low |
+| cf5 | entity_exists | street |  |  | path, place | entity_exists:street | True | high |
 | cf6 | entity_exists | right |  |  | scene_context | entity_exists:right | True | medium |
 | cf7 | entity_exists | sign |  |  | text_carrier, artifact | entity_exists:sign | True | high |
 | cf8 | entity_exists | lamppost |  |  |  | entity_exists:lamppost | True | low |
@@ -857,7 +857,7 @@ _none_
 | ent_m0 | object | woodpecker | woodpecker | animal | raw_lemma | stage9_seed:parent_seed | bird, animal, living_thing | m0 | raw_mention |  |  |  | True | {"canonical": "entity:woodpecker", "parents": ["entity_parent:bird", "entity_parent:animal", "entity_parent:living_thing"]} |
 | ent_m1 | object | feather | feathers | object | raw_lemma | none |  | m1 | raw_mention |  |  |  | True | {"canonical": "entity:feather", "parents": []} |
 | ent_m5 | object | log | log | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:log", "parents": []} |
-| ent_m7 | object | grass | grass | object | raw_lemma | none |  | m7 | raw_mention |  |  |  | True | {"canonical": "entity:grass", "parents": []} |
+| ent_m7 | object | grass | grass | object | raw_lemma | wordnet_synset:grass.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m7 | raw_mention |  |  |  | True | {"canonical": "entity:grass", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -885,7 +885,7 @@ _none_
 | cf0 | entity_exists | woodpecker |  |  | bird, animal, living_thing | entity_exists:woodpecker | True | high |
 | cf1 | entity_exists | feather |  |  |  | entity_exists:feather | True | low |
 | cf2 | entity_exists | log |  |  |  | entity_exists:log | True | low |
-| cf3 | entity_exists | grass |  |  |  | entity_exists:grass | True | low |
+| cf3 | entity_exists | grass |  |  | plant, living_thing | entity_exists:grass | True | high |
 | cf4 | has_attribute | feather | black |  | color_attribute, color, visual_attribute | has_attribute:feather:black | True | high |
 | cf5 | has_attribute | feather | white |  | color_attribute, color, visual_attribute | has_attribute:feather:white | True | high |
 | cf6 | has_attribute | feather | red |  | color_attribute, color, visual_attribute | has_attribute:feather:red | True | high |
@@ -939,8 +939,8 @@ _none_
 | ent_m0 | object | woman | woman | person | raw_lemma | stage9_seed:parent_seed | person, human | m0 | raw_mention |  |  |  | True | {"canonical": "entity:woman", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m1 | object | pant | pants | object | raw_lemma | none |  | m1 | raw_mention |  |  |  | True | {"canonical": "entity:pant", "parents": []} |
 | ent_m3 | object | step | steps | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:step", "parents": []} |
-| ent_m5 | object | building | building | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": []} |
-| ent_m7 | object | tree | trees | object | raw_lemma | none |  | m7 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
+| ent_m5 | object | building | building | object | raw_lemma | wordnet_synset:building.n.01 + stage9_audit | structure, artifact | m5 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
+| ent_m7 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m7 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -960,8 +960,8 @@ _none_
 | cf0 | entity_exists | woman |  |  | person, human | entity_exists:woman | True | high |
 | cf1 | entity_exists | pant |  |  |  | entity_exists:pant | True | low |
 | cf2 | entity_exists | step |  |  |  | entity_exists:step | True | low |
-| cf3 | entity_exists | building |  |  |  | entity_exists:building | True | low |
-| cf4 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
+| cf3 | entity_exists | building |  |  | structure, artifact | entity_exists:building | True | high |
+| cf4 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
 | cf5 | has_attribute | pant | purple |  | color_attribute, color, visual_attribute | has_attribute:pant:purple | True | high |
 | cf6 | has_attribute | step | stone |  | material_attribute, material, visual_attribute | has_attribute:step:stone | True | high |
 | cf7 | has_attribute | building | classical |  | attribute, visual_attribute | has_attribute:building:classical | True | high |
@@ -1089,7 +1089,7 @@ _none_
 ### Stage 9 Canonical Events
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | m10 | shows | show | show | raw_action | visual_action_fallback | visual_action |  | agent:m2->ent_m2; patient:m3->ent_m3 | {"canonical": "action:show", "parents": ["action_parent:visual_action"]} |  |
+| ce0 | m10 | shows | show | show | raw_action | wordnet_synset:show.v.01 + stage9_audit | visual_presentation_action, visual_action |  | agent:m2->ent_m2; patient:m3->ent_m3 | {"canonical": "action:show", "parents": ["action_parent:visual_presentation_action", "action_parent:visual_action"]} |  |
 | ce1 | m11 | listing | list | list | raw_action | visual_action_fallback | visual_action |  | agent:m2->ent_m2; patient:m7->ent_m7; patient:m9->ent_m9 | {"canonical": "action:list", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
@@ -1119,7 +1119,7 @@ _none_
 | cf5 | entity_exists | title |  |  |  | entity_exists:title | True | low |
 | cf6 | has_attribute | text | russian |  | modifier_attribute, visual_attribute | has_attribute:text:russian | True | medium |
 | cf7 | has_attribute | section | number |  | state_attribute, visual_attribute | has_attribute:section:number | True | medium |
-| cf8 | action_event | show |  |  | visual_action | action_event:show | True | low |
+| cf8 | action_event | show |  |  | visual_presentation_action, visual_action | action_event:show | True | high |
 | cf9 | event_role | show | agent | image |  | event_role:show:agent:image | True | medium |
 | cf10 | event_role | show | patient | page |  | event_role:show:patient:page | True | medium |
 | cf11 | action_event | list |  |  | visual_action | action_event:list | True | low |
@@ -1389,16 +1389,16 @@ _none_
 ### Stage 9 Canonical Entities
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ent_m0 | object | river | river | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:river", "parents": []} |
-| ent_m2 | object | rock | rocks | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:rock", "parents": []} |
+| ent_m0 | object | river | river | object | raw_lemma | wordnet_synset:river.n.01 + stage9_audit | body_of_water, place | m0 | raw_mention |  |  |  | True | {"canonical": "entity:river", "parents": ["entity_parent:body_of_water", "entity_parent:place"]} |
+| ent_m2 | object | rock | rocks | object | raw_lemma | wordnet_synset:rock.n.01 + stage9_audit | natural_object | m2 | raw_mention |  |  |  | True | {"canonical": "entity:rock", "parents": ["entity_parent:natural_object"]} |
 | ent_m3 | object | area | area | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:area", "parents": []} |
 | ent_m5 | object | leaf | leaves | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:leaf", "parents": []} |
 | ent_m7 | object | shade | shades | object | raw_lemma | none |  | m7 | raw_mention |  |  |  | True | {"canonical": "entity:shade", "parents": []} |
 | ent_m10 | object | bank | banks | object | raw_lemma | none |  | m10 | raw_mention |  |  |  | True | {"canonical": "entity:bank", "parents": []} |
-| ent_m11 | object | tree | trees | object | raw_lemma | none |  | m11 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
-| ent_m12 | object | bush | bushes | object | raw_lemma | none |  | m12 | raw_mention |  |  |  | True | {"canonical": "entity:bush", "parents": []} |
+| ent_m11 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m11 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
+| ent_m12 | object | bush | bushes | object | raw_lemma | wordnet_synset:shrub.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m12 | raw_mention |  |  |  | True | {"canonical": "entity:bush", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m13 | object | shoreline | shoreline | object | raw_lemma | none |  | m13 | raw_mention |  |  |  | True | {"canonical": "entity:shoreline", "parents": []} |
-| ent_m14 | object | water | water | object | raw_lemma | none |  | m14 | raw_mention |  |  |  | True | {"canonical": "entity:water", "parents": []} |
+| ent_m14 | object | water | water | object | raw_lemma | wordnet_synset:water.n.01 + stage9_audit | natural_element | m14 | raw_mention |  |  |  | True | {"canonical": "entity:water", "parents": ["entity_parent:natural_element"]} |
 | ent_m15 | object | rapid | rapids | object | raw_lemma | none |  | m15 | raw_mention |  |  |  | True | {"canonical": "entity:rapid", "parents": []} |
 | ent_m17 | context | edge | edge | object | raw_lemma | semantic_type_fallback | scene_context | m17 | raw_mention |  |  |  | True | {"canonical": "entity:edge", "parents": ["entity_parent:scene_context"]} |
 
@@ -1436,16 +1436,16 @@ _none_
 ### Stage 9 Canonical Facts
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| cf0 | entity_exists | river |  |  |  | entity_exists:river | True | low |
-| cf1 | entity_exists | rock |  |  |  | entity_exists:rock | True | low |
+| cf0 | entity_exists | river |  |  | body_of_water, place | entity_exists:river | True | high |
+| cf1 | entity_exists | rock |  |  | natural_object | entity_exists:rock | True | high |
 | cf2 | entity_exists | area |  |  |  | entity_exists:area | True | low |
 | cf3 | entity_exists | leaf |  |  |  | entity_exists:leaf | True | low |
 | cf4 | entity_exists | shade |  |  |  | entity_exists:shade | True | low |
 | cf5 | entity_exists | bank |  |  |  | entity_exists:bank | True | low |
-| cf6 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
-| cf7 | entity_exists | bush |  |  |  | entity_exists:bush | True | low |
+| cf6 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
+| cf7 | entity_exists | bush |  |  | plant, living_thing | entity_exists:bush | True | high |
 | cf8 | entity_exists | shoreline |  |  |  | entity_exists:shoreline | True | low |
-| cf9 | entity_exists | water |  |  |  | entity_exists:water | True | low |
+| cf9 | entity_exists | water |  |  | natural_element | entity_exists:water | True | high |
 | cf10 | entity_exists | rapid |  |  |  | entity_exists:rapid | True | low |
 | cf11 | entity_exists | edge |  |  | scene_context | entity_exists:edge | True | medium |
 | cf12 | has_attribute | river | flow |  | state_attribute, visual_attribute | has_attribute:river:flow | True | medium |
@@ -1511,7 +1511,7 @@ _none_
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | cactus | cacti | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:cactus", "parents": []} |
-| ent_m2 | object | plant | plants | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:plant", "parents": []} |
+| ent_m2 | object | plant | plants | object | raw_lemma | wordnet_synset:plant.n.02 + stage9_audit | plant, living_thing | m2 | raw_mention |  |  |  | True | {"canonical": "entity:plant", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m4 | object | greenhouse | greenhouse | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:greenhouse", "parents": []} |
 
 ### Stage 9 Entity Links
@@ -1537,7 +1537,7 @@ _none_
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | cactus |  |  |  | entity_exists:cactus | True | low |
-| cf1 | entity_exists | plant |  |  |  | entity_exists:plant | True | low |
+| cf1 | entity_exists | plant |  |  | plant, living_thing | entity_exists:plant | True | high |
 | cf2 | entity_exists | greenhouse |  |  |  | entity_exists:greenhouse | True | low |
 | cf3 | has_attribute | cactus | tall |  | size_attribute, height, visual_attribute | has_attribute:cactus:tall | True | high |
 | cf4 | has_attribute | plant | spiky |  | shape_attribute, shape, visual_attribute | has_attribute:plant:spiky | True | medium |
@@ -1592,10 +1592,10 @@ _none_
 ### Stage 9 Canonical Entities
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ent_m0 | object | field | field | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": []} |
+| ent_m0 | object | field | field | object | raw_lemma | wordnet_synset:field.n.01 + stage9_audit | outdoor_scene, place | m0 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": ["entity_parent:outdoor_scene", "entity_parent:place"]} |
 | ent_m2 | object | wheat | wheat | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:wheat", "parents": []} |
 | ent_m4 | object | line | line | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:line", "parents": []} |
-| ent_m5 | object | tree | trees | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
+| ent_m5 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m5 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m7 | object | town | town | object | raw_lemma | none |  | m7 | raw_mention |  |  |  | True | {"canonical": "entity:town", "parents": []} |
 | ent_m9 | object | horizon | horizon | object | raw_lemma | none |  | m9 | raw_mention |  |  |  | True | {"canonical": "entity:horizon", "parents": []} |
 
@@ -1622,10 +1622,10 @@ _none_
 ### Stage 9 Canonical Facts
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| cf0 | entity_exists | field |  |  |  | entity_exists:field | True | low |
+| cf0 | entity_exists | field |  |  | outdoor_scene, place | entity_exists:field | True | medium |
 | cf1 | entity_exists | wheat |  |  |  | entity_exists:wheat | True | low |
 | cf2 | entity_exists | line |  |  |  | entity_exists:line | True | low |
-| cf3 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
+| cf3 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
 | cf4 | entity_exists | town |  |  |  | entity_exists:town | True | low |
 | cf5 | entity_exists | horizon |  |  |  | entity_exists:horizon | True | low |
 | cf6 | has_attribute | field | harvest |  | state_attribute, visual_attribute | has_attribute:field:harvest | True | medium |
@@ -1706,7 +1706,7 @@ _none_
 | cf5 | entity_exists | candle |  |  |  | entity_exists:candle | True | low |
 | cf6 | has_attribute | glass | stained |  | texture_attribute, cleanliness, texture, visual_attribute | has_attribute:glass:stained | True | high |
 | cf7 | has_attribute | interior | church |  | attribute, visual_attribute | has_attribute:interior:church | True | high |
-| cf8 | has_attribute | pew | wooden |  | material_attribute, material, visual_attribute | has_attribute:pew:wooden | True | high |
+| cf8 | has_attribute | pew | wood |  | material_attribute, material, visual_attribute | has_attribute:pew:wood | True | high |
 
 ### Stage 9 Canonicalization Notes
 _none_
@@ -1798,7 +1798,7 @@ _none_
 | ent_m13 | object | costume | costume | object | raw_lemma | none |  | m13 | raw_mention |  |  |  | True | {"canonical": "entity:costume", "parents": []} |
 | ent_m16 | object | stripe | stripes | object | raw_lemma | none |  | m16 | raw_mention |  |  |  | True | {"canonical": "entity:stripe", "parents": []} |
 | ent_m18 | object | paved_surface | paved surface | object | visual_genome_object_synset\|wordnet_noun_mwe | none |  | m18 | raw_mention |  |  |  | True | {"canonical": "entity:paved_surface", "parents": []} |
-| ent_m19 | object | building | building | object | raw_lemma | none |  | m19 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": []} |
+| ent_m19 | object | building | building | object | raw_lemma | wordnet_synset:building.n.01 + stage9_audit | structure, artifact | m19 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m21 | context | outdoors | outdoors | object | raw_lemma | stage9_seed:parent_seed | scene_context | m21 | raw_mention |  |  |  | True | {"canonical": "entity:outdoors", "parents": ["entity_parent:scene_context"]} |
 | ent_m26 | object | lamp | lamp | object | raw_lemma | none |  | m26 | raw_mention |  |  |  | True | {"canonical": "entity:lamp", "parents": []} |
 | eref_m22 | contrastive_instance | child | another | person | raw_lemma | stage9_seed:parent_seed | person, human | m22 | stage9_reference | ent_m5 |  | 1 | True | {"canonical": "entity:child", "parents": ["entity_parent:person", "entity_parent:human"]} |
@@ -1848,7 +1848,7 @@ _none_
 | cf7 | entity_exists | costume |  |  |  | entity_exists:costume | True | low |
 | cf8 | entity_exists | stripe |  |  |  | entity_exists:stripe | True | low |
 | cf9 | entity_exists | paved_surface |  |  |  | entity_exists:paved_surface | True | high |
-| cf10 | entity_exists | building |  |  |  | entity_exists:building | True | low |
+| cf10 | entity_exists | building |  |  | structure, artifact | entity_exists:building | True | high |
 | cf11 | entity_exists | outdoors |  |  | scene_context | entity_exists:outdoors | True | high |
 | cf12 | entity_exists | lamp |  |  |  | entity_exists:lamp | True | low |
 | cf13 | entity_exists | child |  |  | person, human | entity_exists:child | True | high |
@@ -2200,7 +2200,7 @@ _none_
 ### Stage 9 Canonical Entities
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ent_m0 | object | flower | flower | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:flower", "parents": []} |
+| ent_m0 | object | flower | flower | object | raw_lemma | wordnet_synset:flower.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m0 | raw_mention |  |  |  | True | {"canonical": "entity:flower", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m3 | object | ground | ground | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:ground", "parents": []} |
 | ent_m4 | object | leaf | leaves | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:leaf", "parents": []} |
 | ent_m6 | object | stem | stems | object | raw_lemma | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:stem", "parents": []} |
@@ -2220,7 +2220,7 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ce0 | m16 | grows | grow | grow | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0 | {"canonical": "action:grow", "parents": ["action_parent:visual_action"]} |  |
 | ce1 | m17 | appears | appear | appear | raw_action | visual_action_fallback | visual_action |  | agent:m11->ent_m11 | {"canonical": "action:appear", "parents": ["action_parent:visual_action"]} |  |
-| ce2 | m18 | covered | cover | cover | raw_action | visual_action_fallback | visual_action |  | agent:m12->ent_m12 | {"canonical": "action:cover", "parents": ["action_parent:visual_action"]} |  |
+| ce2 | m18 | covered | cover | cover | raw_action | wordnet_synset:cover.v.01 + stage9_audit | occlusion_or_covering_action, visual_action |  | agent:m12->ent_m12 | {"canonical": "action:cover", "parents": ["action_parent:occlusion_or_covering_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
 | event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
@@ -2241,7 +2241,7 @@ _none_
 ### Stage 9 Canonical Facts
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| cf0 | entity_exists | flower |  |  |  | entity_exists:flower | True | low |
+| cf0 | entity_exists | flower |  |  | plant, living_thing | entity_exists:flower | True | high |
 | cf1 | entity_exists | ground |  |  |  | entity_exists:ground | True | low |
 | cf2 | entity_exists | leaf |  |  |  | entity_exists:leaf | True | low |
 | cf3 | entity_exists | stem |  |  |  | entity_exists:stem | True | low |
@@ -2261,7 +2261,7 @@ _none_
 | cf17 | event_role | grow | agent | flower |  | event_role:grow:agent:flower | True | medium |
 | cf18 | action_event | appear |  |  | visual_action | action_event:appear | True | low |
 | cf19 | event_role | appear | agent | setting |  | event_role:appear:agent:setting | True | medium |
-| cf20 | action_event | cover |  |  | visual_action | action_event:cover | True | low |
+| cf20 | action_event | cover |  |  | occlusion_or_covering_action, visual_action | action_event:cover | True | high |
 | cf21 | event_role | cover | agent | soil |  | event_role:cover:agent:soil | True | medium |
 | cf22 | relation | flower | in | ground | spatial_containment, visual_relation | relation:flower:in:ground | True | high |
 | cf23 | relation | flower | among | leaf | spatial_region, visual_relation | relation:flower:among:leaf | True | medium |
@@ -2365,9 +2365,9 @@ _none_
 ### Stage 9 Canonical Entities
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ent_m0 | object | street | street | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:street", "parents": []} |
-| ent_m2 | object | building | building | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": []} |
-| ent_m4 | object | window | windows | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:window", "parents": []} |
+| ent_m0 | object | street | street | object | raw_lemma | wordnet_synset:street.n.01 + stage9_audit | path, place | m0 | raw_mention |  |  |  | True | {"canonical": "entity:street", "parents": ["entity_parent:path", "entity_parent:place"]} |
+| ent_m2 | object | building | building | object | raw_lemma | wordnet_synset:building.n.01 + stage9_audit | structure, artifact | m2 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
+| ent_m4 | object | window | windows | object | raw_lemma | wordnet_synset:window.n.01 + stage9_audit | architectural_part, artifact | m4 | raw_mention |  |  |  | True | {"canonical": "entity:window", "parents": ["entity_parent:architectural_part", "entity_parent:artifact"]} |
 | ent_m6 | object | traffic_light | traffic light | object | coco_object\|lvis_object\|openimages_boxable\|visual_genome_object_synset\|wordnet_noun_mwe | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:traffic_light", "parents": []} |
 | ent_m7 | object | moon | moon | object | raw_lemma | none |  | m7 | raw_mention |  |  |  | True | {"canonical": "entity:moon", "parents": []} |
 
@@ -2386,9 +2386,9 @@ _none_
 ### Stage 9 Canonical Facts
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| cf0 | entity_exists | street |  |  |  | entity_exists:street | True | low |
-| cf1 | entity_exists | building |  |  |  | entity_exists:building | True | low |
-| cf2 | entity_exists | window |  |  |  | entity_exists:window | True | low |
+| cf0 | entity_exists | street |  |  | path, place | entity_exists:street | True | high |
+| cf1 | entity_exists | building |  |  | structure, artifact | entity_exists:building | True | high |
+| cf2 | entity_exists | window |  |  | architectural_part, artifact | entity_exists:window | True | high |
 | cf3 | entity_exists | traffic_light |  |  |  | entity_exists:traffic_light | True | high |
 | cf4 | entity_exists | moon |  |  |  | entity_exists:moon | True | low |
 | cf5 | has_attribute | street | night |  | attribute, visual_attribute | has_attribute:street:night | True | high |
@@ -2451,8 +2451,8 @@ _none_
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | man | men | person | stage9_seed:synonym_seed | stage9_seed:parent_seed | person, human | m0 | raw_mention |  |  |  | True | {"canonical": "entity:man", "parents": ["entity_parent:person", "entity_parent:human"]} |
-| ent_m2 | object | path | path | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:path", "parents": []} |
-| ent_m4 | object | tree | trees | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
+| ent_m2 | object | path | path | object | raw_lemma | wordnet_synset:path.n.04 + stage9_audit | path, place | m2 | raw_mention |  |  |  | True | {"canonical": "entity:path", "parents": ["entity_parent:path", "entity_parent:place"]} |
+| ent_m4 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m4 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m5 | object | shirt | shirt | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m5 | raw_mention |  |  |  | True | {"canonical": "entity:shirt", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
 | ent_m7 | context | foreground | foreground | object | raw_lemma | stage9_seed:parent_seed | scene_context | m7 | raw_mention |  |  |  | True | {"canonical": "entity:foreground", "parents": ["entity_parent:scene_context"]} |
 | ent_m8 | object | shirt | shirt | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m8 | raw_mention |  |  |  | True | {"canonical": "entity:shirt", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
@@ -2468,7 +2468,7 @@ _none_
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ce0 | m12 | run | run | run | raw_action | stage9_seed:parent_seed | locomotion_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:run", "parents": ["action_parent:locomotion_action", "action_parent:visual_action"]} |  |
-| ce1 | m13 | surrounded | surround | surround | raw_action | visual_action_fallback | visual_action |  | agent:m2->ent_m2 | {"canonical": "action:surround", "parents": ["action_parent:visual_action"]} |  |
+| ce1 | m13 | surrounded | surround | surround | raw_action | wordnet_synset:surround.v.01 + stage9_audit | spatial_configuration_action, visual_action |  | agent:m2->ent_m2 | {"canonical": "action:surround", "parents": ["action_parent:spatial_configuration_action", "action_parent:visual_action"]} |  |
 | ce2 | m14 | runs | run | run | raw_action | stage9_seed:parent_seed | locomotion_action, visual_action |  | agent:m0->eref_m11 | {"canonical": "action:run", "parents": ["action_parent:locomotion_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
@@ -2491,8 +2491,8 @@ _none_
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | man |  |  | person, human | entity_exists:man | True | high |
-| cf1 | entity_exists | path |  |  |  | entity_exists:path | True | low |
-| cf2 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
+| cf1 | entity_exists | path |  |  | path, place | entity_exists:path | True | high |
+| cf2 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
 | cf3 | entity_exists | shirt |  |  | clothing, wearable | entity_exists:shirt | True | high |
 | cf4 | entity_exists | foreground |  |  | scene_context | entity_exists:foreground | True | high |
 | cf5 | entity_exists | shirt |  |  | clothing, wearable | entity_exists:shirt | True | high |
@@ -2504,7 +2504,7 @@ _none_
 | cf11 | has_attribute | shirt | red |  | color_attribute, color, visual_attribute | has_attribute:shirt:red | True | high |
 | cf12 | action_event | run |  |  | locomotion_action, visual_action | action_event:run | True | high |
 | cf13 | event_role | run | agent | man |  | event_role:run:agent:man | True | medium |
-| cf14 | action_event | surround |  |  | visual_action | action_event:surround | True | low |
+| cf14 | action_event | surround |  |  | spatial_configuration_action, visual_action | action_event:surround | True | high |
 | cf15 | event_role | surround | agent | path |  | event_role:surround:agent:path | True | medium |
 | cf16 | action_event | run |  |  | locomotion_action, visual_action | action_event:run | True | high |
 | cf17 | event_role | run | agent | man |  | event_role:run:agent:man | True | medium |
@@ -2552,7 +2552,7 @@ _none_
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | sofa | couch | object | stage9_seed:synonym_seed | stage9_seed:parent_seed | furniture, artifact | m0 | raw_mention |  |  |  | True | {"canonical": "entity:sofa", "parents": ["entity_parent:furniture", "entity_parent:artifact"]} |
-| ent_m2 | object | floor | floor | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:floor", "parents": []} |
+| ent_m2 | object | floor | floor | object | raw_lemma | wordnet_synset:floor.n.01 + stage9_audit | architectural_part, surface, artifact | m2 | raw_mention |  |  |  | True | {"canonical": "entity:floor", "parents": ["entity_parent:architectural_part", "entity_parent:surface", "entity_parent:artifact"]} |
 | ent_m4 | object | man | man | person | raw_lemma | stage9_seed:parent_seed | person, human | m4 | raw_mention |  |  |  | True | {"canonical": "entity:man", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m5 | object | child | child | person | raw_lemma | stage9_seed:parent_seed | person, human | m5 | raw_mention |  |  |  | True | {"canonical": "entity:child", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m6 | object | living_room | living room | object | visual_genome_object_synset\|wordnet_noun_mwe | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:living_room", "parents": []} |
@@ -2573,7 +2573,7 @@ _none_
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | sofa |  |  | furniture, artifact | entity_exists:sofa | True | high |
-| cf1 | entity_exists | floor |  |  |  | entity_exists:floor | True | low |
+| cf1 | entity_exists | floor |  |  | architectural_part, surface, artifact | entity_exists:floor | True | high |
 | cf2 | entity_exists | man |  |  | person, human | entity_exists:man | True | high |
 | cf3 | entity_exists | child |  |  | person, human | entity_exists:child | True | high |
 | cf4 | entity_exists | living_room |  |  |  | entity_exists:living_room | True | high |
@@ -2643,10 +2643,10 @@ _none_
 | ent_m2 | object | railing | railings | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:railing", "parents": []} |
 | ent_m5 | object | pile | piles | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:pile", "parents": []} |
 | ent_m7 | context | side | sides | object | raw_lemma | semantic_type_fallback | scene_context | m7 | raw_mention |  |  |  | True | {"canonical": "entity:side", "parents": ["entity_parent:scene_context"]} |
-| ent_m8 | object | tree | trees | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
+| ent_m8 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m8 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m10 | object | step | steps | object | raw_lemma | none |  | m10 | raw_mention |  |  |  | True | {"canonical": "entity:step", "parents": []} |
-| ent_m11 | object | sky | sky | object | raw_lemma | none |  | m11 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": []} |
-| ent_m13 | object | building | building | object | raw_lemma | none |  | m13 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": []} |
+| ent_m11 | object | sky | sky | object | raw_lemma | wordnet_synset:sky.n.01 + stage9_audit | natural_scene | m11 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": ["entity_parent:natural_scene"]} |
+| ent_m13 | object | building | building | object | raw_lemma | wordnet_synset:building.n.01 + stage9_audit | structure, artifact | m13 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m14 | object | shutter | shutters | object | raw_lemma | none |  | m14 | raw_mention |  |  |  | True | {"canonical": "entity:shutter", "parents": []} |
 | ent_m15 | context | background | background | object | raw_lemma | stage9_seed:parent_seed | scene_context | m15 | raw_mention |  |  |  | True | {"canonical": "entity:background", "parents": ["entity_parent:scene_context"]} |
 
@@ -2682,10 +2682,10 @@ _none_
 | cf1 | entity_exists | railing |  |  |  | entity_exists:railing | True | low |
 | cf2 | entity_exists | pile |  |  |  | entity_exists:pile | True | low |
 | cf3 | entity_exists | side |  |  | scene_context | entity_exists:side | True | medium |
-| cf4 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
+| cf4 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
 | cf5 | entity_exists | step |  |  |  | entity_exists:step | True | low |
-| cf6 | entity_exists | sky |  |  |  | entity_exists:sky | True | low |
-| cf7 | entity_exists | building |  |  |  | entity_exists:building | True | low |
+| cf6 | entity_exists | sky |  |  | natural_scene | entity_exists:sky | True | high |
+| cf7 | entity_exists | building |  |  | structure, artifact | entity_exists:building | True | high |
 | cf8 | entity_exists | shutter |  |  |  | entity_exists:shutter | True | low |
 | cf9 | entity_exists | background |  |  | scene_context | entity_exists:background | True | high |
 | cf10 | has_attribute | staircase | snow-covered |  | modifier_attribute, visual_attribute | has_attribute:staircase:snow-covered | True | medium |
@@ -3027,7 +3027,7 @@ _none_
 ### Stage 9 Canonical Events
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | m9 | shows | show | show | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0; patient:m1->ent_m1 | {"canonical": "action:show", "parents": ["action_parent:visual_action"]} |  |
+| ce0 | m9 | shows | show | show | raw_action | wordnet_synset:show.v.01 + stage9_audit | visual_presentation_action, visual_action |  | agent:m0->ent_m0; patient:m1->ent_m1 | {"canonical": "action:show", "parents": ["action_parent:visual_presentation_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
 | event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
@@ -3054,7 +3054,7 @@ _none_
 | cf6 | has_attribute | aircraft | futuristic |  | modifier_attribute, visual_attribute | has_attribute:aircraft:futuristic | True | medium |
 | cf7 | has_attribute | part | label |  | state_attribute, visual_attribute | has_attribute:part:label | True | medium |
 | cf8 | has_attribute | arrow | directional |  | modifier_attribute, visual_attribute | has_attribute:arrow:directional | True | medium |
-| cf9 | action_event | show |  |  | visual_action | action_event:show | True | low |
+| cf9 | action_event | show |  |  | visual_presentation_action, visual_action | action_event:show | True | high |
 | cf10 | event_role | show | agent | diagram |  | event_role:show:agent:diagram | True | medium |
 | cf11 | event_role | show | patient | view |  | event_role:show:patient:view | True | medium |
 | cf12 | relation | view | of | aircraft | part_relation, visual_relation | relation:view:of:aircraft | True | medium |
@@ -3132,9 +3132,9 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | archway | archway | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:archway", "parents": []} |
 | ent_m3 | object | carving | carvings | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:carving", "parents": []} |
-| ent_m4 | object | wall | wall | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:wall", "parents": []} |
+| ent_m4 | object | wall | wall | object | raw_lemma | wordnet_synset:wall.n.01 + stage9_audit | architectural_part, structure, artifact | m4 | raw_mention |  |  |  | True | {"canonical": "entity:wall", "parents": ["entity_parent:architectural_part", "entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m7 | context | left | left | object | raw_lemma | semantic_type_fallback | scene_context | m7 | raw_mention |  |  |  | True | {"canonical": "entity:left", "parents": ["entity_parent:scene_context"]} |
-| ent_m8 | object | window | window | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:window", "parents": []} |
+| ent_m8 | object | window | window | object | raw_lemma | wordnet_synset:window.n.01 + stage9_audit | architectural_part, artifact | m8 | raw_mention |  |  |  | True | {"canonical": "entity:window", "parents": ["entity_parent:architectural_part", "entity_parent:artifact"]} |
 | ent_m10 | object | sign | sign | document | raw_lemma | stage9_seed:parent_seed | text_carrier, artifact | m10 | raw_mention |  |  |  | True | {"canonical": "entity:sign", "parents": ["entity_parent:text_carrier", "entity_parent:artifact"]} |
 | ent_m13 | object | trash_can | trash can | object | lvis_object\|visual_genome_object_synset\|wordnet_noun_mwe | none |  | m13 | raw_mention |  |  |  | True | {"canonical": "entity:trash_can", "parents": []} |
 | ent_m16 | object | plaque | plaque | document | raw_lemma | stage9_seed:parent_seed | text_carrier, artifact | m16 | raw_mention |  |  |  | True | {"canonical": "entity:plaque", "parents": ["entity_parent:text_carrier", "entity_parent:artifact"]} |
@@ -3174,9 +3174,9 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | archway |  |  |  | entity_exists:archway | True | low |
 | cf1 | entity_exists | carving |  |  |  | entity_exists:carving | True | low |
-| cf2 | entity_exists | wall |  |  |  | entity_exists:wall | True | low |
+| cf2 | entity_exists | wall |  |  | architectural_part, structure, artifact | entity_exists:wall | True | high |
 | cf3 | entity_exists | left |  |  | scene_context | entity_exists:left | True | medium |
-| cf4 | entity_exists | window |  |  |  | entity_exists:window | True | low |
+| cf4 | entity_exists | window |  |  | architectural_part, artifact | entity_exists:window | True | high |
 | cf5 | entity_exists | sign |  |  | text_carrier, artifact | entity_exists:sign | True | high |
 | cf6 | entity_exists | trash_can |  |  |  | entity_exists:trash_can | True | high |
 | cf7 | entity_exists | plaque |  |  | text_carrier, artifact | entity_exists:plaque | True | high |
@@ -3254,7 +3254,7 @@ _none_
 ### Stage 9 Canonical Entities
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ent_m0 | object | flower | flower | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:flower", "parents": []} |
+| ent_m0 | object | flower | flower | object | raw_lemma | wordnet_synset:flower.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m0 | raw_mention |  |  |  | True | {"canonical": "entity:flower", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m3 | object | petal | petals | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:petal", "parents": []} |
 | ent_m5 | context | background | background | object | raw_lemma | stage9_seed:parent_seed | scene_context | m5 | raw_mention |  |  |  | True | {"canonical": "entity:background", "parents": ["entity_parent:scene_context"]} |
 
@@ -3280,7 +3280,7 @@ _none_
 ### Stage 9 Canonical Facts
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| cf0 | entity_exists | flower |  |  |  | entity_exists:flower | True | low |
+| cf0 | entity_exists | flower |  |  | plant, living_thing | entity_exists:flower | True | high |
 | cf1 | entity_exists | petal |  |  |  | entity_exists:petal | True | low |
 | cf2 | entity_exists | background |  |  | scene_context | entity_exists:background | True | high |
 | cf3 | has_attribute | flower | vibrant |  | modifier_attribute, visual_attribute | has_attribute:flower:vibrant | True | medium |
@@ -3329,7 +3329,7 @@ _none_
 | ent_m0 | object | woman | women | person | stage9_seed:synonym_seed | stage9_seed:parent_seed | person, human | m0 | raw_mention |  |  |  | True | {"canonical": "entity:woman", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m1 | object | protest | protest | object | raw_lemma | none |  | m1 | raw_mention |  |  |  | True | {"canonical": "entity:protest", "parents": []} |
 | ent_m2 | object | banner | banner | object | raw_lemma | stage9_seed:parent_seed | text_carrier, artifact | m2 | raw_mention |  |  |  | True | {"canonical": "entity:banner", "parents": ["entity_parent:text_carrier", "entity_parent:artifact"]} |
-| ent_m3 | object | tree | trees | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
+| ent_m3 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m3 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m4 | object | dress | dress | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m4 | raw_mention |  |  |  | True | {"canonical": "entity:dress", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
 
 ### Stage 9 Entity Links
@@ -3350,7 +3350,7 @@ _none_
 | cf0 | entity_exists | woman |  |  | person, human | entity_exists:woman | True | high |
 | cf1 | entity_exists | protest |  |  |  | entity_exists:protest | True | low |
 | cf2 | entity_exists | banner |  |  | text_carrier, artifact | entity_exists:banner | True | high |
-| cf3 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
+| cf3 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
 | cf4 | entity_exists | dress |  |  | clothing, wearable | entity_exists:dress | True | high |
 | cf5 | has_attribute | dress | rainbow |  | attribute, visual_attribute | has_attribute:dress:rainbow | True | high |
 
@@ -3482,13 +3482,13 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | view | view | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:view", "parents": []} |
 | ent_m2 | object | forest | forest | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:forest", "parents": []} |
-| ent_m3 | object | tree | trees | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
+| ent_m3 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m3 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m5 | object | underbrush | underbrush | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:underbrush", "parents": []} |
 | ent_m7 | object | leaf | leaves | object | raw_lemma | none |  | m7 | raw_mention |  |  |  | True | {"canonical": "entity:leaf", "parents": []} |
 | ent_m10 | object | ground | ground | object | raw_lemma | none |  | m10 | raw_mention |  |  |  | True | {"canonical": "entity:ground", "parents": []} |
 | ent_m11 | object | tree_trunk | tree trunks | object | visual_genome_object_synset\|wordnet_noun_mwe | none |  | m11 | raw_mention |  |  |  | True | {"canonical": "entity:tree_trunk", "parents": []} |
 | ent_m12 | object | out-of-focus | out-of-focus | object | raw_lemma | none |  | m12 | raw_mention |  |  |  | True | {"canonical": "entity:out-of-focus", "parents": []} |
-| ent_m14 | object | sky | sky | object | raw_lemma | none |  | m14 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": []} |
+| ent_m14 | object | sky | sky | object | raw_lemma | wordnet_synset:sky.n.01 + stage9_audit | natural_scene | m14 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": ["entity_parent:natural_scene"]} |
 | ent_m15 | object | blur | blur | object | raw_lemma | none |  | m15 | raw_mention |  |  |  | True | {"canonical": "entity:blur", "parents": []} |
 | ent_m17 | object | movement | movement | object | raw_lemma | none |  | m17 | raw_mention |  |  |  | True | {"canonical": "entity:movement", "parents": []} |
 | ent_m18 | object | wood | woods | object | raw_lemma | none |  | m18 | raw_mention |  |  |  | True | {"canonical": "entity:wood", "parents": []} |
@@ -3499,7 +3499,7 @@ _none_
 ### Stage 9 Canonical Events
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | m19 | cover | cover | cover | raw_action | visual_action_fallback | visual_action |  | agent:m7->ent_m7; patient:m10->ent_m10 | {"canonical": "action:cover", "parents": ["action_parent:visual_action"]} |  |
+| ce0 | m19 | cover | cover | cover | raw_action | wordnet_synset:cover.v.01 + stage9_audit | occlusion_or_covering_action, visual_action |  | agent:m7->ent_m7; patient:m10->ent_m10 | {"canonical": "action:cover", "parents": ["action_parent:occlusion_or_covering_action", "action_parent:visual_action"]} |  |
 | ce1 | m20 | rising | rise | rise | raw_action | visual_action_fallback | visual_action |  | agent:m11->ent_m11 | {"canonical": "action:rise", "parents": ["action_parent:visual_action"]} |  |
 | ce2 | m21 | suggests | suggest | suggest | raw_action | visual_action_fallback | visual_action |  | agent:m15->ent_m15; patient:m17->ent_m17 | {"canonical": "action:suggest", "parents": ["action_parent:visual_action"]} |  |
 
@@ -3526,13 +3526,13 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | view |  |  |  | entity_exists:view | True | low |
 | cf1 | entity_exists | forest |  |  |  | entity_exists:forest | True | low |
-| cf2 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
+| cf2 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
 | cf3 | entity_exists | underbrush |  |  |  | entity_exists:underbrush | True | low |
 | cf4 | entity_exists | leaf |  |  |  | entity_exists:leaf | True | low |
 | cf5 | entity_exists | ground |  |  |  | entity_exists:ground | True | low |
 | cf6 | entity_exists | tree_trunk |  |  |  | entity_exists:tree_trunk | True | high |
 | cf7 | entity_exists | out-of-focus |  |  |  | entity_exists:out-of-focus | True | low |
-| cf8 | entity_exists | sky |  |  |  | entity_exists:sky | True | low |
+| cf8 | entity_exists | sky |  |  | natural_scene | entity_exists:sky | True | high |
 | cf9 | entity_exists | blur |  |  |  | entity_exists:blur | True | low |
 | cf10 | entity_exists | movement |  |  |  | entity_exists:movement | True | low |
 | cf11 | entity_exists | wood |  |  |  | entity_exists:wood | True | low |
@@ -3543,7 +3543,7 @@ _none_
 | cf16 | has_attribute | leaf | brown |  | color_attribute, color, visual_attribute | has_attribute:leaf:brown | True | high |
 | cf17 | has_attribute | out-of-focus | bright |  | brightness_attribute, brightness, tone, visual_attribute | has_attribute:out-of-focus:bright | True | medium |
 | cf18 | has_attribute | blur | motion |  | compound_modifier, visual_attribute | has_attribute:blur:motion | True | medium |
-| cf19 | action_event | cover |  |  | visual_action | action_event:cover | True | low |
+| cf19 | action_event | cover |  |  | occlusion_or_covering_action, visual_action | action_event:cover | True | high |
 | cf20 | event_role | cover | agent | leaf |  | event_role:cover:agent:leaf | True | medium |
 | cf21 | event_role | cover | patient | ground |  | event_role:cover:patient:ground | True | medium |
 | cf22 | action_event | rise |  |  | visual_action | action_event:rise | True | low |
@@ -3611,7 +3611,7 @@ _none_
 ### Stage 9 Canonical Events
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | m8 | eats | eat | eat | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0; patient:m3->ent_m3 | {"canonical": "action:eat", "parents": ["action_parent:visual_action"]} |  |
+| ce0 | m8 | eats | eat | eat | raw_action | wordnet_synset:eat.v.01 + stage9_audit | consumption_action, visual_action |  | agent:m0->ent_m0; patient:m3->ent_m3 | {"canonical": "action:eat", "parents": ["action_parent:consumption_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
 | event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
@@ -3636,7 +3636,7 @@ _none_
 | cf5 | has_attribute | mouse | dark |  | brightness_attribute, brightness, tone, visual_attribute | has_attribute:mouse:dark | True | medium |
 | cf6 | has_attribute | lid | green |  | color_attribute, color, visual_attribute | has_attribute:lid:green | True | high |
 | cf7 | has_attribute | lid | plastic |  | material_attribute, clean_exact_overlap, material, non_textile_material_type, visual_attribute | has_attribute:lid:plastic | True | high |
-| cf8 | action_event | eat |  |  | visual_action | action_event:eat | True | low |
+| cf8 | action_event | eat |  |  | consumption_action, visual_action | action_event:eat | True | high |
 | cf9 | event_role | eat | agent | mouse |  | event_role:eat:agent:mouse | True | medium |
 | cf10 | event_role | eat | patient | seed |  | event_role:eat:patient:seed | True | medium |
 | cf11 | relation | mouse | from | lid | visual_relation | relation:mouse:from:lid | True | medium |
@@ -3898,7 +3898,7 @@ _none_
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ce0 | m9 | smiles | smile | smile | raw_action | stage9_seed:parent_seed | expression_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:smile", "parents": ["action_parent:expression_action", "action_parent:visual_action"]} |  |
-| ce1 | m10 | closed | close | close | raw_action | visual_action_fallback | visual_action |  | agent:m4->ent_m4 | {"canonical": "action:close", "parents": ["action_parent:visual_action"]} |  |
+| ce1 | m10 | closed | close | close | raw_action | wordnet_synset:close.v.01 + stage9_audit | state_change_action, visual_action |  | agent:m4->ent_m4 | {"canonical": "action:close", "parents": ["action_parent:state_change_action", "action_parent:visual_action"]} |  |
 | ce2 | m11 | stands | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m6->ent_m6 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
@@ -3930,7 +3930,7 @@ _none_
 | cf9 | has_attribute | flag | red |  | color_attribute, color, visual_attribute | has_attribute:flag:red | True | high |
 | cf10 | action_event | smile |  |  | expression_action, visual_action | action_event:smile | True | high |
 | cf11 | event_role | smile | agent | man |  | event_role:smile:agent:man | True | medium |
-| cf12 | action_event | close |  |  | visual_action | action_event:close | True | low |
+| cf12 | action_event | close |  |  | state_change_action, visual_action | action_event:close | True | medium |
 | cf13 | event_role | close | agent | eye |  | event_role:close:agent:eye | True | medium |
 | cf14 | action_event | stand |  |  | body_pose_action, visual_action | action_event:stand | True | high |
 | cf15 | event_role | stand | agent | man |  | event_role:stand:agent:man | True | medium |
@@ -4018,7 +4018,7 @@ _none_
 | ent_m7 | object | shirt | shirt | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m7 | raw_mention |  |  |  | True | {"canonical": "entity:shirt", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
 | ent_m9 | object | face_mask | face mask | object | visual_genome_object_synset\|wordnet_noun_mwe | none |  | m9 | raw_mention |  |  |  | True | {"canonical": "entity:face_mask", "parents": []} |
 | ent_m11 | object | collar | collar | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m11 | raw_mention |  |  |  | True | {"canonical": "entity:collar", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
-| ent_m12 | object | window | window | object | raw_lemma | none |  | m12 | raw_mention |  |  |  | True | {"canonical": "entity:window", "parents": []} |
+| ent_m12 | object | window | window | object | raw_lemma | wordnet_synset:window.n.01 + stage9_audit | architectural_part, artifact | m12 | raw_mention |  |  |  | True | {"canonical": "entity:window", "parents": ["entity_parent:architectural_part", "entity_parent:artifact"]} |
 | ent_m13 | object | art | art | object | raw_lemma | none |  | m13 | raw_mention |  |  |  | True | {"canonical": "entity:art", "parents": []} |
 | ent_m16 | context | indoors | indoors | object | raw_lemma | stage9_seed:parent_seed | scene_context | m16 | raw_mention |  |  |  | True | {"canonical": "entity:indoors", "parents": ["entity_parent:scene_context"]} |
 | eref_m17 | instance | man | One | person | raw_lemma | stage9_seed:parent_seed | person, human | m17 | stage9_reference | ent_m0 |  | 1 | True | {"canonical": "entity:man", "parents": ["entity_parent:person", "entity_parent:human"]} |
@@ -4071,7 +4071,7 @@ _none_
 | cf5 | entity_exists | shirt |  |  | clothing, wearable | entity_exists:shirt | True | high |
 | cf6 | entity_exists | face_mask |  |  |  | entity_exists:face_mask | True | high |
 | cf7 | entity_exists | collar |  |  | clothing, wearable | entity_exists:collar | True | medium |
-| cf8 | entity_exists | window |  |  |  | entity_exists:window | True | low |
+| cf8 | entity_exists | window |  |  | architectural_part, artifact | entity_exists:window | True | high |
 | cf9 | entity_exists | art |  |  |  | entity_exists:art | True | low |
 | cf10 | entity_exists | indoors |  |  | scene_context | entity_exists:indoors | True | high |
 | cf11 | entity_exists | man |  |  | person, human | entity_exists:man | True | high |
@@ -4147,9 +4147,9 @@ _none_
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | cathedral | cathedral | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:cathedral", "parents": []} |
-| ent_m2 | object | tower | tower | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:tower", "parents": []} |
+| ent_m2 | object | tower | tower | object | raw_lemma | wordnet_synset:tower.n.01 + stage9_audit | structure, artifact | m2 | raw_mention |  |  |  | True | {"canonical": "entity:tower", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m4 | object | dome | dome | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:dome", "parents": []} |
-| ent_m6 | object | sky | sky | object | raw_lemma | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": []} |
+| ent_m6 | object | sky | sky | object | raw_lemma | wordnet_synset:sky.n.01 + stage9_audit | natural_scene | m6 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": ["entity_parent:natural_scene"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -4175,9 +4175,9 @@ _none_
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | cathedral |  |  |  | entity_exists:cathedral | True | low |
-| cf1 | entity_exists | tower |  |  |  | entity_exists:tower | True | low |
+| cf1 | entity_exists | tower |  |  | structure, artifact | entity_exists:tower | True | high |
 | cf2 | entity_exists | dome |  |  |  | entity_exists:dome | True | low |
-| cf3 | entity_exists | sky |  |  |  | entity_exists:sky | True | low |
+| cf3 | entity_exists | sky |  |  | natural_scene | entity_exists:sky | True | high |
 | cf4 | has_attribute | cathedral | historic |  | modifier_attribute, visual_attribute | has_attribute:cathedral:historic | True | medium |
 | cf5 | has_attribute | tower | tall |  | size_attribute, height, visual_attribute | has_attribute:tower:tall | True | high |
 | cf6 | has_attribute | dome | red |  | color_attribute, color, visual_attribute | has_attribute:dome:red | True | high |
@@ -4238,12 +4238,12 @@ _none_
 ### Stage 9 Canonical Entities
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ent_m0 | object | bridge | bridge | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:bridge", "parents": []} |
+| ent_m0 | object | bridge | bridge | object | raw_lemma | wordnet_synset:bridge.n.01 + stage9_audit | structure, artifact | m0 | raw_mention |  |  |  | True | {"canonical": "entity:bridge", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m3 | object | architecture | architecture | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:architecture", "parents": []} |
-| ent_m6 | object | river | river | object | raw_lemma | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:river", "parents": []} |
+| ent_m6 | object | river | river | object | raw_lemma | wordnet_synset:river.n.01 + stage9_audit | body_of_water, place | m6 | raw_mention |  |  |  | True | {"canonical": "entity:river", "parents": ["entity_parent:body_of_water", "entity_parent:place"]} |
 | ent_m7 | context | night | night | object | raw_lemma | stage9_seed:parent_seed | scene_context, time_context | m7 | raw_mention |  |  |  | True | {"canonical": "entity:night", "parents": ["entity_parent:scene_context", "entity_parent:time_context"]} |
 | ent_m8 | object | light | lights | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:light", "parents": []} |
-| ent_m9 | object | water | water | object | raw_lemma | none |  | m9 | raw_mention |  |  |  | True | {"canonical": "entity:water", "parents": []} |
+| ent_m9 | object | water | water | object | raw_lemma | wordnet_synset:water.n.01 + stage9_audit | natural_element | m9 | raw_mention |  |  |  | True | {"canonical": "entity:water", "parents": ["entity_parent:natural_element"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -4271,12 +4271,12 @@ _none_
 ### Stage 9 Canonical Facts
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| cf0 | entity_exists | bridge |  |  |  | entity_exists:bridge | True | low |
+| cf0 | entity_exists | bridge |  |  | structure, artifact | entity_exists:bridge | True | high |
 | cf1 | entity_exists | architecture |  |  |  | entity_exists:architecture | True | low |
-| cf2 | entity_exists | river |  |  |  | entity_exists:river | True | low |
+| cf2 | entity_exists | river |  |  | body_of_water, place | entity_exists:river | True | high |
 | cf3 | entity_exists | night |  |  | scene_context, time_context | entity_exists:night | True | high |
 | cf4 | entity_exists | light |  |  |  | entity_exists:light | True | low |
-| cf5 | entity_exists | water |  |  |  | entity_exists:water | True | low |
+| cf5 | entity_exists | water |  |  | natural_element | entity_exists:water | True | high |
 | cf6 | has_attribute | bridge | brightly |  | modifier_attribute, visual_attribute | has_attribute:bridge:brightly | True | medium |
 | cf7 | has_attribute | bridge | light |  | visual_attribute | has_attribute:bridge:light | True | medium |
 | cf8 | has_attribute | architecture | traditional |  | modifier_attribute, visual_attribute | has_attribute:architecture:traditional | True | medium |
@@ -4328,7 +4328,7 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | jersey | jerseys | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m0 | raw_mention |  |  |  | True | {"canonical": "entity:jersey", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
 | ent_m2 | object | soccer_player | soccer players | object | visual_genome_object_synset\|wordnet_noun_mwe | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:soccer_player", "parents": []} |
-| ent_m3 | object | field | field | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": []} |
+| ent_m3 | object | field | field | object | raw_lemma | wordnet_synset:field.n.01 + stage9_audit | outdoor_scene, place | m3 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": ["entity_parent:outdoor_scene", "entity_parent:place"]} |
 | ent_m5 | object | huddle | huddle | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:huddle", "parents": []} |
 
 ### Stage 9 Entity Links
@@ -4348,7 +4348,7 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | jersey |  |  | clothing, wearable | entity_exists:jersey | True | high |
 | cf1 | entity_exists | soccer_player |  |  |  | entity_exists:soccer_player | True | high |
-| cf2 | entity_exists | field |  |  |  | entity_exists:field | True | low |
+| cf2 | entity_exists | field |  |  | outdoor_scene, place | entity_exists:field | True | medium |
 | cf3 | entity_exists | huddle |  |  |  | entity_exists:huddle | True | low |
 | cf4 | has_attribute | jersey | red |  | color_attribute, color, visual_attribute | has_attribute:jersey:red | True | high |
 | cf5 | has_attribute | field | grass |  | attribute, visual_attribute | has_attribute:field:grass | True | high |
@@ -4442,7 +4442,7 @@ _none_
 ### Stage 9 Canonical Events
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | m20 | contains | contain | contain | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0; patient:m4->ent_m4 | {"canonical": "action:contain", "parents": ["action_parent:visual_action"]} |  |
+| ce0 | m20 | contains | contain | contain | raw_action | wordnet_synset:contain.v.01 + stage9_audit | containment_state_action, visual_action |  | agent:m0->ent_m0; patient:m4->ent_m4 | {"canonical": "action:contain", "parents": ["action_parent:containment_state_action", "action_parent:visual_action"]} |  |
 | ce1 | m21 | stands | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m9->ent_m9 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 | ce2 | m22 | lined | line | line | raw_action | visual_action_fallback | visual_action |  | patient<-theme[passive_to_active]:m15->ent_m15 | {"canonical": "action:line", "parents": ["action_parent:visual_action"]} |  |
 
@@ -4488,7 +4488,7 @@ _none_
 | cf17 | has_attribute | figurine | monster-like |  | modifier_attribute, visual_attribute | has_attribute:figurine:monster-like | True | medium |
 | cf18 | has_attribute | seat | rear |  | modifier_attribute, visual_attribute | has_attribute:seat:rear | True | medium |
 | cf19 | has_attribute | leather | black |  | color_attribute, color, visual_attribute | has_attribute:leather:black | True | high |
-| cf20 | action_event | contain |  |  | visual_action | action_event:contain | True | low |
+| cf20 | action_event | contain |  |  | containment_state_action, visual_action | action_event:contain | True | medium |
 | cf21 | event_role | contain | agent | trunk |  | event_role:contain:agent:trunk | True | medium |
 | cf22 | event_role | contain | patient | setup |  | event_role:contain:patient:setup | True | medium |
 | cf23 | action_event | stand |  |  | body_pose_action, visual_action | action_event:stand | True | high |
@@ -4551,7 +4551,7 @@ _none_
 | ent_m0 | object | view | view | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:view", "parents": []} |
 | ent_m3 | object | patchwork | patchwork | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:patchwork", "parents": []} |
 | ent_m4 | object | farmland | farmland | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:farmland", "parents": []} |
-| ent_m5 | object | field | fields | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": []} |
+| ent_m5 | object | field | fields | object | raw_lemma | wordnet_synset:field.n.01 + stage9_audit | outdoor_scene, place | m5 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": ["entity_parent:outdoor_scene", "entity_parent:place"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -4559,7 +4559,7 @@ _none_
 ### Stage 9 Canonical Events
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | m7 | shows | show | show | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0; patient:m3->ent_m3 | {"canonical": "action:show", "parents": ["action_parent:visual_action"]} |  |
+| ce0 | m7 | shows | show | show | raw_action | wordnet_synset:show.v.01 + stage9_audit | visual_presentation_action, visual_action |  | agent:m0->ent_m0; patient:m3->ent_m3 | {"canonical": "action:show", "parents": ["action_parent:visual_presentation_action", "action_parent:visual_action"]} |  |
 | ce1 | m8 | divided | divide | divide | raw_action | visual_action_fallback | visual_action |  | agent:m4->ent_m4 | {"canonical": "action:divide", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
@@ -4581,11 +4581,11 @@ _none_
 | cf0 | entity_exists | view |  |  |  | entity_exists:view | True | low |
 | cf1 | entity_exists | patchwork |  |  |  | entity_exists:patchwork | True | low |
 | cf2 | entity_exists | farmland |  |  |  | entity_exists:farmland | True | low |
-| cf3 | entity_exists | field |  |  |  | entity_exists:field | True | low |
+| cf3 | entity_exists | field |  |  | outdoor_scene, place | entity_exists:field | True | medium |
 | cf4 | has_attribute | view | black-and-white |  | modifier_attribute, visual_attribute | has_attribute:view:black-and-white | True | medium |
 | cf5 | has_attribute | view | aerial |  | modifier_attribute, visual_attribute | has_attribute:view:aerial | True | medium |
 | cf6 | has_attribute | field | rectangular |  | shape_attribute, shape, visual_attribute | has_attribute:field:rectangular | True | medium |
-| cf7 | action_event | show |  |  | visual_action | action_event:show | True | low |
+| cf7 | action_event | show |  |  | visual_presentation_action, visual_action | action_event:show | True | high |
 | cf8 | event_role | show | agent | view |  | event_role:show:agent:view | True | medium |
 | cf9 | event_role | show | patient | patchwork |  | event_role:show:patient:patchwork | True | medium |
 | cf10 | action_event | divide |  |  | visual_action | action_event:divide | True | low |
@@ -4627,7 +4627,7 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | man | man | person | raw_lemma | stage9_seed:parent_seed | person, human | m0 | raw_mention |  |  |  | True | {"canonical": "entity:man", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m1 | object | suit | suit | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m1 | raw_mention |  |  |  | True | {"canonical": "entity:suit", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
-| ent_m2 | object | bottle | bottle | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:bottle", "parents": []} |
+| ent_m2 | object | bottle | bottle | object | raw_lemma | COCO object label + wordnet_hypernym:container.n.01 + stage9_audit | container, artifact | m2 | raw_mention |  |  |  | True | {"canonical": "entity:bottle", "parents": ["entity_parent:container", "entity_parent:artifact"]} |
 | ent_m4 | object | nameplate | nameplate | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:nameplate", "parents": []} |
 
 ### Stage 9 Entity Links
@@ -4647,7 +4647,7 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | man |  |  | person, human | entity_exists:man | True | high |
 | cf1 | entity_exists | suit |  |  | clothing, wearable | entity_exists:suit | True | high |
-| cf2 | entity_exists | bottle |  |  |  | entity_exists:bottle | True | low |
+| cf2 | entity_exists | bottle |  |  | container, artifact | entity_exists:bottle | True | high |
 | cf3 | entity_exists | nameplate |  |  |  | entity_exists:nameplate | True | low |
 | cf4 | has_attribute | bottle | water |  | material_attribute, material, visual_attribute | has_attribute:bottle:water | True | high |
 
@@ -4762,8 +4762,8 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | person | person | person | raw_lemma | stage9_seed:parent_seed | person, human | m0 | raw_mention |  |  |  | True | {"canonical": "entity:person", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m1 | object | hat | hat | object | raw_lemma | none |  | m1 | raw_mention |  |  |  | True | {"canonical": "entity:hat", "parents": []} |
-| ent_m3 | object | plant | plants | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:plant", "parents": []} |
-| ent_m7 | object | field | field | object | raw_lemma | none |  | m7 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": []} |
+| ent_m3 | object | plant | plants | object | raw_lemma | wordnet_synset:plant.n.02 + stage9_audit | plant, living_thing | m3 | raw_mention |  |  |  | True | {"canonical": "entity:plant", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
+| ent_m7 | object | field | field | object | raw_lemma | wordnet_synset:field.n.01 + stage9_audit | outdoor_scene, place | m7 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": ["entity_parent:outdoor_scene", "entity_parent:place"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -4792,8 +4792,8 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | person |  |  | person, human | entity_exists:person | True | high |
 | cf1 | entity_exists | hat |  |  |  | entity_exists:hat | True | low |
-| cf2 | entity_exists | plant |  |  |  | entity_exists:plant | True | low |
-| cf3 | entity_exists | field |  |  |  | entity_exists:field | True | low |
+| cf2 | entity_exists | plant |  |  | plant, living_thing | entity_exists:plant | True | high |
+| cf3 | entity_exists | field |  |  | outdoor_scene, place | entity_exists:field | True | medium |
 | cf4 | has_attribute | hat | conical |  | shape_attribute, shape, visual_attribute | has_attribute:hat:conical | True | medium |
 | cf5 | has_attribute | plant | tall |  | size_attribute, height, visual_attribute | has_attribute:plant:tall | True | high |
 | cf6 | has_attribute | plant | green |  | color_attribute, color, visual_attribute | has_attribute:plant:green | True | high |
@@ -4837,12 +4837,12 @@ _none_
 ### Stage 9 Canonical Entities
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ent_m0 | object | beach | beach | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:beach", "parents": []} |
+| ent_m0 | object | beach | beach | object | raw_lemma | wordnet_synset:beach.n.01 + stage9_audit | outdoor_scene, place | m0 | raw_mention |  |  |  | True | {"canonical": "entity:beach", "parents": ["entity_parent:outdoor_scene", "entity_parent:place"]} |
 | ent_m1 | object | palm_tree | palm trees | object | openimages_boxable\|visual_genome_object_synset\|wordnet_noun_mwe | none |  | m1 | raw_mention |  |  |  | True | {"canonical": "entity:palm_tree", "parents": []} |
 | ent_m2 | object | people | people | person | raw_lemma | stage9_seed:parent_seed | person, human | m2 | raw_mention |  |  |  | True | {"canonical": "entity:people", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m3 | object | van | van | vehicle | raw_lemma | stage9_seed:parent_seed | vehicle | m3 | raw_mention |  |  |  | True | {"canonical": "entity:van", "parents": ["entity_parent:vehicle"]} |
-| ent_m4 | object | grass | grass | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:grass", "parents": []} |
-| ent_m5 | object | ocean | ocean | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:ocean", "parents": []} |
+| ent_m4 | object | grass | grass | object | raw_lemma | wordnet_synset:grass.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m4 | raw_mention |  |  |  | True | {"canonical": "entity:grass", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
+| ent_m5 | object | ocean | ocean | object | raw_lemma | wordnet_synset:ocean.n.01 + stage9_audit | body_of_water, place | m5 | raw_mention |  |  |  | True | {"canonical": "entity:ocean", "parents": ["entity_parent:body_of_water", "entity_parent:place"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -4859,12 +4859,12 @@ _none_
 ### Stage 9 Canonical Facts
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| cf0 | entity_exists | beach |  |  |  | entity_exists:beach | True | low |
+| cf0 | entity_exists | beach |  |  | outdoor_scene, place | entity_exists:beach | True | high |
 | cf1 | entity_exists | palm_tree |  |  |  | entity_exists:palm_tree | True | high |
 | cf2 | entity_exists | people |  |  | person, human | entity_exists:people | True | high |
 | cf3 | entity_exists | van |  |  | vehicle | entity_exists:van | True | high |
-| cf4 | entity_exists | grass |  |  |  | entity_exists:grass | True | low |
-| cf5 | entity_exists | ocean |  |  |  | entity_exists:ocean | True | low |
+| cf4 | entity_exists | grass |  |  | plant, living_thing | entity_exists:grass | True | high |
+| cf5 | entity_exists | ocean |  |  | body_of_water, place | entity_exists:ocean | True | high |
 
 ### Stage 9 Canonicalization Notes
 _none_
@@ -4907,9 +4907,9 @@ _none_
 ### Stage 9 Canonical Entities
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ent_m0 | object | path | path | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:path", "parents": []} |
-| ent_m2 | object | tree | trees | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
-| ent_m4 | object | sky | sky | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": []} |
+| ent_m0 | object | path | path | object | raw_lemma | wordnet_synset:path.n.04 + stage9_audit | path, place | m0 | raw_mention |  |  |  | True | {"canonical": "entity:path", "parents": ["entity_parent:path", "entity_parent:place"]} |
+| ent_m2 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m2 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
+| ent_m4 | object | sky | sky | object | raw_lemma | wordnet_synset:sky.n.01 + stage9_audit | natural_scene | m4 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": ["entity_parent:natural_scene"]} |
 | ent_m6 | object | landscape | landscape | object | raw_lemma | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:landscape", "parents": []} |
 | ent_m8 | object | branch | branches | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:branch", "parents": []} |
 
@@ -4928,9 +4928,9 @@ _none_
 ### Stage 9 Canonical Facts
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| cf0 | entity_exists | path |  |  |  | entity_exists:path | True | low |
-| cf1 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
-| cf2 | entity_exists | sky |  |  |  | entity_exists:sky | True | low |
+| cf0 | entity_exists | path |  |  | path, place | entity_exists:path | True | high |
+| cf1 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
+| cf2 | entity_exists | sky |  |  | natural_scene | entity_exists:sky | True | high |
 | cf3 | entity_exists | landscape |  |  |  | entity_exists:landscape | True | low |
 | cf4 | entity_exists | branch |  |  |  | entity_exists:branch | True | low |
 | cf5 | has_attribute | path | snowy |  | material_attribute, material, visual_attribute | has_attribute:path:snowy | True | high |
@@ -4982,7 +4982,7 @@ _none_
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | sign | sign | document | raw_lemma | stage9_seed:parent_seed | text_carrier, artifact | m0 | raw_mention |  |  |  | True | {"canonical": "entity:sign", "parents": ["entity_parent:text_carrier", "entity_parent:artifact"]} |
-| ent_m4 | object | building | building | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": []} |
+| ent_m4 | object | building | building | object | raw_lemma | wordnet_synset:building.n.01 + stage9_audit | structure, artifact | m4 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m6 | object | pier | Pier | object | raw_lemma | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:pier", "parents": []} |
 | ent_m7 | object | american_flag | American flag | object | visual_genome_object_synset\|wordnet_noun_mwe | none |  | m7 | raw_mention |  |  |  | True | {"canonical": "entity:american_flag", "parents": []} |
 
@@ -5009,7 +5009,7 @@ _none_
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | sign |  |  | text_carrier, artifact | entity_exists:sign | True | high |
-| cf1 | entity_exists | building |  |  |  | entity_exists:building | True | low |
+| cf1 | entity_exists | building |  |  | structure, artifact | entity_exists:building | True | high |
 | cf2 | entity_exists | pier |  |  |  | entity_exists:pier | True | low |
 | cf3 | entity_exists | american_flag |  |  |  | entity_exists:american_flag | True | high |
 | cf4 | has_attribute | sign | hard |  | texture_attribute, clean_exact_overlap, hardness, visual_attribute | has_attribute:sign:hard | True | medium |
@@ -5079,11 +5079,11 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | man | man | person | raw_lemma | stage9_seed:parent_seed | person, human | m0 | raw_mention |  |  |  | True | {"canonical": "entity:man", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m1 | object | hillside | hillside | object | raw_lemma | none |  | m1 | raw_mention |  |  |  | True | {"canonical": "entity:hillside", "parents": []} |
-| ent_m3 | object | bush | bushes | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:bush", "parents": []} |
+| ent_m3 | object | bush | bushes | object | raw_lemma | wordnet_synset:shrub.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m3 | raw_mention |  |  |  | True | {"canonical": "entity:bush", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m5 | object | jacket | jacket | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m5 | raw_mention |  |  |  | True | {"canonical": "entity:jacket", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
 | ent_m7 | object | shirt | shirt | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m7 | raw_mention |  |  |  | True | {"canonical": "entity:shirt", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
-| ent_m9 | object | mountain | mountains | object | raw_lemma | none |  | m9 | raw_mention |  |  |  | True | {"canonical": "entity:mountain", "parents": []} |
-| ent_m11 | object | sky | sky | object | raw_lemma | none |  | m11 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": []} |
+| ent_m9 | object | mountain | mountains | object | raw_lemma | wordnet_synset:mountain.n.01 + stage9_audit | landform, place | m9 | raw_mention |  |  |  | True | {"canonical": "entity:mountain", "parents": ["entity_parent:landform", "entity_parent:place"]} |
+| ent_m11 | object | sky | sky | object | raw_lemma | wordnet_synset:sky.n.01 + stage9_audit | natural_scene | m11 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": ["entity_parent:natural_scene"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -5116,11 +5116,11 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | man |  |  | person, human | entity_exists:man | True | high |
 | cf1 | entity_exists | hillside |  |  |  | entity_exists:hillside | True | low |
-| cf2 | entity_exists | bush |  |  |  | entity_exists:bush | True | low |
+| cf2 | entity_exists | bush |  |  | plant, living_thing | entity_exists:bush | True | high |
 | cf3 | entity_exists | jacket |  |  | clothing, wearable | entity_exists:jacket | True | high |
 | cf4 | entity_exists | shirt |  |  | clothing, wearable | entity_exists:shirt | True | high |
-| cf5 | entity_exists | mountain |  |  |  | entity_exists:mountain | True | low |
-| cf6 | entity_exists | sky |  |  |  | entity_exists:sky | True | low |
+| cf5 | entity_exists | mountain |  |  | landform, place | entity_exists:mountain | True | high |
+| cf6 | entity_exists | sky |  |  | natural_scene | entity_exists:sky | True | high |
 | cf7 | has_attribute | hillside | rocky |  | material_attribute, material, visual_attribute | has_attribute:hillside:rocky | True | medium |
 | cf8 | has_attribute | bush | sparse |  | modifier_attribute, visual_attribute | has_attribute:bush:sparse | True | medium |
 | cf9 | has_attribute | jacket | yellow |  | color_attribute, color, visual_attribute | has_attribute:jacket:yellow | True | high |
@@ -5283,8 +5283,8 @@ _none_
 | ent_m3 | object | microphone | microphone | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:microphone", "parents": []} |
 | ent_m4 | object | shirt | shirt | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m4 | raw_mention |  |  |  | True | {"canonical": "entity:shirt", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
 | ent_m7 | object | structure | structure | object | raw_lemma | none |  | m7 | raw_mention |  |  |  | True | {"canonical": "entity:structure", "parents": []} |
-| ent_m10 | object | building | buildings | object | raw_lemma | none |  | m10 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": []} |
-| ent_m11 | object | tree | trees | object | raw_lemma | none |  | m11 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
+| ent_m10 | object | building | buildings | object | raw_lemma | wordnet_synset:building.n.01 + stage9_audit | structure, artifact | m10 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
+| ent_m11 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m11 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m12 | context | background | background | object | raw_lemma | stage9_seed:parent_seed | scene_context | m12 | raw_mention |  |  |  | True | {"canonical": "entity:background", "parents": ["entity_parent:scene_context"]} |
 | ent_m13 | object | person | person | person | raw_lemma | stage9_seed:parent_seed | person, human | m13 | raw_mention |  |  |  | True | {"canonical": "entity:person", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m14 | object | vest | vest | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m14 | raw_mention |  |  |  | True | {"canonical": "entity:vest", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
@@ -5328,8 +5328,8 @@ _none_
 | cf2 | entity_exists | microphone |  |  |  | entity_exists:microphone | True | low |
 | cf3 | entity_exists | shirt |  |  | clothing, wearable | entity_exists:shirt | True | high |
 | cf4 | entity_exists | structure |  |  |  | entity_exists:structure | True | low |
-| cf5 | entity_exists | building |  |  |  | entity_exists:building | True | low |
-| cf6 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
+| cf5 | entity_exists | building |  |  | structure, artifact | entity_exists:building | True | high |
+| cf6 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
 | cf7 | entity_exists | background |  |  | scene_context | entity_exists:background | True | high |
 | cf8 | entity_exists | person |  |  | person, human | entity_exists:person | True | high |
 | cf9 | entity_exists | vest |  |  | clothing, wearable | entity_exists:vest | True | high |
@@ -5405,8 +5405,8 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | person | person | person | raw_lemma | stage9_seed:parent_seed | person, human | m0 | raw_mention |  |  |  | True | {"canonical": "entity:person", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m1 | object | motorcycle | motorcycle | vehicle | raw_lemma | stage9_seed:parent_seed | vehicle | m1 | raw_mention |  |  |  | True | {"canonical": "entity:motorcycle", "parents": ["entity_parent:vehicle"]} |
-| ent_m3 | object | road | road | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:road", "parents": []} |
-| ent_m4 | object | field | field | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": []} |
+| ent_m3 | object | road | road | object | raw_lemma | wordnet_synset:road.n.01 + stage9_audit | path, place | m3 | raw_mention |  |  |  | True | {"canonical": "entity:road", "parents": ["entity_parent:path", "entity_parent:place"]} |
+| ent_m4 | object | field | field | object | raw_lemma | wordnet_synset:field.n.01 + stage9_audit | outdoor_scene, place | m4 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": ["entity_parent:outdoor_scene", "entity_parent:place"]} |
 | ent_m5 | object | helmet | helmet | clothing | raw_lemma | stage9_seed:parent_seed | protective_gear, clothing, wearable | m5 | raw_mention |  |  |  | True | {"canonical": "entity:helmet", "parents": ["entity_parent:protective_gear", "entity_parent:clothing", "entity_parent:wearable"]} |
 | ent_m7 | object | jacket | jacket | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m7 | raw_mention |  |  |  | True | {"canonical": "entity:jacket", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
 
@@ -5439,8 +5439,8 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | person |  |  | person, human | entity_exists:person | True | high |
 | cf1 | entity_exists | motorcycle |  |  | vehicle | entity_exists:motorcycle | True | high |
-| cf2 | entity_exists | road |  |  |  | entity_exists:road | True | low |
-| cf3 | entity_exists | field |  |  |  | entity_exists:field | True | low |
+| cf2 | entity_exists | road |  |  | path, place | entity_exists:road | True | high |
+| cf3 | entity_exists | field |  |  | outdoor_scene, place | entity_exists:field | True | medium |
 | cf4 | entity_exists | helmet |  |  | protective_gear, clothing, wearable | entity_exists:helmet | True | high |
 | cf5 | entity_exists | jacket |  |  | clothing, wearable | entity_exists:jacket | True | high |
 | cf6 | has_attribute | motorcycle | red |  | color_attribute, color, visual_attribute | has_attribute:motorcycle:red | True | high |
@@ -5593,7 +5593,7 @@ _none_
 | ent_m1 | object | mid-air | mid-air | object | raw_lemma | none |  | m1 | raw_mention |  |  |  | True | {"canonical": "entity:mid-air", "parents": []} |
 | ent_m2 | object | rope | ropes | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:rope", "parents": []} |
 | ent_m3 | object | facility | facility | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:facility", "parents": []} |
-| ent_m6 | object | wall | walls | object | raw_lemma | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:wall", "parents": []} |
+| ent_m6 | object | wall | walls | object | raw_lemma | wordnet_synset:wall.n.01 + stage9_audit | architectural_part, structure, artifact | m6 | raw_mention |  |  |  | True | {"canonical": "entity:wall", "parents": ["entity_parent:architectural_part", "entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m8 | object | ceiling | ceiling | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:ceiling", "parents": []} |
 
 ### Stage 9 Entity Links
@@ -5625,7 +5625,7 @@ _none_
 | cf1 | entity_exists | mid-air |  |  |  | entity_exists:mid-air | True | low |
 | cf2 | entity_exists | rope |  |  |  | entity_exists:rope | True | low |
 | cf3 | entity_exists | facility |  |  |  | entity_exists:facility | True | low |
-| cf4 | entity_exists | wall |  |  |  | entity_exists:wall | True | low |
+| cf4 | entity_exists | wall |  |  | architectural_part, structure, artifact | entity_exists:wall | True | high |
 | cf5 | entity_exists | ceiling |  |  |  | entity_exists:ceiling | True | low |
 | cf6 | has_attribute | facility | large |  | size_attribute, clean_exact_overlap, size, visual_attribute | has_attribute:facility:large | True | high |
 | cf7 | has_attribute | facility | indoor |  | modifier_attribute, visual_attribute | has_attribute:facility:indoor | True | medium |
@@ -5692,7 +5692,7 @@ _none_
 | ent_m1 | object | jersey | jersey | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m1 | raw_mention |  |  |  | True | {"canonical": "entity:jersey", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
 | ent_m3 | object | ball | ball | object | raw_lemma | stage9_seed:parent_seed | sports_equipment, artifact | m3 | raw_mention |  |  |  | True | {"canonical": "entity:ball", "parents": ["entity_parent:sports_equipment", "entity_parent:artifact"]} |
 | ent_m4 | object | opponent | opponents | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:opponent", "parents": []} |
-| ent_m5 | object | field | field | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": []} |
+| ent_m5 | object | field | field | object | raw_lemma | wordnet_synset:field.n.01 + stage9_audit | outdoor_scene, place | m5 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": ["entity_parent:outdoor_scene", "entity_parent:place"]} |
 | ent_m7 | object | spectator | Spectators | object | raw_lemma | none |  | m7 | raw_mention |  |  |  | True | {"canonical": "entity:spectator", "parents": []} |
 | ent_m8 | object | stand | stands | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:stand", "parents": []} |
 
@@ -5704,7 +5704,7 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ce0 | m9 | controls | control | control | raw_action | stage9_seed:parent_seed | manipulation_action, visual_action |  | agent:m0->ent_m0; patient:m3->ent_m3 | {"canonical": "action:control", "parents": ["action_parent:manipulation_action", "action_parent:visual_action"]} |  |
 | ce1 | m10 | challenged | challenge | challenge | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0 | {"canonical": "action:challenge", "parents": ["action_parent:visual_action"]} |  |
-| ce2 | m11 | fill | fill | fill | raw_action | visual_action_fallback | visual_action |  | agent:m7->ent_m7; patient:m8->ent_m8 | {"canonical": "action:fill", "parents": ["action_parent:visual_action"]} |  |
+| ce2 | m11 | fill | fill | fill | raw_action | wordnet_synset:fill.v.01 + stage9_audit | containment_state_action, visual_action |  | agent:m7->ent_m7; patient:m8->ent_m8 | {"canonical": "action:fill", "parents": ["action_parent:containment_state_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
 | event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
@@ -5730,7 +5730,7 @@ _none_
 | cf1 | entity_exists | jersey |  |  | clothing, wearable | entity_exists:jersey | True | high |
 | cf2 | entity_exists | ball |  |  | sports_equipment, artifact | entity_exists:ball | True | high |
 | cf3 | entity_exists | opponent |  |  |  | entity_exists:opponent | True | low |
-| cf4 | entity_exists | field |  |  |  | entity_exists:field | True | low |
+| cf4 | entity_exists | field |  |  | outdoor_scene, place | entity_exists:field | True | medium |
 | cf5 | entity_exists | spectator |  |  |  | entity_exists:spectator | True | low |
 | cf6 | entity_exists | stand |  |  |  | entity_exists:stand | True | low |
 | cf7 | has_attribute | jersey | red |  | color_attribute, color, visual_attribute | has_attribute:jersey:red | True | high |
@@ -5740,7 +5740,7 @@ _none_
 | cf11 | event_role | control | patient | ball |  | event_role:control:patient:ball | True | medium |
 | cf12 | action_event | challenge |  |  | visual_action | action_event:challenge | True | low |
 | cf13 | event_role | challenge | agent | soccer_player |  | event_role:challenge:agent:soccer_player | True | medium |
-| cf14 | action_event | fill |  |  | visual_action | action_event:fill | True | low |
+| cf14 | action_event | fill |  |  | containment_state_action, visual_action | action_event:fill | True | medium |
 | cf15 | event_role | fill | agent | spectator |  | event_role:fill:agent:spectator | True | medium |
 | cf16 | event_role | fill | patient | stand |  | event_role:fill:patient:stand | True | medium |
 | cf17 | relation | soccer_player | in | jersey | spatial_containment, visual_relation | relation:soccer_player:in:jersey | True | high |
@@ -5910,17 +5910,17 @@ _none_
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | row | row | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:row", "parents": []} |
-| ent_m1 | object | building | buildings | object | raw_lemma | none |  | m1 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": []} |
+| ent_m1 | object | building | buildings | object | raw_lemma | wordnet_synset:building.n.01 + stage9_audit | structure, artifact | m1 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m3 | object | shutter | shutters | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:shutter", "parents": []} |
-| ent_m5 | object | street | street | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:street", "parents": []} |
+| ent_m5 | object | street | street | object | raw_lemma | wordnet_synset:street.n.01 + stage9_audit | path, place | m5 | raw_mention |  |  |  | True | {"canonical": "entity:street", "parents": ["entity_parent:path", "entity_parent:place"]} |
 | ent_m7 | object | car | cars | vehicle | raw_lemma | stage9_seed:parent_seed | vehicle | m7 | raw_mention |  |  |  | True | {"canonical": "entity:car", "parents": ["entity_parent:vehicle"]} |
 | ent_m9 | object | curb | curb | object | raw_lemma | none |  | m9 | raw_mention |  |  |  | True | {"canonical": "entity:curb", "parents": []} |
 | ent_m10 | object | suv | SUV | vehicle | raw_lemma | stage9_seed:parent_seed | vehicle | m10 | raw_mention |  |  |  | True | {"canonical": "entity:suv", "parents": ["entity_parent:vehicle"]} |
 | ent_m12 | context | left | left | object | raw_lemma | semantic_type_fallback | scene_context | m12 | raw_mention |  |  |  | True | {"canonical": "entity:left", "parents": ["entity_parent:scene_context"]} |
 | ent_m13 | object | sedan | sedan | object | raw_lemma | none |  | m13 | raw_mention |  |  |  | True | {"canonical": "entity:sedan", "parents": []} |
 | ent_m15 | object | scene | scene | object | raw_lemma | stage9_seed:parent_seed | scene_context | m15 | raw_mention |  |  |  | True | {"canonical": "entity:scene", "parents": ["entity_parent:scene_context"]} |
-| ent_m16 | object | sky | sky | object | raw_lemma | none |  | m16 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": []} |
-| ent_m18 | object | tree | trees | object | raw_lemma | none |  | m18 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
+| ent_m16 | object | sky | sky | object | raw_lemma | wordnet_synset:sky.n.01 + stage9_audit | natural_scene | m16 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": ["entity_parent:natural_scene"]} |
+| ent_m18 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m18 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m19 | context | background | background | object | raw_lemma | stage9_seed:parent_seed | scene_context | m19 | raw_mention |  |  |  | True | {"canonical": "entity:background", "parents": ["entity_parent:scene_context"]} |
 
 ### Stage 9 Entity Links
@@ -5961,17 +5961,17 @@ _none_
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | row |  |  |  | entity_exists:row | True | low |
-| cf1 | entity_exists | building |  |  |  | entity_exists:building | True | low |
+| cf1 | entity_exists | building |  |  | structure, artifact | entity_exists:building | True | high |
 | cf2 | entity_exists | shutter |  |  |  | entity_exists:shutter | True | low |
-| cf3 | entity_exists | street |  |  |  | entity_exists:street | True | low |
+| cf3 | entity_exists | street |  |  | path, place | entity_exists:street | True | high |
 | cf4 | entity_exists | car |  |  | vehicle | entity_exists:car | True | high |
 | cf5 | entity_exists | curb |  |  |  | entity_exists:curb | True | low |
 | cf6 | entity_exists | suv |  |  | vehicle | entity_exists:suv | True | high |
 | cf7 | entity_exists | left |  |  | scene_context | entity_exists:left | True | medium |
 | cf8 | entity_exists | sedan |  |  |  | entity_exists:sedan | True | low |
 | cf9 | entity_exists | scene |  |  | scene_context | entity_exists:scene | True | high |
-| cf10 | entity_exists | sky |  |  |  | entity_exists:sky | True | low |
-| cf11 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
+| cf10 | entity_exists | sky |  |  | natural_scene | entity_exists:sky | True | high |
+| cf11 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
 | cf12 | entity_exists | background |  |  | scene_context | entity_exists:background | True | high |
 | cf13 | has_attribute | building | historic |  | modifier_attribute, visual_attribute | has_attribute:building:historic | True | medium |
 | cf14 | has_attribute | shutter | green |  | color_attribute, color, visual_attribute | has_attribute:shutter:green | True | high |
@@ -6053,8 +6053,8 @@ _none_
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | buffalo | buffalo | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:buffalo", "parents": []} |
-| ent_m3 | object | grass | grass | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:grass", "parents": []} |
-| ent_m5 | object | field | field | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": []} |
+| ent_m3 | object | grass | grass | object | raw_lemma | wordnet_synset:grass.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m3 | raw_mention |  |  |  | True | {"canonical": "entity:grass", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
+| ent_m5 | object | field | field | object | raw_lemma | wordnet_synset:field.n.01 + stage9_audit | outdoor_scene, place | m5 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": ["entity_parent:outdoor_scene", "entity_parent:place"]} |
 | ent_m6 | object | buffalo | buffalo | object | raw_lemma | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:buffalo", "parents": []} |
 | ent_m7 | context | background | background | object | raw_lemma | stage9_seed:parent_seed | scene_context | m7 | raw_mention |  |  |  | True | {"canonical": "entity:background", "parents": ["entity_parent:scene_context"]} |
 | ent_m8 | object | slope | slope | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:slope", "parents": []} |
@@ -6086,8 +6086,8 @@ _none_
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | buffalo |  |  |  | entity_exists:buffalo | True | low |
-| cf1 | entity_exists | grass |  |  |  | entity_exists:grass | True | low |
-| cf2 | entity_exists | field |  |  |  | entity_exists:field | True | low |
+| cf1 | entity_exists | grass |  |  | plant, living_thing | entity_exists:grass | True | high |
+| cf2 | entity_exists | field |  |  | outdoor_scene, place | entity_exists:field | True | medium |
 | cf3 | entity_exists | buffalo |  |  |  | entity_exists:buffalo | True | low |
 | cf4 | entity_exists | background |  |  | scene_context | entity_exists:background | True | high |
 | cf5 | entity_exists | slope |  |  |  | entity_exists:slope | True | low |
@@ -6186,7 +6186,7 @@ _none_
 ### Stage 9 Canonical Events
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | m16 | rests | rest | rest | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0 | {"canonical": "action:rest", "parents": ["action_parent:visual_action"]} |  |
+| ce0 | m16 | rests | rest | rest | raw_action | wordnet_synset:rest.v.01 + stage9_audit | support_state_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:rest", "parents": ["action_parent:support_state_action", "action_parent:visual_action"]} |  |
 | ce1 | m17 | has | have | have | raw_action | visual_action_fallback | visual_action |  | agent:m6->ent_m0; patient:m7->ent_m7; patient:m9->ent_m9 | {"canonical": "action:have", "parents": ["action_parent:visual_action"]} |  |
 | ce2 | m18 | has | have | have | raw_action | visual_action_fallback | visual_action |  | agent:m11->ent_m11; patient:m12->ent_m12 | {"canonical": "action:have", "parents": ["action_parent:visual_action"]} |  |
 | ce3 | m19 | extending | extend | extend | raw_action | visual_action_fallback | visual_action |  | agent:m14->ent_m14 | {"canonical": "action:extend", "parents": ["action_parent:visual_action"]} |  |
@@ -6228,7 +6228,7 @@ _none_
 | cf12 | has_attribute | button | small |  | size_attribute, clean_exact_overlap, size, visual_attribute | has_attribute:button:small | True | high |
 | cf13 | has_attribute | base | round |  | shape_attribute, clean_exact_overlap, shape, visual_attribute | has_attribute:base:round | True | medium |
 | cf14 | has_attribute | cable | white |  | color_attribute, color, visual_attribute | has_attribute:cable:white | True | high |
-| cf15 | action_event | rest |  |  | visual_action | action_event:rest | True | low |
+| cf15 | action_event | rest |  |  | support_state_action, visual_action | action_event:rest | True | medium |
 | cf16 | event_role | rest | agent | hearing_aid |  | event_role:rest:agent:hearing_aid | True | medium |
 | cf17 | action_event | have |  |  | visual_action | action_event:have | True | low |
 | cf18 | event_role | have | agent | hearing_aid |  | event_role:have:agent:hearing_aid | True | medium |
@@ -6274,11 +6274,11 @@ _none_
 ### Stage 9 Canonical Entities
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ent_m0 | object | mountain | mountain | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:mountain", "parents": []} |
-| ent_m1 | object | tree | trees | object | raw_lemma | none |  | m1 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
-| ent_m2 | object | sky | sky | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": []} |
+| ent_m0 | object | mountain | mountain | object | raw_lemma | wordnet_synset:mountain.n.01 + stage9_audit | landform, place | m0 | raw_mention |  |  |  | True | {"canonical": "entity:mountain", "parents": ["entity_parent:landform", "entity_parent:place"]} |
+| ent_m1 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m1 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
+| ent_m2 | object | sky | sky | object | raw_lemma | wordnet_synset:sky.n.01 + stage9_audit | natural_scene | m2 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": ["entity_parent:natural_scene"]} |
 | ent_m3 | object | car | car | vehicle | raw_lemma | stage9_seed:parent_seed | vehicle | m3 | raw_mention |  |  |  | True | {"canonical": "entity:car", "parents": ["entity_parent:vehicle"]} |
-| ent_m4 | object | cloud | clouds | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:cloud", "parents": []} |
+| ent_m4 | object | cloud | clouds | object | raw_lemma | wordnet_synset:cloud.n.01 + stage9_audit | natural_element | m4 | raw_mention |  |  |  | True | {"canonical": "entity:cloud", "parents": ["entity_parent:natural_element"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -6295,11 +6295,11 @@ _none_
 ### Stage 9 Canonical Facts
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| cf0 | entity_exists | mountain |  |  |  | entity_exists:mountain | True | low |
-| cf1 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
-| cf2 | entity_exists | sky |  |  |  | entity_exists:sky | True | low |
+| cf0 | entity_exists | mountain |  |  | landform, place | entity_exists:mountain | True | high |
+| cf1 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
+| cf2 | entity_exists | sky |  |  | natural_scene | entity_exists:sky | True | high |
 | cf3 | entity_exists | car |  |  | vehicle | entity_exists:car | True | high |
-| cf4 | entity_exists | cloud |  |  |  | entity_exists:cloud | True | low |
+| cf4 | entity_exists | cloud |  |  | natural_element | entity_exists:cloud | True | high |
 
 ### Stage 9 Canonicalization Notes
 _none_
@@ -6365,8 +6365,8 @@ _none_
 | ent_m5 | context | foreground | foreground | object | raw_lemma | stage9_seed:parent_seed | scene_context | m5 | raw_mention |  |  |  | True | {"canonical": "entity:foreground", "parents": ["entity_parent:scene_context"]} |
 | ent_m6 | object | cone | cones | object | raw_lemma | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:cone", "parents": []} |
 | ent_m8 | object | track | track | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:track", "parents": []} |
-| ent_m9 | object | grass | grass | object | raw_lemma | none |  | m9 | raw_mention |  |  |  | True | {"canonical": "entity:grass", "parents": []} |
-| ent_m10 | object | tree | trees | object | raw_lemma | none |  | m10 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
+| ent_m9 | object | grass | grass | object | raw_lemma | wordnet_synset:grass.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m9 | raw_mention |  |  |  | True | {"canonical": "entity:grass", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
+| ent_m10 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m10 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m11 | context | background | background | object | raw_lemma | stage9_seed:parent_seed | scene_context | m11 | raw_mention |  |  |  | True | {"canonical": "entity:background", "parents": ["entity_parent:scene_context"]} |
 | ent_m14 | object | edge | edge | object | raw_lemma | none |  | m14 | raw_mention |  |  |  | True | {"canonical": "entity:edge", "parents": []} |
 
@@ -6378,7 +6378,7 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ce0 | m12 | speed | speed | speed | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0 | {"canonical": "action:speed", "parents": ["action_parent:visual_action"]} |  |
 | ce1 | m13 | mark | mark | mark | raw_action | visual_action_fallback | visual_action |  | agent:m6->ent_m6; patient:m14->ent_m14 | {"canonical": "action:mark", "parents": ["action_parent:visual_action"]} |  |
-| ce2 | m15 | surrounded | surround | surround | raw_action | visual_action_fallback | visual_action |  | agent:m6->ent_m6 | {"canonical": "action:surround", "parents": ["action_parent:visual_action"]} |  |
+| ce2 | m15 | surrounded | surround | surround | raw_action | wordnet_synset:surround.v.01 + stage9_audit | spatial_configuration_action, visual_action |  | agent:m6->ent_m6 | {"canonical": "action:surround", "parents": ["action_parent:spatial_configuration_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
 | event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
@@ -6408,8 +6408,8 @@ _none_
 | cf3 | entity_exists | foreground |  |  | scene_context | entity_exists:foreground | True | high |
 | cf4 | entity_exists | cone |  |  |  | entity_exists:cone | True | low |
 | cf5 | entity_exists | track |  |  |  | entity_exists:track | True | low |
-| cf6 | entity_exists | grass |  |  |  | entity_exists:grass | True | low |
-| cf7 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
+| cf6 | entity_exists | grass |  |  | plant, living_thing | entity_exists:grass | True | high |
+| cf7 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
 | cf8 | entity_exists | background |  |  | scene_context | entity_exists:background | True | high |
 | cf9 | entity_exists | edge |  |  |  | entity_exists:edge | True | low |
 | cf10 | has_attribute | track | curved |  | shape_attribute, clean_exact_overlap, shape, visual_attribute | has_attribute:track:curved | True | medium |
@@ -6420,7 +6420,7 @@ _none_
 | cf15 | action_event | mark |  |  | visual_action | action_event:mark | True | low |
 | cf16 | event_role | mark | agent | cone |  | event_role:mark:agent:cone | True | medium |
 | cf17 | event_role | mark | patient | edge |  | event_role:mark:patient:edge | True | medium |
-| cf18 | action_event | surround |  |  | visual_action | action_event:surround | True | low |
+| cf18 | action_event | surround |  |  | spatial_configuration_action, visual_action | action_event:surround | True | high |
 | cf19 | event_role | surround | agent | cone |  | event_role:surround:agent:cone | True | medium |
 | cf20 | relation | race_car | along | track | spatial_path, visual_relation | relation:race_car:along:track | True | medium |
 | cf21 | relation | race_car | with | car | association_relation, visual_relation | relation:race_car:with:car | True | high |
@@ -6513,7 +6513,7 @@ _none_
 | ent_m2 | object | object | objects | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:object", "parents": []} |
 | ent_m5 | object | shelf | shelves | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:shelf", "parents": []} |
 | ent_m7 | object | pedestal | pedestals | object | raw_lemma | none |  | m7 | raw_mention |  |  |  | True | {"canonical": "entity:pedestal", "parents": []} |
-| ent_m8 | object | wall | walls | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:wall", "parents": []} |
+| ent_m8 | object | wall | walls | object | raw_lemma | wordnet_synset:wall.n.01 + stage9_audit | architectural_part, structure, artifact | m8 | raw_mention |  |  |  | True | {"canonical": "entity:wall", "parents": ["entity_parent:architectural_part", "entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m9 | object | light | lights | object | raw_lemma | none |  | m9 | raw_mention |  |  |  | True | {"canonical": "entity:light", "parents": []} |
 | ent_m11 | object | vase | vase | object | raw_lemma | none |  | m11 | raw_mention |  |  |  | True | {"canonical": "entity:vase", "parents": []} |
 | ent_m15 | object | pedestal | pedestal | object | raw_lemma | none |  | m15 | raw_mention |  |  |  | True | {"canonical": "entity:pedestal", "parents": []} |
@@ -6528,7 +6528,7 @@ _none_
 ### Stage 9 Canonical Events
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | m24 | displays | display | display | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0; patient:m2->ent_m2 | {"canonical": "action:display", "parents": ["action_parent:visual_action"]} |  |
+| ce0 | m24 | displays | display | display | raw_action | wordnet_synset:display.v.01 + stage9_audit | visual_presentation_action, visual_action |  | agent:m0->ent_m0; patient:m2->ent_m2 | {"canonical": "action:display", "parents": ["action_parent:visual_presentation_action", "action_parent:visual_action"]} |  |
 | ce1 | m25 | illuminated | illuminate | illuminate | raw_action | visual_action_fallback | visual_action |  | patient<-theme[passive_to_active]:m8->ent_m8; agent<-by_agent_or_causer[passive_to_active]:m9->ent_m9 | {"canonical": "action:illuminate", "parents": ["action_parent:visual_action"]} |  |
 | ce2 | m26 | sits | sit | sit | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m11->ent_m11 | {"canonical": "action:sit", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 | ce3 | m27 | arranged | arrange | arrange | raw_action | visual_action_fallback | visual_action |  | patient<-theme[passive_to_active]:m17->ent_m17; patient<-theme[passive_to_active]:m19->ent_m19 | {"canonical": "action:arrange", "parents": ["action_parent:visual_action"]} |  |
@@ -6561,7 +6561,7 @@ _none_
 | cf1 | entity_exists | object |  |  |  | entity_exists:object | True | low |
 | cf2 | entity_exists | shelf |  |  |  | entity_exists:shelf | True | low |
 | cf3 | entity_exists | pedestal |  |  |  | entity_exists:pedestal | True | low |
-| cf4 | entity_exists | wall |  |  |  | entity_exists:wall | True | low |
+| cf4 | entity_exists | wall |  |  | architectural_part, structure, artifact | entity_exists:wall | True | high |
 | cf5 | entity_exists | light |  |  |  | entity_exists:light | True | low |
 | cf6 | entity_exists | vase |  |  |  | entity_exists:vase | True | low |
 | cf7 | entity_exists | pedestal |  |  |  | entity_exists:pedestal | True | low |
@@ -6581,7 +6581,7 @@ _none_
 | cf21 | has_quantity | figurine | several |  | approximate_quantity, quantity | has_quantity:figurine:several | True | medium |
 | cf22 | has_attribute | item | decorative |  | modifier_attribute, visual_attribute | has_attribute:item:decorative | True | medium |
 | cf23 | has_attribute | setting | indoor |  | modifier_attribute, visual_attribute | has_attribute:setting:indoor | True | medium |
-| cf24 | action_event | display |  |  | visual_action | action_event:display | True | low |
+| cf24 | action_event | display |  |  | visual_presentation_action, visual_action | action_event:display | True | high |
 | cf25 | event_role | display | agent | space |  | event_role:display:agent:space | True | medium |
 | cf26 | event_role | display | patient | object |  | event_role:display:patient:object | True | medium |
 | cf27 | action_event | illuminate |  |  | visual_action | action_event:illuminate | True | low |
@@ -6676,7 +6676,7 @@ _none_
 | ent_m8 | object | people | people | person | raw_lemma | stage9_seed:parent_seed | person, human | m8 | raw_mention |  |  |  | True | {"canonical": "entity:people", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m11 | object | mask | masks | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m11 | raw_mention |  |  |  | True | {"canonical": "entity:mask", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
 | ent_m12 | object | tent | tent | object | raw_lemma | none |  | m12 | raw_mention |  |  |  | True | {"canonical": "entity:tent", "parents": []} |
-| ent_m14 | object | wall | wall | object | raw_lemma | none |  | m14 | raw_mention |  |  |  | True | {"canonical": "entity:wall", "parents": []} |
+| ent_m14 | object | wall | wall | object | raw_lemma | wordnet_synset:wall.n.01 + stage9_audit | architectural_part, structure, artifact | m14 | raw_mention |  |  |  | True | {"canonical": "entity:wall", "parents": ["entity_parent:architectural_part", "entity_parent:structure", "entity_parent:artifact"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -6719,7 +6719,7 @@ _none_
 | cf5 | entity_exists | people |  |  | person, human | entity_exists:people | True | high |
 | cf6 | entity_exists | mask |  |  | clothing, wearable | entity_exists:mask | True | medium |
 | cf7 | entity_exists | tent |  |  |  | entity_exists:tent | True | low |
-| cf8 | entity_exists | wall |  |  |  | entity_exists:wall | True | low |
+| cf8 | entity_exists | wall |  |  | architectural_part, structure, artifact | entity_exists:wall | True | high |
 | cf9 | has_attribute | shirt | white |  | color_attribute, color, visual_attribute | has_attribute:shirt:white | True | high |
 | cf10 | has_attribute | plaque | frame |  | state_attribute, visual_attribute | has_attribute:plaque:frame | True | medium |
 | cf11 | has_quantity | people | several |  | approximate_quantity, quantity | has_quantity:people:several | True | medium |
@@ -6876,8 +6876,8 @@ _none_
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | people | People | person | raw_lemma | stage9_seed:parent_seed | person, human | m0 | raw_mention |  |  |  | True | {"canonical": "entity:people", "parents": ["entity_parent:person", "entity_parent:human"]} |
-| ent_m1 | object | path | path | object | raw_lemma | none |  | m1 | raw_mention |  |  |  | True | {"canonical": "entity:path", "parents": []} |
-| ent_m3 | object | building | building | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": []} |
+| ent_m1 | object | path | path | object | raw_lemma | wordnet_synset:path.n.04 + stage9_audit | path, place | m1 | raw_mention |  |  |  | True | {"canonical": "entity:path", "parents": ["entity_parent:path", "entity_parent:place"]} |
+| ent_m3 | object | building | building | object | raw_lemma | wordnet_synset:building.n.01 + stage9_audit | structure, artifact | m3 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -6902,8 +6902,8 @@ _none_
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | people |  |  | person, human | entity_exists:people | True | high |
-| cf1 | entity_exists | path |  |  |  | entity_exists:path | True | low |
-| cf2 | entity_exists | building |  |  |  | entity_exists:building | True | low |
+| cf1 | entity_exists | path |  |  | path, place | entity_exists:path | True | high |
+| cf2 | entity_exists | building |  |  | structure, artifact | entity_exists:building | True | high |
 | cf3 | has_attribute | path | paved |  | visual_attribute | has_attribute:path:paved | True | medium |
 | cf4 | has_attribute | building | royal |  | compound_modifier, visual_attribute | has_attribute:building:royal | True | medium |
 | cf5 | has_attribute | building | festival |  | compound_modifier, visual_attribute | has_attribute:building:festival | True | medium |
@@ -6962,7 +6962,7 @@ _none_
 | ent_m0 | object | canyon | canyon | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:canyon", "parents": []} |
 | ent_m2 | object | cliff | cliffs | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:cliff", "parents": []} |
 | ent_m4 | object | greenery | greenery | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:greenery", "parents": []} |
-| ent_m6 | object | house | house | object | raw_lemma | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:house", "parents": []} |
+| ent_m6 | object | house | house | object | raw_lemma | wordnet_synset:house.n.01 + stage9_audit | building, structure, artifact | m6 | raw_mention |  |  |  | True | {"canonical": "entity:house", "parents": ["entity_parent:building", "entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m9 | object | valley | valley | object | raw_lemma | none |  | m9 | raw_mention |  |  |  | True | {"canonical": "entity:valley", "parents": []} |
 
 ### Stage 9 Entity Links
@@ -6991,7 +6991,7 @@ _none_
 | cf0 | entity_exists | canyon |  |  |  | entity_exists:canyon | True | low |
 | cf1 | entity_exists | cliff |  |  |  | entity_exists:cliff | True | low |
 | cf2 | entity_exists | greenery |  |  |  | entity_exists:greenery | True | low |
-| cf3 | entity_exists | house |  |  |  | entity_exists:house | True | low |
+| cf3 | entity_exists | house |  |  | building, structure, artifact | entity_exists:house | True | high |
 | cf4 | entity_exists | valley |  |  |  | entity_exists:valley | True | low |
 | cf5 | has_attribute | canyon | rugged |  | modifier_attribute, visual_attribute | has_attribute:canyon:rugged | True | medium |
 | cf6 | has_attribute | cliff | steep |  | modifier_attribute, visual_attribute | has_attribute:cliff:steep | True | medium |
@@ -7080,7 +7080,7 @@ _none_
 ### Stage 9 Canonical Entities
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ent_m0 | object | tree | tree | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
+| ent_m0 | object | tree | tree | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m0 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m2 | object | relationship | relationships | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:relationship", "parents": []} |
 | ent_m4 | object | rodent | rodents | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:rodent", "parents": []} |
 | ent_m5 | object | icon | icons | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:icon", "parents": []} |
@@ -7100,7 +7100,7 @@ _none_
 ### Stage 9 Canonical Events
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | m23 | shows | show | show | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0; patient:m2->ent_m2 | {"canonical": "action:show", "parents": ["action_parent:visual_action"]} |  |
+| ce0 | m23 | shows | show | show | raw_action | wordnet_synset:show.v.01 + stage9_audit | visual_presentation_action, visual_action |  | agent:m0->ent_m0; patient:m2->ent_m2 | {"canonical": "action:show", "parents": ["action_parent:visual_presentation_action", "action_parent:visual_action"]} |  |
 | ce1 | m24 | tracks | track | track | raw_action | visual_action_fallback | visual_action |  | agent:m10->ent_m10; patient:m11->ent_m11; patient:m13->ent_m13 | {"canonical": "action:track", "parents": ["action_parent:visual_action"]} |  |
 | ce2 | m25 | marked | mark | mark | raw_action | visual_action_fallback | visual_action |  | agent:m10->ent_m10 | {"canonical": "action:mark", "parents": ["action_parent:visual_action"]} |  |
 
@@ -7129,7 +7129,7 @@ _none_
 ### Stage 9 Canonical Facts
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| cf0 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
+| cf0 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
 | cf1 | entity_exists | relationship |  |  |  | entity_exists:relationship | True | low |
 | cf2 | entity_exists | rodent |  |  |  | entity_exists:rodent | True | low |
 | cf3 | entity_exists | icon |  |  |  | entity_exists:icon | True | low |
@@ -7152,7 +7152,7 @@ _none_
 | cf20 | has_attribute | origin | c3 |  | compound_modifier, visual_attribute | has_attribute:origin:c3 | True | medium |
 | cf21 | has_attribute | origin | grass |  | compound_modifier, visual_attribute | has_attribute:origin:grass | True | medium |
 | cf22 | has_attribute | expansion | c4 |  | compound_modifier, visual_attribute | has_attribute:expansion:c4 | True | medium |
-| cf23 | action_event | show |  |  | visual_action | action_event:show | True | low |
+| cf23 | action_event | show |  |  | visual_presentation_action, visual_action | action_event:show | True | high |
 | cf24 | event_role | show | agent | tree |  | event_role:show:agent:tree | True | medium |
 | cf25 | event_role | show | patient | relationship |  | event_role:show:patient:relationship | True | medium |
 | cf26 | action_event | track |  |  | visual_action | action_event:track | True | low |
@@ -7452,8 +7452,8 @@ _none_
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | machine | machine | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:machine", "parents": []} |
-| ent_m3 | object | room | room | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:room", "parents": []} |
-| ent_m6 | object | wall | walls | object | raw_lemma | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:wall", "parents": []} |
+| ent_m3 | object | room | room | object | raw_lemma | wordnet_synset:room.n.01 + stage9_audit | interior_place, place | m3 | raw_mention |  |  |  | True | {"canonical": "entity:room", "parents": ["entity_parent:interior_place", "entity_parent:place"]} |
+| ent_m6 | object | wall | walls | object | raw_lemma | wordnet_synset:wall.n.01 + stage9_audit | architectural_part, structure, artifact | m6 | raw_mention |  |  |  | True | {"canonical": "entity:wall", "parents": ["entity_parent:architectural_part", "entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m8 | object | pipe | pipes | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:pipe", "parents": []} |
 
 ### Stage 9 Entity Links
@@ -7480,8 +7480,8 @@ _none_
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | machine |  |  |  | entity_exists:machine | True | low |
-| cf1 | entity_exists | room |  |  |  | entity_exists:room | True | low |
-| cf2 | entity_exists | wall |  |  |  | entity_exists:wall | True | low |
+| cf1 | entity_exists | room |  |  | interior_place, place | entity_exists:room | True | high |
+| cf2 | entity_exists | wall |  |  | architectural_part, structure, artifact | entity_exists:wall | True | high |
 | cf3 | entity_exists | pipe |  |  |  | entity_exists:pipe | True | low |
 | cf4 | has_attribute | machine | large |  | size_attribute, clean_exact_overlap, size, visual_attribute | has_attribute:machine:large | True | high |
 | cf5 | has_attribute | machine | old |  | condition_attribute, clean_exact_overlap, maturity, newness, visual_attribute | has_attribute:machine:old | True | medium |
@@ -7562,7 +7562,7 @@ _none_
 | ent_m7 | object | jacket | jacket | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m7 | raw_mention |  |  |  | True | {"canonical": "entity:jacket", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
 | ent_m9 | object | paved_surface | paved surface | object | visual_genome_object_synset\|wordnet_noun_mwe | none |  | m9 | raw_mention |  |  |  | True | {"canonical": "entity:paved_surface", "parents": []} |
 | ent_m10 | object | hill | hills | object | raw_lemma | none |  | m10 | raw_mention |  |  |  | True | {"canonical": "entity:hill", "parents": []} |
-| ent_m11 | object | tree | trees | object | raw_lemma | none |  | m11 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
+| ent_m11 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m11 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m12 | context | background | background | object | raw_lemma | stage9_seed:parent_seed | scene_context | m12 | raw_mention |  |  |  | True | {"canonical": "entity:background", "parents": ["entity_parent:scene_context"]} |
 | eref_m13 | instance | people | one | person | raw_lemma | stage9_seed:parent_seed | person, human | m13 | stage9_reference | ent_m3 |  | 1 | True | {"canonical": "entity:people", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | eref_m14 | contrastive_instance | people | another | person | raw_lemma | stage9_seed:parent_seed | person, human | m14 | stage9_reference | ent_m3 |  | 1 | True | {"canonical": "entity:people", "parents": ["entity_parent:person", "entity_parent:human"]} |
@@ -7609,7 +7609,7 @@ _none_
 | cf5 | entity_exists | jacket |  |  | clothing, wearable | entity_exists:jacket | True | high |
 | cf6 | entity_exists | paved_surface |  |  |  | entity_exists:paved_surface | True | high |
 | cf7 | entity_exists | hill |  |  |  | entity_exists:hill | True | low |
-| cf8 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
+| cf8 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
 | cf9 | entity_exists | background |  |  | scene_context | entity_exists:background | True | high |
 | cf10 | entity_exists | people |  |  | person, human | entity_exists:people | True | high |
 | cf11 | entity_exists | people |  |  | person, human | entity_exists:people | True | high |
@@ -7725,10 +7725,10 @@ _none_
 ### Stage 9 Canonical Events
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | m18 | shows | show | show | raw_action | visual_action_fallback | visual_action |  | agent:m1->ent_m1; patient:m5->ent_m5; patient:m6->ent_m6 | {"canonical": "action:show", "parents": ["action_parent:visual_action"]} |  |
+| ce0 | m18 | shows | show | show | raw_action | wordnet_synset:show.v.01 + stage9_audit | visual_presentation_action, visual_action |  | agent:m1->ent_m1; patient:m5->ent_m5; patient:m6->ent_m6 | {"canonical": "action:show", "parents": ["action_parent:visual_presentation_action", "action_parent:visual_action"]} |  |
 | ce1 | m19 | labeled | label | label | raw_action | visual_action_fallback | visual_action |  | patient<-theme[passive_to_active]:m9->ent_m3; patient:m0->None | {"canonical": "action:label", "parents": ["action_parent:visual_action"]} |  |
 | ce2 | m20 | typed | type | type | raw_action | visual_action_fallback | visual_action |  |  | {"canonical": "action:type", "parents": ["action_parent:visual_action"]} |  |
-| ce3 | m21 | filled | fill | fill | raw_action | visual_action_fallback | visual_action | out | patient<-theme[passive_to_active]:m13->ent_m13; agent<-by_agent_or_causer[passive_to_active]:m15->ent_m15 | {"canonical": "action:fill", "parents": ["action_parent:visual_action"]} |  |
+| ce3 | m21 | filled | fill | fill | raw_action | wordnet_synset:fill.v.01 + stage9_audit | containment_state_action, visual_action | out | patient<-theme[passive_to_active]:m13->ent_m13; agent<-by_agent_or_causer[passive_to_active]:m15->ent_m15 | {"canonical": "action:fill", "parents": ["action_parent:containment_state_action", "action_parent:visual_action"]} |  |
 | ce4 | m23 | including | include | include | raw_action | visual_action_fallback | visual_action |  | agent:m13->ent_m13; patient:m16->ent_m16; patient:m17->ent_m17 | {"canonical": "action:include", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
@@ -7775,7 +7775,7 @@ _none_
 | cf13 | has_attribute | format | table |  | compound_modifier, visual_attribute | has_attribute:format:table | True | medium |
 | cf14 | has_attribute | text | print |  | state_attribute, visual_attribute | has_attribute:text:print | True | medium |
 | cf15 | has_quantity | entry | several |  | approximate_quantity, quantity | has_quantity:entry:several | True | medium |
-| cf16 | action_event | show |  |  | visual_action | action_event:show | True | low |
+| cf16 | action_event | show |  |  | visual_presentation_action, visual_action | action_event:show | True | high |
 | cf17 | event_role | show | agent | list |  | event_role:show:agent:list | True | medium |
 | cf18 | event_role | show | patient | name |  | event_role:show:patient:name | True | medium |
 | cf19 | event_role | show | patient | detail |  | event_role:show:patient:detail | True | medium |
@@ -7783,7 +7783,7 @@ _none_
 | cf21 | event_role | label | patient | paper |  | event_role:label:patient:paper | True | medium |
 | cf22 | event_role | label | patient |  |  | event_role:label:patient | False | medium |
 | cf23 | action_event | type |  |  | visual_action | action_event:type | True | low |
-| cf24 | action_event | fill |  |  | visual_action | action_event:fill | True | low |
+| cf24 | action_event | fill |  |  | containment_state_action, visual_action | action_event:fill | True | medium |
 | cf25 | event_role | fill | patient | entry |  | event_role:fill:patient:entry | True | medium |
 | cf26 | event_role | fill | agent | hand |  | event_role:fill:agent:hand | True | medium |
 | cf27 | action_event | include |  |  | visual_action | action_event:include | True | low |
@@ -7833,10 +7833,10 @@ _none_
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | person | person | person | raw_lemma | stage9_seed:parent_seed | person, human | m0 | raw_mention |  |  |  | True | {"canonical": "entity:person", "parents": ["entity_parent:person", "entity_parent:human"]} |
-| ent_m1 | object | path | path | object | raw_lemma | none |  | m1 | raw_mention |  |  |  | True | {"canonical": "entity:path", "parents": []} |
-| ent_m2 | object | tree | trees | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
-| ent_m3 | object | lake | lake | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:lake", "parents": []} |
-| ent_m4 | object | fence | fence | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:fence", "parents": []} |
+| ent_m1 | object | path | path | object | raw_lemma | wordnet_synset:path.n.04 + stage9_audit | path, place | m1 | raw_mention |  |  |  | True | {"canonical": "entity:path", "parents": ["entity_parent:path", "entity_parent:place"]} |
+| ent_m2 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m2 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
+| ent_m3 | object | lake | lake | object | raw_lemma | wordnet_synset:lake.n.01 + stage9_audit | body_of_water, place | m3 | raw_mention |  |  |  | True | {"canonical": "entity:lake", "parents": ["entity_parent:body_of_water", "entity_parent:place"]} |
+| ent_m4 | object | fence | fence | object | raw_lemma | wordnet_synset:fence.n.01 + stage9_audit | structure, artifact | m4 | raw_mention |  |  |  | True | {"canonical": "entity:fence", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -7854,10 +7854,10 @@ _none_
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | person |  |  | person, human | entity_exists:person | True | high |
-| cf1 | entity_exists | path |  |  |  | entity_exists:path | True | low |
-| cf2 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
-| cf3 | entity_exists | lake |  |  |  | entity_exists:lake | True | low |
-| cf4 | entity_exists | fence |  |  |  | entity_exists:fence | True | low |
+| cf1 | entity_exists | path |  |  | path, place | entity_exists:path | True | high |
+| cf2 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
+| cf3 | entity_exists | lake |  |  | body_of_water, place | entity_exists:lake | True | high |
+| cf4 | entity_exists | fence |  |  | structure, artifact | entity_exists:fence | True | high |
 
 ### Stage 9 Canonicalization Notes
 _none_
@@ -7928,7 +7928,7 @@ _none_
 | ent_m5 | object | microphone | microphone | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:microphone", "parents": []} |
 | ent_m6 | object | man | man | person | raw_lemma | stage9_seed:parent_seed | person, human | m6 | raw_mention |  |  |  | True | {"canonical": "entity:man", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m8 | object | flag | flags | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:flag", "parents": []} |
-| ent_m9 | object | wall | wall | object | raw_lemma | none |  | m9 | raw_mention |  |  |  | True | {"canonical": "entity:wall", "parents": []} |
+| ent_m9 | object | wall | wall | object | raw_lemma | wordnet_synset:wall.n.01 + stage9_audit | architectural_part, structure, artifact | m9 | raw_mention |  |  |  | True | {"canonical": "entity:wall", "parents": ["entity_parent:architectural_part", "entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m11 | object | plaque | plaque | document | raw_lemma | stage9_seed:parent_seed | text_carrier, artifact | m11 | raw_mention |  |  |  | True | {"canonical": "entity:plaque", "parents": ["entity_parent:text_carrier", "entity_parent:artifact"]} |
 | ent_m12 | object | podium | podium | object | raw_lemma | none |  | m12 | raw_mention |  |  |  | True | {"canonical": "entity:podium", "parents": []} |
 | eref_m13 | complement_subset | man | others | person | raw_lemma | stage9_seed:parent_seed | person, human | m13 | stage9_reference | ent_m1 |  | many | True | {"canonical": "entity:man", "parents": ["entity_parent:person", "entity_parent:human"]} |
@@ -7976,7 +7976,7 @@ _none_
 | cf3 | entity_exists | microphone |  |  |  | entity_exists:microphone | True | low |
 | cf4 | entity_exists | man |  |  | person, human | entity_exists:man | True | high |
 | cf5 | entity_exists | flag |  |  |  | entity_exists:flag | True | low |
-| cf6 | entity_exists | wall |  |  |  | entity_exists:wall | True | low |
+| cf6 | entity_exists | wall |  |  | architectural_part, structure, artifact | entity_exists:wall | True | high |
 | cf7 | entity_exists | plaque |  |  | text_carrier, artifact | entity_exists:plaque | True | high |
 | cf8 | entity_exists | podium |  |  |  | entity_exists:podium | True | low |
 | cf9 | entity_exists | man |  |  | person, human | entity_exists:man | True | high |
@@ -8083,12 +8083,12 @@ _none_
 ### Stage 9 Canonical Events
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | m16 | displayed | display | display | raw_action | visual_action_fallback | visual_action |  | patient<-theme[passive_to_active]:m0->ent_m0 | {"canonical": "action:display", "parents": ["action_parent:visual_action"]} |  |
+| ce0 | m16 | displayed | display | display | raw_action | wordnet_synset:display.v.01 + stage9_audit | visual_presentation_action, visual_action |  | patient<-theme[passive_to_active]:m0->ent_m0 | {"canonical": "action:display", "parents": ["action_parent:visual_presentation_action", "action_parent:visual_action"]} |  |
 | ce1 | m17 | has | have | have | raw_action | visual_action_fallback | visual_action |  | agent:m5->ent_m5; patient:m8->ent_m8 | {"canonical": "action:have", "parents": ["action_parent:visual_action"]} |  |
 | ce2 | m18 | lying | lie | lie | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m5->ent_m5 | {"canonical": "action:lie", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 | ce3 | m19 | spread | spread | spread | raw_action | visual_action_fallback | visual_action |  | agent:m11->ent_m11 | {"canonical": "action:spread", "parents": ["action_parent:visual_action"]} |  |
 | ce4 | m20 | have | have | have | raw_action | visual_action_fallback | visual_action |  |  | {"canonical": "action:have", "parents": ["action_parent:visual_action"]} |  |
-| ce5 | m21 | attached | attach | attach | raw_action | visual_action_fallback | visual_action |  | agent:m13->ent_m13 | {"canonical": "action:attach", "parents": ["action_parent:visual_action"]} |  |
+| ce5 | m21 | attached | attach | attach | raw_action | wordnet_synset:attach.v.01 + stage9_audit | attachment_action, visual_action |  | agent:m13->ent_m13 | {"canonical": "action:attach", "parents": ["action_parent:attachment_action", "action_parent:visual_action"]} |  |
 | ce6 | m22 | suggesting | suggest | suggest | raw_action | visual_action_fallback | visual_action |  |  | {"canonical": "action:suggest", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
@@ -8127,7 +8127,7 @@ _none_
 | cf12 | has_quantity | angel | one |  | exact_quantity, quantity | has_quantity:angel:one | True | high |
 | cf13 | has_attribute | trim | gold |  | color_attribute, color, visual_attribute | has_attribute:trim:gold | True | high |
 | cf14 | has_attribute | tag | small |  | size_attribute, clean_exact_overlap, size, visual_attribute | has_attribute:tag:small | True | high |
-| cf15 | action_event | display |  |  | visual_action | action_event:display | True | low |
+| cf15 | action_event | display |  |  | visual_presentation_action, visual_action | action_event:display | True | high |
 | cf16 | event_role | display | patient | figurine |  | event_role:display:patient:figurine | True | medium |
 | cf17 | action_event | have |  |  | visual_action | action_event:have | True | low |
 | cf18 | event_role | have | agent | angel |  | event_role:have:agent:angel | True | medium |
@@ -8137,7 +8137,7 @@ _none_
 | cf22 | action_event | spread |  |  | visual_action | action_event:spread | True | low |
 | cf23 | event_role | spread | agent | wing |  | event_role:spread:agent:wing | True | medium |
 | cf24 | action_event | have |  |  | visual_action | action_event:have | True | low |
-| cf25 | action_event | attach |  |  | visual_action | action_event:attach | True | low |
+| cf25 | action_event | attach |  |  | attachment_action, visual_action | action_event:attach | True | high |
 | cf26 | event_role | attach | agent | tag |  | event_role:attach:agent:tag | True | medium |
 | cf27 | action_event | suggest |  |  | visual_action | action_event:suggest | True | low |
 | cf28 | relation | figurine | on | surface | spatial_support, visual_relation | relation:figurine:on:surface | True | high |
@@ -8214,13 +8214,13 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | pathway | pathway | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:pathway", "parents": []} |
 | ent_m2 | object | entrance | entrance | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:entrance", "parents": []} |
-| ent_m4 | object | building | building | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": []} |
+| ent_m4 | object | building | building | object | raw_lemma | wordnet_synset:building.n.01 + stage9_audit | structure, artifact | m4 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m5 | context | night | night | object | raw_lemma | stage9_seed:parent_seed | scene_context, time_context | m5 | raw_mention |  |  |  | True | {"canonical": "entity:night", "parents": ["entity_parent:scene_context", "entity_parent:time_context"]} |
 | ent_m6 | object | light | lights | object | raw_lemma | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:light", "parents": []} |
-| ent_m10 | object | path | path | object | raw_lemma | none |  | m10 | raw_mention |  |  |  | True | {"canonical": "entity:path", "parents": []} |
+| ent_m10 | object | path | path | object | raw_lemma | wordnet_synset:path.n.04 + stage9_audit | path, place | m10 | raw_mention |  |  |  | True | {"canonical": "entity:path", "parents": ["entity_parent:path", "entity_parent:place"]} |
 | ent_m11 | object | people | people | person | raw_lemma | stage9_seed:parent_seed | person, human | m11 | raw_mention |  |  |  | True | {"canonical": "entity:people", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m13 | object | archway | archway | object | raw_lemma | none |  | m13 | raw_mention |  |  |  | True | {"canonical": "entity:archway", "parents": []} |
-| ent_m14 | object | snow | Snow | object | raw_lemma | none |  | m14 | raw_mention |  |  |  | True | {"canonical": "entity:snow", "parents": []} |
+| ent_m14 | object | snow | Snow | object | raw_lemma | wordnet_synset:snow.n.01 + stage9_audit | natural_element | m14 | raw_mention |  |  |  | True | {"canonical": "entity:snow", "parents": ["entity_parent:natural_element"]} |
 | ent_m15 | object | ground | ground | object | raw_lemma | none |  | m15 | raw_mention |  |  |  | True | {"canonical": "entity:ground", "parents": []} |
 | ent_m16 | context | side | side | object | raw_lemma | semantic_type_fallback | scene_context | m16 | raw_mention |  |  |  | True | {"canonical": "entity:side", "parents": ["entity_parent:scene_context"]} |
 | ent_m17 | object | walkway | walkway | object | raw_lemma | none |  | m17 | raw_mention |  |  |  | True | {"canonical": "entity:walkway", "parents": []} |
@@ -8234,7 +8234,7 @@ _none_
 | ce0 | m18 | leads | lead | lead | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0 | {"canonical": "action:lead", "parents": ["action_parent:visual_action"]} |  |
 | ce1 | m19 | line | line | line | raw_action | visual_action_fallback | visual_action |  | agent:m6->ent_m6; patient:m10->ent_m10 | {"canonical": "action:line", "parents": ["action_parent:visual_action"]} |  |
 | ce2 | m20 | walking | walk | walk | raw_action | stage9_seed:parent_seed | locomotion_action, visual_action |  |  | {"canonical": "action:walk", "parents": ["action_parent:locomotion_action", "action_parent:visual_action"]} |  |
-| ce3 | m21 | covers | cover | cover | raw_action | visual_action_fallback | visual_action |  | agent:m14->ent_m14; patient:m15->ent_m15 | {"canonical": "action:cover", "parents": ["action_parent:visual_action"]} |  |
+| ce3 | m21 | covers | cover | cover | raw_action | wordnet_synset:cover.v.01 + stage9_audit | occlusion_or_covering_action, visual_action |  | agent:m14->ent_m14; patient:m15->ent_m15 | {"canonical": "action:cover", "parents": ["action_parent:occlusion_or_covering_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
 | event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
@@ -8259,13 +8259,13 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | pathway |  |  |  | entity_exists:pathway | True | low |
 | cf1 | entity_exists | entrance |  |  |  | entity_exists:entrance | True | low |
-| cf2 | entity_exists | building |  |  |  | entity_exists:building | True | low |
+| cf2 | entity_exists | building |  |  | structure, artifact | entity_exists:building | True | high |
 | cf3 | entity_exists | night |  |  | scene_context, time_context | entity_exists:night | True | high |
 | cf4 | entity_exists | light |  |  |  | entity_exists:light | True | low |
-| cf5 | entity_exists | path |  |  |  | entity_exists:path | True | low |
+| cf5 | entity_exists | path |  |  | path, place | entity_exists:path | True | high |
 | cf6 | entity_exists | people |  |  | person, human | entity_exists:people | True | high |
 | cf7 | entity_exists | archway |  |  |  | entity_exists:archway | True | low |
-| cf8 | entity_exists | snow |  |  |  | entity_exists:snow | True | low |
+| cf8 | entity_exists | snow |  |  | natural_element | entity_exists:snow | True | high |
 | cf9 | entity_exists | ground |  |  |  | entity_exists:ground | True | low |
 | cf10 | entity_exists | side |  |  | scene_context | entity_exists:side | True | medium |
 | cf11 | entity_exists | walkway |  |  |  | entity_exists:walkway | True | low |
@@ -8281,7 +8281,7 @@ _none_
 | cf21 | event_role | line | agent | light |  | event_role:line:agent:light | True | medium |
 | cf22 | event_role | line | patient | path |  | event_role:line:patient:path | True | medium |
 | cf23 | action_event | walk |  |  | locomotion_action, visual_action | action_event:walk | True | high |
-| cf24 | action_event | cover |  |  | visual_action | action_event:cover | True | low |
+| cf24 | action_event | cover |  |  | occlusion_or_covering_action, visual_action | action_event:cover | True | high |
 | cf25 | event_role | cover | agent | snow |  | event_role:cover:agent:snow | True | medium |
 | cf26 | event_role | cover | patient | ground |  | event_role:cover:patient:ground | True | medium |
 | cf27 | relation | pathway | through | entrance | spatial_path, visual_relation | relation:pathway:through:entrance | True | medium |
@@ -8624,13 +8624,13 @@ _none_
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | soldier | Soldiers | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:soldier", "parents": []} |
-| ent_m1 | object | water | water | object | raw_lemma | none |  | m1 | raw_mention |  |  |  | True | {"canonical": "entity:water", "parents": []} |
+| ent_m1 | object | water | water | object | raw_lemma | wordnet_synset:water.n.01 + stage9_audit | natural_element | m1 | raw_mention |  |  |  | True | {"canonical": "entity:water", "parents": ["entity_parent:natural_element"]} |
 | ent_m2 | object | craft | craft | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:craft", "parents": []} |
 | ent_m4 | object | memorial | Memorial | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:memorial", "parents": []} |
 | ent_m6 | object | scene | scene | object | raw_lemma | stage9_seed:parent_seed | scene_context | m6 | raw_mention |  |  |  | True | {"canonical": "entity:scene", "parents": ["entity_parent:scene_context"]} |
 | ent_m7 | context | day | day | object | raw_lemma | semantic_type_fallback | scene_context | m7 | raw_mention |  |  |  | True | {"canonical": "entity:day", "parents": ["entity_parent:scene_context"]} |
-| ent_m9 | object | tree | trees | object | raw_lemma | none |  | m9 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
-| ent_m10 | object | path | path | object | raw_lemma | none |  | m10 | raw_mention |  |  |  | True | {"canonical": "entity:path", "parents": []} |
+| ent_m9 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m9 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
+| ent_m10 | object | path | path | object | raw_lemma | wordnet_synset:path.n.04 + stage9_audit | path, place | m10 | raw_mention |  |  |  | True | {"canonical": "entity:path", "parents": ["entity_parent:path", "entity_parent:place"]} |
 | ent_m11 | object | monument | monument | object | raw_lemma | none |  | m11 | raw_mention |  |  |  | True | {"canonical": "entity:monument", "parents": []} |
 | ent_m12 | context | background | background | object | raw_lemma | stage9_seed:parent_seed | scene_context | m12 | raw_mention |  |  |  | True | {"canonical": "entity:background", "parents": ["entity_parent:scene_context"]} |
 
@@ -8666,13 +8666,13 @@ _none_
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | soldier |  |  |  | entity_exists:soldier | True | low |
-| cf1 | entity_exists | water |  |  |  | entity_exists:water | True | low |
+| cf1 | entity_exists | water |  |  | natural_element | entity_exists:water | True | high |
 | cf2 | entity_exists | craft |  |  |  | entity_exists:craft | True | low |
 | cf3 | entity_exists | memorial |  |  |  | entity_exists:memorial | True | low |
 | cf4 | entity_exists | scene |  |  | scene_context | entity_exists:scene | True | high |
 | cf5 | entity_exists | day |  |  | scene_context | entity_exists:day | True | medium |
-| cf6 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
-| cf7 | entity_exists | path |  |  |  | entity_exists:path | True | low |
+| cf6 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
+| cf7 | entity_exists | path |  |  | path, place | entity_exists:path | True | high |
 | cf8 | entity_exists | monument |  |  |  | entity_exists:monument | True | low |
 | cf9 | entity_exists | background |  |  | scene_context | entity_exists:background | True | high |
 | cf10 | has_attribute | craft | landing |  | state_attribute, coco_subtype_rule, visual_attribute | has_attribute:craft:landing | True | medium |
@@ -8734,9 +8734,9 @@ _none_
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | statue | statue | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:statue", "parents": []} |
-| ent_m2 | object | mountain | mountain | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:mountain", "parents": []} |
-| ent_m3 | object | sky | sky | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": []} |
-| ent_m5 | object | tree | tree | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
+| ent_m2 | object | mountain | mountain | object | raw_lemma | wordnet_synset:mountain.n.01 + stage9_audit | landform, place | m2 | raw_mention |  |  |  | True | {"canonical": "entity:mountain", "parents": ["entity_parent:landform", "entity_parent:place"]} |
+| ent_m3 | object | sky | sky | object | raw_lemma | wordnet_synset:sky.n.01 + stage9_audit | natural_scene | m3 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": ["entity_parent:natural_scene"]} |
+| ent_m5 | object | tree | tree | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m5 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m7 | object | base | base | object | raw_lemma | none |  | m7 | raw_mention |  |  |  | True | {"canonical": "entity:base", "parents": []} |
 
 ### Stage 9 Entity Links
@@ -8755,9 +8755,9 @@ _none_
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | statue |  |  |  | entity_exists:statue | True | low |
-| cf1 | entity_exists | mountain |  |  |  | entity_exists:mountain | True | low |
-| cf2 | entity_exists | sky |  |  |  | entity_exists:sky | True | low |
-| cf3 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
+| cf1 | entity_exists | mountain |  |  | landform, place | entity_exists:mountain | True | high |
+| cf2 | entity_exists | sky |  |  | natural_scene | entity_exists:sky | True | high |
+| cf3 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
 | cf4 | entity_exists | base |  |  |  | entity_exists:base | True | low |
 | cf5 | has_attribute | statue | buddha |  | attribute, visual_attribute | has_attribute:statue:buddha | True | high |
 | cf6 | has_attribute | sky | green |  | color_attribute, color, visual_attribute | has_attribute:sky:green | True | high |
@@ -8799,9 +8799,9 @@ _none_
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | woman | women | person | stage9_seed:synonym_seed | stage9_seed:parent_seed | person, human | m0 | raw_mention |  |  |  | True | {"canonical": "entity:woman", "parents": ["entity_parent:person", "entity_parent:human"]} |
-| ent_m2 | object | beach | beach | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:beach", "parents": []} |
+| ent_m2 | object | beach | beach | object | raw_lemma | wordnet_synset:beach.n.01 + stage9_audit | outdoor_scene, place | m2 | raw_mention |  |  |  | True | {"canonical": "entity:beach", "parents": ["entity_parent:outdoor_scene", "entity_parent:place"]} |
 | ent_m3 | object | island | island | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:island", "parents": []} |
-| ent_m4 | object | water | water | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:water", "parents": []} |
+| ent_m4 | object | water | water | object | raw_lemma | wordnet_synset:water.n.01 + stage9_audit | natural_element | m4 | raw_mention |  |  |  | True | {"canonical": "entity:water", "parents": ["entity_parent:natural_element"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -8819,9 +8819,9 @@ _none_
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | woman |  |  | person, human | entity_exists:woman | True | high |
-| cf1 | entity_exists | beach |  |  |  | entity_exists:beach | True | low |
+| cf1 | entity_exists | beach |  |  | outdoor_scene, place | entity_exists:beach | True | high |
 | cf2 | entity_exists | island |  |  |  | entity_exists:island | True | low |
-| cf3 | entity_exists | water |  |  |  | entity_exists:water | True | low |
+| cf3 | entity_exists | water |  |  | natural_element | entity_exists:water | True | high |
 | cf4 | has_quantity | woman | four |  | exact_quantity, quantity | has_quantity:woman:four | True | high |
 | cf5 | has_attribute | water | turquoise |  | color_attribute, color, visual_attribute | has_attribute:water:turquoise | True | high |
 
@@ -8869,7 +8869,7 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | pyramid | pyramid | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:pyramid", "parents": []} |
 | ent_m2 | object | step | steps | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:step", "parents": []} |
-| ent_m4 | object | grass | grass | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:grass", "parents": []} |
+| ent_m4 | object | grass | grass | object | raw_lemma | wordnet_synset:grass.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m4 | raw_mention |  |  |  | True | {"canonical": "entity:grass", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m6 | object | shadow | shadows | object | raw_lemma | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:shadow", "parents": []} |
 | ent_m8 | context | setting | setting | object | raw_lemma | stage9_seed:parent_seed | scene_context | m8 | raw_mention |  |  |  | True | {"canonical": "entity:setting", "parents": ["entity_parent:scene_context"]} |
 
@@ -8890,7 +8890,7 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | pyramid |  |  |  | entity_exists:pyramid | True | low |
 | cf1 | entity_exists | step |  |  |  | entity_exists:step | True | low |
-| cf2 | entity_exists | grass |  |  |  | entity_exists:grass | True | low |
+| cf2 | entity_exists | grass |  |  | plant, living_thing | entity_exists:grass | True | high |
 | cf3 | entity_exists | shadow |  |  |  | entity_exists:shadow | True | low |
 | cf4 | entity_exists | setting |  |  | scene_context | entity_exists:setting | True | high |
 | cf5 | has_attribute | pyramid | ancient |  | attribute, visual_attribute | has_attribute:pyramid:ancient | True | high |
@@ -8950,7 +8950,7 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | player | players | person | raw_lemma | stage9_seed:parent_seed | person, human | m0 | raw_mention |  |  |  | True | {"canonical": "entity:player", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m3 | object | uniform | uniforms | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m3 | raw_mention |  |  |  | True | {"canonical": "entity:uniform", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
-| ent_m5 | object | field | field | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": []} |
+| ent_m5 | object | field | field | object | raw_lemma | wordnet_synset:field.n.01 + stage9_audit | outdoor_scene, place | m5 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": ["entity_parent:outdoor_scene", "entity_parent:place"]} |
 | ent_m7 | object | wicket | wicket | object | raw_lemma | none |  | m7 | raw_mention |  |  |  | True | {"canonical": "entity:wicket", "parents": []} |
 | eref_m8 | contrastive_instance | player | other | person | raw_lemma | stage9_seed:parent_seed | person, human | m8 | stage9_reference | ent_m0 |  | 1 | True | {"canonical": "entity:player", "parents": ["entity_parent:person", "entity_parent:human"]} |
 
@@ -8985,7 +8985,7 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | player |  |  | person, human | entity_exists:player | True | high |
 | cf1 | entity_exists | uniform |  |  | clothing, wearable | entity_exists:uniform | True | high |
-| cf2 | entity_exists | field |  |  |  | entity_exists:field | True | low |
+| cf2 | entity_exists | field |  |  | outdoor_scene, place | entity_exists:field | True | medium |
 | cf3 | entity_exists | wicket |  |  |  | entity_exists:wicket | True | low |
 | cf4 | entity_exists | player |  |  | person, human | entity_exists:player | True | high |
 | cf5 | has_quantity | player | two |  | exact_quantity, quantity | has_quantity:player:two | True | high |
@@ -9061,14 +9061,14 @@ _none_
 ### Stage 9 Canonical Entities
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ent_m0 | object | building | building | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": []} |
-| ent_m3 | object | roof | roof | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:roof", "parents": []} |
-| ent_m5 | object | street | street | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:street", "parents": []} |
-| ent_m7 | object | tree | Trees | object | raw_lemma | none |  | m7 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
-| ent_m8 | object | wall | wall | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:wall", "parents": []} |
+| ent_m0 | object | building | building | object | raw_lemma | wordnet_synset:building.n.01 + stage9_audit | structure, artifact | m0 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
+| ent_m3 | object | roof | roof | object | raw_lemma | wordnet_synset:roof.n.01 + stage9_audit | architectural_part, structure, artifact | m3 | raw_mention |  |  |  | True | {"canonical": "entity:roof", "parents": ["entity_parent:architectural_part", "entity_parent:structure", "entity_parent:artifact"]} |
+| ent_m5 | object | street | street | object | raw_lemma | wordnet_synset:street.n.01 + stage9_audit | path, place | m5 | raw_mention |  |  |  | True | {"canonical": "entity:street", "parents": ["entity_parent:path", "entity_parent:place"]} |
+| ent_m7 | object | tree | Trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m7 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
+| ent_m8 | object | wall | wall | object | raw_lemma | wordnet_synset:wall.n.01 + stage9_audit | architectural_part, structure, artifact | m8 | raw_mention |  |  |  | True | {"canonical": "entity:wall", "parents": ["entity_parent:architectural_part", "entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m10 | object | structure | structures | object | raw_lemma | none |  | m10 | raw_mention |  |  |  | True | {"canonical": "entity:structure", "parents": []} |
 | ent_m13 | context | background | background | object | raw_lemma | stage9_seed:parent_seed | scene_context | m13 | raw_mention |  |  |  | True | {"canonical": "entity:background", "parents": ["entity_parent:scene_context"]} |
-| ent_m14 | object | sky | sky | object | raw_lemma | none |  | m14 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": []} |
+| ent_m14 | object | sky | sky | object | raw_lemma | wordnet_synset:sky.n.01 + stage9_audit | natural_scene | m14 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": ["entity_parent:natural_scene"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -9096,14 +9096,14 @@ _none_
 ### Stage 9 Canonical Facts
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| cf0 | entity_exists | building |  |  |  | entity_exists:building | True | low |
-| cf1 | entity_exists | roof |  |  |  | entity_exists:roof | True | low |
-| cf2 | entity_exists | street |  |  |  | entity_exists:street | True | low |
-| cf3 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
-| cf4 | entity_exists | wall |  |  |  | entity_exists:wall | True | low |
+| cf0 | entity_exists | building |  |  | structure, artifact | entity_exists:building | True | high |
+| cf1 | entity_exists | roof |  |  | architectural_part, structure, artifact | entity_exists:roof | True | high |
+| cf2 | entity_exists | street |  |  | path, place | entity_exists:street | True | high |
+| cf3 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
+| cf4 | entity_exists | wall |  |  | architectural_part, structure, artifact | entity_exists:wall | True | high |
 | cf5 | entity_exists | structure |  |  |  | entity_exists:structure | True | low |
 | cf6 | entity_exists | background |  |  | scene_context | entity_exists:background | True | high |
-| cf7 | entity_exists | sky |  |  |  | entity_exists:sky | True | low |
+| cf7 | entity_exists | sky |  |  | natural_scene | entity_exists:sky | True | high |
 | cf8 | has_attribute | building | large |  | size_attribute, clean_exact_overlap, size, visual_attribute | has_attribute:building:large | True | high |
 | cf9 | has_attribute | building | brick |  | material_attribute, material, visual_attribute | has_attribute:building:brick | True | high |
 | cf10 | has_attribute | roof | sloped |  | modifier_attribute, visual_attribute | has_attribute:roof:sloped | True | medium |
@@ -9237,8 +9237,8 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | sea_lion | sea lions | object | openimages_boxable\|wordnet_noun_mwe | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:sea_lion", "parents": []} |
 | ent_m1 | object | dock | dock | object | raw_lemma | none |  | m1 | raw_mention |  |  |  | True | {"canonical": "entity:dock", "parents": []} |
-| ent_m3 | object | water | water | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:water", "parents": []} |
-| ent_m5 | object | water | water | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:water", "parents": []} |
+| ent_m3 | object | water | water | object | raw_lemma | wordnet_synset:water.n.01 + stage9_audit | natural_element | m3 | raw_mention |  |  |  | True | {"canonical": "entity:water", "parents": ["entity_parent:natural_element"]} |
+| ent_m5 | object | water | water | object | raw_lemma | wordnet_synset:water.n.01 + stage9_audit | natural_element | m5 | raw_mention |  |  |  | True | {"canonical": "entity:water", "parents": ["entity_parent:natural_element"]} |
 | ent_m8 | object | sea_lion | sea lions | object | openimages_boxable\|wordnet_noun_mwe | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:sea_lion", "parents": []} |
 | ent_m9 | object | platform | platform | object | raw_lemma | none |  | m9 | raw_mention |  |  |  | True | {"canonical": "entity:platform", "parents": []} |
 | ent_m10 | object | post | post | object | raw_lemma | none |  | m10 | raw_mention |  |  |  | True | {"canonical": "entity:post", "parents": []} |
@@ -9249,7 +9249,7 @@ _none_
 ### Stage 9 Canonical Events
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | m12 | rest | rest | rest | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0 | {"canonical": "action:rest", "parents": ["action_parent:visual_action"]} |  |
+| ce0 | m12 | rest | rest | rest | raw_action | wordnet_synset:rest.v.01 + stage9_audit | support_state_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:rest", "parents": ["action_parent:support_state_action", "action_parent:visual_action"]} |  |
 | ce1 | m13 | lying | lie | lie_down | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action | down |  | {"canonical": "action:lie_down", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} | phrasal_action:lie down |
 | ce2 | m15 | sit | sit | sit | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  |  | {"canonical": "action:sit", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 | ce3 | m16 | stand | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  |  | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
@@ -9272,16 +9272,16 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | sea_lion |  |  |  | entity_exists:sea_lion | True | high |
 | cf1 | entity_exists | dock |  |  |  | entity_exists:dock | True | low |
-| cf2 | entity_exists | water |  |  |  | entity_exists:water | True | low |
-| cf3 | entity_exists | water |  |  |  | entity_exists:water | True | low |
+| cf2 | entity_exists | water |  |  | natural_element | entity_exists:water | True | high |
+| cf3 | entity_exists | water |  |  | natural_element | entity_exists:water | True | high |
 | cf4 | entity_exists | sea_lion |  |  |  | entity_exists:sea_lion | True | high |
 | cf5 | entity_exists | platform |  |  |  | entity_exists:platform | True | low |
 | cf6 | entity_exists | post |  |  |  | entity_exists:post | True | low |
-| cf7 | has_attribute | dock | wooden |  | material_attribute, material, visual_attribute | has_attribute:dock:wooden | True | high |
+| cf7 | has_attribute | dock | wood |  | material_attribute, material, visual_attribute | has_attribute:dock:wood | True | high |
 | cf8 | has_attribute | water | calm |  | modifier_attribute, visual_attribute | has_attribute:water:calm | True | medium |
 | cf9 | has_attribute | water | blue |  | color_attribute, color, visual_attribute | has_attribute:water:blue | True | high |
-| cf10 | has_attribute | post | wooden |  | material_attribute, material, visual_attribute | has_attribute:post:wooden | True | high |
-| cf11 | action_event | rest |  |  | visual_action | action_event:rest | True | low |
+| cf10 | has_attribute | post | wood |  | material_attribute, material, visual_attribute | has_attribute:post:wood | True | high |
+| cf11 | action_event | rest |  |  | support_state_action, visual_action | action_event:rest | True | medium |
 | cf12 | event_role | rest | agent | sea_lion |  | event_role:rest:agent:sea_lion | True | medium |
 | cf13 | action_event | lie_down |  |  | body_pose_action, visual_action | action_event:lie_down | True | high |
 | cf14 | action_event | sit |  |  | body_pose_action, visual_action | action_event:sit | True | high |
@@ -9354,7 +9354,7 @@ _none_
 | ent_m3 | object | call | calls | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:call", "parents": []} |
 | ent_m5 | object | people | people | person | raw_lemma | stage9_seed:parent_seed | person, human | m5 | raw_mention |  |  |  | True | {"canonical": "entity:people", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m7 | object | table | table | object | raw_lemma | stage9_seed:parent_seed | furniture, artifact | m7 | raw_mention |  |  |  | True | {"canonical": "entity:table", "parents": ["entity_parent:furniture", "entity_parent:artifact"]} |
-| ent_m8 | object | room | room | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:room", "parents": []} |
+| ent_m8 | object | room | room | object | raw_lemma | wordnet_synset:room.n.01 + stage9_audit | interior_place, place | m8 | raw_mention |  |  |  | True | {"canonical": "entity:room", "parents": ["entity_parent:interior_place", "entity_parent:place"]} |
 | eref_m10 | complement_subset | people | Others | person | raw_lemma | stage9_seed:parent_seed | person, human | m10 | stage9_reference | ent_m5 |  | many | True | {"canonical": "entity:people", "parents": ["entity_parent:person", "entity_parent:human"]} |
 
 ### Stage 9 Entity Links
@@ -9367,7 +9367,7 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ce0 | m11 | stands | stand | stand | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:stand", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 | ce1 | m12 | pointing | point | point | raw_action | stage9_seed:parent_seed | gesture_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:point", "parents": ["action_parent:gesture_action", "action_parent:visual_action"]} |  |
-| ce2 | m13 | showing | show | show | raw_action | visual_action_fallback | visual_action |  | agent:m2->ent_m2; patient:m3->ent_m3 | {"canonical": "action:show", "parents": ["action_parent:visual_action"]} |  |
+| ce2 | m13 | showing | show | show | raw_action | wordnet_synset:show.v.01 + stage9_audit | visual_presentation_action, visual_action |  | agent:m2->ent_m2; patient:m3->ent_m3 | {"canonical": "action:show", "parents": ["action_parent:visual_presentation_action", "action_parent:visual_action"]} |  |
 | ce3 | m14 | sit | sit | sit | raw_action | stage9_seed:parent_seed | body_pose_action, visual_action |  | agent:m5->eref_m10 | {"canonical": "action:sit", "parents": ["action_parent:body_pose_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
@@ -9397,7 +9397,7 @@ _none_
 | cf3 | entity_exists | call |  |  |  | entity_exists:call | True | low |
 | cf4 | entity_exists | people |  |  | person, human | entity_exists:people | True | high |
 | cf5 | entity_exists | table |  |  | furniture, artifact | entity_exists:table | True | high |
-| cf6 | entity_exists | room |  |  |  | entity_exists:room | True | low |
+| cf6 | entity_exists | room |  |  | interior_place, place | entity_exists:room | True | high |
 | cf7 | entity_exists | people |  |  | person, human | entity_exists:people | True | high |
 | cf8 | has_attribute | call | video |  | compound_modifier, visual_attribute | has_attribute:call:video | True | medium |
 | cf9 | has_quantity | people | several |  | approximate_quantity, quantity | has_quantity:people:several | True | medium |
@@ -9406,7 +9406,7 @@ _none_
 | cf12 | event_role | stand | agent | man |  | event_role:stand:agent:man | True | medium |
 | cf13 | action_event | point |  |  | gesture_action, visual_action | action_event:point | True | high |
 | cf14 | event_role | point | agent | man |  | event_role:point:agent:man | True | medium |
-| cf15 | action_event | show |  |  | visual_action | action_event:show | True | low |
+| cf15 | action_event | show |  |  | visual_presentation_action, visual_action | action_event:show | True | high |
 | cf16 | event_role | show | agent | screen |  | event_role:show:agent:screen | True | medium |
 | cf17 | event_role | show | patient | call |  | event_role:show:patient:call | True | medium |
 | cf18 | action_event | sit |  |  | body_pose_action, visual_action | action_event:sit | True | high |
@@ -9460,7 +9460,7 @@ _none_
 ### Stage 9 Canonical Entities
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ent_m0 | object | airplane | airplane | vehicle | raw_lemma | semantic_type_fallback | vehicle | m0 | raw_mention |  |  |  | True | {"canonical": "entity:airplane", "parents": ["entity_parent:vehicle"]} |
+| ent_m0 | object | airplane | airplane | vehicle | raw_lemma | COCO object label + wordnet_hypernym:vehicle.n.01 + stage9_audit | vehicle | m0 | raw_mention |  |  |  | True | {"canonical": "entity:airplane", "parents": ["entity_parent:vehicle"]} |
 | ent_m2 | object | frame | frame | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:frame", "parents": []} |
 | ent_m4 | object | ceiling | ceiling | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:ceiling", "parents": []} |
 | ent_m5 | object | space | space | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:space", "parents": []} |
@@ -9488,7 +9488,7 @@ _none_
 ### Stage 9 Canonical Facts
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| cf0 | entity_exists | airplane |  |  | vehicle | entity_exists:airplane | True | medium |
+| cf0 | entity_exists | airplane |  |  | vehicle | entity_exists:airplane | True | high |
 | cf1 | entity_exists | frame |  |  |  | entity_exists:frame | True | low |
 | cf2 | entity_exists | ceiling |  |  |  | entity_exists:ceiling | True | low |
 | cf3 | entity_exists | space |  |  |  | entity_exists:space | True | low |
@@ -9581,7 +9581,7 @@ _none_
 | ent_m0 | object | people | people | person | raw_lemma | stage9_seed:parent_seed | person, human | m0 | raw_mention |  |  |  | True | {"canonical": "entity:people", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m2 | object | table | tables | object | raw_lemma | stage9_seed:parent_seed | furniture, artifact | m2 | raw_mention |  |  |  | True | {"canonical": "entity:table", "parents": ["entity_parent:furniture", "entity_parent:artifact"]} |
 | ent_m4 | object | chess | chess | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:chess", "parents": []} |
-| ent_m5 | object | tree | trees | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
+| ent_m5 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m5 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
 | ent_m6 | object | girl | girl | person | raw_lemma | stage9_seed:parent_seed | person, human | m6 | raw_mention |  |  |  | True | {"canonical": "entity:girl", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m8 | object | shirt | shirt | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m8 | raw_mention |  |  |  | True | {"canonical": "entity:shirt", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
 | ent_m10 | object | table | table | object | raw_lemma | stage9_seed:parent_seed | furniture, artifact | m10 | raw_mention |  |  |  | True | {"canonical": "entity:table", "parents": ["entity_parent:furniture", "entity_parent:artifact"]} |
@@ -9589,7 +9589,7 @@ _none_
 | ent_m12 | object | game | games | object | raw_lemma | none |  | m12 | raw_mention |  |  |  | True | {"canonical": "entity:game", "parents": []} |
 | ent_m13 | context | setting | setting | object | raw_lemma | stage9_seed:parent_seed | scene_context | m13 | raw_mention |  |  |  | True | {"canonical": "entity:setting", "parents": ["entity_parent:scene_context"]} |
 | ent_m14 | object | area | area | object | raw_lemma | none |  | m14 | raw_mention |  |  |  | True | {"canonical": "entity:area", "parents": []} |
-| ent_m17 | object | building | buildings | object | raw_lemma | none |  | m17 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": []} |
+| ent_m17 | object | building | buildings | object | raw_lemma | wordnet_synset:building.n.01 + stage9_audit | structure, artifact | m17 | raw_mention |  |  |  | True | {"canonical": "entity:building", "parents": ["entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m18 | object | greenery | greenery | object | raw_lemma | none |  | m18 | raw_mention |  |  |  | True | {"canonical": "entity:greenery", "parents": []} |
 | ent_m19 | context | background | background | object | raw_lemma | stage9_seed:parent_seed | scene_context | m19 | raw_mention |  |  |  | True | {"canonical": "entity:background", "parents": ["entity_parent:scene_context"]} |
 | ent_m20 | context | outdoors | outdoors | object | raw_lemma | stage9_seed:parent_seed | scene_context | m20 | raw_mention |  |  |  | True | {"canonical": "entity:outdoors", "parents": ["entity_parent:scene_context"]} |
@@ -9636,7 +9636,7 @@ _none_
 | cf0 | entity_exists | people |  |  | person, human | entity_exists:people | True | high |
 | cf1 | entity_exists | table |  |  | furniture, artifact | entity_exists:table | True | high |
 | cf2 | entity_exists | chess |  |  |  | entity_exists:chess | True | low |
-| cf3 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
+| cf3 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
 | cf4 | entity_exists | girl |  |  | person, human | entity_exists:girl | True | high |
 | cf5 | entity_exists | shirt |  |  | clothing, wearable | entity_exists:shirt | True | high |
 | cf6 | entity_exists | table |  |  | furniture, artifact | entity_exists:table | True | high |
@@ -9644,13 +9644,13 @@ _none_
 | cf8 | entity_exists | game |  |  |  | entity_exists:game | True | low |
 | cf9 | entity_exists | setting |  |  | scene_context | entity_exists:setting | True | high |
 | cf10 | entity_exists | area |  |  |  | entity_exists:area | True | low |
-| cf11 | entity_exists | building |  |  |  | entity_exists:building | True | low |
+| cf11 | entity_exists | building |  |  | structure, artifact | entity_exists:building | True | high |
 | cf12 | entity_exists | greenery |  |  |  | entity_exists:greenery | True | low |
 | cf13 | entity_exists | background |  |  | scene_context | entity_exists:background | True | high |
 | cf14 | entity_exists | outdoors |  |  | scene_context | entity_exists:outdoors | True | high |
 | cf15 | entity_exists | people |  |  | person, human | entity_exists:people | True | high |
 | cf16 | has_quantity | people | several |  | approximate_quantity, quantity | has_quantity:people:several | True | medium |
-| cf17 | has_attribute | table | wooden |  | material_attribute, material, visual_attribute | has_attribute:table:wooden | True | high |
+| cf17 | has_attribute | table | wood |  | material_attribute, material, visual_attribute | has_attribute:table:wood | True | high |
 | cf18 | has_attribute | girl | young |  | modifier_attribute, visual_attribute | has_attribute:girl:young | True | medium |
 | cf19 | has_attribute | shirt | gray |  | color_attribute, color, visual_attribute | has_attribute:shirt:gray | True | high |
 | cf20 | has_attribute | area | sunny |  | weather_attribute, weather, visual_attribute | has_attribute:area:sunny | True | medium |
@@ -9729,7 +9729,7 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | people | People | person | raw_lemma | stage9_seed:parent_seed | person, human | m0 | raw_mention |  |  |  | True | {"canonical": "entity:people", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m1 | object | table | tables | object | raw_lemma | stage9_seed:parent_seed | furniture, artifact | m1 | raw_mention |  |  |  | True | {"canonical": "entity:table", "parents": ["entity_parent:furniture", "entity_parent:artifact"]} |
-| ent_m2 | object | room | room | object | raw_lemma | none |  | m2 | raw_mention |  |  |  | True | {"canonical": "entity:room", "parents": []} |
+| ent_m2 | object | room | room | object | raw_lemma | wordnet_synset:room.n.01 + stage9_audit | interior_place, place | m2 | raw_mention |  |  |  | True | {"canonical": "entity:room", "parents": ["entity_parent:interior_place", "entity_parent:place"]} |
 | ent_m3 | object | woman | woman | person | raw_lemma | stage9_seed:parent_seed | person, human | m3 | raw_mention |  |  |  | True | {"canonical": "entity:woman", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m5 | object | pant | pants | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:pant", "parents": []} |
 | ent_m8 | object | man | man | person | raw_lemma | stage9_seed:parent_seed | person, human | m8 | raw_mention |  |  |  | True | {"canonical": "entity:man", "parents": ["entity_parent:person", "entity_parent:human"]} |
@@ -9764,7 +9764,7 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | people |  |  | person, human | entity_exists:people | True | high |
 | cf1 | entity_exists | table |  |  | furniture, artifact | entity_exists:table | True | high |
-| cf2 | entity_exists | room |  |  |  | entity_exists:room | True | low |
+| cf2 | entity_exists | room |  |  | interior_place, place | entity_exists:room | True | high |
 | cf3 | entity_exists | woman |  |  | person, human | entity_exists:woman | True | high |
 | cf4 | entity_exists | pant |  |  |  | entity_exists:pant | True | low |
 | cf5 | entity_exists | man |  |  | person, human | entity_exists:man | True | high |
@@ -9942,8 +9942,8 @@ _none_
 ### Stage 9 Canonical Events
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ce0 | m8 | show | show | show | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0; patient:m3->ent_m3 | {"canonical": "action:show", "parents": ["action_parent:visual_action"]} |  |
-| ce1 | m9 | placed | place | place | raw_action | visual_action_fallback | visual_action |  | patient<-theme[passive_to_active]:m0->ent_m0 | {"canonical": "action:place", "parents": ["action_parent:visual_action"]} |  |
+| ce0 | m8 | show | show | show | raw_action | wordnet_synset:show.v.01 + stage9_audit | visual_presentation_action, visual_action |  | agent:m0->ent_m0; patient:m3->ent_m3 | {"canonical": "action:show", "parents": ["action_parent:visual_presentation_action", "action_parent:visual_action"]} |  |
+| ce1 | m9 | placed | place | place | raw_action | wordnet_synset:put.v.01 + stage9_audit | placement_action, visual_action |  | patient<-theme[passive_to_active]:m0->ent_m0 | {"canonical": "action:place", "parents": ["action_parent:placement_action", "action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
 | event_id | canonical_action | role | raw_role | voice_normalization | raw_target | canonical_target | confidence | raw_edge | evidence | recovered_from_skipped | repair |
@@ -9970,10 +9970,10 @@ _none_
 | cf5 | has_quantity | badge | two |  | exact_quantity, quantity | has_quantity:badge:two | True | high |
 | cf6 | has_attribute | badge | military |  | modifier_attribute, visual_attribute | has_attribute:badge:military | True | medium |
 | cf7 | has_attribute | design | sunburst |  | compound_modifier, visual_attribute | has_attribute:design:sunburst | True | medium |
-| cf8 | action_event | show |  |  | visual_action | action_event:show | True | low |
+| cf8 | action_event | show |  |  | visual_presentation_action, visual_action | action_event:show | True | high |
 | cf9 | event_role | show | agent | badge |  | event_role:show:agent:badge | True | medium |
 | cf10 | event_role | show | patient | design |  | event_role:show:patient:design | True | medium |
-| cf11 | action_event | place |  |  | visual_action | action_event:place | True | low |
+| cf11 | action_event | place |  |  | placement_action, visual_action | action_event:place | True | high |
 | cf12 | event_role | place | patient | badge |  | event_role:place:patient:badge | True | medium |
 | cf13 | relation | design | with | crown | association_relation, visual_relation | relation:design:with:crown | True | high |
 | cf14 | relation | design | with | text | association_relation, visual_relation | relation:design:with:text | True | high |
@@ -10047,17 +10047,17 @@ _none_
 ### Stage 9 Canonical Entities
 | entity_id | entity_type | canonical_lemma | text | semantic_type | canonical_source | parent_source | parent_chain | raw_mentions | source | parent_entity | member_entities | cardinality | count_eligible | count_keys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ent_m0 | object | sidewalk | sidewalk | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:sidewalk", "parents": []} |
+| ent_m0 | object | sidewalk | sidewalk | object | raw_lemma | wordnet_synset:sidewalk.n.01 + stage9_audit | path, place | m0 | raw_mention |  |  |  | True | {"canonical": "entity:sidewalk", "parents": ["entity_parent:path", "entity_parent:place"]} |
 | ent_m2 | object | car | cars | vehicle | raw_lemma | stage9_seed:parent_seed | vehicle | m2 | raw_mention |  |  |  | True | {"canonical": "entity:car", "parents": ["entity_parent:vehicle"]} |
-| ent_m4 | object | house | house | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:house", "parents": []} |
+| ent_m4 | object | house | house | object | raw_lemma | wordnet_synset:house.n.01 + stage9_audit | building, structure, artifact | m4 | raw_mention |  |  |  | True | {"canonical": "entity:house", "parents": ["entity_parent:building", "entity_parent:structure", "entity_parent:artifact"]} |
 | ent_m5 | object | suv | SUV | vehicle | raw_lemma | stage9_seed:parent_seed | vehicle | m5 | raw_mention |  |  |  | True | {"canonical": "entity:suv", "parents": ["entity_parent:vehicle"]} |
 | ent_m7 | context | right | right | object | raw_lemma | semantic_type_fallback | scene_context | m7 | raw_mention |  |  |  | True | {"canonical": "entity:right", "parents": ["entity_parent:scene_context"]} |
-| ent_m8 | object | bush | bush | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:bush", "parents": []} |
-| ent_m10 | object | snow | snow | object | raw_lemma | none |  | m10 | raw_mention |  |  |  | True | {"canonical": "entity:snow", "parents": []} |
-| ent_m11 | object | street | street | object | raw_lemma | none |  | m11 | raw_mention |  |  |  | True | {"canonical": "entity:street", "parents": []} |
-| ent_m12 | object | tree | trees | object | raw_lemma | none |  | m12 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": []} |
-| ent_m14 | object | house | houses | object | raw_lemma | none |  | m14 | raw_mention |  |  |  | True | {"canonical": "entity:house", "parents": []} |
-| ent_m15 | object | sky | sky | object | raw_lemma | none |  | m15 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": []} |
+| ent_m8 | object | bush | bush | object | raw_lemma | wordnet_synset:shrub.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m8 | raw_mention |  |  |  | True | {"canonical": "entity:bush", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
+| ent_m10 | object | snow | snow | object | raw_lemma | wordnet_synset:snow.n.01 + stage9_audit | natural_element | m10 | raw_mention |  |  |  | True | {"canonical": "entity:snow", "parents": ["entity_parent:natural_element"]} |
+| ent_m11 | object | street | street | object | raw_lemma | wordnet_synset:street.n.01 + stage9_audit | path, place | m11 | raw_mention |  |  |  | True | {"canonical": "entity:street", "parents": ["entity_parent:path", "entity_parent:place"]} |
+| ent_m12 | object | tree | trees | object | raw_lemma | wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit | plant, living_thing | m12 | raw_mention |  |  |  | True | {"canonical": "entity:tree", "parents": ["entity_parent:plant", "entity_parent:living_thing"]} |
+| ent_m14 | object | house | houses | object | raw_lemma | wordnet_synset:house.n.01 + stage9_audit | building, structure, artifact | m14 | raw_mention |  |  |  | True | {"canonical": "entity:house", "parents": ["entity_parent:building", "entity_parent:structure", "entity_parent:artifact"]} |
+| ent_m15 | object | sky | sky | object | raw_lemma | wordnet_synset:sky.n.01 + stage9_audit | natural_scene | m15 | raw_mention |  |  |  | True | {"canonical": "entity:sky", "parents": ["entity_parent:natural_scene"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -10094,17 +10094,17 @@ _none_
 ### Stage 9 Canonical Facts
 | fact_id | fact_type | source/action/canonical | relation/role/value | target | parent_chain | count_key | count_eligible | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| cf0 | entity_exists | sidewalk |  |  |  | entity_exists:sidewalk | True | low |
+| cf0 | entity_exists | sidewalk |  |  | path, place | entity_exists:sidewalk | True | high |
 | cf1 | entity_exists | car |  |  | vehicle | entity_exists:car | True | high |
-| cf2 | entity_exists | house |  |  |  | entity_exists:house | True | low |
+| cf2 | entity_exists | house |  |  | building, structure, artifact | entity_exists:house | True | high |
 | cf3 | entity_exists | suv |  |  | vehicle | entity_exists:suv | True | high |
 | cf4 | entity_exists | right |  |  | scene_context | entity_exists:right | True | medium |
-| cf5 | entity_exists | bush |  |  |  | entity_exists:bush | True | low |
-| cf6 | entity_exists | snow |  |  |  | entity_exists:snow | True | low |
-| cf7 | entity_exists | street |  |  |  | entity_exists:street | True | low |
-| cf8 | entity_exists | tree |  |  |  | entity_exists:tree | True | low |
-| cf9 | entity_exists | house |  |  |  | entity_exists:house | True | low |
-| cf10 | entity_exists | sky |  |  |  | entity_exists:sky | True | low |
+| cf5 | entity_exists | bush |  |  | plant, living_thing | entity_exists:bush | True | high |
+| cf6 | entity_exists | snow |  |  | natural_element | entity_exists:snow | True | high |
+| cf7 | entity_exists | street |  |  | path, place | entity_exists:street | True | high |
+| cf8 | entity_exists | tree |  |  | plant, living_thing | entity_exists:tree | True | high |
+| cf9 | entity_exists | house |  |  | building, structure, artifact | entity_exists:house | True | high |
+| cf10 | entity_exists | sky |  |  | natural_scene | entity_exists:sky | True | high |
 | cf11 | has_attribute | sidewalk | snow-covered |  | modifier_attribute, visual_attribute | has_attribute:sidewalk:snow-covered | True | medium |
 | cf12 | has_attribute | car | parked |  | state_attribute, coco_subtype_rule, visual_attribute | has_attribute:car:parked | True | medium |
 | cf13 | has_attribute | suv | silver |  | color_attribute, color, material, visual_attribute | has_attribute:suv:silver | True | high |
@@ -10183,7 +10183,7 @@ _none_
 | ent_m3 | object | slope | slope | object | raw_lemma | none |  | m3 | raw_mention |  |  |  | True | {"canonical": "entity:slope", "parents": []} |
 | ent_m5 | object | skier | skiers | object | raw_lemma | none |  | m5 | raw_mention |  |  |  | True | {"canonical": "entity:skier", "parents": []} |
 | ent_m7 | context | background | background | object | raw_lemma | stage9_seed:parent_seed | scene_context | m7 | raw_mention |  |  |  | True | {"canonical": "entity:background", "parents": ["entity_parent:scene_context"]} |
-| ent_m8 | object | mountain | mountain | object | raw_lemma | none |  | m8 | raw_mention |  |  |  | True | {"canonical": "entity:mountain", "parents": []} |
+| ent_m8 | object | mountain | mountain | object | raw_lemma | wordnet_synset:mountain.n.01 + stage9_audit | landform, place | m8 | raw_mention |  |  |  | True | {"canonical": "entity:mountain", "parents": ["entity_parent:landform", "entity_parent:place"]} |
 
 ### Stage 9 Entity Links
 _none_
@@ -10214,7 +10214,7 @@ _none_
 | cf2 | entity_exists | slope |  |  |  | entity_exists:slope | True | low |
 | cf3 | entity_exists | skier |  |  |  | entity_exists:skier | True | low |
 | cf4 | entity_exists | background |  |  | scene_context | entity_exists:background | True | high |
-| cf5 | entity_exists | mountain |  |  |  | entity_exists:mountain | True | low |
+| cf5 | entity_exists | mountain |  |  | landform, place | entity_exists:mountain | True | high |
 | cf6 | has_attribute | helmet | orange |  | color_attribute, color, visual_attribute | has_attribute:helmet:orange | True | high |
 | cf7 | has_attribute | slope | snowy |  | material_attribute, material, visual_attribute | has_attribute:slope:snowy | True | medium |
 | cf8 | has_attribute | skier | other |  | modifier_attribute, visual_attribute | has_attribute:skier:other | True | medium |
@@ -10266,7 +10266,7 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | team | team | object | raw_lemma | none |  | m0 | raw_mention |  |  |  | True | {"canonical": "entity:team", "parents": []} |
 | ent_m2 | object | uniform | uniforms | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m2 | raw_mention |  |  |  | True | {"canonical": "entity:uniform", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
-| ent_m4 | object | field | field | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": []} |
+| ent_m4 | object | field | field | object | raw_lemma | wordnet_synset:field.n.01 + stage9_audit | outdoor_scene, place | m4 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": ["entity_parent:outdoor_scene", "entity_parent:place"]} |
 | ent_m6 | object | referee | referee | person | raw_lemma | stage9_seed:parent_seed | person, human | m6 | raw_mention |  |  |  | True | {"canonical": "entity:referee", "parents": ["entity_parent:person", "entity_parent:human"]} |
 
 ### Stage 9 Entity Links
@@ -10293,7 +10293,7 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | team |  |  |  | entity_exists:team | True | low |
 | cf1 | entity_exists | uniform |  |  | clothing, wearable | entity_exists:uniform | True | high |
-| cf2 | entity_exists | field |  |  |  | entity_exists:field | True | low |
+| cf2 | entity_exists | field |  |  | outdoor_scene, place | entity_exists:field | True | medium |
 | cf3 | entity_exists | referee |  |  | person, human | entity_exists:referee | True | high |
 | cf4 | has_attribute | team | football |  | compound_modifier, visual_attribute | has_attribute:team:football | True | medium |
 | cf5 | has_attribute | uniform | white |  | color_attribute, color, visual_attribute | has_attribute:uniform:white | True | high |
@@ -10364,10 +10364,10 @@ _none_
 | ent_m1 | object | bikini | bikini | object | raw_lemma | none |  | m1 | raw_mention |  |  |  | True | {"canonical": "entity:bikini", "parents": []} |
 | ent_m4 | object | volleyball | volleyball | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:volleyball", "parents": []} |
 | ent_m5 | object | net | net | object | raw_lemma | stage9_seed:parent_seed | sports_equipment, artifact | m5 | raw_mention |  |  |  | True | {"canonical": "entity:net", "parents": ["entity_parent:sports_equipment", "entity_parent:artifact"]} |
-| ent_m6 | object | beach | beach | object | raw_lemma | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:beach", "parents": []} |
+| ent_m6 | object | beach | beach | object | raw_lemma | wordnet_synset:beach.n.01 + stage9_audit | outdoor_scene, place | m6 | raw_mention |  |  |  | True | {"canonical": "entity:beach", "parents": ["entity_parent:outdoor_scene", "entity_parent:place"]} |
 | ent_m8 | object | people | people | person | raw_lemma | stage9_seed:parent_seed | person, human | m8 | raw_mention |  |  |  | True | {"canonical": "entity:people", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m10 | context | background | background | object | raw_lemma | stage9_seed:parent_seed | scene_context | m10 | raw_mention |  |  |  | True | {"canonical": "entity:background", "parents": ["entity_parent:scene_context"]} |
-| ent_m11 | object | umbrella | umbrellas | object | raw_lemma | none |  | m11 | raw_mention |  |  |  | True | {"canonical": "entity:umbrella", "parents": []} |
+| ent_m11 | object | umbrella | umbrellas | object | raw_lemma | COCO object label + wordnet_synset:umbrella.n.01 + stage9_audit | accessory, artifact | m11 | raw_mention |  |  |  | True | {"canonical": "entity:umbrella", "parents": ["entity_parent:accessory", "entity_parent:artifact"]} |
 | ent_m13 | object | sun | sun | object | raw_lemma | none |  | m13 | raw_mention |  |  |  | True | {"canonical": "entity:sun", "parents": []} |
 
 ### Stage 9 Entity Links
@@ -10377,7 +10377,7 @@ _none_
 | event_id | action_mention | raw_text | raw_lemma | canonical_action | canonical_source | parent_source | action_parent_chain | particles | roles_summary | count_keys | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ce0 | m14 | jumps | jump | jump | raw_action | stage9_seed:parent_seed | locomotion_action, visual_action |  | agent:m0->ent_m0 | {"canonical": "action:jump", "parents": ["action_parent:locomotion_action", "action_parent:visual_action"]} |  |
-| ce1 | m15 | hit | hit | hit | raw_action | visual_action_fallback | visual_action |  | agent:m0->ent_m0; patient:m4->ent_m4 | {"canonical": "action:hit", "parents": ["action_parent:visual_action"]} |  |
+| ce1 | m15 | hit | hit | hit | raw_action | wordnet_synset:hit.v.01 + stage9_audit | contact_action, visual_action |  | agent:m0->ent_m0; patient:m4->ent_m4 | {"canonical": "action:hit", "parents": ["action_parent:contact_action", "action_parent:visual_action"]} |  |
 | ce2 | m16 | shining | shin | shin | raw_action | visual_action_fallback | visual_action |  | agent:m13->ent_m13 | {"canonical": "action:shin", "parents": ["action_parent:visual_action"]} |  |
 
 ### Stage 9 Canonical Event Roles
@@ -10404,10 +10404,10 @@ _none_
 | cf1 | entity_exists | bikini |  |  |  | entity_exists:bikini | True | low |
 | cf2 | entity_exists | volleyball |  |  |  | entity_exists:volleyball | True | low |
 | cf3 | entity_exists | net |  |  | sports_equipment, artifact | entity_exists:net | True | medium |
-| cf4 | entity_exists | beach |  |  |  | entity_exists:beach | True | low |
+| cf4 | entity_exists | beach |  |  | outdoor_scene, place | entity_exists:beach | True | high |
 | cf5 | entity_exists | people |  |  | person, human | entity_exists:people | True | high |
 | cf6 | entity_exists | background |  |  | scene_context | entity_exists:background | True | high |
-| cf7 | entity_exists | umbrella |  |  |  | entity_exists:umbrella | True | low |
+| cf7 | entity_exists | umbrella |  |  | accessory, artifact | entity_exists:umbrella | True | high |
 | cf8 | entity_exists | sun |  |  |  | entity_exists:sun | True | low |
 | cf9 | has_attribute | bikini | red |  | color_attribute, color, visual_attribute | has_attribute:bikini:red | True | high |
 | cf10 | has_attribute | bikini | black |  | color_attribute, color, visual_attribute | has_attribute:bikini:black | True | high |
@@ -10416,7 +10416,7 @@ _none_
 | cf13 | has_attribute | umbrella | white |  | color_attribute, color, visual_attribute | has_attribute:umbrella:white | True | high |
 | cf14 | action_event | jump |  |  | locomotion_action, visual_action | action_event:jump | True | high |
 | cf15 | event_role | jump | agent | woman |  | event_role:jump:agent:woman | True | medium |
-| cf16 | action_event | hit |  |  | visual_action | action_event:hit | True | low |
+| cf16 | action_event | hit |  |  | contact_action, visual_action | action_event:hit | True | high |
 | cf17 | event_role | hit | agent | woman |  | event_role:hit:agent:woman | True | medium |
 | cf18 | event_role | hit | patient | volleyball |  | event_role:hit:patient:volleyball | True | medium |
 | cf19 | action_event | shin |  |  | visual_action | action_event:shin | True | low |
@@ -10477,8 +10477,8 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ent_m0 | object | player | player | person | raw_lemma | stage9_seed:parent_seed | person, human | m0 | raw_mention |  |  |  | True | {"canonical": "entity:player", "parents": ["entity_parent:person", "entity_parent:human"]} |
 | ent_m2 | object | uniform | uniform | clothing | raw_lemma | stage9_seed:parent_seed | clothing, wearable | m2 | raw_mention |  |  |  | True | {"canonical": "entity:uniform", "parents": ["entity_parent:clothing", "entity_parent:wearable"]} |
-| ent_m4 | object | snow | snow | object | raw_lemma | none |  | m4 | raw_mention |  |  |  | True | {"canonical": "entity:snow", "parents": []} |
-| ent_m6 | object | field | field | object | raw_lemma | none |  | m6 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": []} |
+| ent_m4 | object | snow | snow | object | raw_lemma | wordnet_synset:snow.n.01 + stage9_audit | natural_element | m4 | raw_mention |  |  |  | True | {"canonical": "entity:snow", "parents": ["entity_parent:natural_element"]} |
+| ent_m6 | object | field | field | object | raw_lemma | wordnet_synset:field.n.01 + stage9_audit | outdoor_scene, place | m6 | raw_mention |  |  |  | True | {"canonical": "entity:field", "parents": ["entity_parent:outdoor_scene", "entity_parent:place"]} |
 | ent_m8 | object | player | player | person | raw_lemma | stage9_seed:parent_seed | person, human | m8 | raw_mention |  |  |  | True | {"canonical": "entity:player", "parents": ["entity_parent:person", "entity_parent:human"]} |
 
 ### Stage 9 Entity Links
@@ -10506,8 +10506,8 @@ _none_
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | cf0 | entity_exists | player |  |  | person, human | entity_exists:player | True | high |
 | cf1 | entity_exists | uniform |  |  | clothing, wearable | entity_exists:uniform | True | high |
-| cf2 | entity_exists | snow |  |  |  | entity_exists:snow | True | low |
-| cf3 | entity_exists | field |  |  |  | entity_exists:field | True | low |
+| cf2 | entity_exists | snow |  |  | natural_element | entity_exists:snow | True | high |
+| cf3 | entity_exists | field |  |  | outdoor_scene, place | entity_exists:field | True | medium |
 | cf4 | entity_exists | player |  |  | person, human | entity_exists:player | True | high |
 | cf5 | has_attribute | player | lacrosse |  | compound_modifier, visual_attribute | has_attribute:player:lacrosse | True | medium |
 | cf6 | has_attribute | uniform | white |  | color_attribute, color, visual_attribute | has_attribute:uniform:white | True | high |

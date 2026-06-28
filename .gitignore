@@ -28,3 +28,4 @@ resources/external/cache/
 Thumbs.db
 .vscode/
 .idea/
+resources/external/nltk_data/

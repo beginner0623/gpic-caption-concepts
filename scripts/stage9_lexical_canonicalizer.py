@@ -13,11 +13,15 @@ LEGACY_OBJECT_CANONICAL_LEXICON = LEXICON_DIR / "stage9_object_canonical_seed.ts
 LEGACY_ACTION_CANONICAL_LEXICON = LEXICON_DIR / "stage9_action_canonical_seed.tsv"
 
 DEFAULT_OBJECT_CANONICAL_LEXICON = LEXICON_DIR / "stage9_object_synonym_seed.tsv"
+DEFAULT_OBJECT_SYNONYM_EXPANSION_LEXICON = LEXICON_DIR / "stage9_object_synonym_expansion_v1.tsv"
 DEFAULT_ACTION_CANONICAL_LEXICON = LEXICON_DIR / "stage9_action_synonym_seed.tsv"
 DEFAULT_OBJECT_PARENT_LEXICON = LEXICON_DIR / "stage9_object_parent_seed.tsv"
+DEFAULT_OBJECT_PARENT_EXPANSION_LEXICON = LEXICON_DIR / "stage9_object_parent_expansion_v1.tsv"
 DEFAULT_ACTION_PARENT_LEXICON = LEXICON_DIR / "stage9_action_parent_seed.tsv"
+DEFAULT_ACTION_PARENT_EXPANSION_LEXICON = LEXICON_DIR / "stage9_action_parent_expansion_v1.tsv"
 DEFAULT_OBJECT_MWE_CANONICAL_LEXICON = LEXICON_DIR / "object_noun_mwe_clean_core.tsv"
 DEFAULT_ATTRIBUTE_CANONICAL_LEXICON = LEXICON_DIR / "attribute_clean_core_typed_candidate.tsv"
+DEFAULT_ATTRIBUTE_SYNONYM_LEXICON = LEXICON_DIR / "stage9_attribute_synonym_seed.tsv"
 DEFAULT_RELATION_CANONICAL_LEXICON = LEXICON_DIR / "relation_span_clean_core.tsv"
 DEFAULT_PREPOSITION_MWE_LEXICON = LEXICON_DIR / "preposition_mwe_clean_core.tsv"
 
@@ -59,6 +63,7 @@ class Stage9CanonicalLexicon:
     object_parents: dict[str, ParentEntry]
     action_synonyms: dict[str, CanonicalEntry]
     action_parents: dict[str, ParentEntry]
+    attribute_synonyms: dict[str, CanonicalEntry]
     attributes: dict[str, LexicalEntry]
     relations: dict[str, LexicalEntry]
 
@@ -138,7 +143,7 @@ def add_parent_entry(entries: dict[str, ParentEntry], entry: ParentEntry) -> Non
 def read_tsv(path: Path) -> list[dict[str, str]]:
     if not path.exists():
         return []
-    with path.open("r", encoding="utf-8", newline="") as handle:
+    with path.open("r", encoding="utf-8-sig", newline="") as handle:
         return list(csv.DictReader(handle, delimiter="\t"))
 
 
@@ -293,11 +298,15 @@ def load_relation_entries(*paths: Path) -> dict[str, LexicalEntry]:
 def load_stage9_canonical_lexicon(
     *,
     object_path: Path = DEFAULT_OBJECT_CANONICAL_LEXICON,
+    object_synonym_expansion_path: Path = DEFAULT_OBJECT_SYNONYM_EXPANSION_LEXICON,
     action_path: Path = DEFAULT_ACTION_CANONICAL_LEXICON,
     object_parent_path: Path = DEFAULT_OBJECT_PARENT_LEXICON,
+    object_parent_expansion_path: Path = DEFAULT_OBJECT_PARENT_EXPANSION_LEXICON,
     action_parent_path: Path = DEFAULT_ACTION_PARENT_LEXICON,
+    action_parent_expansion_path: Path = DEFAULT_ACTION_PARENT_EXPANSION_LEXICON,
     object_mwe_path: Path = DEFAULT_OBJECT_MWE_CANONICAL_LEXICON,
     attribute_path: Path = DEFAULT_ATTRIBUTE_CANONICAL_LEXICON,
+    attribute_synonym_path: Path = DEFAULT_ATTRIBUTE_SYNONYM_LEXICON,
     relation_path: Path = DEFAULT_RELATION_CANONICAL_LEXICON,
     preposition_mwe_path: Path = DEFAULT_PREPOSITION_MWE_LEXICON,
 ) -> Stage9CanonicalLexicon:
@@ -308,6 +317,7 @@ def load_stage9_canonical_lexicon(
             default_count_channel="entity",
             entries=object_synonyms,
         )
+    load_synonym_entries(object_synonym_expansion_path, default_count_channel="entity", entries=object_synonyms)
     load_synonym_entries(object_mwe_path, default_count_channel="entity", entries=object_synonyms)
 
     action_synonyms = load_synonym_entries(action_path, default_count_channel="action")
@@ -319,6 +329,7 @@ def load_stage9_canonical_lexicon(
         )
 
     object_parents = load_parent_entries(object_parent_path, default_count_channel="entity")
+    load_parent_entries(object_parent_expansion_path, default_count_channel="entity", entries=object_parents)
     if not object_parents:
         load_legacy_seed_parents(
             LEGACY_OBJECT_CANONICAL_LEXICON,
@@ -327,6 +338,7 @@ def load_stage9_canonical_lexicon(
         )
 
     action_parents = load_parent_entries(action_parent_path, default_count_channel="action")
+    load_parent_entries(action_parent_expansion_path, default_count_channel="action", entries=action_parents)
     if not action_parents:
         load_legacy_seed_parents(
             LEGACY_ACTION_CANONICAL_LEXICON,
@@ -339,6 +351,7 @@ def load_stage9_canonical_lexicon(
         object_parents=object_parents,
         action_synonyms=action_synonyms,
         action_parents=action_parents,
+        attribute_synonyms=load_synonym_entries(attribute_synonym_path, default_count_channel="attribute"),
         attributes=load_attribute_entries(attribute_path),
         relations=load_relation_entries(relation_path, preposition_mwe_path),
     )
@@ -514,32 +527,56 @@ def canonicalize_attribute(
     lexicon: Stage9CanonicalLexicon,
 ) -> dict[str, Any]:
     entry = lookup_entry(lexicon.attributes, mention.get("lemma"), mention.get("text"))
+    synonym = lookup_canonical_entry(
+        lexicon.attribute_synonyms,
+        mention.get("lemma"),
+        mention.get("text"),
+        entry.canonical if entry is not None else "",
+    )
     if entry is not None:
-        canonical = entry.canonical
         parent_chain = entry.parent_chain
         count_channel = entry.count_channel
-        source = entry.source
-        confidence = entry.confidence
+        parent_source = entry.source
+        parent_confidence = entry.confidence
+        if synonym is not None:
+            canonical = synonym.canonical
+            canonical_source = synonym.source
+            canonical_confidence = synonym.confidence
+        else:
+            canonical = entry.canonical
+            canonical_source = entry.source
+            canonical_confidence = entry.confidence
+    elif synonym is not None:
+        canonical = synonym.canonical
+        parent_chain = (norm_key(synonym.count_channel) or "attribute", "visual_attribute")
+        count_channel = norm_key(synonym.count_channel) or "attribute"
+        canonical_source = synonym.source
+        canonical_confidence = synonym.confidence
+        parent_source = "attribute_synonym_role_fallback"
+        parent_confidence = synonym.confidence
     else:
         role = norm_key(mention.get("role"))
         canonical = slug(mention.get("lemma") or mention.get("text"))
         parent_chain = tuple(dict.fromkeys([role, "visual_attribute"] if role else ["visual_attribute"]))
         count_channel = role or "attribute"
-        source = "raw_attribute_role"
-        confidence = norm_key(mention.get("confidence") or "low")
+        canonical_source = "raw_attribute_role"
+        canonical_confidence = norm_key(mention.get("confidence") or "low")
+        parent_source = canonical_source
+        parent_confidence = canonical_confidence
+    metadata = lexical_metadata(
+        canonical_source=canonical_source,
+        canonical_confidence=canonical_confidence,
+        parent_source=parent_source,
+        parent_confidence=parent_confidence,
+    )
     return {
         "canonical": canonical,
         "parent_chain": list(parent_chain),
         "count_channel": count_channel,
         "count_keys": count_keys("attribute", canonical, parent_chain),
-        "source": source,
-        "confidence": confidence,
-        "lexical_canonicalization": lexical_metadata(
-            canonical_source=source,
-            canonical_confidence=confidence,
-            parent_source=source,
-            parent_confidence=confidence,
-        ),
+        "source": metadata["source"],
+        "confidence": metadata["confidence"],
+        "lexical_canonicalization": metadata,
     }
 
 

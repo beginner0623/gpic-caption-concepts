@@ -3,11 +3,15 @@
 - input: `reports\raw_concepts_alt100_val00001_trf_stage9_reference_v1_input.jsonl`
 - phrasal_action_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\phrasal_action_model_audited_core.tsv`
 - object_synonym_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_object_synonym_seed.tsv`
+- object_synonym_expansion_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_object_synonym_expansion_v1.tsv`
 - object_parent_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_object_parent_seed.tsv`
+- object_parent_expansion_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_object_parent_expansion_v1.tsv`
 - object_mwe_canonical_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\object_noun_mwe_clean_core.tsv`
 - action_synonym_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_action_synonym_seed.tsv`
 - action_parent_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_action_parent_seed.tsv`
+- action_parent_expansion_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_action_parent_expansion_v1.tsv`
 - attribute_canonical_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\attribute_clean_core_typed_candidate.tsv`
+- attribute_synonym_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\stage9_attribute_synonym_seed.tsv`
 - relation_canonical_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\relation_span_clean_core.tsv`
 - preposition_mwe_lexicon: `C:\Users\rlath\OneDrive\Desktop\PILAB\0. 연구과제\기영님 연구과제(blue maze)\caption to concept\gpic-caption-concepts\resources\lexicons\preposition_mwe_clean_core.tsv`
 
@@ -140,23 +144,39 @@
 | --- | ---: |
 | `person` | 83 |
 | `human` | 83 |
+| `artifact` | 68 |
 | `scene_context` | 53 |
 | `clothing` | 51 |
 | `wearable` | 51 |
-| `artifact` | 31 |
+| `place` | 42 |
+| `living_thing` | 40 |
+| `plant` | 36 |
+| `structure` | 30 |
+| `path` | 16 |
 | `body_part` | 16 |
+| `outdoor_scene` | 15 |
 | `text_carrier` | 14 |
+| `architectural_part` | 13 |
+| `natural_element` | 12 |
+| `natural_scene` | 12 |
 | `vehicle` | 12 |
 | `furniture` | 9 |
 | `document` | 6 |
 | `device` | 5 |
 | `animal` | 4 |
-| `living_thing` | 4 |
+| `body_of_water` | 4 |
+| `landform` | 4 |
 | `protective_gear` | 3 |
 | `text_content` | 3 |
 | `sports_equipment` | 3 |
+| `building` | 3 |
+| `interior_place` | 3 |
+| `container` | 2 |
 | `time_context` | 2 |
 | `bird` | 1 |
+| `natural_object` | 1 |
+| `surface` | 1 |
+| `accessory` | 1 |
 
 ## Entity Canonical Sources
 
@@ -176,9 +196,43 @@
 
 | item | count |
 | --- | ---: |
-| `none` | 448 |
+| `none` | 308 |
 | `stage9_seed:parent_seed` | 234 |
-| `semantic_type_fallback` | 19 |
+| `wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit` | 23 |
+| `semantic_type_fallback` | 18 |
+| `wordnet_synset:building.n.01 + stage9_audit` | 13 |
+| `wordnet_synset:sky.n.01 + stage9_audit` | 12 |
+| `wordnet_synset:field.n.01 + stage9_audit` | 11 |
+| `wordnet_synset:wall.n.01 + stage9_audit` | 8 |
+| `wordnet_synset:street.n.01 + stage9_audit` | 7 |
+| `wordnet_synset:water.n.01 + stage9_audit` | 7 |
+| `wordnet_synset:path.n.04 + stage9_audit` | 6 |
+| `wordnet_synset:grass.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit` | 5 |
+| `wordnet_synset:snow.n.01 + stage9_audit` | 4 |
+| `wordnet_synset:mountain.n.01 + stage9_audit` | 4 |
+| `wordnet_synset:flower.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit` | 3 |
+| `wordnet_synset:shrub.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit` | 3 |
+| `wordnet_synset:window.n.01 + stage9_audit` | 3 |
+| `wordnet_synset:beach.n.01 + stage9_audit` | 3 |
+| `wordnet_synset:house.n.01 + stage9_audit` | 3 |
+| `wordnet_synset:room.n.01 + stage9_audit` | 3 |
+| `COCO object label + wordnet_hypernym:container.n.01 + stage9_audit` | 2 |
+| `wordnet_synset:tower.n.01 + stage9_audit` | 2 |
+| `wordnet_synset:road.n.01 + stage9_audit` | 2 |
+| `wordnet_synset:fence.n.01 + stage9_audit` | 2 |
+| `wordnet_synset:river.n.01 + stage9_audit` | 2 |
+| `wordnet_synset:plant.n.02 + stage9_audit` | 2 |
+| `wordnet_synset:garden.n.01 + stage9_audit` | 1 |
+| `wordnet_synset:rock.n.01 + stage9_audit` | 1 |
+| `wordnet_synset:floor.n.01 + stage9_audit` | 1 |
+| `wordnet_synset:bridge.n.01 + stage9_audit` | 1 |
+| `wordnet_synset:ocean.n.01 + stage9_audit` | 1 |
+| `wordnet_synset:cloud.n.01 + stage9_audit` | 1 |
+| `wordnet_synset:lake.n.01 + stage9_audit` | 1 |
+| `wordnet_synset:roof.n.01 + stage9_audit` | 1 |
+| `COCO object label + wordnet_hypernym:vehicle.n.01 + stage9_audit` | 1 |
+| `wordnet_synset:sidewalk.n.01 + stage9_audit` | 1 |
+| `COCO object label + wordnet_synset:umbrella.n.01 + stage9_audit` | 1 |
 
 ## Entity Links
 
@@ -269,14 +323,23 @@
 | `body_pose_action` | 42 |
 | `locomotion_action` | 19 |
 | `wearing_action` | 15 |
+| `visual_presentation_action` | 11 |
 | `manipulation_action` | 5 |
+| `occlusion_or_covering_action` | 4 |
+| `attachment_action` | 4 |
 | `communication_action` | 3 |
 | `expression_action` | 3 |
-| `attachment_action` | 3 |
+| `containment_state_action` | 3 |
 | `gaze_action` | 3 |
+| `spatial_configuration_action` | 2 |
+| `support_state_action` | 2 |
 | `gesture_action` | 2 |
 | `activity_action` | 2 |
+| `consumption_action` | 1 |
+| `state_change_action` | 1 |
 | `text_interaction_action` | 1 |
+| `placement_action` | 1 |
+| `contact_action` | 1 |
 
 ## Canonical Action Sources
 
@@ -289,8 +352,20 @@
 
 | item | count |
 | --- | ---: |
-| `visual_action_fallback` | 102 |
 | `stage9_seed:parent_seed` | 98 |
+| `visual_action_fallback` | 75 |
+| `wordnet_synset:show.v.01 + stage9_audit` | 8 |
+| `wordnet_synset:cover.v.01 + stage9_audit` | 4 |
+| `wordnet_synset:display.v.01 + stage9_audit` | 3 |
+| `wordnet_synset:surround.v.01 + stage9_audit` | 2 |
+| `wordnet_synset:fill.v.01 + stage9_audit` | 2 |
+| `wordnet_synset:rest.v.01 + stage9_audit` | 2 |
+| `wordnet_synset:eat.v.01 + stage9_audit` | 1 |
+| `wordnet_synset:close.v.01 + stage9_audit` | 1 |
+| `wordnet_synset:contain.v.01 + stage9_audit` | 1 |
+| `wordnet_synset:attach.v.01 + stage9_audit` | 1 |
+| `wordnet_synset:put.v.01 + stage9_audit` | 1 |
+| `wordnet_synset:hit.v.01 + stage9_audit` | 1 |
 
 ## Canonical Relation Parents
 
@@ -763,7 +838,7 @@
 | `entity_exists:candle` | 1 |
 | `has_attribute:glass:stained` | 1 |
 | `has_attribute:interior:church` | 1 |
-| `has_attribute:pew:wooden` | 1 |
+| `has_attribute:pew:wood` | 1 |
 | `entity_exists:pikachu` | 1 |
 | `entity_exists:outfit` | 1 |
 | `entity_exists:stripe` | 1 |
@@ -1560,10 +1635,10 @@
 | `entity_exists:dock` | 1 |
 | `entity_exists:platform` | 1 |
 | `entity_exists:post` | 1 |
-| `has_attribute:dock:wooden` | 1 |
+| `has_attribute:dock:wood` | 1 |
 | `has_attribute:water:calm` | 1 |
 | `has_attribute:water:blue` | 1 |
-| `has_attribute:post:wooden` | 1 |
+| `has_attribute:post:wood` | 1 |
 | `event_role:rest:agent:sea_lion` | 1 |
 | `action_event:lie_down` | 1 |
 | `relation:sea_lion:on:dock` | 1 |
@@ -1595,7 +1670,7 @@
 | `entity_exists:chess` | 1 |
 | `entity_exists:girl` | 1 |
 | `entity_exists:chessboard` | 1 |
-| `has_attribute:table:wooden` | 1 |
+| `has_attribute:table:wood` | 1 |
 | `has_attribute:girl:young` | 1 |
 | `has_attribute:shirt:gray` | 1 |
 | `has_attribute:area:sunny` | 1 |
@@ -1711,18 +1786,22 @@
 | `relation_parent:association_relation` | 71 |
 | `attribute_parent:modifier_attribute` | 69 |
 | `relation_parent:spatial_containment` | 69 |
+| `entity_parent:artifact` | 66 |
 | `entity_parent:scene_context` | 53 |
 | `entity_parent:clothing` | 51 |
 | `entity_parent:wearable` | 51 |
 | `relation_parent:spatial_support` | 49 |
 | `action_parent:body_pose_action` | 42 |
+| `entity_parent:place` | 42 |
 | `attribute_parent:compound_modifier` | 41 |
+| `entity_parent:living_thing` | 40 |
 | `relation_parent:spatial_proximity` | 37 |
+| `entity_parent:plant` | 36 |
 | `quantity_parent:quantity` | 34 |
 | `attribute_parent:material` | 33 |
 | `attribute_parent:clean_exact_overlap` | 33 |
 | `attribute_parent:material_attribute` | 31 |
-| `entity_parent:artifact` | 29 |
+| `entity_parent:structure` | 30 |
 | `attribute_parent:size_attribute` | 29 |
 | `attribute_parent:attribute` | 22 |
 | `attribute_parent:state_attribute` | 20 |
@@ -1730,14 +1809,20 @@
 | `quantity_parent:exact_quantity` | 19 |
 | `attribute_parent:size` | 18 |
 | `relation_parent:spatial_vertical` | 17 |
+| `entity_parent:path` | 16 |
 | `entity_parent:body_part` | 16 |
 | `quantity_parent:approximate_quantity` | 15 |
+| `entity_parent:outdoor_scene` | 15 |
 | `action_parent:wearing_action` | 15 |
+| `entity_parent:architectural_part` | 13 |
 | `entity_parent:text_carrier` | 13 |
 | `relation_parent:spatial_location` | 13 |
+| `entity_parent:natural_element` | 12 |
+| `entity_parent:natural_scene` | 12 |
 | `entity_parent:vehicle` | 12 |
 | `relation_parent:spatial_path` | 12 |
 | `relation_parent:part_relation` | 12 |
+| `action_parent:visual_presentation_action` | 11 |
 | `entity_parent:furniture` | 9 |
 | `attribute_parent:height` | 8 |
 | `relation_parent:spatial_region` | 8 |
@@ -1757,9 +1842,12 @@
 | `attribute_parent:condition_attribute` | 4 |
 | `attribute_parent:maturity` | 4 |
 | `attribute_parent:newness` | 4 |
+| `action_parent:occlusion_or_covering_action` | 4 |
 | `entity_parent:animal` | 4 |
-| `entity_parent:living_thing` | 4 |
+| `entity_parent:body_of_water` | 4 |
 | `entity_parent:device` | 4 |
+| `action_parent:attachment_action` | 4 |
+| `entity_parent:landform` | 4 |
 | `entity_parent:protective_gear` | 3 |
 | `attribute_parent:coco_subtype_rule` | 3 |
 | `attribute_parent:state` | 3 |
@@ -1770,24 +1858,36 @@
 | `attribute_parent:non_textile_material_type` | 3 |
 | `action_parent:communication_action` | 3 |
 | `action_parent:expression_action` | 3 |
-| `action_parent:attachment_action` | 3 |
+| `action_parent:containment_state_action` | 3 |
 | `action_parent:gaze_action` | 3 |
+| `entity_parent:building` | 3 |
+| `entity_parent:interior_place` | 3 |
+| `entity_parent:container` | 2 |
 | `attribute_parent:color_quantity` | 2 |
 | `attribute_parent:floating_attribute` | 2 |
 | `attribute_parent:opaqeness` | 2 |
 | `attribute_parent:other` | 2 |
 | `attribute_parent:texture_attribute` | 2 |
+| `action_parent:spatial_configuration_action` | 2 |
 | `attribute_parent:length` | 2 |
 | `relation_parent:spatial_contact` | 2 |
 | `entity_parent:time_context` | 2 |
+| `action_parent:support_state_action` | 2 |
 | `action_parent:gesture_action` | 2 |
 | `action_parent:activity_action` | 2 |
 | `entity_parent:bird` | 1 |
 | `attribute_parent:textile_pattern` | 1 |
+| `entity_parent:natural_object` | 1 |
+| `entity_parent:surface` | 1 |
+| `action_parent:consumption_action` | 1 |
+| `action_parent:state_change_action` | 1 |
 | `attribute_parent:hardness` | 1 |
 | `relation_parent:spatial_separation` | 1 |
 | `action_parent:text_interaction_action` | 1 |
 | `attribute_parent:width` | 1 |
+| `action_parent:placement_action` | 1 |
+| `entity_parent:accessory` | 1 |
+| `action_parent:contact_action` | 1 |
 
 ## Canonicalization Notes
 

@@ -1,0 +1,28 @@
+﻿term	parent_chain	count_channel	confidence	source	notes
+blow_out	state_change_action|visual_action	action	high	phrasal_action_model_audited_core + stage9_audit	accepted phrasal action parent
+stick_out	protrusion_state_action|visual_action	action	high	phrasal_action_model_audited_core + stage9_audit	accepted phrasal action parent
+fall_off	detachment_motion_action|visual_action	action	high	phrasal_action_model_audited_core + stage9_audit	accepted phrasal action parent
+hang_off	attachment_action|visual_action	action	high	phrasal_action_model_audited_core + stage9_audit	accepted phrasal action parent
+eat	consumption_action|visual_action	action	high	wordnet_synset:eat.v.01 + stage9_audit	visual consumption action parent
+drink	consumption_action|visual_action	action	high	wordnet_synset:drink.v.01 + stage9_audit	visual consumption action parent
+feed	consumption_support_action|visual_action	action	high	wordnet_synset:feed.v.01 + stage9_audit	visual feeding action parent
+throw	manipulation_action|motion_action|visual_action	action	high	wordnet_synset:throw.v.01 + stage9_audit	visual object manipulation/motion action
+catch	manipulation_action|visual_action	action	high	wordnet_synset:catch.v.03 + stage9_audit	visual object manipulation action
+kick	body_motion_action|sports_action|visual_action	action	high	wordnet_synset:kick.v.01 + stage9_audit	visual body motion/sports action
+hit	contact_action|visual_action	action	high	wordnet_synset:hit.v.01 + stage9_audit	visual contact action
+swing	body_motion_action|visual_action	action	high	wordnet_synset:swing.v.01 + stage9_audit	visual motion/action parent
+dance	body_motion_action|activity_action|visual_action	action	high	wordnet_synset:dance.v.01 + stage9_audit	visual body motion/activity action
+cook	preparation_action|visual_action	action	high	wordnet_synset:cook.v.01 + stage9_audit	visual food preparation action
+cut	manipulation_action|state_change_action|visual_action	action	high	wordnet_synset:cut.v.01 + stage9_audit	visual object manipulation/state-change action
+open	state_change_action|visual_action	action	medium	wordnet_synset:open.v.01 + stage9_audit	visual state change; medium because adjective/state ambiguity exists
+close	state_change_action|visual_action	action	medium	wordnet_synset:close.v.01 + stage9_audit	visual state change; medium because adjective/state ambiguity exists
+place	placement_action|visual_action	action	high	wordnet_synset:put.v.01 + stage9_audit	visual placement action
+rest	support_state_action|visual_action	action	medium	wordnet_synset:rest.v.01 + stage9_audit	visual resting/support state; medium because rest is broad
+lean	body_pose_action|support_state_action|visual_action	action	high	wordnet_synset:lean.v.01 + stage9_audit	visual pose/support action
+cover	occlusion_or_covering_action|visual_action	action	high	wordnet_synset:cover.v.01 + stage9_audit	visual covering/occlusion action
+surround	spatial_configuration_action|visual_action	action	high	wordnet_synset:surround.v.01 + stage9_audit	visual spatial configuration predicate
+show	visual_presentation_action|visual_action	action	high	wordnet_synset:show.v.01 + stage9_audit	visual presentation action
+display	visual_presentation_action|visual_action	action	high	wordnet_synset:display.v.01 + stage9_audit	visual presentation action
+contain	containment_state_action|visual_action	action	medium	wordnet_synset:contain.v.01 + stage9_audit	visual containment predicate; medium because often stative
+fill	containment_state_action|visual_action	action	medium	wordnet_synset:fill.v.01 + stage9_audit	visual containment/filling predicate; medium because passive frame common
+attach	attachment_action|visual_action	action	high	wordnet_synset:attach.v.01 + stage9_audit	visual attachment action

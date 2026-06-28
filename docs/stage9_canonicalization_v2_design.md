@@ -1,4 +1,4 @@
-﻿# Stage 9 Canonicalization v2 설계 메모
+# Stage 9 Canonicalization v2 설계 메모
 
 ## 핵심 정정
 
@@ -143,3 +143,101 @@ trace:
   patient <- raw_role: theme, voice_normalization: passive_to_active
   agent   <- raw_role: by_agent_or_causer, voice_normalization: passive_to_active
 ```
+
+## 2026-06-28: Stage 9 lexicon expansion v1
+
+목표:
+
+```text
+Stage 9 canonicalization을 단순 lemma 정규화에서 끝내지 않고,
+raw concept -> canonical representative -> parent concept 형태로 더 많이 count 가능하게 만든다.
+```
+
+이번 결정:
+
+```text
+기존 seed 파일을 직접 크게 섞지 않고, expansion v1 파일을 별도로 둔다.
+Stage 9 loader는 base seed + expansion seed를 함께 읽는다.
+```
+
+새 파일:
+
+```text
+resources/lexicons/stage9_object_synonym_expansion_v1.tsv
+resources/lexicons/stage9_object_parent_expansion_v1.tsv
+resources/lexicons/stage9_action_parent_expansion_v1.tsv
+resources/lexicons/stage9_attribute_synonym_seed.tsv
+resources/external/nltk_data/corpora/wordnet.zip  # local cache, gitignored
+resources/external/nltk_data/corpora/omw-1.4.zip  # local cache, gitignored
+```
+
+source 정책:
+
+- object synonym은 WordNet synset + caption visual audit가 모두 명확한 high-confidence alias만 우선 적용한다.
+- object parent는 WordNet hypernym, COCO object label, 명확한 project visual ontology audit를 근거로 둔다.
+- action parent는 accepted phrasal action whitelist와 WordNet verb synset 기반으로 보강한다.
+- attribute synonym은 exact attribute type은 유지하되, countable 대표어가 필요한 색상/재질 alias만 별도 적용한다.
+- GPIC target caption을 보고 whitelist를 고르지는 않는다.
+
+예시:
+
+| raw | canonical | parent | source |
+|---|---|---|---|
+| `puppy`, `canine` | `dog` | `animal|living_thing` | WordNet synset + Stage 9 audit |
+| `cab`, `taxicab` | `taxi` | `vehicle` | WordNet synset/hypernym + Stage 9 audit |
+| `lady` | `woman` | `person|human` | WordNet synset + Stage 9 audit |
+| `tv` | `television` | `device|artifact` | COCO object label + WordNet |
+| `tree` | `tree` | `plant|living_thing` | WordNet hypernym |
+| `building` | `building` | `structure|artifact` | WordNet synset |
+| `navy` | `blue` | `color_attribute|color|visual_attribute` | CSS/VG overlap + basic color audit |
+| `wooden` | `wood` | `material_attribute|material|visual_attribute` | material lexicon + audit |
+| `blow_out` | `blow_out` | `state_change_action|visual_action` | phrasal action whitelist |
+| `surround` | `surround` | `spatial_configuration_action|visual_action` | WordNet verb synset + audit |
+
+구현 변경:
+
+```text
+scripts/stage9_lexical_canonicalizer.py
+  - object/action/parent expansion TSV를 기본 로딩 경로에 추가
+  - attribute synonym map 추가
+  - TSV reader를 utf-8-sig로 변경해 BOM 있는 TSV도 안전하게 처리
+
+scripts/canonicalize_raw_concepts.py
+  - 새 expansion lexicon CLI 인자 추가
+  - summary에 expansion lexicon 경로 기록
+```
+
+검증:
+
+```text
+compileall scripts: passed
+
+lexicon load count:
+  object_synonyms: 7110
+  object_parents: 179
+  action_parents: 75
+  attribute_synonyms: 19
+  attributes: 622
+
+sample100 current entity parent none: 316
+alt100 current entity parent none: 308
+```
+
+출력 재생성:
+
+```text
+reports/canonical_concepts_sample100_val00000_trf_stage9_canonical_v2.jsonl
+reports/canonical_concepts_sample100_val00000_trf_stage9_canonical_v2_summary.md
+reports/case_detail_sample100_val00000_trf_stage9_canonical_v2.md
+
+reports/canonical_concepts_alt100_val00001_trf_stage9_canonical_v2.jsonl
+reports/canonical_concepts_alt100_val00001_trf_stage9_canonical_v2_summary.md
+reports/case_detail_alt100_val00001_trf_stage9_canonical_v2.md
+```
+
+남은 과제:
+
+- WordNet/OEWN 전체를 바로 auto-apply하지 말고 candidate TSV를 만든 뒤 audit해서 v2로 승격한다.
+- Open Images hierarchy, LVIS/COCO supercategory를 object parent 후보로 추가한다.
+- VerbNet/FrameNet 기반 action parent 후보를 만든다.
+- `turquoise`, `teal`, `magenta`처럼 basic color collapse가 애매한 색은 아직 자동 적용하지 않는다.

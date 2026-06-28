@@ -1,0 +1,66 @@
+﻿term	parent_chain	count_channel	confidence	source	notes
+airplane	vehicle	entity	high	COCO object label + wordnet_hypernym:vehicle.n.01 + stage9_audit	vehicle parent for coarse counting
+train	vehicle	entity	high	COCO object label + wordnet_hypernym:vehicle.n.01 + stage9_audit	vehicle parent for coarse counting
+boat	vehicle	entity	high	COCO object label + wordnet_hypernym:vehicle.n.01 + stage9_audit	vehicle parent for coarse counting
+taxi	vehicle	entity	high	wordnet_synset:cab.n.03 + wordnet_hypernym:vehicle.n.01 + stage9_audit	vehicle parent for coarse counting
+television	device|artifact	entity	high	COCO object label + wordnet_hypernym:device.n.01 + stage9_audit	device parent for coarse counting
+tv	device|artifact	entity	high	COCO object label + wordnet_hypernym:device.n.01 + stage9_audit	device parent for coarse counting
+keyboard	device|artifact	entity	high	COCO object label + wordnet_hypernym:device.n.01 + stage9_audit	device parent for coarse counting
+microwave	appliance|device|artifact	entity	high	COCO object label + wordnet_hypernym:appliance.n.02 + stage9_audit	appliance parent for coarse counting
+oven	appliance|device|artifact	entity	high	COCO object label + wordnet_hypernym:appliance.n.02 + stage9_audit	appliance parent for coarse counting
+toaster	appliance|device|artifact	entity	high	COCO object label + wordnet_hypernym:appliance.n.02 + stage9_audit	appliance parent for coarse counting
+refrigerator	appliance|device|artifact	entity	high	COCO object label + wordnet_hypernym:appliance.n.02 + stage9_audit	appliance parent for coarse counting
+tree	plant|living_thing	entity	high	wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit	plant parent for coarse counting
+grass	plant|living_thing	entity	high	wordnet_synset:grass.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit	plant parent for coarse counting
+flower	plant|living_thing	entity	high	wordnet_synset:flower.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit	plant parent for coarse counting
+bush	plant|living_thing	entity	high	wordnet_synset:shrub.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit	plant parent for coarse counting
+plant	plant|living_thing	entity	high	wordnet_synset:plant.n.02 + stage9_audit	plant parent for coarse counting
+sky	natural_scene	entity	high	wordnet_synset:sky.n.01 + stage9_audit	scene element parent for coarse counting
+cloud	natural_element	entity	high	wordnet_synset:cloud.n.01 + stage9_audit	natural element parent for coarse counting
+water	natural_element	entity	high	wordnet_synset:water.n.01 + stage9_audit	natural element parent for coarse counting
+snow	natural_element	entity	high	wordnet_synset:snow.n.01 + stage9_audit	natural element parent for coarse counting
+rock	natural_object	entity	high	wordnet_synset:rock.n.01 + stage9_audit	natural object parent for coarse counting
+stone	natural_object|material_source	entity	high	wordnet_synset:stone.n.01 + stage9_audit	natural object/material source parent
+mountain	landform|place	entity	high	wordnet_synset:mountain.n.01 + stage9_audit	landform parent for coarse counting
+river	body_of_water|place	entity	high	wordnet_synset:river.n.01 + stage9_audit	body-of-water parent for coarse counting
+lake	body_of_water|place	entity	high	wordnet_synset:lake.n.01 + stage9_audit	body-of-water parent for coarse counting
+ocean	body_of_water|place	entity	high	wordnet_synset:ocean.n.01 + stage9_audit	body-of-water parent for coarse counting
+sea	body_of_water|place	entity	high	wordnet_synset:sea.n.01 + stage9_audit	body-of-water parent for coarse counting
+beach	outdoor_scene|place	entity	high	wordnet_synset:beach.n.01 + stage9_audit	outdoor scene parent for coarse counting
+building	structure|artifact	entity	high	wordnet_synset:building.n.01 + stage9_audit	built structure parent for coarse counting
+house	building|structure|artifact	entity	high	wordnet_synset:house.n.01 + stage9_audit	building parent for coarse counting
+room	interior_place|place	entity	high	wordnet_synset:room.n.01 + stage9_audit	interior place parent for coarse counting
+wall	architectural_part|structure|artifact	entity	high	wordnet_synset:wall.n.01 + stage9_audit	architectural part parent for coarse counting
+window	architectural_part|artifact	entity	high	wordnet_synset:window.n.01 + stage9_audit	architectural part parent for coarse counting
+door	architectural_part|artifact	entity	high	wordnet_synset:door.n.01 + stage9_audit	architectural part parent for coarse counting
+floor	architectural_part|surface|artifact	entity	high	wordnet_synset:floor.n.01 + stage9_audit	architectural surface parent for coarse counting
+roof	architectural_part|structure|artifact	entity	high	wordnet_synset:roof.n.01 + stage9_audit	architectural part parent for coarse counting
+fence	structure|artifact	entity	high	wordnet_synset:fence.n.01 + stage9_audit	built structure parent for coarse counting
+bridge	structure|artifact	entity	high	wordnet_synset:bridge.n.01 + stage9_audit	built structure parent for coarse counting
+tower	structure|artifact	entity	high	wordnet_synset:tower.n.01 + stage9_audit	built structure parent for coarse counting
+stage	platform|place|artifact	entity	medium	wordnet_synset:stage.n.03 + stage9_audit	stage/platform parent; medium because stage has abstract senses
+sidewalk	path|place	entity	high	wordnet_synset:sidewalk.n.01 + stage9_audit	path/place parent for coarse counting
+road	path|place	entity	high	wordnet_synset:road.n.01 + stage9_audit	path/place parent for coarse counting
+street	path|place	entity	high	wordnet_synset:street.n.01 + stage9_audit	path/place parent for coarse counting
+path	path|place	entity	high	wordnet_synset:path.n.04 + stage9_audit	path/place parent for coarse counting
+court	sports_place|place	entity	medium	wordnet_synset:court.n.01 + stage9_audit	sports/place parent; medium because court is polysemous
+field	outdoor_scene|place	entity	medium	wordnet_synset:field.n.01 + stage9_audit	outdoor place parent; medium because field is polysemous
+garden	outdoor_scene|place	entity	high	wordnet_synset:garden.n.01 + stage9_audit	outdoor scene parent for coarse counting
+park	outdoor_scene|place	entity	medium	wordnet_synset:park.n.02 + stage9_audit	outdoor place parent; medium because park is polysemous
+bottle	container|artifact	entity	high	COCO object label + wordnet_hypernym:container.n.01 + stage9_audit	container parent for coarse counting
+cup	container|artifact	entity	high	COCO object label + wordnet_hypernym:container.n.01 + stage9_audit	container parent for coarse counting
+bowl	container|artifact	entity	high	COCO object label + wordnet_hypernym:container.n.01 + stage9_audit	container parent for coarse counting
+plate	dishware|artifact	entity	high	wordnet_synset:plate.n.04 + stage9_audit	dishware parent for coarse counting
+fork	utensil|artifact	entity	high	COCO object label + wordnet_hypernym:utensil.n.01 + stage9_audit	utensil parent for coarse counting
+knife	utensil|artifact	entity	high	COCO object label + wordnet_hypernym:utensil.n.01 + stage9_audit	utensil parent for coarse counting
+spoon	utensil|artifact	entity	high	COCO object label + wordnet_hypernym:utensil.n.01 + stage9_audit	utensil parent for coarse counting
+food	food	entity	high	wordnet_synset:food.n.01 + stage9_audit	food parent for coarse counting
+apple	fruit|food	entity	high	COCO object label + wordnet_hypernym:fruit.n.01 + stage9_audit	food parent for coarse counting
+banana	fruit|food	entity	high	COCO object label + wordnet_hypernym:fruit.n.01 + stage9_audit	food parent for coarse counting
+pizza	prepared_food|food	entity	high	COCO object label + wordnet_hypernym:food.n.01 + stage9_audit	food parent for coarse counting
+sandwich	prepared_food|food	entity	high	COCO object label + wordnet_hypernym:food.n.01 + stage9_audit	food parent for coarse counting
+cake	prepared_food|food	entity	high	COCO object label + wordnet_hypernym:food.n.01 + stage9_audit	food parent for coarse counting
+umbrella	accessory|artifact	entity	high	COCO object label + wordnet_synset:umbrella.n.01 + stage9_audit	accessory/artifact parent for coarse counting
+bag	container|accessory|artifact	entity	medium	wordnet_synset:bag.n.01 + stage9_audit	container/accessory parent; medium because bag is broad
+backpack	bag|container|accessory|artifact	entity	high	COCO object label + wordnet_synset:backpack.n.01 + stage9_audit	bag/accessory parent for coarse counting
+suitcase	luggage|container|artifact	entity	high	COCO object label + wordnet_synset:suitcase.n.01 + stage9_audit	luggage/container parent for coarse counting

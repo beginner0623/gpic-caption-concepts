@@ -1,0 +1,24 @@
+﻿term	canonical	count_channel	confidence	source	notes
+auto	car	entity	high	wordnet_synset:car.n.01 + stage9_audit	visual vehicle alias; count with car
+autos	car	entity	high	wordnet_synset:car.n.01 + stage9_audit	plural visual vehicle alias; count with car
+automobiles	car	entity	high	wordnet_synset:car.n.01 + stage9_audit	plural vehicle alias; count with car
+motorcar	car	entity	high	wordnet_synset:car.n.01 + stage9_audit	vehicle alias; count with car
+motorcars	car	entity	high	wordnet_synset:car.n.01 + stage9_audit	plural vehicle alias; count with car
+puppy	dog	entity	high	wordnet_synset:puppy.n.01 + stage9_audit	young dog; collapse to dog for coarse concept counting
+puppies	dog	entity	high	wordnet_synset:puppy.n.01 + stage9_audit	plural young dog; collapse to dog for coarse concept counting
+canine	dog	entity	high	wordnet_synset:canine.n.02 + stage9_audit	caption animal alias; collapse to dog when used as noun
+canines	dog	entity	high	wordnet_synset:canine.n.02 + stage9_audit	plural caption animal alias; collapse to dog when used as noun
+cab	taxi	entity	high	wordnet_synset:cab.n.03 + stage9_audit	taxicab alias; count with taxi
+cabs	taxi	entity	high	wordnet_synset:cab.n.03 + stage9_audit	plural taxicab alias; count with taxi
+taxicab	taxi	entity	high	wordnet_synset:cab.n.03 + stage9_audit	taxi alias; count with taxi
+taxicabs	taxi	entity	high	wordnet_synset:cab.n.03 + stage9_audit	plural taxi alias; count with taxi
+lady	woman	entity	high	wordnet_synset:lady.n.01 + stage9_audit	adult female human alias in caption context
+ladies	woman	entity	high	wordnet_synset:lady.n.01 + stage9_audit	plural adult female human alias in caption context
+settee	sofa	entity	high	wordnet_synset:sofa.n.01 + stage9_audit	sofa alias; count with sofa
+settees	sofa	entity	high	wordnet_synset:sofa.n.01 + stage9_audit	plural sofa alias; count with sofa
+cellular_phone	cell_phone	entity	high	wordnet_synset:cellular_telephone.n.01 + stage9_audit	phone alias; count with cell_phone
+cellular_telephone	cell_phone	entity	high	wordnet_synset:cellular_telephone.n.01 + stage9_audit	phone alias; count with cell_phone
+tv	television	entity	high	COCO object label + wordnet_synset:television.n.01 + stage9_audit	visual device alias; count with television
+television_set	television	entity	high	wordnet_synset:television_receiver.n.01 + stage9_audit	visual device alias; count with television
+aeroplane	airplane	entity	high	wordnet_synset:airplane.n.01 + stage9_audit	airplane spelling variant
+aeroplanes	airplane	entity	high	wordnet_synset:airplane.n.01 + stage9_audit	plural airplane spelling variant

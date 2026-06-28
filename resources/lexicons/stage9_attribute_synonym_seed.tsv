@@ -1,0 +1,19 @@
+﻿term	canonical	count_channel	confidence	source	notes
+scarlet	red	color_attribute	high	css_color_4 + wordnet_synset:scarlet.s.01 + stage9_basic_color_audit	basic color collapse for countable schema
+crimson	red	color_attribute	high	css_color_4 + visual_genome_overlap + wordnet_synset:red.s.01 + stage9_basic_color_audit	basic color collapse for countable schema
+vermilion	red	color_attribute	high	css_color_4 + wordnet_synset:vermilion.s.01 + stage9_basic_color_audit	basic color collapse for countable schema
+navy	blue	color_attribute	high	css_color_4 + visual_genome_overlap + stage9_basic_color_audit	basic color collapse; exact color remains recoverable from raw mention
+navy_blue	blue	color_attribute	high	vaw + visual_genome_overlap + stage9_basic_color_audit	basic color collapse; exact color remains recoverable from raw mention
+azure	blue	color_attribute	high	css_color_4 + visual_genome_overlap + wordnet_synset:azure.s.01 + stage9_basic_color_audit	basic color collapse for countable schema
+cerulean	blue	color_attribute	high	css_color_4 + visual_genome_overlap + wordnet_synset:azure.s.01 + stage9_basic_color_audit	basic color collapse for countable schema
+violet	purple	color_attribute	high	css_color_4 + visual_genome_overlap + wordnet_synset:purple.s.01 + stage9_basic_color_audit	basic color collapse for countable schema
+lavender	purple	color_attribute	high	css_color_4 + stage9_basic_color_audit	basic color collapse for countable schema
+grey	gray	color_attribute	high	css_color_4 + spelling_variant + stage9_basic_color_audit	US/UK spelling normalization
+darkgrey	gray	color_attribute	high	css_color_4 + spelling_variant + stage9_basic_color_audit	basic color collapse for countable schema
+lightgrey	gray	color_attribute	high	css_color_4 + spelling_variant + stage9_basic_color_audit	basic color collapse for countable schema
+darkgray	gray	color_attribute	high	css_color_4 + stage9_basic_color_audit	basic color collapse for countable schema
+lightgray	gray	color_attribute	high	css_color_4 + stage9_basic_color_audit	basic color collapse for countable schema
+wooden	wood	material_attribute	high	modifier_attribute_material_lexicon + stage9_material_audit	material adjective collapsed to material noun
+metallic	metal	material_attribute	high	modifier_attribute_material_lexicon + stage9_material_audit	material adjective collapsed to material noun
+stony	stone	material_attribute	medium	modifier_attribute_material_lexicon + stage9_material_audit	material adjective collapsed to material noun; medium because stony can mean texture
+glassy	glass	material_attribute	medium	modifier_attribute_material_lexicon + stage9_material_audit	material/texture adjective collapsed to material noun; medium because glassy can mean texture/appearance
