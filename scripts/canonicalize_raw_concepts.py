@@ -12,6 +12,12 @@ from phrasal_action_lexicon import (
     load_phrasal_action_lexicon,
     phrasal_action_entry,
 )
+from stage9_reference_model import (
+    build_reference_model,
+    canonical_relation_endpoint,
+    canonical_target_for_role,
+    recovered_roles_from_skipped_edges,
+)
 
 
 PASSIVE_SUBJECT_PREFIXES = ("nsubjpass", "csubjpass")
@@ -37,6 +43,10 @@ def is_passive_subject_edge(edge: dict[str, object]) -> bool:
         return False
     evidence = str(edge.get("evidence", ""))
     return evidence.startswith(PASSIVE_SUBJECT_PREFIXES)
+
+
+def norm_text(value: object) -> str:
+    return " ".join(str(value or "").strip().lower().split())
 
 
 def action_particles(
@@ -66,7 +76,9 @@ def canonicalize_record(
 ) -> dict[str, object]:
     mentions = list(record.get("concept_mentions", []))
     edges = list(record.get("edges", []))
+    skipped_edges = list(record.get("skipped_edges", []))
     mentions_by_id = {str(mention["mention_id"]): mention for mention in mentions if "mention_id" in mention}
+    reference_model = build_reference_model(mentions, edges)
     outgoing_edges: dict[str, list[dict[str, object]]] = defaultdict(list)
     relation_edges: list[dict[str, object]] = []
     for edge in edges:
@@ -137,6 +149,12 @@ def canonicalize_record(
                 {
                     "role": role,
                     "target": edge.get("target"),
+                    "canonical_target": canonical_target_for_role(
+                        str(edge.get("target")),
+                        edge,
+                        action,
+                        reference_model,
+                    ),
                     "confidence": edge.get("confidence"),
                     "raw_edge_id": edge.get("edge_id"),
                     "evidence": edge.get("evidence"),
@@ -152,6 +170,7 @@ def canonicalize_record(
                     {
                         "role": "by_agent_or_causer",
                         "target": relation.get("target"),
+                        "canonical_target": reference_model["mention_to_entity"].get(str(relation.get("target"))),
                         "confidence": relation.get("confidence"),
                         "raw_edge_id": relation.get("edge_id"),
                         "evidence": "passive by-frame",
@@ -167,24 +186,47 @@ def canonicalize_record(
                     }
                 )
 
+        for recovered_role in recovered_roles_from_skipped_edges(action, skipped_edges, reference_model):
+            event["roles"].append(recovered_role)
+            notes.append(
+                {
+                    "kind": "skipped_reference_role_recovered",
+                    "action_mention_id": action_id,
+                    "role": recovered_role.get("role"),
+                    "canonical_target": recovered_role.get("canonical_target"),
+                    "reason": recovered_role.get("recovered_from_skipped_edge"),
+                }
+            )
+
         canonical_events.append(event)
+
+    repair_conj_agent_reference_targets(canonical_events, notes)
 
     canonical_relations = []
     for edge in relation_edges:
+        source = str(edge.get("source"))
+        target = str(edge.get("target"))
+        canonical_source = canonical_relation_endpoint(source, edge, "source", reference_model)
+        canonical_target = canonical_relation_endpoint(target, edge, "target", reference_model)
         canonical_relations.append(
             {
                 "relation_id": f"cr{len(canonical_relations)}",
                 "source": edge.get("source"),
                 "target": edge.get("target"),
+                "canonical_source": canonical_source,
+                "canonical_target": canonical_target,
                 "canonical_relation": edge.get("evidence"),
                 "confidence": edge.get("confidence"),
                 "raw_edge_id": edge.get("edge_id"),
                 "consumed_by_event": str(edge.get("edge_id")) in consumed_relation_ids,
+                "self_relation_after_canonicalization": canonical_source == canonical_target,
             }
         )
 
     output = dict(record)
     output["stage9"] = {
+        "canonical_entities": reference_model["entities"],
+        "entity_links": reference_model["entity_links"],
         "canonical_events": canonical_events,
         "canonical_relations": canonical_relations,
         "canonicalization_notes": notes,
@@ -192,21 +234,86 @@ def canonicalize_record(
     return output
 
 
+def repair_conj_agent_reference_targets(
+    canonical_events: list[dict[str, object]],
+    notes: list[dict[str, object]],
+) -> None:
+    events_by_text: dict[str, list[dict[str, object]]] = defaultdict(list)
+    for event in canonical_events:
+        events_by_text[norm_text(event.get("raw_action_text"))].append(event)
+        events_by_text[norm_text(event.get("raw_action_lemma"))].append(event)
+
+    for event in canonical_events:
+        event_i = event.get("source_token_i")
+        for role in event.get("roles", []):
+            if role.get("role") != "agent":
+                continue
+            evidence = str(role.get("evidence", ""))
+            marker = "inherited agent conj -> "
+            if marker not in evidence:
+                continue
+            raw_target = role.get("target")
+            default_target = f"ent_{raw_target}"
+            if role.get("canonical_target") != default_target:
+                continue
+            inherited_surface = norm_text(evidence.split(marker, 1)[1].split(";", 1)[0])
+            candidates = []
+            for candidate in events_by_text.get(inherited_surface, []):
+                candidate_i = candidate.get("source_token_i")
+                if isinstance(event_i, int) and isinstance(candidate_i, int) and candidate_i > event_i:
+                    continue
+                for candidate_role in candidate.get("roles", []):
+                    if candidate_role.get("role") != "agent" or candidate_role.get("target") != raw_target:
+                        continue
+                    candidate_target = candidate_role.get("canonical_target")
+                    if candidate_target and candidate_target != default_target:
+                        distance = abs((event_i if isinstance(event_i, int) else 0) - (candidate_i if isinstance(candidate_i, int) else 0))
+                        candidates.append((distance, candidate_target, candidate.get("action_mention_id")))
+            if not candidates:
+                continue
+            _distance, canonical_target, source_action_id = sorted(candidates)[0]
+            role["canonical_target"] = canonical_target
+            role["canonical_repair"] = "conj_agent_inherited_from_reference_canonical_target"
+            notes.append(
+                {
+                    "kind": "conj_agent_reference_target_inherited",
+                    "action_mention_id": event.get("action_mention_id"),
+                    "source_action_mention_id": source_action_id,
+                    "canonical_target": canonical_target,
+                }
+            )
+
+
 def update_summary(record: dict[str, object], counters: dict[str, Counter[str]]) -> None:
     stage9 = record.get("stage9", {})
+    entities = stage9.get("canonical_entities", []) if isinstance(stage9, dict) else []
+    entity_links = stage9.get("entity_links", []) if isinstance(stage9, dict) else []
     events = stage9.get("canonical_events", []) if isinstance(stage9, dict) else []
     relations = stage9.get("canonical_relations", []) if isinstance(stage9, dict) else []
     notes = stage9.get("canonicalization_notes", []) if isinstance(stage9, dict) else []
     counters["records"]["records"] += 1
     counters["records"][str(record.get("parse_path", "unknown"))] += 1
+    for entity in entities:
+        counters["entities"][str(entity.get("entity_type", ""))] += 1
+        counters["semantic_types"][str(entity.get("semantic_type", ""))] += 1
+    for link in entity_links:
+        counters["entity_links"][str(link.get("link_type", ""))] += 1
     for event in events:
         counters["events"][str(event.get("canonical_action", ""))] += 1
         for role in event.get("roles", []):
             counters["roles"][str(role.get("role", ""))] += 1
+            if role.get("recovered_from_skipped_edge"):
+                counters["roles"]["recovered_from_skipped_edge"] += 1
     for relation in relations:
         counters["relations"][str(relation.get("canonical_relation", ""))] += 1
         if relation.get("consumed_by_event"):
             counters["relations"]["consumed_by_event"] += 1
+        default_source = f"ent_{relation.get('source')}"
+        default_target = f"ent_{relation.get('target')}"
+        if relation.get("canonical_source") != default_source or relation.get("canonical_target") != default_target:
+            counters["relations"]["reference_scoped_endpoint"] += 1
+        if relation.get("self_relation_after_canonicalization"):
+            counters["relations"]["self_after_canonicalization"] += 1
     for note in notes:
         counters["notes"][str(note.get("kind", ""))] += 1
 
@@ -234,6 +341,18 @@ def write_summary(path: Path, counters: dict[str, Counter[str]], *, input_path: 
         "## Canonical Event Actions",
         "",
         markdown_count_table(counters["events"]),
+        "",
+        "## Canonical Entities",
+        "",
+        markdown_count_table(counters["entities"]),
+        "",
+        "## Canonical Entity Semantic Types",
+        "",
+        markdown_count_table(counters["semantic_types"]),
+        "",
+        "## Entity Links",
+        "",
+        markdown_count_table(counters["entity_links"]),
         "",
         "## Canonical Event Roles",
         "",

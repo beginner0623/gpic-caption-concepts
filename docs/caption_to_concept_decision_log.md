@@ -4058,3 +4058,158 @@ filled + out
 ```
 
 이들은 raw evidence로는 보존되지만 `phrasal_action_model_audited_core.tsv`에 없으므로 canonical action label은 바꾸지 않는다.
+
+## 2026-06-28: Stage 9 reference/entity canonicalization v1
+
+### 왜 Stage 9인가
+
+`one`, `another`, `others`, `both`, `The device` 같은 표현은 caption surface에서 나온 raw evidence가 아니라 discourse-level entity 해석이다.
+
+따라서 Stage 8에서 raw object/edge를 파괴적으로 바꾸지 않고, Stage 9에서 별도 canonical entity를 만든다.
+
+```text
+Stage 8:
+  raw mention / raw edge / reference evidence 보존
+
+Stage 9:
+  canonical entity
+  reference entity
+  subset / instance / group
+  generic alias
+  canonical event role target
+  canonical relation endpoint
+```
+
+중요한 원칙:
+
+```text
+raw target은 보존한다.
+canonical_target / canonical_source만 추가한다.
+```
+
+### 구현
+
+추가 파일:
+
+```text
+scripts/stage9_reference_model.py
+```
+
+핵심 entity type:
+
+```text
+object
+context
+instance
+contrastive_instance
+complement_subset
+group
+```
+
+reference 해석:
+
+```text
+one      -> instance(parent)
+another  -> contrastive_instance(parent)
+other    -> contrastive_instance(parent)
+others   -> complement_subset(parent)
+both     -> group(parent)
+```
+
+`both`는 단어별 땜빵이 아니라 다음 조건을 함께 본다.
+
+```text
+required cardinality = 2
+usage role = action agent
+action type = human-agent-compatible action
+candidate antecedent = recent person-like entities
+```
+
+예:
+
+```text
+both wearing face masks
+raw antecedent: skirt_and_blazer
+stage9 repaired group members: woman + man
+canonical agent: both_group(woman, man)
+```
+
+generic definite NP는 class-compatible alias로만 처리한다.
+
+```text
+The device   -> previous device-like object
+The document -> previous document-like object
+```
+
+이것도 raw object mention을 제거하지 않고, `generic_alias` link와 canonical target만 추가한다.
+
+### alt100 검증
+
+input:
+
+```text
+reports/raw_concepts_alt100_val00001_trf_stage9_input.jsonl
+```
+
+output:
+
+```text
+reports/canonical_concepts_alt100_val00001_trf_stage9_reference_v1.jsonl
+reports/canonical_concepts_alt100_val00001_trf_stage9_reference_v1_summary.md
+```
+
+무결성:
+
+```text
+bad_canonical_entity_refs: 0
+```
+
+Stage 9 entity/link count:
+
+```text
+instance: 8
+contrastive_instance: 7
+complement_subset: 5
+group: 2
+refers_to links: 21
+generic_alias links: 2
+```
+
+reference-aware relation/event update:
+
+```text
+reference_scoped_endpoint: 13
+skipped_reference_role_recovered: 2
+conj_agent_reference_target_inherited: 1
+```
+
+개선 예:
+
+```text
+case 20:
+  both wearing face masks
+  canonical agent: both_group(woman, man)
+
+case 27:
+  one lying down
+  canonical agent: dog instance
+
+  others standing / moving around
+  canonical agent: dog complement_subset
+
+case 61:
+  The device has a curved shape...
+  canonical agent: hearing_aid
+
+case 73 / 94:
+  one in jacket / another in jacket
+  one in jersey / another in uniform
+  canonical relation source: 각각의 instance entity
+```
+
+보류:
+
+```text
+it + flow -> water 같은 selectional preference 기반 pronoun repair는 이번 범위에서 제외했다.
+이 문제는 action-role semantic compatibility table이 준비된 뒤 Stage 9 scoring으로 처리한다.
+```
