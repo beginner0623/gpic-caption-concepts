@@ -455,20 +455,25 @@ def main() -> int:
     args = parser.parse_args()
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    lines = [
-        f"# {args.title}",
-        "",
-        f"- input: `{args.input}`",
-        f"- max_records: `{args.max_records}`",
-        "- contents: raw concept mentions/edges + Stage 9 canonical entities/events/relations",
-        "",
-    ]
-    for index, record in enumerate(iter_jsonl(args.input), 1):
-        if index > args.max_records:
-            break
-        lines.append(render_record(record, index))
-
-    args.output.write_text("\n".join(lines), encoding="utf-8")
+    with args.output.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(
+            "\n".join(
+                [
+                    f"# {args.title}",
+                    "",
+                    f"- input: `{args.input}`",
+                    f"- max_records: `{args.max_records}`",
+                    "- contents: raw concept mentions/edges + Stage 9 canonical entities/events/relations",
+                    "",
+                ]
+            )
+        )
+        handle.write("\n")
+        for index, record in enumerate(iter_jsonl(args.input), 1):
+            if index > args.max_records:
+                break
+            handle.write(render_record(record, index))
+            handle.write("\n")
     print(args.output)
     return 0
 
