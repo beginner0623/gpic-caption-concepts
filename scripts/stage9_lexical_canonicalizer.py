@@ -467,7 +467,7 @@ def canonicalize_entity(
         canonical_source = "raw_lemma"
         canonical_confidence = "low"
 
-    parent = lookup_parent_entry(lexicon.object_parents, canonical)
+    parent = lookup_parent_entry(lexicon.object_parents, entity.get("text"), canonical)
     if parent is not None:
         parent_chain = parent.parent_chain
         parent_source = parent.source

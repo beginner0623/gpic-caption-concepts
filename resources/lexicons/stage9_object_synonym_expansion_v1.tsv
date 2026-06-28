@@ -22,3 +22,4 @@ tv	television	entity	high	COCO object label + wordnet_synset:television.n.01 + s
 television_set	television	entity	high	wordnet_synset:television_receiver.n.01 + stage9_audit	visual device alias; count with television
 aeroplane	airplane	entity	high	wordnet_synset:airplane.n.01 + stage9_audit	airplane spelling variant
 aeroplanes	airplane	entity	high	wordnet_synset:airplane.n.01 + stage9_audit	plural airplane spelling variant
+glasses	glasses	entity	medium	plural_surface_disambiguation	keep plural glasses separate from singular glass/material while parent remains broad

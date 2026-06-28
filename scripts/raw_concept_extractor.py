@@ -48,6 +48,11 @@ BODY_PART_LEMMAS = {
     "wing",
 }
 
+# Plural noun surfaces can disambiguate words that are attributes as singular modifiers.
+# Example: orange shirt -> color attribute, but two oranges -> fruit object.
+PLURAL_LEXICAL_OBJECT_LEMMAS = {"glass", "orange"}
+PLURAL_LEXICAL_OBJECT_SURFACES = {"glasses", "oranges"}
+
 COLOR_WORDS = {
     "black",
     "white",
@@ -1913,9 +1918,22 @@ class RawConceptExtractor:
             return False
         if quantity_role(token) in ROOT_ONLY_QUANTITY_ROLES:
             return False
+        if self._is_plural_lexical_object_token(token):
+            return True
         if self._is_color_token(token):
             return False
         return token.pos_ in OBJECT_POS or token.tag_ in {"NN", "NNS", "NNP", "NNPS"}
+
+    def _is_plural_lexical_object_token(self, token) -> bool:
+        if token.tag_ not in {"NNS", "NNPS"}:
+            return False
+        if token.pos_ not in OBJECT_POS:
+            return False
+        if token.dep_ in {"amod", "compound", "nummod"}:
+            return False
+        lemma = token.lemma_.lower()
+        surface = token.text.lower()
+        return lemma in PLURAL_LEXICAL_OBJECT_LEMMAS or surface in PLURAL_LEXICAL_OBJECT_SURFACES
 
     def _is_possessive_pronoun(self, token) -> bool:
         return token.dep_ == "poss" and (token.tag_ in POSSESSIVE_PRONOUN_TAGS or token.pos_ == "PRON")

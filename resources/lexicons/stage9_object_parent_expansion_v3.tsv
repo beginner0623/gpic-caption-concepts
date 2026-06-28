@@ -208,3 +208,6 @@ fountain	structure|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	wa
 wrestler	athlete|person|human	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	human athlete
 crater	landform|place	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	landform
 vase	container|artifact	entity	high	1k_stage9_audit_v3 + wordnet_hypernym	container/art object
+orange	fruit|food|plant_product	entity	high	plural_surface_disambiguation + wordnet_synset:orange.n.01	object parent for oranges; singular orange remains blocked as color unless parser marks it as object
+oranges	fruit|food|plant_product	entity	high	plural_surface_disambiguation + wordnet_synset:orange.n.01	plural surface override for fruit object
+glasses	eyewear_or_drinking_vessel|accessory|artifact	entity	medium	plural_surface_disambiguation + wordnet_synset:glasses.n.01	plural surface override; ambiguous eyewear/drinking glasses

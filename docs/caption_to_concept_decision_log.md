@@ -4969,3 +4969,45 @@ reports/case_detail_1k_val00002_00011_trf_stage9_parent_action_v3_all1000.md
 - 10k 이상에서 parent/action long-tail을 다시 보고, 1k에만 과적합된 항목은 넣지 않는다.
 - punctuation/OCR artifact action은 canonicalization보다 noise/token cleanup 단계에서 처리하는 편이 맞다.
 - action synonym은 계속 보수적으로 유지하고, 애매한 것은 parent에서만 묶는다.
+
+## 2026-06-29: plural lexical object disambiguation for ambiguous color/material words
+
+목표:
+
+- `orange`처럼 singular modifier에서는 색상 attribute인 단어가, `oranges`처럼 plural noun root로 나오면 object로 살아나도록 한다.
+- `glass wall`의 `glass`는 material attribute로 유지하되, `glasses`는 object로 유지하고 singular `glass` count와 섞이지 않게 한다.
+
+변경:
+
+```text
+scripts/raw_concept_extractor.py
+scripts/stage9_lexical_canonicalizer.py
+resources/lexicons/stage9_object_parent_expansion_v3.tsv
+resources/lexicons/stage9_object_synonym_expansion_v1.tsv
+```
+
+규칙:
+
+- `PLURAL_LEXICAL_OBJECT_LEMMAS = {glass, orange}`를 추가했다.
+- token이 plural noun (`NNS`, `NNPS`)이고 object POS이며 `amod/compound/nummod`가 아니면, 색상 차단보다 먼저 object 후보로 허용한다.
+- Stage 9 parent lookup은 `entity.text` surface를 먼저 보고 canonical lemma를 본다. 그래서 `glasses`처럼 lemma가 `glass`로 나와도 surface 기반 parent를 적용할 수 있다.
+
+검증 샘플:
+
+| caption | object 결과 | attribute 결과 |
+|---|---|---|
+| `Two oranges sit on a white plate.` | `oranges`, `plate` | `white` |
+| `A person wearing glasses stands near an orange shirt.` | `person`, `glasses`, `shirt` | `orange` |
+| `Orange shirts hang on a rack.` | `shirts`, `rack` | `Orange` |
+| `A glass wall reflects the street.` | `wall`, `street` | `glass` |
+| `Several glasses are on the table.` | `glasses`, `table` | none |
+
+Stage 9 canonical/parent:
+
+- `oranges` -> canonical `orange`, parent `fruit|food|plant_product`
+- `glasses` -> canonical `glasses`, parent `eyewear_or_drinking_vessel|accessory|artifact`
+
+해석:
+
+- 이건 특정 caption만 고치는 땜빵이 아니라 morphology 기반 disambiguation이다.
+- 다만 모든 color word plural을 object로 허용하지는 않았다. `reds`, `blues` 같은 색상 명사화가 object로 오염될 수 있어서, 우선 `orange/glass`처럼 실제 GPIC/visual caption에서 object sense가 강한 ambiguous lemma만 허용한다.
