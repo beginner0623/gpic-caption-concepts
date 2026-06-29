@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 05552 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 05552 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_05501_06000.html#case-5552">Back to Case List</a> | <a href="case_05551.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-5552">
+  <div class="case-title">
+    <h2>Case 05552</h2>
+    <a href="#case-5552">anchor</a>
+  </div>
+  <div class="caption-box">A man and a woman in aprons stand at a kitchen counter, preparing food together.</div>
+  <div class="chips">
+    <span>caption_id: 596ae7279f50ab6495dd6139e85df20d84889a0f6b8b58626cea8c4beac9bb8e</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>man</td><td>man</td><td>person &gt; human</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m1</td><td>woman</td><td>woman</td><td>person &gt; human</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m2</td><td>aprons</td><td>apron</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m3</td><td>counter</td><td>counter</td><td>support_surface &gt; furniture &gt; artifact</td><td>source=10k_auto_feedback_v1 + fixed_rubric + object_ontology; canonical_source=raw_lemma; parent_source=10k_auto_feedback_v1 + fixed_rubric + object_ontology; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m5</td><td>food</td><td>food</td><td>food</td><td>source=wordnet_synset:food.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:food.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>counter</td><td>kitchen</td><td>compound_modifier &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>stand</td><td>stand</td><td>body_pose_action &gt; visual_action</td><td>agent: man<br>agent: woman</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>preparing</td><td>prepare</td><td>preparation_action &gt; visual_action</td><td>agent: man<br>agent: woman<br>patient: food</td><td>source=10k_auto_feedback_v1 + fixed_rubric + action_ontology; canonical_source=raw_action; parent_source=10k_auto_feedback_v1 + fixed_rubric + action_ontology; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>woman</td><td>in</td><td>in</td><td>apron</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr><tr><td>man</td><td>at</td><td>at</td><td>counter</td><td>spatial_location &gt; visual_relation</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>man</td><td>man</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>woman</td><td>woman</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>object</td><td>aprons</td><td>apron</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>counter</td><td>counter</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>kitchen</td><td>kitchen</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m5</td><td>object</td><td>food</td><td>food</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>action</td><td>stand</td><td>stand</td><td>verb_predicate</td><td>high</td></tr><tr><td>m7</td><td>action</td><td>preparing</td><td>prepare</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>counter <span class="muted">m3 object</span></td><td>kitchen <span class="muted">m4 attribute</span></td><td>chunk3 compound -&gt; counter</td><td>medium</td></tr><tr><td>e1</td><td>agent</td><td>stand <span class="muted">m6 action</span></td><td>man <span class="muted">m0 object</span></td><td>nsubj -&gt; stand</td><td>medium</td></tr><tr><td>e2</td><td>agent</td><td>stand <span class="muted">m6 action</span></td><td>woman <span class="muted">m1 object</span></td><td>nsubj -&gt; stand</td><td>medium</td></tr><tr><td>e3</td><td>agent</td><td>preparing <span class="muted">m7 action</span></td><td>man <span class="muted">m0 object</span></td><td>inherited agent advcl -&gt; stand</td><td>medium</td></tr><tr><td>e4</td><td>agent</td><td>preparing <span class="muted">m7 action</span></td><td>woman <span class="muted">m1 object</span></td><td>inherited agent advcl -&gt; stand</td><td>medium</td></tr><tr><td>e5</td><td>patient</td><td>preparing <span class="muted">m7 action</span></td><td>food <span class="muted">m5 object</span></td><td>dobj -&gt; preparing</td><td>medium</td></tr><tr><td>e6</td><td>relation</td><td>woman <span class="muted">m1 object</span></td><td>aprons <span class="muted">m2 object</span></td><td>in</td><td>high</td></tr><tr><td>e7</td><td>relation</td><td>man <span class="muted">m0 object</span></td><td>counter <span class="muted">m3 object</span></td><td>at</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (15)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:man</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:woman</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:apron</td><td>low</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:counter</td><td>high</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:food</td><td>high</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:counter:kitchen</td><td>medium</td></tr><tr><td>cf6</td><td>action_event</td><td>action_event:stand</td><td>high</td></tr><tr><td>cf7</td><td>event_role</td><td>event_role:stand:agent:man</td><td>medium</td></tr><tr><td>cf8</td><td>event_role</td><td>event_role:stand:agent:woman</td><td>medium</td></tr><tr><td>cf9</td><td>action_event</td><td>action_event:prepare</td><td>high</td></tr><tr><td>cf10</td><td>event_role</td><td>event_role:prepare:agent:man</td><td>medium</td></tr><tr><td>cf11</td><td>event_role</td><td>event_role:prepare:agent:woman</td><td>medium</td></tr><tr><td>cf12</td><td>event_role</td><td>event_role:prepare:patient:food</td><td>medium</td></tr><tr><td>cf13</td><td>relation</td><td>relation:woman:in:apron</td><td>high</td></tr><tr><td>cf14</td><td>relation</td><td>relation:man:at:counter</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

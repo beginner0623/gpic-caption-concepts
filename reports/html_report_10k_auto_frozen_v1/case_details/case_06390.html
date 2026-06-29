@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 06390 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 06390 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_06001_06500.html#case-6390">Back to Case List</a> | <a href="case_06389.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-6390">
+  <div class="case-title">
+    <h2>Case 06390</h2>
+    <a href="#case-6390">anchor</a>
+  </div>
+  <div class="caption-box">A woman wears a floral mask over her eyes, with soft pink and yellow flowers against a blurred green background.</div>
+  <div class="chips">
+    <span>caption_id: b18be38fb80e18dd4fcd67530307fde5ace669a1d62c49575ec13b0a7a691ec6</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>woman</td><td>woman</td><td>person &gt; human</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m1</td><td>mask</td><td>mask</td><td>clothing &gt; wearable</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m3</td><td>eyes</td><td>eye</td><td>body_part</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m4</td><td>flowers</td><td>flower</td><td>plant &gt; living_thing</td><td>source=wordnet_synset:flower.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:flower.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m8</td><td>background</td><td>background</td><td>scene_context</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>mask</td><td>floral</td><td>pattern_attribute &gt; pattern &gt; pattern_marking &gt; textile_pattern &gt; visual_attribute</td><td>medium</td></tr><tr><td>flower</td><td>soft</td><td>texture_attribute &gt; clean_exact_overlap &gt; hardness &gt; texture &gt; visual_attribute</td><td>medium</td></tr><tr><td>flower</td><td>pink</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>flower</td><td>yellow</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>background</td><td>blurred</td><td>visual_quality_attribute &gt; visual_quality &gt; visual_attribute</td><td>medium</td></tr><tr><td>background</td><td>green</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>wears</td><td>wear</td><td>wearing_action &gt; visual_action</td><td>agent: woman<br>patient: mask</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>woman</td><td>over</td><td>above</td><td>eye</td><td>spatial_vertical &gt; visual_relation</td><td>high</td></tr><tr><td>woman</td><td>with</td><td>with</td><td>flower</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>flower</td><td>against</td><td>against</td><td>background</td><td>spatial_contact &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>woman</td><td>woman</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>mask</td><td>mask</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>attribute</td><td>floral</td><td>floral</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m3</td><td>object</td><td>eyes</td><td>eye</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>object</td><td>flowers</td><td>flower</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m5</td><td>attribute</td><td>soft</td><td>soft</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m6</td><td>attribute</td><td>pink</td><td>pink</td><td>color_attribute</td><td>high</td></tr><tr><td>m7</td><td>attribute</td><td>yellow</td><td>yellow</td><td>color_attribute</td><td>high</td></tr><tr><td>m8</td><td>context</td><td>background</td><td>background</td><td>scene_context</td><td>high</td></tr><tr><td>m9</td><td>attribute</td><td>blurred</td><td>blur</td><td>state_attribute</td><td>medium</td></tr><tr><td>m10</td><td>attribute</td><td>green</td><td>green</td><td>color_attribute</td><td>high</td></tr><tr><td>m11</td><td>action</td><td>wears</td><td>wear</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>mask <span class="muted">m1 object</span></td><td>floral <span class="muted">m2 attribute</span></td><td>chunk1 amod -&gt; mask</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>flowers <span class="muted">m4 object</span></td><td>soft <span class="muted">m5 attribute</span></td><td>chunk3 amod -&gt; flowers</td><td>medium</td></tr><tr><td>e2</td><td>has_attribute</td><td>flowers <span class="muted">m4 object</span></td><td>pink <span class="muted">m6 attribute</span></td><td>chunk3 amod -&gt; flowers</td><td>high</td></tr><tr><td>e3</td><td>has_attribute</td><td>flowers <span class="muted">m4 object</span></td><td>yellow <span class="muted">m7 attribute</span></td><td>chunk3 conj -&gt; flowers</td><td>high</td></tr><tr><td>e4</td><td>has_context</td><td>scene <span class="muted">scene </span></td><td>background <span class="muted">m8 context</span></td><td>scene_context token background</td><td>high</td></tr><tr><td>e5</td><td>has_attribute</td><td>background <span class="muted">m8 context</span></td><td>blurred <span class="muted">m9 attribute</span></td><td>chunk4 amod -&gt; background</td><td>medium</td></tr><tr><td>e6</td><td>has_attribute</td><td>background <span class="muted">m8 context</span></td><td>green <span class="muted">m10 attribute</span></td><td>chunk4 amod -&gt; background</td><td>high</td></tr><tr><td>e7</td><td>agent</td><td>wears <span class="muted">m11 action</span></td><td>woman <span class="muted">m0 object</span></td><td>nsubj -&gt; wears</td><td>medium</td></tr><tr><td>e8</td><td>patient</td><td>wears <span class="muted">m11 action</span></td><td>mask <span class="muted">m1 object</span></td><td>dobj -&gt; wears</td><td>medium</td></tr><tr><td>e9</td><td>relation</td><td>woman <span class="muted">m0 object</span></td><td>eyes <span class="muted">m3 object</span></td><td>over</td><td>high</td></tr><tr><td>e10</td><td>relation</td><td>woman <span class="muted">m0 object</span></td><td>flowers <span class="muted">m4 object</span></td><td>with</td><td>high</td></tr><tr><td>e11</td><td>relation</td><td>flowers <span class="muted">m4 object</span></td><td>background <span class="muted">m8 context</span></td><td>against</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (17)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:woman</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:mask</td><td>medium</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:eye</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:flower</td><td>high</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:background</td><td>high</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:mask:floral</td><td>medium</td></tr><tr><td>cf6</td><td>has_attribute</td><td>has_attribute:flower:soft</td><td>medium</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:flower:pink</td><td>high</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:flower:yellow</td><td>high</td></tr><tr><td>cf9</td><td>has_attribute</td><td>has_attribute:background:blurred</td><td>medium</td></tr><tr><td>cf10</td><td>has_attribute</td><td>has_attribute:background:green</td><td>high</td></tr><tr><td>cf11</td><td>action_event</td><td>action_event:wear</td><td>high</td></tr><tr><td>cf12</td><td>event_role</td><td>event_role:wear:agent:woman</td><td>medium</td></tr><tr><td>cf13</td><td>event_role</td><td>event_role:wear:patient:mask</td><td>medium</td></tr><tr><td>cf14</td><td>relation</td><td>relation:woman:above:eye</td><td>high</td></tr><tr><td>cf15</td><td>relation</td><td>relation:woman:with:flower</td><td>high</td></tr><tr><td>cf16</td><td>relation</td><td>relation:flower:against:background</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

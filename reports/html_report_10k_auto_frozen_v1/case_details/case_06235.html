@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 06235 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 06235 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_06001_06500.html#case-6235">Back to Case List</a> | <a href="case_06234.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-6235">
+  <div class="case-title">
+    <h2>Case 06235</h2>
+    <a href="#case-6235">anchor</a>
+  </div>
+  <div class="caption-box">A stone monument stands in a garden surrounded by green bushes and fallen leaves. Trees and a building are visible in the background.</div>
+  <div class="chips">
+    <span>caption_id: 77519ba45b65e976c99f53386e2117016452cf4a914d453ef0b1f0566a58b3db</span>
+    <span>shape: multi-sentence</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>monument</td><td>monument</td><td>structure &gt; artwork &gt; artifact</td><td>source=1k_stage9_audit_v3 + wordnet_hypernym; canonical_source=raw_lemma; parent_source=1k_stage9_audit_v3 + wordnet_hypernym; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m2</td><td>garden</td><td>garden</td><td>outdoor_scene &gt; place</td><td>source=wordnet_synset:garden.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:garden.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m3</td><td>bushes</td><td>bush</td><td>plant &gt; living_thing</td><td>source=wordnet_synset:shrub.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:shrub.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m5</td><td>leaves</td><td>leaf</td><td>plant_part &gt; plant &gt; living_thing</td><td>source=wordnet_synset:leaf.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:leaf.n.01 + 1k_stage9_audit_v2; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m7</td><td>Trees</td><td>tree</td><td>plant &gt; living_thing</td><td>source=wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m8</td><td>building</td><td>building</td><td>structure &gt; artifact</td><td>source=wordnet_synset:building.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:building.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m9</td><td>background</td><td>background</td><td>scene_context</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>monument</td><td>stone</td><td>material_attribute &gt; material &gt; visual_attribute</td><td>high</td></tr><tr><td>bush</td><td>green</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>leaf</td><td>fallen</td><td>state_attribute &gt; state &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>stands</td><td>stand</td><td>body_pose_action &gt; visual_action</td><td>agent: monument</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>surrounded</td><td>surround</td><td>spatial_configuration_action &gt; visual_action</td><td>agent: monument</td><td>source=wordnet_synset:surround.v.01 + stage9_audit; canonical_source=raw_action; parent_source=wordnet_synset:surround.v.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>monument</td><td>in</td><td>in</td><td>garden</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr><tr><td>monument</td><td>by</td><td>by</td><td>bush</td><td>spatial_proximity &gt; visual_relation</td><td>medium</td></tr><tr><td>monument</td><td>by</td><td>by</td><td>leaf</td><td>spatial_proximity &gt; visual_relation</td><td>medium</td></tr><tr><td>tree</td><td>in</td><td>in</td><td>background</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>monument</td><td>monument</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>attribute</td><td>stone</td><td>stone</td><td>material_attribute</td><td>high</td></tr><tr><td>m2</td><td>object</td><td>garden</td><td>garden</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>bushes</td><td>bush</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>green</td><td>green</td><td>color_attribute</td><td>high</td></tr><tr><td>m5</td><td>object</td><td>leaves</td><td>leaf</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>attribute</td><td>fallen</td><td>fallen</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m7</td><td>object</td><td>Trees</td><td>tree</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m8</td><td>object</td><td>building</td><td>building</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m9</td><td>context</td><td>background</td><td>background</td><td>scene_context</td><td>high</td></tr><tr><td>m10</td><td>action</td><td>stands</td><td>stand</td><td>verb_predicate</td><td>high</td></tr><tr><td>m11</td><td>action</td><td>surrounded</td><td>surround</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>monument <span class="muted">m0 object</span></td><td>stone <span class="muted">m1 attribute</span></td><td>chunk0 compound -&gt; monument</td><td>high</td></tr><tr><td>e1</td><td>has_attribute</td><td>bushes <span class="muted">m3 object</span></td><td>green <span class="muted">m4 attribute</span></td><td>chunk2 amod -&gt; bushes</td><td>high</td></tr><tr><td>e2</td><td>has_attribute</td><td>leaves <span class="muted">m5 object</span></td><td>fallen <span class="muted">m6 attribute</span></td><td>chunk3 amod -&gt; leaves</td><td>medium</td></tr><tr><td>e3</td><td>has_context</td><td>scene <span class="muted">scene </span></td><td>background <span class="muted">m9 context</span></td><td>scene_context token background</td><td>high</td></tr><tr><td>e4</td><td>agent</td><td>stands <span class="muted">m10 action</span></td><td>monument <span class="muted">m0 object</span></td><td>nsubj -&gt; stands</td><td>medium</td></tr><tr><td>e5</td><td>agent</td><td>surrounded <span class="muted">m11 action</span></td><td>monument <span class="muted">m0 object</span></td><td>inherited agent advcl -&gt; stands</td><td>medium</td></tr><tr><td>e6</td><td>relation</td><td>monument <span class="muted">m0 object</span></td><td>garden <span class="muted">m2 object</span></td><td>in</td><td>high</td></tr><tr><td>e7</td><td>relation</td><td>monument <span class="muted">m0 object</span></td><td>bushes <span class="muted">m3 object</span></td><td>by</td><td>medium</td></tr><tr><td>e8</td><td>relation</td><td>monument <span class="muted">m0 object</span></td><td>leaves <span class="muted">m5 object</span></td><td>by</td><td>medium</td></tr><tr><td>e9</td><td>relation</td><td>Trees <span class="muted">m7 object</span></td><td>background <span class="muted">m9 context</span></td><td>in</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (18)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:monument</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:garden</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:bush</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:leaf</td><td>high</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:tree</td><td>high</td></tr><tr><td>cf5</td><td>entity_exists</td><td>entity_exists:building</td><td>high</td></tr><tr><td>cf6</td><td>entity_exists</td><td>entity_exists:background</td><td>high</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:monument:stone</td><td>high</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:bush:green</td><td>high</td></tr><tr><td>cf9</td><td>has_attribute</td><td>has_attribute:leaf:fallen</td><td>medium</td></tr><tr><td>cf10</td><td>action_event</td><td>action_event:stand</td><td>high</td></tr><tr><td>cf11</td><td>event_role</td><td>event_role:stand:agent:monument</td><td>medium</td></tr><tr><td>cf12</td><td>action_event</td><td>action_event:surround</td><td>high</td></tr><tr><td>cf13</td><td>event_role</td><td>event_role:surround:agent:monument</td><td>medium</td></tr><tr><td>cf14</td><td>relation</td><td>relation:monument:in:garden</td><td>high</td></tr><tr><td>cf15</td><td>relation</td><td>relation:monument:by:bush</td><td>medium</td></tr><tr><td>cf16</td><td>relation</td><td>relation:monument:by:leaf</td><td>medium</td></tr><tr><td>cf17</td><td>relation</td><td>relation:tree:in:background</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

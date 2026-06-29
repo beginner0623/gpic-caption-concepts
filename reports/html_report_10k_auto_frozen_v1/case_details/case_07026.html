@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 07026 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 07026 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_07001_07500.html#case-7026">Back to Case List</a> | <a href="case_07025.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-7026">
+  <div class="case-title">
+    <h2>Case 07026</h2>
+    <a href="#case-7026">anchor</a>
+  </div>
+  <div class="caption-box">Waves crash onto a sandy beach under a cloudy sky. People and beach equipment are visible in the distance.</div>
+  <div class="chips">
+    <span>caption_id: 661d456f55a3bb9a69d065fd3a1e62bab586e2d3a1a2bf89448b096c72c9e0e0</span>
+    <span>shape: multi-sentence</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>Waves</td><td>wave</td><td>natural_element</td><td>source=wordnet_synset:wave.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:wave.n.01 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m1</td><td>beach</td><td>beach</td><td>outdoor_scene &gt; place</td><td>source=wordnet_synset:beach.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:beach.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m3</td><td>sky</td><td>sky</td><td>natural_scene</td><td>source=wordnet_synset:sky.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:sky.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m5</td><td>People</td><td>people</td><td>person &gt; human</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m6</td><td>equipment</td><td>equipment</td><td>artifact</td><td>source=1k_stage9_audit_v3 + wordnet_hypernym; canonical_source=raw_lemma; parent_source=1k_stage9_audit_v3 + wordnet_hypernym; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m8</td><td>distance</td><td>distance</td><td>scene_context &gt; spatial_context</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>beach</td><td>sandy</td><td>material_attribute &gt; material &gt; visual_attribute</td><td>medium</td></tr><tr><td>sky</td><td>cloudy</td><td>weather_attribute &gt; weather &gt; visual_attribute</td><td>medium</td></tr><tr><td>equipment</td><td>beach</td><td>compound_modifier &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>crash</td><td>crash</td><td>contact_or_wave_motion_action &gt; visual_action</td><td>agent: wave</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:crash.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:crash.v.01; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>wave</td><td>onto</td><td>on</td><td>beach</td><td>spatial_support &gt; visual_relation</td><td>medium</td></tr><tr><td>wave</td><td>under</td><td>under</td><td>sky</td><td>spatial_vertical &gt; visual_relation</td><td>high</td></tr><tr><td>people</td><td>in</td><td>in</td><td>distance</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>Waves</td><td>wave</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>beach</td><td>beach</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>attribute</td><td>sandy</td><td>sandy</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m3</td><td>object</td><td>sky</td><td>sky</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>cloudy</td><td>cloudy</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m5</td><td>object</td><td>People</td><td>people</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>object</td><td>equipment</td><td>equipment</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m7</td><td>attribute</td><td>beach</td><td>beach</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m8</td><td>context</td><td>distance</td><td>distance</td><td>scene_context</td><td>high</td></tr><tr><td>m9</td><td>action</td><td>crash</td><td>crash</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>beach <span class="muted">m1 object</span></td><td>sandy <span class="muted">m2 attribute</span></td><td>chunk1 amod -&gt; beach</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>sky <span class="muted">m3 object</span></td><td>cloudy <span class="muted">m4 attribute</span></td><td>chunk2 amod -&gt; sky</td><td>medium</td></tr><tr><td>e2</td><td>has_attribute</td><td>equipment <span class="muted">m6 object</span></td><td>beach <span class="muted">m7 attribute</span></td><td>chunk4 compound -&gt; equipment</td><td>medium</td></tr><tr><td>e3</td><td>has_context</td><td>scene <span class="muted">scene </span></td><td>distance <span class="muted">m8 context</span></td><td>scene_context token distance</td><td>high</td></tr><tr><td>e4</td><td>agent</td><td>crash <span class="muted">m9 action</span></td><td>Waves <span class="muted">m0 object</span></td><td>nsubj -&gt; crash</td><td>medium</td></tr><tr><td>e5</td><td>relation</td><td>Waves <span class="muted">m0 object</span></td><td>beach <span class="muted">m1 object</span></td><td>onto</td><td>medium</td></tr><tr><td>e6</td><td>relation</td><td>Waves <span class="muted">m0 object</span></td><td>sky <span class="muted">m3 object</span></td><td>under</td><td>high</td></tr><tr><td>e7</td><td>relation</td><td>People <span class="muted">m5 object</span></td><td>distance <span class="muted">m8 context</span></td><td>in</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (14)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:wave</td><td>medium</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:beach</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:sky</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:people</td><td>high</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:equipment</td><td>high</td></tr><tr><td>cf5</td><td>entity_exists</td><td>entity_exists:distance</td><td>high</td></tr><tr><td>cf6</td><td>has_attribute</td><td>has_attribute:beach:sandy</td><td>medium</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:sky:cloudy</td><td>medium</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:equipment:beach</td><td>medium</td></tr><tr><td>cf9</td><td>action_event</td><td>action_event:crash</td><td>high</td></tr><tr><td>cf10</td><td>event_role</td><td>event_role:crash:agent:wave</td><td>medium</td></tr><tr><td>cf11</td><td>relation</td><td>relation:wave:on:beach</td><td>medium</td></tr><tr><td>cf12</td><td>relation</td><td>relation:wave:under:sky</td><td>high</td></tr><tr><td>cf13</td><td>relation</td><td>relation:people:in:distance</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

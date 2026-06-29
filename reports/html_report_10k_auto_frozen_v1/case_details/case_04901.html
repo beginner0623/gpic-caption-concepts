@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 04901 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 04901 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_04501_05000.html#case-4901">Back to Case List</a> | <a href="case_04900.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-4901">
+  <div class="case-title">
+    <h2>Case 04901</h2>
+    <a href="#case-4901">anchor</a>
+  </div>
+  <div class="caption-box">An open cup of instant ramen with a piece of bread inside sits on a white surface. Next to it is a bag labeled &quot;FamilyMart collection&quot; containing mixed dried fruits.</div>
+  <div class="chips">
+    <span>caption_id: b5bf1ca725a3518c625d84b892e5af97672862949c5c224e270753d88954998e</span>
+    <span>shape: multi-sentence</span>
+    <span>parse: sentence</span>
+    <span>quotes: 1</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m1</td><td>cup</td><td>cup</td><td>container &gt; artifact</td><td>source=COCO object label + wordnet_hypernym:container.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=COCO object label + wordnet_hypernym:container.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m3</td><td>ramen</td><td>ramen</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m5</td><td>piece</td><td>piece</td><td>generic_object &gt; artifact</td><td>source=wordnet_synset:piece.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:piece.n.01 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m6</td><td>bread</td><td>bread</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m7</td><td>surface</td><td>surface</td><td>surface &gt; scene_element</td><td>source=wordnet_synset:surface.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:surface.n.01 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m8</td><td>bag</td><td>bag</td><td>container &gt; accessory &gt; artifact</td><td>source=wordnet_synset:bag.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:bag.n.01 + stage9_audit; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m9</td><td>dried fruits</td><td>dried_fruit</td><td></td><td>source=visual_genome_object_synset|wordnet_noun_mwe; canonical_source=visual_genome_object_synset|wordnet_noun_mwe; parent_source=none; confidence=high; canonical_confidence=high; parent_confidence=low</td></tr><tr><td>ent_m11</td><td>inside</td><td>inside</td><td>scene_context</td><td>source=semantic_type_fallback; canonical_source=raw_lemma; parent_source=semantic_type_fallback; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>cup</td><td>open</td><td>state_attribute &gt; clean_exact_overlap &gt; state &gt; visual_attribute</td><td>medium</td></tr><tr><td>ramen</td><td>instant</td><td>compound_modifier &gt; visual_attribute</td><td>medium</td></tr><tr><td>dried_fruit</td><td>mix</td><td>state_attribute &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>sits</td><td>sit</td><td>body_pose_action &gt; visual_action</td><td>agent: cup</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>labeled</td><td>label</td><td>text_annotation_action &gt; visual_action</td><td>agent: bag<br>patient: m0</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:label.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:label.v.01; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>containing</td><td>contain</td><td>containment_state_action &gt; visual_action</td><td>agent: bag<br>patient: dried_fruit</td><td>source=wordnet_synset:contain.v.01 + stage9_audit; canonical_source=raw_action; parent_source=wordnet_synset:contain.v.01 + stage9_audit; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>cup</td><td>of</td><td>of</td><td>ramen</td><td>part_relation &gt; visual_relation</td><td>medium</td></tr><tr><td>cup</td><td>with</td><td>with</td><td>piece</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>piece</td><td>of</td><td>of</td><td>bread</td><td>part_relation &gt; visual_relation</td><td>medium</td></tr><tr><td>cup</td><td>on</td><td>on</td><td>surface</td><td>spatial_support &gt; visual_relation</td><td>high</td></tr><tr><td>bag</td><td>next_to</td><td>next_to</td><td>cup</td><td>spatial_proximity &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>attribute</td><td>&quot;FamilyMart collection&quot;</td><td>familymart_collection</td><td>quote_text</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>cup</td><td>cup</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>attribute</td><td>open</td><td>open</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m3</td><td>object</td><td>ramen</td><td>ramen</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>instant</td><td>instant</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m5</td><td>object</td><td>piece</td><td>piece</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>object</td><td>bread</td><td>bread</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m7</td><td>context</td><td>surface</td><td>surface</td><td>spatial_region</td><td>medium</td></tr><tr><td>m8</td><td>object</td><td>bag</td><td>bag</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m9</td><td>object</td><td>dried fruits</td><td>dried_fruit</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m10</td><td>attribute</td><td>mixed</td><td>mix</td><td>state_attribute</td><td>medium</td></tr><tr><td>m11</td><td>context</td><td>inside</td><td>inside</td><td>context_word</td><td>medium</td></tr><tr><td>m12</td><td>action</td><td>sits</td><td>sit</td><td>verb_predicate</td><td>high</td></tr><tr><td>m13</td><td>action</td><td>labeled</td><td>label</td><td>verb_predicate</td><td>high</td></tr><tr><td>m14</td><td>action</td><td>containing</td><td>contain</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>cup <span class="muted">m1 object</span></td><td>open <span class="muted">m2 attribute</span></td><td>chunk0 amod -&gt; cup</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>ramen <span class="muted">m3 object</span></td><td>instant <span class="muted">m4 attribute</span></td><td>chunk1 compound -&gt; ramen</td><td>medium</td></tr><tr><td>e2</td><td>has_attribute</td><td>dried fruits <span class="muted">m9 object</span></td><td>mixed <span class="muted">m10 attribute</span></td><td>chunk8 amod -&gt; dried fruits</td><td>medium</td></tr><tr><td>e3</td><td>has_context</td><td>scene <span class="muted">scene </span></td><td>inside <span class="muted">m11 context</span></td><td>context_word token inside</td><td>medium</td></tr><tr><td>e4</td><td>agent</td><td>sits <span class="muted">m12 action</span></td><td>cup <span class="muted">m1 object</span></td><td>nsubj -&gt; sits</td><td>medium</td></tr><tr><td>e5</td><td>agent</td><td>labeled <span class="muted">m13 action</span></td><td>bag <span class="muted">m8 object</span></td><td>inherited agent acl -&gt; bag</td><td>medium</td></tr><tr><td>e6</td><td>patient</td><td>labeled <span class="muted">m13 action</span></td><td>&quot;FamilyMart collection&quot; <span class="muted">m0 attribute</span></td><td>oprd -&gt; labeled</td><td>medium</td></tr><tr><td>e7</td><td>agent</td><td>containing <span class="muted">m14 action</span></td><td>bag <span class="muted">m8 object</span></td><td>inherited agent acl -&gt; bag</td><td>medium</td></tr><tr><td>e8</td><td>patient</td><td>containing <span class="muted">m14 action</span></td><td>dried fruits <span class="muted">m9 object</span></td><td>dobj -&gt; containing</td><td>medium</td></tr><tr><td>e9</td><td>relation</td><td>cup <span class="muted">m1 object</span></td><td>ramen <span class="muted">m3 object</span></td><td>of</td><td>medium</td></tr><tr><td>e10</td><td>relation</td><td>cup <span class="muted">m1 object</span></td><td>piece <span class="muted">m5 object</span></td><td>with</td><td>high</td></tr><tr><td>e11</td><td>relation</td><td>piece <span class="muted">m5 object</span></td><td>bread <span class="muted">m6 object</span></td><td>of</td><td>medium</td></tr><tr><td>e12</td><td>relation</td><td>cup <span class="muted">m1 object</span></td><td>surface <span class="muted">m7 context</span></td><td>on</td><td>high</td></tr><tr><td>e13</td><td>relation</td><td>bag <span class="muted">m8 object</span></td><td>cup <span class="muted">m1 object</span></td><td>next_to</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (24)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:cup</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:ramen</td><td>low</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:piece</td><td>medium</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:bread</td><td>low</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:surface</td><td>medium</td></tr><tr><td>cf5</td><td>entity_exists</td><td>entity_exists:bag</td><td>medium</td></tr><tr><td>cf6</td><td>entity_exists</td><td>entity_exists:dried_fruit</td><td>high</td></tr><tr><td>cf7</td><td>entity_exists</td><td>entity_exists:inside</td><td>medium</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:cup:open</td><td>medium</td></tr><tr><td>cf9</td><td>has_attribute</td><td>has_attribute:ramen:instant</td><td>medium</td></tr><tr><td>cf10</td><td>has_attribute</td><td>has_attribute:dried_fruit:mix</td><td>medium</td></tr><tr><td>cf11</td><td>action_event</td><td>action_event:sit</td><td>high</td></tr><tr><td>cf12</td><td>event_role</td><td>event_role:sit:agent:cup</td><td>medium</td></tr><tr><td>cf13</td><td>action_event</td><td>action_event:label</td><td>high</td></tr><tr><td>cf14</td><td>event_role</td><td>event_role:label:agent:bag</td><td>medium</td></tr><tr><td>cf15</td><td>event_role</td><td>event_role:label:patient</td><td>medium</td></tr><tr><td>cf16</td><td>action_event</td><td>action_event:contain</td><td>medium</td></tr><tr><td>cf17</td><td>event_role</td><td>event_role:contain:agent:bag</td><td>medium</td></tr><tr><td>cf18</td><td>event_role</td><td>event_role:contain:patient:dried_fruit</td><td>medium</td></tr><tr><td>cf19</td><td>relation</td><td>relation:cup:of:ramen</td><td>medium</td></tr><tr><td>cf20</td><td>relation</td><td>relation:cup:with:piece</td><td>high</td></tr><tr><td>cf21</td><td>relation</td><td>relation:piece:of:bread</td><td>medium</td></tr><tr><td>cf22</td><td>relation</td><td>relation:cup:on:surface</td><td>high</td></tr><tr><td>cf23</td><td>relation</td><td>relation:bag:next_to:cup</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

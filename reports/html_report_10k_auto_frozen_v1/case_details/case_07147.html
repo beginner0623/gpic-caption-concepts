@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 07147 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 07147 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_07001_07500.html#case-7147">Back to Case List</a> | <a href="case_07146.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-7147">
+  <div class="case-title">
+    <h2>Case 07147</h2>
+    <a href="#case-7147">anchor</a>
+  </div>
+  <div class="caption-box">This is a Ukrainian official document with signatures and text in Cyrillic, dated 2007. It appears to be a formal assignment or order from an architectural firm.</div>
+  <div class="chips">
+    <span>caption_id: 14f37f693f8879a7546f08a0e9a42fef4079ca449c46a60deffdb70d0d59f75f</span>
+    <span>shape: multi-sentence</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>document</td><td>document</td><td>document &gt; text_carrier &gt; artifact</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m3</td><td>signatures</td><td>signature</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m4</td><td>text</td><td>text</td><td>text_content</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m5</td><td>Cyrillic</td><td>cyrillic</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m6</td><td>assignment</td><td>assignment</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m8</td><td>order</td><td>order</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m9</td><td>firm</td><td>firm</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>document</td><td>ukrainian</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr><tr><td>document</td><td>official</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr><tr><td>assignment</td><td>formal</td><td>style_attribute &gt; style &gt; visual_attribute</td><td>medium</td></tr><tr><td>firm</td><td>architectural</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>dated</td><td>date</td><td>visual_action</td><td>agent: document</td><td>source=visual_action_fallback; canonical_source=raw_action; parent_source=visual_action_fallback; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>appears</td><td>appear</td><td>appearance_state &gt; visual_action</td><td>agent: cyrillic</td><td>source=1k_stage9_action_audit_v2 + project_action_ontology; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + project_action_ontology; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>document</td><td>with</td><td>with</td><td>signature</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>document</td><td>with</td><td>with</td><td>text</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>signature</td><td>in</td><td>in</td><td>cyrillic</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr><tr><td>order</td><td>from</td><td>from</td><td>firm</td><td>visual_relation</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>document</td><td>document</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>attribute</td><td>Ukrainian</td><td>ukrainian</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m2</td><td>attribute</td><td>official</td><td>official</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m3</td><td>object</td><td>signatures</td><td>signature</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>object</td><td>text</td><td>text</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m5</td><td>object</td><td>Cyrillic</td><td>cyrillic</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>object</td><td>assignment</td><td>assignment</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m7</td><td>attribute</td><td>formal</td><td>formal</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m8</td><td>object</td><td>order</td><td>order</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m9</td><td>object</td><td>firm</td><td>firm</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m10</td><td>attribute</td><td>architectural</td><td>architectural</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m11</td><td>action</td><td>dated</td><td>date</td><td>verb_predicate</td><td>high</td></tr><tr><td>m12</td><td>action</td><td>appears</td><td>appear</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>document <span class="muted">m0 object</span></td><td>Ukrainian <span class="muted">m1 attribute</span></td><td>chunk1 amod -&gt; document</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>document <span class="muted">m0 object</span></td><td>official <span class="muted">m2 attribute</span></td><td>chunk1 amod -&gt; document</td><td>medium</td></tr><tr><td>e2</td><td>has_attribute</td><td>assignment <span class="muted">m6 object</span></td><td>formal <span class="muted">m7 attribute</span></td><td>chunk6 amod -&gt; assignment</td><td>medium</td></tr><tr><td>e3</td><td>has_attribute</td><td>firm <span class="muted">m9 object</span></td><td>architectural <span class="muted">m10 attribute</span></td><td>chunk8 amod -&gt; firm</td><td>medium</td></tr><tr><td>e4</td><td>agent</td><td>dated <span class="muted">m11 action</span></td><td>document <span class="muted">m0 object</span></td><td>inherited agent acl -&gt; document</td><td>medium</td></tr><tr><td>e5</td><td>agent</td><td>appears <span class="muted">m12 action</span></td><td>Cyrillic <span class="muted">m5 object</span></td><td>nsubj -&gt; appears; resolved It -&gt; Cyrillic</td><td>medium</td></tr><tr><td>e6</td><td>relation</td><td>document <span class="muted">m0 object</span></td><td>signatures <span class="muted">m3 object</span></td><td>with</td><td>high</td></tr><tr><td>e7</td><td>relation</td><td>document <span class="muted">m0 object</span></td><td>text <span class="muted">m4 object</span></td><td>with</td><td>high</td></tr><tr><td>e8</td><td>relation</td><td>signatures <span class="muted">m3 object</span></td><td>Cyrillic <span class="muted">m5 object</span></td><td>in</td><td>high</td></tr><tr><td>e9</td><td>relation</td><td>order <span class="muted">m8 object</span></td><td>firm <span class="muted">m9 object</span></td><td>from</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (19)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:document</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:signature</td><td>low</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:text</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:cyrillic</td><td>low</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:assignment</td><td>low</td></tr><tr><td>cf5</td><td>entity_exists</td><td>entity_exists:order</td><td>low</td></tr><tr><td>cf6</td><td>entity_exists</td><td>entity_exists:firm</td><td>low</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:document:ukrainian</td><td>medium</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:document:official</td><td>medium</td></tr><tr><td>cf9</td><td>has_attribute</td><td>has_attribute:assignment:formal</td><td>medium</td></tr><tr><td>cf10</td><td>has_attribute</td><td>has_attribute:firm:architectural</td><td>medium</td></tr><tr><td>cf11</td><td>action_event</td><td>action_event:date</td><td>low</td></tr><tr><td>cf12</td><td>event_role</td><td>event_role:date:agent:document</td><td>medium</td></tr><tr><td>cf13</td><td>action_event</td><td>action_event:appear</td><td>medium</td></tr><tr><td>cf14</td><td>event_role</td><td>event_role:appear:agent:cyrillic</td><td>medium</td></tr><tr><td>cf15</td><td>relation</td><td>relation:document:with:signature</td><td>high</td></tr><tr><td>cf16</td><td>relation</td><td>relation:document:with:text</td><td>high</td></tr><tr><td>cf17</td><td>relation</td><td>relation:signature:in:cyrillic</td><td>high</td></tr><tr><td>cf18</td><td>relation</td><td>relation:order:from:firm</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

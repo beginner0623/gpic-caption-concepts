@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 04505 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 04505 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_04501_05000.html#case-4505">Back to Case List</a> | <a href="case_04504.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-4505">
+  <div class="case-title">
+    <h2>Case 04505</h2>
+    <a href="#case-4505">anchor</a>
+  </div>
+  <div class="caption-box">A brick church with a patterned facade and domed towers stands under a clear blue sky.</div>
+  <div class="chips">
+    <span>caption_id: dd1c75de437adf0aceefbdcf8be1bf76f10efc4613111e026661c9f23f4f6473</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>church</td><td>church</td><td>building &gt; structure &gt; artifact</td><td>source=wordnet_synset:church.n.02 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:church.n.02 + 1k_stage9_audit_v2; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m2</td><td>facade</td><td>facade</td><td>architectural_part &gt; structure &gt; artifact</td><td>source=1k_stage9_audit_v3 + wordnet_hypernym; canonical_source=raw_lemma; parent_source=1k_stage9_audit_v3 + wordnet_hypernym; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m4</td><td>towers</td><td>tower</td><td>structure &gt; artifact</td><td>source=wordnet_synset:tower.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:tower.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m6</td><td>sky</td><td>sky</td><td>natural_scene</td><td>source=wordnet_synset:sky.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:sky.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>church</td><td>brick</td><td>material_attribute &gt; material &gt; visual_attribute</td><td>high</td></tr><tr><td>facade</td><td>patterned</td><td>pattern_attribute &gt; pattern &gt; visual_attribute</td><td>medium</td></tr><tr><td>tower</td><td>domed</td><td>shape_attribute &gt; shape &gt; visual_attribute</td><td>medium</td></tr><tr><td>sky</td><td>clear</td><td>weather_attribute &gt; opaqeness &gt; weather &gt; visual_attribute</td><td>medium</td></tr><tr><td>sky</td><td>blue</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>stands</td><td>stand</td><td>body_pose_action &gt; visual_action</td><td>agent: church</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>church</td><td>with</td><td>with</td><td>facade</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>church</td><td>with</td><td>with</td><td>tower</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>church</td><td>under</td><td>under</td><td>sky</td><td>spatial_vertical &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>church</td><td>church</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>attribute</td><td>brick</td><td>brick</td><td>material_attribute</td><td>high</td></tr><tr><td>m2</td><td>object</td><td>facade</td><td>facade</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>attribute</td><td>patterned</td><td>patterned</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m4</td><td>object</td><td>towers</td><td>tower</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m5</td><td>attribute</td><td>domed</td><td>domed</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m6</td><td>object</td><td>sky</td><td>sky</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m7</td><td>attribute</td><td>clear</td><td>clear</td><td>visual_attribute</td><td>medium</td></tr><tr><td>m8</td><td>attribute</td><td>blue</td><td>blue</td><td>color_attribute</td><td>high</td></tr><tr><td>m9</td><td>action</td><td>stands</td><td>stand</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>church <span class="muted">m0 object</span></td><td>brick <span class="muted">m1 attribute</span></td><td>chunk0 compound -&gt; church</td><td>high</td></tr><tr><td>e1</td><td>has_attribute</td><td>facade <span class="muted">m2 object</span></td><td>patterned <span class="muted">m3 attribute</span></td><td>chunk1 amod -&gt; facade</td><td>medium</td></tr><tr><td>e2</td><td>has_attribute</td><td>towers <span class="muted">m4 object</span></td><td>domed <span class="muted">m5 attribute</span></td><td>chunk2 amod -&gt; towers</td><td>medium</td></tr><tr><td>e3</td><td>has_attribute</td><td>sky <span class="muted">m6 object</span></td><td>clear <span class="muted">m7 attribute</span></td><td>chunk3 amod -&gt; sky</td><td>medium</td></tr><tr><td>e4</td><td>has_attribute</td><td>sky <span class="muted">m6 object</span></td><td>blue <span class="muted">m8 attribute</span></td><td>chunk3 amod -&gt; sky</td><td>high</td></tr><tr><td>e5</td><td>agent</td><td>stands <span class="muted">m9 action</span></td><td>church <span class="muted">m0 object</span></td><td>nsubj -&gt; stands</td><td>medium</td></tr><tr><td>e6</td><td>relation</td><td>church <span class="muted">m0 object</span></td><td>facade <span class="muted">m2 object</span></td><td>with</td><td>high</td></tr><tr><td>e7</td><td>relation</td><td>church <span class="muted">m0 object</span></td><td>towers <span class="muted">m4 object</span></td><td>with</td><td>high</td></tr><tr><td>e8</td><td>relation</td><td>church <span class="muted">m0 object</span></td><td>sky <span class="muted">m6 object</span></td><td>under</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (14)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:church</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:facade</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:tower</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:sky</td><td>high</td></tr><tr><td>cf4</td><td>has_attribute</td><td>has_attribute:church:brick</td><td>high</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:facade:patterned</td><td>medium</td></tr><tr><td>cf6</td><td>has_attribute</td><td>has_attribute:tower:domed</td><td>medium</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:sky:clear</td><td>medium</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:sky:blue</td><td>high</td></tr><tr><td>cf9</td><td>action_event</td><td>action_event:stand</td><td>high</td></tr><tr><td>cf10</td><td>event_role</td><td>event_role:stand:agent:church</td><td>medium</td></tr><tr><td>cf11</td><td>relation</td><td>relation:church:with:facade</td><td>high</td></tr><tr><td>cf12</td><td>relation</td><td>relation:church:with:tower</td><td>high</td></tr><tr><td>cf13</td><td>relation</td><td>relation:church:under:sky</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

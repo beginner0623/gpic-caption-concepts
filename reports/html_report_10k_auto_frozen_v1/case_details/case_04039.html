@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 04039 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 04039 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_04001_04500.html#case-4039">Back to Case List</a> | <a href="case_04038.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-4039">
+  <div class="case-title">
+    <h2>Case 04039</h2>
+    <a href="#case-4039">anchor</a>
+  </div>
+  <div class="caption-box">A person in a helmet and roller derby gear stands on a rink, wearing a gray shirt with &quot;Hilarazoo&quot; printed on it.</div>
+  <div class="chips">
+    <span>caption_id: 363f337ea064693d6d37d64cc7152d2a01ff20574e09436d33025e60a6f7a473</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 1</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m1</td><td>person</td><td>person</td><td>person &gt; human</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m2</td><td>helmet</td><td>helmet</td><td>protective_gear &gt; clothing &gt; wearable</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m3</td><td>gear</td><td>gear</td><td>equipment &gt; artifact</td><td>source=wordnet_synset:gear.n.04 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:gear.n.04 + 1k_stage9_audit_v2; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m6</td><td>rink</td><td>rink</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m7</td><td>shirt</td><td>shirt</td><td>clothing &gt; wearable</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>gear</td><td>roller</td><td>compound_modifier &gt; visual_attribute</td><td>medium</td></tr><tr><td>gear</td><td>derby</td><td>compound_modifier &gt; visual_attribute</td><td>medium</td></tr><tr><td>shirt</td><td>gray</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>stands</td><td>stand</td><td>body_pose_action &gt; visual_action</td><td>agent: person</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>wearing</td><td>wear</td><td>wearing_action &gt; visual_action</td><td>agent: person<br>patient: shirt</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>printed</td><td>print</td><td>text_rendering_action &gt; visual_action</td><td>agent: m0</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:print.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:print.v.01; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>person</td><td>in</td><td>in</td><td>helmet</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr><tr><td>person</td><td>in</td><td>in</td><td>gear</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr><tr><td>person</td><td>on</td><td>on</td><td>rink</td><td>spatial_support &gt; visual_relation</td><td>high</td></tr><tr><td></td><td>on</td><td>on</td><td>person</td><td>spatial_support &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>attribute</td><td>&quot;Hilarazoo&quot;</td><td>hilarazoo</td><td>quote_text</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>person</td><td>person</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>object</td><td>helmet</td><td>helmet</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>gear</td><td>gear</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>roller</td><td>roller</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m5</td><td>attribute</td><td>derby</td><td>derby</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m6</td><td>object</td><td>rink</td><td>rink</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m7</td><td>object</td><td>shirt</td><td>shirt</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m8</td><td>attribute</td><td>gray</td><td>gray</td><td>color_attribute</td><td>high</td></tr><tr><td>m9</td><td>action</td><td>stands</td><td>stand</td><td>verb_predicate</td><td>high</td></tr><tr><td>m10</td><td>action</td><td>wearing</td><td>wear</td><td>verb_predicate</td><td>high</td></tr><tr><td>m11</td><td>action</td><td>printed</td><td>print</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>gear <span class="muted">m3 object</span></td><td>roller <span class="muted">m4 attribute</span></td><td>chunk2 compound -&gt; gear</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>gear <span class="muted">m3 object</span></td><td>derby <span class="muted">m5 attribute</span></td><td>chunk2 compound -&gt; gear</td><td>medium</td></tr><tr><td>e2</td><td>has_attribute</td><td>shirt <span class="muted">m7 object</span></td><td>gray <span class="muted">m8 attribute</span></td><td>chunk4 amod -&gt; shirt</td><td>high</td></tr><tr><td>e3</td><td>agent</td><td>stands <span class="muted">m9 action</span></td><td>person <span class="muted">m1 object</span></td><td>nsubj -&gt; stands</td><td>medium</td></tr><tr><td>e4</td><td>agent</td><td>wearing <span class="muted">m10 action</span></td><td>person <span class="muted">m1 object</span></td><td>inherited agent advcl -&gt; stands</td><td>medium</td></tr><tr><td>e5</td><td>patient</td><td>wearing <span class="muted">m10 action</span></td><td>shirt <span class="muted">m7 object</span></td><td>dobj -&gt; wearing</td><td>medium</td></tr><tr><td>e6</td><td>agent</td><td>printed <span class="muted">m11 action</span></td><td>&quot;Hilarazoo&quot; <span class="muted">m0 attribute</span></td><td>nsubj -&gt; printed</td><td>medium</td></tr><tr><td>e7</td><td>relation</td><td>person <span class="muted">m1 object</span></td><td>helmet <span class="muted">m2 object</span></td><td>in</td><td>high</td></tr><tr><td>e8</td><td>relation</td><td>person <span class="muted">m1 object</span></td><td>gear <span class="muted">m3 object</span></td><td>in</td><td>high</td></tr><tr><td>e9</td><td>relation</td><td>person <span class="muted">m1 object</span></td><td>rink <span class="muted">m6 object</span></td><td>on</td><td>high</td></tr><tr><td>e10</td><td>relation</td><td>&quot;Hilarazoo&quot; <span class="muted">m0 attribute</span></td><td>person <span class="muted">m1 object</span></td><td>on</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (19)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:person</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:helmet</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:gear</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:rink</td><td>low</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:shirt</td><td>high</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:gear:roller</td><td>medium</td></tr><tr><td>cf6</td><td>has_attribute</td><td>has_attribute:gear:derby</td><td>medium</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:shirt:gray</td><td>high</td></tr><tr><td>cf8</td><td>action_event</td><td>action_event:stand</td><td>high</td></tr><tr><td>cf9</td><td>event_role</td><td>event_role:stand:agent:person</td><td>medium</td></tr><tr><td>cf10</td><td>action_event</td><td>action_event:wear</td><td>high</td></tr><tr><td>cf11</td><td>event_role</td><td>event_role:wear:agent:person</td><td>medium</td></tr><tr><td>cf12</td><td>event_role</td><td>event_role:wear:patient:shirt</td><td>medium</td></tr><tr><td>cf13</td><td>action_event</td><td>action_event:print</td><td>high</td></tr><tr><td>cf14</td><td>event_role</td><td>event_role:print:agent</td><td>medium</td></tr><tr><td>cf15</td><td>relation</td><td>relation:person:in:helmet</td><td>high</td></tr><tr><td>cf16</td><td>relation</td><td>relation:person:in:gear</td><td>high</td></tr><tr><td>cf17</td><td>relation</td><td>relation:person:on:rink</td><td>high</td></tr><tr><td>cf18</td><td>relation</td><td>relation:on:person</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

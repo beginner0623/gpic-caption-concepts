@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 03930 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 03930 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_03501_04000.html#case-3930">Back to Case List</a> | <a href="case_03929.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-3930">
+  <div class="case-title">
+    <h2>Case 03930</h2>
+    <a href="#case-3930">anchor</a>
+  </div>
+  <div class="caption-box">A motorcycle racer in an orange and blue suit stands on a podium, holding his helmet. Behind him, a banner reads &quot;Grand Prix of Japan Motegi 2012.&quot;</div>
+  <div class="chips">
+    <span>caption_id: d2a04929c2d330ccd7c45e7bdab33ffe631e1111c21b422af77baa4ded59b5bb</span>
+    <span>shape: multi-sentence</span>
+    <span>parse: sentence</span>
+    <span>quotes: 1</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m1</td><td>racer</td><td>racer</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m3</td><td>suit</td><td>suit</td><td>clothing &gt; wearable</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m6</td><td>podium</td><td>podium</td><td>furniture &gt; platform &gt; artifact</td><td>source=wordnet_synset:podium.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:podium.n.01 + 1k_stage9_audit_v2; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m7</td><td>helmet</td><td>helmet</td><td>protective_gear &gt; clothing &gt; wearable</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m8</td><td>banner</td><td>banner</td><td>text_carrier &gt; artifact</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>racer</td><td>motorcycle</td><td>compound_modifier &gt; visual_attribute</td><td>medium</td></tr><tr><td>suit</td><td>orange</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>suit</td><td>blue</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>stands</td><td>stand</td><td>body_pose_action &gt; visual_action</td><td>agent: racer</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>holding</td><td>hold</td><td>manipulation_action &gt; visual_action</td><td>agent: racer<br>patient: helmet</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>reads</td><td>read</td><td>text_interaction_action &gt; visual_action</td><td>agent: banner<br>patient: m0</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>racer</td><td>in</td><td>in</td><td>suit</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr><tr><td>racer</td><td>on</td><td>on</td><td>podium</td><td>spatial_support &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>attribute</td><td>&quot;Grand Prix of Japan Motegi 2012.&quot;</td><td>grand_prix_of_japan_motegi_2012.</td><td>quote_text</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>racer</td><td>racer</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>attribute</td><td>motorcycle</td><td>motorcycle</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m3</td><td>object</td><td>suit</td><td>suit</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>orange</td><td>orange</td><td>color_attribute</td><td>high</td></tr><tr><td>m5</td><td>attribute</td><td>blue</td><td>blue</td><td>color_attribute</td><td>high</td></tr><tr><td>m6</td><td>object</td><td>podium</td><td>podium</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m7</td><td>object</td><td>helmet</td><td>helmet</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m8</td><td>object</td><td>banner</td><td>banner</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m9</td><td>action</td><td>stands</td><td>stand</td><td>verb_predicate</td><td>high</td></tr><tr><td>m10</td><td>action</td><td>holding</td><td>hold</td><td>verb_predicate</td><td>high</td></tr><tr><td>m11</td><td>action</td><td>reads</td><td>read</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>racer <span class="muted">m1 object</span></td><td>motorcycle <span class="muted">m2 attribute</span></td><td>chunk0 compound -&gt; racer</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>suit <span class="muted">m3 object</span></td><td>orange <span class="muted">m4 attribute</span></td><td>chunk1 amod -&gt; suit</td><td>high</td></tr><tr><td>e2</td><td>has_attribute</td><td>suit <span class="muted">m3 object</span></td><td>blue <span class="muted">m5 attribute</span></td><td>chunk1 conj -&gt; suit</td><td>high</td></tr><tr><td>e3</td><td>agent</td><td>stands <span class="muted">m9 action</span></td><td>racer <span class="muted">m1 object</span></td><td>nsubj -&gt; stands</td><td>medium</td></tr><tr><td>e4</td><td>agent</td><td>holding <span class="muted">m10 action</span></td><td>racer <span class="muted">m1 object</span></td><td>inherited agent advcl -&gt; stands</td><td>medium</td></tr><tr><td>e5</td><td>patient</td><td>holding <span class="muted">m10 action</span></td><td>helmet <span class="muted">m7 object</span></td><td>dobj -&gt; holding</td><td>medium</td></tr><tr><td>e6</td><td>agent</td><td>reads <span class="muted">m11 action</span></td><td>banner <span class="muted">m8 object</span></td><td>nsubj -&gt; reads</td><td>medium</td></tr><tr><td>e7</td><td>patient</td><td>reads <span class="muted">m11 action</span></td><td>&quot;Grand Prix of Japan Motegi 2012.&quot; <span class="muted">m0 attribute</span></td><td>dobj -&gt; reads</td><td>medium</td></tr><tr><td>e8</td><td>relation</td><td>racer <span class="muted">m1 object</span></td><td>suit <span class="muted">m3 object</span></td><td>in</td><td>high</td></tr><tr><td>e9</td><td>relation</td><td>racer <span class="muted">m1 object</span></td><td>podium <span class="muted">m6 object</span></td><td>on</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (18)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:racer</td><td>low</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:suit</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:podium</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:helmet</td><td>high</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:banner</td><td>high</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:racer:motorcycle</td><td>medium</td></tr><tr><td>cf6</td><td>has_attribute</td><td>has_attribute:suit:orange</td><td>high</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:suit:blue</td><td>high</td></tr><tr><td>cf8</td><td>action_event</td><td>action_event:stand</td><td>high</td></tr><tr><td>cf9</td><td>event_role</td><td>event_role:stand:agent:racer</td><td>medium</td></tr><tr><td>cf10</td><td>action_event</td><td>action_event:hold</td><td>high</td></tr><tr><td>cf11</td><td>event_role</td><td>event_role:hold:agent:racer</td><td>medium</td></tr><tr><td>cf12</td><td>event_role</td><td>event_role:hold:patient:helmet</td><td>medium</td></tr><tr><td>cf13</td><td>action_event</td><td>action_event:read</td><td>medium</td></tr><tr><td>cf14</td><td>event_role</td><td>event_role:read:agent:banner</td><td>medium</td></tr><tr><td>cf15</td><td>event_role</td><td>event_role:read:patient</td><td>medium</td></tr><tr><td>cf16</td><td>relation</td><td>relation:racer:in:suit</td><td>high</td></tr><tr><td>cf17</td><td>relation</td><td>relation:racer:on:podium</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

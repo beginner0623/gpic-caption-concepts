@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 04216 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 04216 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_04001_04500.html#case-4216">Back to Case List</a> | <a href="case_04215.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-4216">
+  <div class="case-title">
+    <h2>Case 04216</h2>
+    <a href="#case-4216">anchor</a>
+  </div>
+  <div class="caption-box">A fenced area with old train tracks runs beside a brick building at night.</div>
+  <div class="chips">
+    <span>caption_id: be822fc63a0f92c458f1078ce98d2da5f08b223a2fa8ad5078ab133b4bdf82a7</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>area</td><td>area</td><td>spatial_region &gt; place</td><td>source=wordnet_synset:area.n.05 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:area.n.05 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m2</td><td>tracks</td><td>track</td><td>path &gt; sports_facility &gt; place</td><td>source=wordnet_synset:track.n.09 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:track.n.09 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m5</td><td>building</td><td>building</td><td>structure &gt; artifact</td><td>source=wordnet_synset:building.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:building.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m7</td><td>night</td><td>night</td><td>scene_context &gt; time_context</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>area</td><td>fence</td><td>state_attribute &gt; visual_attribute</td><td>medium</td></tr><tr><td>track</td><td>old</td><td>condition_attribute &gt; clean_exact_overlap &gt; maturity &gt; newness &gt; visual_attribute</td><td>medium</td></tr><tr><td>track</td><td>train</td><td>compound_modifier &gt; visual_attribute</td><td>medium</td></tr><tr><td>building</td><td>brick</td><td>material_attribute &gt; material &gt; visual_attribute</td><td>high</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>runs</td><td>run</td><td>locomotion_action &gt; visual_action</td><td>agent: area</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>area</td><td>with</td><td>with</td><td>track</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>area</td><td>beside</td><td>next_to</td><td>building</td><td>spatial_proximity &gt; visual_relation</td><td>high</td></tr><tr><td>area</td><td>at</td><td>at</td><td>night</td><td>spatial_location &gt; visual_relation</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>area</td><td>area</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>attribute</td><td>fenced</td><td>fence</td><td>state_attribute</td><td>medium</td></tr><tr><td>m2</td><td>object</td><td>tracks</td><td>track</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>attribute</td><td>old</td><td>old</td><td>visual_attribute</td><td>medium</td></tr><tr><td>m4</td><td>attribute</td><td>train</td><td>train</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m5</td><td>object</td><td>building</td><td>building</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>attribute</td><td>brick</td><td>brick</td><td>material_attribute</td><td>high</td></tr><tr><td>m7</td><td>context</td><td>night</td><td>night</td><td>scene_context</td><td>medium</td></tr><tr><td>m8</td><td>action</td><td>runs</td><td>run</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>area <span class="muted">m0 object</span></td><td>fenced <span class="muted">m1 attribute</span></td><td>chunk0 amod -&gt; area</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>tracks <span class="muted">m2 object</span></td><td>old <span class="muted">m3 attribute</span></td><td>chunk1 amod -&gt; tracks</td><td>medium</td></tr><tr><td>e2</td><td>has_attribute</td><td>tracks <span class="muted">m2 object</span></td><td>train <span class="muted">m4 attribute</span></td><td>chunk1 compound -&gt; tracks</td><td>medium</td></tr><tr><td>e3</td><td>has_attribute</td><td>building <span class="muted">m5 object</span></td><td>brick <span class="muted">m6 attribute</span></td><td>chunk2 compound -&gt; building</td><td>high</td></tr><tr><td>e4</td><td>has_context</td><td>scene <span class="muted">scene </span></td><td>night <span class="muted">m7 context</span></td><td>scene_context token night</td><td>medium</td></tr><tr><td>e5</td><td>agent</td><td>runs <span class="muted">m8 action</span></td><td>area <span class="muted">m0 object</span></td><td>nsubj -&gt; runs</td><td>medium</td></tr><tr><td>e6</td><td>relation</td><td>area <span class="muted">m0 object</span></td><td>tracks <span class="muted">m2 object</span></td><td>with</td><td>high</td></tr><tr><td>e7</td><td>relation</td><td>area <span class="muted">m0 object</span></td><td>building <span class="muted">m5 object</span></td><td>beside</td><td>high</td></tr><tr><td>e8</td><td>relation</td><td>area <span class="muted">m0 object</span></td><td>night <span class="muted">m7 context</span></td><td>at</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (13)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:area</td><td>medium</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:track</td><td>medium</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:building</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:night</td><td>high</td></tr><tr><td>cf4</td><td>has_attribute</td><td>has_attribute:area:fence</td><td>medium</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:track:old</td><td>medium</td></tr><tr><td>cf6</td><td>has_attribute</td><td>has_attribute:track:train</td><td>medium</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:building:brick</td><td>high</td></tr><tr><td>cf8</td><td>action_event</td><td>action_event:run</td><td>high</td></tr><tr><td>cf9</td><td>event_role</td><td>event_role:run:agent:area</td><td>medium</td></tr><tr><td>cf10</td><td>relation</td><td>relation:area:with:track</td><td>high</td></tr><tr><td>cf11</td><td>relation</td><td>relation:area:next_to:building</td><td>high</td></tr><tr><td>cf12</td><td>relation</td><td>relation:area:at:night</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

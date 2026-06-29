@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 07311 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 07311 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_07001_07500.html#case-7311">Back to Case List</a> | <a href="case_07310.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-7311">
+  <div class="case-title">
+    <h2>Case 07311</h2>
+    <a href="#case-7311">anchor</a>
+  </div>
+  <div class="caption-box">A horse-drawn carriage shaped like a pumpkin with lights moves at night. People sit inside the decorated carriage.</div>
+  <div class="chips">
+    <span>caption_id: df7cd4984b9702b8c05129476f3fb791587a49d5568ff62111b739764fd5b6cc</span>
+    <span>shape: multi-sentence</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>carriage</td><td>carriage</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m2</td><td>pumpkin</td><td>pumpkin</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m3</td><td>lights</td><td>light</td><td>illumination &gt; visual_element</td><td>source=wordnet_synset:light.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:light.n.01 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m4</td><td>night</td><td>night</td><td>scene_context &gt; time_context</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m5</td><td>People</td><td>people</td><td>person &gt; human</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m6</td><td>carriage</td><td>carriage</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>carriage</td><td>horse-drawn</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr><tr><td>carriage</td><td>decorate</td><td>state_attribute &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>shaped</td><td>shape</td><td>shape_state &gt; visual_action</td><td>agent: carriage</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:shape.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:shape.v.01; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>moves</td><td>move</td><td>locomotion_action &gt; visual_action</td><td>agent: carriage</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>sit</td><td>sit</td><td>body_pose_action &gt; visual_action</td><td>agent: people</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>carriage</td><td>like</td><td>like</td><td>pumpkin</td><td>visual_relation</td><td>medium</td></tr><tr><td>pumpkin</td><td>with</td><td>with</td><td>light</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>carriage</td><td>at</td><td>at</td><td>night</td><td>spatial_location &gt; visual_relation</td><td>medium</td></tr><tr><td>people</td><td>inside</td><td>inside</td><td>carriage</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>carriage</td><td>carriage</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>attribute</td><td>horse-drawn</td><td>horse-drawn</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m2</td><td>object</td><td>pumpkin</td><td>pumpkin</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>lights</td><td>light</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>context</td><td>night</td><td>night</td><td>scene_context</td><td>medium</td></tr><tr><td>m5</td><td>object</td><td>People</td><td>people</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>object</td><td>carriage</td><td>carriage</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m7</td><td>attribute</td><td>decorated</td><td>decorate</td><td>state_attribute</td><td>medium</td></tr><tr><td>m8</td><td>action</td><td>shaped</td><td>shape</td><td>verb_predicate</td><td>high</td></tr><tr><td>m9</td><td>action</td><td>moves</td><td>move</td><td>verb_predicate</td><td>high</td></tr><tr><td>m10</td><td>action</td><td>sit</td><td>sit</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>carriage <span class="muted">m0 object</span></td><td>horse-drawn <span class="muted">m1 attribute</span></td><td>chunk0 amod -&gt; carriage</td><td>medium</td></tr><tr><td>e1</td><td>has_context</td><td>scene <span class="muted">scene </span></td><td>night <span class="muted">m4 context</span></td><td>scene_context token night</td><td>medium</td></tr><tr><td>e2</td><td>has_attribute</td><td>carriage <span class="muted">m6 object</span></td><td>decorated <span class="muted">m7 attribute</span></td><td>chunk5 amod -&gt; carriage</td><td>medium</td></tr><tr><td>e3</td><td>agent</td><td>shaped <span class="muted">m8 action</span></td><td>carriage <span class="muted">m0 object</span></td><td>inherited agent acl -&gt; carriage</td><td>medium</td></tr><tr><td>e4</td><td>agent</td><td>moves <span class="muted">m9 action</span></td><td>carriage <span class="muted">m0 object</span></td><td>nsubj -&gt; moves</td><td>medium</td></tr><tr><td>e5</td><td>agent</td><td>sit <span class="muted">m10 action</span></td><td>People <span class="muted">m5 object</span></td><td>nsubj -&gt; sit</td><td>medium</td></tr><tr><td>e6</td><td>relation</td><td>carriage <span class="muted">m0 object</span></td><td>pumpkin <span class="muted">m2 object</span></td><td>like</td><td>medium</td></tr><tr><td>e7</td><td>relation</td><td>pumpkin <span class="muted">m2 object</span></td><td>lights <span class="muted">m3 object</span></td><td>with</td><td>high</td></tr><tr><td>e8</td><td>relation</td><td>carriage <span class="muted">m0 object</span></td><td>night <span class="muted">m4 context</span></td><td>at</td><td>medium</td></tr><tr><td>e9</td><td>relation</td><td>People <span class="muted">m5 object</span></td><td>carriage <span class="muted">m6 object</span></td><td>inside</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (18)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:carriage</td><td>low</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:pumpkin</td><td>low</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:light</td><td>medium</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:night</td><td>high</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:people</td><td>high</td></tr><tr><td>cf5</td><td>entity_exists</td><td>entity_exists:carriage</td><td>low</td></tr><tr><td>cf6</td><td>has_attribute</td><td>has_attribute:carriage:horse-drawn</td><td>medium</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:carriage:decorate</td><td>medium</td></tr><tr><td>cf8</td><td>action_event</td><td>action_event:shape</td><td>medium</td></tr><tr><td>cf9</td><td>event_role</td><td>event_role:shape:agent:carriage</td><td>medium</td></tr><tr><td>cf10</td><td>action_event</td><td>action_event:move</td><td>high</td></tr><tr><td>cf11</td><td>event_role</td><td>event_role:move:agent:carriage</td><td>medium</td></tr><tr><td>cf12</td><td>action_event</td><td>action_event:sit</td><td>high</td></tr><tr><td>cf13</td><td>event_role</td><td>event_role:sit:agent:people</td><td>medium</td></tr><tr><td>cf14</td><td>relation</td><td>relation:carriage:like:pumpkin</td><td>medium</td></tr><tr><td>cf15</td><td>relation</td><td>relation:pumpkin:with:light</td><td>high</td></tr><tr><td>cf16</td><td>relation</td><td>relation:carriage:at:night</td><td>medium</td></tr><tr><td>cf17</td><td>relation</td><td>relation:people:inside:carriage</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

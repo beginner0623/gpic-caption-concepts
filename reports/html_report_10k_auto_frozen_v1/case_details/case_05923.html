@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 05923 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 05923 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_05501_06000.html#case-5923">Back to Case List</a> | <a href="case_05922.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-5923">
+  <div class="case-title">
+    <h2>Case 05923</h2>
+    <a href="#case-5923">anchor</a>
+  </div>
+  <div class="caption-box">Five teenagers pose in a gym, with one kneeling and holding a certificate that reads &quot;1. PLATZ 5.3.&quot;</div>
+  <div class="chips">
+    <span>caption_id: 0217e75cea5eb2476b2e2da59a5d3dff9586efd50adf76243a0aba87fa78e49c</span>
+    <span>shape: multi-sentence</span>
+    <span>parse: sentence</span>
+    <span>quotes: 1</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m1</td><td>teenagers</td><td>teenager</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m3</td><td>gym</td><td>gym</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m4</td><td>certificate</td><td>certificate</td><td>document &gt; text_carrier &gt; artifact</td><td>source=1k_stage9_audit_v3 + wordnet_hypernym; canonical_source=raw_lemma; parent_source=1k_stage9_audit_v3 + wordnet_hypernym; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>eref_m5</td><td>one</td><td>teenager</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>pose</td><td>pose</td><td>body_pose_action &gt; visual_action</td><td>agent: teenager</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>kneeling</td><td>kneel</td><td>body_pose_action &gt; visual_action</td><td>agent: teenager</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:kneel.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:kneel.v.01; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>holding</td><td>hold</td><td>manipulation_action &gt; visual_action</td><td>agent: teenager<br>patient: certificate</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>reads</td><td>read</td><td>text_interaction_action &gt; visual_action</td><td>agent: certificate<br>patient: m0</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>teenager</td><td>in</td><td>in</td><td>gym</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>attribute</td><td>&quot;1. PLATZ 5.3.&quot;</td><td>1._platz_5.3.</td><td>quote_text</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>teenagers</td><td>teenager</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>quantity</td><td>Five</td><td>five</td><td>exact_quantity</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>gym</td><td>gym</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>object</td><td>certificate</td><td>certificate</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m5</td><td>reference</td><td>one</td><td>one</td><td>singular_substitute</td><td>high</td></tr><tr><td>m6</td><td>action</td><td>pose</td><td>pose</td><td>verb_predicate</td><td>high</td></tr><tr><td>m7</td><td>action</td><td>kneeling</td><td>kneel</td><td>verb_predicate</td><td>high</td></tr><tr><td>m8</td><td>action</td><td>holding</td><td>hold</td><td>verb_predicate</td><td>high</td></tr><tr><td>m9</td><td>action</td><td>reads</td><td>read</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_quantity</td><td>teenagers <span class="muted">m1 object</span></td><td>Five <span class="muted">m2 quantity</span></td><td>chunk0 quantity -&gt; teenagers</td><td>high</td></tr><tr><td>e1</td><td>refers_to</td><td>one <span class="muted">m5 reference</span></td><td>teenagers <span class="muted">m1 object</span></td><td>singular_substitute one -&gt; teenagers; score=103</td><td>high</td></tr><tr><td>e2</td><td>agent</td><td>pose <span class="muted">m6 action</span></td><td>teenagers <span class="muted">m1 object</span></td><td>nsubj -&gt; pose</td><td>medium</td></tr><tr><td>e3</td><td>agent</td><td>kneeling <span class="muted">m7 action</span></td><td>teenagers <span class="muted">m1 object</span></td><td>nsubj -&gt; kneeling; resolved one -&gt; teenagers</td><td>medium</td></tr><tr><td>e4</td><td>agent</td><td>holding <span class="muted">m8 action</span></td><td>teenagers <span class="muted">m1 object</span></td><td>inherited agent conj -&gt; kneeling</td><td>medium</td></tr><tr><td>e5</td><td>patient</td><td>holding <span class="muted">m8 action</span></td><td>certificate <span class="muted">m4 object</span></td><td>dobj -&gt; holding</td><td>medium</td></tr><tr><td>e6</td><td>agent</td><td>reads <span class="muted">m9 action</span></td><td>certificate <span class="muted">m4 object</span></td><td>nsubj -&gt; reads; resolved that -&gt; certificate</td><td>medium</td></tr><tr><td>e7</td><td>patient</td><td>reads <span class="muted">m9 action</span></td><td>&quot;1. PLATZ 5.3.&quot; <span class="muted">m0 attribute</span></td><td>dobj -&gt; reads</td><td>medium</td></tr><tr><td>e8</td><td>relation</td><td>teenagers <span class="muted">m1 object</span></td><td>gym <span class="muted">m3 object</span></td><td>in</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (16)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:teenager</td><td>low</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:gym</td><td>low</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:certificate</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:teenager</td><td>low</td></tr><tr><td>cf4</td><td>has_quantity</td><td>has_quantity:teenager:five</td><td>high</td></tr><tr><td>cf5</td><td>action_event</td><td>action_event:pose</td><td>high</td></tr><tr><td>cf6</td><td>event_role</td><td>event_role:pose:agent:teenager</td><td>medium</td></tr><tr><td>cf7</td><td>action_event</td><td>action_event:kneel</td><td>high</td></tr><tr><td>cf8</td><td>event_role</td><td>event_role:kneel:agent:teenager</td><td>medium</td></tr><tr><td>cf9</td><td>action_event</td><td>action_event:hold</td><td>high</td></tr><tr><td>cf10</td><td>event_role</td><td>event_role:hold:agent:teenager</td><td>medium</td></tr><tr><td>cf11</td><td>event_role</td><td>event_role:hold:patient:certificate</td><td>medium</td></tr><tr><td>cf12</td><td>action_event</td><td>action_event:read</td><td>medium</td></tr><tr><td>cf13</td><td>event_role</td><td>event_role:read:agent:certificate</td><td>medium</td></tr><tr><td>cf14</td><td>event_role</td><td>event_role:read:patient</td><td>medium</td></tr><tr><td>cf15</td><td>relation</td><td>relation:teenager:in:gym</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

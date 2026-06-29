@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 08276 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 08276 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_08001_08500.html#case-8276">Back to Case List</a> | <a href="case_08275.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-8276">
+  <div class="case-title">
+    <h2>Case 08276</h2>
+    <a href="#case-8276">anchor</a>
+  </div>
+  <div class="caption-box">Two teens hug in a gym, surrounded by friends who watch and smile.</div>
+  <div class="chips">
+    <span>caption_id: 32adbea9b90a6640137b3eeac9bd9a0ebde65e7533de382cc826f85f0b878785</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>teens</td><td>teen</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m2</td><td>gym</td><td>gym</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m3</td><td>friends</td><td>friend</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>hug</td><td>hug</td><td>social_contact_action &gt; visual_action</td><td>agent: teen</td><td>source=10k_auto_feedback_v1 + fixed_rubric + action_ontology; canonical_source=raw_action; parent_source=10k_auto_feedback_v1 + fixed_rubric + action_ontology; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>surrounded</td><td>surround</td><td>spatial_configuration_action &gt; visual_action</td><td>agent: teen</td><td>source=wordnet_synset:surround.v.01 + stage9_audit; canonical_source=raw_action; parent_source=wordnet_synset:surround.v.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>watch</td><td>watch</td><td>gaze_action &gt; visual_action</td><td>agent: friend</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>smile</td><td>smile</td><td>expression_action &gt; visual_action</td><td>agent: friend</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>teen</td><td>in</td><td>in</td><td>gym</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr><tr><td>teen</td><td>by</td><td>by</td><td>friend</td><td>spatial_proximity &gt; visual_relation</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>teens</td><td>teen</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>quantity</td><td>Two</td><td>two</td><td>exact_quantity</td><td>high</td></tr><tr><td>m2</td><td>object</td><td>gym</td><td>gym</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>friends</td><td>friend</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>action</td><td>hug</td><td>hug</td><td>verb_predicate</td><td>high</td></tr><tr><td>m5</td><td>action</td><td>surrounded</td><td>surround</td><td>verb_predicate</td><td>high</td></tr><tr><td>m6</td><td>action</td><td>watch</td><td>watch</td><td>verb_predicate</td><td>high</td></tr><tr><td>m7</td><td>action</td><td>smile</td><td>smile</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_quantity</td><td>teens <span class="muted">m0 object</span></td><td>Two <span class="muted">m1 quantity</span></td><td>chunk0 quantity -&gt; teens</td><td>high</td></tr><tr><td>e1</td><td>agent</td><td>hug <span class="muted">m4 action</span></td><td>teens <span class="muted">m0 object</span></td><td>nsubj -&gt; hug</td><td>medium</td></tr><tr><td>e2</td><td>agent</td><td>surrounded <span class="muted">m5 action</span></td><td>teens <span class="muted">m0 object</span></td><td>inherited agent advcl -&gt; hug</td><td>medium</td></tr><tr><td>e3</td><td>agent</td><td>watch <span class="muted">m6 action</span></td><td>friends <span class="muted">m3 object</span></td><td>nsubj -&gt; watch; resolved who -&gt; friends</td><td>medium</td></tr><tr><td>e4</td><td>agent</td><td>smile <span class="muted">m7 action</span></td><td>friends <span class="muted">m3 object</span></td><td>inherited agent conj -&gt; watch</td><td>medium</td></tr><tr><td>e5</td><td>relation</td><td>teens <span class="muted">m0 object</span></td><td>gym <span class="muted">m2 object</span></td><td>in</td><td>high</td></tr><tr><td>e6</td><td>relation</td><td>teens <span class="muted">m0 object</span></td><td>friends <span class="muted">m3 object</span></td><td>by</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (14)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:teen</td><td>low</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:gym</td><td>low</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:friend</td><td>low</td></tr><tr><td>cf3</td><td>has_quantity</td><td>has_quantity:teen:two</td><td>high</td></tr><tr><td>cf4</td><td>action_event</td><td>action_event:hug</td><td>high</td></tr><tr><td>cf5</td><td>event_role</td><td>event_role:hug:agent:teen</td><td>medium</td></tr><tr><td>cf6</td><td>action_event</td><td>action_event:surround</td><td>high</td></tr><tr><td>cf7</td><td>event_role</td><td>event_role:surround:agent:teen</td><td>medium</td></tr><tr><td>cf8</td><td>action_event</td><td>action_event:watch</td><td>medium</td></tr><tr><td>cf9</td><td>event_role</td><td>event_role:watch:agent:friend</td><td>medium</td></tr><tr><td>cf10</td><td>action_event</td><td>action_event:smile</td><td>high</td></tr><tr><td>cf11</td><td>event_role</td><td>event_role:smile:agent:friend</td><td>medium</td></tr><tr><td>cf12</td><td>relation</td><td>relation:teen:in:gym</td><td>high</td></tr><tr><td>cf13</td><td>relation</td><td>relation:teen:by:friend</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

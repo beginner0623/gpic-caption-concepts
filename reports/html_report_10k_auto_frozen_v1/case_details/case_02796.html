@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 02796 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 02796 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_02501_03000.html#case-2796">Back to Case List</a> | <a href="case_02795.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-2796">
+  <div class="case-title">
+    <h2>Case 02796</h2>
+    <a href="#case-2796">anchor</a>
+  </div>
+  <div class="caption-box">Three boys smile from inside a blue slide at a playground.</div>
+  <div class="chips">
+    <span>caption_id: 63d4c47f9057bc8e62f5fc04bda5762e5b67738716fd35d1be5c66dc9ebffa8a</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>boys</td><td>boy</td><td>person &gt; human</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m2</td><td>slide</td><td>slide</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m4</td><td>playground</td><td>playground</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>slide</td><td>blue</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>smile</td><td>smile</td><td>expression_action &gt; visual_action</td><td>agent: boy</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>slide</td><td>at</td><td>at</td><td>playground</td><td>spatial_location &gt; visual_relation</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>boys</td><td>boy</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>quantity</td><td>Three</td><td>three</td><td>exact_quantity</td><td>high</td></tr><tr><td>m2</td><td>object</td><td>slide</td><td>slide</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>attribute</td><td>blue</td><td>blue</td><td>color_attribute</td><td>high</td></tr><tr><td>m4</td><td>object</td><td>playground</td><td>playground</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m5</td><td>action</td><td>smile</td><td>smile</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_quantity</td><td>boys <span class="muted">m0 object</span></td><td>Three <span class="muted">m1 quantity</span></td><td>chunk0 quantity -&gt; boys</td><td>high</td></tr><tr><td>e1</td><td>has_attribute</td><td>slide <span class="muted">m2 object</span></td><td>blue <span class="muted">m3 attribute</span></td><td>chunk1 amod -&gt; slide</td><td>high</td></tr><tr><td>e2</td><td>agent</td><td>smile <span class="muted">m5 action</span></td><td>boys <span class="muted">m0 object</span></td><td>nsubj -&gt; smile</td><td>medium</td></tr><tr><td>e3</td><td>relation</td><td>slide <span class="muted">m2 object</span></td><td>playground <span class="muted">m4 object</span></td><td>at</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (8)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:boy</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:slide</td><td>low</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:playground</td><td>low</td></tr><tr><td>cf3</td><td>has_quantity</td><td>has_quantity:boy:three</td><td>high</td></tr><tr><td>cf4</td><td>has_attribute</td><td>has_attribute:slide:blue</td><td>high</td></tr><tr><td>cf5</td><td>action_event</td><td>action_event:smile</td><td>high</td></tr><tr><td>cf6</td><td>event_role</td><td>event_role:smile:agent:boy</td><td>medium</td></tr><tr><td>cf7</td><td>relation</td><td>relation:slide:at:playground</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

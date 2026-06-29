@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 03532 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 03532 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_03501_04000.html#case-3532">Back to Case List</a> | <a href="case_03531.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-3532">
+  <div class="case-title">
+    <h2>Case 03532</h2>
+    <a href="#case-3532">anchor</a>
+  </div>
+  <div class="caption-box">A man stands on a sidewalk near a bench, with a child beside him, in front of a building labeled &quot;HOTEL OREL.&quot;</div>
+  <div class="chips">
+    <span>caption_id: e345ac17582f4b6b0c75f222b18b06f6790181c29df2c650a61ecf470f617ce0</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 1</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m1</td><td>man</td><td>man</td><td>person &gt; human</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m2</td><td>sidewalk</td><td>sidewalk</td><td>path &gt; place</td><td>source=wordnet_synset:sidewalk.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:sidewalk.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m3</td><td>bench</td><td>bench</td><td>furniture &gt; artifact</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m4</td><td>building</td><td>building</td><td>structure &gt; artifact</td><td>source=wordnet_synset:building.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:building.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m7</td><td>child</td><td>child</td><td>person &gt; human</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>stands</td><td>stand</td><td>body_pose_action &gt; visual_action</td><td>agent: man</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>labeled</td><td>label</td><td>text_annotation_action &gt; visual_action</td><td>agent: building<br>patient: m0</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:label.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:label.v.01; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>man</td><td>on</td><td>on</td><td>sidewalk</td><td>spatial_support &gt; visual_relation</td><td>high</td></tr><tr><td>man</td><td>near</td><td>near</td><td>bench</td><td>spatial_proximity &gt; visual_relation</td><td>high</td></tr><tr><td>child</td><td>beside</td><td>next_to</td><td>man</td><td>spatial_proximity &gt; visual_relation</td><td>high</td></tr><tr><td>man</td><td>in_front_of</td><td>in_front_of</td><td>building</td><td>spatial_depth &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>attribute</td><td>&quot;HOTEL OREL.&quot;</td><td>hotel_orel.</td><td>quote_text</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>man</td><td>man</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>object</td><td>sidewalk</td><td>sidewalk</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>bench</td><td>bench</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>object</td><td>building</td><td>building</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m5</td><td>action</td><td>stands</td><td>stand</td><td>verb_predicate</td><td>high</td></tr><tr><td>m6</td><td>action</td><td>labeled</td><td>label</td><td>verb_predicate</td><td>high</td></tr><tr><td>m7</td><td>object</td><td>child</td><td>child</td><td>with_absolute_recovered_object</td><td>medium</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>agent</td><td>stands <span class="muted">m5 action</span></td><td>man <span class="muted">m1 object</span></td><td>nsubj -&gt; stands</td><td>medium</td></tr><tr><td>e1</td><td>agent</td><td>labeled <span class="muted">m6 action</span></td><td>building <span class="muted">m4 object</span></td><td>inherited agent acl -&gt; building</td><td>medium</td></tr><tr><td>e2</td><td>patient</td><td>labeled <span class="muted">m6 action</span></td><td>&quot;HOTEL OREL.&quot; <span class="muted">m0 attribute</span></td><td>oprd -&gt; labeled</td><td>medium</td></tr><tr><td>e3</td><td>scene_contains</td><td>scene <span class="muted">scene </span></td><td>child <span class="muted">m7 object</span></td><td>with_absolute10 recovered child</td><td>medium</td></tr><tr><td>e4</td><td>relation</td><td>man <span class="muted">m1 object</span></td><td>sidewalk <span class="muted">m2 object</span></td><td>on</td><td>high</td></tr><tr><td>e5</td><td>relation</td><td>man <span class="muted">m1 object</span></td><td>bench <span class="muted">m3 object</span></td><td>near</td><td>high</td></tr><tr><td>e6</td><td>relation</td><td>child <span class="muted">m7 object</span></td><td>man <span class="muted">m1 object</span></td><td>beside</td><td>high</td></tr><tr><td>e7</td><td>relation</td><td>man <span class="muted">m1 object</span></td><td>building <span class="muted">m4 object</span></td><td>in_front_of</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (14)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:man</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:sidewalk</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:bench</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:building</td><td>high</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:child</td><td>high</td></tr><tr><td>cf5</td><td>action_event</td><td>action_event:stand</td><td>high</td></tr><tr><td>cf6</td><td>event_role</td><td>event_role:stand:agent:man</td><td>medium</td></tr><tr><td>cf7</td><td>action_event</td><td>action_event:label</td><td>high</td></tr><tr><td>cf8</td><td>event_role</td><td>event_role:label:agent:building</td><td>medium</td></tr><tr><td>cf9</td><td>event_role</td><td>event_role:label:patient</td><td>medium</td></tr><tr><td>cf10</td><td>relation</td><td>relation:man:on:sidewalk</td><td>high</td></tr><tr><td>cf11</td><td>relation</td><td>relation:man:near:bench</td><td>high</td></tr><tr><td>cf12</td><td>relation</td><td>relation:child:next_to:man</td><td>high</td></tr><tr><td>cf13</td><td>relation</td><td>relation:man:in_front_of:building</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 02333 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 02333 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_02001_02500.html#case-2333">Back to Case List</a> | <a href="case_02332.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-2333">
+  <div class="case-title">
+    <h2>Case 02333</h2>
+    <a href="#case-2333">anchor</a>
+  </div>
+  <div class="caption-box">A plate shows red text indicating it was designed by Laura Knight and produced in England in 1934.</div>
+  <div class="chips">
+    <span>caption_id: bb399d1dfdf02fb78c07233c1989801871afb81e51f2a344f6854c36145168e9</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>plate</td><td>plate</td><td>dishware &gt; artifact</td><td>source=wordnet_synset:plate.n.04 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:plate.n.04 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m1</td><td>text</td><td>text</td><td>text_content</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m3</td><td>Knight</td><td>knight</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m5</td><td>England</td><td>england</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>text</td><td>red</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>knight</td><td>laura</td><td>compound_modifier &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>shows</td><td>show</td><td>visual_presentation_action &gt; visual_action</td><td>agent: plate<br>patient: text</td><td>source=wordnet_synset:show.v.01 + stage9_audit; canonical_source=raw_action; parent_source=wordnet_synset:show.v.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>indicating</td><td>indicate</td><td>visual_indication_or_text_action &gt; visual_action</td><td>agent: text</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:indicate.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:indicate.v.01; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>designed</td><td>design</td><td>visual_action</td><td>patient: plate <span class="muted">passive_to_active</span><br>agent: knight <span class="muted">passive_to_active</span></td><td>source=visual_action_fallback; canonical_source=raw_action; parent_source=visual_action_fallback; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>produced</td><td>produce</td><td>visual_action</td><td>agent: plate</td><td>source=visual_action_fallback; canonical_source=raw_action; parent_source=visual_action_fallback; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>plate</td><td>by</td><td>by</td><td>knight</td><td>spatial_proximity &gt; visual_relation</td><td>medium</td></tr><tr><td>plate</td><td>in</td><td>in</td><td>england</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>plate</td><td>plate</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>text</td><td>text</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>attribute</td><td>red</td><td>red</td><td>color_attribute</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>Knight</td><td>knight</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>Laura</td><td>laura</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m5</td><td>object</td><td>England</td><td>england</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>action</td><td>shows</td><td>show</td><td>verb_predicate</td><td>high</td></tr><tr><td>m7</td><td>action</td><td>indicating</td><td>indicate</td><td>verb_predicate</td><td>high</td></tr><tr><td>m8</td><td>action</td><td>designed</td><td>design</td><td>verb_predicate</td><td>high</td></tr><tr><td>m9</td><td>action</td><td>produced</td><td>produce</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>text <span class="muted">m1 object</span></td><td>red <span class="muted">m2 attribute</span></td><td>chunk1 amod -&gt; text</td><td>high</td></tr><tr><td>e1</td><td>has_attribute</td><td>Knight <span class="muted">m3 object</span></td><td>Laura <span class="muted">m4 attribute</span></td><td>chunk3 compound -&gt; Knight</td><td>medium</td></tr><tr><td>e2</td><td>agent</td><td>shows <span class="muted">m6 action</span></td><td>plate <span class="muted">m0 object</span></td><td>nsubj -&gt; shows</td><td>medium</td></tr><tr><td>e3</td><td>patient</td><td>shows <span class="muted">m6 action</span></td><td>text <span class="muted">m1 object</span></td><td>dobj -&gt; shows</td><td>medium</td></tr><tr><td>e4</td><td>agent</td><td>indicating <span class="muted">m7 action</span></td><td>text <span class="muted">m1 object</span></td><td>inherited agent acl -&gt; text</td><td>medium</td></tr><tr><td>e5</td><td>agent</td><td>designed <span class="muted">m8 action</span></td><td>plate <span class="muted">m0 object</span></td><td>nsubjpass -&gt; designed; resolved it -&gt; plate</td><td>medium</td></tr><tr><td>e6</td><td>agent</td><td>produced <span class="muted">m9 action</span></td><td>plate <span class="muted">m0 object</span></td><td>inherited agent conj -&gt; designed</td><td>medium</td></tr><tr><td>e7</td><td>relation</td><td>plate <span class="muted">m0 object</span></td><td>Knight <span class="muted">m3 object</span></td><td>by</td><td>medium</td></tr><tr><td>e8</td><td>relation</td><td>plate <span class="muted">m0 object</span></td><td>England <span class="muted">m5 object</span></td><td>in</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (18)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:plate</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:text</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:knight</td><td>low</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:england</td><td>low</td></tr><tr><td>cf4</td><td>has_attribute</td><td>has_attribute:text:red</td><td>high</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:knight:laura</td><td>medium</td></tr><tr><td>cf6</td><td>action_event</td><td>action_event:show</td><td>high</td></tr><tr><td>cf7</td><td>event_role</td><td>event_role:show:agent:plate</td><td>medium</td></tr><tr><td>cf8</td><td>event_role</td><td>event_role:show:patient:text</td><td>medium</td></tr><tr><td>cf9</td><td>action_event</td><td>action_event:indicate</td><td>medium</td></tr><tr><td>cf10</td><td>event_role</td><td>event_role:indicate:agent:text</td><td>medium</td></tr><tr><td>cf11</td><td>action_event</td><td>action_event:design</td><td>low</td></tr><tr><td>cf12</td><td>event_role</td><td>event_role:design:patient:plate</td><td>medium</td></tr><tr><td>cf13</td><td>event_role</td><td>event_role:design:agent:knight</td><td>medium</td></tr><tr><td>cf14</td><td>action_event</td><td>action_event:produce</td><td>low</td></tr><tr><td>cf15</td><td>event_role</td><td>event_role:produce:agent:plate</td><td>medium</td></tr><tr><td>cf16</td><td>relation</td><td>relation:plate:by:knight</td><td>medium</td></tr><tr><td>cf17</td><td>relation</td><td>relation:plate:in:england</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

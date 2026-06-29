@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 08510 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 08510 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_08501_09000.html#case-8510">Back to Case List</a> | <a href="case_08509.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-8510">
+  <div class="case-title">
+    <h2>Case 08510</h2>
+    <a href="#case-8510">anchor</a>
+  </div>
+  <div class="caption-box">A yellow school bus sits on a dry, dusty field with sparse green patches. Distant hills and a hazy sky complete the arid landscape.</div>
+  <div class="chips">
+    <span>caption_id: 71d5cd399a0874f348fd180d8591d58c5afd62a82370079c1d57826f2cb94b9b</span>
+    <span>shape: multi-sentence</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>school bus</td><td>school_bus</td><td></td><td>source=lvis_object|visual_genome_object_synset|wordnet_noun_mwe; canonical_source=lvis_object|visual_genome_object_synset|wordnet_noun_mwe; parent_source=none; confidence=high; canonical_confidence=high; parent_confidence=low</td></tr><tr><td>ent_m1</td><td>field</td><td>field</td><td>outdoor_scene &gt; place</td><td>source=wordnet_synset:field.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:field.n.01 + stage9_audit; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m4</td><td>patches</td><td>patch</td><td>surface_region &gt; visual_marking</td><td>source=wordnet_synset:patch.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:patch.n.01 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m7</td><td>hills</td><td>hill</td><td>landform &gt; place</td><td>source=wordnet_synset:hill.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:hill.n.01 + 1k_stage9_audit_v2; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m9</td><td>sky</td><td>sky</td><td>natural_scene</td><td>source=wordnet_synset:sky.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:sky.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m11</td><td>landscape</td><td>landscape</td><td>outdoor_scene &gt; place</td><td>source=wordnet_synset:landscape.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:landscape.n.01 + 1k_stage9_audit_v2; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>field</td><td>dry</td><td>state_attribute &gt; clean_exact_overlap &gt; state &gt; visual_attribute</td><td>medium</td></tr><tr><td>field</td><td>dusty</td><td>condition_attribute &gt; cleanliness &gt; visual_attribute</td><td>medium</td></tr><tr><td>patch</td><td>sparse</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr><tr><td>patch</td><td>green</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>hill</td><td>distant</td><td>spatial_depth_attribute &gt; spatial_depth &gt; visual_attribute</td><td>medium</td></tr><tr><td>sky</td><td>hazy</td><td>weather_attribute &gt; weather &gt; visual_attribute</td><td>medium</td></tr><tr><td>landscape</td><td>arid</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>sits</td><td>sit</td><td>body_pose_action &gt; visual_action</td><td>agent: school_bus</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>complete</td><td>complete</td><td>visual_action</td><td>agent: hill<br>agent: sky<br>patient: landscape</td><td>source=visual_action_fallback; canonical_source=raw_action; parent_source=visual_action_fallback; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>school_bus</td><td>on</td><td>on</td><td>field</td><td>spatial_support &gt; visual_relation</td><td>high</td></tr><tr><td>field</td><td>with</td><td>with</td><td>patch</td><td>association_relation &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>school bus</td><td>school_bus</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>field</td><td>field</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>attribute</td><td>dry</td><td>dry</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m3</td><td>attribute</td><td>dusty</td><td>dusty</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m4</td><td>object</td><td>patches</td><td>patch</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m5</td><td>attribute</td><td>sparse</td><td>sparse</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m6</td><td>attribute</td><td>green</td><td>green</td><td>color_attribute</td><td>high</td></tr><tr><td>m7</td><td>object</td><td>hills</td><td>hill</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m8</td><td>attribute</td><td>Distant</td><td>distant</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m9</td><td>object</td><td>sky</td><td>sky</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m10</td><td>attribute</td><td>hazy</td><td>hazy</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m11</td><td>object</td><td>landscape</td><td>landscape</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m12</td><td>attribute</td><td>arid</td><td>arid</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m13</td><td>action</td><td>sits</td><td>sit</td><td>verb_predicate</td><td>high</td></tr><tr><td>m14</td><td>action</td><td>complete</td><td>complete</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>field <span class="muted">m1 object</span></td><td>dry <span class="muted">m2 attribute</span></td><td>chunk1 amod -&gt; field</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>field <span class="muted">m1 object</span></td><td>dusty <span class="muted">m3 attribute</span></td><td>chunk1 amod -&gt; field</td><td>medium</td></tr><tr><td>e2</td><td>has_attribute</td><td>patches <span class="muted">m4 object</span></td><td>sparse <span class="muted">m5 attribute</span></td><td>chunk2 amod -&gt; patches</td><td>medium</td></tr><tr><td>e3</td><td>has_attribute</td><td>patches <span class="muted">m4 object</span></td><td>green <span class="muted">m6 attribute</span></td><td>chunk2 amod -&gt; patches</td><td>high</td></tr><tr><td>e4</td><td>has_attribute</td><td>hills <span class="muted">m7 object</span></td><td>Distant <span class="muted">m8 attribute</span></td><td>chunk3 amod -&gt; hills</td><td>medium</td></tr><tr><td>e5</td><td>has_attribute</td><td>sky <span class="muted">m9 object</span></td><td>hazy <span class="muted">m10 attribute</span></td><td>chunk4 amod -&gt; sky</td><td>medium</td></tr><tr><td>e6</td><td>has_attribute</td><td>landscape <span class="muted">m11 object</span></td><td>arid <span class="muted">m12 attribute</span></td><td>chunk5 amod -&gt; landscape</td><td>medium</td></tr><tr><td>e7</td><td>agent</td><td>sits <span class="muted">m13 action</span></td><td>school bus <span class="muted">m0 object</span></td><td>nsubj -&gt; sits</td><td>medium</td></tr><tr><td>e8</td><td>agent</td><td>complete <span class="muted">m14 action</span></td><td>hills <span class="muted">m7 object</span></td><td>nsubj -&gt; complete</td><td>medium</td></tr><tr><td>e9</td><td>agent</td><td>complete <span class="muted">m14 action</span></td><td>sky <span class="muted">m9 object</span></td><td>nsubj -&gt; complete</td><td>medium</td></tr><tr><td>e10</td><td>patient</td><td>complete <span class="muted">m14 action</span></td><td>landscape <span class="muted">m11 object</span></td><td>dobj -&gt; complete</td><td>medium</td></tr><tr><td>e11</td><td>relation</td><td>school bus <span class="muted">m0 object</span></td><td>field <span class="muted">m1 object</span></td><td>on</td><td>high</td></tr><tr><td>e12</td><td>relation</td><td>field <span class="muted">m1 object</span></td><td>patches <span class="muted">m4 object</span></td><td>with</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (21)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:school_bus</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:field</td><td>medium</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:patch</td><td>medium</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:hill</td><td>high</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:sky</td><td>high</td></tr><tr><td>cf5</td><td>entity_exists</td><td>entity_exists:landscape</td><td>high</td></tr><tr><td>cf6</td><td>has_attribute</td><td>has_attribute:field:dry</td><td>medium</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:field:dusty</td><td>medium</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:patch:sparse</td><td>medium</td></tr><tr><td>cf9</td><td>has_attribute</td><td>has_attribute:patch:green</td><td>high</td></tr><tr><td>cf10</td><td>has_attribute</td><td>has_attribute:hill:distant</td><td>medium</td></tr><tr><td>cf11</td><td>has_attribute</td><td>has_attribute:sky:hazy</td><td>medium</td></tr><tr><td>cf12</td><td>has_attribute</td><td>has_attribute:landscape:arid</td><td>medium</td></tr><tr><td>cf13</td><td>action_event</td><td>action_event:sit</td><td>high</td></tr><tr><td>cf14</td><td>event_role</td><td>event_role:sit:agent:school_bus</td><td>medium</td></tr><tr><td>cf15</td><td>action_event</td><td>action_event:complete</td><td>low</td></tr><tr><td>cf16</td><td>event_role</td><td>event_role:complete:agent:hill</td><td>medium</td></tr><tr><td>cf17</td><td>event_role</td><td>event_role:complete:agent:sky</td><td>medium</td></tr><tr><td>cf18</td><td>event_role</td><td>event_role:complete:patient:landscape</td><td>medium</td></tr><tr><td>cf19</td><td>relation</td><td>relation:school_bus:on:field</td><td>high</td></tr><tr><td>cf20</td><td>relation</td><td>relation:field:with:patch</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

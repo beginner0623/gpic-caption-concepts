@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 01320 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 01320 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_01001_01500.html#case-1320">Back to Case List</a> | <a href="case_01319.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-1320">
+  <div class="case-title">
+    <h2>Case 01320</h2>
+    <a href="#case-1320">anchor</a>
+  </div>
+  <div class="caption-box">Children in blue jackets stand in a church aisle as a priest blesses them.</div>
+  <div class="chips">
+    <span>caption_id: 6907089345da387b95b973d31ee58ef106ae2c17293641c45c07db4f1537b00b</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>Children</td><td>child</td><td>person &gt; human</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m1</td><td>jackets</td><td>jacket</td><td>clothing &gt; wearable</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m3</td><td>aisle</td><td>aisle</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m5</td><td>priest</td><td>priest</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>jacket</td><td>blue</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>aisle</td><td>church</td><td>compound_modifier &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>stand</td><td>stand</td><td>body_pose_action &gt; visual_action</td><td>agent: child</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>blesses</td><td>bless</td><td>visual_action</td><td>agent: priest<br>patient: child</td><td>source=visual_action_fallback; canonical_source=raw_action; parent_source=visual_action_fallback; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>child</td><td>in</td><td>in</td><td>jacket</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr><tr><td>child</td><td>in</td><td>in</td><td>aisle</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>Children</td><td>child</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>jackets</td><td>jacket</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>attribute</td><td>blue</td><td>blue</td><td>color_attribute</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>aisle</td><td>aisle</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>church</td><td>church</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m5</td><td>object</td><td>priest</td><td>priest</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>action</td><td>stand</td><td>stand</td><td>verb_predicate</td><td>high</td></tr><tr><td>m7</td><td>action</td><td>blesses</td><td>bless</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>jackets <span class="muted">m1 object</span></td><td>blue <span class="muted">m2 attribute</span></td><td>chunk1 amod -&gt; jackets</td><td>high</td></tr><tr><td>e1</td><td>has_attribute</td><td>aisle <span class="muted">m3 object</span></td><td>church <span class="muted">m4 attribute</span></td><td>chunk2 compound -&gt; aisle</td><td>medium</td></tr><tr><td>e2</td><td>agent</td><td>stand <span class="muted">m6 action</span></td><td>Children <span class="muted">m0 object</span></td><td>nsubj -&gt; stand</td><td>medium</td></tr><tr><td>e3</td><td>agent</td><td>blesses <span class="muted">m7 action</span></td><td>priest <span class="muted">m5 object</span></td><td>nsubj -&gt; blesses</td><td>medium</td></tr><tr><td>e4</td><td>patient</td><td>blesses <span class="muted">m7 action</span></td><td>Children <span class="muted">m0 object</span></td><td>dobj -&gt; blesses; resolved them -&gt; Children</td><td>medium</td></tr><tr><td>e5</td><td>relation</td><td>Children <span class="muted">m0 object</span></td><td>jackets <span class="muted">m1 object</span></td><td>in</td><td>high</td></tr><tr><td>e6</td><td>relation</td><td>Children <span class="muted">m0 object</span></td><td>aisle <span class="muted">m3 object</span></td><td>in</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (13)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:child</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:jacket</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:aisle</td><td>low</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:priest</td><td>low</td></tr><tr><td>cf4</td><td>has_attribute</td><td>has_attribute:jacket:blue</td><td>high</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:aisle:church</td><td>medium</td></tr><tr><td>cf6</td><td>action_event</td><td>action_event:stand</td><td>high</td></tr><tr><td>cf7</td><td>event_role</td><td>event_role:stand:agent:child</td><td>medium</td></tr><tr><td>cf8</td><td>action_event</td><td>action_event:bless</td><td>low</td></tr><tr><td>cf9</td><td>event_role</td><td>event_role:bless:agent:priest</td><td>medium</td></tr><tr><td>cf10</td><td>event_role</td><td>event_role:bless:patient:child</td><td>medium</td></tr><tr><td>cf11</td><td>relation</td><td>relation:child:in:jacket</td><td>high</td></tr><tr><td>cf12</td><td>relation</td><td>relation:child:in:aisle</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

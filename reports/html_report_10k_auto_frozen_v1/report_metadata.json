@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-06-29T14:03:42",
+  "input": "reports\\canonical_concepts_10k_train00000_00099_trf_auto_frozen_v1.jsonl",
+  "output_dir": "reports\\html_report_10k_auto_frozen_v1",
+  "case_page_size": 500,
+  "max_count_rows": 500,
+  "totals": {
+    "records": 10000,
+    "quote_mentions": 2131,
+    "skipped_edges": 412,
+    "raw_concept_mentions": 199285,
+    "raw_edges": 172044,
+    "canonical_entities": 98168,
+    "canonical_events": 35670,
+    "canonical_relations": 50948,
+    "canonical_facts": 297494,
+    "self_relations": 10
+  },
+  "parse_path": {
+    "sentence": 9896,
+    "tag_list": 104
+  },
+  "caption_shape": {
+    "sentence-like": 3612,
+    "multi-sentence": 6282,
+    "tag-list-like": 104,
+    "short-list-like": 2
+  }
+}

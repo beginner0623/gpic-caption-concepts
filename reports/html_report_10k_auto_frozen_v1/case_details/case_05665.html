@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 05665 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 05665 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_05501_06000.html#case-5665">Back to Case List</a> | <a href="case_05664.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-5665">
+  <div class="case-title">
+    <h2>Case 05665</h2>
+    <a href="#case-5665">anchor</a>
+  </div>
+  <div class="caption-box">A black Mercedes ML 350 SUV is parked on a gravel surface. Trees with green leaves surround the vehicle, and another car is partially visible to its left. The license plate reads &quot;M BU 4016.&quot;</div>
+  <div class="chips">
+    <span>caption_id: 9c8d91c32bc16034790f2c0dad7087524178938960f23f29057c5dc2154d5c9c</span>
+    <span>shape: multi-sentence</span>
+    <span>parse: sentence</span>
+    <span>quotes: 1</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m1</td><td>SUV</td><td>suv</td><td>vehicle</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m4</td><td>surface</td><td>surface</td><td>surface &gt; scene_element</td><td>source=wordnet_synset:surface.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:surface.n.01 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m5</td><td>Trees</td><td>tree</td><td>plant &gt; living_thing</td><td>source=wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m6</td><td>leaves</td><td>leaf</td><td>plant_part &gt; plant &gt; living_thing</td><td>source=wordnet_synset:leaf.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:leaf.n.01 + 1k_stage9_audit_v2; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m8</td><td>vehicle</td><td>vehicle</td><td>vehicle</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m9</td><td>car</td><td>car</td><td>vehicle</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m10</td><td>left</td><td>left</td><td>scene_context</td><td>source=semantic_type_fallback; canonical_source=raw_lemma; parent_source=semantic_type_fallback; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m11</td><td>license plate</td><td>license_plate</td><td></td><td>source=lvis_object|visual_genome_object_synset|wordnet_noun_mwe; canonical_source=lvis_object|visual_genome_object_synset|wordnet_noun_mwe; parent_source=none; confidence=high; canonical_confidence=high; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>suv</td><td>black</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>leaf</td><td>green</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>parked</td><td>park</td><td>placement_state_action &gt; vehicle_action &gt; visual_action</td><td>patient: suv <span class="muted">passive_to_active</span></td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:park.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:park.v.01; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>surround</td><td>surround</td><td>spatial_configuration_action &gt; visual_action</td><td>agent: tree<br>patient: suv</td><td>source=wordnet_synset:surround.v.01 + stage9_audit; canonical_source=raw_action; parent_source=wordnet_synset:surround.v.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>reads</td><td>read</td><td>text_interaction_action &gt; visual_action</td><td>agent: license_plate<br>patient: m0</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>suv</td><td>on</td><td>on</td><td>surface</td><td>spatial_support &gt; visual_relation</td><td>high</td></tr><tr><td>tree</td><td>with</td><td>with</td><td>leaf</td><td>association_relation &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>attribute</td><td>&quot;M BU 4016.&quot;</td><td>m_bu_4016.</td><td>quote_text</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>SUV</td><td>suv</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>attribute</td><td>black</td><td>black</td><td>color_attribute</td><td>high</td></tr><tr><td>m3</td><td>quantity</td><td>350</td><td>350</td><td>exact_quantity</td><td>high</td></tr><tr><td>m4</td><td>context</td><td>surface</td><td>surface</td><td>spatial_region</td><td>medium</td></tr><tr><td>m5</td><td>object</td><td>Trees</td><td>tree</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>object</td><td>leaves</td><td>leaf</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m7</td><td>attribute</td><td>green</td><td>green</td><td>color_attribute</td><td>high</td></tr><tr><td>m8</td><td>object</td><td>vehicle</td><td>vehicle</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m9</td><td>object</td><td>car</td><td>car</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m10</td><td>context</td><td>left</td><td>left</td><td>spatial_region</td><td>medium</td></tr><tr><td>m11</td><td>object</td><td>license plate</td><td>license_plate</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m12</td><td>action</td><td>parked</td><td>park</td><td>verb_predicate</td><td>high</td></tr><tr><td>m13</td><td>action</td><td>surround</td><td>surround</td><td>verb_predicate</td><td>high</td></tr><tr><td>m14</td><td>action</td><td>reads</td><td>read</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>SUV <span class="muted">m1 object</span></td><td>black <span class="muted">m2 attribute</span></td><td>chunk0 amod -&gt; SUV</td><td>high</td></tr><tr><td>e1</td><td>has_quantity</td><td>SUV <span class="muted">m1 object</span></td><td>350 <span class="muted">m3 quantity</span></td><td>chunk0 quantity -&gt; SUV</td><td>high</td></tr><tr><td>e2</td><td>has_attribute</td><td>leaves <span class="muted">m6 object</span></td><td>green <span class="muted">m7 attribute</span></td><td>chunk3 amod -&gt; leaves</td><td>high</td></tr><tr><td>e3</td><td>agent</td><td>parked <span class="muted">m12 action</span></td><td>SUV <span class="muted">m1 object</span></td><td>nsubjpass -&gt; parked</td><td>medium</td></tr><tr><td>e4</td><td>agent</td><td>surround <span class="muted">m13 action</span></td><td>Trees <span class="muted">m5 object</span></td><td>nsubj -&gt; surround</td><td>medium</td></tr><tr><td>e5</td><td>patient</td><td>surround <span class="muted">m13 action</span></td><td>vehicle <span class="muted">m8 object</span></td><td>dobj -&gt; surround</td><td>medium</td></tr><tr><td>e6</td><td>agent</td><td>reads <span class="muted">m14 action</span></td><td>license plate <span class="muted">m11 object</span></td><td>nsubj -&gt; reads</td><td>medium</td></tr><tr><td>e7</td><td>patient</td><td>reads <span class="muted">m14 action</span></td><td>&quot;M BU 4016.&quot; <span class="muted">m0 attribute</span></td><td>dobj -&gt; reads</td><td>medium</td></tr><tr><td>e8</td><td>relation</td><td>SUV <span class="muted">m1 object</span></td><td>surface <span class="muted">m4 context</span></td><td>on</td><td>high</td></tr><tr><td>e9</td><td>relation</td><td>Trees <span class="muted">m5 object</span></td><td>leaves <span class="muted">m6 object</span></td><td>with</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (20)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:suv</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:surface</td><td>medium</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:tree</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:leaf</td><td>high</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:car</td><td>high</td></tr><tr><td>cf5</td><td>entity_exists</td><td>entity_exists:left</td><td>medium</td></tr><tr><td>cf6</td><td>entity_exists</td><td>entity_exists:license_plate</td><td>high</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:suv:black</td><td>high</td></tr><tr><td>cf8</td><td>has_quantity</td><td>has_quantity:suv:350</td><td>high</td></tr><tr><td>cf9</td><td>has_attribute</td><td>has_attribute:leaf:green</td><td>high</td></tr><tr><td>cf10</td><td>action_event</td><td>action_event:park</td><td>high</td></tr><tr><td>cf11</td><td>event_role</td><td>event_role:park:patient:suv</td><td>medium</td></tr><tr><td>cf12</td><td>action_event</td><td>action_event:surround</td><td>high</td></tr><tr><td>cf13</td><td>event_role</td><td>event_role:surround:agent:tree</td><td>medium</td></tr><tr><td>cf14</td><td>event_role</td><td>event_role:surround:patient:suv</td><td>medium</td></tr><tr><td>cf15</td><td>action_event</td><td>action_event:read</td><td>medium</td></tr><tr><td>cf16</td><td>event_role</td><td>event_role:read:agent:license_plate</td><td>medium</td></tr><tr><td>cf17</td><td>event_role</td><td>event_role:read:patient</td><td>medium</td></tr><tr><td>cf18</td><td>relation</td><td>relation:suv:on:surface</td><td>high</td></tr><tr><td>cf19</td><td>relation</td><td>relation:tree:with:leaf</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

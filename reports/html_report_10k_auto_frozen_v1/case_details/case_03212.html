@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 03212 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 03212 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_03001_03500.html#case-3212">Back to Case List</a> | <a href="case_03211.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-3212">
+  <div class="case-title">
+    <h2>Case 03212</h2>
+    <a href="#case-3212">anchor</a>
+  </div>
+  <div class="caption-box">An old map shows a region with blue rivers and gold landmasses, labeled in Latin.</div>
+  <div class="chips">
+    <span>caption_id: 5aa47d8945b1dbffa36280b179a355c0685f9098fd63f7831e2070fb740efc73</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>map</td><td>map</td><td>visual_document &gt; artifact</td><td>source=wordnet_synset:map.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:map.n.01 + 1k_stage9_audit_v2; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m2</td><td>region</td><td>region</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m3</td><td>rivers</td><td>river</td><td>body_of_water &gt; place</td><td>source=wordnet_synset:river.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:river.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m5</td><td>landmasses</td><td>landmass</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m7</td><td>Latin</td><td>latin</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>map</td><td>old</td><td>condition_attribute &gt; clean_exact_overlap &gt; maturity &gt; newness &gt; visual_attribute</td><td>medium</td></tr><tr><td>river</td><td>blue</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>landmass</td><td>gold</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>shows</td><td>show</td><td>visual_presentation_action &gt; visual_action</td><td>agent: map<br>patient: region</td><td>source=wordnet_synset:show.v.01 + stage9_audit; canonical_source=raw_action; parent_source=wordnet_synset:show.v.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>labeled</td><td>label</td><td>text_annotation_action &gt; visual_action</td><td>agent: map</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:label.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:label.v.01; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>region</td><td>with</td><td>with</td><td>river</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>region</td><td>with</td><td>with</td><td>landmass</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>map</td><td>in</td><td>in</td><td>latin</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>map</td><td>map</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>attribute</td><td>old</td><td>old</td><td>visual_attribute</td><td>medium</td></tr><tr><td>m2</td><td>object</td><td>region</td><td>region</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>rivers</td><td>river</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>blue</td><td>blue</td><td>color_attribute</td><td>high</td></tr><tr><td>m5</td><td>object</td><td>landmasses</td><td>landmass</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>attribute</td><td>gold</td><td>gold</td><td>color_attribute</td><td>high</td></tr><tr><td>m7</td><td>object</td><td>Latin</td><td>latin</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m8</td><td>action</td><td>shows</td><td>show</td><td>verb_predicate</td><td>high</td></tr><tr><td>m9</td><td>action</td><td>labeled</td><td>label</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>map <span class="muted">m0 object</span></td><td>old <span class="muted">m1 attribute</span></td><td>chunk0 amod -&gt; map</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>rivers <span class="muted">m3 object</span></td><td>blue <span class="muted">m4 attribute</span></td><td>chunk2 amod -&gt; rivers</td><td>high</td></tr><tr><td>e2</td><td>has_attribute</td><td>landmasses <span class="muted">m5 object</span></td><td>gold <span class="muted">m6 attribute</span></td><td>chunk3 compound -&gt; landmasses</td><td>high</td></tr><tr><td>e3</td><td>agent</td><td>shows <span class="muted">m8 action</span></td><td>map <span class="muted">m0 object</span></td><td>nsubj -&gt; shows</td><td>medium</td></tr><tr><td>e4</td><td>patient</td><td>shows <span class="muted">m8 action</span></td><td>region <span class="muted">m2 object</span></td><td>dobj -&gt; shows</td><td>medium</td></tr><tr><td>e5</td><td>agent</td><td>labeled <span class="muted">m9 action</span></td><td>map <span class="muted">m0 object</span></td><td>inherited agent advcl -&gt; shows</td><td>medium</td></tr><tr><td>e6</td><td>relation</td><td>region <span class="muted">m2 object</span></td><td>rivers <span class="muted">m3 object</span></td><td>with</td><td>high</td></tr><tr><td>e7</td><td>relation</td><td>region <span class="muted">m2 object</span></td><td>landmasses <span class="muted">m5 object</span></td><td>with</td><td>high</td></tr><tr><td>e8</td><td>relation</td><td>map <span class="muted">m0 object</span></td><td>Latin <span class="muted">m7 object</span></td><td>in</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (16)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:map</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:region</td><td>low</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:river</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:landmass</td><td>low</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:latin</td><td>low</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:map:old</td><td>medium</td></tr><tr><td>cf6</td><td>has_attribute</td><td>has_attribute:river:blue</td><td>high</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:landmass:gold</td><td>high</td></tr><tr><td>cf8</td><td>action_event</td><td>action_event:show</td><td>high</td></tr><tr><td>cf9</td><td>event_role</td><td>event_role:show:agent:map</td><td>medium</td></tr><tr><td>cf10</td><td>event_role</td><td>event_role:show:patient:region</td><td>medium</td></tr><tr><td>cf11</td><td>action_event</td><td>action_event:label</td><td>high</td></tr><tr><td>cf12</td><td>event_role</td><td>event_role:label:agent:map</td><td>medium</td></tr><tr><td>cf13</td><td>relation</td><td>relation:region:with:river</td><td>high</td></tr><tr><td>cf14</td><td>relation</td><td>relation:region:with:landmass</td><td>high</td></tr><tr><td>cf15</td><td>relation</td><td>relation:map:in:latin</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

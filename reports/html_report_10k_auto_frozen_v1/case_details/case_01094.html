@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 01094 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 01094 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_01001_01500.html#case-1094">Back to Case List</a> | <a href="case_01093.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-1094">
+  <div class="case-title">
+    <h2>Case 01094</h2>
+    <a href="#case-1094">anchor</a>
+  </div>
+  <div class="caption-box">A TV screen shows a DIRECTV sports and movie guide with College Basketball and Star Wars VI listed as upcoming programs.</div>
+  <div class="chips">
+    <span>caption_id: 21c69c8ca4caed19094110409219aa94610fa078207376abfe2d4425ee2c0c73</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>screen</td><td>screen</td><td>device &gt; artifact</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m2</td><td>guide</td><td>guide</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m3</td><td>Basketball</td><td>basketball</td><td>ball &gt; sports_equipment &gt; artifact</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m5</td><td>VI</td><td>vi</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m8</td><td>programs</td><td>program</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>screen</td><td>tv</td><td>compound_modifier &gt; visual_attribute</td><td>medium</td></tr><tr><td>basketball</td><td>college</td><td>compound_modifier &gt; visual_attribute</td><td>medium</td></tr><tr><td>vi</td><td>star</td><td>compound_modifier &gt; visual_attribute</td><td>medium</td></tr><tr><td>vi</td><td>wars</td><td>compound_modifier &gt; visual_attribute</td><td>medium</td></tr><tr><td>program</td><td>upcoming</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>shows</td><td>show</td><td>visual_presentation_action &gt; visual_action</td><td>agent: screen<br>patient: guide</td><td>source=wordnet_synset:show.v.01 + stage9_audit; canonical_source=raw_action; parent_source=wordnet_synset:show.v.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>listed</td><td>list</td><td>text_enumeration_action &gt; visual_action</td><td>agent: basketball<br>agent: vi</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:list.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:list.v.01; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>basketball</td><td>as</td><td>as</td><td>program</td><td>visual_relation</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>screen</td><td>screen</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>attribute</td><td>TV</td><td>tv</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m2</td><td>object</td><td>guide</td><td>guide</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>Basketball</td><td>basketball</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>College</td><td>college</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m5</td><td>object</td><td>VI</td><td>vi</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>attribute</td><td>Star</td><td>star</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m7</td><td>attribute</td><td>Wars</td><td>wars</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m8</td><td>object</td><td>programs</td><td>program</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m9</td><td>attribute</td><td>upcoming</td><td>upcoming</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m10</td><td>action</td><td>shows</td><td>show</td><td>verb_predicate</td><td>high</td></tr><tr><td>m11</td><td>action</td><td>listed</td><td>list</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>screen <span class="muted">m0 object</span></td><td>TV <span class="muted">m1 attribute</span></td><td>chunk0 compound -&gt; screen</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>Basketball <span class="muted">m3 object</span></td><td>College <span class="muted">m4 attribute</span></td><td>chunk2 compound -&gt; Basketball</td><td>medium</td></tr><tr><td>e2</td><td>has_attribute</td><td>VI <span class="muted">m5 object</span></td><td>Star <span class="muted">m6 attribute</span></td><td>chunk3 compound -&gt; VI</td><td>medium</td></tr><tr><td>e3</td><td>has_attribute</td><td>VI <span class="muted">m5 object</span></td><td>Wars <span class="muted">m7 attribute</span></td><td>chunk3 compound -&gt; VI</td><td>medium</td></tr><tr><td>e4</td><td>has_attribute</td><td>programs <span class="muted">m8 object</span></td><td>upcoming <span class="muted">m9 attribute</span></td><td>chunk4 amod -&gt; programs</td><td>medium</td></tr><tr><td>e5</td><td>agent</td><td>shows <span class="muted">m10 action</span></td><td>screen <span class="muted">m0 object</span></td><td>nsubj -&gt; shows</td><td>medium</td></tr><tr><td>e6</td><td>patient</td><td>shows <span class="muted">m10 action</span></td><td>guide <span class="muted">m2 object</span></td><td>dobj -&gt; shows</td><td>medium</td></tr><tr><td>e7</td><td>agent</td><td>listed <span class="muted">m11 action</span></td><td>Basketball <span class="muted">m3 object</span></td><td>nsubj -&gt; listed</td><td>medium</td></tr><tr><td>e8</td><td>agent</td><td>listed <span class="muted">m11 action</span></td><td>VI <span class="muted">m5 object</span></td><td>nsubj -&gt; listed</td><td>medium</td></tr><tr><td>e9</td><td>relation</td><td>Basketball <span class="muted">m3 object</span></td><td>programs <span class="muted">m8 object</span></td><td>as</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (17)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:screen</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:guide</td><td>low</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:basketball</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:vi</td><td>low</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:program</td><td>low</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:screen:tv</td><td>medium</td></tr><tr><td>cf6</td><td>has_attribute</td><td>has_attribute:basketball:college</td><td>medium</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:vi:star</td><td>medium</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:vi:wars</td><td>medium</td></tr><tr><td>cf9</td><td>has_attribute</td><td>has_attribute:program:upcoming</td><td>medium</td></tr><tr><td>cf10</td><td>action_event</td><td>action_event:show</td><td>high</td></tr><tr><td>cf11</td><td>event_role</td><td>event_role:show:agent:screen</td><td>medium</td></tr><tr><td>cf12</td><td>event_role</td><td>event_role:show:patient:guide</td><td>medium</td></tr><tr><td>cf13</td><td>action_event</td><td>action_event:list</td><td>medium</td></tr><tr><td>cf14</td><td>event_role</td><td>event_role:list:agent:basketball</td><td>medium</td></tr><tr><td>cf15</td><td>event_role</td><td>event_role:list:agent:vi</td><td>medium</td></tr><tr><td>cf16</td><td>relation</td><td>relation:basketball:as:program</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

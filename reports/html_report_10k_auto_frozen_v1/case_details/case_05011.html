@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 05011 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 05011 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_05001_05500.html#case-5011">Back to Case List</a> | <a href="case_05010.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-5011">
+  <div class="case-title">
+    <h2>Case 05011</h2>
+    <a href="#case-5011">anchor</a>
+  </div>
+  <div class="caption-box">A typed document in Indonesian, dated 1971, from Jakarta, mentions &quot;The Ten Commandments&quot; and includes a circular stamp.</div>
+  <div class="chips">
+    <span>caption_id: 870fafd28bcc06a64844b01327ce2cea783cac820f0a26b8896c16cb26424b5f</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 1</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m1</td><td>document</td><td>document</td><td>document &gt; text_carrier &gt; artifact</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m3</td><td>Indonesian</td><td>indonesian</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m4</td><td>Jakarta</td><td>jakarta</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m5</td><td>stamp</td><td>stamp</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>document</td><td>type</td><td>state_attribute &gt; visual_attribute</td><td>medium</td></tr><tr><td>stamp</td><td>circular</td><td>shape_attribute &gt; shape &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>dated</td><td>date</td><td>visual_action</td><td>agent: document</td><td>source=visual_action_fallback; canonical_source=raw_action; parent_source=visual_action_fallback; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>mentions</td><td>mention</td><td>visual_action</td><td>agent: document<br>patient: m0</td><td>source=visual_action_fallback; canonical_source=raw_action; parent_source=visual_action_fallback; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>includes</td><td>include</td><td>enumeration_or_composition_predicate &gt; visual_action</td><td>agent: document<br>patient: stamp</td><td>source=1k_stage9_action_audit_v2 + project_action_ontology; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + project_action_ontology; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>document</td><td>in</td><td>in</td><td>indonesian</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr><tr><td>document</td><td>from</td><td>from</td><td>jakarta</td><td>visual_relation</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>attribute</td><td>&quot;The Ten Commandments&quot;</td><td>the_ten_commandments</td><td>quote_text</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>document</td><td>document</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>attribute</td><td>typed</td><td>type</td><td>state_attribute</td><td>medium</td></tr><tr><td>m3</td><td>object</td><td>Indonesian</td><td>indonesian</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>object</td><td>Jakarta</td><td>jakarta</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m5</td><td>object</td><td>stamp</td><td>stamp</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>attribute</td><td>circular</td><td>circular</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m7</td><td>action</td><td>dated</td><td>date</td><td>verb_predicate</td><td>high</td></tr><tr><td>m8</td><td>action</td><td>mentions</td><td>mention</td><td>verb_predicate</td><td>high</td></tr><tr><td>m9</td><td>action</td><td>includes</td><td>include</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>document <span class="muted">m1 object</span></td><td>typed <span class="muted">m2 attribute</span></td><td>chunk0 amod -&gt; document</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>stamp <span class="muted">m5 object</span></td><td>circular <span class="muted">m6 attribute</span></td><td>chunk4 amod -&gt; stamp</td><td>medium</td></tr><tr><td>e2</td><td>agent</td><td>dated <span class="muted">m7 action</span></td><td>document <span class="muted">m1 object</span></td><td>inherited agent acl -&gt; document</td><td>medium</td></tr><tr><td>e3</td><td>agent</td><td>mentions <span class="muted">m8 action</span></td><td>document <span class="muted">m1 object</span></td><td>nsubj -&gt; mentions</td><td>medium</td></tr><tr><td>e4</td><td>patient</td><td>mentions <span class="muted">m8 action</span></td><td>&quot;The Ten Commandments&quot; <span class="muted">m0 attribute</span></td><td>dobj -&gt; mentions</td><td>medium</td></tr><tr><td>e5</td><td>agent</td><td>includes <span class="muted">m9 action</span></td><td>document <span class="muted">m1 object</span></td><td>inherited agent conj -&gt; mentions</td><td>medium</td></tr><tr><td>e6</td><td>patient</td><td>includes <span class="muted">m9 action</span></td><td>stamp <span class="muted">m5 object</span></td><td>dobj -&gt; includes</td><td>medium</td></tr><tr><td>e7</td><td>relation</td><td>document <span class="muted">m1 object</span></td><td>Indonesian <span class="muted">m3 object</span></td><td>in</td><td>high</td></tr><tr><td>e8</td><td>relation</td><td>document <span class="muted">m1 object</span></td><td>Jakarta <span class="muted">m4 object</span></td><td>from</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (16)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:document</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:indonesian</td><td>low</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:jakarta</td><td>low</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:stamp</td><td>low</td></tr><tr><td>cf4</td><td>has_attribute</td><td>has_attribute:document:type</td><td>medium</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:stamp:circular</td><td>medium</td></tr><tr><td>cf6</td><td>action_event</td><td>action_event:date</td><td>low</td></tr><tr><td>cf7</td><td>event_role</td><td>event_role:date:agent:document</td><td>medium</td></tr><tr><td>cf8</td><td>action_event</td><td>action_event:mention</td><td>low</td></tr><tr><td>cf9</td><td>event_role</td><td>event_role:mention:agent:document</td><td>medium</td></tr><tr><td>cf10</td><td>event_role</td><td>event_role:mention:patient</td><td>medium</td></tr><tr><td>cf11</td><td>action_event</td><td>action_event:include</td><td>medium</td></tr><tr><td>cf12</td><td>event_role</td><td>event_role:include:agent:document</td><td>medium</td></tr><tr><td>cf13</td><td>event_role</td><td>event_role:include:patient:stamp</td><td>medium</td></tr><tr><td>cf14</td><td>relation</td><td>relation:document:in:indonesian</td><td>high</td></tr><tr><td>cf15</td><td>relation</td><td>relation:document:from:jakarta</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

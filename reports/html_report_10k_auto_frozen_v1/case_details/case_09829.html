@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 09829 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 09829 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_09501_10000.html#case-9829">Back to Case List</a> | <a href="case_09828.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-9829">
+  <div class="case-title">
+    <h2>Case 09829</h2>
+    <a href="#case-9829">anchor</a>
+  </div>
+  <div class="caption-box">A Navy aircraft speeds across the water, creating a large wake behind it.</div>
+  <div class="chips">
+    <span>caption_id: d0fcbff43308d80187792ab0aab48fab9258b79b49ec1fd24b12df734e32c38e</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 1</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>aircraft</td><td>aircraft</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m2</td><td>water</td><td>water</td><td>natural_element</td><td>source=wordnet_synset:water.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:water.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m3</td><td>wake</td><td>wake</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>aircraft</td><td>blue</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>wake</td><td>large</td><td>size_attribute &gt; clean_exact_overlap &gt; size &gt; visual_attribute</td><td>high</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>speeds</td><td>speed</td><td>locomotion_action &gt; visual_action</td><td>agent: aircraft</td><td>source=10k_auto_feedback_v1 + fixed_rubric + action_ontology; canonical_source=raw_action; parent_source=10k_auto_feedback_v1 + fixed_rubric + action_ontology; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>creating</td><td>create</td><td>creation_action &gt; visual_action</td><td>agent: aircraft<br>patient: wake</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:create.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:create.v.01; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>aircraft</td><td>across</td><td>across</td><td>water</td><td>spatial_path &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>aircraft</td><td>aircraft</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>attribute</td><td>Navy</td><td>navy</td><td>color_attribute</td><td>high</td></tr><tr><td>m2</td><td>object</td><td>water</td><td>water</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>wake</td><td>wake</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>large</td><td>large</td><td>size_attribute</td><td>high</td></tr><tr><td>m5</td><td>action</td><td>speeds</td><td>speed</td><td>verb_predicate</td><td>high</td></tr><tr><td>m6</td><td>action</td><td>creating</td><td>create</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>aircraft <span class="muted">m0 object</span></td><td>Navy <span class="muted">m1 attribute</span></td><td>chunk0 compound -&gt; aircraft</td><td>high</td></tr><tr><td>e1</td><td>has_attribute</td><td>wake <span class="muted">m3 object</span></td><td>large <span class="muted">m4 attribute</span></td><td>chunk2 amod -&gt; wake</td><td>high</td></tr><tr><td>e2</td><td>agent</td><td>speeds <span class="muted">m5 action</span></td><td>aircraft <span class="muted">m0 object</span></td><td>nsubj -&gt; speeds</td><td>medium</td></tr><tr><td>e3</td><td>agent</td><td>creating <span class="muted">m6 action</span></td><td>aircraft <span class="muted">m0 object</span></td><td>inherited agent advcl -&gt; speeds</td><td>medium</td></tr><tr><td>e4</td><td>patient</td><td>creating <span class="muted">m6 action</span></td><td>wake <span class="muted">m3 object</span></td><td>dobj -&gt; creating</td><td>medium</td></tr><tr><td>e5</td><td>relation</td><td>aircraft <span class="muted">m0 object</span></td><td>water <span class="muted">m2 object</span></td><td>across</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (11)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:aircraft</td><td>low</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:water</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:wake</td><td>low</td></tr><tr><td>cf3</td><td>has_attribute</td><td>has_attribute:aircraft:blue</td><td>high</td></tr><tr><td>cf4</td><td>has_attribute</td><td>has_attribute:wake:large</td><td>high</td></tr><tr><td>cf5</td><td>action_event</td><td>action_event:speed</td><td>high</td></tr><tr><td>cf6</td><td>event_role</td><td>event_role:speed:agent:aircraft</td><td>medium</td></tr><tr><td>cf7</td><td>action_event</td><td>action_event:create</td><td>high</td></tr><tr><td>cf8</td><td>event_role</td><td>event_role:create:agent:aircraft</td><td>medium</td></tr><tr><td>cf9</td><td>event_role</td><td>event_role:create:patient:wake</td><td>medium</td></tr><tr><td>cf10</td><td>relation</td><td>relation:aircraft:across:water</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details><summary>Skipped edges</summary><div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>reason</th></tr></thead><tbody><tr><td></td><td>relation</td><td>m0</td><td>m0</td><td>self_edge_after_coref</td></tr></tbody></table></div></details>
+</section>
+
+  </main>
+</body>
+</html>

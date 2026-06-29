@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 07620 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 07620 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_07501_08000.html#case-7620">Back to Case List</a> | <a href="case_07619.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-7620">
+  <div class="case-title">
+    <h2>Case 07620</h2>
+    <a href="#case-7620">anchor</a>
+  </div>
+  <div class="caption-box">A garden with colorful flowers and green bushes stretches across a grassy area near a wooden arbor.</div>
+  <div class="chips">
+    <span>caption_id: 30c5ad5b17d38d96fad101fbcd6d63fc267a7db691109dbc01ab11fc855f44e9</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>garden</td><td>garden</td><td>outdoor_scene &gt; place</td><td>source=wordnet_synset:garden.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:garden.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m1</td><td>flowers</td><td>flower</td><td>plant &gt; living_thing</td><td>source=wordnet_synset:flower.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:flower.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m3</td><td>bushes</td><td>bush</td><td>plant &gt; living_thing</td><td>source=wordnet_synset:shrub.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:shrub.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m5</td><td>area</td><td>area</td><td>spatial_region &gt; place</td><td>source=wordnet_synset:area.n.05 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:area.n.05 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m7</td><td>arbor</td><td>arbor</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>flower</td><td>colorful</td><td>color_attribute &gt; color_quantity &gt; visual_attribute</td><td>medium</td></tr><tr><td>bush</td><td>green</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>area</td><td>grassy</td><td>surface_cover_attribute &gt; surface_cover &gt; visual_attribute</td><td>medium</td></tr><tr><td>arbor</td><td>wood</td><td>material_attribute &gt; material &gt; visual_attribute</td><td>high</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>stretches</td><td>stretch</td><td>spatial_extent_state &gt; visual_action</td><td>agent: garden</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:stretch.v.02; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:stretch.v.02; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>garden</td><td>with</td><td>with</td><td>flower</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>garden</td><td>with</td><td>with</td><td>bush</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>garden</td><td>across</td><td>across</td><td>area</td><td>spatial_path &gt; visual_relation</td><td>high</td></tr><tr><td>garden</td><td>near</td><td>near</td><td>arbor</td><td>spatial_proximity &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>garden</td><td>garden</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>flowers</td><td>flower</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>attribute</td><td>colorful</td><td>colorful</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m3</td><td>object</td><td>bushes</td><td>bush</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>green</td><td>green</td><td>color_attribute</td><td>high</td></tr><tr><td>m5</td><td>object</td><td>area</td><td>area</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>attribute</td><td>grassy</td><td>grassy</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m7</td><td>object</td><td>arbor</td><td>arbor</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m8</td><td>attribute</td><td>wooden</td><td>wooden</td><td>material_attribute</td><td>high</td></tr><tr><td>m9</td><td>action</td><td>stretches</td><td>stretch</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>flowers <span class="muted">m1 object</span></td><td>colorful <span class="muted">m2 attribute</span></td><td>chunk1 amod -&gt; flowers</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>bushes <span class="muted">m3 object</span></td><td>green <span class="muted">m4 attribute</span></td><td>chunk2 amod -&gt; bushes</td><td>high</td></tr><tr><td>e2</td><td>has_attribute</td><td>area <span class="muted">m5 object</span></td><td>grassy <span class="muted">m6 attribute</span></td><td>chunk3 amod -&gt; area</td><td>medium</td></tr><tr><td>e3</td><td>has_attribute</td><td>arbor <span class="muted">m7 object</span></td><td>wooden <span class="muted">m8 attribute</span></td><td>chunk4 amod -&gt; arbor</td><td>high</td></tr><tr><td>e4</td><td>agent</td><td>stretches <span class="muted">m9 action</span></td><td>garden <span class="muted">m0 object</span></td><td>nsubj -&gt; stretches</td><td>medium</td></tr><tr><td>e5</td><td>relation</td><td>garden <span class="muted">m0 object</span></td><td>flowers <span class="muted">m1 object</span></td><td>with</td><td>high</td></tr><tr><td>e6</td><td>relation</td><td>garden <span class="muted">m0 object</span></td><td>bushes <span class="muted">m3 object</span></td><td>with</td><td>high</td></tr><tr><td>e7</td><td>relation</td><td>garden <span class="muted">m0 object</span></td><td>area <span class="muted">m5 object</span></td><td>across</td><td>high</td></tr><tr><td>e8</td><td>relation</td><td>garden <span class="muted">m0 object</span></td><td>arbor <span class="muted">m7 object</span></td><td>near</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (15)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:garden</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:flower</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:bush</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:area</td><td>medium</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:arbor</td><td>low</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:flower:colorful</td><td>medium</td></tr><tr><td>cf6</td><td>has_attribute</td><td>has_attribute:bush:green</td><td>high</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:area:grassy</td><td>medium</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:arbor:wood</td><td>high</td></tr><tr><td>cf9</td><td>action_event</td><td>action_event:stretch</td><td>high</td></tr><tr><td>cf10</td><td>event_role</td><td>event_role:stretch:agent:garden</td><td>medium</td></tr><tr><td>cf11</td><td>relation</td><td>relation:garden:with:flower</td><td>high</td></tr><tr><td>cf12</td><td>relation</td><td>relation:garden:with:bush</td><td>high</td></tr><tr><td>cf13</td><td>relation</td><td>relation:garden:across:area</td><td>high</td></tr><tr><td>cf14</td><td>relation</td><td>relation:garden:near:arbor</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

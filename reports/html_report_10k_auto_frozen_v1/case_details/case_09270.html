@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 09270 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 09270 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_09001_09500.html#case-9270">Back to Case List</a> | <a href="case_09269.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-9270">
+  <div class="case-title">
+    <h2>Case 09270</h2>
+    <a href="#case-9270">anchor</a>
+  </div>
+  <div class="caption-box">A wooden dining table holds blue and white teacups, saucers, and a red napkin. The setting is a cluttered room with chairs and lamps.</div>
+  <div class="chips">
+    <span>caption_id: 2c9b8b7084644d9eaf42322208600c858de54e3411f72532ea1729e52331dbed</span>
+    <span>shape: multi-sentence</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>dining table</td><td>dining_table</td><td></td><td>source=coco_object|lvis_object|visual_genome_object_synset|wordnet_noun_mwe; canonical_source=coco_object|lvis_object|visual_genome_object_synset|wordnet_noun_mwe; parent_source=none; confidence=high; canonical_confidence=high; parent_confidence=low</td></tr><tr><td>ent_m2</td><td>teacups</td><td>teacup</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m5</td><td>saucers</td><td>saucer</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m6</td><td>napkin</td><td>napkin</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m8</td><td>setting</td><td>setting</td><td>scene_context</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m9</td><td>room</td><td>room</td><td>interior_place &gt; place</td><td>source=wordnet_synset:room.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:room.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m11</td><td>chairs</td><td>chair</td><td>furniture &gt; artifact</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m12</td><td>lamps</td><td>lamp</td><td>lighting_device &gt; artifact</td><td>source=1k_stage9_audit_v3 + wordnet_hypernym; canonical_source=raw_lemma; parent_source=1k_stage9_audit_v3 + wordnet_hypernym; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>dining_table</td><td>wood</td><td>material_attribute &gt; material &gt; visual_attribute</td><td>high</td></tr><tr><td>teacup</td><td>blue</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>teacup</td><td>white</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>napkin</td><td>red</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>room</td><td>cluttered</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>holds</td><td>hold</td><td>manipulation_action &gt; visual_action</td><td>agent: dining_table<br>patient: teacup<br>patient: saucer<br>patient: napkin</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>room</td><td>with</td><td>with</td><td>chair</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>room</td><td>with</td><td>with</td><td>lamp</td><td>association_relation &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>dining table</td><td>dining_table</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>attribute</td><td>wooden</td><td>wooden</td><td>material_attribute</td><td>high</td></tr><tr><td>m2</td><td>object</td><td>teacups</td><td>teacup</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>attribute</td><td>blue</td><td>blue</td><td>color_attribute</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>white</td><td>white</td><td>color_attribute</td><td>high</td></tr><tr><td>m5</td><td>object</td><td>saucers</td><td>saucer</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>object</td><td>napkin</td><td>napkin</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m7</td><td>attribute</td><td>red</td><td>red</td><td>color_attribute</td><td>high</td></tr><tr><td>m8</td><td>context</td><td>setting</td><td>setting</td><td>scene_context</td><td>high</td></tr><tr><td>m9</td><td>object</td><td>room</td><td>room</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m10</td><td>attribute</td><td>cluttered</td><td>cluttered</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m11</td><td>object</td><td>chairs</td><td>chair</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m12</td><td>object</td><td>lamps</td><td>lamp</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m13</td><td>action</td><td>holds</td><td>hold</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>dining table <span class="muted">m0 object</span></td><td>wooden <span class="muted">m1 attribute</span></td><td>chunk0 amod -&gt; dining table</td><td>high</td></tr><tr><td>e1</td><td>has_attribute</td><td>teacups <span class="muted">m2 object</span></td><td>blue <span class="muted">m3 attribute</span></td><td>chunk1 amod -&gt; teacups</td><td>high</td></tr><tr><td>e2</td><td>has_attribute</td><td>teacups <span class="muted">m2 object</span></td><td>white <span class="muted">m4 attribute</span></td><td>chunk1 conj -&gt; teacups</td><td>high</td></tr><tr><td>e3</td><td>has_attribute</td><td>napkin <span class="muted">m6 object</span></td><td>red <span class="muted">m7 attribute</span></td><td>chunk3 amod -&gt; napkin</td><td>high</td></tr><tr><td>e4</td><td>has_context</td><td>scene <span class="muted">scene </span></td><td>setting <span class="muted">m8 context</span></td><td>scene_context token setting</td><td>high</td></tr><tr><td>e5</td><td>has_attribute</td><td>room <span class="muted">m9 object</span></td><td>cluttered <span class="muted">m10 attribute</span></td><td>chunk5 amod -&gt; room</td><td>medium</td></tr><tr><td>e6</td><td>agent</td><td>holds <span class="muted">m13 action</span></td><td>dining table <span class="muted">m0 object</span></td><td>nsubj -&gt; holds</td><td>medium</td></tr><tr><td>e7</td><td>patient</td><td>holds <span class="muted">m13 action</span></td><td>teacups <span class="muted">m2 object</span></td><td>dobj -&gt; holds</td><td>medium</td></tr><tr><td>e8</td><td>patient</td><td>holds <span class="muted">m13 action</span></td><td>saucers <span class="muted">m5 object</span></td><td>dobj -&gt; holds</td><td>medium</td></tr><tr><td>e9</td><td>patient</td><td>holds <span class="muted">m13 action</span></td><td>napkin <span class="muted">m6 object</span></td><td>dobj -&gt; holds</td><td>medium</td></tr><tr><td>e10</td><td>relation</td><td>room <span class="muted">m9 object</span></td><td>chairs <span class="muted">m11 object</span></td><td>with</td><td>high</td></tr><tr><td>e11</td><td>relation</td><td>room <span class="muted">m9 object</span></td><td>lamps <span class="muted">m12 object</span></td><td>with</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (20)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:dining_table</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:teacup</td><td>low</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:saucer</td><td>low</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:napkin</td><td>low</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:setting</td><td>high</td></tr><tr><td>cf5</td><td>entity_exists</td><td>entity_exists:room</td><td>high</td></tr><tr><td>cf6</td><td>entity_exists</td><td>entity_exists:chair</td><td>high</td></tr><tr><td>cf7</td><td>entity_exists</td><td>entity_exists:lamp</td><td>high</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:dining_table:wood</td><td>high</td></tr><tr><td>cf9</td><td>has_attribute</td><td>has_attribute:teacup:blue</td><td>high</td></tr><tr><td>cf10</td><td>has_attribute</td><td>has_attribute:teacup:white</td><td>high</td></tr><tr><td>cf11</td><td>has_attribute</td><td>has_attribute:napkin:red</td><td>high</td></tr><tr><td>cf12</td><td>has_attribute</td><td>has_attribute:room:cluttered</td><td>medium</td></tr><tr><td>cf13</td><td>action_event</td><td>action_event:hold</td><td>high</td></tr><tr><td>cf14</td><td>event_role</td><td>event_role:hold:agent:dining_table</td><td>medium</td></tr><tr><td>cf15</td><td>event_role</td><td>event_role:hold:patient:teacup</td><td>medium</td></tr><tr><td>cf16</td><td>event_role</td><td>event_role:hold:patient:saucer</td><td>medium</td></tr><tr><td>cf17</td><td>event_role</td><td>event_role:hold:patient:napkin</td><td>medium</td></tr><tr><td>cf18</td><td>relation</td><td>relation:room:with:chair</td><td>high</td></tr><tr><td>cf19</td><td>relation</td><td>relation:room:with:lamp</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

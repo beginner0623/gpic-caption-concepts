@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 06574 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 06574 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_06501_07000.html#case-6574">Back to Case List</a> | <a href="case_06573.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-6574">
+  <div class="case-title">
+    <h2>Case 06574</h2>
+    <a href="#case-6574">anchor</a>
+  </div>
+  <div class="caption-box">A framed artwork shows a figure in a green hooded cloak with a cross on its face, hands clasped in prayer.</div>
+  <div class="chips">
+    <span>caption_id: 8169ae41e36b2b7c7f8969402c108be1f4b5b6b000938e0b3f85e4874782129f</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>artwork</td><td>artwork</td><td>artwork &gt; artifact</td><td>source=wordnet_synset:artwork.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:artwork.n.01 + 1k_stage9_audit_v2; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m2</td><td>figure</td><td>figure</td><td>representation &gt; artwork &gt; artifact</td><td>source=wordnet_synset:figure.n.06 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:figure.n.06 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m3</td><td>cloak</td><td>cloak</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m6</td><td>cross</td><td>cross</td><td>symbol_or_religious_object &gt; artifact</td><td>source=10k_auto_feedback_v1 + fixed_rubric + object_ontology; canonical_source=raw_lemma; parent_source=10k_auto_feedback_v1 + fixed_rubric + object_ontology; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m7</td><td>face</td><td>face</td><td>body_part</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m8</td><td>hands</td><td>hand</td><td>body_part</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m9</td><td>prayer</td><td>prayer</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>artwork</td><td>frame</td><td>state_attribute &gt; visual_attribute</td><td>medium</td></tr><tr><td>cloak</td><td>green</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>cloak</td><td>hooded</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>shows</td><td>show</td><td>visual_presentation_action &gt; visual_action</td><td>agent: artwork<br>patient: figure</td><td>source=wordnet_synset:show.v.01 + stage9_audit; canonical_source=raw_action; parent_source=wordnet_synset:show.v.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>clasped</td><td>hold</td><td>manipulation_action &gt; visual_action</td><td>agent: hand</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:clasp.v.01; canonical_source=1k_stage9_action_audit_v2 + wordnet_synset:clasp.v.01; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=high; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>figure</td><td>in</td><td>in</td><td>cloak</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr><tr><td>figure</td><td>with</td><td>with</td><td>cross</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>cross</td><td>on</td><td>on</td><td>face</td><td>spatial_support &gt; visual_relation</td><td>high</td></tr><tr><td>hand</td><td>in</td><td>in</td><td>prayer</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>artwork</td><td>artwork</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>attribute</td><td>framed</td><td>frame</td><td>state_attribute</td><td>medium</td></tr><tr><td>m2</td><td>object</td><td>figure</td><td>figure</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>cloak</td><td>cloak</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>green</td><td>green</td><td>color_attribute</td><td>high</td></tr><tr><td>m5</td><td>attribute</td><td>hooded</td><td>hooded</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m6</td><td>object</td><td>cross</td><td>cross</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m7</td><td>object</td><td>face</td><td>face</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m8</td><td>object</td><td>hands</td><td>hand</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m9</td><td>object</td><td>prayer</td><td>prayer</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m10</td><td>action</td><td>shows</td><td>show</td><td>verb_predicate</td><td>high</td></tr><tr><td>m11</td><td>action</td><td>clasped</td><td>clasp</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>artwork <span class="muted">m0 object</span></td><td>framed <span class="muted">m1 attribute</span></td><td>chunk0 amod -&gt; artwork</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>cloak <span class="muted">m3 object</span></td><td>green <span class="muted">m4 attribute</span></td><td>chunk2 amod -&gt; cloak</td><td>high</td></tr><tr><td>e2</td><td>has_attribute</td><td>cloak <span class="muted">m3 object</span></td><td>hooded <span class="muted">m5 attribute</span></td><td>chunk2 amod -&gt; cloak</td><td>medium</td></tr><tr><td>e3</td><td>agent</td><td>shows <span class="muted">m10 action</span></td><td>artwork <span class="muted">m0 object</span></td><td>nsubj -&gt; shows</td><td>medium</td></tr><tr><td>e4</td><td>patient</td><td>shows <span class="muted">m10 action</span></td><td>figure <span class="muted">m2 object</span></td><td>dobj -&gt; shows</td><td>medium</td></tr><tr><td>e5</td><td>agent</td><td>clasped <span class="muted">m11 action</span></td><td>hands <span class="muted">m8 object</span></td><td>nsubj -&gt; clasped</td><td>medium</td></tr><tr><td>e6</td><td>relation</td><td>figure <span class="muted">m2 object</span></td><td>cloak <span class="muted">m3 object</span></td><td>in</td><td>high</td></tr><tr><td>e7</td><td>relation</td><td>figure <span class="muted">m2 object</span></td><td>cross <span class="muted">m6 object</span></td><td>with</td><td>high</td></tr><tr><td>e8</td><td>relation</td><td>cross <span class="muted">m6 object</span></td><td>face <span class="muted">m7 object</span></td><td>on</td><td>high</td></tr><tr><td>e9</td><td>relation</td><td>hands <span class="muted">m8 object</span></td><td>prayer <span class="muted">m9 object</span></td><td>in</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (19)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:artwork</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:figure</td><td>medium</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:cloak</td><td>low</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:cross</td><td>medium</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:face</td><td>high</td></tr><tr><td>cf5</td><td>entity_exists</td><td>entity_exists:hand</td><td>high</td></tr><tr><td>cf6</td><td>entity_exists</td><td>entity_exists:prayer</td><td>low</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:artwork:frame</td><td>medium</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:cloak:green</td><td>high</td></tr><tr><td>cf9</td><td>has_attribute</td><td>has_attribute:cloak:hooded</td><td>medium</td></tr><tr><td>cf10</td><td>action_event</td><td>action_event:show</td><td>high</td></tr><tr><td>cf11</td><td>event_role</td><td>event_role:show:agent:artwork</td><td>medium</td></tr><tr><td>cf12</td><td>event_role</td><td>event_role:show:patient:figure</td><td>medium</td></tr><tr><td>cf13</td><td>action_event</td><td>action_event:hold</td><td>high</td></tr><tr><td>cf14</td><td>event_role</td><td>event_role:hold:agent:hand</td><td>medium</td></tr><tr><td>cf15</td><td>relation</td><td>relation:figure:in:cloak</td><td>high</td></tr><tr><td>cf16</td><td>relation</td><td>relation:figure:with:cross</td><td>high</td></tr><tr><td>cf17</td><td>relation</td><td>relation:cross:on:face</td><td>high</td></tr><tr><td>cf18</td><td>relation</td><td>relation:hand:in:prayer</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

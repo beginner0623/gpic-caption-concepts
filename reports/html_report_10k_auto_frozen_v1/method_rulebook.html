@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Method Rulebook</title>
+  <link rel="stylesheet" href="assets/report.css">
+  <script defer src="assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Method Rulebook</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="">Overview</summary><div class="nav-menu-items"><a class="" href="index.html">Home</a>
+<a class="" href="results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="active">Method<span>Method Rulebook</span></summary><div class="nav-menu-items"><a class="active" href="method_rulebook.html">Method Rulebook</a>
+<a class="" href="stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="objects.html">Objects</a>
+<a class="" href="attributes.html">Attributes</a>
+<a class="" href="attribute_types.html">Attr Types</a>
+<a class="" href="object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="actions.html">Actions</a>
+<a class="" href="event_roles.html">Agent / Patient</a>
+<a class="" href="relations.html">Relations</a>
+<a class="" href="relation_triples.html">Relation Triples</a>
+<a class="" href="facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="parents.html">Parents</a>
+<a class="" href="quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+
+<section class="hero">
+  <h2>최상위 pipeline은 9개 stage로 본다</h2>
+  <p>이 report는 네가 정한 caption-to-concept 흐름을 기준으로 정리한다. LLM에게 caption 전체를 맡긴 결과가 아니라, spaCy parse + retokenizer + lexicon + deterministic rule + Stage 9 canonicalization으로 만든 caption-only concept extraction 결과다.</p>
+  <div class="callout">핵심 rule은 “문장을 새로 생성하지 않고, GPIC caption의 정보를 countable object, attribute, action, role, relation, parent concept로 바꾸는 것”이다.</div>
+</section>
+<section class="panel">
+  <h2>Stage Overview</h2>
+  <p>아래 표가 먼저 봐야 할 전체 지도다. `caption shape routing`, `quote span`, `object MWE`, `scene context`, `reference repair` 같은 세부 처리는 독립 최상위 stage가 아니라 해당 stage의 하위 rule로 배치한다.</p>
+  <div class="table-wrap"><table class=""><thead><tr><th>Stage</th><th>이름</th><th>입력</th><th>하는 일</th><th>산출물</th><th>상세</th></tr></thead><tbody><tr><td>1</td><td>Noise removal / caption routing</td><td>raw GPIC caption</td><td>noise 제거는 현재 기본 적용 X. 대신 caption_id/raw caption을 보존하고 tag-list-like 여부를 먼저 기록한다.</td><td>raw caption + caption_shape + parse_path</td><td><a href="stage_rules.html#stage-01">rules</a></td></tr><tr><td>2</td><td>Tokenization</td><td>caption text</td><td>spaCy tokenizer로 token boundary와 offset을 만든다. quote/object MWE/hyphen span protection은 tokenization 직후 하위 rule로 처리한다.</td><td>tokens + protected spans</td><td><a href="stage_rules.html#stage-02">rules</a></td></tr><tr><td>3</td><td>POS tagging</td><td>tokens</td><td>spaCy tagger가 POS/tag를 예측한다. tag-list segment에서는 POS를 보조 신호로만 쓴다.</td><td>POS/tag</td><td><a href="stage_rules.html#stage-03">rules</a></td></tr><tr><td>4</td><td>Predicate span detecting</td><td>tokens + POS</td><td>multi-word predicate/preposition/phrasal-action 후보를 lexicon으로 찾는다. 현재는 parser용 강제 merge보다 Stage 8/9 해석용 span으로 주로 쓴다.</td><td>predicate spans + particles + relation MWE candidates</td><td><a href="stage_rules.html#stage-04">rules</a></td></tr><tr><td>5</td><td>Lemmatize</td><td>tokens + POS/tag</td><td>spaCy lemma를 기본 lemma로 저장한다. lemma는 canonical과 다르며, canonical은 Stage 9에서 한다.</td><td>token/action/object/attribute lemma</td><td><a href="stage_rules.html#stage-05">rules</a></td></tr><tr><td>6</td><td>Dependency parsing</td><td>tokens + POS/lemma</td><td>spaCy parser가 head/dep 구조를 만든다. 여기서는 nsubj, dobj, prep 같은 syntactic edge만 생기고 tuple은 아직 아니다.</td><td>dependency tree</td><td><a href="stage_rules.html#stage-06">rules</a></td></tr><tr><td>7</td><td>Noun chunking</td><td>parsed Doc</td><td>spaCy noun_chunks로 명사구 span/root를 얻는다. object 확정이나 attribute 분리는 아직 하지 않는다.</td><td>noun chunks</td><td><a href="stage_rules.html#stage-07">rules</a></td></tr><tr><td>8</td><td>Raw tuple extractor</td><td>tokens/POS/lemma/dep/noun chunks + routing metadata</td><td>7단계까지의 linguistic evidence를 이용해 object, attribute, quantity, action role, relation, reference raw tuple을 만든다.</td><td>raw mentions + raw edges</td><td><a href="stage_rules.html#stage-08">rules</a></td></tr><tr><td>9</td><td>Canonicalize / countable export</td><td>raw mentions + raw edges</td><td>synonym/frozen lexicon으로 raw를 canonical과 parent로 바꾸고 count_key가 있는 canonical facts와 report table로 내보낸다.</td><td>canonical entities/events/relations/facts</td><td><a href="stage_rules.html#stage-09">rules</a></td></tr></tbody></table></div>
+</section>
+<section class="panel">
+  <h2>Hierarchy Rule</h2>
+  <div class="table-wrap"><table class=""><thead><tr><th>하위 rule</th><th>속하는 최상위 stage</th><th>이유</th></tr></thead><tbody><tr><td>caption shape / tag-list routing</td><td>Stage 1</td><td>dependency나 noun chunk 후에 생기는 정보가 아니라, raw caption 형태를 보고 이후 Stage 8 extractor가 parse를 얼마나 믿을지 정하는 routing metadata다.</td></tr><tr><td>quote span retokenization</td><td>Stage 2</td><td>tokenization 직후 raw quote span을 보호하는 span rule이다.</td></tr><tr><td>object MWE / hyphen noun protection</td><td>Stage 2</td><td>POS/dependency가 깨지기 전에 token span을 보호하는 rule이다.</td></tr><tr><td>multi-word preposition / phrasal action 후보</td><td>Stage 4</td><td>predicate-like span을 찾는 rule이다. 다만 현재 구현에서는 parser 입력을 모두 바꾸기보다 Stage 8/9 해석에 사용한다.</td></tr><tr><td>명사구 root를 object candidate로 삼는 rule</td><td>Stage 8</td><td>noun chunking 자체는 Stage 7이고, object/context/reference로 해석하는 것은 raw tuple extraction이다.</td></tr><tr><td>attribute / quantity 분리</td><td>Stage 8</td><td>noun chunk 내부 modifier를 countable tuple로 바꾸는 extractor rule이다.</td></tr><tr><td>reference/coref/self-edge repair</td><td>Stage 8/9</td><td>Stage 8에서 reference mention/edge를 만들고 Stage 9에서 canonical entity link와 role/relation 복구를 한다.</td></tr><tr><td>synonym, parent, source/provenance</td><td>Stage 9</td><td>raw tuple 이후 countable schema로 정리하는 canonicalization rule이다.</td></tr></tbody></table></div>
+</section>
+<section class="panel">
+  <h2>Reading Order</h2>
+  <ol>
+    <li>먼저 이 page에서 9개 최상위 stage와 각 하위 rule의 위치를 본다.</li>
+    <li><a href="stage_rules.html">Stage Rules</a>에서 각 stage별 상세 rule과 방어 rule을 본다.</li>
+    <li>그 다음 Objects, Attributes, Actions, Agent / Patient, Relations, Facts page에서 실제 count 결과를 확인한다.</li>
+    <li>이상한 항목은 Case Detail에서 raw token, dependency, canonical fact로 역추적한다.</li>
+  </ol>
+</section>
+<section class="panel">
+  <h2>Canonicalization Scope</h2>
+  <div class="table-wrap"><table class=""><thead><tr><th>domain</th><th>report column</th><th>canonicalization 상태</th><th>fallback 의미</th></tr></thead><tbody><tr><td>Object</td><td>canonical_object</td><td>synonym lexicon, object MWE, plural disambiguation, parent ontology를 적용한다.</td><td>매칭이 없으면 raw lemma를 canonical_object로 둔다.</td></tr><tr><td>Attribute</td><td>canonical_attribute</td><td>attribute clean lexicon과 synonym map을 적용한다. color/material/size/pattern 같은 parent를 붙인다.</td><td>매칭이 없으면 modifier lemma와 raw_attribute_role을 쓴다.</td></tr><tr><td>Action</td><td>canonical_action</td><td>phrasal action whitelist와 action synonym/parent lexicon을 적용한다.</td><td>매칭이 없으면 spaCy lemma 기반 raw_action fallback이라 lemma처럼 보인다.</td></tr><tr><td>Relation</td><td>relation_label</td><td>relation은 raw-preserving 정책이다. 일부 MWE만 정리하고 과도한 synonym collapse는 하지 않는다.</td><td>raw relation label을 거의 그대로 둔다.</td></tr></tbody></table></div>
+</section>
+<section class="panel">
+  <h2>Source / Provenance Naming</h2>
+  <p>sources column은 외부 lexical source, GPIC feedback에서 자동 승격한 내부 source, project ontology, fallback을 섞어서 보여준다. `10k_auto_feedback_v1`은 외부 source가 아니라 GPIC 10k 실행에서 발견한 후보를 fixed rubric으로 자동 승격한 project-internal provenance다.</p>
+  <div class="table-wrap"><table class=""><thead><tr><th>source label pattern</th><th>의미</th><th>외부 source 여부</th></tr></thead><tbody><tr><td>wordnet_synset:*, wordnet_hypernym:*, visual_genome_*, openimages_*, lvis_object, coco_attributes, ovad, vaw, paco, fashionpedia, css_color_4</td><td>외부 사전/데이터셋/벤치마크에서 온 lexical evidence</td><td>external</td></tr><tr><td>10k_auto_feedback_v1</td><td>GPIC 10k caption 실행에서 수집한 후보</td><td>project-internal GPIC feedback</td></tr><tr><td>auto_feedback_candidate</td><td>GPIC feedback 후보에서 온 attribute/source type marker</td><td>project-internal GPIC feedback</td></tr><tr><td>stage9_auto_frozen_v1</td><td>automatic rubric과 regression을 통과해 적용한 frozen lexicon version</td><td>project-internal freeze version</td></tr><tr><td>fixed_rubric, project_ontology, object_ontology, action_ontology, body_part_ontology</td><td>외부 source가 아니라 프로젝트 기준으로 부여한 판단/상위범주</td><td>project-internal rule</td></tr><tr><td>raw_lemma, raw_action, raw_attribute_role, semantic_type_fallback, visual_action_fallback, none</td><td>lexicon 매칭 실패 시 원 lemma/role/type으로 남긴 fallback</td><td>fallback</td></tr></tbody></table></div>
+</section>
+<section class="panel">
+  <h2>Key Design Decisions</h2>
+  <div class="two-col">
+    <div>
+      <h3>보존하는 것</h3>
+      <ul>
+        <li>caption_id, row_index, token 근거, raw text</li>
+        <li>quote 원문. placeholder 문장을 만들지 않고 raw quote span을 retokenize한다.</li>
+        <li>relation raw label. relation은 과도한 synonym collapse를 피하고 원의미를 유지한다.</li>
+        <li>canonical과 parent를 분리한다. canonical은 대표어, parent는 countable 상위 범주다.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>방어하는 것</h3>
+      <ul>
+        <li>quote가 object로 들어가는 오염</li>
+        <li>tag-list caption에서 dependency를 과신하는 문제</li>
+        <li>pronoun/reference가 object count를 오염시키는 문제</li>
+        <li>self-edge after coref</li>
+        <li>front/side region 표현을 in_front_of 같은 공간관계로 잘못 접는 문제</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="panel">
+  <h2>Auto-Frozen Lexicon Policy</h2>
+  <p>100M caption 처리를 전제로 사람이 모든 후보를 직접 audit하지 않는 방향이다. 외부 source와 GPIC feedback candidate를 fixed rubric으로 자동 분류하고, high-confidence 후보만 versioned lexicon으로 freeze한다.</p>
+  <ul>
+    <li>object synonym / parent</li>
+    <li>action synonym / parent</li>
+    <li>attribute canonical / subtype</li>
+    <li>preposition MWE와 phrasal action은 relation collapse와 action canonicalization을 분리해서 관리</li>
+  </ul>
+</section>
+<section class="panel">
+  <h2>Known Limitations</h2>
+  <ul>
+    <li>hard coreference와 subgroup split(one/another/both)은 아직 long-tail이 남아 있다.</li>
+    <li>relation은 raw-preserving 정책이라 parent/canonical relation 분석은 보조 정보로만 본다.</li>
+    <li>parent concept가 비어 있는 long-tail object/action은 계속 auto feedback loop로 줄여야 한다.</li>
+    <li>HTML case detail은 inspection용이고, 전체 정량 분석은 data/*.tsv를 기준으로 보는 것이 안전하다.</li>
+  </ul>
+</section>
+
+  </main>
+</body>
+</html>

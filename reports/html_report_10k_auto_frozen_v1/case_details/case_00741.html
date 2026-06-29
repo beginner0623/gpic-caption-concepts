@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 00741 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 00741 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_00501_01000.html#case-741">Back to Case List</a> | <a href="case_00740.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-741">
+  <div class="case-title">
+    <h2>Case 00741</h2>
+    <a href="#case-741">anchor</a>
+  </div>
+  <div class="caption-box">A quiet street at night with a pizza shop sign lit up and a car parked on the side.</div>
+  <div class="chips">
+    <span>caption_id: a08bf3ecfe61f9934281c124847e7e284c8ad267fd2da3dd887bb5979c09f487</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>street</td><td>street</td><td>path &gt; place</td><td>source=wordnet_synset:street.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:street.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m2</td><td>night</td><td>night</td><td>scene_context &gt; time_context</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m3</td><td>sign</td><td>sign</td><td>text_carrier &gt; artifact</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m5</td><td>car</td><td>car</td><td>vehicle</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m6</td><td>side</td><td>side</td><td>spatial_region &gt; scene_element</td><td>source=wordnet_synset:side.n.04 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:side.n.04 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>street</td><td>quiet</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr><tr><td>sign</td><td>pizza_shop</td><td>compound_modifier &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>lit</td><td>light</td><td>illumination_action &gt; visual_action</td><td>agent: sign</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:light.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:light.v.01; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>parked</td><td>park</td><td>placement_state_action &gt; vehicle_action &gt; visual_action</td><td>agent: car</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:park.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:park.v.01; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>street</td><td>at</td><td>at</td><td>night</td><td>spatial_location &gt; visual_relation</td><td>medium</td></tr><tr><td>street</td><td>with</td><td>with</td><td>sign</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>street</td><td>with</td><td>with</td><td>car</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>car</td><td>on</td><td>on</td><td>side</td><td>spatial_support &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>street</td><td>street</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>attribute</td><td>quiet</td><td>quiet</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m2</td><td>context</td><td>night</td><td>night</td><td>scene_context</td><td>medium</td></tr><tr><td>m3</td><td>object</td><td>sign</td><td>sign</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>pizza shop</td><td>pizza_shop</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m5</td><td>object</td><td>car</td><td>car</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>context</td><td>side</td><td>side</td><td>spatial_region</td><td>medium</td></tr><tr><td>m7</td><td>action</td><td>lit</td><td>light</td><td>verb_predicate</td><td>high</td></tr><tr><td>m8</td><td>particle</td><td>up</td><td>up</td><td>phrasal_particle</td><td>medium</td></tr><tr><td>m9</td><td>action</td><td>parked</td><td>park</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>street <span class="muted">m0 object</span></td><td>quiet <span class="muted">m1 attribute</span></td><td>chunk0 amod -&gt; street</td><td>medium</td></tr><tr><td>e1</td><td>has_context</td><td>scene <span class="muted">scene </span></td><td>night <span class="muted">m2 context</span></td><td>scene_context token night</td><td>medium</td></tr><tr><td>e2</td><td>has_attribute</td><td>sign <span class="muted">m3 object</span></td><td>pizza shop <span class="muted">m4 attribute</span></td><td>chunk2 compound -&gt; sign</td><td>medium</td></tr><tr><td>e3</td><td>has_particle</td><td>lit <span class="muted">m7 action</span></td><td>up <span class="muted">m8 particle</span></td><td>prt -&gt; lit</td><td>medium</td></tr><tr><td>e4</td><td>agent</td><td>lit <span class="muted">m7 action</span></td><td>sign <span class="muted">m3 object</span></td><td>inherited agent acl -&gt; sign</td><td>medium</td></tr><tr><td>e5</td><td>agent</td><td>parked <span class="muted">m9 action</span></td><td>car <span class="muted">m5 object</span></td><td>inherited agent acl -&gt; car</td><td>medium</td></tr><tr><td>e6</td><td>relation</td><td>street <span class="muted">m0 object</span></td><td>night <span class="muted">m2 context</span></td><td>at</td><td>medium</td></tr><tr><td>e7</td><td>relation</td><td>street <span class="muted">m0 object</span></td><td>sign <span class="muted">m3 object</span></td><td>with</td><td>high</td></tr><tr><td>e8</td><td>relation</td><td>street <span class="muted">m0 object</span></td><td>car <span class="muted">m5 object</span></td><td>with</td><td>high</td></tr><tr><td>e9</td><td>relation</td><td>car <span class="muted">m5 object</span></td><td>side <span class="muted">m6 context</span></td><td>on</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (15)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:street</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:night</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:sign</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:car</td><td>high</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:side</td><td>medium</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:street:quiet</td><td>medium</td></tr><tr><td>cf6</td><td>has_attribute</td><td>has_attribute:sign:pizza_shop</td><td>medium</td></tr><tr><td>cf7</td><td>action_event</td><td>action_event:light</td><td>high</td></tr><tr><td>cf8</td><td>event_role</td><td>event_role:light:agent:sign</td><td>medium</td></tr><tr><td>cf9</td><td>action_event</td><td>action_event:park</td><td>high</td></tr><tr><td>cf10</td><td>event_role</td><td>event_role:park:agent:car</td><td>medium</td></tr><tr><td>cf11</td><td>relation</td><td>relation:street:at:night</td><td>medium</td></tr><tr><td>cf12</td><td>relation</td><td>relation:street:with:sign</td><td>high</td></tr><tr><td>cf13</td><td>relation</td><td>relation:street:with:car</td><td>high</td></tr><tr><td>cf14</td><td>relation</td><td>relation:car:on:side</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

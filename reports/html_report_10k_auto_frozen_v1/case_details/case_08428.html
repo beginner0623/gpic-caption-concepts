@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 08428 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 08428 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_08001_08500.html#case-8428">Back to Case List</a> | <a href="case_08427.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-8428">
+  <div class="case-title">
+    <h2>Case 08428</h2>
+    <a href="#case-8428">anchor</a>
+  </div>
+  <div class="caption-box">A dirt path winds through green and golden fields under a cloudy sky.</div>
+  <div class="chips">
+    <span>caption_id: 8bd0b006d7a2d91c5f6012045ba962ad2bb8df6ef18e61ff422de5342c745ce0</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>path</td><td>path</td><td>path &gt; place</td><td>source=wordnet_synset:path.n.04 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:path.n.04 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m2</td><td>fields</td><td>field</td><td>outdoor_scene &gt; place</td><td>source=wordnet_synset:field.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:field.n.01 + stage9_audit; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m5</td><td>sky</td><td>sky</td><td>natural_scene</td><td>source=wordnet_synset:sky.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:sky.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>path</td><td>dirt</td><td>material_attribute &gt; cleanliness &gt; material &gt; visual_attribute</td><td>medium</td></tr><tr><td>field</td><td>green</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>field</td><td>golden</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>sky</td><td>cloudy</td><td>weather_attribute &gt; weather &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>winds</td><td>wind</td><td>shape_or_motion_action &gt; visual_action</td><td>agent: path</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:wind.v.02; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:wind.v.02; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>path</td><td>through</td><td>through</td><td>field</td><td>spatial_path &gt; visual_relation</td><td>medium</td></tr><tr><td>field</td><td>under</td><td>under</td><td>sky</td><td>spatial_vertical &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>path</td><td>path</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>attribute</td><td>dirt</td><td>dirt</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m2</td><td>object</td><td>fields</td><td>field</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>attribute</td><td>green</td><td>green</td><td>color_attribute</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>golden</td><td>golden</td><td>color_attribute</td><td>high</td></tr><tr><td>m5</td><td>object</td><td>sky</td><td>sky</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>attribute</td><td>cloudy</td><td>cloudy</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m7</td><td>action</td><td>winds</td><td>wind</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>path <span class="muted">m0 object</span></td><td>dirt <span class="muted">m1 attribute</span></td><td>chunk0 compound -&gt; path</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>fields <span class="muted">m2 object</span></td><td>green <span class="muted">m3 attribute</span></td><td>chunk1 amod -&gt; fields</td><td>high</td></tr><tr><td>e2</td><td>has_attribute</td><td>fields <span class="muted">m2 object</span></td><td>golden <span class="muted">m4 attribute</span></td><td>chunk1 conj -&gt; fields</td><td>high</td></tr><tr><td>e3</td><td>has_attribute</td><td>sky <span class="muted">m5 object</span></td><td>cloudy <span class="muted">m6 attribute</span></td><td>chunk2 amod -&gt; sky</td><td>medium</td></tr><tr><td>e4</td><td>agent</td><td>winds <span class="muted">m7 action</span></td><td>path <span class="muted">m0 object</span></td><td>nsubj -&gt; winds</td><td>medium</td></tr><tr><td>e5</td><td>relation</td><td>path <span class="muted">m0 object</span></td><td>fields <span class="muted">m2 object</span></td><td>through</td><td>medium</td></tr><tr><td>e6</td><td>relation</td><td>fields <span class="muted">m2 object</span></td><td>sky <span class="muted">m5 object</span></td><td>under</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (11)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:path</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:field</td><td>medium</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:sky</td><td>high</td></tr><tr><td>cf3</td><td>has_attribute</td><td>has_attribute:path:dirt</td><td>medium</td></tr><tr><td>cf4</td><td>has_attribute</td><td>has_attribute:field:green</td><td>high</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:field:golden</td><td>high</td></tr><tr><td>cf6</td><td>has_attribute</td><td>has_attribute:sky:cloudy</td><td>medium</td></tr><tr><td>cf7</td><td>action_event</td><td>action_event:wind</td><td>medium</td></tr><tr><td>cf8</td><td>event_role</td><td>event_role:wind:agent:path</td><td>medium</td></tr><tr><td>cf9</td><td>relation</td><td>relation:path:through:field</td><td>medium</td></tr><tr><td>cf10</td><td>relation</td><td>relation:field:under:sky</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

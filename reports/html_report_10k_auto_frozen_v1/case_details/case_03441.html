@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 03441 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 03441 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_03001_03500.html#case-3441">Back to Case List</a> | <a href="case_03440.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-3441">
+  <div class="case-title">
+    <h2>Case 03441</h2>
+    <a href="#case-3441">anchor</a>
+  </div>
+  <div class="caption-box">A road curves through a forested area, marked by a sign for West 364 toward Southington.</div>
+  <div class="chips">
+    <span>caption_id: e244ba01eedf04a6eb328e67fcb0022d8041f27c456a7a05177a25b213e074e9</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>road</td><td>road</td><td>path &gt; place</td><td>source=wordnet_synset:road.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:road.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m1</td><td>area</td><td>area</td><td>spatial_region &gt; place</td><td>source=wordnet_synset:area.n.05 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:area.n.05 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m3</td><td>sign</td><td>sign</td><td>text_carrier &gt; artifact</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m4</td><td>West</td><td>west</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m5</td><td>Southington</td><td>southington</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>area</td><td>forested</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>curves</td><td>curve</td><td>shape_state &gt; visual_action</td><td>agent: road</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:curve.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:curve.v.01; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>marked</td><td>mark</td><td>text_annotation_or_surface_marking_action &gt; visual_action</td><td>agent: road</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:mark.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:mark.v.01; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>road</td><td>through</td><td>through</td><td>area</td><td>spatial_path &gt; visual_relation</td><td>medium</td></tr><tr><td>road</td><td>by</td><td>by</td><td>sign</td><td>spatial_proximity &gt; visual_relation</td><td>medium</td></tr><tr><td>sign</td><td>for</td><td>for</td><td>west</td><td>visual_relation</td><td>medium</td></tr><tr><td>west</td><td>toward</td><td>toward</td><td>southington</td><td>visual_relation</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>road</td><td>road</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>area</td><td>area</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>attribute</td><td>forested</td><td>forested</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m3</td><td>object</td><td>sign</td><td>sign</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>object</td><td>West</td><td>west</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m5</td><td>object</td><td>Southington</td><td>southington</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>action</td><td>curves</td><td>curve</td><td>verb_predicate</td><td>high</td></tr><tr><td>m7</td><td>action</td><td>marked</td><td>mark</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>area <span class="muted">m1 object</span></td><td>forested <span class="muted">m2 attribute</span></td><td>chunk1 amod -&gt; area</td><td>medium</td></tr><tr><td>e1</td><td>agent</td><td>curves <span class="muted">m6 action</span></td><td>road <span class="muted">m0 object</span></td><td>nsubj -&gt; curves</td><td>medium</td></tr><tr><td>e2</td><td>agent</td><td>marked <span class="muted">m7 action</span></td><td>road <span class="muted">m0 object</span></td><td>inherited agent advcl -&gt; curves</td><td>medium</td></tr><tr><td>e3</td><td>relation</td><td>road <span class="muted">m0 object</span></td><td>area <span class="muted">m1 object</span></td><td>through</td><td>medium</td></tr><tr><td>e4</td><td>relation</td><td>road <span class="muted">m0 object</span></td><td>sign <span class="muted">m3 object</span></td><td>by</td><td>medium</td></tr><tr><td>e5</td><td>relation</td><td>sign <span class="muted">m3 object</span></td><td>West <span class="muted">m4 object</span></td><td>for</td><td>medium</td></tr><tr><td>e6</td><td>relation</td><td>West <span class="muted">m4 object</span></td><td>Southington <span class="muted">m5 object</span></td><td>toward</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (14)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:road</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:area</td><td>medium</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:sign</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:west</td><td>low</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:southington</td><td>low</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:area:forested</td><td>medium</td></tr><tr><td>cf6</td><td>action_event</td><td>action_event:curve</td><td>high</td></tr><tr><td>cf7</td><td>event_role</td><td>event_role:curve:agent:road</td><td>medium</td></tr><tr><td>cf8</td><td>action_event</td><td>action_event:mark</td><td>medium</td></tr><tr><td>cf9</td><td>event_role</td><td>event_role:mark:agent:road</td><td>medium</td></tr><tr><td>cf10</td><td>relation</td><td>relation:road:through:area</td><td>medium</td></tr><tr><td>cf11</td><td>relation</td><td>relation:road:by:sign</td><td>medium</td></tr><tr><td>cf12</td><td>relation</td><td>relation:sign:for:west</td><td>medium</td></tr><tr><td>cf13</td><td>relation</td><td>relation:west:toward:southington</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

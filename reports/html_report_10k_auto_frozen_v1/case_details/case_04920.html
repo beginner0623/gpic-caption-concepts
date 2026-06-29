@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 04920 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 04920 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_04501_05000.html#case-4920">Back to Case List</a> | <a href="case_04919.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-4920">
+  <div class="case-title">
+    <h2>Case 04920</h2>
+    <a href="#case-4920">anchor</a>
+  </div>
+  <div class="caption-box">A man and woman smile for a selfie under a clear blue sky. Others sit in the background near an umbrella.</div>
+  <div class="chips">
+    <span>caption_id: 7fda8f7a36731ab42986a8bbc87d34e95e1372c8d09895311cf6d928f54b4bed</span>
+    <span>shape: multi-sentence</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>man</td><td>man</td><td>person &gt; human</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m1</td><td>woman</td><td>woman</td><td>person &gt; human</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m2</td><td>selfie</td><td>selfie</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m3</td><td>sky</td><td>sky</td><td>natural_scene</td><td>source=wordnet_synset:sky.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:sky.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m6</td><td>background</td><td>background</td><td>scene_context</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m7</td><td>umbrella</td><td>umbrella</td><td>accessory &gt; artifact</td><td>source=COCO object label + wordnet_synset:umbrella.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=COCO object label + wordnet_synset:umbrella.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m8</td><td>A man and woman</td><td>man_and_woman</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>eref_m9</td><td>Others</td><td>man_and_woman</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>sky</td><td>clear</td><td>weather_attribute &gt; opaqeness &gt; weather &gt; visual_attribute</td><td>medium</td></tr><tr><td>sky</td><td>blue</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>smile</td><td>smile</td><td>expression_action &gt; visual_action</td><td>agent: man<br>agent: woman</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>sit</td><td>sit</td><td>body_pose_action &gt; visual_action</td><td>agent: man_and_woman</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>man</td><td>for</td><td>for</td><td>selfie</td><td>visual_relation</td><td>medium</td></tr><tr><td>man</td><td>under</td><td>under</td><td>sky</td><td>spatial_vertical &gt; visual_relation</td><td>high</td></tr><tr><td>man_and_woman</td><td>in</td><td>in</td><td>background</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr><tr><td>man_and_woman</td><td>near</td><td>near</td><td>umbrella</td><td>spatial_proximity &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>man</td><td>man</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>woman</td><td>woman</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>object</td><td>selfie</td><td>selfie</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>sky</td><td>sky</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>clear</td><td>clear</td><td>visual_attribute</td><td>medium</td></tr><tr><td>m5</td><td>attribute</td><td>blue</td><td>blue</td><td>color_attribute</td><td>high</td></tr><tr><td>m6</td><td>context</td><td>background</td><td>background</td><td>scene_context</td><td>high</td></tr><tr><td>m7</td><td>object</td><td>umbrella</td><td>umbrella</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m8</td><td>group</td><td>A man and woman</td><td>man_and_woman</td><td>coordination_group</td><td>high</td></tr><tr><td>m9</td><td>reference</td><td>Others</td><td>other</td><td>contrastive_reference</td><td>high</td></tr><tr><td>m10</td><td>action</td><td>smile</td><td>smile</td><td>verb_predicate</td><td>high</td></tr><tr><td>m11</td><td>action</td><td>sit</td><td>sit</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>sky <span class="muted">m3 object</span></td><td>clear <span class="muted">m4 attribute</span></td><td>chunk3 amod -&gt; sky</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>sky <span class="muted">m3 object</span></td><td>blue <span class="muted">m5 attribute</span></td><td>chunk3 amod -&gt; sky</td><td>high</td></tr><tr><td>e2</td><td>has_context</td><td>scene <span class="muted">scene </span></td><td>background <span class="muted">m6 context</span></td><td>scene_context token background</td><td>high</td></tr><tr><td>e3</td><td>has_member</td><td>A man and woman <span class="muted">m8 group</span></td><td>man <span class="muted">m0 object</span></td><td>coordination_group</td><td>high</td></tr><tr><td>e4</td><td>has_member</td><td>A man and woman <span class="muted">m8 group</span></td><td>woman <span class="muted">m1 object</span></td><td>coordination_group</td><td>high</td></tr><tr><td>e5</td><td>refers_to</td><td>Others <span class="muted">m9 reference</span></td><td>A man and woman <span class="muted">m8 group</span></td><td>contrastive_reference Others -&gt; A man and woman; score=108</td><td>high</td></tr><tr><td>e6</td><td>agent</td><td>smile <span class="muted">m10 action</span></td><td>man <span class="muted">m0 object</span></td><td>nsubj -&gt; smile</td><td>medium</td></tr><tr><td>e7</td><td>agent</td><td>smile <span class="muted">m10 action</span></td><td>woman <span class="muted">m1 object</span></td><td>nsubj -&gt; smile</td><td>medium</td></tr><tr><td>e8</td><td>agent</td><td>sit <span class="muted">m11 action</span></td><td>A man and woman <span class="muted">m8 group</span></td><td>nsubj -&gt; sit; resolved Others -&gt; A man and woman</td><td>medium</td></tr><tr><td>e9</td><td>relation</td><td>man <span class="muted">m0 object</span></td><td>selfie <span class="muted">m2 object</span></td><td>for</td><td>medium</td></tr><tr><td>e10</td><td>relation</td><td>man <span class="muted">m0 object</span></td><td>sky <span class="muted">m3 object</span></td><td>under</td><td>high</td></tr><tr><td>e11</td><td>relation</td><td>A man and woman <span class="muted">m8 group</span></td><td>background <span class="muted">m6 context</span></td><td>in</td><td>high</td></tr><tr><td>e12</td><td>relation</td><td>A man and woman <span class="muted">m8 group</span></td><td>umbrella <span class="muted">m7 object</span></td><td>near</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (19)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:man</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:woman</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:selfie</td><td>low</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:sky</td><td>high</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:background</td><td>high</td></tr><tr><td>cf5</td><td>entity_exists</td><td>entity_exists:umbrella</td><td>high</td></tr><tr><td>cf6</td><td>entity_exists</td><td>entity_exists:man_and_woman</td><td>low</td></tr><tr><td>cf7</td><td>entity_exists</td><td>entity_exists:man_and_woman</td><td>low</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:sky:clear</td><td>medium</td></tr><tr><td>cf9</td><td>has_attribute</td><td>has_attribute:sky:blue</td><td>high</td></tr><tr><td>cf10</td><td>action_event</td><td>action_event:smile</td><td>high</td></tr><tr><td>cf11</td><td>event_role</td><td>event_role:smile:agent:man</td><td>medium</td></tr><tr><td>cf12</td><td>event_role</td><td>event_role:smile:agent:woman</td><td>medium</td></tr><tr><td>cf13</td><td>action_event</td><td>action_event:sit</td><td>high</td></tr><tr><td>cf14</td><td>event_role</td><td>event_role:sit:agent:man_and_woman</td><td>medium</td></tr><tr><td>cf15</td><td>relation</td><td>relation:man:for:selfie</td><td>medium</td></tr><tr><td>cf16</td><td>relation</td><td>relation:man:under:sky</td><td>high</td></tr><tr><td>cf17</td><td>relation</td><td>relation:man_and_woman:in:background</td><td>high</td></tr><tr><td>cf18</td><td>relation</td><td>relation:man_and_woman:near:umbrella</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

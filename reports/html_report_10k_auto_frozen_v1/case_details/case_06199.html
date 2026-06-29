@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 06199 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 06199 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_06001_06500.html#case-6199">Back to Case List</a> | <a href="case_06198.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-6199">
+  <div class="case-title">
+    <h2>Case 06199</h2>
+    <a href="#case-6199">anchor</a>
+  </div>
+  <div class="caption-box">A green boogie board flips in the air as a wave crashes behind it.</div>
+  <div class="chips">
+    <span>caption_id: 3864865c3afd3d579069ce4c41a4f8a2064daa33a9208049bb8637f44f28e0b1</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 1</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>board</td><td>board</td><td>flat_object_or_surface &gt; artifact</td><td>source=10k_auto_feedback_v1 + fixed_rubric + object_ontology; canonical_source=raw_lemma; parent_source=10k_auto_feedback_v1 + fixed_rubric + object_ontology; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m3</td><td>air</td><td>air</td><td>natural_element</td><td>source=1k_stage9_audit_v3 + wordnet_hypernym; canonical_source=raw_lemma; parent_source=1k_stage9_audit_v3 + wordnet_hypernym; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m4</td><td>wave</td><td>wave</td><td>natural_element</td><td>source=wordnet_synset:wave.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:wave.n.01 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>board</td><td>green</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>board</td><td>boogie</td><td>compound_modifier &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>flips</td><td>flip</td><td>visual_action</td><td>agent: board</td><td>source=visual_action_fallback; canonical_source=raw_action; parent_source=visual_action_fallback; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>crashes</td><td>crash</td><td>contact_or_wave_motion_action &gt; visual_action</td><td>agent: wave</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:crash.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:crash.v.01; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>board</td><td>in</td><td>in</td><td>air</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>board</td><td>board</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>attribute</td><td>green</td><td>green</td><td>color_attribute</td><td>high</td></tr><tr><td>m2</td><td>attribute</td><td>boogie</td><td>boogie</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m3</td><td>object</td><td>air</td><td>air</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>object</td><td>wave</td><td>wave</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m5</td><td>action</td><td>flips</td><td>flip</td><td>verb_predicate</td><td>high</td></tr><tr><td>m6</td><td>action</td><td>crashes</td><td>crash</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>board <span class="muted">m0 object</span></td><td>green <span class="muted">m1 attribute</span></td><td>chunk0 amod -&gt; board</td><td>high</td></tr><tr><td>e1</td><td>has_attribute</td><td>board <span class="muted">m0 object</span></td><td>boogie <span class="muted">m2 attribute</span></td><td>chunk0 compound -&gt; board</td><td>medium</td></tr><tr><td>e2</td><td>agent</td><td>flips <span class="muted">m5 action</span></td><td>board <span class="muted">m0 object</span></td><td>nsubj -&gt; flips</td><td>medium</td></tr><tr><td>e3</td><td>agent</td><td>crashes <span class="muted">m6 action</span></td><td>wave <span class="muted">m4 object</span></td><td>nsubj -&gt; crashes</td><td>medium</td></tr><tr><td>e4</td><td>relation</td><td>board <span class="muted">m0 object</span></td><td>air <span class="muted">m3 object</span></td><td>in</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (10)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:board</td><td>medium</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:air</td><td>medium</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:wave</td><td>medium</td></tr><tr><td>cf3</td><td>has_attribute</td><td>has_attribute:board:green</td><td>high</td></tr><tr><td>cf4</td><td>has_attribute</td><td>has_attribute:board:boogie</td><td>medium</td></tr><tr><td>cf5</td><td>action_event</td><td>action_event:flip</td><td>low</td></tr><tr><td>cf6</td><td>event_role</td><td>event_role:flip:agent:board</td><td>medium</td></tr><tr><td>cf7</td><td>action_event</td><td>action_event:crash</td><td>high</td></tr><tr><td>cf8</td><td>event_role</td><td>event_role:crash:agent:wave</td><td>medium</td></tr><tr><td>cf9</td><td>relation</td><td>relation:board:in:air</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details><summary>Skipped edges</summary><div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>reason</th></tr></thead><tbody><tr><td></td><td>relation</td><td>m4</td><td>m4</td><td>self_edge_after_coref</td></tr></tbody></table></div></details>
+</section>
+
+  </main>
+</body>
+</html>

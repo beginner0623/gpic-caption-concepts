@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Report Home</title>
+  <link rel="stylesheet" href="assets/report.css">
+  <script defer src="assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Report Home</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>Home</span></summary><div class="nav-menu-items"><a class="active" href="index.html">Home</a>
+<a class="" href="results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="method_rulebook.html">Method Rulebook</a>
+<a class="" href="stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="objects.html">Objects</a>
+<a class="" href="attributes.html">Attributes</a>
+<a class="" href="attribute_types.html">Attr Types</a>
+<a class="" href="object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="actions.html">Actions</a>
+<a class="" href="event_roles.html">Agent / Patient</a>
+<a class="" href="relations.html">Relations</a>
+<a class="" href="relation_triples.html">Relation Triples</a>
+<a class="" href="facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="parents.html">Parents</a>
+<a class="" href="quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+
+<section class="hero">
+  <h2>Caption을 countable concept source로 변환한 10k 결과</h2>
+  <p>이 HTML report는 GPIC 10k caption에서 Stage 8 raw extraction과 Stage 9 canonicalization을 거쳐 얻은 object, attribute, action, agent, patient, relation, parent concept를 탐색하기 위한 정적 dashboard다.</p>
+  <div class="grid"><div class="metric"><div class="metric-label">captions</div><div class="metric-value">10,000</div><div class="metric-note">input rows</div></div><div class="metric"><div class="metric-label">raw mentions</div><div class="metric-value">199,285</div><div class="metric-note">Stage 8 concept mentions</div></div><div class="metric"><div class="metric-label">raw edges</div><div class="metric-value">172,044</div><div class="metric-note">Stage 8 edges</div></div><div class="metric"><div class="metric-label">entities</div><div class="metric-value">98,168</div><div class="metric-note">canonical object entities</div></div><div class="metric"><div class="metric-label">events</div><div class="metric-value">35,670</div><div class="metric-note">canonical actions</div></div><div class="metric"><div class="metric-label">relations</div><div class="metric-value">50,948</div><div class="metric-note">canonical/raw-preserved relations</div></div><div class="metric"><div class="metric-label">facts</div><div class="metric-value">297,494</div><div class="metric-note">final countable facts</div></div><div class="metric"><div class="metric-label">skipped edges</div><div class="metric-value">412</div><div class="metric-note">defensive drops/repairs</div></div></div>
+</section>
+<section class="panel">
+  <h2>How to Read</h2>
+  <ul>
+    <li><a href="method_rulebook.html">Method Rulebook</a>: 전체 9개 stage 개요와 핵심 결정 사항.</li>
+    <li><a href="stage_rules.html">Stage Rules</a>: 각 stage에서 적용한 상세 rule과 방어 rule.</li>
+    <li><a href="results_overview.html">10k Overview</a>: 전체 규모, caption shape, schema별 통계.</li>
+    <li><a href="objects.html">Objects</a>, <a href="attributes.html">Attributes</a>, <a href="attribute_types.html">Attr Types</a>, <a href="object_attribute_pairs.html">Obj-Attr Pairs</a>, <a href="actions.html">Actions</a>, <a href="event_roles.html">Agent / Patient</a>, <a href="relations.html">Relations</a>, <a href="relation_triples.html">Relation Triples</a>: countable schema별 top table과 예시 caption link.</li>
+    <li><a href="quality_audit.html">Quality</a>: parent missing, fallback, skipped edge 등 다음 개선 지점.</li>
+    <li><a href="cases/cases_00001_00500.html">Case Detail</a>: 각 caption별 raw/canonical trace.</li>
+  </ul>
+</section>
+
+  </main>
+</body>
+</html>

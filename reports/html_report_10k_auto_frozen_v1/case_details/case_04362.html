@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 04362 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 04362 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_04001_04500.html#case-4362">Back to Case List</a> | <a href="case_04361.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-4362">
+  <div class="case-title">
+    <h2>Case 04362</h2>
+    <a href="#case-4362">anchor</a>
+  </div>
+  <div class="caption-box">A bronze statue of a man playing a saxophone leans against a tree in a forest.</div>
+  <div class="chips">
+    <span>caption_id: 480cf4ab585990350b8752a6a3c7537bee19c8123f7dbb3fd299ac02696f52c6</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>statue</td><td>statue</td><td>artwork &gt; artifact</td><td>source=wordnet_synset:statue.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:statue.n.01 + 1k_stage9_audit_v2; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m2</td><td>man</td><td>man</td><td>person &gt; human</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m3</td><td>saxophone</td><td>saxophone</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m4</td><td>tree</td><td>tree</td><td>plant &gt; living_thing</td><td>source=wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:tree.n.01 + wordnet_hypernym:plant.n.02 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m5</td><td>forest</td><td>forest</td><td>outdoor_scene &gt; place</td><td>source=wordnet_synset:forest.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:forest.n.01 + 1k_stage9_audit_v2; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>statue</td><td>bronze</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>playing</td><td>play</td><td>activity_action &gt; visual_action</td><td>agent: man<br>patient: saxophone</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>leans</td><td>lean</td><td>body_pose_action &gt; support_state_action &gt; visual_action</td><td>agent: statue</td><td>source=wordnet_synset:lean.v.01 + stage9_audit; canonical_source=raw_action; parent_source=wordnet_synset:lean.v.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>statue</td><td>of</td><td>of</td><td>man</td><td>part_relation &gt; visual_relation</td><td>medium</td></tr><tr><td>statue</td><td>against</td><td>against</td><td>tree</td><td>spatial_contact &gt; visual_relation</td><td>high</td></tr><tr><td>tree</td><td>in</td><td>in</td><td>forest</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>statue</td><td>statue</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>attribute</td><td>bronze</td><td>bronze</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m2</td><td>object</td><td>man</td><td>man</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>saxophone</td><td>saxophone</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>object</td><td>tree</td><td>tree</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m5</td><td>object</td><td>forest</td><td>forest</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>action</td><td>playing</td><td>play</td><td>verb_predicate</td><td>high</td></tr><tr><td>m7</td><td>action</td><td>leans</td><td>lean</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>statue <span class="muted">m0 object</span></td><td>bronze <span class="muted">m1 attribute</span></td><td>chunk0 compound -&gt; statue</td><td>medium</td></tr><tr><td>e1</td><td>agent</td><td>playing <span class="muted">m6 action</span></td><td>man <span class="muted">m2 object</span></td><td>inherited agent acl -&gt; man</td><td>medium</td></tr><tr><td>e2</td><td>patient</td><td>playing <span class="muted">m6 action</span></td><td>saxophone <span class="muted">m3 object</span></td><td>dobj -&gt; playing</td><td>medium</td></tr><tr><td>e3</td><td>agent</td><td>leans <span class="muted">m7 action</span></td><td>statue <span class="muted">m0 object</span></td><td>nsubj -&gt; leans</td><td>medium</td></tr><tr><td>e4</td><td>relation</td><td>statue <span class="muted">m0 object</span></td><td>man <span class="muted">m2 object</span></td><td>of</td><td>medium</td></tr><tr><td>e5</td><td>relation</td><td>statue <span class="muted">m0 object</span></td><td>tree <span class="muted">m4 object</span></td><td>against</td><td>high</td></tr><tr><td>e6</td><td>relation</td><td>tree <span class="muted">m4 object</span></td><td>forest <span class="muted">m5 object</span></td><td>in</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (14)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:statue</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:man</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:saxophone</td><td>low</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:tree</td><td>high</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:forest</td><td>high</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:statue:bronze</td><td>medium</td></tr><tr><td>cf6</td><td>action_event</td><td>action_event:play</td><td>high</td></tr><tr><td>cf7</td><td>event_role</td><td>event_role:play:agent:man</td><td>medium</td></tr><tr><td>cf8</td><td>event_role</td><td>event_role:play:patient:saxophone</td><td>medium</td></tr><tr><td>cf9</td><td>action_event</td><td>action_event:lean</td><td>high</td></tr><tr><td>cf10</td><td>event_role</td><td>event_role:lean:agent:statue</td><td>medium</td></tr><tr><td>cf11</td><td>relation</td><td>relation:statue:of:man</td><td>medium</td></tr><tr><td>cf12</td><td>relation</td><td>relation:statue:against:tree</td><td>high</td></tr><tr><td>cf13</td><td>relation</td><td>relation:tree:in:forest</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stage Rules</title>
+  <link rel="stylesheet" href="assets/report.css">
+  <script defer src="assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Stage Rules</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="">Overview</summary><div class="nav-menu-items"><a class="" href="index.html">Home</a>
+<a class="" href="results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="active">Method<span>Stage Rules</span></summary><div class="nav-menu-items"><a class="" href="method_rulebook.html">Method Rulebook</a>
+<a class="active" href="stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="objects.html">Objects</a>
+<a class="" href="attributes.html">Attributes</a>
+<a class="" href="attribute_types.html">Attr Types</a>
+<a class="" href="object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="actions.html">Actions</a>
+<a class="" href="event_roles.html">Agent / Patient</a>
+<a class="" href="relations.html">Relations</a>
+<a class="" href="relation_triples.html">Relation Triples</a>
+<a class="" href="facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="parents.html">Parents</a>
+<a class="" href="quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+
+<section class="hero">
+  <h2>9개 최상위 stage의 하위 rule</h2>
+  <p>이 page는 네가 잡은 pipeline 9단계를 바깥 구조로 두고, 우리가 실제로 넣은 구현 rule을 각 stage 아래에 배치한 것이다. 먼저 전체 흐름은 <a href="method_rulebook.html">Method Rulebook</a>에서 보고, 여기서는 각 stage 안에 어떤 방어 rule과 추출 rule이 들어갔는지 확인한다.</p>
+  <div class="callout">caption shape routing, quote span 보호, MWE, scene context, reference repair 같은 항목은 별도 최상위 stage가 아니라 해당 stage 안에서 동작하는 하위 rule이다.</div>
+</section>
+
+<section class="panel" id="stage-01">
+  <h2>Stage 01. Noise 성분 제거 / Caption Routing</h2>
+  <div class="table-wrap"><table class=""><thead><tr><th>rule group</th><th>적용 rule</th><th>이유 / 효과</th></tr></thead><tbody><tr><td>최상위 stage</td><td>네가 정의한 1단계다. 현재 기본값은 noise 제거 시행 X.</td><td>caption 원문 정보 손실을 피하고, 반복되는 오염만 나중에 별도 rule 후보로 올린다.</td></tr><tr><td>원문 보존</td><td>caption_id, row_index, raw caption을 그대로 저장한다.</td><td>나중에 어떤 count가 어떤 caption에서 왔는지 역추적할 수 있다.</td></tr><tr><td>caption shape routing</td><td>single-sentence, multi-sentence, tag-list-like caption을 early metadata로 표시한다.</td><td>분기는 여기서 기록한다. 이후 Stage 8에서 tag-list는 dependency를 과신하지 않는 path로 처리한다.</td></tr></tbody></table></div>
+</section>
+
+<section class="panel" id="stage-02">
+  <h2>Stage 02. Tokenization</h2>
+  <div class="table-wrap"><table class=""><thead><tr><th>rule group</th><th>적용 rule</th><th>이유 / 효과</th></tr></thead><tbody><tr><td>최상위 stage</td><td>spaCy tokenizer로 caption을 token sequence로 만든다.</td><td>이후 POS, lemma, dependency, noun chunk가 모두 같은 Doc/token offset을 공유한다.</td></tr><tr><td>quote span retokenize</td><td>&quot;MILE 0&quot; 같은 원문 quote span 자체를 tokenizer 직후 하나의 token으로 merge하고 metadata를 보존한다.</td><td>quote가 object로 새는 문제를 줄이고 원문 텍스트를 잃지 않는다.</td></tr><tr><td>placeholder 금지</td><td>quote를 &quot;the quoted text&quot; 같은 가짜 문장으로 바꾸지 않는다.</td><td>a the quoted text banner 같은 문법 깨짐을 피한다.</td></tr><tr><td>object MWE / hyphen noun 보호</td><td>신뢰 가능한 object MWE와 hyphen noun span을 tokenizer 직후 merge한다.</td><td>trash can, hot-air balloon처럼 POS/dependency가 깨지는 사례를 줄인다.</td></tr><tr><td>hyphen noun</td><td>hyphenated noun span은 먼저 묶고, 명사/형용사 판정은 이후 단계에서 보수적으로 한다.</td><td>close-up, hot-air balloon 같은 span 붕괴를 줄인다.</td></tr></tbody></table></div>
+</section>
+
+<section class="panel" id="stage-03">
+  <h2>Stage 03. POS Tagging</h2>
+  <div class="table-wrap"><table class=""><thead><tr><th>rule group</th><th>적용 rule</th><th>이유 / 효과</th></tr></thead><tbody><tr><td>최상위 stage</td><td>token마다 coarse POS와 fine-grained tag를 부여한다.</td><td>NOUN/VERB/ADJ/ADP 같은 품사 정보가 뒤 단계의 후보 필터가 된다.</td></tr><tr><td>raw POS 보존</td><td>spaCy가 낸 POS/tag를 raw evidence로 남긴다.</td><td>can, stands, blue jersey 같은 오분석을 숨기지 않고 확인할 수 있다.</td></tr><tr><td>normalized 해석은 후단</td><td>tag-list나 ambiguous token의 보정은 원 POS를 덮어쓰기보다 Stage 8/9 해석에서 제한적으로 한다.</td><td>parser 결과와 후처리 판단을 분리해서 추적 가능하게 한다.</td></tr></tbody></table></div>
+</section>
+
+<section class="panel" id="stage-04">
+  <h2>Stage 04. Predicate Span Detecting</h2>
+  <div class="table-wrap"><table class=""><thead><tr><th>rule group</th><th>적용 rule</th><th>이유 / 효과</th></tr></thead><tbody><tr><td>최상위 stage</td><td>여러 token이 하나의 predicate 의미를 만들 수 있는 span을 찾는다.</td><td>on top of, in front of, next to, pick up 같은 표현을 단일 의미 단위 후보로 관리한다.</td></tr><tr><td>preposition MWE</td><td>preposition_mwe lexicon으로 in front of, on top of, next to 같은 관계 span을 감지한다.</td><td>dependency에서 token이 쪼개져도 Stage 8 relation label은 하나로 만들 수 있다.</td></tr><tr><td>phrasal action 후보</td><td>외부 구동사 seed를 rubric으로 auto-audit한 high-confidence 항목만 action canonicalization 후보로 둔다.</td><td>pick up은 pick_up 후보지만 stand on table은 action stand + relation on으로 유지한다.</td></tr><tr><td>region caution</td><td>front of, on the front of, side of 같은 region 표현은 in_front_of로 자동 접지 않는다.</td><td>logo on the front of shirt 같은 표현을 공간 앞뒤 관계로 오해하지 않게 한다.</td></tr><tr><td>parser merge 원칙</td><td>모든 predicate span을 parser 전에 억지로 한 token으로 만들지는 않는다.</td><td>구문 분석은 가능한 원 구조를 유지하고, span 해석은 Stage 8/9에서 evidence로 쓴다.</td></tr></tbody></table></div>
+</section>
+
+<section class="panel" id="stage-05">
+  <h2>Stage 05. Lemmatize</h2>
+  <div class="table-wrap"><table class=""><thead><tr><th>rule group</th><th>적용 rule</th><th>이유 / 효과</th></tr></thead><tbody><tr><td>최상위 stage</td><td>token별 lemma를 만든다.</td><td>dogs -&gt; dog, wearing -&gt; wear처럼 inflection을 줄여 raw tuple extraction의 기본 표기를 안정화한다.</td></tr><tr><td>lemma != canonical</td><td>lemma는 단어 원형이고 canonical은 synonym까지 합친 대표어다.</td><td>puppy -&gt; puppy는 lemma지만 Stage 9 canonical은 dog가 될 수 있다.</td></tr><tr><td>raw lemma 보존</td><td>object/action/attribute 후보는 raw text와 lemma를 함께 들고 간다.</td><td>나중에 canonicalization이 과한지, lemma fallback인지 확인할 수 있다.</td></tr></tbody></table></div>
+</section>
+
+<section class="panel" id="stage-06">
+  <h2>Stage 06. Dependency Parsing</h2>
+  <div class="table-wrap"><table class=""><thead><tr><th>rule group</th><th>적용 rule</th><th>이유 / 효과</th></tr></thead><tbody><tr><td>최상위 stage</td><td>token 사이의 head/dependency tree를 만든다.</td><td>nsubj, dobj, prep, pobj, amod, compound 같은 구문 근거가 Stage 8 rule의 입력이 된다.</td></tr><tr><td>parse는 tuple이 아님</td><td>dependency edge 자체가 바로 concept tuple은 아니다.</td><td>Stage 8에서 어떤 dep를 object/action/relation/attribute evidence로 쓸지 별도 rule로 결정한다.</td></tr><tr><td>tag-list 주의</td><td>tag-list-like caption은 dependency relation을 과신하지 않는다.</td><td>comma 나열형에서는 parser가 억지 문장 구조를 만들 수 있어서 Stage 8에서 segment/chunk 중심으로 본다.</td></tr><tr><td>batch 처리</td><td>대량 caption은 nlp(caption) 반복이 아니라 nlp.pipe(batch)로 처리한다.</td><td>100M 처리에서 parser 호출 overhead를 줄인다.</td></tr></tbody></table></div>
+</section>
+
+<section class="panel" id="stage-07">
+  <h2>Stage 07. Noun Chunking</h2>
+  <div class="table-wrap"><table class=""><thead><tr><th>rule group</th><th>적용 rule</th><th>이유 / 효과</th></tr></thead><tbody><tr><td>최상위 stage</td><td>spaCy noun_chunks로 명사구 span과 root를 얻는다.</td><td>a blue and white striped hat 같은 span을 object/attribute 후보의 기본 단위로 삼는다.</td></tr><tr><td>아직 object 확정 아님</td><td>noun chunk root를 얻는 것과 object mention으로 확정하는 것은 다르다.</td><td>quote, pronoun, reference, scene_context 오염 제거는 Stage 8에서 한다.</td></tr><tr><td>modifier evidence</td><td>chunk 내부의 amod/compound/det/num 등을 보존한다.</td><td>Stage 8에서 attribute/quantity/object head를 분리하는 데 쓴다.</td></tr><tr><td>segment noun chunk</td><td>tag-list segment 내부에서도 가능한 chunk/root를 만든다.</td><td>tag-list도 sentence caption과 비슷한 output schema로 내보내기 위한 입력이다.</td></tr></tbody></table></div>
+</section>
+
+<section class="panel" id="stage-08">
+  <h2>Stage 08. Raw Tuple Extractor</h2>
+  <div class="table-wrap"><table class=""><thead><tr><th>rule group</th><th>적용 rule</th><th>이유 / 효과</th></tr></thead><tbody><tr><td>최상위 stage</td><td>Stage 2-7의 결과를 이용해 raw concept mention과 raw edge를 만든다.</td><td>여기서부터 object, attribute, quantity, action, relation, reference 같은 tuple이 생긴다.</td></tr><tr><td>object/context/reference</td><td>noun chunk root를 object candidate로 삼되 quote/pronoun/reference/scene context를 분리한다.</td><td>텍스트, 대명사, 배경표현이 object count에 섞이는 것을 줄인다.</td></tr><tr><td>attribute/quantity</td><td>chunk 내부 modifier와 lexicon으로 color/material/size/pattern/quantity 등을 object에서 분리한다.</td><td>blue sky, wooden fence, three dogs 같은 countable attribute/quantity fact를 만든다.</td></tr><tr><td>action/event role</td><td>verb predicate를 action mention으로 만들고 nsubj/dobj/pobj 등으로 agent/patient/theme 후보를 연결한다.</td><td>누가 무엇을 하는지 action-role-target triple로 볼 수 있다.</td></tr><tr><td>preposition relation</td><td>ADP와 Stage 4 MWE span을 이용해 source-relation-target raw relation을 만든다.</td><td>on, under, next to, in front of 같은 spatial/association relation을 count한다.</td></tr><tr><td>reference repair</td><td>pronoun, one/another/both, generic anaphoric noun은 antecedent 후보와 score로 연결하고 self-edge는 drop/repair한다.</td><td>object count 오염을 막으면서 가능한 relation/action role recall을 복구한다.</td></tr><tr><td>tag-list path</td><td>Stage 1에서 tag-list-like로 표시된 caption은 dependency보다 segment noun chunk와 modifier evidence를 더 신뢰한다.</td><td>display, large, indoor 같은 comma-list 오해석을 줄인다.</td></tr></tbody></table></div>
+</section>
+
+<section class="panel" id="stage-09">
+  <h2>Stage 09. Canonicalize</h2>
+  <div class="table-wrap"><table class=""><thead><tr><th>rule group</th><th>적용 rule</th><th>이유 / 효과</th></tr></thead><tbody><tr><td>최상위 stage</td><td>Stage 8 raw tuple을 synonym/frozen lexicon/ontology로 count 가능한 대표형에 매핑한다.</td><td>raw/canonical/parent 세 수준으로 집계할 수 있게 한다.</td></tr><tr><td>object canonical</td><td>puppy/canine -&gt; dog, cab/taxicab -&gt; taxi처럼 object synonym을 대표 concept으로 모은다.</td><td>같은 의미의 object가 여러 표기로 쪼개지는 것을 줄인다.</td></tr><tr><td>attribute canonical</td><td>scarlet/crimson/navy/wooden 같은 attribute를 red/blue/wood 등 대표어와 subtype parent로 정리한다.</td><td>색/재질/상태 등을 raw 단어와 parent subtype 양쪽으로 볼 수 있다.</td></tr><tr><td>action canonical</td><td>wearing/dressed -&gt; wear, seated -&gt; sit, high-confidence phrasal action -&gt; pick_up처럼 action 대표어를 부여한다.</td><td>동작도 lemma만이 아니라 synonym 단위로 점진적으로 합친다.</td></tr><tr><td>parent chain</td><td>canonical concept에 animal, vehicle, clothing, color_attribute, locomotion_action 같은 parent chain을 붙인다.</td><td>raw/canonical/parent 단위의 count table을 모두 만들 수 있다.</td></tr><tr><td>relation policy</td><td>relation은 과한 synonym collapse를 피하고 raw-preserving 정책을 유지한다.</td><td>관계어는 문맥 의존성이 커서 의미를 억지로 합치지 않는다.</td></tr><tr><td>source/confidence</td><td>lexicon source, canonical_source, parent_source, confidence를 같이 보존한다.</td><td>외부 source와 GPIC auto feedback source를 구분해서 audit할 수 있다.</td></tr><tr><td>countable export</td><td>canonical entity/event/relation/fact를 TSV와 HTML table로 내보낸다.</td><td>Objects, Attributes, Actions, Agent / Patient, Relations, Facts, Parents page의 기준이 된다.</td></tr></tbody></table></div>
+</section>
+
+
+  </main>
+</body>
+</html>

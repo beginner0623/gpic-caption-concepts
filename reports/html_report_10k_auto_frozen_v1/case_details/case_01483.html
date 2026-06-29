@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 01483 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 01483 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_01001_01500.html#case-1483">Back to Case List</a> | <a href="case_01482.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-1483">
+  <div class="case-title">
+    <h2>Case 01483</h2>
+    <a href="#case-1483">anchor</a>
+  </div>
+  <div class="caption-box">A soldier in camouflage holds a rifle while standing beside a corrugated metal wall.</div>
+  <div class="chips">
+    <span>caption_id: 4a131644384c7518a6d9eb31ebadfe33c0699e3598ba9961f3935daa71978785</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>soldier</td><td>soldier</td><td>person &gt; human</td><td>source=wordnet_synset:soldier.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:soldier.n.01 + 1k_stage9_audit_v2; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m1</td><td>camouflage</td><td>camouflage</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m2</td><td>rifle</td><td>rifle</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m3</td><td>wall</td><td>wall</td><td>architectural_part &gt; structure &gt; artifact</td><td>source=wordnet_synset:wall.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:wall.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>wall</td><td>corrugated</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr><tr><td>wall</td><td>metal</td><td>material_attribute &gt; material &gt; non_textile_material_type &gt; visual_attribute</td><td>high</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>holds</td><td>hold</td><td>manipulation_action &gt; visual_action</td><td>agent: soldier<br>patient: rifle</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>standing</td><td>stand</td><td>body_pose_action &gt; visual_action</td><td>agent: soldier</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>soldier</td><td>in</td><td>in</td><td>camouflage</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr><tr><td>soldier</td><td>beside</td><td>next_to</td><td>wall</td><td>spatial_proximity &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>soldier</td><td>soldier</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>camouflage</td><td>camouflage</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>object</td><td>rifle</td><td>rifle</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>wall</td><td>wall</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>corrugated</td><td>corrugated</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m5</td><td>attribute</td><td>metal</td><td>metal</td><td>material_attribute</td><td>high</td></tr><tr><td>m6</td><td>action</td><td>holds</td><td>hold</td><td>verb_predicate</td><td>high</td></tr><tr><td>m7</td><td>action</td><td>standing</td><td>stand</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>wall <span class="muted">m3 object</span></td><td>corrugated <span class="muted">m4 attribute</span></td><td>chunk3 amod -&gt; wall</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>wall <span class="muted">m3 object</span></td><td>metal <span class="muted">m5 attribute</span></td><td>chunk3 compound -&gt; wall</td><td>high</td></tr><tr><td>e2</td><td>agent</td><td>holds <span class="muted">m6 action</span></td><td>soldier <span class="muted">m0 object</span></td><td>nsubj -&gt; holds</td><td>medium</td></tr><tr><td>e3</td><td>patient</td><td>holds <span class="muted">m6 action</span></td><td>rifle <span class="muted">m2 object</span></td><td>dobj -&gt; holds</td><td>medium</td></tr><tr><td>e4</td><td>agent</td><td>standing <span class="muted">m7 action</span></td><td>soldier <span class="muted">m0 object</span></td><td>inherited agent advcl -&gt; holds</td><td>medium</td></tr><tr><td>e5</td><td>relation</td><td>soldier <span class="muted">m0 object</span></td><td>camouflage <span class="muted">m1 object</span></td><td>in</td><td>high</td></tr><tr><td>e6</td><td>relation</td><td>soldier <span class="muted">m0 object</span></td><td>wall <span class="muted">m3 object</span></td><td>beside</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (13)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:soldier</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:camouflage</td><td>low</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:rifle</td><td>low</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:wall</td><td>high</td></tr><tr><td>cf4</td><td>has_attribute</td><td>has_attribute:wall:corrugated</td><td>medium</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:wall:metal</td><td>high</td></tr><tr><td>cf6</td><td>action_event</td><td>action_event:hold</td><td>high</td></tr><tr><td>cf7</td><td>event_role</td><td>event_role:hold:agent:soldier</td><td>medium</td></tr><tr><td>cf8</td><td>event_role</td><td>event_role:hold:patient:rifle</td><td>medium</td></tr><tr><td>cf9</td><td>action_event</td><td>action_event:stand</td><td>high</td></tr><tr><td>cf10</td><td>event_role</td><td>event_role:stand:agent:soldier</td><td>medium</td></tr><tr><td>cf11</td><td>relation</td><td>relation:soldier:in:camouflage</td><td>high</td></tr><tr><td>cf12</td><td>relation</td><td>relation:soldier:next_to:wall</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

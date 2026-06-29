@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 08923 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 08923 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_08501_09000.html#case-8923">Back to Case List</a> | <a href="case_08922.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-8923">
+  <div class="case-title">
+    <h2>Case 08923</h2>
+    <a href="#case-8923">anchor</a>
+  </div>
+  <div class="caption-box">A building with a large sign above it shows directions to Nara Park and other attractions. A digital display lists nearby shops and services.</div>
+  <div class="chips">
+    <span>caption_id: cd5b0ae92f1f3b87b902ee1164c00a764be93086eadfd0b3d69423320086ec57</span>
+    <span>shape: multi-sentence</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>building</td><td>building</td><td>structure &gt; artifact</td><td>source=wordnet_synset:building.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:building.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m1</td><td>sign</td><td>sign</td><td>text_carrier &gt; artifact</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m3</td><td>directions</td><td>direction</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m4</td><td>Park</td><td>park</td><td>outdoor_scene &gt; place</td><td>source=wordnet_synset:park.n.02 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:park.n.02 + stage9_audit; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m6</td><td>attractions</td><td>attraction</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m8</td><td>display</td><td>display</td><td>device &gt; artifact</td><td>source=wordnet_synset:display.n.06 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:display.n.06 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m10</td><td>shops</td><td>shop</td><td>place</td><td>source=1k_stage9_audit_v3 + wordnet_hypernym; canonical_source=raw_lemma; parent_source=1k_stage9_audit_v3 + wordnet_hypernym; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m12</td><td>services</td><td>service</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>sign</td><td>large</td><td>size_attribute &gt; clean_exact_overlap &gt; size &gt; visual_attribute</td><td>high</td></tr><tr><td>park</td><td>nara</td><td>compound_modifier &gt; visual_attribute</td><td>medium</td></tr><tr><td>attraction</td><td>other</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr><tr><td>display</td><td>digital</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr><tr><td>shop</td><td>nearby</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>shows</td><td>show</td><td>visual_presentation_action &gt; visual_action</td><td>agent: building<br>patient: direction</td><td>source=wordnet_synset:show.v.01 + stage9_audit; canonical_source=raw_action; parent_source=wordnet_synset:show.v.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>lists</td><td>list</td><td>text_enumeration_action &gt; visual_action</td><td>agent: display<br>patient: shop<br>patient: service</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:list.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:list.v.01; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>building</td><td>with</td><td>with</td><td>sign</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>sign</td><td>above</td><td>above</td><td>building</td><td>spatial_vertical &gt; visual_relation</td><td>high</td></tr><tr><td>direction</td><td>to</td><td>to</td><td>park</td><td>visual_relation</td><td>medium</td></tr><tr><td>direction</td><td>to</td><td>to</td><td>attraction</td><td>visual_relation</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>building</td><td>building</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>sign</td><td>sign</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>attribute</td><td>large</td><td>large</td><td>size_attribute</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>directions</td><td>direction</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>object</td><td>Park</td><td>park</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m5</td><td>attribute</td><td>Nara</td><td>nara</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m6</td><td>object</td><td>attractions</td><td>attraction</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m7</td><td>attribute</td><td>other</td><td>other</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m8</td><td>object</td><td>display</td><td>display</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m9</td><td>attribute</td><td>digital</td><td>digital</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m10</td><td>object</td><td>shops</td><td>shop</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m11</td><td>attribute</td><td>nearby</td><td>nearby</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m12</td><td>object</td><td>services</td><td>service</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m13</td><td>action</td><td>shows</td><td>show</td><td>verb_predicate</td><td>high</td></tr><tr><td>m14</td><td>action</td><td>lists</td><td>list</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>sign <span class="muted">m1 object</span></td><td>large <span class="muted">m2 attribute</span></td><td>chunk1 amod -&gt; sign</td><td>high</td></tr><tr><td>e1</td><td>has_attribute</td><td>Park <span class="muted">m4 object</span></td><td>Nara <span class="muted">m5 attribute</span></td><td>chunk4 compound -&gt; Park</td><td>medium</td></tr><tr><td>e2</td><td>has_attribute</td><td>attractions <span class="muted">m6 object</span></td><td>other <span class="muted">m7 attribute</span></td><td>chunk5 amod -&gt; attractions</td><td>medium</td></tr><tr><td>e3</td><td>has_attribute</td><td>display <span class="muted">m8 object</span></td><td>digital <span class="muted">m9 attribute</span></td><td>chunk6 amod -&gt; display</td><td>medium</td></tr><tr><td>e4</td><td>has_attribute</td><td>shops <span class="muted">m10 object</span></td><td>nearby <span class="muted">m11 attribute</span></td><td>chunk7 amod -&gt; shops</td><td>medium</td></tr><tr><td>e5</td><td>agent</td><td>shows <span class="muted">m13 action</span></td><td>building <span class="muted">m0 object</span></td><td>nsubj -&gt; shows</td><td>medium</td></tr><tr><td>e6</td><td>patient</td><td>shows <span class="muted">m13 action</span></td><td>directions <span class="muted">m3 object</span></td><td>dobj -&gt; shows</td><td>medium</td></tr><tr><td>e7</td><td>agent</td><td>lists <span class="muted">m14 action</span></td><td>display <span class="muted">m8 object</span></td><td>nsubj -&gt; lists</td><td>medium</td></tr><tr><td>e8</td><td>patient</td><td>lists <span class="muted">m14 action</span></td><td>shops <span class="muted">m10 object</span></td><td>dobj -&gt; lists</td><td>medium</td></tr><tr><td>e9</td><td>patient</td><td>lists <span class="muted">m14 action</span></td><td>services <span class="muted">m12 object</span></td><td>dobj -&gt; lists</td><td>medium</td></tr><tr><td>e10</td><td>relation</td><td>building <span class="muted">m0 object</span></td><td>sign <span class="muted">m1 object</span></td><td>with</td><td>high</td></tr><tr><td>e11</td><td>relation</td><td>sign <span class="muted">m1 object</span></td><td>building <span class="muted">m0 object</span></td><td>above</td><td>high</td></tr><tr><td>e12</td><td>relation</td><td>directions <span class="muted">m3 object</span></td><td>Park <span class="muted">m4 object</span></td><td>to</td><td>medium</td></tr><tr><td>e13</td><td>relation</td><td>directions <span class="muted">m3 object</span></td><td>attractions <span class="muted">m6 object</span></td><td>to</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (24)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:building</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:sign</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:direction</td><td>low</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:park</td><td>medium</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:attraction</td><td>low</td></tr><tr><td>cf5</td><td>entity_exists</td><td>entity_exists:display</td><td>medium</td></tr><tr><td>cf6</td><td>entity_exists</td><td>entity_exists:shop</td><td>high</td></tr><tr><td>cf7</td><td>entity_exists</td><td>entity_exists:service</td><td>low</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:sign:large</td><td>high</td></tr><tr><td>cf9</td><td>has_attribute</td><td>has_attribute:park:nara</td><td>medium</td></tr><tr><td>cf10</td><td>has_attribute</td><td>has_attribute:attraction:other</td><td>medium</td></tr><tr><td>cf11</td><td>has_attribute</td><td>has_attribute:display:digital</td><td>medium</td></tr><tr><td>cf12</td><td>has_attribute</td><td>has_attribute:shop:nearby</td><td>medium</td></tr><tr><td>cf13</td><td>action_event</td><td>action_event:show</td><td>high</td></tr><tr><td>cf14</td><td>event_role</td><td>event_role:show:agent:building</td><td>medium</td></tr><tr><td>cf15</td><td>event_role</td><td>event_role:show:patient:direction</td><td>medium</td></tr><tr><td>cf16</td><td>action_event</td><td>action_event:list</td><td>medium</td></tr><tr><td>cf17</td><td>event_role</td><td>event_role:list:agent:display</td><td>medium</td></tr><tr><td>cf18</td><td>event_role</td><td>event_role:list:patient:shop</td><td>medium</td></tr><tr><td>cf19</td><td>event_role</td><td>event_role:list:patient:service</td><td>medium</td></tr><tr><td>cf20</td><td>relation</td><td>relation:building:with:sign</td><td>high</td></tr><tr><td>cf21</td><td>relation</td><td>relation:sign:above:building</td><td>high</td></tr><tr><td>cf22</td><td>relation</td><td>relation:direction:to:park</td><td>medium</td></tr><tr><td>cf23</td><td>relation</td><td>relation:direction:to:attraction</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

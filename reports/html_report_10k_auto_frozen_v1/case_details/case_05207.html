@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 05207 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 05207 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_05001_05500.html#case-5207">Back to Case List</a> | <a href="case_05206.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-5207">
+  <div class="case-title">
+    <h2>Case 05207</h2>
+    <a href="#case-5207">anchor</a>
+  </div>
+  <div class="caption-box">A red stop sign is next to text that says &quot;You can now view the document associated with this citation by clicking on the &#x27;View Document as HTML&#x27; link below.&quot;</div>
+  <div class="chips">
+    <span>caption_id: ccd2558bdf8ebe74110e2beb02190c737b5444cd3440db4041294eba688cd2c6</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 1</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m1</td><td>stop sign</td><td>stop_sign</td><td></td><td>source=coco_object|lvis_object|openimages_boxable|visual_genome_object_synset; canonical_source=coco_object|lvis_object|openimages_boxable|visual_genome_object_synset; parent_source=none; confidence=high; canonical_confidence=high; parent_confidence=low</td></tr><tr><td>ent_m3</td><td>text</td><td>text</td><td>text_content</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>stop_sign</td><td>red</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>says</td><td>say</td><td>text_display_or_communication_action &gt; visual_action</td><td>agent: text<br>patient: m0</td><td>source=1k_stage9_action_audit_v2 + project_action_ontology; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + project_action_ontology; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>attribute</td><td>&quot;You can now view the document associated with this citation by clicking on the &#x27;View Document as HTML&#x27; link below.&quot;</td><td>you_can_now_view_the_document_associated_with_this_citation_by_clicking_on_the_&#x27;view_document_as_html&#x27;_link_below.</td><td>quote_text</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>stop sign</td><td>stop_sign</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>attribute</td><td>red</td><td>red</td><td>color_attribute</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>text</td><td>text</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>action</td><td>says</td><td>say</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>stop sign <span class="muted">m1 object</span></td><td>red <span class="muted">m2 attribute</span></td><td>chunk1 amod -&gt; stop sign</td><td>high</td></tr><tr><td>e1</td><td>agent</td><td>says <span class="muted">m4 action</span></td><td>text <span class="muted">m3 object</span></td><td>nsubj -&gt; says; resolved that -&gt; text</td><td>medium</td></tr><tr><td>e2</td><td>patient</td><td>says <span class="muted">m4 action</span></td><td>&quot;You can now view the document associated with this citation by clicking on the &#x27;View Document as HTML&#x27; link below.&quot; <span class="muted">m0 attribute</span></td><td>dobj -&gt; says</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (6)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:stop_sign</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:text</td><td>high</td></tr><tr><td>cf2</td><td>has_attribute</td><td>has_attribute:stop_sign:red</td><td>high</td></tr><tr><td>cf3</td><td>action_event</td><td>action_event:say</td><td>medium</td></tr><tr><td>cf4</td><td>event_role</td><td>event_role:say:agent:text</td><td>medium</td></tr><tr><td>cf5</td><td>event_role</td><td>event_role:say:patient</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

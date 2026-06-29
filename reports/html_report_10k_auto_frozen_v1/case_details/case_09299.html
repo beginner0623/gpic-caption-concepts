@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 09299 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 09299 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_09001_09500.html#case-9299">Back to Case List</a> | <a href="case_09298.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-9299">
+  <div class="case-title">
+    <h2>Case 09299</h2>
+    <a href="#case-9299">anchor</a>
+  </div>
+  <div class="caption-box">Several shoes line a tiled floor near a wooden door. A hallway with a building sign reads &quot;AMAZING MALL&quot; and &quot;日明宴&quot;.</div>
+  <div class="chips">
+    <span>caption_id: 9e3fd4ab3e29203ed6555268790419fc4a4a5eda0499d7a4acbf07668704d27e</span>
+    <span>shape: multi-sentence</span>
+    <span>parse: sentence</span>
+    <span>quotes: 2</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m2</td><td>shoes</td><td>shoe</td><td>clothing &gt; wearable</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m4</td><td>floor</td><td>floor</td><td>architectural_part &gt; surface &gt; artifact</td><td>source=wordnet_synset:floor.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:floor.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m6</td><td>door</td><td>door</td><td>architectural_part &gt; artifact</td><td>source=wordnet_synset:door.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:door.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m8</td><td>hallway</td><td>hallway</td><td>indoor_place &gt; place</td><td>source=10k_auto_feedback_v1 + fixed_rubric + object_ontology; canonical_source=raw_lemma; parent_source=10k_auto_feedback_v1 + fixed_rubric + object_ontology; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m9</td><td>sign</td><td>sign</td><td>text_carrier &gt; artifact</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>floor</td><td>tiled</td><td>material_attribute &gt; material &gt; pattern &gt; visual_attribute</td><td>medium</td></tr><tr><td>door</td><td>wood</td><td>material_attribute &gt; material &gt; visual_attribute</td><td>high</td></tr><tr><td>sign</td><td>building</td><td>compound_modifier &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>line</td><td>line</td><td>arrangement_action &gt; spatial_configuration_action &gt; visual_action</td><td>agent: shoe<br>patient: floor</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:line.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:line.v.01; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>reads</td><td>read</td><td>text_interaction_action &gt; visual_action</td><td>agent: hallway<br>patient: m0<br>patient: m1</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>shoe</td><td>near</td><td>near</td><td>door</td><td>spatial_proximity &gt; visual_relation</td><td>high</td></tr><tr><td>hallway</td><td>with</td><td>with</td><td>sign</td><td>association_relation &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>attribute</td><td>&quot;AMAZING MALL&quot;</td><td>amazing_mall</td><td>quote_text</td><td>high</td></tr><tr><td>m1</td><td>attribute</td><td>&quot;日明宴&quot;</td><td>日明宴</td><td>quote_text</td><td>high</td></tr><tr><td>m2</td><td>object</td><td>shoes</td><td>shoe</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>quantity</td><td>Several</td><td>several</td><td>approximate_quantity</td><td>medium</td></tr><tr><td>m4</td><td>object</td><td>floor</td><td>floor</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m5</td><td>attribute</td><td>tiled</td><td>tile</td><td>state_attribute</td><td>medium</td></tr><tr><td>m6</td><td>object</td><td>door</td><td>door</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m7</td><td>attribute</td><td>wooden</td><td>wooden</td><td>material_attribute</td><td>high</td></tr><tr><td>m8</td><td>object</td><td>hallway</td><td>hallway</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m9</td><td>object</td><td>sign</td><td>sign</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m10</td><td>attribute</td><td>building</td><td>building</td><td>compound_modifier</td><td>medium</td></tr><tr><td>m11</td><td>action</td><td>line</td><td>line</td><td>verb_predicate</td><td>high</td></tr><tr><td>m12</td><td>action</td><td>reads</td><td>read</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_quantity</td><td>shoes <span class="muted">m2 object</span></td><td>Several <span class="muted">m3 quantity</span></td><td>chunk0 quantity -&gt; shoes</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>floor <span class="muted">m4 object</span></td><td>tiled <span class="muted">m5 attribute</span></td><td>chunk1 amod -&gt; floor</td><td>medium</td></tr><tr><td>e2</td><td>has_attribute</td><td>door <span class="muted">m6 object</span></td><td>wooden <span class="muted">m7 attribute</span></td><td>chunk2 amod -&gt; door</td><td>high</td></tr><tr><td>e3</td><td>has_attribute</td><td>sign <span class="muted">m9 object</span></td><td>building <span class="muted">m10 attribute</span></td><td>chunk4 compound -&gt; sign</td><td>medium</td></tr><tr><td>e4</td><td>agent</td><td>line <span class="muted">m11 action</span></td><td>shoes <span class="muted">m2 object</span></td><td>nsubj -&gt; line</td><td>medium</td></tr><tr><td>e5</td><td>patient</td><td>line <span class="muted">m11 action</span></td><td>floor <span class="muted">m4 object</span></td><td>dobj -&gt; line</td><td>medium</td></tr><tr><td>e6</td><td>agent</td><td>reads <span class="muted">m12 action</span></td><td>hallway <span class="muted">m8 object</span></td><td>nsubj -&gt; reads</td><td>medium</td></tr><tr><td>e7</td><td>patient</td><td>reads <span class="muted">m12 action</span></td><td>&quot;AMAZING MALL&quot; <span class="muted">m0 attribute</span></td><td>dobj -&gt; reads</td><td>medium</td></tr><tr><td>e8</td><td>patient</td><td>reads <span class="muted">m12 action</span></td><td>&quot;日明宴&quot; <span class="muted">m1 attribute</span></td><td>dobj -&gt; reads</td><td>medium</td></tr><tr><td>e9</td><td>relation</td><td>shoes <span class="muted">m2 object</span></td><td>door <span class="muted">m6 object</span></td><td>near</td><td>high</td></tr><tr><td>e10</td><td>relation</td><td>hallway <span class="muted">m8 object</span></td><td>sign <span class="muted">m9 object</span></td><td>with</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (18)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:shoe</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:floor</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:door</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:hallway</td><td>high</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:sign</td><td>high</td></tr><tr><td>cf5</td><td>has_quantity</td><td>has_quantity:shoe:several</td><td>medium</td></tr><tr><td>cf6</td><td>has_attribute</td><td>has_attribute:floor:tiled</td><td>medium</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:door:wood</td><td>high</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:sign:building</td><td>medium</td></tr><tr><td>cf9</td><td>action_event</td><td>action_event:line</td><td>high</td></tr><tr><td>cf10</td><td>event_role</td><td>event_role:line:agent:shoe</td><td>medium</td></tr><tr><td>cf11</td><td>event_role</td><td>event_role:line:patient:floor</td><td>medium</td></tr><tr><td>cf12</td><td>action_event</td><td>action_event:read</td><td>medium</td></tr><tr><td>cf13</td><td>event_role</td><td>event_role:read:agent:hallway</td><td>medium</td></tr><tr><td>cf14</td><td>event_role</td><td>event_role:read:patient</td><td>medium</td></tr><tr><td>cf15</td><td>event_role</td><td>event_role:read:patient</td><td>medium</td></tr><tr><td>cf16</td><td>relation</td><td>relation:shoe:near:door</td><td>high</td></tr><tr><td>cf17</td><td>relation</td><td>relation:hallway:with:sign</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

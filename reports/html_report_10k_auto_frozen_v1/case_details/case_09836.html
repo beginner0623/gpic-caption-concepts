@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 09836 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 09836 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_09501_10000.html#case-9836">Back to Case List</a> | <a href="case_09835.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-9836">
+  <div class="case-title">
+    <h2>Case 09836</h2>
+    <a href="#case-9836">anchor</a>
+  </div>
+  <div class="caption-box">A colorful glass sculpture with red, blue, and green swirls sits on a white surface against a dark background.</div>
+  <div class="chips">
+    <span>caption_id: ce509f92a6988e9f11d1263d114e97c591c99f9faf7861f697f371922f4bea7e</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>sculpture</td><td>sculpture</td><td>artwork &gt; artifact</td><td>source=wordnet_synset:sculpture.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:sculpture.n.01 + 1k_stage9_audit_v2; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m3</td><td>swirls</td><td>swirl</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m7</td><td>surface</td><td>surface</td><td>surface &gt; scene_element</td><td>source=wordnet_synset:surface.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:surface.n.01 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m8</td><td>background</td><td>background</td><td>scene_context</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>sculpture</td><td>colorful</td><td>color_attribute &gt; color_quantity &gt; visual_attribute</td><td>medium</td></tr><tr><td>sculpture</td><td>glass</td><td>material_attribute &gt; material &gt; visual_attribute</td><td>high</td></tr><tr><td>swirl</td><td>red</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>swirl</td><td>blue</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>swirl</td><td>green</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr><tr><td>background</td><td>dark</td><td>brightness_attribute &gt; brightness &gt; tone &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>sits</td><td>sit</td><td>body_pose_action &gt; visual_action</td><td>agent: sculpture</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>sculpture</td><td>with</td><td>with</td><td>swirl</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>sculpture</td><td>on</td><td>on</td><td>surface</td><td>spatial_support &gt; visual_relation</td><td>high</td></tr><tr><td>sculpture</td><td>against</td><td>against</td><td>background</td><td>spatial_contact &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>sculpture</td><td>sculpture</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>attribute</td><td>colorful</td><td>colorful</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m2</td><td>attribute</td><td>glass</td><td>glass</td><td>material_attribute</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>swirls</td><td>swirl</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>red</td><td>red</td><td>color_attribute</td><td>high</td></tr><tr><td>m5</td><td>attribute</td><td>blue</td><td>blue</td><td>color_attribute</td><td>high</td></tr><tr><td>m6</td><td>attribute</td><td>green</td><td>green</td><td>color_attribute</td><td>high</td></tr><tr><td>m7</td><td>context</td><td>surface</td><td>surface</td><td>spatial_region</td><td>medium</td></tr><tr><td>m8</td><td>context</td><td>background</td><td>background</td><td>scene_context</td><td>high</td></tr><tr><td>m9</td><td>attribute</td><td>dark</td><td>dark</td><td>visual_attribute</td><td>medium</td></tr><tr><td>m10</td><td>action</td><td>sits</td><td>sit</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>sculpture <span class="muted">m0 object</span></td><td>colorful <span class="muted">m1 attribute</span></td><td>chunk0 amod -&gt; sculpture</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>sculpture <span class="muted">m0 object</span></td><td>glass <span class="muted">m2 attribute</span></td><td>chunk0 compound -&gt; sculpture</td><td>high</td></tr><tr><td>e2</td><td>has_attribute</td><td>swirls <span class="muted">m3 object</span></td><td>red <span class="muted">m4 attribute</span></td><td>chunk1 amod -&gt; swirls</td><td>high</td></tr><tr><td>e3</td><td>has_attribute</td><td>swirls <span class="muted">m3 object</span></td><td>blue <span class="muted">m5 attribute</span></td><td>chunk1 conj -&gt; swirls</td><td>high</td></tr><tr><td>e4</td><td>has_attribute</td><td>swirls <span class="muted">m3 object</span></td><td>green <span class="muted">m6 attribute</span></td><td>chunk1 conj -&gt; swirls</td><td>high</td></tr><tr><td>e5</td><td>has_context</td><td>scene <span class="muted">scene </span></td><td>background <span class="muted">m8 context</span></td><td>scene_context token background</td><td>high</td></tr><tr><td>e6</td><td>has_attribute</td><td>background <span class="muted">m8 context</span></td><td>dark <span class="muted">m9 attribute</span></td><td>chunk3 amod -&gt; background</td><td>medium</td></tr><tr><td>e7</td><td>agent</td><td>sits <span class="muted">m10 action</span></td><td>sculpture <span class="muted">m0 object</span></td><td>nsubj -&gt; sits</td><td>medium</td></tr><tr><td>e8</td><td>relation</td><td>sculpture <span class="muted">m0 object</span></td><td>swirls <span class="muted">m3 object</span></td><td>with</td><td>high</td></tr><tr><td>e9</td><td>relation</td><td>sculpture <span class="muted">m0 object</span></td><td>surface <span class="muted">m7 context</span></td><td>on</td><td>high</td></tr><tr><td>e10</td><td>relation</td><td>sculpture <span class="muted">m0 object</span></td><td>background <span class="muted">m8 context</span></td><td>against</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (15)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:sculpture</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:swirl</td><td>low</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:surface</td><td>medium</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:background</td><td>high</td></tr><tr><td>cf4</td><td>has_attribute</td><td>has_attribute:sculpture:colorful</td><td>medium</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:sculpture:glass</td><td>high</td></tr><tr><td>cf6</td><td>has_attribute</td><td>has_attribute:swirl:red</td><td>high</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:swirl:blue</td><td>high</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:swirl:green</td><td>high</td></tr><tr><td>cf9</td><td>has_attribute</td><td>has_attribute:background:dark</td><td>medium</td></tr><tr><td>cf10</td><td>action_event</td><td>action_event:sit</td><td>high</td></tr><tr><td>cf11</td><td>event_role</td><td>event_role:sit:agent:sculpture</td><td>medium</td></tr><tr><td>cf12</td><td>relation</td><td>relation:sculpture:with:swirl</td><td>high</td></tr><tr><td>cf13</td><td>relation</td><td>relation:sculpture:on:surface</td><td>high</td></tr><tr><td>cf14</td><td>relation</td><td>relation:sculpture:against:background</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 00622 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 00622 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_00501_01000.html#case-622">Back to Case List</a> | <a href="case_00621.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-622">
+  <div class="case-title">
+    <h2>Case 00622</h2>
+    <a href="#case-622">anchor</a>
+  </div>
+  <div class="caption-box">A form asks for name, password, height, and a secret number, with a red stamp in the corner.</div>
+  <div class="chips">
+    <span>caption_id: 62196e2d6de88c40f0bb1372ddc715d5ea3137b7ce762e18c19933550556b75f</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>form</td><td>form</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m1</td><td>name</td><td>name</td><td>text_element &gt; symbol</td><td>source=wordnet_synset:name.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:name.n.01 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m2</td><td>password</td><td>password</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m3</td><td>height</td><td>height</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m4</td><td>number</td><td>number</td><td>symbol &gt; text_element</td><td>source=wordnet_synset:number.n.02 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:number.n.02 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m6</td><td>stamp</td><td>stamp</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m8</td><td>corner</td><td>corner</td><td>scene_context</td><td>source=semantic_type_fallback; canonical_source=raw_lemma; parent_source=semantic_type_fallback; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>number</td><td>secret</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr><tr><td>stamp</td><td>red</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>asks</td><td>ask</td><td>visual_action</td><td>agent: form</td><td>source=visual_action_fallback; canonical_source=raw_action; parent_source=visual_action_fallback; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>form</td><td>for</td><td>for</td><td>name</td><td>visual_relation</td><td>medium</td></tr><tr><td>form</td><td>for</td><td>for</td><td>password</td><td>visual_relation</td><td>medium</td></tr><tr><td>form</td><td>for</td><td>for</td><td>height</td><td>visual_relation</td><td>medium</td></tr><tr><td>form</td><td>for</td><td>for</td><td>number</td><td>visual_relation</td><td>medium</td></tr><tr><td>name</td><td>with</td><td>with</td><td>stamp</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>stamp</td><td>in</td><td>in</td><td>corner</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>form</td><td>form</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>name</td><td>name</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>object</td><td>password</td><td>password</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>height</td><td>height</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>object</td><td>number</td><td>number</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m5</td><td>attribute</td><td>secret</td><td>secret</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m6</td><td>object</td><td>stamp</td><td>stamp</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m7</td><td>attribute</td><td>red</td><td>red</td><td>color_attribute</td><td>high</td></tr><tr><td>m8</td><td>context</td><td>corner</td><td>corner</td><td>spatial_region</td><td>medium</td></tr><tr><td>m9</td><td>action</td><td>asks</td><td>ask</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>number <span class="muted">m4 object</span></td><td>secret <span class="muted">m5 attribute</span></td><td>chunk4 amod -&gt; number</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>stamp <span class="muted">m6 object</span></td><td>red <span class="muted">m7 attribute</span></td><td>chunk5 amod -&gt; stamp</td><td>high</td></tr><tr><td>e2</td><td>agent</td><td>asks <span class="muted">m9 action</span></td><td>form <span class="muted">m0 object</span></td><td>nsubj -&gt; asks</td><td>medium</td></tr><tr><td>e3</td><td>relation</td><td>form <span class="muted">m0 object</span></td><td>name <span class="muted">m1 object</span></td><td>for</td><td>medium</td></tr><tr><td>e4</td><td>relation</td><td>form <span class="muted">m0 object</span></td><td>password <span class="muted">m2 object</span></td><td>for</td><td>medium</td></tr><tr><td>e5</td><td>relation</td><td>form <span class="muted">m0 object</span></td><td>height <span class="muted">m3 object</span></td><td>for</td><td>medium</td></tr><tr><td>e6</td><td>relation</td><td>form <span class="muted">m0 object</span></td><td>number <span class="muted">m4 object</span></td><td>for</td><td>medium</td></tr><tr><td>e7</td><td>relation</td><td>name <span class="muted">m1 object</span></td><td>stamp <span class="muted">m6 object</span></td><td>with</td><td>high</td></tr><tr><td>e8</td><td>relation</td><td>stamp <span class="muted">m6 object</span></td><td>corner <span class="muted">m8 context</span></td><td>in</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (17)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:form</td><td>low</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:name</td><td>medium</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:password</td><td>low</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:height</td><td>low</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:number</td><td>medium</td></tr><tr><td>cf5</td><td>entity_exists</td><td>entity_exists:stamp</td><td>low</td></tr><tr><td>cf6</td><td>entity_exists</td><td>entity_exists:corner</td><td>medium</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:number:secret</td><td>medium</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:stamp:red</td><td>high</td></tr><tr><td>cf9</td><td>action_event</td><td>action_event:ask</td><td>low</td></tr><tr><td>cf10</td><td>event_role</td><td>event_role:ask:agent:form</td><td>medium</td></tr><tr><td>cf11</td><td>relation</td><td>relation:form:for:name</td><td>medium</td></tr><tr><td>cf12</td><td>relation</td><td>relation:form:for:password</td><td>medium</td></tr><tr><td>cf13</td><td>relation</td><td>relation:form:for:height</td><td>medium</td></tr><tr><td>cf14</td><td>relation</td><td>relation:form:for:number</td><td>medium</td></tr><tr><td>cf15</td><td>relation</td><td>relation:name:with:stamp</td><td>high</td></tr><tr><td>cf16</td><td>relation</td><td>relation:stamp:in:corner</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

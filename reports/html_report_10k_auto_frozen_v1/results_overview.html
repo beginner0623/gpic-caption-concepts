@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>10k Overview</title>
+  <link rel="stylesheet" href="assets/report.css">
+  <script defer src="assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>10k Overview</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="index.html">Home</a>
+<a class="active" href="results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="method_rulebook.html">Method Rulebook</a>
+<a class="" href="stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="objects.html">Objects</a>
+<a class="" href="attributes.html">Attributes</a>
+<a class="" href="attribute_types.html">Attr Types</a>
+<a class="" href="object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="actions.html">Actions</a>
+<a class="" href="event_roles.html">Agent / Patient</a>
+<a class="" href="relations.html">Relations</a>
+<a class="" href="relation_triples.html">Relation Triples</a>
+<a class="" href="facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="parents.html">Parents</a>
+<a class="" href="quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+
+<section class="hero"><div class="grid"><div class="metric"><div class="metric-label">captions</div><div class="metric-value">10,000</div><div class="metric-note">input rows</div></div><div class="metric"><div class="metric-label">raw mentions</div><div class="metric-value">199,285</div><div class="metric-note">Stage 8 concept mentions</div></div><div class="metric"><div class="metric-label">raw edges</div><div class="metric-value">172,044</div><div class="metric-note">Stage 8 edges</div></div><div class="metric"><div class="metric-label">entities</div><div class="metric-value">98,168</div><div class="metric-note">canonical object entities</div></div><div class="metric"><div class="metric-label">events</div><div class="metric-value">35,670</div><div class="metric-note">canonical actions</div></div><div class="metric"><div class="metric-label">relations</div><div class="metric-value">50,948</div><div class="metric-note">canonical/raw-preserved relations</div></div><div class="metric"><div class="metric-label">facts</div><div class="metric-value">297,494</div><div class="metric-note">final countable facts</div></div><div class="metric"><div class="metric-label">skipped edges</div><div class="metric-value">412</div><div class="metric-note">defensive drops/repairs</div></div></div></section>
+
+<section class="panel">
+  <div class="section-head">
+    <h2>Run Metrics</h2>
+    <p>10k report generation에서 집계한 전체 수치.</p>
+  </div>
+  <input class="table-filter" placeholder="filter rows..." data-filter-next-table>
+  <div class="table-wrap"><table class="sortable"><thead><tr><th>metric</th><th>value</th></tr></thead><tbody><tr><td>canonical_facts</td><td>297494</td></tr><tr><td>raw_concept_mentions</td><td>199285</td></tr><tr><td>raw_edges</td><td>172044</td></tr><tr><td>canonical_entities</td><td>98168</td></tr><tr><td>canonical_relations</td><td>50948</td></tr><tr><td>canonical_events</td><td>35670</td></tr><tr><td>records</td><td>10000</td></tr><tr><td>quote_mentions</td><td>2131</td></tr><tr><td>skipped_edges</td><td>412</td></tr><tr><td>self_relations</td><td>10</td></tr><tr><td>parse_path:sentence</td><td>9896</td></tr><tr><td>parse_path:tag_list</td><td>104</td></tr><tr><td>caption_shape:multi-sentence</td><td>6282</td></tr><tr><td>caption_shape:sentence-like</td><td>3612</td></tr><tr><td>caption_shape:tag-list-like</td><td>104</td></tr><tr><td>caption_shape:short-list-like</td><td>2</td></tr></tbody></table></div>
+</section>
+
+
+<section class="panel">
+  <div class="section-head">
+    <h2>Schema Breakdown</h2>
+    <p>Stage 8 mention/edge와 Stage 9 fact type별 분포.</p>
+  </div>
+  <input class="table-filter" placeholder="filter rows..." data-filter-next-table>
+  <div class="table-wrap"><table class="sortable"><thead><tr><th>schema</th><th>count</th></tr></thead><tbody><tr><td>mention:object</td><td>86560</td></tr><tr><td>mention:attribute</td><td>59390</td></tr><tr><td>mention:action</td><td>35670</td></tr><tr><td>mention:context</td><td>9981</td></tr><tr><td>mention:quantity</td><td>5559</td></tr><tr><td>mention:reference</td><td>1665</td></tr><tr><td>mention:particle</td><td>369</td></tr><tr><td>mention:group</td><td>85</td></tr><tr><td>mention:negation</td><td>6</td></tr><tr><td>edge:has_attribute</td><td>57079</td></tr><tr><td>edge:relation</td><td>50948</td></tr><tr><td>edge:agent</td><td>35687</td></tr><tr><td>edge:patient</td><td>14574</td></tr><tr><td>edge:has_context</td><td>6253</td></tr><tr><td>edge:has_quantity</td><td>4967</td></tr><tr><td>edge:refers_to</td><td>1665</td></tr><tr><td>edge:has_particle</td><td>369</td></tr><tr><td>edge:scene_contains</td><td>268</td></tr><tr><td>edge:has_member</td><td>170</td></tr><tr><td>edge:derived_from</td><td>32</td></tr><tr><td>edge:candidate_has_attribute</td><td>26</td></tr><tr><td>edge:negates</td><td>6</td></tr><tr><td>fact:entity_exists</td><td>98168</td></tr><tr><td>fact:has_attribute</td><td>57079</td></tr><tr><td>fact:relation</td><td>50948</td></tr><tr><td>fact:event_role</td><td>50636</td></tr><tr><td>fact:action_event</td><td>35670</td></tr><tr><td>fact:has_quantity</td><td>4967</td></tr><tr><td>fact:candidate_has_attribute</td><td>26</td></tr></tbody></table></div>
+</section>
+
+
+<section class="panel">
+  <div class="section-head">
+    <h2>Case Detail Pages</h2>
+    <p>각 case page는 caption별 raw/canonical trace를 포함한다.</p>
+  </div>
+  <input class="table-filter" placeholder="filter rows..." data-filter-next-table>
+  <div class="table-wrap"><table class="sortable"><thead><tr><th>case range</th><th>page</th></tr></thead><tbody><tr><td>1-500</td><td><a href="cases/cases_00001_00500.html">cases/cases_00001_00500.html</a></td></tr><tr><td>501-1,000</td><td><a href="cases/cases_00501_01000.html">cases/cases_00501_01000.html</a></td></tr><tr><td>1,001-1,500</td><td><a href="cases/cases_01001_01500.html">cases/cases_01001_01500.html</a></td></tr><tr><td>1,501-2,000</td><td><a href="cases/cases_01501_02000.html">cases/cases_01501_02000.html</a></td></tr><tr><td>2,001-2,500</td><td><a href="cases/cases_02001_02500.html">cases/cases_02001_02500.html</a></td></tr><tr><td>2,501-3,000</td><td><a href="cases/cases_02501_03000.html">cases/cases_02501_03000.html</a></td></tr><tr><td>3,001-3,500</td><td><a href="cases/cases_03001_03500.html">cases/cases_03001_03500.html</a></td></tr><tr><td>3,501-4,000</td><td><a href="cases/cases_03501_04000.html">cases/cases_03501_04000.html</a></td></tr><tr><td>4,001-4,500</td><td><a href="cases/cases_04001_04500.html">cases/cases_04001_04500.html</a></td></tr><tr><td>4,501-5,000</td><td><a href="cases/cases_04501_05000.html">cases/cases_04501_05000.html</a></td></tr><tr><td>5,001-5,500</td><td><a href="cases/cases_05001_05500.html">cases/cases_05001_05500.html</a></td></tr><tr><td>5,501-6,000</td><td><a href="cases/cases_05501_06000.html">cases/cases_05501_06000.html</a></td></tr><tr><td>6,001-6,500</td><td><a href="cases/cases_06001_06500.html">cases/cases_06001_06500.html</a></td></tr><tr><td>6,501-7,000</td><td><a href="cases/cases_06501_07000.html">cases/cases_06501_07000.html</a></td></tr><tr><td>7,001-7,500</td><td><a href="cases/cases_07001_07500.html">cases/cases_07001_07500.html</a></td></tr><tr><td>7,501-8,000</td><td><a href="cases/cases_07501_08000.html">cases/cases_07501_08000.html</a></td></tr><tr><td>8,001-8,500</td><td><a href="cases/cases_08001_08500.html">cases/cases_08001_08500.html</a></td></tr><tr><td>8,501-9,000</td><td><a href="cases/cases_08501_09000.html">cases/cases_08501_09000.html</a></td></tr><tr><td>9,001-9,500</td><td><a href="cases/cases_09001_09500.html">cases/cases_09001_09500.html</a></td></tr><tr><td>9,501-10,000</td><td><a href="cases/cases_09501_10000.html">cases/cases_09501_10000.html</a></td></tr></tbody></table></div>
+</section>
+
+
+  </main>
+</body>
+</html>

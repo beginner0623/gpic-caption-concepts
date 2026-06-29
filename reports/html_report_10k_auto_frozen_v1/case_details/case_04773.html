@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 04773 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 04773 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_04501_05000.html#case-4773">Back to Case List</a> | <a href="case_04772.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-4773">
+  <div class="case-title">
+    <h2>Case 04773</h2>
+    <a href="#case-4773">anchor</a>
+  </div>
+  <div class="caption-box">A woman with voluminous, dark curly hair is shown in a black-and-white portrait. She looks directly at the camera with a neutral expression, and the background is plain and light-colored.</div>
+  <div class="chips">
+    <span>caption_id: 0d120b6aec0faf53e16f30fdf1ef0cf3193ba98b20d3dfed4433d8f3e27ff2e1</span>
+    <span>shape: multi-sentence</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>woman</td><td>woman</td><td>person &gt; human</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m1</td><td>hair</td><td>hair</td><td>body_part</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m5</td><td>portrait</td><td>portrait</td><td>artwork &gt; visual_document &gt; artifact</td><td>source=1k_stage9_audit_v3 + wordnet_hypernym; canonical_source=raw_lemma; parent_source=1k_stage9_audit_v3 + wordnet_hypernym; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m7</td><td>camera</td><td>camera</td><td>device &gt; artifact</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m8</td><td>expression</td><td>expression</td><td>facial_expression &gt; visual_attribute</td><td>source=10k_auto_feedback_v1 + fixed_rubric + object_ontology; canonical_source=raw_lemma; parent_source=10k_auto_feedback_v1 + fixed_rubric + object_ontology; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m10</td><td>background</td><td>background</td><td>scene_context</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>hair</td><td>voluminous</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr><tr><td>hair</td><td>dark</td><td>brightness_attribute &gt; brightness &gt; tone &gt; visual_attribute</td><td>medium</td></tr><tr><td>hair</td><td>curly</td><td>shape_attribute &gt; shape &gt; type &gt; visual_attribute</td><td>medium</td></tr><tr><td>portrait</td><td>black_and_white</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>medium</td></tr><tr><td>expression</td><td>neutral</td><td>modifier_attribute &gt; visual_attribute</td><td>medium</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>shown</td><td>show</td><td>visual_presentation_action &gt; visual_action</td><td>patient: woman <span class="muted">passive_to_active</span></td><td>source=wordnet_synset:show.v.01 + stage9_audit; canonical_source=raw_action; parent_source=wordnet_synset:show.v.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>looks</td><td>look</td><td>gaze_action &gt; visual_action</td><td>agent: woman</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>woman</td><td>with</td><td>with</td><td>hair</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>woman</td><td>in</td><td>in</td><td>portrait</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr><tr><td>woman</td><td>at</td><td>at</td><td>camera</td><td>spatial_location &gt; visual_relation</td><td>medium</td></tr><tr><td>woman</td><td>with</td><td>with</td><td>expression</td><td>association_relation &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>woman</td><td>woman</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>hair</td><td>hair</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>attribute</td><td>voluminous</td><td>voluminous</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m3</td><td>attribute</td><td>dark</td><td>dark</td><td>visual_attribute</td><td>medium</td></tr><tr><td>m4</td><td>attribute</td><td>curly</td><td>curly</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m5</td><td>object</td><td>portrait</td><td>portrait</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m6</td><td>attribute</td><td>black-and-white</td><td>black-and-white</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m7</td><td>object</td><td>camera</td><td>camera</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m8</td><td>object</td><td>expression</td><td>expression</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m9</td><td>attribute</td><td>neutral</td><td>neutral</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m10</td><td>context</td><td>background</td><td>background</td><td>scene_context</td><td>high</td></tr><tr><td>m11</td><td>action</td><td>shown</td><td>show</td><td>verb_predicate</td><td>high</td></tr><tr><td>m12</td><td>action</td><td>looks</td><td>look</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>hair <span class="muted">m1 object</span></td><td>voluminous <span class="muted">m2 attribute</span></td><td>chunk1 amod -&gt; hair</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>hair <span class="muted">m1 object</span></td><td>dark <span class="muted">m3 attribute</span></td><td>chunk1 amod -&gt; hair</td><td>medium</td></tr><tr><td>e2</td><td>has_attribute</td><td>hair <span class="muted">m1 object</span></td><td>curly <span class="muted">m4 attribute</span></td><td>chunk1 amod -&gt; hair</td><td>medium</td></tr><tr><td>e3</td><td>has_attribute</td><td>portrait <span class="muted">m5 object</span></td><td>black-and-white <span class="muted">m6 attribute</span></td><td>chunk2 amod -&gt; portrait</td><td>medium</td></tr><tr><td>e4</td><td>has_attribute</td><td>expression <span class="muted">m8 object</span></td><td>neutral <span class="muted">m9 attribute</span></td><td>chunk5 amod -&gt; expression</td><td>medium</td></tr><tr><td>e5</td><td>has_context</td><td>scene <span class="muted">scene </span></td><td>background <span class="muted">m10 context</span></td><td>scene_context token background</td><td>high</td></tr><tr><td>e6</td><td>agent</td><td>shown <span class="muted">m11 action</span></td><td>woman <span class="muted">m0 object</span></td><td>nsubjpass -&gt; shown</td><td>medium</td></tr><tr><td>e7</td><td>agent</td><td>looks <span class="muted">m12 action</span></td><td>woman <span class="muted">m0 object</span></td><td>nsubj -&gt; looks; resolved She -&gt; woman</td><td>medium</td></tr><tr><td>e8</td><td>relation</td><td>woman <span class="muted">m0 object</span></td><td>hair <span class="muted">m1 object</span></td><td>with</td><td>high</td></tr><tr><td>e9</td><td>relation</td><td>woman <span class="muted">m0 object</span></td><td>portrait <span class="muted">m5 object</span></td><td>in</td><td>high</td></tr><tr><td>e10</td><td>relation</td><td>woman <span class="muted">m0 object</span></td><td>camera <span class="muted">m7 object</span></td><td>at</td><td>medium</td></tr><tr><td>e11</td><td>relation</td><td>woman <span class="muted">m0 object</span></td><td>expression <span class="muted">m8 object</span></td><td>with</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (19)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:woman</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:hair</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:portrait</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:camera</td><td>high</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:expression</td><td>medium</td></tr><tr><td>cf5</td><td>entity_exists</td><td>entity_exists:background</td><td>high</td></tr><tr><td>cf6</td><td>has_attribute</td><td>has_attribute:hair:voluminous</td><td>medium</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:hair:dark</td><td>medium</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:hair:curly</td><td>medium</td></tr><tr><td>cf9</td><td>has_attribute</td><td>has_attribute:portrait:black_and_white</td><td>medium</td></tr><tr><td>cf10</td><td>has_attribute</td><td>has_attribute:expression:neutral</td><td>medium</td></tr><tr><td>cf11</td><td>action_event</td><td>action_event:show</td><td>high</td></tr><tr><td>cf12</td><td>event_role</td><td>event_role:show:patient:woman</td><td>medium</td></tr><tr><td>cf13</td><td>action_event</td><td>action_event:look</td><td>high</td></tr><tr><td>cf14</td><td>event_role</td><td>event_role:look:agent:woman</td><td>medium</td></tr><tr><td>cf15</td><td>relation</td><td>relation:woman:with:hair</td><td>high</td></tr><tr><td>cf16</td><td>relation</td><td>relation:woman:in:portrait</td><td>high</td></tr><tr><td>cf17</td><td>relation</td><td>relation:woman:at:camera</td><td>medium</td></tr><tr><td>cf18</td><td>relation</td><td>relation:woman:with:expression</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

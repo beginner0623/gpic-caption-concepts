@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 03178 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 03178 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_03001_03500.html#case-3178">Back to Case List</a> | <a href="case_03177.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-3178">
+  <div class="case-title">
+    <h2>Case 03178</h2>
+    <a href="#case-3178">anchor</a>
+  </div>
+  <div class="caption-box">A crowd gathers on a grassy hill near ancient stone ruins under a blue sky. Some hold umbrellas as they stand and look around.</div>
+  <div class="chips">
+    <span>caption_id: 086c77c112d84ef41093b83d2452dd06cf401e2b8fdb07618d2d1bb014a65f8e</span>
+    <span>shape: multi-sentence</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>crowd</td><td>crowd</td><td>person_group &gt; person &gt; human</td><td>source=wordnet_synset:crowd.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:crowd.n.01 + 1k_stage9_audit_v2; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m1</td><td>hill</td><td>hill</td><td>landform &gt; place</td><td>source=wordnet_synset:hill.n.01 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:hill.n.01 + 1k_stage9_audit_v2; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m3</td><td>ruins</td><td>ruin</td><td>structure &gt; place</td><td>source=1k_stage9_audit_v3 + wordnet_hypernym; canonical_source=raw_lemma; parent_source=1k_stage9_audit_v3 + wordnet_hypernym; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m6</td><td>sky</td><td>sky</td><td>natural_scene</td><td>source=wordnet_synset:sky.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:sky.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m9</td><td>umbrellas</td><td>umbrella</td><td>accessory &gt; artifact</td><td>source=COCO object label + wordnet_synset:umbrella.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=COCO object label + wordnet_synset:umbrella.n.01 + stage9_audit; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>hill</td><td>grassy</td><td>surface_cover_attribute &gt; surface_cover &gt; visual_attribute</td><td>medium</td></tr><tr><td>ruin</td><td>ancient</td><td>style_attribute &gt; style &gt; visual_attribute</td><td>medium</td></tr><tr><td>ruin</td><td>stone</td><td>material_attribute &gt; material &gt; visual_attribute</td><td>high</td></tr><tr><td>sky</td><td>blue</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>gathers</td><td>gather</td><td>grouping_action &gt; visual_action</td><td>agent: crowd</td><td>source=1k_stage9_action_audit_v2 + wordnet_synset:gather.v.01; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + wordnet_synset:gather.v.01; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>hold</td><td>hold</td><td>manipulation_action &gt; visual_action</td><td>patient: umbrella</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>stand</td><td>stand</td><td>body_pose_action &gt; visual_action</td><td>agent: crowd</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>look</td><td>look</td><td>gaze_action &gt; visual_action</td><td>agent: crowd</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>crowd</td><td>on</td><td>on</td><td>hill</td><td>spatial_support &gt; visual_relation</td><td>high</td></tr><tr><td>crowd</td><td>near</td><td>near</td><td>ruin</td><td>spatial_proximity &gt; visual_relation</td><td>high</td></tr><tr><td>crowd</td><td>under</td><td>under</td><td>sky</td><td>spatial_vertical &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>crowd</td><td>crowd</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>hill</td><td>hill</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>attribute</td><td>grassy</td><td>grassy</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m3</td><td>object</td><td>ruins</td><td>ruin</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>attribute</td><td>ancient</td><td>ancient</td><td>modifier_attribute</td><td>medium</td></tr><tr><td>m5</td><td>attribute</td><td>stone</td><td>stone</td><td>material_attribute</td><td>high</td></tr><tr><td>m6</td><td>object</td><td>sky</td><td>sky</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m7</td><td>attribute</td><td>blue</td><td>blue</td><td>color_attribute</td><td>high</td></tr><tr><td>m8</td><td>quantity</td><td>Some</td><td>some</td><td>indefinite_quantity</td><td>medium</td></tr><tr><td>m9</td><td>object</td><td>umbrellas</td><td>umbrella</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m10</td><td>action</td><td>gathers</td><td>gather</td><td>verb_predicate</td><td>high</td></tr><tr><td>m11</td><td>action</td><td>hold</td><td>hold</td><td>verb_predicate</td><td>high</td></tr><tr><td>m12</td><td>action</td><td>stand</td><td>stand</td><td>verb_predicate</td><td>high</td></tr><tr><td>m13</td><td>action</td><td>look</td><td>look</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>hill <span class="muted">m1 object</span></td><td>grassy <span class="muted">m2 attribute</span></td><td>chunk1 amod -&gt; hill</td><td>medium</td></tr><tr><td>e1</td><td>has_attribute</td><td>ruins <span class="muted">m3 object</span></td><td>ancient <span class="muted">m4 attribute</span></td><td>chunk2 amod -&gt; ruins</td><td>medium</td></tr><tr><td>e2</td><td>has_attribute</td><td>ruins <span class="muted">m3 object</span></td><td>stone <span class="muted">m5 attribute</span></td><td>chunk2 compound -&gt; ruins</td><td>high</td></tr><tr><td>e3</td><td>has_attribute</td><td>sky <span class="muted">m6 object</span></td><td>blue <span class="muted">m7 attribute</span></td><td>chunk3 amod -&gt; sky</td><td>high</td></tr><tr><td>e4</td><td>agent</td><td>gathers <span class="muted">m10 action</span></td><td>crowd <span class="muted">m0 object</span></td><td>nsubj -&gt; gathers</td><td>medium</td></tr><tr><td>e5</td><td>patient</td><td>hold <span class="muted">m11 action</span></td><td>umbrellas <span class="muted">m9 object</span></td><td>dobj -&gt; hold</td><td>medium</td></tr><tr><td>e6</td><td>agent</td><td>stand <span class="muted">m12 action</span></td><td>crowd <span class="muted">m0 object</span></td><td>nsubj -&gt; stand; resolved they -&gt; crowd</td><td>medium</td></tr><tr><td>e7</td><td>agent</td><td>look <span class="muted">m13 action</span></td><td>crowd <span class="muted">m0 object</span></td><td>inherited agent conj -&gt; stand</td><td>medium</td></tr><tr><td>e8</td><td>relation</td><td>crowd <span class="muted">m0 object</span></td><td>hill <span class="muted">m1 object</span></td><td>on</td><td>high</td></tr><tr><td>e9</td><td>relation</td><td>crowd <span class="muted">m0 object</span></td><td>ruins <span class="muted">m3 object</span></td><td>near</td><td>high</td></tr><tr><td>e10</td><td>relation</td><td>crowd <span class="muted">m0 object</span></td><td>sky <span class="muted">m6 object</span></td><td>under</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (20)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:crowd</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:hill</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:ruin</td><td>high</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:sky</td><td>high</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:umbrella</td><td>high</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:hill:grassy</td><td>medium</td></tr><tr><td>cf6</td><td>has_attribute</td><td>has_attribute:ruin:ancient</td><td>medium</td></tr><tr><td>cf7</td><td>has_attribute</td><td>has_attribute:ruin:stone</td><td>high</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:sky:blue</td><td>high</td></tr><tr><td>cf9</td><td>action_event</td><td>action_event:gather</td><td>high</td></tr><tr><td>cf10</td><td>event_role</td><td>event_role:gather:agent:crowd</td><td>medium</td></tr><tr><td>cf11</td><td>action_event</td><td>action_event:hold</td><td>high</td></tr><tr><td>cf12</td><td>event_role</td><td>event_role:hold:patient:umbrella</td><td>medium</td></tr><tr><td>cf13</td><td>action_event</td><td>action_event:stand</td><td>high</td></tr><tr><td>cf14</td><td>event_role</td><td>event_role:stand:agent:crowd</td><td>medium</td></tr><tr><td>cf15</td><td>action_event</td><td>action_event:look</td><td>high</td></tr><tr><td>cf16</td><td>event_role</td><td>event_role:look:agent:crowd</td><td>medium</td></tr><tr><td>cf17</td><td>relation</td><td>relation:crowd:on:hill</td><td>high</td></tr><tr><td>cf18</td><td>relation</td><td>relation:crowd:near:ruin</td><td>high</td></tr><tr><td>cf19</td><td>relation</td><td>relation:crowd:under:sky</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 09928 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 09928 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_09501_10000.html#case-9928">Back to Case List</a> | <a href="case_09927.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-9928">
+  <div class="case-title">
+    <h2>Case 09928</h2>
+    <a href="#case-9928">anchor</a>
+  </div>
+  <div class="caption-box">Girls play soccer on a court with a purple banner that says &quot;COLLEGE&quot; in the background.</div>
+  <div class="chips">
+    <span>caption_id: 39c8792778650b03ae141d08388ee4f0f714caf47ef225f1b42e502ce91aab7f</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 1</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m1</td><td>Girls</td><td>girl</td><td>person &gt; human</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m2</td><td>soccer</td><td>soccer</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>ent_m3</td><td>court</td><td>court</td><td>sports_place &gt; place</td><td>source=wordnet_synset:court.n.01 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:court.n.01 + stage9_audit; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m4</td><td>banner</td><td>banner</td><td>text_carrier &gt; artifact</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m6</td><td>background</td><td>background</td><td>scene_context</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>banner</td><td>purple</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>play</td><td>play</td><td>activity_action &gt; visual_action</td><td>agent: girl<br>patient: soccer</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>says</td><td>say</td><td>text_display_or_communication_action &gt; visual_action</td><td>agent: banner<br>patient: m0</td><td>source=1k_stage9_action_audit_v2 + project_action_ontology; canonical_source=raw_action; parent_source=1k_stage9_action_audit_v2 + project_action_ontology; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>girl</td><td>on</td><td>on</td><td>court</td><td>spatial_support &gt; visual_relation</td><td>high</td></tr><tr><td>court</td><td>with</td><td>with</td><td>banner</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>banner</td><td>in</td><td>in</td><td>background</td><td>spatial_containment &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>attribute</td><td>&quot;COLLEGE&quot;</td><td>college</td><td>quote_text</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>Girls</td><td>girl</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>object</td><td>soccer</td><td>soccer</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>court</td><td>court</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>object</td><td>banner</td><td>banner</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m5</td><td>attribute</td><td>purple</td><td>purple</td><td>color_attribute</td><td>high</td></tr><tr><td>m6</td><td>context</td><td>background</td><td>background</td><td>scene_context</td><td>high</td></tr><tr><td>m7</td><td>action</td><td>play</td><td>play</td><td>verb_predicate</td><td>high</td></tr><tr><td>m8</td><td>action</td><td>says</td><td>say</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_attribute</td><td>banner <span class="muted">m4 object</span></td><td>purple <span class="muted">m5 attribute</span></td><td>chunk3 amod -&gt; banner</td><td>high</td></tr><tr><td>e1</td><td>has_context</td><td>scene <span class="muted">scene </span></td><td>background <span class="muted">m6 context</span></td><td>scene_context token background</td><td>high</td></tr><tr><td>e2</td><td>agent</td><td>play <span class="muted">m7 action</span></td><td>Girls <span class="muted">m1 object</span></td><td>nsubj -&gt; play</td><td>medium</td></tr><tr><td>e3</td><td>patient</td><td>play <span class="muted">m7 action</span></td><td>soccer <span class="muted">m2 object</span></td><td>dobj -&gt; play</td><td>medium</td></tr><tr><td>e4</td><td>agent</td><td>says <span class="muted">m8 action</span></td><td>banner <span class="muted">m4 object</span></td><td>nsubj -&gt; says; resolved that -&gt; banner</td><td>medium</td></tr><tr><td>e5</td><td>patient</td><td>says <span class="muted">m8 action</span></td><td>&quot;COLLEGE&quot; <span class="muted">m0 attribute</span></td><td>dobj -&gt; says</td><td>medium</td></tr><tr><td>e6</td><td>relation</td><td>Girls <span class="muted">m1 object</span></td><td>court <span class="muted">m3 object</span></td><td>on</td><td>high</td></tr><tr><td>e7</td><td>relation</td><td>court <span class="muted">m3 object</span></td><td>banner <span class="muted">m4 object</span></td><td>with</td><td>high</td></tr><tr><td>e8</td><td>relation</td><td>banner <span class="muted">m4 object</span></td><td>background <span class="muted">m6 context</span></td><td>in</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (15)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:girl</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:soccer</td><td>low</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:court</td><td>medium</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:banner</td><td>high</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:background</td><td>high</td></tr><tr><td>cf5</td><td>has_attribute</td><td>has_attribute:banner:purple</td><td>high</td></tr><tr><td>cf6</td><td>action_event</td><td>action_event:play</td><td>high</td></tr><tr><td>cf7</td><td>event_role</td><td>event_role:play:agent:girl</td><td>medium</td></tr><tr><td>cf8</td><td>event_role</td><td>event_role:play:patient:soccer</td><td>medium</td></tr><tr><td>cf9</td><td>action_event</td><td>action_event:say</td><td>medium</td></tr><tr><td>cf10</td><td>event_role</td><td>event_role:say:agent:banner</td><td>medium</td></tr><tr><td>cf11</td><td>event_role</td><td>event_role:say:patient</td><td>medium</td></tr><tr><td>cf12</td><td>relation</td><td>relation:girl:on:court</td><td>high</td></tr><tr><td>cf13</td><td>relation</td><td>relation:court:with:banner</td><td>high</td></tr><tr><td>cf14</td><td>relation</td><td>relation:banner:in:background</td><td>high</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>

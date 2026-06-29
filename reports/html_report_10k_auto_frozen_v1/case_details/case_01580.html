@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 01580 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 01580 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_01501_02000.html#case-1580">Back to Case List</a> | <a href="case_01579.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-1580">
+  <div class="case-title">
+    <h2>Case 01580</h2>
+    <a href="#case-1580">anchor</a>
+  </div>
+  <div class="caption-box">Two men play guitars on a stage, with one wearing a black shirt and the other in blue. A drummer is visible behind them.</div>
+  <div class="chips">
+    <span>caption_id: 9b4b6c7bceb4500921dd048cbbcee948467b3e44611d6ebc37a0da10c3bf54e9</span>
+    <span>shape: multi-sentence</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 2</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>men</td><td>man</td><td>person &gt; human</td><td>source=stage9_seed:synonym_seed; canonical_source=stage9_seed:synonym_seed; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=high; parent_confidence=high</td></tr><tr><td>ent_m2</td><td>guitars</td><td>guitar</td><td>musical_instrument &gt; artifact</td><td>source=1k_stage9_audit_v3 + wordnet_hypernym; canonical_source=raw_lemma; parent_source=1k_stage9_audit_v3 + wordnet_hypernym; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m3</td><td>stage</td><td>stage</td><td>platform &gt; place &gt; artifact</td><td>source=wordnet_synset:stage.n.03 + stage9_audit; canonical_source=raw_lemma; parent_source=wordnet_synset:stage.n.03 + stage9_audit; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m4</td><td>shirt</td><td>shirt</td><td>clothing &gt; wearable</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>ent_m7</td><td>drummer</td><td>drummer</td><td></td><td>source=none; canonical_source=raw_lemma; parent_source=none; confidence=low; canonical_confidence=low; parent_confidence=low</td></tr><tr><td>eref_m8</td><td>one</td><td>man</td><td>person &gt; human</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>eref_m9</td><td>other</td><td>man</td><td>person &gt; human</td><td>source=stage9_seed:parent_seed; canonical_source=raw_lemma; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>shirt</td><td>black</td><td>color_attribute &gt; color &gt; visual_attribute</td><td>high</td></tr></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>play</td><td>play</td><td>activity_action &gt; visual_action</td><td>agent: man<br>patient: guitar</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr><tr><td>wearing</td><td>wear</td><td>wearing_action &gt; visual_action</td><td>agent: man<br>patient: shirt</td><td>source=stage9_seed:parent_seed; canonical_source=raw_action; parent_source=stage9_seed:parent_seed; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>man</td><td>on</td><td>on</td><td>stage</td><td>spatial_support &gt; visual_relation</td><td>high</td></tr><tr><td>drummer</td><td>behind</td><td>behind</td><td>man</td><td>spatial_depth &gt; visual_relation</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>men</td><td>man</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>quantity</td><td>Two</td><td>two</td><td>exact_quantity</td><td>high</td></tr><tr><td>m2</td><td>object</td><td>guitars</td><td>guitar</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>object</td><td>stage</td><td>stage</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m4</td><td>object</td><td>shirt</td><td>shirt</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m5</td><td>attribute</td><td>black</td><td>black</td><td>color_attribute</td><td>high</td></tr><tr><td>m6</td><td>attribute</td><td>blue</td><td>blue</td><td>color_attribute</td><td>high</td></tr><tr><td>m7</td><td>object</td><td>drummer</td><td>drummer</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m8</td><td>reference</td><td>one</td><td>one</td><td>singular_substitute</td><td>high</td></tr><tr><td>m9</td><td>reference</td><td>other</td><td>other</td><td>contrastive_reference</td><td>high</td></tr><tr><td>m10</td><td>action</td><td>play</td><td>play</td><td>verb_predicate</td><td>high</td></tr><tr><td>m11</td><td>action</td><td>wearing</td><td>wear</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>has_quantity</td><td>men <span class="muted">m0 object</span></td><td>Two <span class="muted">m1 quantity</span></td><td>chunk0 quantity -&gt; men</td><td>high</td></tr><tr><td>e1</td><td>has_attribute</td><td>shirt <span class="muted">m4 object</span></td><td>black <span class="muted">m5 attribute</span></td><td>chunk3 amod -&gt; shirt</td><td>high</td></tr><tr><td>e2</td><td>refers_to</td><td>one <span class="muted">m8 reference</span></td><td>men <span class="muted">m0 object</span></td><td>singular_substitute one -&gt; men; score=103; margin=20</td><td>high</td></tr><tr><td>e3</td><td>refers_to</td><td>other <span class="muted">m9 reference</span></td><td>men <span class="muted">m0 object</span></td><td>contrastive_reference other -&gt; men; score=112; margin=30</td><td>high</td></tr><tr><td>e4</td><td>agent</td><td>play <span class="muted">m10 action</span></td><td>men <span class="muted">m0 object</span></td><td>nsubj -&gt; play</td><td>medium</td></tr><tr><td>e5</td><td>patient</td><td>play <span class="muted">m10 action</span></td><td>guitars <span class="muted">m2 object</span></td><td>dobj -&gt; play</td><td>medium</td></tr><tr><td>e6</td><td>agent</td><td>wearing <span class="muted">m11 action</span></td><td>men <span class="muted">m0 object</span></td><td>inherited agent acl -&gt; one</td><td>medium</td></tr><tr><td>e7</td><td>patient</td><td>wearing <span class="muted">m11 action</span></td><td>shirt <span class="muted">m4 object</span></td><td>dobj -&gt; wearing</td><td>medium</td></tr><tr><td>e8</td><td>relation</td><td>men <span class="muted">m0 object</span></td><td>stage <span class="muted">m3 object</span></td><td>on</td><td>high</td></tr><tr><td>e9</td><td>relation</td><td>drummer <span class="muted">m7 object</span></td><td>men <span class="muted">m0 object</span></td><td>behind</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (17)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:man</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:guitar</td><td>high</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:stage</td><td>medium</td></tr><tr><td>cf3</td><td>entity_exists</td><td>entity_exists:shirt</td><td>high</td></tr><tr><td>cf4</td><td>entity_exists</td><td>entity_exists:drummer</td><td>low</td></tr><tr><td>cf5</td><td>entity_exists</td><td>entity_exists:man</td><td>high</td></tr><tr><td>cf6</td><td>entity_exists</td><td>entity_exists:man</td><td>high</td></tr><tr><td>cf7</td><td>has_quantity</td><td>has_quantity:man:two</td><td>high</td></tr><tr><td>cf8</td><td>has_attribute</td><td>has_attribute:shirt:black</td><td>high</td></tr><tr><td>cf9</td><td>action_event</td><td>action_event:play</td><td>high</td></tr><tr><td>cf10</td><td>event_role</td><td>event_role:play:agent:man</td><td>medium</td></tr><tr><td>cf11</td><td>event_role</td><td>event_role:play:patient:guitar</td><td>medium</td></tr><tr><td>cf12</td><td>action_event</td><td>action_event:wear</td><td>high</td></tr><tr><td>cf13</td><td>event_role</td><td>event_role:wear:agent:man</td><td>medium</td></tr><tr><td>cf14</td><td>event_role</td><td>event_role:wear:patient:shirt</td><td>medium</td></tr><tr><td>cf15</td><td>relation</td><td>relation:man:on:stage</td><td>high</td></tr><tr><td>cf16</td><td>relation</td><td>relation:drummer:behind:man</td><td>high</td></tr></tbody></table></div>
+  </details>
+  <details><summary>Skipped edges</summary><div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>reason</th></tr></thead><tbody><tr><td></td><td>relation</td><td>m0</td><td>m0</td><td>self_edge_after_coref</td></tr><tr><td></td><td>relation</td><td>m0</td><td>m0</td><td>self_edge_after_coref</td></tr></tbody></table></div></details>
+</section>
+
+  </main>
+</body>
+</html>

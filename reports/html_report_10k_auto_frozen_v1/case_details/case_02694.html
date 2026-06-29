@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 02694 Detail</title>
+  <link rel="stylesheet" href="../assets/report.css">
+  <script defer src="../assets/report.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GPIC Caption-To-Concept</div>
+      <h1>Case 02694 Detail</h1>
+    </div>
+    <nav><details class="nav-menu"><summary class="active">Overview<span>10k Overview</span></summary><div class="nav-menu-items"><a class="" href="../index.html">Home</a>
+<a class="active" href="../results_overview.html">10k Overview</a></div></details>
+<details class="nav-menu"><summary class="">Method</summary><div class="nav-menu-items"><a class="" href="../method_rulebook.html">Method Rulebook</a>
+<a class="" href="../stage_rules.html">Stage Rules</a></div></details>
+<details class="nav-menu"><summary class="">Concepts</summary><div class="nav-menu-items"><a class="" href="../objects.html">Objects</a>
+<a class="" href="../attributes.html">Attributes</a>
+<a class="" href="../attribute_types.html">Attr Types</a>
+<a class="" href="../object_attribute_pairs.html">Obj-Attr Pairs</a></div></details>
+<details class="nav-menu"><summary class="">Structure</summary><div class="nav-menu-items"><a class="" href="../actions.html">Actions</a>
+<a class="" href="../event_roles.html">Agent / Patient</a>
+<a class="" href="../relations.html">Relations</a>
+<a class="" href="../relation_triples.html">Relation Triples</a>
+<a class="" href="../facts.html">Facts</a></div></details>
+<details class="nav-menu"><summary class="">Audit</summary><div class="nav-menu-items"><a class="" href="../parents.html">Parents</a>
+<a class="" href="../quality_audit.html">Quality</a></div></details></nav>
+  </header>
+  <main>
+<section class="panel"><p><a href="../results_overview.html">Overview</a> | <a href="../cases/cases_02501_03000.html#case-2694">Back to Case List</a> | <a href="case_02693.html">Previous Case</a></p><p class="muted">Heavy raw mentions, edges, and facts are isolated on this per-case page so the 500-case list pages stay fast.</p></section>
+<section class="case" id="case-2694">
+  <div class="case-title">
+    <h2>Case 02694</h2>
+    <a href="#case-2694">anchor</a>
+  </div>
+  <div class="caption-box">A white race car with the number 19 speeds along a track.</div>
+  <div class="chips">
+    <span>caption_id: 3ba7a2d6d9d21ae6d1eca1944d2cc24ff01515b6401f05fa5301201d36d7b8e0</span>
+    <span>shape: sentence-like</span>
+    <span>parse: sentence</span>
+    <span>quotes: 0</span>
+    <span>skipped: 0</span>
+  </div>
+  <details open>
+    <summary>Canonical entities / attributes / events / relations</summary>
+    <h3>Entities</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>raw text</th><th>canonical</th><th>parent chain</th><th>source</th></tr></thead><tbody><tr><td>ent_m0</td><td>race car</td><td>race_car</td><td>car &gt; vehicle</td><td>source=lvis_object|wordnet_noun_mwe; canonical_source=lvis_object|wordnet_noun_mwe; parent_source=1k_stage9_audit_v3 + compound_head:car; confidence=high; canonical_confidence=high; parent_confidence=high</td></tr><tr><td>ent_m1</td><td>number</td><td>number</td><td>symbol &gt; text_element</td><td>source=wordnet_synset:number.n.02 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:number.n.02 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr><tr><td>ent_m2</td><td>track</td><td>track</td><td>path &gt; sports_facility &gt; place</td><td>source=wordnet_synset:track.n.09 + 1k_stage9_audit_v2; canonical_source=raw_lemma; parent_source=wordnet_synset:track.n.09 + 1k_stage9_audit_v2; confidence=medium; canonical_confidence=low; parent_confidence=medium</td></tr></tbody></table></div>
+    <h3>Attributes</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>target</th><th>attribute</th><th>parent chain</th><th>confidence</th></tr></thead><tbody></tbody></table></div>
+    <h3>Events</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>raw action</th><th>canonical</th><th>parent chain</th><th>roles</th><th>source</th></tr></thead><tbody><tr><td>speeds</td><td>speed</td><td>locomotion_action &gt; visual_action</td><td>agent: race_car</td><td>source=10k_auto_feedback_v1 + fixed_rubric + action_ontology; canonical_source=raw_action; parent_source=10k_auto_feedback_v1 + fixed_rubric + action_ontology; confidence=high; canonical_confidence=low; parent_confidence=high</td></tr></tbody></table></div>
+    <h3>Relations</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>source</th><th>raw relation</th><th>canonical</th><th>target</th><th>parent chain</th><th>confidence</th></tr></thead><tbody><tr><td>race_car</td><td>with</td><td>with</td><td>number</td><td>association_relation &gt; visual_relation</td><td>high</td></tr><tr><td>race_car</td><td>along</td><td>along</td><td>track</td><td>spatial_path &gt; visual_relation</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Raw mentions / edges</summary>
+    <h3>Raw concept mentions</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>text</th><th>lemma</th><th>role</th><th>confidence</th></tr></thead><tbody><tr><td>m0</td><td>object</td><td>race car</td><td>race_car</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m1</td><td>object</td><td>number</td><td>number</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m2</td><td>object</td><td>track</td><td>track</td><td>noun_chunk_root</td><td>high</td></tr><tr><td>m3</td><td>action</td><td>speeds</td><td>speed</td><td>verb_predicate</td><td>high</td></tr></tbody></table></div>
+    <h3>Raw edges</h3>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>source</th><th>target</th><th>evidence</th><th>confidence</th></tr></thead><tbody><tr><td>e0</td><td>agent</td><td>speeds <span class="muted">m3 action</span></td><td>race car <span class="muted">m0 object</span></td><td>nsubj -&gt; speeds</td><td>medium</td></tr><tr><td>e1</td><td>relation</td><td>race car <span class="muted">m0 object</span></td><td>number <span class="muted">m1 object</span></td><td>with</td><td>high</td></tr><tr><td>e2</td><td>relation</td><td>race car <span class="muted">m0 object</span></td><td>track <span class="muted">m2 object</span></td><td>along</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  <details>
+    <summary>Final countable facts (7)</summary>
+    <div class="table-wrap"><table class=""><thead><tr><th>id</th><th>type</th><th>count key</th><th>confidence</th></tr></thead><tbody><tr><td>cf0</td><td>entity_exists</td><td>entity_exists:race_car</td><td>high</td></tr><tr><td>cf1</td><td>entity_exists</td><td>entity_exists:number</td><td>medium</td></tr><tr><td>cf2</td><td>entity_exists</td><td>entity_exists:track</td><td>medium</td></tr><tr><td>cf3</td><td>action_event</td><td>action_event:speed</td><td>high</td></tr><tr><td>cf4</td><td>event_role</td><td>event_role:speed:agent:race_car</td><td>medium</td></tr><tr><td>cf5</td><td>relation</td><td>relation:race_car:with:number</td><td>high</td></tr><tr><td>cf6</td><td>relation</td><td>relation:race_car:along:track</td><td>medium</td></tr></tbody></table></div>
+  </details>
+  
+</section>
+
+  </main>
+</body>
+</html>
